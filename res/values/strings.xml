@@ -3,6 +3,7 @@
 
     <string name="app_name">Ariadne</string>
     <string name="hello_world">Hi!</string>
+    <string name="first_message">This app will soon become a GPS tracking tool.</string>
     <string name="menu_settings">Settings</string>
 
 </resources>
