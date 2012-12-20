@@ -113,7 +113,7 @@ public class MainActivity extends Activity {
 		TextView tv_location = (TextView) findViewById(R.id.textView_Location);
 		String locationText = getResources().getString(R.string.location) + ": ";
 		if (location.isEmpty()) {
-			locationText += getResources().getString(R.string.none);
+			locationText += getResources().getString(R.string.unknown);
 		} else {
 			locationText += location;
 		}
