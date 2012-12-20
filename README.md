@@ -5,10 +5,10 @@ Android app for finding your way back to a GPS location, f.e. a previously visit
 
 Website : <https://github.com/ruleant/ariadne>
 
-Bugs
-----
+Bugs and feature requests
+-------------------------
 
-Please report bugs to <https://github.com/ruleant/ariadne/issues>.
+Please report bugs and add feature requests on <https://github.com/ruleant/ariadne/issues>.
 
 License
 -------
