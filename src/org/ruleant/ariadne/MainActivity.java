@@ -114,7 +114,7 @@ public class MainActivity extends Activity {
 		if (locationManager == null || providerName.isEmpty()) {
 			return null;
 		}
-		// use more accurate location (with listener object)
+		// todo : use more accurate location (with listener object)
 		location = locationManager.getLastKnownLocation(providerName);
 
 		return location;
