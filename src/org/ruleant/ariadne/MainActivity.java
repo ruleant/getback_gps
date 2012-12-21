@@ -23,6 +23,7 @@ package org.ruleant.ariadne;
 import android.app.Activity;
 import android.content.Context;
 import android.location.Criteria;
+import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
 import android.view.Menu;
@@ -37,7 +38,7 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 	private LocationManager locationManager;
 	private String providerName = "";
-	private String location = "";
+	private Location location = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,7 @@ public class MainActivity extends Activity {
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
 		if (! getLocationProvider().isEmpty()) {
+			location = locationManager.getLastKnownLocation(providerName);
 			refreshInterface();
 		}
 
@@ -69,12 +71,22 @@ public class MainActivity extends Activity {
 		getLocationProvider();
 		refreshInterface();
 	}
+
+	/**
+	 * Called when the user clicks the Renew location button
+	 *
+	 * @return void
+	 */
+	public void renewLocation(View view) {
+		getLocation();
+		refreshInterface();
+	}
 	
 	/**
 	 * Retrieve Location Provider
-	 * 
+	 *
 	 * Define best location provider based on certain criteria
-	 * 
+	 *
 	 * @return String
 	 */
 	private String getLocationProvider() {
@@ -90,7 +102,24 @@ public class MainActivity extends Activity {
 		
 		return providerName;
 	}
-	
+
+	/**
+	 * Retrieve Location
+	 *
+	 * Get last known location
+	 *
+	 * @return Location
+	 */
+	private Location getLocation() {
+		if (locationManager == null || providerName.isEmpty()) {
+			return null;
+		}
+		// use more accurate location (with listener object)
+		location = locationManager.getLastKnownLocation(providerName);
+
+		return location;
+	}
+
 	/**
 	 * refresh interface messages
 	 * 
@@ -108,14 +137,14 @@ public class MainActivity extends Activity {
 			providerText += providerName;
 		}
 		tv_provider.setText(providerText);
-		
+
 		// Refresh Location
 		TextView tv_location = (TextView) findViewById(R.id.textView_Location);
 		String locationText = getResources().getString(R.string.location) + ": ";
-		if (location.isEmpty()) {
+		if (location == null) {
 			locationText += getResources().getString(R.string.unknown);
 		} else {
-			locationText += location;
+			locationText += location.toString();
 		}
 		tv_location.setText(locationText);
 	}

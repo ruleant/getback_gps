@@ -30,4 +30,13 @@
         android:layout_below="@+id/button_getLocationProvider"
         android:text="@string/location_provider" />
 
+    <Button
+        android:id="@+id/button_getLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/button_getLocationProvider"
+        android:text="@string/button_getLocation"
+        android:onClick="renewLocation" />
+
 </RelativeLayout>
