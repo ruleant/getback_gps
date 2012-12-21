@@ -144,6 +144,8 @@ public class MainActivity extends Activity {
 		if (location == null) {
 			locationText += getResources().getString(R.string.unknown);
 		} else {
+			// todo : display location data in more comprehensible format (formatted time string, ...),
+			//        but keep full object info for debugging/testing purposes
 			locationText += location.toString();
 		}
 		tv_location.setText(locationText);
