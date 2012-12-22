@@ -143,17 +143,28 @@ public class MainActivity extends Activity {
 
 		// Refresh Location
 		TextView tv_location = (TextView) findViewById(R.id.textView_Location);
-		String locationText = getResources().getString(R.string.location) + ": ";
+		String locationText = getResources().getString(R.string.location) + ":\n";
 		if (location == null) {
 			locationText += getResources().getString(R.string.unknown);
 		} else {
+			// Format location
+			locationText += getResources().getString(R.string.latitude) + ": ";
+			locationText += location.getLatitude() + "°\n";
+			locationText += getResources().getString(R.string.longitude) + ": ";
+			locationText += location.getLongitude() + "°\n";
+			locationText += getResources().getString(R.string.altitude) + ": ";
+			locationText += location.getAltitude() + "m\n";
+			locationText += getResources().getString(R.string.accuracy) + ": ";
+			locationText += location.getAccuracy() + "m\n";
+
 			// Format Timestamp
 			Date date = new Date(location.getTime());
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
 			locationText += getResources().getString(R.string.timestamp) + ": ";
-			locationText += formatter.format(date) + "\n";
+			locationText += formatter.format(date) + "\n\n";
 
 			// raw
+			locationText += getResources().getString(R.string.raw) + ": ";
 			locationText += location.toString();
 		}
 		tv_location.setText(locationText);
