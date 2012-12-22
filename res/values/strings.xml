@@ -6,6 +6,7 @@
     <string name="unknown">Unknown</string>
     <string name="location_provider">Location Provider</string>
     <string name="location">Location</string>
+    <string name="timestamp">Timestamp</string>
     <string name="button_getLocationProvider">Refresh provider</string>
     <string name="button_getLocation">Refresh location</string>
     <string name="menu_settings">Settings</string>

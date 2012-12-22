@@ -20,6 +20,9 @@
  */
 package org.ruleant.ariadne;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import android.app.Activity;
 import android.content.Context;
 import android.location.Criteria;
@@ -144,8 +147,13 @@ public class MainActivity extends Activity {
 		if (location == null) {
 			locationText += getResources().getString(R.string.unknown);
 		} else {
-			// todo : display location data in more comprehensible format (formatted time string, ...),
-			//        but keep full object info for debugging/testing purposes
+			// Format Timestamp
+			Date date = new Date(location.getTime());
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
+			locationText += getResources().getString(R.string.timestamp) + ": ";
+			locationText += formatter.format(date) + "\n";
+
+			// raw
 			locationText += location.toString();
 		}
 		tv_location.setText(locationText);
