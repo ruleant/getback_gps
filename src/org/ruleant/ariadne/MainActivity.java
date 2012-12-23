@@ -152,10 +152,14 @@ public class MainActivity extends Activity {
 			locationText += location.getLatitude() + "°\n";
 			locationText += getResources().getString(R.string.longitude) + ": ";
 			locationText += location.getLongitude() + "°\n";
-			locationText += getResources().getString(R.string.altitude) + ": ";
-			locationText += location.getAltitude() + "m\n";
-			locationText += getResources().getString(R.string.accuracy) + ": ";
-			locationText += location.getAccuracy() + "m\n";
+			if (location.hasAltitude()) {
+				locationText += getResources().getString(R.string.altitude) + ": ";
+				locationText += location.getAltitude() + "m\n";
+			}
+			if (location.hasAccuracy()) {
+				locationText += getResources().getString(R.string.accuracy) + ": ";
+				locationText += location.getAccuracy() + "m\n";
+			}
 
 			// Format Timestamp
 			Date date = new Date(location.getTime());
