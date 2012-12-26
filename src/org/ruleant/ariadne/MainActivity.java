@@ -68,7 +68,6 @@ public class MainActivity extends Activity {
 	/**
 	 * Called when the user clicks the Renew provider button
 	 * 
-	 * @return void
 	 */
 	public void renewProvider(View view) {
 		getLocationProvider();
@@ -78,7 +77,6 @@ public class MainActivity extends Activity {
 	/**
 	 * Called when the user clicks the Renew location button
 	 *
-	 * @return void
 	 */
 	public void renewLocation(View view) {
 		getLocation();
