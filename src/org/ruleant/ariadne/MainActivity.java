@@ -158,6 +158,10 @@ public class MainActivity extends Activity {
 				locationText += getResources().getString(R.string.bearing) + ": ";
 				locationText += location.getBearing() + "°\n";
 			}
+			if (location.hasSpeed()) {
+				locationText += getResources().getString(R.string.speed) + ": ";
+				locationText += location.getSpeed() + "m/s\n";
+			}
 			if (location.hasAccuracy()) {
 				locationText += getResources().getString(R.string.accuracy) + ": ";
 				locationText += location.getAccuracy() + "m\n";

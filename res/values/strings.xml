@@ -9,6 +9,7 @@
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="altitude">Altitude</string>
+    <string name="speed">Speed</string>
     <string name="bearing">Bearing</string>
     <string name="accuracy">Accuracy</string>
     <string name="timestamp">Timestamp</string>
