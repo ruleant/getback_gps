@@ -154,6 +154,10 @@ public class MainActivity extends Activity {
 				locationText += getResources().getString(R.string.altitude) + ": ";
 				locationText += location.getAltitude() + "m\n";
 			}
+			if (location.hasBearing()) {
+				locationText += getResources().getString(R.string.bearing) + ": ";
+				locationText += location.getBearing() + "°\n";
+			}
 			if (location.hasAccuracy()) {
 				locationText += getResources().getString(R.string.accuracy) + ": ";
 				locationText += location.getAccuracy() + "m\n";
