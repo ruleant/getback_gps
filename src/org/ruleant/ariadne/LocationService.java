@@ -55,7 +55,7 @@ public class LocationService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// The service is starting, due to a call to startService()
-	    return 1;
+	    return START_NOT_STICKY;
 	}
 	
 	@Override
