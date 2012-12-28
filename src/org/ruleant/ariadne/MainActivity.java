@@ -23,12 +23,18 @@ package org.ruleant.ariadne;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import org.ruleant.ariadne.LocationService.LocationBinder;
+
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.os.IBinder;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
@@ -39,6 +45,14 @@ import android.widget.TextView;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class MainActivity extends Activity {
+	/**
+	 * Interface to LocationService instance
+	 */
+	LocationService mService;
+	/**
+	 * Connection state with LocationService
+	 */
+	boolean mBound = false;
 	private LocationManager locationManager;
 	private String providerName = "";
 	private Location location = null;
@@ -55,7 +69,6 @@ public class MainActivity extends Activity {
 			location = locationManager.getLastKnownLocation(providerName);
 			refreshInterface();
 		}
-
 	}
 
 	@Override
@@ -63,6 +76,24 @@ public class MainActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.activity_main, menu);
 		return true;
+	}
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+		// Bind to LocalService
+		Intent intent = new Intent(this, LocationService.class);
+		bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+	}
+
+	@Override
+	public void onStop() {
+		super.onStop();
+		// Unbind from the service
+		if (mBound) {
+			unbindService(mConnection);
+			mBound = false;
+		}
 	}
 
 	/**
@@ -179,4 +210,21 @@ public class MainActivity extends Activity {
 		}
 		tv_location.setText(locationText);
 	}
+
+	/** Defines callbacks for service binding, passed to bindService() */
+	private ServiceConnection mConnection = new ServiceConnection() {
+
+		@Override
+		public void onServiceConnected(ComponentName className, IBinder service) {
+			// We've bound to LocalService, cast the IBinder and get LocalService instance
+            LocationBinder binder = (LocationBinder) service;
+            mService = binder.getService();
+            mBound = true;
+		}
+
+		@Override
+		public void onServiceDisconnected(ComponentName arg0) {
+			mBound = false;
+		}
+	};
 }
