@@ -29,6 +29,7 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.os.Binder;
 import android.os.IBinder;
+import android.widget.Toast;
 
 /**
  * Location Service provides the current location
@@ -47,6 +48,7 @@ public class LocationService extends Service {
 	
 	@Override
 	public void onCreate() {
+		Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
 		locationManager =
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
@@ -63,11 +65,13 @@ public class LocationService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
+		Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
 		return mBinder;
 	}
 
 	@Override
 	public boolean onUnbind(Intent intent) {
+		Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
 		// don't allow rebind
 		return false;
 	}
@@ -89,6 +93,7 @@ public class LocationService extends Service {
     	location = null;
     	providerName = "";
     	locationManager = null;
+    	Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
     }
 	
 	/**
