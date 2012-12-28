@@ -30,9 +30,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.location.Criteria;
 import android.location.Location;
-import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
@@ -53,7 +51,6 @@ public class MainActivity extends Activity {
 	 * Connection state with LocationService
 	 */
 	boolean mBound = false;
-	private LocationManager locationManager;
 	private String providerName = "";
 	private Location location = null;
 	
@@ -61,14 +58,6 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		locationManager =
-				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-		
-		if (! getLocationProvider().isEmpty()) {
-			location = locationManager.getLastKnownLocation(providerName);
-			refreshInterface();
-		}
 	}
 
 	@Override
@@ -101,7 +90,11 @@ public class MainActivity extends Activity {
 	 * 
 	 */
 	public void renewProvider(View view) {
-		getLocationProvider();
+		if (mBound) {
+			providerName = mService.getLocationProvider();
+		} else {
+			providerName = "";
+		}
 		refreshInterface();
 	}
 
@@ -110,48 +103,14 @@ public class MainActivity extends Activity {
 	 *
 	 */
 	public void renewLocation(View view) {
-		getLocation();
+		if (mBound) {
+			location = mService.getLocation();
+		} else {
+			location = null;
+		}
 		refreshInterface();
 	}
 	
-	/**
-	 * Retrieve Location Provider
-	 *
-	 * Define best location provider based on certain criteria
-	 *
-	 * @return String
-	 */
-	private String getLocationProvider() {
-		// Retrieve a list of location providers that have fine accuracy, no monetary cost, etc
-		Criteria criteria = new Criteria();
-		criteria.setAccuracy(Criteria.ACCURACY_FINE);
-		criteria.setCostAllowed(false);
-		criteria.setPowerRequirement(Criteria.POWER_LOW);
-		
-		if (locationManager != null) {
-			providerName = locationManager.getBestProvider(criteria, true);
-		}
-		
-		return providerName;
-	}
-
-	/**
-	 * Retrieve Location
-	 *
-	 * Get last known location
-	 *
-	 * @return Location
-	 */
-	private Location getLocation() {
-		if (locationManager == null || providerName.isEmpty()) {
-			return null;
-		}
-		// todo : use more accurate location (with listener object)
-		location = locationManager.getLastKnownLocation(providerName);
-
-		return location;
-	}
-
 	/**
 	 * refresh interface messages
 	 * 
@@ -220,6 +179,11 @@ public class MainActivity extends Activity {
             LocationBinder binder = (LocationBinder) service;
             mService = binder.getService();
             mBound = true;
+            providerName = mService.getLocationProvider();
+            if (! providerName.isEmpty()) {
+            	location = mService.getLocation();
+            	refreshInterface();
+            }
 		}
 
 		@Override
