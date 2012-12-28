@@ -95,7 +95,7 @@ public class MainActivity extends Activity {
 		} else {
 			providerName = "";
 		}
-		refreshInterface();
+		refreshDisplay();
 	}
 
 	/**
@@ -108,17 +108,17 @@ public class MainActivity extends Activity {
 		} else {
 			location = null;
 		}
-		refreshInterface();
+		refreshDisplay();
 	}
 	
 	/**
-	 * refresh interface messages
+	 * refresh display
 	 * 
 	 * Refresh the values of Location Provider, Location, ...
 	 * 
 	 * @return void
 	 */
-	private void refreshInterface() {
+	private void refreshDisplay() {
 		// Refresh locationProvider
 		TextView tv_provider = (TextView) findViewById(R.id.textView_LocationProvider);
 		String providerText = getResources().getString(R.string.location_provider) + ": ";
@@ -182,7 +182,7 @@ public class MainActivity extends Activity {
 			providerName = mService.getLocationProvider();
 			if (! providerName.isEmpty()) {
 				location = mService.getLocation();
-				refreshInterface();
+				refreshDisplay();
 			}
 		}
 
