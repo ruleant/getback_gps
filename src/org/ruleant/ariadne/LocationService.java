@@ -27,6 +27,7 @@ import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationManager;
+import android.os.Binder;
 import android.os.IBinder;
 
 /**
@@ -38,6 +39,8 @@ import android.os.IBinder;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {
+    // Binder given to clients
+	private final IBinder mBinder = new LocalBinder();
 	private LocationManager locationManager;
 	private String providerName = "";
 	private Location location = null;
@@ -51,19 +54,35 @@ public class LocationService extends Service {
 			location = locationManager.getLastKnownLocation(providerName);
 		}
 	}
-	
+
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// The service is starting, due to a call to startService()
 	    return START_NOT_STICKY;
 	}
-	
+
 	@Override
 	public IBinder onBind(Intent intent) {
-		// TODO: Return the communication channel to the service.
-		throw new UnsupportedOperationException("Not yet implemented");
+		return mBinder;
 	}
-	
+
+	@Override
+	public boolean onUnbind(Intent intent) {
+		// don't allow rebind
+		return false;
+	}
+
+    /**
+     * Class used for the client Binder.  Because we know this service always
+     * runs in the same process as its clients, we don't need to deal with IPC.
+     */
+    public class LocalBinder extends Binder {
+        LocationService getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return LocationService.this;
+        }
+    }
+
     @Override
     public void onDestroy() {
         // The service is no longer used and is being destroyed
