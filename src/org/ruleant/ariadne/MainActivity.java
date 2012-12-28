@@ -176,14 +176,14 @@ public class MainActivity extends Activity {
 		@Override
 		public void onServiceConnected(ComponentName className, IBinder service) {
 			// We've bound to LocalService, cast the IBinder and get LocalService instance
-            LocationBinder binder = (LocationBinder) service;
-            mService = binder.getService();
-            mBound = true;
-            providerName = mService.getLocationProvider();
-            if (! providerName.isEmpty()) {
-            	location = mService.getLocation();
-            	refreshInterface();
-            }
+			LocationBinder binder = (LocationBinder) service;
+			mService = binder.getService();
+			mBound = true;
+			providerName = mService.getLocationProvider();
+			if (! providerName.isEmpty()) {
+				location = mService.getLocation();
+				refreshInterface();
+			}
 		}
 
 		@Override
