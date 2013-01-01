@@ -48,6 +48,9 @@ public class LocationService extends Service {
 	private String providerName = "";
 	private Location currentLocation = null;
 	private Location previousLocation = null;
+
+	private static final int TEN_SECONDS = 10000;
+	private static final int TEN_METERS = 10;
 	
 	@Override
 	public void onCreate() {
@@ -56,7 +59,7 @@ public class LocationService extends Service {
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
 		if (! getLocationProvider().isEmpty()) {
-			setLocation(locationManager.getLastKnownLocation(providerName));
+			setLocation(requestUpdatesFromProvider(providerName));
 		}
 	}
 
@@ -93,6 +96,7 @@ public class LocationService extends Service {
 	@Override
 	public void onDestroy() {
 		// The service is no longer used and is being destroyed
+		locationManager.removeUpdates(listener);
 		currentLocation = null;
 		previousLocation = null;
 		providerName = "";
@@ -109,6 +113,7 @@ public class LocationService extends Service {
 	 */
 	public String getLocationProvider() {
 		// Retrieve a list of location providers that have fine accuracy, no monetary cost, etc
+		// TODO : define criteria in settings
 		Criteria criteria = new Criteria();
 		criteria.setAccuracy(Criteria.ACCURACY_FINE);
 		criteria.setCostAllowed(false);
@@ -147,10 +152,35 @@ public class LocationService extends Service {
 		if (locationManager == null || providerName.isEmpty()) {
 			return null;
 		}
-		// todo : use more accurate location (with listener object)
+		// TODO : remove later
+		// location is not updated by listener (bug),
+		// update location using getLastKnowLocation (when refresh location button is pushed)
 		setLocation(locationManager.getLastKnownLocation(providerName));
 
 		return currentLocation;
+	}
+
+	/**
+	 * Method to register location updates with a desired location provider.  If the requested
+	 * provider is not available on the device, the app displays a Toast with a message referenced
+	 * by a resource id.
+	 *
+	 * @param provider Name of the requested provider.
+	 * @param errorResId Resource id for the string message to be displayed if the provider does
+	 *                   not exist on the device.
+	 * @return A previously returned {@link android.location.Location} from the requested provider,
+	 *         if exists.
+	 */
+	private Location requestUpdatesFromProvider(final String provider) {
+		Location location = null;
+		if (locationManager.isProviderEnabled(provider)) {
+			// TODO : define criteria in settings
+			locationManager.requestLocationUpdates(provider, TEN_SECONDS, TEN_METERS, listener);
+			location = locationManager.getLastKnownLocation(provider);
+		} else {
+			Toast.makeText(this, R.string.provider_no_support, Toast.LENGTH_LONG).show();
+		}
+		return location;
 	}
 
 	private final LocationListener listener = new LocationListener() {
