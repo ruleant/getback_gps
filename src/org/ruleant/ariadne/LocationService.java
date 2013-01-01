@@ -26,8 +26,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.location.Criteria;
 import android.location.Location;
+import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Binder;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.widget.Toast;
 
@@ -150,4 +152,26 @@ public class LocationService extends Service {
 
 		return currentLocation;
 	}
+
+	private final LocationListener listener = new LocationListener() {
+
+		@Override
+		public void onLocationChanged(Location location) {
+			// When new location update is received, update current location
+			setLocation(location);
+			// TODO : notify bound Activities of Location Update
+		}
+
+		@Override
+		public void onProviderDisabled(String provider) {
+		}
+
+		@Override
+		public void onProviderEnabled(String provider) {
+		}
+
+		@Override
+		public void onStatusChanged(String provider, int status, Bundle extras) {
+		}
+	};
 }
