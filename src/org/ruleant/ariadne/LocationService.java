@@ -44,7 +44,8 @@ public class LocationService extends Service {
 	private final IBinder mBinder = new LocationBinder();
 	private LocationManager locationManager;
 	private String providerName = "";
-	private Location location = null;
+	private Location currentLocation = null;
+	private Location previousLocation = null;
 	
 	@Override
 	public void onCreate() {
@@ -53,7 +54,7 @@ public class LocationService extends Service {
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		
 		if (! getLocationProvider().isEmpty()) {
-			location = locationManager.getLastKnownLocation(providerName);
+			setLocation(locationManager.getLastKnownLocation(providerName));
 		}
 	}
 
@@ -90,7 +91,8 @@ public class LocationService extends Service {
     @Override
     public void onDestroy() {
         // The service is no longer used and is being destroyed
-    	location = null;
+    	currentLocation = null;
+    	previousLocation = null;
     	providerName = "";
     	locationManager = null;
     	Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
@@ -118,6 +120,21 @@ public class LocationService extends Service {
 	}
 	
 	/**
+	 * Set Location
+	 *
+	 * Update location
+	 *
+	 * @param Location location New location
+	 */
+	public void setLocation(Location location) {
+		if (location == null) {
+			return;
+		}
+		previousLocation = currentLocation;
+		currentLocation = location;
+	}
+
+	/**
 	 * Retrieve Location
 	 *
 	 * Get last known location
@@ -129,8 +146,8 @@ public class LocationService extends Service {
 			return null;
 		}
 		// todo : use more accurate location (with listener object)
-		location = locationManager.getLastKnownLocation(providerName);
+		setLocation(locationManager.getLastKnownLocation(providerName));
 
-		return location;
+		return currentLocation;
 	}
 }
