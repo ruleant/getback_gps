@@ -77,26 +77,26 @@ public class LocationService extends Service {
 		return false;
 	}
 
-    /**
-     * Class used for the client Binder.  Because we know this service always
-     * runs in the same process as its clients, we don't need to deal with IPC.
-     */
-    public class LocationBinder extends Binder {
-        LocationService getService() {
-            // Return this instance of LocationService so clients can call public methods
-            return LocationService.this;
-        }
-    }
+	/**
+	 * Class used for the client Binder.  Because we know this service always
+	 * runs in the same process as its clients, we don't need to deal with IPC.
+	 */
+	public class LocationBinder extends Binder {
+		LocationService getService() {
+			// Return this instance of LocationService so clients can call public methods
+			return LocationService.this;
+		}
+	}
 
-    @Override
-    public void onDestroy() {
-        // The service is no longer used and is being destroyed
-    	currentLocation = null;
-    	previousLocation = null;
-    	providerName = "";
-    	locationManager = null;
-    	Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
-    }
+	@Override
+	public void onDestroy() {
+		// The service is no longer used and is being destroyed
+		currentLocation = null;
+		previousLocation = null;
+		providerName = "";
+		locationManager = null;
+		Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
+	}
 	
 	/**
 	 * Retrieve Location Provider
