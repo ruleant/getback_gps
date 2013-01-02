@@ -48,6 +48,7 @@ public class LocationService extends Service {
 	private String providerName = "";
 	private Location currentLocation = null;
 	private Location previousLocation = null;
+	private LocationStore mStoredLocation;
 
 	private static final int TEN_SECONDS = 10000;
 	private static final int TEN_METERS = 10;
@@ -57,6 +58,7 @@ public class LocationService extends Service {
 		Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
 		locationManager =
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+		mStoredLocation = new LocationStore(this.getApplicationContext());
 		
 		if (! getLocationProvider().isEmpty()) {
 			setLocation(requestUpdatesFromProvider(providerName));
@@ -97,10 +99,12 @@ public class LocationService extends Service {
 	public void onDestroy() {
 		// The service is no longer used and is being destroyed
 		locationManager.removeUpdates(listener);
+		mStoredLocation.save();
 		currentLocation = null;
 		previousLocation = null;
 		providerName = "";
 		locationManager = null;
+		mStoredLocation = null;
 		Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
 	}
 	
@@ -158,6 +162,24 @@ public class LocationService extends Service {
 		setLocation(locationManager.getLastKnownLocation(providerName));
 
 		return currentLocation;
+	}
+
+	/**
+	 * Store current location
+	 *
+	 * @return void
+	 */
+	public void storeCurrentLocation() {
+		mStoredLocation.setLocation(currentLocation);
+	}
+
+	/**
+	 * Get stored location
+	 *
+	 * @return void
+	 */
+	public Location getStoredLocation() {
+		return mStoredLocation.getLocation();
 	}
 
 	/**
