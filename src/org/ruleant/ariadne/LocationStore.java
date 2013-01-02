@@ -21,6 +21,10 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.location.Location;
+
 /**
  * Location Store saves a location
  * 
@@ -31,11 +35,79 @@ package org.ruleant.ariadne;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationStore {
+	private Context mContext;
+	private Location mLocation;
+	private SharedPreferences mPrefs;
+	public static final String PREFS_STORE_LOC = "LocationStore";
+	private static final String LONGITUDE = "Longitude";
+	private static final String LATITUDE = "Latitude";
 	
 	/**
 	 * Constructor
+	 *
+	 * @param Context context Context of the Android app
 	 */
-	public LocationStore() {
+	public LocationStore(Context context) {
+		mContext = context;
+		mLocation = new Location("stored");
+		mPrefs = mContext.getSharedPreferences(PREFS_STORE_LOC, Context.MODE_PRIVATE);
+
+		restore();
+	}
+
+	/**
+	 * Get Location
+	 *
+	 * @return Location location
+	 */
+	public Location getLocation() {
+		return mLocation;
+	}
+
+	/**
+	 * Set Location
+	 *
+	 * @param Location location
+	 */
+	public void setLocation(Location location) {
+		mLocation = location;
+	}
+
+	/**
+	 * Save stored location in Shared Preferences
+	 *
+	 * @return void
+	 */
+	public void save() {
+		// don't save if mLocation is not set
+		if (mLocation == null) {
+			return;
+		}
+
+		// save location to a SharedPreferences file
+		SharedPreferences.Editor editor = mPrefs.edit();
+		editor.putString(
+				LONGITUDE,
+				Location.convert(mLocation.getLongitude(), Location.FORMAT_DEGREES)
+		);
+		editor.putString(
+				LATITUDE,
+				Location.convert(mLocation.getLatitude(), Location.FORMAT_DEGREES)
+		);
+		// Commit the edits!
+		editor.commit();
+	}
+
+	/**
+	 * Restore stored location from Shared Preferences
+	 *
+	 * @return Location location retrieved from Preferences
+	 */
+	public Location restore() {
+		// restore location from a SharedPreferences file
+		mLocation.setLongitude(Location.convert(mPrefs.getString(LONGITUDE, "0.0")));
+		mLocation.setLatitude(Location.convert(mPrefs.getString(LATITUDE, "0.0")));
 		
+		return mLocation;
 	}
 }
