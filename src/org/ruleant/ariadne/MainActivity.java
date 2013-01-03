@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
 	boolean mBound = false;
 	private String providerName = "";
 	private Location location = null;
+	private Location mStoredLocation = null;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -168,6 +169,24 @@ public class MainActivity extends Activity {
 			locationText += location.toString();
 		}
 		tv_location.setText(locationText);
+
+		// Refresh Stored Location
+		TextView tv_StoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
+		String storedLocationText = getResources().getString(R.string.stored_location) + ":\n";
+		if (mStoredLocation == null) {
+			storedLocationText += getResources().getString(R.string.unknown);
+		} else {
+			// Format location
+			storedLocationText += getResources().getString(R.string.latitude) + ": ";
+			storedLocationText += mStoredLocation.getLatitude() + "°\n";
+			storedLocationText += getResources().getString(R.string.longitude) + ": ";
+			storedLocationText += mStoredLocation.getLongitude() + "°\n";
+
+			// raw
+			storedLocationText += getResources().getString(R.string.raw) + ": ";
+			storedLocationText += mStoredLocation.toString();
+		}
+		tv_StoredLocation.setText(storedLocationText);
 	}
 
 	/** Defines callbacks for service binding, passed to bindService() */
@@ -182,6 +201,7 @@ public class MainActivity extends Activity {
 			providerName = mService.getLocationProvider();
 			if (! providerName.isEmpty()) {
 				location = mService.getLocation();
+				mStoredLocation = mService.getStoredLocation();
 				refreshDisplay();
 			}
 		}

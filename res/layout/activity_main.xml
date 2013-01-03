@@ -30,6 +30,14 @@
         android:layout_below="@+id/button_getLocationProvider"
         android:text="@string/location_provider" />
 
+	<TextView
+        android:id="@+id/textView_StoredLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_Location"
+        android:text="@string/stored_location" />
+
     <Button
         android:id="@+id/button_getLocation"
         android:layout_width="wrap_content"

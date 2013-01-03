@@ -6,6 +6,7 @@
     <string name="unknown">Unknown</string>
     <string name="location_provider">Location Provider</string>
     <string name="location">Location</string>
+    <string name="stored_location">Stored Location</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="altitude">Altitude</string>
