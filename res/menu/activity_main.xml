@@ -5,5 +5,11 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:title="@string/menu_settings"/>
+	<item
+		android:id="@+id/menu_storelocation"
+		android:onClick="storeLocation"
+		android:orderInCategory="110"
+		android:showAsAction="always"
+		android:title="@string/store_location"/>
 
 </menu>

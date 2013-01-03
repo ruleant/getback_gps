@@ -34,6 +34,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
@@ -108,6 +109,17 @@ public class MainActivity extends Activity {
 			location = mService.getLocation();
 		} else {
 			location = null;
+		}
+		refreshDisplay();
+	}
+
+	/** Called when the user clicks the Store Location menu item */
+	public void storeLocation(MenuItem item) {
+		if (mBound) {
+			mService.storeCurrentLocation();
+			mStoredLocation = mService.getStoredLocation();
+		} else {
+			mStoredLocation = null;
 		}
 		refreshDisplay();
 	}

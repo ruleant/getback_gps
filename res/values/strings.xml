@@ -7,6 +7,7 @@
     <string name="location_provider">Location Provider</string>
     <string name="location">Location</string>
     <string name="stored_location">Stored Location</string>
+    <string name="store_location">Store Location</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="altitude">Altitude</string>
