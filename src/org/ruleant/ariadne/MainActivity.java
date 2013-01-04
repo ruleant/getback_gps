@@ -1,7 +1,7 @@
 /**
  * Main Activity
  * 
- * Copyright (C) 2012 Dieter Adriaenssens
+ * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
