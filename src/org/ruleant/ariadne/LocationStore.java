@@ -119,15 +119,11 @@ public class LocationStore {
 	 */
 	public Location restore() {
 		// restore location from a SharedPreferences file
-		// TODO convert crashes when String has a "," as a decimal separator 
 		try {
-			String longitudeString = mPrefs.getString(LONGITUDE, "0.0");
-			double longitudeDouble = Location.convert(longitudeString);
-			mLocation.setLongitude(longitudeDouble);
+			mLocation.setLongitude(Location.convert(mPrefs.getString(LONGITUDE, "0.0")));
 			mLocation.setLatitude(Location.convert(mPrefs.getString(LATITUDE, "0.0")));
 		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
-		} finally {
 			mLocation.setLongitude(0);
 			mLocation.setLatitude(0);
 		}
