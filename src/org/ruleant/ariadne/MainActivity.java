@@ -194,7 +194,7 @@ public class MainActivity extends Activity {
 			locationText += formatter.format(date);
 
 			// raw
-			if (DEBUG_LEVEL == 6) {
+			if (DEBUG_LEVEL >= 6) {
 				locationText += "\n\n";
 				locationText += getResources().getString(R.string.raw) + ": ";
 				locationText += mCurrentLocation.toString();
@@ -215,7 +215,7 @@ public class MainActivity extends Activity {
 			storedLocationText += mStoredLocation.getLongitude() + "°";
 
 			// raw
-			if (DEBUG_LEVEL == 6) {
+			if (DEBUG_LEVEL >= 6) {
 				storedLocationText += "\n";
 				storedLocationText += getResources().getString(R.string.raw) + ": ";
 				storedLocationText += mStoredLocation.toString();
