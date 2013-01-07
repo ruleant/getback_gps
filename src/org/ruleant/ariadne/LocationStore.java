@@ -33,7 +33,6 @@ import android.location.Location;
  * This object will store a location for future use, and will the save the location
  * when the application is stopped
  * 
- * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationStore {
@@ -65,7 +64,7 @@ public class LocationStore {
 	/**
 	 * Constructor
 	 *
-	 * @param Context context Context of the Android app
+	 * @param context Context of the Android app
 	 */
 	public LocationStore(Context context) {
 		mContext = context;
@@ -87,9 +86,7 @@ public class LocationStore {
 	/**
 	 * Set Location
 	 *
-	 * @param Location location
-	 *
-	 * @return void
+	 * @param location New location
 	 */
 	public void setLocation(Location location) {
 		mLocation = location;
@@ -97,8 +94,6 @@ public class LocationStore {
 
 	/**
 	 * Save stored location in Shared Preferences
-	 *
-	 * @return void
 	 */
 	public void save() {
 		// don't save if mLocation is not set

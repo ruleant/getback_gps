@@ -99,9 +99,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Called when the user clicks the Renew provider button
 	 *
-	 * @param View view Button that was clicked
-	 *
-	 * @return void
+	 * @param view Button that was clicked
 	 */
 	public void renewProvider(View view) {
 		if (mBound) {
@@ -115,9 +113,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Called when the user clicks the Renew location button
 	 *
-	 * @param View view Button that was clicked
-	 *
-	 * @return void
+	 * @param view Button that was clicked
 	 */
 	public void renewLocation(View view) {
 		if (mBound) {
@@ -131,9 +127,7 @@ public class MainActivity extends Activity {
 	/**
 	 * Called when the user clicks the Store Location menu item
 	 *
-	 * @param MenuItem item MenuItem object that was clicked
-	 *
-	 * @return void
+	 * @param item MenuItem object that was clicked
 	 */
 	public void storeLocation(MenuItem item) {
 		if (mBound) {

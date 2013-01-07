@@ -38,7 +38,6 @@ import android.widget.Toast;
  * 
  * This service will connect to the Location Provider and retrieves the current location
  * 
- * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {
@@ -152,7 +151,7 @@ public class LocationService extends Service {
 	 *
 	 * Update location
 	 *
-	 * @param Location location New location
+	 * @param location New location
 	 */
 	public void setLocation(Location location) {
 		if (location == null) {
@@ -183,8 +182,6 @@ public class LocationService extends Service {
 
 	/**
 	 * Store current location
-	 *
-	 * @return void
 	 */
 	public void storeCurrentLocation() {
 		mStoredLocation.setLocation(mCurrentLocation);
@@ -193,7 +190,7 @@ public class LocationService extends Service {
 	/**
 	 * Get stored location
 	 *
-	 * @return void
+	 * @return Location
 	 */
 	public Location getStoredLocation() {
 		return mStoredLocation.getLocation();
