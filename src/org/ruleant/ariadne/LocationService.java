@@ -71,7 +71,9 @@ public class LocationService extends Service {
 
 	@Override
 	public void onCreate() {
-		Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
+		if (MainActivity.DEBUG_LEVEL >= 9) {
+			Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
+		}
 		mLocationManager =
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		mStoredLocation = new LocationStore(this.getApplicationContext());
@@ -89,13 +91,17 @@ public class LocationService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
+		if (MainActivity.DEBUG_LEVEL >= 9) {
+			Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
+		}
 		return mBinder;
 	}
 
 	@Override
 	public boolean onUnbind(Intent intent) {
-		Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
+		if (MainActivity.DEBUG_LEVEL >= 9) {
+			Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
+		}
 		// don't allow rebind
 		return false;
 	}
@@ -121,7 +127,9 @@ public class LocationService extends Service {
 		mProviderName = "";
 		mLocationManager = null;
 		mStoredLocation = null;
-		Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
+		if (MainActivity.DEBUG_LEVEL >= 9) {
+			Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	/**
