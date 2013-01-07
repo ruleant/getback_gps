@@ -44,10 +44,10 @@ import android.widget.Toast;
 public class LocationService extends Service {
     // Binder given to clients
 	private final IBinder mBinder = new LocationBinder();
-	private LocationManager locationManager;
-	private String providerName = "";
-	private Location currentLocation = null;
-	private Location previousLocation = null;
+	private LocationManager mLocationManager;
+	private String mProviderName = "";
+	private Location mCurrentLocation = null;
+	private Location mPreviousLocation = null;
 	private LocationStore mStoredLocation;
 
 	private static final int TEN_SECONDS = 10000;
@@ -56,12 +56,12 @@ public class LocationService extends Service {
 	@Override
 	public void onCreate() {
 		Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
-		locationManager =
+		mLocationManager =
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		mStoredLocation = new LocationStore(this.getApplicationContext());
 		
 		if (! getLocationProvider().isEmpty()) {
-			setLocation(requestUpdatesFromProvider(providerName));
+			setLocation(requestUpdatesFromProvider(mProviderName));
 		}
 	}
 
@@ -98,12 +98,12 @@ public class LocationService extends Service {
 	@Override
 	public void onDestroy() {
 		// The service is no longer used and is being destroyed
-		locationManager.removeUpdates(listener);
+		mLocationManager.removeUpdates(mListener);
 		mStoredLocation.save();
-		currentLocation = null;
-		previousLocation = null;
-		providerName = "";
-		locationManager = null;
+		mCurrentLocation = null;
+		mPreviousLocation = null;
+		mProviderName = "";
+		mLocationManager = null;
 		mStoredLocation = null;
 		Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
 	}
@@ -123,11 +123,11 @@ public class LocationService extends Service {
 		criteria.setCostAllowed(false);
 		criteria.setPowerRequirement(Criteria.POWER_LOW);
 		
-		if (locationManager != null) {
-			providerName = locationManager.getBestProvider(criteria, true);
+		if (mLocationManager != null) {
+			mProviderName = mLocationManager.getBestProvider(criteria, true);
 		}
 		
-		return providerName;
+		return mProviderName;
 	}
 	
 	/**
@@ -141,8 +141,8 @@ public class LocationService extends Service {
 		if (location == null) {
 			return;
 		}
-		previousLocation = currentLocation;
-		currentLocation = location;
+		mPreviousLocation = mCurrentLocation;
+		mCurrentLocation = location;
 	}
 
 	/**
@@ -153,15 +153,15 @@ public class LocationService extends Service {
 	 * @return Location
 	 */
 	public Location getLocation() {
-		if (locationManager == null || providerName.isEmpty()) {
+		if (mLocationManager == null || mProviderName.isEmpty()) {
 			return null;
 		}
 		// TODO : remove later
 		// location is not updated by listener (bug),
 		// update location using getLastKnowLocation (when refresh location button is pushed)
-		setLocation(locationManager.getLastKnownLocation(providerName));
+		setLocation(mLocationManager.getLastKnownLocation(mProviderName));
 
-		return currentLocation;
+		return mCurrentLocation;
 	}
 
 	/**
@@ -170,7 +170,7 @@ public class LocationService extends Service {
 	 * @return void
 	 */
 	public void storeCurrentLocation() {
-		mStoredLocation.setLocation(currentLocation);
+		mStoredLocation.setLocation(mCurrentLocation);
 	}
 
 	/**
@@ -195,17 +195,17 @@ public class LocationService extends Service {
 	 */
 	private Location requestUpdatesFromProvider(final String provider) {
 		Location location = null;
-		if (locationManager.isProviderEnabled(provider)) {
+		if (mLocationManager.isProviderEnabled(provider)) {
 			// TODO : define criteria in settings
-			locationManager.requestLocationUpdates(provider, TEN_SECONDS, TEN_METERS, listener);
-			location = locationManager.getLastKnownLocation(provider);
+			mLocationManager.requestLocationUpdates(provider, TEN_SECONDS, TEN_METERS, mListener);
+			location = mLocationManager.getLastKnownLocation(provider);
 		} else {
 			Toast.makeText(this, R.string.provider_no_support, Toast.LENGTH_LONG).show();
 		}
 		return location;
 	}
 
-	private final LocationListener listener = new LocationListener() {
+	private final LocationListener mListener = new LocationListener() {
 
 		@Override
 		public void onLocationChanged(Location location) {
