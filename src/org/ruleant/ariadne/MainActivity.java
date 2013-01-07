@@ -65,6 +65,8 @@ public class MainActivity extends Activity {
 	 */
 	private Location mStoredLocation = null;
 
+	public static int DEBUG_LEVEL = 5;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -189,11 +191,14 @@ public class MainActivity extends Activity {
 			Date date = new Date(mCurrentLocation.getTime());
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
 			locationText += getResources().getString(R.string.timestamp) + ": ";
-			locationText += formatter.format(date) + "\n\n";
+			locationText += formatter.format(date);
 
 			// raw
-			locationText += getResources().getString(R.string.raw) + ": ";
-			locationText += mCurrentLocation.toString();
+			if (DEBUG_LEVEL == 6) {
+				locationText += "\n\n";
+				locationText += getResources().getString(R.string.raw) + ": ";
+				locationText += mCurrentLocation.toString();
+			}
 		}
 		tv_location.setText(locationText);
 
@@ -207,11 +212,14 @@ public class MainActivity extends Activity {
 			storedLocationText += getResources().getString(R.string.latitude) + ": ";
 			storedLocationText += mStoredLocation.getLatitude() + "°\n";
 			storedLocationText += getResources().getString(R.string.longitude) + ": ";
-			storedLocationText += mStoredLocation.getLongitude() + "°\n";
+			storedLocationText += mStoredLocation.getLongitude() + "°";
 
 			// raw
-			storedLocationText += getResources().getString(R.string.raw) + ": ";
-			storedLocationText += mStoredLocation.toString();
+			if (DEBUG_LEVEL == 6) {
+				storedLocationText += "\n";
+				storedLocationText += getResources().getString(R.string.raw) + ": ";
+				storedLocationText += mStoredLocation.toString();
+			}
 		}
 		tv_StoredLocation.setText(storedLocationText);
 	}
