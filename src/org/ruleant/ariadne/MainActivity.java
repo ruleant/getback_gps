@@ -52,8 +52,8 @@ public class MainActivity extends Activity {
 	 * Connection state with LocationService
 	 */
 	boolean mBound = false;
-	private String providerName = "";
-	private Location location = null;
+	private String mProviderName = "";
+	private Location mCurrentLocation = null;
 	private Location mStoredLocation = null;
 
 	@Override
@@ -93,9 +93,9 @@ public class MainActivity extends Activity {
 	 */
 	public void renewProvider(View view) {
 		if (mBound) {
-			providerName = mService.getLocationProvider();
+			mProviderName = mService.getLocationProvider();
 		} else {
-			providerName = "";
+			mProviderName = "";
 		}
 		refreshDisplay();
 	}
@@ -106,9 +106,9 @@ public class MainActivity extends Activity {
 	 */
 	public void renewLocation(View view) {
 		if (mBound) {
-			location = mService.getLocation();
+			mCurrentLocation = mService.getLocation();
 		} else {
-			location = null;
+			mCurrentLocation = null;
 		}
 		refreshDisplay();
 	}
@@ -135,50 +135,50 @@ public class MainActivity extends Activity {
 		// Refresh locationProvider
 		TextView tv_provider = (TextView) findViewById(R.id.textView_LocationProvider);
 		String providerText = getResources().getString(R.string.location_provider) + ": ";
-		if (providerName.isEmpty()) {
+		if (mProviderName.isEmpty()) {
 			providerText += getResources().getString(R.string.none);
 		} else {
-			providerText += providerName;
+			providerText += mProviderName;
 		}
 		tv_provider.setText(providerText);
 
 		// Refresh Location
 		TextView tv_location = (TextView) findViewById(R.id.textView_Location);
 		String locationText = getResources().getString(R.string.location) + ":\n";
-		if (location == null) {
+		if (mCurrentLocation == null) {
 			locationText += getResources().getString(R.string.unknown);
 		} else {
 			// Format location
 			locationText += getResources().getString(R.string.latitude) + ": ";
-			locationText += location.getLatitude() + "°\n";
+			locationText += mCurrentLocation.getLatitude() + "°\n";
 			locationText += getResources().getString(R.string.longitude) + ": ";
-			locationText += location.getLongitude() + "°\n";
-			if (location.hasAltitude()) {
+			locationText += mCurrentLocation.getLongitude() + "°\n";
+			if (mCurrentLocation.hasAltitude()) {
 				locationText += getResources().getString(R.string.altitude) + ": ";
-				locationText += location.getAltitude() + "m\n";
+				locationText += mCurrentLocation.getAltitude() + "m\n";
 			}
-			if (location.hasBearing()) {
+			if (mCurrentLocation.hasBearing()) {
 				locationText += getResources().getString(R.string.bearing) + ": ";
-				locationText += location.getBearing() + "°\n";
+				locationText += mCurrentLocation.getBearing() + "°\n";
 			}
-			if (location.hasSpeed()) {
+			if (mCurrentLocation.hasSpeed()) {
 				locationText += getResources().getString(R.string.speed) + ": ";
-				locationText += location.getSpeed() + "m/s\n";
+				locationText += mCurrentLocation.getSpeed() + "m/s\n";
 			}
-			if (location.hasAccuracy()) {
+			if (mCurrentLocation.hasAccuracy()) {
 				locationText += getResources().getString(R.string.accuracy) + ": ";
-				locationText += location.getAccuracy() + "m\n";
+				locationText += mCurrentLocation.getAccuracy() + "m\n";
 			}
 
 			// Format Timestamp
-			Date date = new Date(location.getTime());
+			Date date = new Date(mCurrentLocation.getTime());
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
 			locationText += getResources().getString(R.string.timestamp) + ": ";
 			locationText += formatter.format(date) + "\n\n";
 
 			// raw
 			locationText += getResources().getString(R.string.raw) + ": ";
-			locationText += location.toString();
+			locationText += mCurrentLocation.toString();
 		}
 		tv_location.setText(locationText);
 
@@ -210,9 +210,9 @@ public class MainActivity extends Activity {
 			LocationBinder binder = (LocationBinder) service;
 			mService = binder.getService();
 			mBound = true;
-			providerName = mService.getLocationProvider();
-			if (! providerName.isEmpty()) {
-				location = mService.getLocation();
+			mProviderName = mService.getLocationProvider();
+			if (! mProviderName.isEmpty()) {
+				mCurrentLocation = mService.getLocation();
 				mStoredLocation = mService.getStoredLocation();
 				refreshDisplay();
 			}
