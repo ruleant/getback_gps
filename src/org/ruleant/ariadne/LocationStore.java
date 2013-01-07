@@ -37,11 +37,29 @@ import android.location.Location;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationStore {
+	/**
+	 * Context of App
+	 */
 	private Context mContext;
+	/**
+	 * Selected Location
+	 */
 	private Location mLocation;
+	/**
+	 * SharedPreference object
+	 */
 	private SharedPreferences mPrefs;
+	/**
+	 * SharedPreferences location for LocationStore class
+	 */
 	public static final String PREFS_STORE_LOC = "LocationStore";
+	/**
+	 * name of Longitude object in SharedPreferences
+	 */
 	private static final String LONGITUDE = "Longitude";
+	/**
+	 * name of Latitude object in SharedPreferences
+	 */
 	private static final String LATITUDE = "Latitude";
 
 	/**
@@ -70,6 +88,8 @@ public class LocationStore {
 	 * Set Location
 	 *
 	 * @param Location location
+	 *
+	 * @return void
 	 */
 	public void setLocation(Location location) {
 		mLocation = location;

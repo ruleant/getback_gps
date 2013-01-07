@@ -42,12 +42,29 @@ import android.widget.Toast;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {
-	// Binder given to clients
+	/*
+	 * Binder given to clients
+	 */
 	private final IBinder mBinder = new LocationBinder();
+	/*
+	 * LocationManager instance
+	 */
 	private LocationManager mLocationManager;
+	/**
+	 * Name of the LocationProvider
+	 */
 	private String mProviderName = "";
+	/**
+	 * Current Location
+	 */
 	private Location mCurrentLocation = null;
+	/**
+	 * Previous Location
+	 */
 	private Location mPreviousLocation = null;
+	/**
+	 * Previously stored Location
+	 */
 	private LocationStore mStoredLocation;
 
 	private static final int TEN_SECONDS = 10000;
@@ -205,6 +222,9 @@ public class LocationService extends Service {
 		return location;
 	}
 
+	/**
+	 * Listener object to connect with LocationManager and retrieve updates
+	 */
 	private final LocationListener mListener = new LocationListener() {
 
 		@Override

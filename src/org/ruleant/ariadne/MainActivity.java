@@ -52,8 +52,17 @@ public class MainActivity extends Activity {
 	 * Connection state with LocationService
 	 */
 	boolean mBound = false;
+	/**
+	 * Name of the LocationProvider
+	 */
 	private String mProviderName = "";
+	/**
+	 * Current Location
+	 */
 	private Location mCurrentLocation = null;
+	/**
+	 * Previously stored Location
+	 */
 	private Location mStoredLocation = null;
 
 	@Override
@@ -89,7 +98,10 @@ public class MainActivity extends Activity {
 
 	/**
 	 * Called when the user clicks the Renew provider button
-	 * 
+	 *
+	 * @param View view Button that was clicked
+	 *
+	 * @return void
 	 */
 	public void renewProvider(View view) {
 		if (mBound) {
@@ -103,6 +115,9 @@ public class MainActivity extends Activity {
 	/**
 	 * Called when the user clicks the Renew location button
 	 *
+	 * @param View view Button that was clicked
+	 *
+	 * @return void
 	 */
 	public void renewLocation(View view) {
 		if (mBound) {
@@ -113,7 +128,13 @@ public class MainActivity extends Activity {
 		refreshDisplay();
 	}
 
-	/** Called when the user clicks the Store Location menu item */
+	/**
+	 * Called when the user clicks the Store Location menu item
+	 *
+	 * @param MenuItem item MenuItem object that was clicked
+	 *
+	 * @return void
+	 */
 	public void storeLocation(MenuItem item) {
 		if (mBound) {
 			mService.storeCurrentLocation();
@@ -201,7 +222,9 @@ public class MainActivity extends Activity {
 		tv_StoredLocation.setText(storedLocationText);
 	}
 
-	/** Defines callbacks for service binding, passed to bindService() */
+	/**
+	 * Defines callbacks for service binding, passed to bindService()
+	 */
 	private ServiceConnection mConnection = new ServiceConnection() {
 
 		@Override
