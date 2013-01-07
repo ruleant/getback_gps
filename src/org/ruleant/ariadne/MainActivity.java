@@ -55,7 +55,7 @@ public class MainActivity extends Activity {
 	private String providerName = "";
 	private Location location = null;
 	private Location mStoredLocation = null;
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -123,7 +123,7 @@ public class MainActivity extends Activity {
 		}
 		refreshDisplay();
 	}
-	
+
 	/**
 	 * refresh display
 	 * 

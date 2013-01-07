@@ -43,7 +43,7 @@ public class LocationStore {
 	public static final String PREFS_STORE_LOC = "LocationStore";
 	private static final String LONGITUDE = "Longitude";
 	private static final String LATITUDE = "Latitude";
-	
+
 	/**
 	 * Constructor
 	 *
@@ -91,7 +91,7 @@ public class LocationStore {
 		   Location.convert(String) is localization independent, so it throws an exception
 		   when a parameter contains a "," instead of a "." as decimal separator
 		   changing the local to US, converts the double to a string with a "."
-		*/
+		 */
 		Locale originalLocale = Locale.getDefault();
 		Locale.setDefault(Locale.US);
 
@@ -100,11 +100,11 @@ public class LocationStore {
 		editor.putString(
 				LONGITUDE,
 				Location.convert(mLocation.getLongitude(), Location.FORMAT_DEGREES)
-		);
+				);
 		editor.putString(
 				LATITUDE,
 				Location.convert(mLocation.getLatitude(), Location.FORMAT_DEGREES)
-		);
+				);
 		// Commit the edits!
 		editor.commit();
 
@@ -127,7 +127,7 @@ public class LocationStore {
 			mLocation.setLongitude(0);
 			mLocation.setLatitude(0);
 		}
-		
+
 		return mLocation;
 	}
 }

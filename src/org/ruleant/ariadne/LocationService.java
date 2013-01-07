@@ -42,7 +42,7 @@ import android.widget.Toast;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {
-    // Binder given to clients
+	// Binder given to clients
 	private final IBinder mBinder = new LocationBinder();
 	private LocationManager mLocationManager;
 	private String mProviderName = "";
@@ -52,14 +52,14 @@ public class LocationService extends Service {
 
 	private static final int TEN_SECONDS = 10000;
 	private static final int TEN_METERS = 10;
-	
+
 	@Override
 	public void onCreate() {
 		Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
 		mLocationManager =
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		mStoredLocation = new LocationStore(this.getApplicationContext());
-		
+
 		if (! getLocationProvider().isEmpty()) {
 			setLocation(requestUpdatesFromProvider(mProviderName));
 		}
@@ -68,7 +68,7 @@ public class LocationService extends Service {
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		// The service is starting, due to a call to startService()
-	    return START_NOT_STICKY;
+		return START_NOT_STICKY;
 	}
 
 	@Override
@@ -107,7 +107,7 @@ public class LocationService extends Service {
 		mStoredLocation = null;
 		Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
 	}
-	
+
 	/**
 	 * Retrieve Location Provider
 	 *
@@ -122,14 +122,14 @@ public class LocationService extends Service {
 		criteria.setAccuracy(Criteria.ACCURACY_FINE);
 		criteria.setCostAllowed(false);
 		criteria.setPowerRequirement(Criteria.POWER_LOW);
-		
+
 		if (mLocationManager != null) {
 			mProviderName = mLocationManager.getBestProvider(criteria, true);
 		}
-		
+
 		return mProviderName;
 	}
-	
+
 	/**
 	 * Set Location
 	 *
