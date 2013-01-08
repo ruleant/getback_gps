@@ -205,6 +205,31 @@ public class LocationService extends Service {
 	}
 
 	/**
+	 * Get distance to stored location
+	 *
+	 * @return float distance in meters
+	 */
+	public float getDistance() {
+		return mCurrentLocation.distanceTo(mStoredLocation.getLocation());
+	}
+
+	/**
+	 * Get bearing to stored location
+	 *
+	 * @return float distance in meters
+	 */
+	public float getBearing() {
+		float relativeBearing = mCurrentLocation.bearingTo(mStoredLocation.getLocation());
+		float currentBearing;
+		if (mCurrentLocation.hasBearing()) {
+			currentBearing = mCurrentLocation.getBearing();
+		} else {
+			currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
+		}
+		return relativeBearing - currentBearing;
+	}
+
+	/**
 	 * Method to register location updates with a desired location provider.  If the requested
 	 * provider is not available on the device, the app displays a Toast with a message referenced
 	 * by a resource id.
