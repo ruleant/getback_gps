@@ -20,6 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/textView_LocationProvider"
+        android:padding="2dp"
         android:text="@string/location" />
 
     <TextView
@@ -28,6 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/button_getLocationProvider"
+        android:padding="2dp"
         android:text="@string/location_provider" />
 
     <Button
@@ -40,19 +42,22 @@
         android:onClick="renewLocation" />
 
     <TextView
-        android:id="@+id/textView_StoredLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView_LocationProvider"
-        android:text="@string/stored_location" />
-
-    <TextView
         android:id="@+id/textView_ToDestination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView_Location"
+        android:layout_alignLeft="@+id/textView_StoredLocation"
+        android:layout_below="@+id/textView_StoredLocation"
+        android:padding="2dp"
         android:text="@string/to_dest" />
+
+    <TextView
+        android:id="@+id/textView_StoredLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/textView_Location"
+        android:layout_alignBottom="@+id/textView_Location"
+        android:layout_toRightOf="@+id/textView_Location"
+        android:padding="2dp"
+        android:text="@string/stored_location" />
 
 </RelativeLayout>
