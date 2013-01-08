@@ -163,40 +163,40 @@ public class MainActivity extends Activity {
 		TextView tv_location = (TextView) findViewById(R.id.textView_Location);
 		String locationText = getResources().getString(R.string.location) + ":\n";
 		if (mCurrentLocation == null) {
-			locationText += getResources().getString(R.string.unknown);
+			locationText += " "  + getResources().getString(R.string.unknown);
 		} else {
 			// Format location
-			locationText += getResources().getString(R.string.latitude) + ": ";
+			locationText += " "  + getResources().getString(R.string.latitude) + ": ";
 			locationText += mCurrentLocation.getLatitude() + "°\n";
-			locationText += getResources().getString(R.string.longitude) + ": ";
+			locationText += " "  + getResources().getString(R.string.longitude) + ": ";
 			locationText += mCurrentLocation.getLongitude() + "°\n";
 			if (mCurrentLocation.hasAltitude()) {
-				locationText += getResources().getString(R.string.altitude) + ": ";
+				locationText += " "  + getResources().getString(R.string.altitude) + ": ";
 				locationText += mCurrentLocation.getAltitude() + "m\n";
 			}
 			if (mCurrentLocation.hasBearing()) {
-				locationText += getResources().getString(R.string.bearing) + ": ";
+				locationText += " "  + getResources().getString(R.string.bearing) + ": ";
 				locationText += mCurrentLocation.getBearing() + "°\n";
 			}
 			if (mCurrentLocation.hasSpeed()) {
-				locationText += getResources().getString(R.string.speed) + ": ";
+				locationText += " "  + getResources().getString(R.string.speed) + ": ";
 				locationText += mCurrentLocation.getSpeed() + "m/s\n";
 			}
 			if (mCurrentLocation.hasAccuracy()) {
-				locationText += getResources().getString(R.string.accuracy) + ": ";
+				locationText += " "  + getResources().getString(R.string.accuracy) + ": ";
 				locationText += mCurrentLocation.getAccuracy() + "m\n";
 			}
 
 			// Format Timestamp
 			Date date = new Date(mCurrentLocation.getTime());
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
-			locationText += getResources().getString(R.string.timestamp) + ": ";
+			locationText += " "  + getResources().getString(R.string.timestamp) + ": ";
 			locationText += formatter.format(date);
 
 			// raw
 			if (DEBUG_LEVEL >= 6) {
 				locationText += "\n\n";
-				locationText += getResources().getString(R.string.raw) + ": ";
+				locationText += " "  + getResources().getString(R.string.raw) + ": ";
 				locationText += mCurrentLocation.toString();
 			}
 		}
@@ -206,18 +206,18 @@ public class MainActivity extends Activity {
 		TextView tv_StoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
 		String storedLocationText = getResources().getString(R.string.stored_location) + ":\n";
 		if (mStoredLocation == null) {
-			storedLocationText += getResources().getString(R.string.unknown);
+			storedLocationText += " "  + getResources().getString(R.string.unknown);
 		} else {
 			// Format location
-			storedLocationText += getResources().getString(R.string.latitude) + ": ";
+			storedLocationText += " "  + getResources().getString(R.string.latitude) + ": ";
 			storedLocationText += mStoredLocation.getLatitude() + "°\n";
-			storedLocationText += getResources().getString(R.string.longitude) + ": ";
+			storedLocationText += " "  + getResources().getString(R.string.longitude) + ": ";
 			storedLocationText += mStoredLocation.getLongitude() + "°";
 
 			// raw
 			if (DEBUG_LEVEL >= 6) {
 				storedLocationText += "\n";
-				storedLocationText += getResources().getString(R.string.raw) + ": ";
+				storedLocationText += " "  + getResources().getString(R.string.raw) + ": ";
 				storedLocationText += mStoredLocation.toString();
 			}
 		}
@@ -227,12 +227,12 @@ public class MainActivity extends Activity {
 		TextView tv_ToDestination = (TextView) findViewById(R.id.textView_ToDestination);
 		String toDestinationText = getResources().getString(R.string.to_dest) + ":\n";
 		if (mStoredLocation == null || mCurrentLocation == null) {
-			toDestinationText += getResources().getString(R.string.unknown);
+			toDestinationText += " "  + getResources().getString(R.string.unknown);
 		} else {
 			// Print distance and bearing
-			toDestinationText += getResources().getString(R.string.distance) + ": ";
+			toDestinationText += " "  + getResources().getString(R.string.distance) + ": ";
 			toDestinationText += mService.getDistance() + "m\n";
-			toDestinationText += getResources().getString(R.string.bearing) + ": ";
+			toDestinationText += " "  + getResources().getString(R.string.bearing) + ": ";
 			toDestinationText += mService.getBearing() + "°";
 		}
 		tv_ToDestination.setText(toDestinationText);
