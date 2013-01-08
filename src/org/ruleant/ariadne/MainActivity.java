@@ -222,6 +222,20 @@ public class MainActivity extends Activity {
 			}
 		}
 		tv_StoredLocation.setText(storedLocationText);
+
+		// Refresh Directions to destination
+		TextView tv_ToDestination = (TextView) findViewById(R.id.textView_ToDestination);
+		String toDestinationText = getResources().getString(R.string.to_dest) + ":\n";
+		if (mStoredLocation == null || mCurrentLocation == null) {
+			toDestinationText += getResources().getString(R.string.unknown);
+		} else {
+			// Print distance and bearing
+			toDestinationText += getResources().getString(R.string.distance) + ": ";
+			toDestinationText += mService.getDistance() + "m\n";
+			toDestinationText += getResources().getString(R.string.bearing) + ": ";
+			toDestinationText += mService.getBearing() + "°";
+		}
+		tv_ToDestination.setText(toDestinationText);
 	}
 
 	/**
