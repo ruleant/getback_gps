@@ -18,6 +18,7 @@
     <string name="to_dest">To Destination</string>
     <string name="distance">Distance</string>
     <string name="raw">Raw</string>
+    <string name="refresh">Refresh</string>
     <string name="button_getLocationProvider">Refresh provider</string>
     <string name="button_getLocation">Refresh location</string>
     <string name="provider_no_support">Provider is not supported</string>

@@ -11,5 +11,11 @@
 		android:orderInCategory="110"
 		android:showAsAction="always"
 		android:title="@string/store_location"/>
+	<item
+		android:id="@+id/menu_refresh"
+		android:onClick="refresh"
+		android:orderInCategory="120"
+		android:showAsAction="always"
+		android:title="@string/refresh"/>
 
 </menu>
