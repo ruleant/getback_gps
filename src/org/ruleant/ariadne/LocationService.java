@@ -78,7 +78,7 @@ public class LocationService extends Service {
 				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
 		mStoredLocation = new LocationStore(this.getApplicationContext());
 
-		if (! getLocationProvider().isEmpty()) {
+		if (! updateLocationProvider().isEmpty()) {
 			setLocation(requestUpdatesFromProvider(mProviderName));
 		}
 	}
@@ -139,7 +139,7 @@ public class LocationService extends Service {
 	 *
 	 * @return String
 	 */
-	public String getLocationProvider() {
+	public String updateLocationProvider() {
 		// Retrieve a list of location providers that have fine accuracy, no monetary cost, etc
 		// TODO : define criteria in settings
 		Criteria criteria = new Criteria();
@@ -189,6 +189,15 @@ public class LocationService extends Service {
 	 */
 	public Location getLocation() {
 		return mCurrentLocation;
+	}
+
+	/**
+	 * Retrieve Location Provider
+	 *
+	 * @return String current location provider
+	 */
+	public String getLocationProvider() {
+		return mProviderName;
 	}
 
 	/**
