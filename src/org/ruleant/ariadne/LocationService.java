@@ -162,7 +162,13 @@ public class LocationService extends Service {
 	 * @param location New location
 	 */
 	public void setLocation(Location location) {
-		if (location == null) {
+		// don't update location if no location is provided,
+		// or if new location is the same as the previous one
+		if (location == null
+			|| (mCurrentLocation != null
+			&& location.getTime() == mCurrentLocation.getTime()
+			&& location.getProvider() == mCurrentLocation.getProvider())
+		) {
 			return;
 		}
 		mPreviousLocation = mCurrentLocation;
