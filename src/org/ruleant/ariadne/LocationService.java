@@ -212,7 +212,10 @@ public class LocationService extends Service {
 	 * Store current location
 	 */
 	public void storeCurrentLocation() {
-		mStoredLocation.setLocation(mCurrentLocation);
+		// don't store current location if it is not set
+		if (mCurrentLocation != null) {
+			mStoredLocation.setLocation(mCurrentLocation);
+		}
 	}
 
 	/**
@@ -230,6 +233,10 @@ public class LocationService extends Service {
 	 * @return float distance in meters
 	 */
 	public float getDistance() {
+		// don't calculate distance if current location is not set
+		if (mCurrentLocation == null) {
+			return 0;
+		}
 		return mCurrentLocation.distanceTo(mStoredLocation.getLocation());
 	}
 
@@ -239,12 +246,20 @@ public class LocationService extends Service {
 	 * @return float distance in meters
 	 */
 	public float getBearing() {
+		// don't calculate bearing if current location is not set
+		if (mCurrentLocation == null) {
+			return 0;
+		}
 		float relativeBearing = mCurrentLocation.bearingTo(mStoredLocation.getLocation());
-		float currentBearing;
+		float currentBearing = 0;
 		if (mCurrentLocation.hasBearing()) {
 			currentBearing = mCurrentLocation.getBearing();
 		} else {
-			currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
+			// don't calculate current bearing if previous location is not set
+			// current location was checked earlier
+			if (mPreviousLocation != null) {
+				currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
+			}
 		}
 		return relativeBearing - currentBearing;
 	}
