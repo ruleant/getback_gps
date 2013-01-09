@@ -142,6 +142,22 @@ public class MainActivity extends Activity {
 	}
 
 	/**
+	 * Called when the user clicks the refresh menu item
+	 *
+	 * @param item MenuItem object that was clicked
+	 */
+	public void refresh(MenuItem item) {
+		if (mBound) {
+			mCurrentLocation = mService.getLocation();
+			mStoredLocation = mService.getStoredLocation();
+		} else {
+			mProviderName = null;
+			mStoredLocation = null;
+		}
+		refreshDisplay();
+	}
+
+	/**
 	 * refresh display
 	 * 
 	 * Refresh the values of Location Provider, Location, ...
