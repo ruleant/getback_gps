@@ -167,6 +167,11 @@ public class LocationService extends Service {
 		}
 		mPreviousLocation = mCurrentLocation;
 		mCurrentLocation = location;
+
+		// display message on update
+		if (MainActivity.DEBUG_LEVEL >= 5) {
+			Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
+		}
 	}
 
 	/**
