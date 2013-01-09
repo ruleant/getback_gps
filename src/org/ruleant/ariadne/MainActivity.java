@@ -105,7 +105,7 @@ public class MainActivity extends Activity {
 	 */
 	public void renewProvider(View view) {
 		if (mBound) {
-			mProviderName = mService.getLocationProvider();
+			mProviderName = mService.updateLocationProvider();
 		} else {
 			mProviderName = "";
 		}
