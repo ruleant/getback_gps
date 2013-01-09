@@ -149,10 +149,12 @@ public class MainActivity extends Activity {
 	 */
 	public void refresh(MenuItem item) {
 		if (mBound) {
+			mProviderName = mService.getLocationProvider();
 			mCurrentLocation = mService.getLocation();
 			mStoredLocation = mService.getStoredLocation();
 		} else {
 			mProviderName = null;
+			mCurrentLocation = null;
 			mStoredLocation = null;
 		}
 		refreshDisplay();
