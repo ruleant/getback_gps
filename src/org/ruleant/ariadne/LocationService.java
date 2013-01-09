@@ -188,12 +188,21 @@ public class LocationService extends Service {
 	 * @return Location
 	 */
 	public Location getLocation() {
+		return mCurrentLocation;
+	}
+
+	/**
+	 * update Location
+	 *
+	 * Force location update, using getLastKnownLocation()
+	 *
+	 * @return Location
+	 */
+	public Location updateLocation() {
 		if (mLocationManager == null || mProviderName.isEmpty()) {
 			return null;
 		}
-		// TODO : remove later
-		// location is not updated by listener (bug),
-		// update location using getLastKnowLocation (when refresh location button is pushed)
+		// update location using getLastKnownLocation, don't wait for listener update
 		setLocation(mLocationManager.getLastKnownLocation(mProviderName));
 
 		return mCurrentLocation;
