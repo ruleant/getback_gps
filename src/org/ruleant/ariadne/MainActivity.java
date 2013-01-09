@@ -113,13 +113,14 @@ public class MainActivity extends Activity {
 	}
 
 	/**
-	 * Called when the user clicks the Renew location button
+	 * Called when the user clicks the Update location button
 	 *
 	 * @param view Button that was clicked
 	 */
 	public void renewLocation(View view) {
 		if (mBound) {
-			mCurrentLocation = mService.getLocation();
+			// manually update location (don't wait for listener to update location)
+			mCurrentLocation = mService.updateLocation();
 		} else {
 			mCurrentLocation = null;
 		}
