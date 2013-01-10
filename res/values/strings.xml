@@ -22,6 +22,10 @@
     <string name="button_getLocationProvider">Update provider</string>
     <string name="button_getLocation">Update location</string>
     <string name="provider_no_support">Provider is not supported</string>
+	<string name="version">Version</string>
+    <string name="author">Author</string>
+    <string name="updated">Last updated</string>
+    <string name="about">About</string>
     <string name="menu_settings">Settings</string>
 
 </resources>

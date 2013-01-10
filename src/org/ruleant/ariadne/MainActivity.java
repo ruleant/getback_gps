@@ -65,6 +65,7 @@ public class MainActivity extends Activity {
 	 */
 	private Location mStoredLocation = null;
 
+	public final static String AUTHOR = "Dieter Adriaenssens";
 	public static int DEBUG_LEVEL = 5;
 
 	@Override
@@ -158,6 +159,16 @@ public class MainActivity extends Activity {
 			mStoredLocation = null;
 		}
 		refreshDisplay();
+	}
+
+	/**
+	 * Called when the user clicks the About menu item
+	 *
+	 * @param item MenuItem object that was clicked
+	 */
+	public void displayAbout(MenuItem item) {
+		Intent intent = new Intent(this, AboutActivity.class);
+		startActivity(intent);
 	}
 
 	/**

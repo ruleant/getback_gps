@@ -17,5 +17,11 @@
 		android:orderInCategory="120"
 		android:showAsAction="always"
 		android:title="@string/refresh"/>
+	<item
+        android:id="@+id/menu_about"
+        android:orderInCategory="130"
+        android:showAsAction="ifRoom"
+        android:onClick="displayAbout"
+        android:title="@string/about" />
 
 </menu>
