@@ -26,6 +26,7 @@
     <string name="author">Author</string>
     <string name="updated">Last updated</string>
     <string name="about">About</string>
+    <string name="license">Licensed under GPLv3+</string>
     <string name="menu_settings">Settings</string>
 
 </resources>

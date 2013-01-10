@@ -14,16 +14,17 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int button_getLocation=0x7f070007;
-        public static final int button_getLocationProvider=0x7f070003;
-        public static final int menu_about=0x7f07000c;
-        public static final int menu_refresh=0x7f07000b;
-        public static final int menu_settings=0x7f070009;
-        public static final int menu_storelocation=0x7f07000a;
-        public static final int textView_Location=0x7f070004;
-        public static final int textView_LocationProvider=0x7f070005;
-        public static final int textView_StoredLocation=0x7f070006;
-        public static final int textView_ToDestination=0x7f070008;
+        public static final int button_getLocation=0x7f070008;
+        public static final int button_getLocationProvider=0x7f070004;
+        public static final int menu_about=0x7f07000d;
+        public static final int menu_refresh=0x7f07000c;
+        public static final int menu_settings=0x7f07000a;
+        public static final int menu_storelocation=0x7f07000b;
+        public static final int textView_License=0x7f070003;
+        public static final int textView_Location=0x7f070005;
+        public static final int textView_LocationProvider=0x7f070006;
+        public static final int textView_StoredLocation=0x7f070007;
+        public static final int textView_ToDestination=0x7f070009;
         public static final int textview_author=0x7f070001;
         public static final int textview_updated=0x7f070002;
         public static final int textview_version=0x7f070000;
@@ -46,10 +47,11 @@ public final class R {
         public static final int button_getLocationProvider=0x7f040012;
         public static final int distance=0x7f04000f;
         public static final int latitude=0x7f040007;
+        public static final int license=0x7f040019;
         public static final int location=0x7f040004;
         public static final int location_provider=0x7f040003;
         public static final int longitude=0x7f040008;
-        public static final int menu_settings=0x7f040019;
+        public static final int menu_settings=0x7f04001a;
         public static final int none=0x7f040001;
         public static final int provider_no_support=0x7f040014;
         public static final int raw=0x7f040010;
