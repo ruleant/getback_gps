@@ -19,6 +19,10 @@ public class AboutActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_about);
 		
+		String dateFormat = "yyyy-MM-dd";
+		if (MainActivity.DEBUG_LEVEL >= 1) {
+			dateFormat = "yyyy-MM-dd'T'HH:mm:ssz";
+		}
 		String versionName = "";
 		String lastUpdated = "";
 		PackageInfo packageInfo;
@@ -27,7 +31,7 @@ public class AboutActivity extends Activity {
 		        packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
 		    	versionName = "v" + packageInfo.versionName;
 		 		Date date = new Date(packageInfo.lastUpdateTime);
-				SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ssz");
+				SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
 				lastUpdated = formatter.format(date);
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
