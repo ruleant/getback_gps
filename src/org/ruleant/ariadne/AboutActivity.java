@@ -8,6 +8,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.TextView;
 
@@ -38,6 +39,9 @@ public class AboutActivity extends Activity {
 		tv_author.setText(getResources().getString(R.string.author) + ": " + MainActivity.AUTHOR);
 		TextView tv_updated = (TextView) findViewById(R.id.textview_updated);
 		tv_updated.setText(getResources().getString(R.string.updated) + ": " + lastUpdated);
+		TextView tv_license = (TextView) findViewById(R.id.textview_license);
+		tv_license.setMovementMethod(LinkMovementMethod.getInstance());
+		//tv_license.setText(getResources().getString(R.string.license));
 	}
 
 	@Override
