@@ -21,12 +21,12 @@ public final class R {
         public static final int menu_refresh=0x7f07000c;
         public static final int menu_settings=0x7f07000a;
         public static final int menu_storelocation=0x7f07000b;
-        public static final int textView_License=0x7f070003;
         public static final int textView_Location=0x7f070005;
         public static final int textView_LocationProvider=0x7f070006;
         public static final int textView_StoredLocation=0x7f070007;
         public static final int textView_ToDestination=0x7f070009;
         public static final int textview_author=0x7f070001;
+        public static final int textview_license=0x7f070003;
         public static final int textview_updated=0x7f070002;
         public static final int textview_version=0x7f070000;
     }
