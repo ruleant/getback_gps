@@ -20,9 +20,6 @@
  */
 package org.ruleant.ariadne;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.ruleant.ariadne.LocationService.LocationBinder;
 
 import android.app.Activity;
@@ -65,7 +62,7 @@ public class MainActivity extends Activity {
 	private Ariadne_Location mStoredLocation = null;
 
 	public final static String AUTHOR = "Dieter Adriaenssens";
-	public static int DEBUG_LEVEL = 6;
+	public static int DEBUG_LEVEL = 5;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -194,40 +191,7 @@ public class MainActivity extends Activity {
 		if (mCurrentLocation == null) {
 			locationText += " "  + getResources().getString(R.string.unknown);
 		} else {
-			// Format location
-			locationText += " "  + getResources().getString(R.string.latitude) + ": ";
-			locationText += mCurrentLocation.getLatitude() + "°\n";
-			locationText += " "  + getResources().getString(R.string.longitude) + ": ";
-			locationText += mCurrentLocation.getLongitude() + "°\n";
-			if (mCurrentLocation.hasAltitude()) {
-				locationText += " "  + getResources().getString(R.string.altitude) + ": ";
-				locationText += mCurrentLocation.getAltitude() + "m\n";
-			}
-			if (mCurrentLocation.hasBearing()) {
-				locationText += " "  + getResources().getString(R.string.bearing) + ": ";
-				locationText += mCurrentLocation.getBearing() + "°\n";
-			}
-			if (mCurrentLocation.hasSpeed()) {
-				locationText += " "  + getResources().getString(R.string.speed) + ": ";
-				locationText += mCurrentLocation.getSpeed() + "m/s\n";
-			}
-			if (mCurrentLocation.hasAccuracy()) {
-				locationText += " "  + getResources().getString(R.string.accuracy) + ": ";
-				locationText += mCurrentLocation.getAccuracy() + "m\n";
-			}
-
-			// Format Timestamp
-			Date date = new Date(mCurrentLocation.getTime());
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
-			locationText += " "  + getResources().getString(R.string.timestamp) + ": ";
-			locationText += formatter.format(date);
-
-			// raw
-			if (DEBUG_LEVEL >= 6) {
-				locationText += "\n\n";
-				locationText += " "  + getResources().getString(R.string.raw) + ": ";
-				locationText += mCurrentLocation.toString();
-			}
+			locationText += mCurrentLocation.toString(this);
 		}
 		tv_location.setText(locationText);
 
@@ -237,18 +201,7 @@ public class MainActivity extends Activity {
 		if (mStoredLocation == null) {
 			storedLocationText += " "  + getResources().getString(R.string.unknown);
 		} else {
-			// Format location
-			storedLocationText += " "  + getResources().getString(R.string.latitude) + ": ";
-			storedLocationText += mStoredLocation.getLatitude() + "°\n";
-			storedLocationText += " "  + getResources().getString(R.string.longitude) + ": ";
-			storedLocationText += mStoredLocation.getLongitude() + "°";
-
-			// raw
-			if (DEBUG_LEVEL >= 6) {
-				storedLocationText += "\n";
-				storedLocationText += " "  + getResources().getString(R.string.raw) + ": ";
-				storedLocationText += mStoredLocation.toString();
-			}
+			storedLocationText += mStoredLocation.toString(this);
 		}
 		tv_StoredLocation.setText(storedLocationText);
 
