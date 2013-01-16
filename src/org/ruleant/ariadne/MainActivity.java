@@ -30,7 +30,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
@@ -59,14 +58,14 @@ public class MainActivity extends Activity {
 	/**
 	 * Current Location
 	 */
-	private Location mCurrentLocation = null;
+	private Ariadne_Location mCurrentLocation = null;
 	/**
 	 * Previously stored Location
 	 */
-	private Location mStoredLocation = null;
+	private Ariadne_Location mStoredLocation = null;
 
 	public final static String AUTHOR = "Dieter Adriaenssens";
-	public static int DEBUG_LEVEL = 5;
+	public static int DEBUG_LEVEL = 6;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -121,7 +120,7 @@ public class MainActivity extends Activity {
 	public void renewLocation(View view) {
 		if (mBound) {
 			// manually update location (don't wait for listener to update location)
-			mCurrentLocation = mService.updateLocation();
+			mCurrentLocation = new Ariadne_Location(mService.updateLocation());
 		} else {
 			mCurrentLocation = null;
 		}
@@ -136,7 +135,7 @@ public class MainActivity extends Activity {
 	public void storeLocation(MenuItem item) {
 		if (mBound) {
 			mService.storeCurrentLocation();
-			mStoredLocation = mService.getStoredLocation();
+			mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
 		} else {
 			mStoredLocation = null;
 		}
@@ -151,8 +150,8 @@ public class MainActivity extends Activity {
 	public void refresh(MenuItem item) {
 		if (mBound) {
 			mProviderName = mService.getLocationProvider();
-			mCurrentLocation = mService.getLocation();
-			mStoredLocation = mService.getStoredLocation();
+			mCurrentLocation = new Ariadne_Location(mService.getLocation());
+			mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
 		} else {
 			mProviderName = null;
 			mCurrentLocation = null;
@@ -281,8 +280,8 @@ public class MainActivity extends Activity {
 			mBound = true;
 			mProviderName = mService.getLocationProvider();
 			if (! mProviderName.isEmpty()) {
-				mCurrentLocation = mService.getLocation();
-				mStoredLocation = mService.getStoredLocation();
+				mCurrentLocation = new Ariadne_Location(mService.getLocation());
+				mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
 				refreshDisplay();
 			}
 		}
