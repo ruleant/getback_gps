@@ -61,7 +61,6 @@ public class MainActivity extends Activity {
 	 */
 	private Ariadne_Location mStoredLocation = null;
 
-	public final static String AUTHOR = "Dieter Adriaenssens";
 	public static int DEBUG_LEVEL = 5;
 
 	@Override
