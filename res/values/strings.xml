@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">Ariadne</string>
-    <string name="copyright">Copyright &#169; 2012&#8211;2013 Dieter Adriaenssens</string>
+    <string name="copyright">Copyright &#169; 2012&#8211;2013 <a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens</a></string>
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="location_provider">Location Provider</string>
