@@ -41,6 +41,8 @@ public class AboutActivity extends Activity {
 		tv_version.setText(getResources().getString(R.string.version) + ": " + versionName);
 		TextView tv_updated = (TextView) findViewById(R.id.textview_updated);
 		tv_updated.setText(getResources().getString(R.string.updated) + ": " + lastUpdated);
+		TextView tv_copyright = (TextView) findViewById(R.id.textview_copyright);
+		tv_copyright.setMovementMethod(LinkMovementMethod.getInstance());
 		TextView tv_license = (TextView) findViewById(R.id.textview_license);
 		tv_license.setMovementMethod(LinkMovementMethod.getInstance());
 	}
