@@ -37,22 +37,22 @@ public class AboutActivity extends Activity {
 			e.printStackTrace();
 		}
 		
-		// Version textview
+		// Version text view
 		TextView tv_version = (TextView) findViewById(R.id.textview_version);
 		tv_version.setText(getResources().getString(R.string.version) + ": " + versionName);
 		
-		// Updated textview
+		// Updated text view
 		TextView tv_updated = (TextView) findViewById(R.id.textview_updated);
 		tv_updated.setText(getResources().getString(R.string.updated) + ": " + lastUpdated);
 		
-		// Copyright textview
+		// Copyright text view
 		TextView tv_copyright = (TextView) findViewById(R.id.textview_copyright);
-		// enable html links
+		// enable HTML links
 		tv_copyright.setMovementMethod(LinkMovementMethod.getInstance());
 		
-		// License textview
+		// License text view
 		TextView tv_license = (TextView) findViewById(R.id.textview_license);
-		// enable html links
+		// enable HTML links
 		tv_license.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
