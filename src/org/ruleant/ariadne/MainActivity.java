@@ -167,6 +167,16 @@ public class MainActivity extends Activity {
 	}
 
 	/**
+	 * Called when the user clicks the Settings menu item
+	 *
+	 * @param item MenuItem object that was clicked
+	 */
+	public void displaySettings(MenuItem item) {
+		Intent intent = new Intent(this, SettingsActivity.class);
+		startActivity(intent);
+	}
+	
+	/**
 	 * refresh display
 	 * 
 	 * Refresh the values of Location Provider, Location, ...
