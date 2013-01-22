@@ -6,9 +6,6 @@
         android:fragment="${packageName}.${activityClass}$GeneralPreferenceFragment"
         android:title="@string/pref_header_general" />
     <header
-        android:fragment="${packageName}.${activityClass}$NotificationPreferenceFragment"
-        android:title="@string/pref_header_notifications" />
-    <header
         android:fragment="${packageName}.${activityClass}$DataSyncPreferenceFragment"
         android:title="@string/pref_header_data_sync" />
 
