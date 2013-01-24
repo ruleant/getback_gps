@@ -73,7 +73,7 @@ public class LocationService extends Service {
 
 	@Override
 	public void onCreate() {
-		if (MainActivity.DEBUG_LEVEL >= 9) {
+		if (checkDebugLevel(9)) {
 			Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
 		}
 		mLocationManager =
@@ -93,7 +93,7 @@ public class LocationService extends Service {
 
 	@Override
 	public IBinder onBind(Intent intent) {
-		if (MainActivity.DEBUG_LEVEL >= 9) {
+		if (checkDebugLevel(9)) {
 			Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
 		}
 		return mBinder;
@@ -101,7 +101,7 @@ public class LocationService extends Service {
 
 	@Override
 	public boolean onUnbind(Intent intent) {
-		if (MainActivity.DEBUG_LEVEL >= 9) {
+		if (checkDebugLevel(9)) {
 			Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
 		}
 		// don't allow rebind
@@ -129,7 +129,7 @@ public class LocationService extends Service {
 		mProviderName = "";
 		mLocationManager = null;
 		mStoredLocation = null;
-		if (MainActivity.DEBUG_LEVEL >= 9) {
+		if (checkDebugLevel(9)) {
 			Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
 		}
 	}
@@ -177,7 +177,7 @@ public class LocationService extends Service {
 		mCurrentLocation = location;
 
 		// display message on update
-		if (MainActivity.DEBUG_LEVEL >= 5) {
+		if (checkDebugLevel(5)) {
 			Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
 		}
 	}
