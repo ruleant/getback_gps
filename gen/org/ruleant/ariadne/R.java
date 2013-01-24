@@ -8,6 +8,10 @@
 package org.ruleant.ariadne;
 
 public final class R {
+    public static final class array {
+        public static final int pref_debug_level_list_titles=0x7f060000;
+        public static final int pref_debug_level_list_values=0x7f060001;
+    }
     public static final class attr {
     }
     public static final class drawable {
@@ -15,27 +19,27 @@ public final class R {
         public static final int ic_menu_refresh=0x7f020001;
     }
     public static final class id {
-        public static final int button_getLocation=0x7f080008;
-        public static final int button_getLocationProvider=0x7f080004;
-        public static final int menu_about=0x7f08000d;
-        public static final int menu_refresh=0x7f08000c;
-        public static final int menu_settings=0x7f08000a;
-        public static final int menu_storelocation=0x7f08000b;
-        public static final int textView_Location=0x7f080005;
-        public static final int textView_LocationProvider=0x7f080006;
-        public static final int textView_StoredLocation=0x7f080007;
-        public static final int textView_ToDestination=0x7f080009;
-        public static final int textview_copyright=0x7f080002;
-        public static final int textview_license=0x7f080003;
-        public static final int textview_updated=0x7f080001;
-        public static final int textview_version=0x7f080000;
+        public static final int button_getLocation=0x7f090008;
+        public static final int button_getLocationProvider=0x7f090004;
+        public static final int menu_about=0x7f09000d;
+        public static final int menu_refresh=0x7f09000c;
+        public static final int menu_settings=0x7f09000a;
+        public static final int menu_storelocation=0x7f09000b;
+        public static final int textView_Location=0x7f090005;
+        public static final int textView_LocationProvider=0x7f090006;
+        public static final int textView_StoredLocation=0x7f090007;
+        public static final int textView_ToDestination=0x7f090009;
+        public static final int textview_copyright=0x7f090002;
+        public static final int textview_license=0x7f090003;
+        public static final int textview_updated=0x7f090001;
+        public static final int textview_version=0x7f090000;
     }
     public static final class layout {
         public static final int activity_about=0x7f030000;
         public static final int activity_main=0x7f030001;
     }
     public static final class menu {
-        public static final int activity_main=0x7f070000;
+        public static final int activity_main=0x7f080000;
     }
     public static final class string {
         public static final int about=0x7f050018;
@@ -55,7 +59,6 @@ public final class R {
         public static final int longitude=0x7f050009;
         public static final int menu_settings=0x7f05001a;
         public static final int none=0x7f050002;
-        public static final int pref_default_debug_level=0x7f05001e;
         /**  Strings related to Settings 
  General settings 
          */
@@ -95,11 +98,11 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
+        public static final int AppTheme=0x7f070001;
     }
     public static final class xml {
         public static final int pref_general=0x7f040000;
