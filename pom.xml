@@ -13,6 +13,15 @@
             <version>4.1.1.4</version>
             <scope>provided</scope>
         </dependency>
+	<dependency>
+            <groupId>com.google.android</groupId>
+	    <artifactId>android-support</artifactId>
+	    <version>v4</version>
+	    <scope>system</scope>
+	    <!-- scope system shouldn't be used -->
+	    <!-- TODO : find proper way of including the android-support lib -->
+	    <systemPath>${basedir}/libs/android-support-v4.jar</systemPath>
+	</dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
