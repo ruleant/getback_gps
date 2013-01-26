@@ -20,9 +20,6 @@
  */
 package org.ruleant.ariadne;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import org.ruleant.ariadne.LocationService.LocationBinder;
 
 import android.app.Activity;
@@ -30,7 +27,6 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
@@ -59,11 +55,11 @@ public class MainActivity extends Activity {
 	/**
 	 * Current Location
 	 */
-	private Location mCurrentLocation = null;
+	private Ariadne_Location mCurrentLocation = null;
 	/**
 	 * Previously stored Location
 	 */
-	private Location mStoredLocation = null;
+	private Ariadne_Location mStoredLocation = null;
 
 	public static int DEBUG_LEVEL = 5;
 
@@ -120,7 +116,7 @@ public class MainActivity extends Activity {
 	public void renewLocation(View view) {
 		if (mBound) {
 			// manually update location (don't wait for listener to update location)
-			mCurrentLocation = mService.updateLocation();
+			mCurrentLocation = new Ariadne_Location(mService.updateLocation());
 		} else {
 			mCurrentLocation = null;
 		}
@@ -135,7 +131,7 @@ public class MainActivity extends Activity {
 	public void storeLocation(MenuItem item) {
 		if (mBound) {
 			mService.storeCurrentLocation();
-			mStoredLocation = mService.getStoredLocation();
+			mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
 		} else {
 			mStoredLocation = null;
 		}
@@ -150,8 +146,8 @@ public class MainActivity extends Activity {
 	public void refresh(MenuItem item) {
 		if (mBound) {
 			mProviderName = mService.getLocationProvider();
-			mCurrentLocation = mService.getLocation();
-			mStoredLocation = mService.getStoredLocation();
+			mCurrentLocation = new Ariadne_Location(mService.getLocation());
+			mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
 		} else {
 			mProviderName = null;
 			mCurrentLocation = null;
@@ -160,6 +156,26 @@ public class MainActivity extends Activity {
 		refreshDisplay();
 	}
 
+	/**
+	 * Called when the user clicks the About menu item
+	 *
+	 * @param item MenuItem object that was clicked
+	 */
+	public void displayAbout(MenuItem item) {
+		Intent intent = new Intent(this, AboutActivity.class);
+		startActivity(intent);
+	}
+
+	/**
+	 * Called when the user clicks the Settings menu item
+	 *
+	 * @param item MenuItem object that was clicked
+	 */
+	public void displaySettings(MenuItem item) {
+		Intent intent = new Intent(this, SettingsActivity.class);
+		startActivity(intent);
+	}
+	
 	/**
 	 * refresh display
 	 * 
@@ -184,40 +200,7 @@ public class MainActivity extends Activity {
 		if (mCurrentLocation == null) {
 			locationText += " "  + getResources().getString(R.string.unknown);
 		} else {
-			// Format location
-			locationText += " "  + getResources().getString(R.string.latitude) + ": ";
-			locationText += mCurrentLocation.getLatitude() + "°\n";
-			locationText += " "  + getResources().getString(R.string.longitude) + ": ";
-			locationText += mCurrentLocation.getLongitude() + "°\n";
-			if (mCurrentLocation.hasAltitude()) {
-				locationText += " "  + getResources().getString(R.string.altitude) + ": ";
-				locationText += mCurrentLocation.getAltitude() + "m\n";
-			}
-			if (mCurrentLocation.hasBearing()) {
-				locationText += " "  + getResources().getString(R.string.bearing) + ": ";
-				locationText += mCurrentLocation.getBearing() + "°\n";
-			}
-			if (mCurrentLocation.hasSpeed()) {
-				locationText += " "  + getResources().getString(R.string.speed) + ": ";
-				locationText += mCurrentLocation.getSpeed() + "m/s\n";
-			}
-			if (mCurrentLocation.hasAccuracy()) {
-				locationText += " "  + getResources().getString(R.string.accuracy) + ": ";
-				locationText += mCurrentLocation.getAccuracy() + "m\n";
-			}
-
-			// Format Timestamp
-			Date date = new Date(mCurrentLocation.getTime());
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
-			locationText += " "  + getResources().getString(R.string.timestamp) + ": ";
-			locationText += formatter.format(date);
-
-			// raw
-			if (DEBUG_LEVEL >= 6) {
-				locationText += "\n\n";
-				locationText += " "  + getResources().getString(R.string.raw) + ": ";
-				locationText += mCurrentLocation.toString();
-			}
+			locationText += mCurrentLocation.toString(this);
 		}
 		tv_location.setText(locationText);
 
@@ -227,18 +210,7 @@ public class MainActivity extends Activity {
 		if (mStoredLocation == null) {
 			storedLocationText += " "  + getResources().getString(R.string.unknown);
 		} else {
-			// Format location
-			storedLocationText += " "  + getResources().getString(R.string.latitude) + ": ";
-			storedLocationText += mStoredLocation.getLatitude() + "°\n";
-			storedLocationText += " "  + getResources().getString(R.string.longitude) + ": ";
-			storedLocationText += mStoredLocation.getLongitude() + "°";
-
-			// raw
-			if (DEBUG_LEVEL >= 6) {
-				storedLocationText += "\n";
-				storedLocationText += " "  + getResources().getString(R.string.raw) + ": ";
-				storedLocationText += mStoredLocation.toString();
-			}
+			storedLocationText += mStoredLocation.toString(this);
 		}
 		tv_StoredLocation.setText(storedLocationText);
 
@@ -270,8 +242,8 @@ public class MainActivity extends Activity {
 			mBound = true;
 			mProviderName = mService.getLocationProvider();
 			if (! mProviderName.isEmpty()) {
-				mCurrentLocation = mService.getLocation();
-				mStoredLocation = mService.getStoredLocation();
+				mCurrentLocation = new Ariadne_Location(mService.getLocation());
+				mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
 				refreshDisplay();
 			}
 		}

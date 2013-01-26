@@ -25,12 +25,25 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="org.ruleant.ariadne.AboutActivity"
+            android:label="@string/about"
+            android:parentActivityName="org.ruleant.ariadne.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.ruleant.ariadne.MainActivity" />
+        </activity>
 
         <service
             android:name="org.ruleant.ariadne.LocationService"
             android:enabled="true"
             android:exported="false" >
         </service>
+
+        <activity
+            android:name="org.ruleant.ariadne.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
     </application>
 
 </manifest>
