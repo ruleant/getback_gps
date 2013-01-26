@@ -55,7 +55,7 @@
 		<version>2.7.1</version>
 		<configuration>
 		    <skip>false</skip>
-		    <targetJdk>1.6</targetJdk>
+		    <targetJdk>${compile.source}</targetJdk>
 		    <!--rulesets>
 		       <ruleset>./current.pmd.rules.xml</ruleset>
 		    </rulesets-->
