@@ -40,217 +40,217 @@ import android.widget.TextView;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class MainActivity extends Activity {
-	/**
-	 * Interface to LocationService instance
-	 */
-	LocationService mService;
-	/**
-	 * Connection state with LocationService
-	 */
-	boolean mBound = false;
-	/**
-	 * Name of the LocationProvider
-	 */
-	private String mProviderName = "";
-	/**
-	 * Current Location
-	 */
-	private Ariadne_Location mCurrentLocation = null;
-	/**
-	 * Previously stored Location
-	 */
-	private Ariadne_Location mStoredLocation = null;
+    /**
+     * Interface to LocationService instance
+     */
+    LocationService mService;
+    /**
+     * Connection state with LocationService
+     */
+    boolean mBound = false;
+    /**
+     * Name of the LocationProvider
+     */
+    private String mProviderName = "";
+    /**
+     * Current Location
+     */
+    private Ariadne_Location mCurrentLocation = null;
+    /**
+     * Previously stored Location
+     */
+    private Ariadne_Location mStoredLocation = null;
 
-	public static int DEBUG_LEVEL = 5;
+    public static int DEBUG_LEVEL = 5;
 
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-	}
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
 
-	@Override
-	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
-		getMenuInflater().inflate(R.menu.activity_main, menu);
-		return true;
-	}
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main, menu);
+        return true;
+    }
 
-	@Override
-	protected void onStart() {
-		super.onStart();
-		// Bind to LocalService
-		Intent intent = new Intent(this, LocationService.class);
-		bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
-	}
+    @Override
+    protected void onStart() {
+        super.onStart();
+        // Bind to LocalService
+        Intent intent = new Intent(this, LocationService.class);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+    }
 
-	@Override
-	public void onStop() {
-		super.onStop();
-		// Unbind from the service
-		if (mBound) {
-			unbindService(mConnection);
-			mBound = false;
-		}
-	}
+    @Override
+    public void onStop() {
+        super.onStop();
+        // Unbind from the service
+        if (mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
+    }
 
-	/**
-	 * Called when the user clicks the Renew provider button
-	 *
-	 * @param view Button that was clicked
-	 */
-	public void renewProvider(View view) {
-		if (mBound) {
-			mProviderName = mService.updateLocationProvider();
-		} else {
-			mProviderName = "";
-		}
-		refreshDisplay();
-	}
+    /**
+     * Called when the user clicks the Renew provider button
+     *
+     * @param view Button that was clicked
+     */
+    public void renewProvider(View view) {
+        if (mBound) {
+            mProviderName = mService.updateLocationProvider();
+        } else {
+            mProviderName = "";
+        }
+        refreshDisplay();
+    }
 
-	/**
-	 * Called when the user clicks the Update location button
-	 *
-	 * @param view Button that was clicked
-	 */
-	public void renewLocation(View view) {
-		if (mBound) {
-			// manually update location (don't wait for listener to update location)
-			mCurrentLocation = new Ariadne_Location(mService.updateLocation());
-		} else {
-			mCurrentLocation = null;
-		}
-		refreshDisplay();
-	}
+    /**
+     * Called when the user clicks the Update location button
+     *
+     * @param view Button that was clicked
+     */
+    public void renewLocation(View view) {
+        if (mBound) {
+            // manually update location (don't wait for listener to update location)
+            mCurrentLocation = new Ariadne_Location(mService.updateLocation());
+        } else {
+            mCurrentLocation = null;
+        }
+        refreshDisplay();
+    }
 
-	/**
-	 * Called when the user clicks the Store Location menu item
-	 *
-	 * @param item MenuItem object that was clicked
-	 */
-	public void storeLocation(MenuItem item) {
-		if (mBound) {
-			mService.storeCurrentLocation();
-			mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
-		} else {
-			mStoredLocation = null;
-		}
-		refreshDisplay();
-	}
+    /**
+     * Called when the user clicks the Store Location menu item
+     *
+     * @param item MenuItem object that was clicked
+     */
+    public void storeLocation(MenuItem item) {
+        if (mBound) {
+            mService.storeCurrentLocation();
+            mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
+        } else {
+            mStoredLocation = null;
+        }
+        refreshDisplay();
+    }
 
-	/**
-	 * Called when the user clicks the refresh menu item
-	 *
-	 * @param item MenuItem object that was clicked
-	 */
-	public void refresh(MenuItem item) {
-		if (mBound) {
-			mProviderName = mService.getLocationProvider();
-			mCurrentLocation = new Ariadne_Location(mService.getLocation());
-			mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
-		} else {
-			mProviderName = null;
-			mCurrentLocation = null;
-			mStoredLocation = null;
-		}
-		refreshDisplay();
-	}
+    /**
+     * Called when the user clicks the refresh menu item
+     *
+     * @param item MenuItem object that was clicked
+     */
+    public void refresh(MenuItem item) {
+        if (mBound) {
+            mProviderName = mService.getLocationProvider();
+            mCurrentLocation = new Ariadne_Location(mService.getLocation());
+            mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
+        } else {
+            mProviderName = null;
+            mCurrentLocation = null;
+            mStoredLocation = null;
+        }
+        refreshDisplay();
+    }
 
-	/**
-	 * Called when the user clicks the About menu item
-	 *
-	 * @param item MenuItem object that was clicked
-	 */
-	public void displayAbout(MenuItem item) {
-		Intent intent = new Intent(this, AboutActivity.class);
-		startActivity(intent);
-	}
+    /**
+     * Called when the user clicks the About menu item
+     *
+     * @param item MenuItem object that was clicked
+     */
+    public void displayAbout(MenuItem item) {
+        Intent intent = new Intent(this, AboutActivity.class);
+        startActivity(intent);
+    }
 
-	/**
-	 * Called when the user clicks the Settings menu item
-	 *
-	 * @param item MenuItem object that was clicked
-	 */
-	public void displaySettings(MenuItem item) {
-		Intent intent = new Intent(this, SettingsActivity.class);
-		startActivity(intent);
-	}
-	
-	/**
-	 * refresh display
-	 * 
-	 * Refresh the values of Location Provider, Location, ...
-	 * 
-	 * @return void
-	 */
-	private void refreshDisplay() {
-		// Refresh locationProvider
-		TextView tv_provider = (TextView) findViewById(R.id.textView_LocationProvider);
-		String providerText = getResources().getString(R.string.location_provider) + ": ";
-		if (mProviderName.isEmpty()) {
-			providerText += getResources().getString(R.string.none);
-		} else {
-			providerText += mProviderName;
-		}
-		tv_provider.setText(providerText);
+    /**
+     * Called when the user clicks the Settings menu item
+     *
+     * @param item MenuItem object that was clicked
+     */
+    public void displaySettings(MenuItem item) {
+        Intent intent = new Intent(this, SettingsActivity.class);
+        startActivity(intent);
+    }
 
-		// Refresh Location
-		TextView tv_location = (TextView) findViewById(R.id.textView_Location);
-		String locationText = getResources().getString(R.string.location) + ":\n";
-		if (mCurrentLocation == null) {
-			locationText += " "  + getResources().getString(R.string.unknown);
-		} else {
-			locationText += mCurrentLocation.toString(this);
-		}
-		tv_location.setText(locationText);
+    /**
+     * refresh display
+     * 
+     * Refresh the values of Location Provider, Location, ...
+     * 
+     * @return void
+     */
+    private void refreshDisplay() {
+        // Refresh locationProvider
+        TextView tv_provider = (TextView) findViewById(R.id.textView_LocationProvider);
+        String providerText = getResources().getString(R.string.location_provider) + ": ";
+        if (mProviderName.isEmpty()) {
+            providerText += getResources().getString(R.string.none);
+        } else {
+            providerText += mProviderName;
+        }
+        tv_provider.setText(providerText);
 
-		// Refresh Stored Location
-		TextView tv_StoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
-		String storedLocationText = getResources().getString(R.string.stored_location) + ":\n";
-		if (mStoredLocation == null) {
-			storedLocationText += " "  + getResources().getString(R.string.unknown);
-		} else {
-			storedLocationText += mStoredLocation.toString(this);
-		}
-		tv_StoredLocation.setText(storedLocationText);
+        // Refresh Location
+        TextView tv_location = (TextView) findViewById(R.id.textView_Location);
+        String locationText = getResources().getString(R.string.location) + ":\n";
+        if (mCurrentLocation == null) {
+            locationText += " "  + getResources().getString(R.string.unknown);
+        } else {
+            locationText += mCurrentLocation.toString(this);
+        }
+        tv_location.setText(locationText);
 
-		// Refresh Directions to destination
-		TextView tv_ToDestination = (TextView) findViewById(R.id.textView_ToDestination);
-		String toDestinationText = getResources().getString(R.string.to_dest) + ":\n";
-		if (mStoredLocation == null || mCurrentLocation == null) {
-			toDestinationText += " "  + getResources().getString(R.string.unknown);
-		} else {
-			// Print distance and bearing
-			toDestinationText += " "  + getResources().getString(R.string.distance) + ": ";
-			toDestinationText += mService.getDistance() + "m\n";
-			toDestinationText += " "  + getResources().getString(R.string.bearing) + ": ";
-			toDestinationText += mService.getBearing() + "°";
-		}
-		tv_ToDestination.setText(toDestinationText);
-	}
+        // Refresh Stored Location
+        TextView tv_StoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
+        String storedLocationText = getResources().getString(R.string.stored_location) + ":\n";
+        if (mStoredLocation == null) {
+            storedLocationText += " "  + getResources().getString(R.string.unknown);
+        } else {
+            storedLocationText += mStoredLocation.toString(this);
+        }
+        tv_StoredLocation.setText(storedLocationText);
 
-	/**
-	 * Defines callbacks for service binding, passed to bindService()
-	 */
-	private ServiceConnection mConnection = new ServiceConnection() {
+        // Refresh Directions to destination
+        TextView tv_ToDestination = (TextView) findViewById(R.id.textView_ToDestination);
+        String toDestinationText = getResources().getString(R.string.to_dest) + ":\n";
+        if (mStoredLocation == null || mCurrentLocation == null) {
+            toDestinationText += " "  + getResources().getString(R.string.unknown);
+        } else {
+            // Print distance and bearing
+            toDestinationText += " "  + getResources().getString(R.string.distance) + ": ";
+            toDestinationText += mService.getDistance() + "m\n";
+            toDestinationText += " "  + getResources().getString(R.string.bearing) + ": ";
+            toDestinationText += mService.getBearing() + "°";
+        }
+        tv_ToDestination.setText(toDestinationText);
+    }
 
-		@Override
-		public void onServiceConnected(ComponentName className, IBinder service) {
-			// We've bound to LocalService, cast the IBinder and get LocalService instance
-			LocationBinder binder = (LocationBinder) service;
-			mService = binder.getService();
-			mBound = true;
-			mProviderName = mService.getLocationProvider();
-			if (! mProviderName.isEmpty()) {
-				mCurrentLocation = new Ariadne_Location(mService.getLocation());
-				mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
-				refreshDisplay();
-			}
-		}
+    /**
+     * Defines callbacks for service binding, passed to bindService()
+     */
+    private ServiceConnection mConnection = new ServiceConnection() {
 
-		@Override
-		public void onServiceDisconnected(ComponentName arg0) {
-			mBound = false;
-		}
-	};
+        @Override
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            // We've bound to LocalService, cast the IBinder and get LocalService instance
+            LocationBinder binder = (LocationBinder) service;
+            mService = binder.getService();
+            mBound = true;
+            mProviderName = mService.getLocationProvider();
+            if (! mProviderName.isEmpty()) {
+                mCurrentLocation = new Ariadne_Location(mService.getLocation());
+                mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
+                refreshDisplay();
+            }
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mBound = false;
+        }
+    };
 }

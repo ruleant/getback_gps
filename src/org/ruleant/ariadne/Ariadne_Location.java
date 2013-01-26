@@ -35,70 +35,70 @@ import android.location.Location;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Ariadne_Location extends Location {
-	/**
-	 * Constructor
-	 *
-	 * @param provider
-	 */
-	public Ariadne_Location(String provider) {
-		super (provider);
-	}
-	
-	/**
-	 * Constructor
-	 *
-	 * @param location
-	 */
-	public Ariadne_Location(Location location) {
-		super (location);
-	}
+    /**
+     * Constructor
+     *
+     * @param provider
+     */
+    public Ariadne_Location(String provider) {
+        super (provider);
+    }
 
-	/**
-	 * Overrides the toString() method, implementing a formatted String
-	 *
-	 * @param context Context of the application
-	 * @return String
-	 */
-	public String toString(Context context) {
-		String locationText = "";
+    /**
+     * Constructor
+     *
+     * @param location
+     */
+    public Ariadne_Location(Location location) {
+        super (location);
+    }
 
-		// Format location
-		locationText += " "  + context.getResources().getString(R.string.latitude) + ": ";
-		locationText += getLatitude() + "°\n";
-		locationText += " "  + context.getResources().getString(R.string.longitude) + ": ";
-		locationText += getLongitude() + "°\n";
-		if (hasAltitude()) {
-			locationText += " "  + context.getResources().getString(R.string.altitude) + ": ";
-			locationText += getAltitude() + "m\n";
-		}
-		if (hasBearing()) {
-			locationText += " "  + context.getResources().getString(R.string.bearing) + ": ";
-			locationText += getBearing() + "°\n";
-		}
-		if (hasSpeed()) {
-			locationText += " "  + context.getResources().getString(R.string.speed) + ": ";
-			locationText += getSpeed() + "m/s\n";
-		}
-		if (hasAccuracy()) {
-			locationText += " "  + context.getResources().getString(R.string.accuracy) + ": ";
-			locationText += getAccuracy() + "m\n";
-		}
+    /**
+     * Overrides the toString() method, implementing a formatted String
+     *
+     * @param context Context of the application
+     * @return String
+     */
+    public String toString(Context context) {
+        String locationText = "";
 
-		// Format Timestamp
-		if (getTime() > 0) {
-			Date date = new Date(getTime());
-			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
-			locationText += " "  + context.getResources().getString(R.string.timestamp) + ": ";
-			locationText += formatter.format(date);
-		}
+        // Format location
+        locationText += " "  + context.getResources().getString(R.string.latitude) + ": ";
+        locationText += getLatitude() + "°\n";
+        locationText += " "  + context.getResources().getString(R.string.longitude) + ": ";
+        locationText += getLongitude() + "°\n";
+        if (hasAltitude()) {
+            locationText += " "  + context.getResources().getString(R.string.altitude) + ": ";
+            locationText += getAltitude() + "m\n";
+        }
+        if (hasBearing()) {
+            locationText += " "  + context.getResources().getString(R.string.bearing) + ": ";
+            locationText += getBearing() + "°\n";
+        }
+        if (hasSpeed()) {
+            locationText += " "  + context.getResources().getString(R.string.speed) + ": ";
+            locationText += getSpeed() + "m/s\n";
+        }
+        if (hasAccuracy()) {
+            locationText += " "  + context.getResources().getString(R.string.accuracy) + ": ";
+            locationText += getAccuracy() + "m\n";
+        }
 
-		// raw
-		if (MainActivity.DEBUG_LEVEL >= 6) {
-			locationText += "\n\n";
-			locationText += " "  + context.getResources().getString(R.string.raw) + ": ";
-			locationText += super.toString();
-		}
+        // Format Timestamp
+        if (getTime() > 0) {
+            Date date = new Date(getTime());
+            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
+            locationText += " "  + context.getResources().getString(R.string.timestamp) + ": ";
+            locationText += formatter.format(date);
+        }
 
-		return locationText;
-	}
+        // raw
+        if (MainActivity.DEBUG_LEVEL >= 6) {
+            locationText += "\n\n";
+            locationText += " "  + context.getResources().getString(R.string.raw) + ": ";
+            locationText += super.toString();
+        }
+
+        return locationText;
+    }
 }

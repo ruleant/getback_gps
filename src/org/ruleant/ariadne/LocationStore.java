@@ -36,113 +36,113 @@ import android.location.Location;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationStore {
-	/**
-	 * Context of App
-	 */
-	private Context mContext;
-	/**
-	 * Selected Location
-	 */
-	private Location mLocation;
-	/**
-	 * SharedPreference object
-	 */
-	private SharedPreferences mPrefs;
-	/**
-	 * SharedPreferences location for LocationStore class
-	 */
-	public static final String PREFS_STORE_LOC = "LocationStore";
-	/**
-	 * name of Longitude object in SharedPreferences
-	 */
-	private static final String LONGITUDE = "Longitude";
-	/**
-	 * name of Latitude object in SharedPreferences
-	 */
-	private static final String LATITUDE = "Latitude";
+    /**
+     * Context of App
+     */
+    private Context mContext;
+    /**
+     * Selected Location
+     */
+    private Location mLocation;
+    /**
+     * SharedPreference object
+     */
+    private SharedPreferences mPrefs;
+    /**
+     * SharedPreferences location for LocationStore class
+     */
+    public static final String PREFS_STORE_LOC = "LocationStore";
+    /**
+     * name of Longitude object in SharedPreferences
+     */
+    private static final String LONGITUDE = "Longitude";
+    /**
+     * name of Latitude object in SharedPreferences
+     */
+    private static final String LATITUDE = "Latitude";
 
-	/**
-	 * Constructor
-	 *
-	 * @param context Context of the Android app
-	 */
-	public LocationStore(Context context) {
-		mContext = context;
-		mLocation = new Location("stored");
-		mPrefs = mContext.getSharedPreferences(PREFS_STORE_LOC, Context.MODE_PRIVATE);
+    /**
+     * Constructor
+     *
+     * @param context Context of the Android app
+     */
+    public LocationStore(Context context) {
+        mContext = context;
+        mLocation = new Location("stored");
+        mPrefs = mContext.getSharedPreferences(PREFS_STORE_LOC, Context.MODE_PRIVATE);
 
-		restore();
-	}
+        restore();
+    }
 
-	/**
-	 * Get Location
-	 *
-	 * @return Location location
-	 */
-	public Location getLocation() {
-		return mLocation;
-	}
+    /**
+     * Get Location
+     *
+     * @return Location location
+     */
+    public Location getLocation() {
+        return mLocation;
+    }
 
-	/**
-	 * Set Location
-	 *
-	 * @param location New location
-	 */
-	public void setLocation(Location location) {
-		mLocation = location;
-	}
+    /**
+     * Set Location
+     *
+     * @param location New location
+     */
+    public void setLocation(Location location) {
+        mLocation = location;
+    }
 
-	/**
-	 * Save stored location in Shared Preferences
-	 */
-	public void save() {
-		// don't save if mLocation is not set
-		if (mLocation == null) {
-			return;
-		}
+    /**
+     * Save stored location in Shared Preferences
+     */
+    public void save() {
+        // don't save if mLocation is not set
+        if (mLocation == null) {
+            return;
+        }
 
-		/* set Locale temporary to US to avoid Android bug 5734
+        /* set Locale temporary to US to avoid Android bug 5734
 		   https://code.google.com/p/android/issues/detail?id=5734
 		   Location.convert(String) is localization independent, so it throws an exception
 		   when a parameter contains a "," instead of a "." as decimal separator
 		   changing the local to US, converts the double to a string with a "."
-		 */
-		Locale originalLocale = Locale.getDefault();
-		Locale.setDefault(Locale.US);
+         */
+        Locale originalLocale = Locale.getDefault();
+        Locale.setDefault(Locale.US);
 
-		// save location to a SharedPreferences file
-		SharedPreferences.Editor editor = mPrefs.edit();
-		editor.putString(
-				LONGITUDE,
-				Location.convert(mLocation.getLongitude(), Location.FORMAT_DEGREES)
-				);
-		editor.putString(
-				LATITUDE,
-				Location.convert(mLocation.getLatitude(), Location.FORMAT_DEGREES)
-				);
-		// Commit the edits!
-		editor.commit();
+        // save location to a SharedPreferences file
+        SharedPreferences.Editor editor = mPrefs.edit();
+        editor.putString(
+                LONGITUDE,
+                Location.convert(mLocation.getLongitude(), Location.FORMAT_DEGREES)
+                );
+        editor.putString(
+                LATITUDE,
+                Location.convert(mLocation.getLatitude(), Location.FORMAT_DEGREES)
+                );
+        // Commit the edits!
+        editor.commit();
 
-		// set default locale back to original, workaround for Android bug 5734
-		Locale.setDefault(originalLocale);
-	}
+        // set default locale back to original, workaround for Android bug 5734
+        Locale.setDefault(originalLocale);
+    }
 
-	/**
-	 * Restore stored location from Shared Preferences
-	 *
-	 * @return Location location retrieved from Preferences
-	 */
-	public Location restore() {
-		// restore location from a SharedPreferences file
-		try {
-			mLocation.setLongitude(Location.convert(mPrefs.getString(LONGITUDE, "0.0")));
-			mLocation.setLatitude(Location.convert(mPrefs.getString(LATITUDE, "0.0")));
-		} catch (IllegalArgumentException e) {
-			e.printStackTrace();
-			mLocation.setLongitude(0);
-			mLocation.setLatitude(0);
-		}
+    /**
+     * Restore stored location from Shared Preferences
+     *
+     * @return Location location retrieved from Preferences
+     */
+    public Location restore() {
+        // restore location from a SharedPreferences file
+        try {
+            mLocation.setLongitude(Location.convert(mPrefs.getString(LONGITUDE, "0.0")));
+            mLocation.setLatitude(Location.convert(mPrefs.getString(LATITUDE, "0.0")));
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+            mLocation.setLongitude(0);
+            mLocation.setLatitude(0);
+        }
 
-		return mLocation;
-	}
+        return mLocation;
+    }
 }
