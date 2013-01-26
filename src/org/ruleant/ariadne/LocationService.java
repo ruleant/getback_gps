@@ -43,297 +43,297 @@ import android.widget.Toast;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {
-	/*
-	 * Binder given to clients
-	 */
-	private final IBinder mBinder = new LocationBinder();
-	/*
-	 * LocationManager instance
-	 */
-	private LocationManager mLocationManager;
-	/**
-	 * Name of the LocationProvider
-	 */
-	private String mProviderName = "";
-	/**
-	 * Current Location
-	 */
-	private Location mCurrentLocation = null;
-	/**
-	 * Previous Location
-	 */
-	private Location mPreviousLocation = null;
-	/**
-	 * Previously stored Location
-	 */
-	private LocationStore mStoredLocation;
+    /*
+     * Binder given to clients
+     */
+    private final IBinder mBinder = new LocationBinder();
+    /*
+     * LocationManager instance
+     */
+    private LocationManager mLocationManager;
+    /**
+     * Name of the LocationProvider
+     */
+    private String mProviderName = "";
+    /**
+     * Current Location
+     */
+    private Location mCurrentLocation = null;
+    /**
+     * Previous Location
+     */
+    private Location mPreviousLocation = null;
+    /**
+     * Previously stored Location
+     */
+    private LocationStore mStoredLocation;
 
-	private static final int TEN_SECONDS = 10000;
-	private static final int TEN_METERS = 10;
+    private static final int TEN_SECONDS = 10000;
+    private static final int TEN_METERS = 10;
 
-	@Override
-	public void onCreate() {
-		if (checkDebugLevel(9)) {
-			Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
-		}
-		mLocationManager =
-				(LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
-		mStoredLocation = new LocationStore(this.getApplicationContext());
+    @Override
+    public void onCreate() {
+        if (checkDebugLevel(9)) {
+            Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
+        }
+        mLocationManager =
+                (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        mStoredLocation = new LocationStore(this.getApplicationContext());
 
-		if (! updateLocationProvider().isEmpty()) {
-			setLocation(requestUpdatesFromProvider(mProviderName));
-		}
-	}
+        if (! updateLocationProvider().isEmpty()) {
+            setLocation(requestUpdatesFromProvider(mProviderName));
+        }
+    }
 
-	@Override
-	public int onStartCommand(Intent intent, int flags, int startId) {
-		// The service is starting, due to a call to startService()
-		return START_NOT_STICKY;
-	}
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        // The service is starting, due to a call to startService()
+        return START_NOT_STICKY;
+    }
 
-	@Override
-	public IBinder onBind(Intent intent) {
-		if (checkDebugLevel(9)) {
-			Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
-		}
-		return mBinder;
-	}
+    @Override
+    public IBinder onBind(Intent intent) {
+        if (checkDebugLevel(9)) {
+            Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
+        }
+        return mBinder;
+    }
 
-	@Override
-	public boolean onUnbind(Intent intent) {
-		if (checkDebugLevel(9)) {
-			Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
-		}
-		// don't allow rebind
-		return false;
-	}
+    @Override
+    public boolean onUnbind(Intent intent) {
+        if (checkDebugLevel(9)) {
+            Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
+        }
+        // don't allow rebind
+        return false;
+    }
 
-	/**
-	 * Class used for the client Binder.  Because we know this service always
-	 * runs in the same process as its clients, we don't need to deal with IPC.
-	 */
-	public class LocationBinder extends Binder {
-		LocationService getService() {
-			// Return this instance of LocationService so clients can call public methods
-			return LocationService.this;
-		}
-	}
+    /**
+     * Class used for the client Binder.  Because we know this service always
+     * runs in the same process as its clients, we don't need to deal with IPC.
+     */
+    public class LocationBinder extends Binder {
+        LocationService getService() {
+            // Return this instance of LocationService so clients can call public methods
+            return LocationService.this;
+        }
+    }
 
-	@Override
-	public void onDestroy() {
-		// The service is no longer used and is being destroyed
-		mLocationManager.removeUpdates(mListener);
-		mStoredLocation.save();
-		mCurrentLocation = null;
-		mPreviousLocation = null;
-		mProviderName = "";
-		mLocationManager = null;
-		mStoredLocation = null;
-		if (checkDebugLevel(9)) {
-			Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
-		}
-	}
+    @Override
+    public void onDestroy() {
+        // The service is no longer used and is being destroyed
+        mLocationManager.removeUpdates(mListener);
+        mStoredLocation.save();
+        mCurrentLocation = null;
+        mPreviousLocation = null;
+        mProviderName = "";
+        mLocationManager = null;
+        mStoredLocation = null;
+        if (checkDebugLevel(9)) {
+            Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-	/**
-	 * Retrieve Location Provider
-	 *
-	 * Define best location provider based on certain criteria
-	 *
-	 * @return String
-	 */
-	public String updateLocationProvider() {
-		// Retrieve a list of location providers that have fine accuracy, no monetary cost, etc
-		// TODO : define criteria in settings
-		Criteria criteria = new Criteria();
-		criteria.setAccuracy(Criteria.ACCURACY_FINE);
-		criteria.setCostAllowed(false);
-		criteria.setPowerRequirement(Criteria.POWER_LOW);
+    /**
+     * Retrieve Location Provider
+     *
+     * Define best location provider based on certain criteria
+     *
+     * @return String
+     */
+    public String updateLocationProvider() {
+        // Retrieve a list of location providers that have fine accuracy, no monetary cost, etc
+        // TODO : define criteria in settings
+        Criteria criteria = new Criteria();
+        criteria.setAccuracy(Criteria.ACCURACY_FINE);
+        criteria.setCostAllowed(false);
+        criteria.setPowerRequirement(Criteria.POWER_LOW);
 
-		if (mLocationManager != null) {
-			mProviderName = mLocationManager.getBestProvider(criteria, true);
-		}
+        if (mLocationManager != null) {
+            mProviderName = mLocationManager.getBestProvider(criteria, true);
+        }
 
-		return mProviderName;
-	}
+        return mProviderName;
+    }
 
-	/**
-	 * Set Location
-	 *
-	 * Update location
-	 *
-	 * @param location New location
-	 */
-	public void setLocation(Location location) {
-		// don't update location if no location is provided,
-		// or if new location is the same as the previous one
-		if (location == null
-			|| (mCurrentLocation != null
-			&& location.getTime() == mCurrentLocation.getTime()
-			&& location.getProvider() == mCurrentLocation.getProvider())
-		) {
-			return;
-		}
-		mPreviousLocation = mCurrentLocation;
-		mCurrentLocation = location;
+    /**
+     * Set Location
+     *
+     * Update location
+     *
+     * @param location New location
+     */
+    public void setLocation(Location location) {
+        // don't update location if no location is provided,
+        // or if new location is the same as the previous one
+        if (location == null
+                || (mCurrentLocation != null
+                && location.getTime() == mCurrentLocation.getTime()
+                && location.getProvider() == mCurrentLocation.getProvider())
+                ) {
+            return;
+        }
+        mPreviousLocation = mCurrentLocation;
+        mCurrentLocation = location;
 
-		// display message on update
-		if (checkDebugLevel(5)) {
-			Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
-		}
-	}
+        // display message on update
+        if (checkDebugLevel(5)) {
+            Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
+        }
+    }
 
-	/**
-	 * Retrieve Location
-	 *
-	 * Get last known location
-	 *
-	 * @return Location
-	 */
-	public Location getLocation() {
-		return mCurrentLocation;
-	}
+    /**
+     * Retrieve Location
+     *
+     * Get last known location
+     *
+     * @return Location
+     */
+    public Location getLocation() {
+        return mCurrentLocation;
+    }
 
-	/**
-	 * Retrieve Location Provider
-	 *
-	 * @return String current location provider
-	 */
-	public String getLocationProvider() {
-		return mProviderName;
-	}
+    /**
+     * Retrieve Location Provider
+     *
+     * @return String current location provider
+     */
+    public String getLocationProvider() {
+        return mProviderName;
+    }
 
-	/**
-	 * update Location
-	 *
-	 * Force location update, using getLastKnownLocation()
-	 *
-	 * @return Location
-	 */
-	public Location updateLocation() {
-		if (mLocationManager == null || mProviderName.isEmpty()) {
-			return null;
-		}
-		// update location using getLastKnownLocation, don't wait for listener update
-		setLocation(mLocationManager.getLastKnownLocation(mProviderName));
+    /**
+     * update Location
+     *
+     * Force location update, using getLastKnownLocation()
+     *
+     * @return Location
+     */
+    public Location updateLocation() {
+        if (mLocationManager == null || mProviderName.isEmpty()) {
+            return null;
+        }
+        // update location using getLastKnownLocation, don't wait for listener update
+        setLocation(mLocationManager.getLastKnownLocation(mProviderName));
 
-		return mCurrentLocation;
-	}
+        return mCurrentLocation;
+    }
 
-	/**
-	 * Store current location
-	 */
-	public void storeCurrentLocation() {
-		// don't store current location if it is not set
-		if (mCurrentLocation != null) {
-			mStoredLocation.setLocation(mCurrentLocation);
-		}
-	}
+    /**
+     * Store current location
+     */
+    public void storeCurrentLocation() {
+        // don't store current location if it is not set
+        if (mCurrentLocation != null) {
+            mStoredLocation.setLocation(mCurrentLocation);
+        }
+    }
 
-	/**
-	 * Get stored location
-	 *
-	 * @return Location
-	 */
-	public Location getStoredLocation() {
-		return mStoredLocation.getLocation();
-	}
+    /**
+     * Get stored location
+     *
+     * @return Location
+     */
+    public Location getStoredLocation() {
+        return mStoredLocation.getLocation();
+    }
 
-	/**
-	 * Get distance to stored location
-	 *
-	 * @return float distance in meters
-	 */
-	public float getDistance() {
-		// don't calculate distance if current location is not set
-		if (mCurrentLocation == null) {
-			return 0;
-		}
-		return mCurrentLocation.distanceTo(getStoredLocation());
-	}
+    /**
+     * Get distance to stored location
+     *
+     * @return float distance in meters
+     */
+    public float getDistance() {
+        // don't calculate distance if current location is not set
+        if (mCurrentLocation == null) {
+            return 0;
+        }
+        return mCurrentLocation.distanceTo(getStoredLocation());
+    }
 
-	/**
-	 * Get bearing to stored location
-	 *
-	 * @return float distance in meters
-	 */
-	public float getBearing() {
-		// don't calculate bearing if current location is not set
-		if (mCurrentLocation == null) {
-			return 0;
-		}
-		float relativeBearing = mCurrentLocation.bearingTo(getStoredLocation());
-		float currentBearing = 0;
-		if (mCurrentLocation.hasBearing()) {
-			currentBearing = mCurrentLocation.getBearing();
-		} else {
-			// don't calculate current bearing if previous location is not set
-			// current location was checked earlier
-			if (mPreviousLocation != null) {
-				currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
-			}
-		}
-		return relativeBearing - currentBearing;
-	}
+    /**
+     * Get bearing to stored location
+     *
+     * @return float distance in meters
+     */
+    public float getBearing() {
+        // don't calculate bearing if current location is not set
+        if (mCurrentLocation == null) {
+            return 0;
+        }
+        float relativeBearing = mCurrentLocation.bearingTo(getStoredLocation());
+        float currentBearing = 0;
+        if (mCurrentLocation.hasBearing()) {
+            currentBearing = mCurrentLocation.getBearing();
+        } else {
+            // don't calculate current bearing if previous location is not set
+            // current location was checked earlier
+            if (mPreviousLocation != null) {
+                currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
+            }
+        }
+        return relativeBearing - currentBearing;
+    }
 
-	/**
-	 * Check if the current Debuglevel is set to the needed level
-	 *
-	 * @param debugLevel Debug level to check
-	 * @return true if debugLevel if current debugLevel is at least the needed level
-	 */
-	public boolean checkDebugLevel(int debugLevel) {
-		SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-		String prefDebugLevel = sharedPref.getString(SettingsActivity.PREF_DEBUG_LEVEL, "0");
+    /**
+     * Check if the current Debuglevel is set to the needed level
+     *
+     * @param debugLevel Debug level to check
+     * @return true if debugLevel if current debugLevel is at least the needed level
+     */
+    public boolean checkDebugLevel(int debugLevel) {
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        String prefDebugLevel = sharedPref.getString(SettingsActivity.PREF_DEBUG_LEVEL, "0");
 
-		int currentDebugLevel = Integer.parseInt(prefDebugLevel);
+        int currentDebugLevel = Integer.parseInt(prefDebugLevel);
 
-		return (currentDebugLevel >= debugLevel);
-	}
-	/**
-	 * Method to register location updates with a desired location provider.  If the requested
-	 * provider is not available on the device, the app displays a Toast with a message referenced
-	 * by a resource id.
-	 *
-	 * @param provider Name of the requested provider.
-	 * @param errorResId Resource id for the string message to be displayed if the provider does
-	 *                   not exist on the device.
-	 * @return A previously returned {@link android.location.Location} from the requested provider,
-	 *         if exists.
-	 */
-	private Location requestUpdatesFromProvider(final String provider) {
-		Location location = null;
-		if (mLocationManager.isProviderEnabled(provider)) {
-			// TODO : define criteria in settings
-			mLocationManager.requestLocationUpdates(provider, TEN_SECONDS, TEN_METERS, mListener);
-			location = mLocationManager.getLastKnownLocation(provider);
-		} else {
-			Toast.makeText(this, R.string.provider_no_support, Toast.LENGTH_LONG).show();
-		}
-		return location;
-	}
+        return (currentDebugLevel >= debugLevel);
+    }
+    /**
+     * Method to register location updates with a desired location provider.  If the requested
+     * provider is not available on the device, the app displays a Toast with a message referenced
+     * by a resource id.
+     *
+     * @param provider Name of the requested provider.
+     * @param errorResId Resource id for the string message to be displayed if the provider does
+     *                   not exist on the device.
+     * @return A previously returned {@link android.location.Location} from the requested provider,
+     *         if exists.
+     */
+    private Location requestUpdatesFromProvider(final String provider) {
+        Location location = null;
+        if (mLocationManager.isProviderEnabled(provider)) {
+            // TODO : define criteria in settings
+            mLocationManager.requestLocationUpdates(provider, TEN_SECONDS, TEN_METERS, mListener);
+            location = mLocationManager.getLastKnownLocation(provider);
+        } else {
+            Toast.makeText(this, R.string.provider_no_support, Toast.LENGTH_LONG).show();
+        }
+        return location;
+    }
 
-	/**
-	 * Listener object to connect with LocationManager and retrieve updates
-	 */
-	private final LocationListener mListener = new LocationListener() {
+    /**
+     * Listener object to connect with LocationManager and retrieve updates
+     */
+    private final LocationListener mListener = new LocationListener() {
 
-		@Override
-		public void onLocationChanged(Location location) {
-			// When new location update is received, update current location
-			setLocation(location);
-			// TODO : notify bound Activities of Location Update
-		}
+        @Override
+        public void onLocationChanged(Location location) {
+            // When new location update is received, update current location
+            setLocation(location);
+            // TODO : notify bound Activities of Location Update
+        }
 
-		@Override
-		public void onProviderDisabled(String provider) {
-		}
+        @Override
+        public void onProviderDisabled(String provider) {
+        }
 
-		@Override
-		public void onProviderEnabled(String provider) {
-		}
+        @Override
+        public void onProviderEnabled(String provider) {
+        }
 
-		@Override
-		public void onStatusChanged(String provider, int status, Bundle extras) {
-		}
-	};
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    };
 }
