@@ -241,7 +241,7 @@ public class MainActivity extends Activity {
             mService = binder.getService();
             mBound = true;
             mProviderName = mService.getLocationProvider();
-            if (! mProviderName.isEmpty()) {
+            if (!mProviderName.isEmpty()) {
                 mCurrentLocation = new Ariadne_Location(mService.getLocation());
                 mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
                 refreshDisplay();

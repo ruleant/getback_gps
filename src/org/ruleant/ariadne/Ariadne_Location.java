@@ -41,7 +41,7 @@ public class Ariadne_Location extends Location {
      * @param provider
      */
     public Ariadne_Location(String provider) {
-        super (provider);
+        super(provider);
     }
 
     /**
@@ -50,7 +50,7 @@ public class Ariadne_Location extends Location {
      * @param location
      */
     public Ariadne_Location(Location location) {
-        super (location);
+        super(location);
     }
 
     /**

@@ -80,7 +80,7 @@ public class LocationService extends Service {
                 (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         mStoredLocation = new LocationStore(this.getApplicationContext());
 
-        if (! updateLocationProvider().isEmpty()) {
+        if (!updateLocationProvider().isEmpty()) {
             setLocation(requestUpdatesFromProvider(mProviderName));
         }
     }
