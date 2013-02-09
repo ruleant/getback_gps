@@ -75,10 +75,10 @@ public class LocationService extends Service {
 
     @Override
     public void onCreate() {
-        // Display time when in debug mode
-        Debug mDebug = new Debug(this);
+        // Create debug class instance
+        mDebug = new Debug(this);
 
-        if (mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
         mLocationManager =
@@ -98,7 +98,7 @@ public class LocationService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        if (mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
         return mBinder;
@@ -106,7 +106,7 @@ public class LocationService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        if (mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
         // don't allow rebind
@@ -134,9 +134,10 @@ public class LocationService extends Service {
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
-        if (mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
+        mDebug = null;
     }
 
     /**
@@ -182,7 +183,7 @@ public class LocationService extends Service {
         mCurrentLocation = location;
 
         // display message on update
-        if (mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)) {
             Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
         }
     }
