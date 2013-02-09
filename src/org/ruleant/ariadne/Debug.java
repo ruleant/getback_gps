@@ -84,7 +84,7 @@ public class Debug {
       * @return current debugLevel
       */
      public int getDebugLevel() {
-         if (mContext != null) {
+         if (mContext == null) {
              return 0;
          }
          
