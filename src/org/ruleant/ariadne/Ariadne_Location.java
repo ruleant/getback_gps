@@ -92,8 +92,9 @@ public class Ariadne_Location extends Location {
             locationText += formatter.format(date);
         }
 
-        // raw
-        if (MainActivity.DEBUG_LEVEL >= 6) {
+        // Display raw when in debug mode
+        Debug debug = new Debug(context);
+        if (debug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             locationText += "\n\n";
             locationText += " "  + context.getResources().getString(R.string.raw) + ": ";
             locationText += super.toString();
