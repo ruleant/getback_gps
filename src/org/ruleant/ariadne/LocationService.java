@@ -73,7 +73,7 @@ public class LocationService extends Service {
 
     @Override
     public void onCreate() {
-        if (checkDebugLevel(9)) {
+        if (checkDebugLevel(SettingsActivity.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
         mLocationManager =
@@ -93,7 +93,7 @@ public class LocationService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        if (checkDebugLevel(9)) {
+        if (checkDebugLevel(SettingsActivity.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
         return mBinder;
@@ -101,7 +101,7 @@ public class LocationService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        if (checkDebugLevel(9)) {
+        if (checkDebugLevel(SettingsActivity.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
         // don't allow rebind
@@ -129,7 +129,7 @@ public class LocationService extends Service {
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
-        if (checkDebugLevel(9)) {
+        if (checkDebugLevel(SettingsActivity.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
     }
@@ -177,7 +177,7 @@ public class LocationService extends Service {
         mCurrentLocation = location;
 
         // display message on update
-        if (checkDebugLevel(5)) {
+        if (checkDebugLevel(SettingsActivity.DEBUG_LEVEL_MEDIUM)) {
             Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
         }
     }
@@ -289,6 +289,7 @@ public class LocationService extends Service {
 
         return (currentDebugLevel >= debugLevel);
     }
+
     /**
      * Method to register location updates with a desired location provider.  If the requested
      * provider is not available on the device, the app displays a Toast with a message referenced
