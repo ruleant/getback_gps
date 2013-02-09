@@ -33,12 +33,6 @@ public class SettingsActivity extends PreferenceActivity {
      */
     private static final boolean ALWAYS_SIMPLE_PREFS = false;
 
-    public static final String PREF_DEBUG_LEVEL = "debug_level";
-    public static final int DEBUG_LEVEL_OFF = 0;
-    public static final int DEBUG_LEVEL_LOW = 1;
-    public static final int DEBUG_LEVEL_MEDIUM = 2;
-    public static final int DEBUG_LEVEL_HIGH = 3;
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

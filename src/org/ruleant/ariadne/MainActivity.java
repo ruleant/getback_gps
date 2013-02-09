@@ -61,8 +61,6 @@ public class MainActivity extends Activity {
      */
     private Ariadne_Location mStoredLocation = null;
 
-    public static int DEBUG_LEVEL = 5;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
