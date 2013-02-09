@@ -61,8 +61,6 @@ public class MainActivity extends Activity {
      */
     private Ariadne_Location mStoredLocation = null;
 
-    public static int DEBUG_LEVEL = 5;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -195,27 +193,27 @@ public class MainActivity extends Activity {
         tv_provider.setText(providerText);
 
         // Refresh Location
-        TextView tv_location = (TextView) findViewById(R.id.textView_Location);
+        TextView tvLocation = (TextView) findViewById(R.id.textView_Location);
         String locationText = getResources().getString(R.string.location) + ":\n";
         if (mCurrentLocation == null) {
             locationText += " "  + getResources().getString(R.string.unknown);
         } else {
             locationText += mCurrentLocation.toString(this);
         }
-        tv_location.setText(locationText);
+        tvLocation.setText(locationText);
 
         // Refresh Stored Location
-        TextView tv_StoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
+        TextView tvStoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
         String storedLocationText = getResources().getString(R.string.stored_location) + ":\n";
         if (mStoredLocation == null) {
             storedLocationText += " "  + getResources().getString(R.string.unknown);
         } else {
             storedLocationText += mStoredLocation.toString(this);
         }
-        tv_StoredLocation.setText(storedLocationText);
+        tvStoredLocation.setText(storedLocationText);
 
         // Refresh Directions to destination
-        TextView tv_ToDestination = (TextView) findViewById(R.id.textView_ToDestination);
+        TextView tvToDestination = (TextView) findViewById(R.id.textView_ToDestination);
         String toDestinationText = getResources().getString(R.string.to_dest) + ":\n";
         if (mStoredLocation == null || mCurrentLocation == null) {
             toDestinationText += " "  + getResources().getString(R.string.unknown);
@@ -226,7 +224,7 @@ public class MainActivity extends Activity {
             toDestinationText += " "  + getResources().getString(R.string.bearing) + ": ";
             toDestinationText += mService.getBearing() + "°";
         }
-        tv_ToDestination.setText(toDestinationText);
+        tvToDestination.setText(toDestinationText);
     }
 
     /**
@@ -241,7 +239,7 @@ public class MainActivity extends Activity {
             mService = binder.getService();
             mBound = true;
             mProviderName = mService.getLocationProvider();
-            if (! mProviderName.isEmpty()) {
+            if (!mProviderName.isEmpty()) {
                 mCurrentLocation = new Ariadne_Location(mService.getLocation());
                 mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
                 refreshDisplay();

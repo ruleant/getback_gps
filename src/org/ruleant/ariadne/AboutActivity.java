@@ -20,7 +20,10 @@ public class AboutActivity extends Activity {
         setContentView(R.layout.activity_about);
 
         String dateFormat = "yyyy-MM-dd";
-        if (MainActivity.DEBUG_LEVEL >= 1) {
+
+        // Display time when in debug mode
+        Debug debug = new Debug(this);
+        if (debug.checkDebugLevel(Debug.DEBUG_LEVEL_LOW)) {
             dateFormat = "yyyy-MM-dd'T'HH:mm:ssz";
         }
         String versionName = "";
@@ -38,22 +41,22 @@ public class AboutActivity extends Activity {
         }
 
         // Version text view
-        TextView tv_version = (TextView) findViewById(R.id.textview_version);
-        tv_version.setText(getResources().getString(R.string.version) + ": " + versionName);
+        TextView tvVersion = (TextView) findViewById(R.id.textview_version);
+        tvVersion.setText(getResources().getString(R.string.version) + ": " + versionName);
 
         // Updated text view
-        TextView tv_updated = (TextView) findViewById(R.id.textview_updated);
-        tv_updated.setText(getResources().getString(R.string.updated) + ": " + lastUpdated);
+        TextView tvUpdated = (TextView) findViewById(R.id.textview_updated);
+        tvUpdated.setText(getResources().getString(R.string.updated) + ": " + lastUpdated);
 
         // Copyright text view
-        TextView tv_copyright = (TextView) findViewById(R.id.textview_copyright);
+        TextView tvCopyright = (TextView) findViewById(R.id.textview_copyright);
         // enable HTML links
-        tv_copyright.setMovementMethod(LinkMovementMethod.getInstance());
+        tvCopyright.setMovementMethod(LinkMovementMethod.getInstance());
 
         // License text view
-        TextView tv_license = (TextView) findViewById(R.id.textview_license);
+        TextView tvLicense = (TextView) findViewById(R.id.textview_license);
         // enable HTML links
-        tv_license.setMovementMethod(LinkMovementMethod.getInstance());
+        tvLicense.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     @Override
@@ -65,5 +68,4 @@ public class AboutActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
-
 }

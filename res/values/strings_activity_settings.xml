@@ -9,24 +9,12 @@
     <string name="debug_level">Debugging</string>
 
     <string-array name="pref_debug_level_list_titles">
-        <item>9 - Show all debug info</item>
-        <item>8</item>
-        <item>7</item>
-        <item>6</item>
-        <item>5 - Show some debug info</item>
-        <item>4</item>
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
+        <item>Show all debug info</item>
+        <item>Show some debug info</item>
+        <item>Show limited debug info</item>
         <item>Disabled</item>
     </string-array>
     <string-array name="pref_debug_level_list_values">
-        <item>9</item>
-        <item>8</item>
-        <item>7</item>
-        <item>6</item>
-        <item>5</item>
-        <item>4</item>
         <item>3</item>
         <item>2</item>
         <item>1</item>

@@ -33,8 +33,6 @@ public class SettingsActivity extends PreferenceActivity {
      */
     private static final boolean ALWAYS_SIMPLE_PREFS = false;
 
-    public static final String PREF_DEBUG_LEVEL = "debug_level";
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
@@ -61,7 +59,7 @@ public class SettingsActivity extends PreferenceActivity {
         // Bind the summaries of EditText/List/Dialog/Ringtone preferences to
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
-        bindPreferenceSummaryToValue(findPreference("debug_level"));
+        bindPreferenceSummaryToValue(findPreference(Debug.PREF_DEBUG_LEVEL));
     }
 
     /** {@inheritDoc} */
@@ -166,7 +164,7 @@ public class SettingsActivity extends PreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
-            bindPreferenceSummaryToValue(findPreference("debug_level"));
+            bindPreferenceSummaryToValue(findPreference(Debug.PREF_DEBUG_LEVEL));
         }
     }
 }

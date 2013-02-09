@@ -24,7 +24,6 @@ package org.ruleant.ariadne;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -32,7 +31,6 @@ import android.location.LocationManager;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 /**
@@ -47,6 +45,10 @@ public class LocationService extends Service {
      * Binder given to clients
      */
     private final IBinder mBinder = new LocationBinder();
+    /**
+     * Debug class instance
+     */
+    private Debug mDebug;
     /*
      * LocationManager instance
      */
@@ -73,14 +75,17 @@ public class LocationService extends Service {
 
     @Override
     public void onCreate() {
-        if (checkDebugLevel(9)) {
+        // Create debug class instance
+        mDebug = new Debug(this);
+
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
         mLocationManager =
                 (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
         mStoredLocation = new LocationStore(this.getApplicationContext());
 
-        if (! updateLocationProvider().isEmpty()) {
+        if (!updateLocationProvider().isEmpty()) {
             setLocation(requestUpdatesFromProvider(mProviderName));
         }
     }
@@ -93,7 +98,7 @@ public class LocationService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        if (checkDebugLevel(9)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
         return mBinder;
@@ -101,7 +106,7 @@ public class LocationService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        if (checkDebugLevel(9)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
         // don't allow rebind
@@ -129,9 +134,10 @@ public class LocationService extends Service {
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
-        if (checkDebugLevel(9)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
+        mDebug = null;
     }
 
     /**
@@ -177,7 +183,7 @@ public class LocationService extends Service {
         mCurrentLocation = location;
 
         // display message on update
-        if (checkDebugLevel(5)) {
+        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)) {
             Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
         }
     }
@@ -275,20 +281,6 @@ public class LocationService extends Service {
         return relativeBearing - currentBearing;
     }
 
-    /**
-     * Check if the current Debuglevel is set to the needed level
-     *
-     * @param debugLevel Debug level to check
-     * @return true if debugLevel if current debugLevel is at least the needed level
-     */
-    public boolean checkDebugLevel(int debugLevel) {
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String prefDebugLevel = sharedPref.getString(SettingsActivity.PREF_DEBUG_LEVEL, "0");
-
-        int currentDebugLevel = Integer.parseInt(prefDebugLevel);
-
-        return (currentDebugLevel >= debugLevel);
-    }
     /**
      * Method to register location updates with a desired location provider.  If the requested
      * provider is not available on the device, the app displays a Toast with a message referenced

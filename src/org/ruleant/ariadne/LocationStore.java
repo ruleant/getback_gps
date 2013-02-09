@@ -102,10 +102,10 @@ public class LocationStore {
         }
 
         /* set Locale temporary to US to avoid Android bug 5734
-		   https://code.google.com/p/android/issues/detail?id=5734
-		   Location.convert(String) is localization independent, so it throws an exception
-		   when a parameter contains a "," instead of a "." as decimal separator
-		   changing the local to US, converts the double to a string with a "."
+            https://code.google.com/p/android/issues/detail?id=5734
+            Location.convert(String) is localization independent, so it throws an exception
+            when a parameter contains a "," instead of a "." as decimal separator
+            changing the local to US, converts the double to a string with a "."
          */
         Locale originalLocale = Locale.getDefault();
         Locale.setDefault(Locale.US);
