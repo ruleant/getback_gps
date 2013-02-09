@@ -276,7 +276,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Check if the current Debuglevel is set to the needed level
+     * Check if the current debug level is set to the required level
      *
      * @param debugLevel Debug level to check
      * @return true if debugLevel if current debugLevel is at least the needed level
