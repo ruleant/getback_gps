@@ -4,11 +4,9 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.app.Activity;
-import android.content.SharedPreferences;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.v4.app.NavUtils;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
@@ -22,7 +20,10 @@ public class AboutActivity extends Activity {
         setContentView(R.layout.activity_about);
 
         String dateFormat = "yyyy-MM-dd";
-        if (checkDebugLevel(SettingsActivity.DEBUG_LEVEL_LOW)) {
+
+        // Display time when in debug mode
+        Debug debug = new Debug(this);
+        if (debug.checkDebugLevel(Debug.DEBUG_LEVEL_LOW)) {
             dateFormat = "yyyy-MM-dd'T'HH:mm:ssz";
         }
         String versionName = "";
@@ -66,20 +67,5 @@ public class AboutActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    /**
-     * Check if the current debug level is set to the required level
-     *
-     * @param debugLevel Debug level to check
-     * @return true if debugLevel if current debugLevel is at least the needed level
-     */
-    public boolean checkDebugLevel(int debugLevel) {
-        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
-        String prefDebugLevel = sharedPref.getString(SettingsActivity.PREF_DEBUG_LEVEL, "0");
-
-        int currentDebugLevel = Integer.parseInt(prefDebugLevel);
-
-        return (currentDebugLevel >= debugLevel);
     }
 }
