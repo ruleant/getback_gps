@@ -1,6 +1,6 @@
 /**
  * Location Service
- * 
+ *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
@@ -35,9 +35,9 @@ import android.widget.Toast;
 
 /**
  * Location Service provides the current location
- * 
+ *
  * This service will connect to the Location Provider and retrieves the current location
- * 
+ *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {

@@ -1,6 +1,6 @@
 /**
  * Debug object
- * 
+ *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
@@ -27,10 +27,10 @@ import android.preference.PreferenceManager;
 
 /**
  * Class checking debug level
- * 
+ *
  * This class will get the current Debug level from SharedPreferences.
  * And checks if the current level matches the required level
- * 
+ *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Debug {
@@ -71,13 +71,13 @@ public class Debug {
 
     /**
      * Constructor
-     * 
+     *
      * @param context Context of the App
      */
      public Debug(Context context) {
         mContext = context;
      }
-   
+
      /**
       * Get current debug level from SharedPreferences
       *
@@ -87,14 +87,14 @@ public class Debug {
          if (mContext == null) {
              return 0;
          }
-         
+
          // Get debug level from SharedPreferences
          SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
          String prefDebugLevel = sharedPref.getString(PREF_DEBUG_LEVEL, DEFAULT_DEBUG_LEVEL);
-         
+
          return Integer.parseInt(prefDebugLevel);
      }
-     
+
      /**
       * Check if the current debug level is set to the required level
       *

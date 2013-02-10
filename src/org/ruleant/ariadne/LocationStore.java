@@ -1,6 +1,6 @@
 /**
  * Location Store
- * 
+ *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
@@ -29,10 +29,10 @@ import android.location.Location;
 
 /**
  * Location Store saves a location
- * 
+ *
  * This object will store a location for future use, and will the save the location
  * when the application is stopped
- * 
+ *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationStore {
