@@ -1,6 +1,6 @@
 /**
  * Main Activity
- * 
+ *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 package org.ruleant.ariadne;
@@ -36,7 +36,7 @@ import android.widget.TextView;
 
 /**
  * Main Activity class
- * 
+ *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class MainActivity extends Activity {
@@ -176,9 +176,9 @@ public class MainActivity extends Activity {
 
     /**
      * refresh display
-     * 
+     *
      * Refresh the values of Location Provider, Location, ...
-     * 
+     *
      * @return void
      */
     private void refreshDisplay() {

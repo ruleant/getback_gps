@@ -1,6 +1,6 @@
 /**
  * Custom Ariadne Location object
- * 
+ *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,7 +15,7 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
@@ -29,9 +29,9 @@ import android.location.Location;
 
 /**
  * Custom Ariadne Location object
- * 
+ *
  * This object inherits from a Location object, but overrides the getString() method
- * 
+ *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Ariadne_Location extends Location {
