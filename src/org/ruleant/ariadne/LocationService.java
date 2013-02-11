@@ -34,39 +34,39 @@ import android.os.IBinder;
 import android.widget.Toast;
 
 /**
- * Location Service provides the current location
+ * Location Service provides the current location.
  *
  * This service will connect to the Location Provider and retrieves the current location
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service {
-    /*
-     * Binder given to clients
+    /**
+     * Binder given to clients.
      */
     private final IBinder mBinder = new LocationBinder();
     /**
-     * Debug class instance
+     * Debug class instance.
      */
     private Debug mDebug;
-    /*
-     * LocationManager instance
+    /**
+     * LocationManager instance.
      */
     private LocationManager mLocationManager;
     /**
-     * Name of the LocationProvider
+     * Name of the LocationProvider.
      */
     private String mProviderName = "";
     /**
-     * Current Location
+     * Current Location.
      */
     private Location mCurrentLocation = null;
     /**
-     * Previous Location
+     * Previous Location.
      */
     private Location mPreviousLocation = null;
     /**
-     * Previously stored Location
+     * Previously stored Location.
      */
     private LocationStore mStoredLocation;
 
@@ -141,7 +141,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Retrieve Location Provider
+     * Retrieve Location Provider.
      *
      * Define best location provider based on certain criteria
      *
@@ -163,7 +163,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Set Location
+     * Set Location.
      *
      * Update location
      *
@@ -189,7 +189,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Retrieve Location
+     * Retrieve Location.
      *
      * Get last known location
      *
@@ -200,7 +200,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Retrieve Location Provider
+     * Retrieve Location Provider.
      *
      * @return String current location provider
      */
@@ -209,7 +209,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * update Location
+     * Update Location.
      *
      * Force location update, using getLastKnownLocation()
      *
@@ -226,7 +226,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Store current location
+     * Store current location.
      */
     public void storeCurrentLocation() {
         // don't store current location if it is not set
@@ -236,7 +236,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Get stored location
+     * Get stored location.
      *
      * @return Location
      */
@@ -245,7 +245,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Get distance to stored location
+     * Get distance to stored location.
      *
      * @return float distance in meters
      */
@@ -258,7 +258,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Get bearing to stored location
+     * Get bearing to stored location.
      *
      * @return float distance in meters
      */
@@ -282,9 +282,10 @@ public class LocationService extends Service {
     }
 
     /**
-     * Method to register location updates with a desired location provider.  If the requested
-     * provider is not available on the device, the app displays a Toast with a message referenced
-     * by a resource id.
+     * Method to register location updates with a desired location provider.
+     *
+     * If the requested provider is not available on the device,
+     * the app displays a Toast with a message referenced by a resource id.
      *
      * @param provider Name of the requested provider.
      * @param errorResId Resource id for the string message to be displayed if the provider does
@@ -305,7 +306,7 @@ public class LocationService extends Service {
     }
 
     /**
-     * Listener object to connect with LocationManager and retrieve updates
+     * Listener object to connect with LocationManager and retrieve updates.
      */
     private final LocationListener mListener = new LocationListener() {
 
