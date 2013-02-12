@@ -35,10 +35,11 @@ import android.location.Location;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Ariadne_Location extends Location {
+
     /**
      * Constructor
      *
-     * @param provider
+     * @param provider Provider name
      */
     public Ariadne_Location(String provider) {
         super(provider);
@@ -47,7 +48,7 @@ public class Ariadne_Location extends Location {
     /**
      * Constructor
      *
-     * @param location
+     * @param location Location object
      */
     public Ariadne_Location(Location location) {
         super(location);
