@@ -118,6 +118,11 @@ public class LocationService extends Service {
      * runs in the same process as its clients, we don't need to deal with IPC.
      */
     public class LocationBinder extends Binder {
+        /**
+         * Returns an instance of the bound LocationService
+         *
+         * @return LocationService
+         */
         LocationService getService() {
             // Return this instance of LocationService so clients can call public methods
             return LocationService.this;
@@ -288,8 +293,6 @@ public class LocationService extends Service {
      * the app displays a Toast with a message referenced by a resource id.
      *
      * @param provider Name of the requested provider.
-     * @param errorResId Resource id for the string message to be displayed if the provider does
-     *                   not exist on the device.
      * @return A previously returned {@link android.location.Location} from the requested provider,
      *         if exists.
      */
