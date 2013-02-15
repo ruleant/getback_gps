@@ -176,11 +176,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * refresh display
-     *
-     * Refresh the values of Location Provider, Location, ...
-     *
-     * @return void
+     * Refresh display : refresh the values of Location Provider, Location, ...
      */
     private void refreshDisplay() {
         // Refresh locationProvider
