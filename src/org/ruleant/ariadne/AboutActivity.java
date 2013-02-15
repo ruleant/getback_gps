@@ -12,6 +12,12 @@ import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+/**
+ * This activity displays information about the App : version, build date,
+ * author and license info.
+ *
+ * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ */
 public class AboutActivity extends Activity {
 
     @Override
@@ -65,7 +71,8 @@ public class AboutActivity extends Activity {
         case android.R.id.home:
             NavUtils.navigateUpFromSameTask(this);
             return true;
+        default:
+            return super.onOptionsItemSelected(item);
         }
-        return super.onOptionsItemSelected(item);
     }
 }
