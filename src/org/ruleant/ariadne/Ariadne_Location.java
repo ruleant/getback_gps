@@ -28,16 +28,15 @@ import android.content.Context;
 import android.location.Location;
 
 /**
- * Custom Ariadne Location object
- *
- * This object inherits from a Location object, but overrides the getString() method
+ * Custom Ariadne Location object, it inherits from Location class,
+ * but overrides the getString() method.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Ariadne_Location extends Location {
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param provider Provider name
      */
@@ -46,7 +45,7 @@ public class Ariadne_Location extends Location {
     }
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param location Location object
      */
@@ -55,10 +54,10 @@ public class Ariadne_Location extends Location {
     }
 
     /**
-     * Overrides the toString() method, implementing a formatted String
+     * Overrides the toString() method, implementing a formatted String.
      *
-     * @param context Context of the application
-     * @return String
+     * @param context Context of the App
+     * @return String formatted string
      */
     public String toString(Context context) {
         String locationText = "";

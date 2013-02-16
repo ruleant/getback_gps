@@ -28,41 +28,39 @@ import android.content.SharedPreferences;
 import android.location.Location;
 
 /**
- * Location Store saves a location
+ * Location Store saves a location, it will store a location for future use,
+ * and will the save the location when the application is stopped.
  *
- * This object will store a location for future use, and will the save the location
- * when the application is stopped
- *
- * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationStore {
     /**
-     * Context of App
+     * Context of App.
      */
     private Context mContext;
     /**
-     * Selected Location
+     * Selected Location.
      */
     private Location mLocation;
     /**
-     * SharedPreference object
+     * SharedPreference object.
      */
     private SharedPreferences mPrefs;
     /**
-     * SharedPreferences location for LocationStore class
+     * SharedPreferences location for LocationStore class.
      */
     public static final String PREFS_STORE_LOC = "LocationStore";
     /**
-     * name of Longitude object in SharedPreferences
+     * Name of Longitude object in SharedPreferences.
      */
     private static final String LONGITUDE = "Longitude";
     /**
-     * name of Latitude object in SharedPreferences
+     * Name of Latitude object in SharedPreferences.
      */
     private static final String LATITUDE = "Latitude";
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context Context of the Android app
      */
@@ -75,7 +73,7 @@ public class LocationStore {
     }
 
     /**
-     * Get Location
+     * Get Location.
      *
      * @return Location location
      */
@@ -84,7 +82,7 @@ public class LocationStore {
     }
 
     /**
-     * Set Location
+     * Set Location.
      *
      * @param location New location
      */
@@ -93,7 +91,7 @@ public class LocationStore {
     }
 
     /**
-     * Save stored location in Shared Preferences
+     * Save stored location in Shared Preferences.
      */
     public void save() {
         // don't save if mLocation is not set
@@ -103,10 +101,11 @@ public class LocationStore {
 
         /* set Locale temporary to US to avoid Android bug 5734
             https://code.google.com/p/android/issues/detail?id=5734
-            Location.convert(String) is localization independent, so it throws an exception
-            when a parameter contains a "," instead of a "." as decimal separator
+            Location.convert(String) is localization independent,
+            so it throws an exception when a parameter contains a ","
+            instead of a "." as decimal separator
             changing the local to US, converts the double to a string with a "."
-         */
+        */
         Locale originalLocale = Locale.getDefault();
         Locale.setDefault(Locale.US);
 
@@ -128,9 +127,9 @@ public class LocationStore {
     }
 
     /**
-     * Restore stored location from Shared Preferences
+     * Restore stored location from Shared Preferences.
      *
-     * @return Location location retrieved from Preferences
+     * @return location retrieved from Preferences
      */
     public Location restore() {
         // restore location from a SharedPreferences file
