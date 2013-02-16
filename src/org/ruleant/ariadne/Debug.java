@@ -35,42 +35,42 @@ import android.preference.PreferenceManager;
  */
 public class Debug {
     /**
-     * Context of the App
+     * Context of the App.
      */
     private Context mContext;
 
     /**
-     * Default debug level (string);
+     * Default debug level (string).
      */
     private static final String DEFAULT_DEBUG_LEVEL = "0";
 
     /**
-     * Name of Debug Level in Shared Preferences
+     * Name of Debug Level in Shared Preferences.
      */
     public static final String PREF_DEBUG_LEVEL = "debug_level";
 
     /**
-     * Debug level : off
+     * Debug level : off.
      */
     public static final int DEBUG_LEVEL_OFF = 0;
 
     /**
-     * Debug level : low (show limited debug messages)
+     * Debug level : low (show limited debug messages).
      */
     public static final int DEBUG_LEVEL_LOW = 1;
 
     /**
-     * Debug level : medium (show some debug messages)
+     * Debug level : medium (show some debug messages).
      */
     public static final int DEBUG_LEVEL_MEDIUM = 2;
 
     /**
-     * Debug level : high (show all debug messages)
+     * Debug level : high (show all debug messages).
      */
     public static final int DEBUG_LEVEL_HIGH = 3;
 
     /**
-     * Constructor
+     * Constructor.
      *
      * @param context Context of the App
      */
@@ -79,7 +79,7 @@ public class Debug {
      }
 
      /**
-      * Get current debug level from SharedPreferences
+      * Get current debug level from SharedPreferences.
       *
       * @return current debugLevel
       */
@@ -96,10 +96,10 @@ public class Debug {
      }
 
      /**
-      * Check if the current debug level is set to the required level
+      * Check if the current debug level is set to the required level.
       *
       * @param debugLevel Debug level to check
-      * @return true if debugLevel if current debugLevel is at least the needed level
+      * @return true if current debugLevel is at least the needed level
       */
      public boolean checkDebugLevel(int debugLevel) {
          return (getDebugLevel() >= debugLevel);
