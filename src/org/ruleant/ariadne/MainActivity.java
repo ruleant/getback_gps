@@ -42,23 +42,23 @@ import android.widget.TextView;
  */
 public class MainActivity extends Activity {
     /**
-     * Interface to LocationService instance
+     * Interface to LocationService instance.
      */
     LocationService mService;
     /**
-     * Connection state with LocationService
+     * Connection state with LocationService.
      */
     boolean mBound = false;
     /**
-     * Name of the LocationProvider
+     * Name of the LocationProvider.
      */
     private String mProviderName = "";
     /**
-     * Current Location
+     * Current Location.
      */
     private Ariadne_Location mCurrentLocation = null;
     /**
-     * Previously stored Location
+     * Previously stored Location.
      */
     private Ariadne_Location mStoredLocation = null;
 
@@ -94,7 +94,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when the user clicks the Renew provider button
+     * Called when the user clicks the Renew provider button.
      *
      * @param view Button that was clicked
      */
@@ -108,7 +108,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when the user clicks the Update location button
+     * Called when the user clicks the Update location button.
      *
      * @param view Button that was clicked
      */
@@ -123,7 +123,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when the user clicks the Store Location menu item
+     * Called when the user clicks the Store Location menu item.
      *
      * @param item MenuItem object that was clicked
      */
@@ -138,7 +138,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when the user clicks the refresh menu item
+     * Called when the user clicks the refresh menu item.
      *
      * @param item MenuItem object that was clicked
      */
@@ -156,7 +156,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when the user clicks the About menu item
+     * Called when the user clicks the About menu item.
      *
      * @param item MenuItem object that was clicked
      */
@@ -166,7 +166,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Called when the user clicks the Settings menu item
+     * Called when the user clicks the Settings menu item.
      *
      * @param item MenuItem object that was clicked
      */
@@ -225,7 +225,7 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Defines callbacks for service binding, passed to bindService()
+     * Defines callbacks for service binding, passed to bindService().
      */
     private ServiceConnection mConnection = new ServiceConnection() {
 
