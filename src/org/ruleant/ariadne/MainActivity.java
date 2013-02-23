@@ -36,7 +36,7 @@ import android.view.View;
 import android.widget.TextView;
 
 /**
- * Main Activity class
+ * Main Activity class.
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
