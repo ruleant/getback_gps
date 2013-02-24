@@ -180,14 +180,14 @@ public class MainActivity extends Activity {
      */
     private void refreshDisplay() {
         // Refresh locationProvider
-        TextView tv_provider = (TextView) findViewById(R.id.textView_LocationProvider);
+        TextView tvProvider = (TextView) findViewById(R.id.textView_LocationProvider);
         String providerText = getResources().getString(R.string.location_provider) + ": ";
         if (mProviderName.isEmpty()) {
             providerText += getResources().getString(R.string.none);
         } else {
             providerText += mProviderName;
         }
-        tv_provider.setText(providerText);
+        tvProvider.setText(providerText);
 
         // Refresh Location
         TextView tvLocation = (TextView) findViewById(R.id.textView_Location);
