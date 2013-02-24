@@ -56,11 +56,11 @@ public class MainActivity extends Activity {
     /**
      * Current Location.
      */
-    private Ariadne_Location mCurrentLocation = null;
+    private AriadneLocation mCurrentLocation = null;
     /**
      * Previously stored Location.
      */
-    private Ariadne_Location mStoredLocation = null;
+    private AriadneLocation mStoredLocation = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,7 +115,7 @@ public class MainActivity extends Activity {
     public void renewLocation(View view) {
         if (mBound) {
             // manually update location (don't wait for listener to update location)
-            mCurrentLocation = new Ariadne_Location(mService.updateLocation());
+            mCurrentLocation = new AriadneLocation(mService.updateLocation());
         } else {
             mCurrentLocation = null;
         }
@@ -130,7 +130,7 @@ public class MainActivity extends Activity {
     public void storeLocation(MenuItem item) {
         if (mBound) {
             mService.storeCurrentLocation();
-            mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
+            mStoredLocation = new AriadneLocation(mService.getStoredLocation());
         } else {
             mStoredLocation = null;
         }
@@ -145,8 +145,8 @@ public class MainActivity extends Activity {
     public void refresh(MenuItem item) {
         if (mBound) {
             mProviderName = mService.getLocationProvider();
-            mCurrentLocation = new Ariadne_Location(mService.getLocation());
-            mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
+            mCurrentLocation = new AriadneLocation(mService.getLocation());
+            mStoredLocation = new AriadneLocation(mService.getStoredLocation());
         } else {
             mProviderName = null;
             mCurrentLocation = null;
@@ -237,8 +237,8 @@ public class MainActivity extends Activity {
             mBound = true;
             mProviderName = mService.getLocationProvider();
             if (!mProviderName.isEmpty()) {
-                mCurrentLocation = new Ariadne_Location(mService.getLocation());
-                mStoredLocation = new Ariadne_Location(mService.getStoredLocation());
+                mCurrentLocation = new AriadneLocation(mService.getLocation());
+                mStoredLocation = new AriadneLocation(mService.getStoredLocation());
                 refreshDisplay();
             }
         }
