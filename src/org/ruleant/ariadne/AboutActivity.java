@@ -37,7 +37,8 @@ public class AboutActivity extends Activity {
         PackageInfo packageInfo;
 
         try {
-            packageInfo = getPackageManager().getPackageInfo(getPackageName(), 0);
+            packageInfo
+                = getPackageManager().getPackageInfo(getPackageName(), 0);
             versionName = "v" + packageInfo.versionName;
             Date date = new Date(packageInfo.lastUpdateTime);
             SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
@@ -48,11 +49,13 @@ public class AboutActivity extends Activity {
 
         // Version text view
         TextView tvVersion = (TextView) findViewById(R.id.textview_version);
-        tvVersion.setText(getResources().getString(R.string.version) + ": " + versionName);
+        tvVersion.setText(getResources().getString(R.string.version)
+            + ": " + versionName);
 
         // Updated text view
         TextView tvUpdated = (TextView) findViewById(R.id.textview_updated);
-        tvUpdated.setText(getResources().getString(R.string.updated) + ": " + lastUpdated);
+        tvUpdated.setText(getResources().getString(R.string.updated)
+            + ": " + lastUpdated);
 
         // Copyright text view
         TextView tvCopyright = (TextView) findViewById(R.id.textview_copyright);
