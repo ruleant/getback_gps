@@ -89,8 +89,10 @@ public class Debug {
          }
 
          // Get debug level from SharedPreferences
-         SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(mContext);
-         String prefDebugLevel = sharedPref.getString(PREF_DEBUG_LEVEL, DEFAULT_DEBUG_LEVEL);
+         SharedPreferences sharedPref
+             = PreferenceManager.getDefaultSharedPreferences(mContext);
+         String prefDebugLevel
+             = sharedPref.getString(PREF_DEBUG_LEVEL, DEFAULT_DEBUG_LEVEL);
 
          return Integer.parseInt(prefDebugLevel);
      }
