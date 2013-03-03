@@ -50,12 +50,12 @@ public class AboutActivity extends Activity {
         // Version text view
         TextView tvVersion = (TextView) findViewById(R.id.textview_version);
         tvVersion.setText(getResources().getString(R.string.version)
-            + ": " + versionName);
+                + ": " + versionName);
 
         // Updated text view
         TextView tvUpdated = (TextView) findViewById(R.id.textview_updated);
         tvUpdated.setText(getResources().getString(R.string.updated)
-            + ": " + lastUpdated);
+                + ": " + lastUpdated);
 
         // Copyright text view
         TextView tvCopyright = (TextView) findViewById(R.id.textview_copyright);

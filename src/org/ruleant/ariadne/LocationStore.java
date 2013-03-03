@@ -68,8 +68,8 @@ public class LocationStore {
         mContext = context;
         mLocation = new Location("stored");
         mPrefs = mContext.getSharedPreferences(
-	    PREFS_STORE_LOC, Context.MODE_PRIVATE
-        );
+                PREFS_STORE_LOC, Context.MODE_PRIVATE
+                );
 
         restore();
     }
@@ -107,7 +107,7 @@ public class LocationStore {
             so it throws an exception when a parameter contains a ","
             instead of a "." as decimal separator
             changing the local to US, converts the double to a string with a "."
-        */
+         */
         Locale originalLocale = Locale.getDefault();
         Locale.setDefault(Locale.US);
 
@@ -116,15 +116,15 @@ public class LocationStore {
         editor.putString(
                 LONGITUDE,
                 Location.convert(
-			mLocation.getLongitude(), Location.FORMAT_DEGREES
-		)
-        );
+                        mLocation.getLongitude(), Location.FORMAT_DEGREES
+                        )
+                );
         editor.putString(
                 LATITUDE,
                 Location.convert(
-	             mLocation.getLatitude(), Location.FORMAT_DEGREES
-                )
-        );
+                        mLocation.getLatitude(), Location.FORMAT_DEGREES
+                        )
+                );
         // Commit the edits!
         editor.commit();
 
@@ -141,11 +141,11 @@ public class LocationStore {
         // restore location from a SharedPreferences file
         try {
             mLocation.setLongitude(
-	        Location.convert(mPrefs.getString(LONGITUDE, "0.0"))
-	    );
+                    Location.convert(mPrefs.getString(LONGITUDE, "0.0"))
+                    );
             mLocation.setLatitude(
-	        Location.convert(mPrefs.getString(LATITUDE, "0.0"))
-	    );
+                    Location.convert(mPrefs.getString(LATITUDE, "0.0"))
+                    );
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             mLocation.setLongitude(0);
