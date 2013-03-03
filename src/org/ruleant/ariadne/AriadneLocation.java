@@ -63,41 +63,49 @@ public class AriadneLocation extends Location {
         String locationText = "";
 
         // Format location
-        locationText += " "  + context.getResources().getString(R.string.latitude) + ": ";
-        locationText += getLatitude() + "°\n";
-        locationText += " "  + context.getResources().getString(R.string.longitude) + ": ";
-        locationText += getLongitude() + "°\n";
+        locationText += " "
+            + context.getResources().getString(R.string.latitude) + ": "
+            + getLatitude() + "°\n";
+        locationText += " "
+            + context.getResources().getString(R.string.longitude) + ": "
+            + getLongitude() + "°\n";
         if (hasAltitude()) {
-            locationText += " "  + context.getResources().getString(R.string.altitude) + ": ";
-            locationText += getAltitude() + "m\n";
+            locationText += " "
+                + context.getResources().getString(R.string.altitude) + ": "
+                + getAltitude() + "m\n";
         }
         if (hasBearing()) {
-            locationText += " "  + context.getResources().getString(R.string.bearing) + ": ";
-            locationText += getBearing() + "°\n";
+            locationText += " "
+                + context.getResources().getString(R.string.bearing) + ": "
+                + getBearing() + "°\n";
         }
         if (hasSpeed()) {
-            locationText += " "  + context.getResources().getString(R.string.speed) + ": ";
-            locationText += getSpeed() + "m/s\n";
+            locationText += " "
+                + context.getResources().getString(R.string.speed) + ": "
+                + getSpeed() + "m/s\n";
         }
         if (hasAccuracy()) {
-            locationText += " "  + context.getResources().getString(R.string.accuracy) + ": ";
-            locationText += getAccuracy() + "m\n";
+            locationText += " "
+                + context.getResources().getString(R.string.accuracy) + ": "
+                + getAccuracy() + "m\n";
         }
 
         // Format Timestamp
         if (getTime() > 0) {
             Date date = new Date(getTime());
-            SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
-            locationText += " "  + context.getResources().getString(R.string.timestamp) + ": ";
-            locationText += formatter.format(date);
+            SimpleDateFormat formatter
+                = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
+            locationText += " "
+                + context.getResources().getString(R.string.timestamp) + ": "
+                + formatter.format(date);
         }
 
         // Display raw when in debug mode
         Debug debug = new Debug(context);
         if (debug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
-            locationText += "\n\n";
-            locationText += " "  + context.getResources().getString(R.string.raw) + ": ";
-            locationText += super.toString();
+            locationText += "\n\n "
+                + context.getResources().getString(R.string.raw) + ": "
+                + super.toString();
         }
 
         return locationText;
