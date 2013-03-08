@@ -36,7 +36,8 @@ import android.widget.Toast;
 /**
  * Location Service provides the current location.
  *
- * This service will connect to the Location Provider and retrieves the current location
+ * This service will connect to the Location Provider
+ * and retrieves the current location
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
@@ -78,11 +79,13 @@ public class LocationService extends Service {
         // Create debug class instance
         mDebug = new Debug(this);
 
-        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null)
+                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
-        mLocationManager =
-                (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        mLocationManager
+            = (LocationManager)
+            this.getSystemService(Context.LOCATION_SERVICE);
         mStoredLocation = new LocationStore(this.getApplicationContext());
 
         if (!updateLocationProvider().isEmpty()) {
@@ -98,7 +101,8 @@ public class LocationService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
-        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null)
+                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
         return mBinder;
@@ -106,7 +110,8 @@ public class LocationService extends Service {
 
     @Override
     public boolean onUnbind(Intent intent) {
-        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null)
+                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
         // don't allow rebind
@@ -154,7 +159,8 @@ public class LocationService extends Service {
      * @return String
      */
     public String updateLocationProvider() {
-        // Retrieve a list of location providers that have fine accuracy, no monetary cost, etc
+        // Retrieve a list of location providers that have fine accuracy,
+        // no monetary cost, etc
         // TODO : define criteria in settings
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
@@ -189,7 +195,9 @@ public class LocationService extends Service {
         mCurrentLocation = location;
 
         // display message on update
-        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)) {
+        if ((mDebug != null)
+                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)
+                ) {
             Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
         }
     }
@@ -225,7 +233,8 @@ public class LocationService extends Service {
         if (mLocationManager == null || mProviderName.isEmpty()) {
             return null;
         }
-        // update location using getLastKnownLocation, don't wait for listener update
+        // update location using getLastKnownLocation,
+        // don't wait for listener update
         setLocation(mLocationManager.getLastKnownLocation(mProviderName));
 
         return mCurrentLocation;
@@ -294,17 +303,22 @@ public class LocationService extends Service {
      * the app displays a Toast with a message referenced by a resource id.
      *
      * @param provider Name of the requested provider.
-     * @return A previously returned {@link android.location.Location} from the requested provider,
-     *         if exists.
+     * @return A previously returned {@link android.location.Location}
+     *         from the requested provider, if exists.
      */
     private Location requestUpdatesFromProvider(final String provider) {
         Location location = null;
         if (mLocationManager.isProviderEnabled(provider)) {
             // TODO : define criteria in settings
-            mLocationManager.requestLocationUpdates(provider, TEN_SECONDS, TEN_METERS, mListener);
+            mLocationManager.requestLocationUpdates(
+                    provider, TEN_SECONDS, TEN_METERS, mListener);
             location = mLocationManager.getLastKnownLocation(provider);
         } else {
-            Toast.makeText(this, R.string.provider_no_support, Toast.LENGTH_LONG).show();
+            Toast.makeText(
+                this,
+                R.string.provider_no_support,
+                Toast.LENGTH_LONG
+            ).show();
         }
         return location;
     }
@@ -330,7 +344,8 @@ public class LocationService extends Service {
         }
 
         @Override
-        public void onStatusChanged(String provider, int status, Bundle extras) {
+        public void onStatusChanged(
+                String provider, int status, Bundle extras) {
         }
     };
 }
