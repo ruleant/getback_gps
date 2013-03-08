@@ -70,7 +70,8 @@ public class MainActivity extends Activity {
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        // Inflate the menu;
+        // this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.activity_main, menu);
         return true;
     }
@@ -114,7 +115,8 @@ public class MainActivity extends Activity {
      */
     public void renewLocation(View view) {
         if (mBound) {
-            // manually update location (don't wait for listener to update location)
+            // manually update location
+            // (don't wait for listener to update location)
             mCurrentLocation = new AriadneLocation(mService.updateLocation());
         } else {
             mCurrentLocation = null;
@@ -130,7 +132,8 @@ public class MainActivity extends Activity {
     public void storeLocation(MenuItem item) {
         if (mBound) {
             mService.storeCurrentLocation();
-            mStoredLocation = new AriadneLocation(mService.getStoredLocation());
+            mStoredLocation
+                = new AriadneLocation(mService.getStoredLocation());
         } else {
             mStoredLocation = null;
         }
@@ -146,7 +149,8 @@ public class MainActivity extends Activity {
         if (mBound) {
             mProviderName = mService.getLocationProvider();
             mCurrentLocation = new AriadneLocation(mService.getLocation());
-            mStoredLocation = new AriadneLocation(mService.getStoredLocation());
+            mStoredLocation
+                = new AriadneLocation(mService.getStoredLocation());
         } else {
             mProviderName = null;
             mCurrentLocation = null;
@@ -180,8 +184,10 @@ public class MainActivity extends Activity {
      */
     private void refreshDisplay() {
         // Refresh locationProvider
-        TextView tvProvider = (TextView) findViewById(R.id.textView_LocationProvider);
-        String providerText = getResources().getString(R.string.location_provider) + ": ";
+        TextView tvProvider
+            = (TextView) findViewById(R.id.textView_LocationProvider);
+        String providerText
+            = getResources().getString(R.string.location_provider) + ": ";
         if (mProviderName.isEmpty()) {
             providerText += getResources().getString(R.string.none);
         } else {
@@ -190,36 +196,47 @@ public class MainActivity extends Activity {
         tvProvider.setText(providerText);
 
         // Refresh Location
-        TextView tvLocation = (TextView) findViewById(R.id.textView_Location);
-        String locationText = getResources().getString(R.string.location) + ":\n";
+        TextView tvLocation
+            = (TextView) findViewById(R.id.textView_Location);
+        String locationText
+            = getResources().getString(R.string.location) + ":\n";
         if (mCurrentLocation == null) {
-            locationText += " "  + getResources().getString(R.string.unknown);
+            locationText += " "
+                + getResources().getString(R.string.unknown);
         } else {
             locationText += mCurrentLocation.toString(this);
         }
         tvLocation.setText(locationText);
 
         // Refresh Stored Location
-        TextView tvStoredLocation = (TextView) findViewById(R.id.textView_StoredLocation);
-        String storedLocationText = getResources().getString(R.string.stored_location) + ":\n";
+        TextView tvStoredLocation
+            = (TextView) findViewById(R.id.textView_StoredLocation);
+        String storedLocationText
+            = getResources().getString(R.string.stored_location) + ":\n";
         if (mStoredLocation == null) {
-            storedLocationText += " "  + getResources().getString(R.string.unknown);
+            storedLocationText += " "
+                + getResources().getString(R.string.unknown);
         } else {
             storedLocationText += mStoredLocation.toString(this);
         }
         tvStoredLocation.setText(storedLocationText);
 
         // Refresh Directions to destination
-        TextView tvToDestination = (TextView) findViewById(R.id.textView_ToDestination);
-        String toDestinationText = getResources().getString(R.string.to_dest) + ":\n";
+        TextView tvToDestination
+            = (TextView) findViewById(R.id.textView_ToDestination);
+        String toDestinationText
+            = getResources().getString(R.string.to_dest) + ":\n";
         if (mStoredLocation == null || mCurrentLocation == null) {
-            toDestinationText += " "  + getResources().getString(R.string.unknown);
+            toDestinationText += " "
+                + getResources().getString(R.string.unknown);
         } else {
             // Print distance and bearing
-            toDestinationText += " "  + getResources().getString(R.string.distance) + ": ";
-            toDestinationText += mService.getDistance() + "m\n";
-            toDestinationText += " "  + getResources().getString(R.string.bearing) + ": ";
-            toDestinationText += mService.getBearing() + "°";
+            toDestinationText += " "
+                + getResources().getString(R.string.distance) + ": "
+                + mService.getDistance() + "m\n";
+            toDestinationText += " "
+                + getResources().getString(R.string.bearing) + ": "
+                + mService.getBearing() + "°";
         }
         tvToDestination.setText(toDestinationText);
     }
@@ -230,15 +247,18 @@ public class MainActivity extends Activity {
     private ServiceConnection mConnection = new ServiceConnection() {
 
         @Override
-        public void onServiceConnected(ComponentName className, IBinder service) {
-            // We've bound to LocalService, cast the IBinder and get LocalService instance
+        public void onServiceConnected(
+                ComponentName className, IBinder service) {
+            // We've bound to LocalService, cast the IBinder
+            // and get LocalService instance
             LocationBinder binder = (LocationBinder) service;
             mService = binder.getService();
             mBound = true;
             mProviderName = mService.getLocationProvider();
             if (!mProviderName.isEmpty()) {
                 mCurrentLocation = new AriadneLocation(mService.getLocation());
-                mStoredLocation = new AriadneLocation(mService.getStoredLocation());
+                mStoredLocation
+                    = new AriadneLocation(mService.getStoredLocation());
                 refreshDisplay();
             }
         }
