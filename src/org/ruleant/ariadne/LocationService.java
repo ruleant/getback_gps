@@ -31,6 +31,8 @@ import android.location.LocationManager;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteCallbackList;
+import android.os.RemoteException;
 import android.widget.Toast;
 
 /**
@@ -46,6 +48,13 @@ public class LocationService extends Service {
      * Binder given to clients.
      */
     private final IBinder mBinder = new LocationBinder();
+    /**
+     * This is a list of callbacks that have been registered with the
+     * service.  Note that this is package scoped (instead of private) so
+     * that it can be accessed more efficiently from inner classes.
+     */
+    final RemoteCallbackList<ILocationServiceCallback> mCallbacks
+            = new RemoteCallbackList<ILocationServiceCallback>();
     /**
      * Debug class instance.
      */
@@ -133,10 +142,31 @@ public class LocationService extends Service {
             // can call public methods
             return LocationService.this;
         }
+
+        /**
+         * Register a client callback.
+         *
+         * @param cb client callback
+         */
+        public void registerCallback(ILocationServiceCallback cb) {
+            if (cb != null) mCallbacks.register(cb);
+        }
+
+        /**
+         * Unregister a client callback.
+         *
+         * @param cb client callback
+         */
+        public void unregisterCallback(ILocationServiceCallback cb) {
+            if (cb != null) mCallbacks.unregister(cb);
+        }
     }
 
     @Override
     public void onDestroy() {
+        // Unregister all callbacks.
+        mCallbacks.kill();
+
         // The service is no longer used and is being destroyed
         mLocationManager.removeUpdates(mListener);
         mStoredLocation.save();
@@ -332,7 +362,18 @@ public class LocationService extends Service {
         public void onLocationChanged(Location location) {
             // When new location update is received, update current location
             setLocation(location);
-            // TODO : notify bound Activities of Location Update
+
+            // Notify bound Activities of Location Update
+            final int N = mCallbacks.beginBroadcast();
+            for (int i=0; i<N; i++) {
+                try {
+                    mCallbacks.getBroadcastItem(i).locationUpdated();
+                } catch (RemoteException e) {
+                    // The RemoteCallbackList will take care of removing
+                    // the dead object for us.
+                }
+            }
+            mCallbacks.finishBroadcast();
         }
 
         @Override
