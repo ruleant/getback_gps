@@ -175,7 +175,8 @@ public class LocationService extends Service {
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
-        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        if ((mDebug != null)
+	        && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
         mDebug = null;
