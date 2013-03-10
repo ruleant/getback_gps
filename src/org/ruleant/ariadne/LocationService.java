@@ -164,17 +164,25 @@ public class LocationService extends Service {
 
     @Override
     public void onDestroy() {
+        // The service is no longer used and is being destroyed
+
         // Unregister all callbacks.
         mCallbacks.kill();
 
-        // The service is no longer used and is being destroyed
+	// unsubscribe from LocationManager updates
         mLocationManager.removeUpdates(mListener);
+
+	// save stored locations
         mStoredLocation.save();
+
+	// cleanup class properties
         mCurrentLocation = null;
         mPreviousLocation = null;
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
+
+	// display message announcing end of service
         if ((mDebug != null)
 	        && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
