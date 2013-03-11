@@ -31,6 +31,8 @@ import android.location.LocationManager;
 import android.os.Binder;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.os.RemoteCallbackList;
+import android.os.RemoteException;
 import android.widget.Toast;
 
 /**
@@ -47,9 +49,16 @@ public class LocationService extends Service {
      */
     private final IBinder mBinder = new LocationBinder();
     /**
+     * This is a list of callbacks that have been registered with the
+     * service.  Note that this is package scoped (instead of private) so
+     * that it can be accessed more efficiently from inner classes.
+     */
+    final RemoteCallbackList<ILocationServiceCallback> mCallbacks
+            = new RemoteCallbackList<ILocationServiceCallback>();
+    /**
      * Debug class instance.
      */
-    private Debug mDebug;
+    private DebugLevel mDebug;
     /**
      * LocationManager instance.
      */
@@ -77,10 +86,10 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         // Create debug class instance
-        mDebug = new Debug(this);
+        mDebug = new DebugLevel(this);
 
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
         mLocationManager
@@ -102,7 +111,7 @@ public class LocationService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
         return mBinder;
@@ -111,7 +120,7 @@ public class LocationService extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
         // don't allow rebind
@@ -133,19 +142,49 @@ public class LocationService extends Service {
             // can call public methods
             return LocationService.this;
         }
+
+        /**
+         * Register a client callback.
+         *
+         * @param cb client callback
+         */
+        public void registerCallback(ILocationServiceCallback cb) {
+            if (cb != null) mCallbacks.register(cb);
+        }
+
+        /**
+         * Unregister a client callback.
+         *
+         * @param cb client callback
+         */
+        public void unregisterCallback(ILocationServiceCallback cb) {
+            if (cb != null) mCallbacks.unregister(cb);
+        }
     }
 
     @Override
     public void onDestroy() {
         // The service is no longer used and is being destroyed
+
+        // Unregister all callbacks.
+        mCallbacks.kill();
+
+	// unsubscribe from LocationManager updates
         mLocationManager.removeUpdates(mListener);
+
+	// save stored locations
         mStoredLocation.save();
+
+	// cleanup class properties
         mCurrentLocation = null;
         mPreviousLocation = null;
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
-        if ((mDebug != null) && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+
+	// display message announcing end of service
+        if ((mDebug != null)
+	        && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
         mDebug = null;
@@ -196,7 +235,7 @@ public class LocationService extends Service {
 
         // display message on update
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
                 ) {
             Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
         }
@@ -332,7 +371,18 @@ public class LocationService extends Service {
         public void onLocationChanged(Location location) {
             // When new location update is received, update current location
             setLocation(location);
-            // TODO : notify bound Activities of Location Update
+
+            // Notify bound Activities of Location Update
+            final int N = mCallbacks.beginBroadcast();
+            for (int i=0; i<N; i++) {
+                try {
+                    mCallbacks.getBroadcastItem(i).locationUpdated();
+                } catch (RemoteException e) {
+                    // The RemoteCallbackList will take care of removing
+                    // the dead object for us.
+                }
+            }
+            mCallbacks.finishBroadcast();
         }
 
         @Override

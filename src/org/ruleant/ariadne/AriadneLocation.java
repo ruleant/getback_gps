@@ -101,8 +101,8 @@ public class AriadneLocation extends Location {
         }
 
         // Display raw when in debug mode
-        Debug debug = new Debug(context);
-        if (debug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+        DebugLevel debug = new DebugLevel(context);
+        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             locationText += "\n\n "
                 + context.getResources().getString(R.string.raw) + ": "
                 + super.toString();

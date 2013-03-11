@@ -254,6 +254,11 @@ public class MainActivity extends Activity {
             LocationBinder binder = (LocationBinder) service;
             mService = binder.getService();
             mBound = true;
+
+            // We want to monitor the service for as long as we are
+            // connected to it.
+            binder.registerCallback(mCallback);
+
             mProviderName = mService.getLocationProvider();
             if (!mProviderName.isEmpty()) {
                 mCurrentLocation = new AriadneLocation(mService.getLocation());
@@ -266,6 +271,40 @@ public class MainActivity extends Activity {
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
             mBound = false;
+        }
+    };
+
+    /**
+     * This implementation is used to receive callbacks
+     * from the remote service.
+     */
+    private ILocationServiceCallback mCallback
+        = new ILocationServiceCallback.Stub() {
+        /**
+         * Called by the LocationService when a location is updated,
+         * it gets the new location and refreshes the display.
+         */
+        public void locationUpdated() {
+            if (mBound) {
+                mCurrentLocation
+                    = new AriadneLocation(mService.getLocation());
+            } else {
+                mCurrentLocation = null;
+            }
+            refreshDisplay();
+        }
+
+        /**
+         * Called by the LocationService when a location provider is updated,
+         * it gets the new location provider and refreshes the display.
+         */
+        public void providerUpdated() {
+            if (mBound) {
+                mProviderName = mService.getLocationProvider();
+            } else {
+                mProviderName = null;
+            }
+            refreshDisplay();
         }
     };
 }

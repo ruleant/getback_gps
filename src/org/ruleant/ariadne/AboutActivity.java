@@ -28,8 +28,8 @@ public class AboutActivity extends Activity {
         String dateFormat = "yyyy-MM-dd";
 
         // Display time when in debug mode
-        Debug debug = new Debug(this);
-        if (debug.checkDebugLevel(Debug.DEBUG_LEVEL_LOW)) {
+        DebugLevel debug = new DebugLevel(this);
+        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
             dateFormat = "yyyy-MM-dd'T'HH:mm:ssz";
         }
         String versionName = "";
