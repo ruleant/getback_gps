@@ -33,7 +33,7 @@ import android.preference.PreferenceManager;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class Debug {
+public class DebugLevel {
     /**
      * Context of the App.
      */
@@ -74,7 +74,7 @@ public class Debug {
      *
      * @param context Context of the App
      */
-     public Debug(Context context) {
+     public DebugLevel(Context context) {
         mContext = context;
      }
 

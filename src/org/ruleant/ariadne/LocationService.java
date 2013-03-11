@@ -58,7 +58,7 @@ public class LocationService extends Service {
     /**
      * Debug class instance.
      */
-    private Debug mDebug;
+    private DebugLevel mDebug;
     /**
      * LocationManager instance.
      */
@@ -86,10 +86,10 @@ public class LocationService extends Service {
     @Override
     public void onCreate() {
         // Create debug class instance
-        mDebug = new Debug(this);
+        mDebug = new DebugLevel(this);
 
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
         mLocationManager
@@ -111,7 +111,7 @@ public class LocationService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
         return mBinder;
@@ -120,7 +120,7 @@ public class LocationService extends Service {
     @Override
     public boolean onUnbind(Intent intent) {
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
         // don't allow rebind
@@ -184,7 +184,7 @@ public class LocationService extends Service {
 
 	// display message announcing end of service
         if ((mDebug != null)
-	        && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_HIGH)) {
+	        && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
         mDebug = null;
@@ -235,7 +235,7 @@ public class LocationService extends Service {
 
         // display message on update
         if ((mDebug != null)
-                && mDebug.checkDebugLevel(Debug.DEBUG_LEVEL_MEDIUM)
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
                 ) {
             Toast.makeText(this, "location updated", Toast.LENGTH_SHORT).show();
         }
