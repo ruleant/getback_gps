@@ -1,5 +1,5 @@
 /**
- * Debug object
+ * DebugLevel class
  *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *

@@ -1,7 +1,7 @@
 ariadne
 =======
 
-Android app for finding your way back to a GPS location, f.e. a previously visited "starting" point.
+Android app for finding your way back to a previously visited location, using GPS coordinates.
 
 Website : <https://github.com/ruleant/ariadne>
 
