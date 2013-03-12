@@ -38,21 +38,21 @@ class FormatUtils {
      * Formats a distance (in meter) to a string,
      * in meter or kilometer, depending on the size.
      *
-     * @param meters distance in m
+     * @param distance distance in m
      * @return formatted distance with unit (m or km)
      */
-    public static String formatDist(double meters) {
+    public static String formatDist(double distance) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = 1000.0;
 
         // conversion and formatting
-        if (meters < scaleUnit) {
-            return String.format("%1$d%2$s", (int) meters, shortUnit);
-        } else if (meters < (scaleUnit * 10)) {
-            return String.format("%1$,.1f%2$s", (meters / scaleUnit), longUnit);
+        if (distance < scaleUnit) {
+            return String.format("%1$d%2$s", (int) distance, shortUnit);
+        } else if (distance < (scaleUnit * 10)) {
+            return String.format("%1$,.1f%2$s", (distance / scaleUnit), longUnit);
         } else {
-            return String.format("%1$,d%2$s", (int) (meters / scaleUnit), longUnit);
+            return String.format("%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
         }
     }
 }
