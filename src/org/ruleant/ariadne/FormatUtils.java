@@ -30,11 +30,11 @@ package org.ruleant.ariadne;
 class FormatUtils {
     public static String formatDist(double meters) {
         if (meters < 1000) {
-            return ((int) meters) + "m";
+            return String.format("%1$dm", (int) meters);
         } else if (meters < 10000) {
-            return formatDec(meters / 1000.0, 1) + "km";
+            return String.format("%1$,.1fkm", (meters / 1000.0));
         } else {
-            return ((int) (meters / 1000.0)) + "km";
+            return String.format("%1$,dkm", (int) (meters / 1000.0));
         }
     }
     static String formatDec(double val, int dec) {
