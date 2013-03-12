@@ -27,12 +27,26 @@
  */
 package org.ruleant.ariadne;
 
+/**
+ * Methods to convert values to formatted string
+ *
+ * @package org.ruleant.ariadne
+ * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ */
 class FormatUtils {
+    /**
+     * Formats a distance (in meter) to a string,
+     * in meter or kilometer, depending on the size.
+     *
+     * @param meters distance in m
+     * @return formatted distance with unit (m or km)
+     */
     public static String formatDist(double meters) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = 1000.0;
 
+        // conversion and formatting
         if (meters < scaleUnit) {
             return String.format("%1$d%2$s", (int) meters, shortUnit);
         } else if (meters < (scaleUnit * 10)) {
