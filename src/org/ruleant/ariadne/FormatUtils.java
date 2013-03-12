@@ -37,12 +37,4 @@ class FormatUtils {
             return String.format("%1$,dkm", (int) (meters / 1000.0));
         }
     }
-    static String formatDec(double val, int dec) {
-        int factor = (int) Math.pow(10, dec);
-
-        int front = (int) (val);
-        int back = (int) Math.abs(val * (factor)) % factor;
-
-        return front + "." + back;
-    }
 }
