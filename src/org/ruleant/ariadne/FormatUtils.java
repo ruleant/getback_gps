@@ -28,7 +28,7 @@
 package org.ruleant.ariadne;
 
 class FormatUtils {
-    public static String formatDist(float meters) {
+    public static String formatDist(double meters) {
         if (meters < 1000) {
             return ((int) meters) + "m";
         } else if (meters < 10000) {
@@ -37,7 +37,7 @@ class FormatUtils {
             return ((int) (meters / 1000f)) + "km";
         }
     }
-    static String formatDec(float val, int dec) {
+    static String formatDec(double val, int dec) {
         int factor = (int) Math.pow(10, dec);
 
         int front = (int) (val);
