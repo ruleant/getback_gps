@@ -29,12 +29,16 @@ package org.ruleant.ariadne;
 
 class FormatUtils {
     public static String formatDist(double meters) {
-        if (meters < 1000) {
-            return String.format("%1$dm", (int) meters);
-        } else if (meters < 10000) {
-            return String.format("%1$,.1fkm", (meters / 1000.0));
+        String shortUnit = "m";
+        String longUnit = "km";
+        double scaleUnit = 1000.0;
+
+        if (meters < scaleUnit) {
+            return String.format("%1$d%2$s", (int) meters, shortUnit);
+        } else if (meters < (scaleUnit * 10)) {
+            return String.format("%1$,.1f%2$s", (meters / scaleUnit), longUnit);
         } else {
-            return String.format("%1$,dkm", (int) (meters / 1000.0));
+            return String.format("%1$,d%2$s", (int) (meters / scaleUnit), longUnit);
         }
     }
 }
