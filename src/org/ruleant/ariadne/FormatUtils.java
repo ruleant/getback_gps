@@ -38,6 +38,7 @@ class FormatUtils {
     /**
      * Formats a distance (in meter) to a string,
      * in meter or kilometer, depending on the size.
+     * The number format is localized.
      *
      * @param distance distance in m
      * @return formatted distance with unit (m or km)
