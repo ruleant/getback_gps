@@ -233,7 +233,7 @@ public class MainActivity extends Activity {
             // Print distance and bearing
             toDestinationText += " "
                 + getResources().getString(R.string.distance) + ": "
-                + mService.getDistance() + "m\n";
+                + FormatUtils.formatDist(mService.getDistance()) + "\n";
             toDestinationText += " "
                 + getResources().getString(R.string.bearing) + ": "
                 + mService.getBearing() + "°";

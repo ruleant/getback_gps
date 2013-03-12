@@ -72,7 +72,7 @@ public class AriadneLocation extends Location {
         if (hasAltitude()) {
             locationText += " "
                 + context.getResources().getString(R.string.altitude) + ": "
-                + getAltitude() + "m\n";
+                + FormatUtils.formatDist(getAltitude()) + "\n";
         }
         if (hasBearing()) {
             locationText += " "
@@ -87,7 +87,7 @@ public class AriadneLocation extends Location {
         if (hasAccuracy()) {
             locationText += " "
                 + context.getResources().getString(R.string.accuracy) + ": "
-                + getAccuracy() + "m\n";
+                + FormatUtils.formatDist(getAccuracy()) + "\n";
         }
 
         // Format Timestamp
