@@ -32,9 +32,9 @@ class FormatUtils {
         if (meters < 1000) {
             return ((int) meters) + "m";
         } else if (meters < 10000) {
-            return formatDec(meters / 1000f, 1) + "km";
+            return formatDec(meters / 1000.0, 1) + "km";
         } else {
-            return ((int) (meters / 1000f)) + "km";
+            return ((int) (meters / 1000.0)) + "km";
         }
     }
     static String formatDec(double val, int dec) {
