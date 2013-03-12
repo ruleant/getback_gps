@@ -50,9 +50,11 @@ class FormatUtils {
         if (distance < scaleUnit) {
             return String.format("%1$d%2$s", (int) distance, shortUnit);
         } else if (distance < (scaleUnit * 10)) {
-            return String.format("%1$,.1f%2$s", (distance / scaleUnit), longUnit);
+            return String.format(
+                "%1$,.1f%2$s", (distance / scaleUnit), longUnit);
         } else {
-            return String.format("%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
+            return String.format(
+                "%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
         }
     }
 }
