@@ -48,11 +48,14 @@ class FormatUtils {
 
         // conversion and formatting
         if (distance < scaleUnit) {
+            // display as short unit, as integer
             return String.format("%1$d%2$s", (int) distance, shortUnit);
         } else if (distance < (scaleUnit * 10)) {
+            // display as long unit, with 1 decimal
             return String.format(
                 "%1$,.1f%2$s", (distance / scaleUnit), longUnit);
         } else {
+            // display as long unit, as integer
             return String.format(
                 "%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
         }
