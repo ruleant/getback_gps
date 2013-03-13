@@ -28,9 +28,8 @@
 package org.ruleant.ariadne;
 
 /**
- * Methods to convert values to formatted string
+ * Methods to convert values to formatted string.
  *
- * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 class FormatUtils {
