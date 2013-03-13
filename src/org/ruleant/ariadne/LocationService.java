@@ -377,8 +377,8 @@ public class LocationService extends Service {
             setLocation(location);
 
             // Notify bound Activities of Location Update
-            final int N = mCallbacks.beginBroadcast();
-            for (int i = 0; i < N; i++) {
+            final int noCallbacks = mCallbacks.beginBroadcast();
+            for (int i = 0; i < noCallbacks; i++) {
                 try {
                     mCallbacks.getBroadcastItem(i).locationUpdated();
                 } catch (RemoteException e) {
