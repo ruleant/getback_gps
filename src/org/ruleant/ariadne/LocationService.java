@@ -149,7 +149,9 @@ public class LocationService extends Service {
          * @param cb client callback
          */
         public void registerCallback(ILocationServiceCallback cb) {
-            if (cb != null) mCallbacks.register(cb);
+            if (cb != null) {
+                mCallbacks.register(cb);
+            }
         }
 
         /**
@@ -158,7 +160,9 @@ public class LocationService extends Service {
          * @param cb client callback
          */
         public void unregisterCallback(ILocationServiceCallback cb) {
-            if (cb != null) mCallbacks.unregister(cb);
+            if (cb != null) {
+                mCallbacks.unregister(cb);
+            }
         }
     }
 
