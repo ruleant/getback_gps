@@ -169,22 +169,22 @@ public class LocationService extends Service {
         // Unregister all callbacks.
         mCallbacks.kill();
 
-	// unsubscribe from LocationManager updates
+        // unsubscribe from LocationManager updates
         mLocationManager.removeUpdates(mListener);
 
-	// save stored locations
+        // save stored locations
         mStoredLocation.save();
 
-	// cleanup class properties
+        // cleanup class properties
         mCurrentLocation = null;
         mPreviousLocation = null;
         mProviderName = "";
         mLocationManager = null;
         mStoredLocation = null;
 
-	// display message announcing end of service
+        // display message announcing end of service
         if ((mDebug != null)
-	        && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
         mDebug = null;
@@ -374,7 +374,7 @@ public class LocationService extends Service {
 
             // Notify bound Activities of Location Update
             final int N = mCallbacks.beginBroadcast();
-            for (int i=0; i<N; i++) {
+            for (int i = 0; i < N; i++) {
                 try {
                     mCallbacks.getBroadcastItem(i).locationUpdated();
                 } catch (RemoteException e) {
