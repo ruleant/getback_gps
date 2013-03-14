@@ -24,10 +24,17 @@
 	    <!-- TODO : find proper way of including the android-support lib -->
 	    <systemPath>${basedir}/libs/android-support-v4.jar</systemPath>
 	</dependency>
+	<dependency>
+	    <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>3.8.1</version>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
         <sourceDirectory>src</sourceDirectory>
+	<testSourceDirectory>test</testSourceDirectory>
         <pluginManagement>
             <plugins>
                 <plugin>
