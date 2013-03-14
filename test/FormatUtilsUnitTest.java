@@ -1,9 +1,9 @@
-package org.ruleant.ariadne.tests;
+package org.ruleant.ariadne;
 
 import junit.framework.TestCase;
 import org.ruleant.ariadne.FormatUtils;
 
-public class FormatUtilsUnitTests extends TestCase {
+public class FormatUtilsUnitTest extends TestCase {
     public void testFormatDist() {
         assertEquals("10m", FormatUtils.formatDist(9.9));
         assertEquals("10m", FormatUtils.formatDist(10.0));
