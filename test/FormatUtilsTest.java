@@ -24,6 +24,6 @@ public class FormatUtilsTest extends TestCase {
     public void testFormatDistNeg() {
         // TODO write test for negative distance
         // FormatUtils.formatDist(-1.0);
-        fails();
+        fail();
     }
 }
