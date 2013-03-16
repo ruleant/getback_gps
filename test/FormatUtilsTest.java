@@ -7,7 +7,7 @@ import org.ruleant.ariadne.FormatUtils;
 public class FormatUtilsTest extends TestCase {
     public void testFormatDist() {
         // Set English (US) locale
-        Locale.setDefault(Locale.en_US);
+        Locale.setDefault(Locale.US);
 
         assertEquals("9m", FormatUtils.formatDist(9.0));
         assertEquals("10m", FormatUtils.formatDist(10.0));
@@ -18,7 +18,8 @@ public class FormatUtilsTest extends TestCase {
     }
     public void testFormatDistBelgianFormat() {
         // Set Dutch (Belgium) locale
-        Locale.setDefault(Locale.nl_BE);
+        Locale localeDutchBelgian = new Locale("nl", "BE");
+        Locale.setDefault(localeDutchBelgian);
 
         assertEquals("9,0km", FormatUtils.formatDist(9000.0));
         assertEquals("9,9km", FormatUtils.formatDist(9900.0));
