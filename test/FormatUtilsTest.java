@@ -77,4 +77,58 @@ public class FormatUtilsTest extends TestCase {
         assertEquals("9.0km", FormatUtils.formatDist(-9000.0));
         assertEquals("11km", FormatUtils.formatDist(-11000.0));
     }
+
+    /**
+     * Tests conversion of the speed from m/s to km/h
+     * and formatting of the speed :
+     * 1 decimal when speed is smaller than 10km/h
+     * no decimals when speed is bigger than 10 km/h
+     * Locale en_US is assumed.
+     */
+    public final void testFormatSpeedMain() {
+        // Set English (US) locale
+        Locale.setDefault(Locale.US);
+
+        assertEquals("3.6km/h", FormatUtils.formatDist(1.0));
+        assertEquals("7.2km/h", FormatUtils.formatDist(2.0));
+        assertEquals("9.9km/h", FormatUtils.formatDist(2.75));
+        assertEquals("10km/h", FormatUtils.formatDist(2.78));
+        assertEquals("14km/h", FormatUtils.formatDist(4.0));
+        assertEquals("1,234km/h", FormatUtils.formatDist(342.7778));
+    }
+
+    /**
+     * Tests the formatting when a European locale is used, in this case nl_BE.
+     */
+    public final void testFormatSpeedBelgianFormat() {
+        // Set Dutch (Belgium) locale
+        Locale localeDutchBelgian = new Locale("nl", "BE");
+        Locale.setDefault(localeDutchBelgian);
+
+        assertEquals("9,9km/u", FormatUtils.formatDist(2.75));
+        assertEquals("1.234km/u", FormatUtils.formatDist(342.7778));
+    }
+
+    /**
+     * Test if the speed is correctly rounded.
+     */
+    public final void testFormatSpeedRound() {
+        // 2,06389m/s = 7,43 km/h => 7.4 km/h
+        assertEquals("7.4km/h", FormatUtils.formatDist(2.06389));
+        // 2,0778m/s = 7,48 km/h => 7.5 km/h
+        assertEquals("7.5km/h", FormatUtils.formatDist(2.0778));
+        // 3.0m/s = 12.8 km/h => 13 km/h
+        assertEquals("13km/h", FormatUtils.formatDist(3.0));
+        // 4.0m/s = 14.4 km/h => 14 km/h
+        assertEquals("14km/h", FormatUtils.formatDist(4.0));
+    }
+
+    /**
+     * Tests if returned formatted speed is positive,
+     * even if the speed argument is negative.
+     */
+    public final void testFormatSpeedNeg() {
+        assertEquals("3.6km/h", FormatUtils.formatDist(-1.0));
+        assertEquals("14km/h", FormatUtils.formatDist(-4.0));
+    }
 }
