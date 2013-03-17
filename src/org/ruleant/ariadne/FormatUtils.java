@@ -33,7 +33,6 @@ package org.ruleant.ariadne;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class FormatUtils {
-    // TODO write Unit tests for this class
     /**
      * Formats a distance (in meter) to a string,
      * in meter or kilometer, depending on the size.
