@@ -63,13 +63,6 @@
 		<configuration>
 		    <skip>false</skip>
 		    <targetJdk>${compile.source}</targetJdk>
-		    <!--rulesets>
-		       <ruleset>./current.pmd.rules.xml</ruleset>
-		    </rulesets-->
-		    <!--excludes>
-		        <exclude>com/cm/**/*.java</exclude>
-		        <exclude>com/sm/**/*.java</exclude>
-		    </excludes-->
 		    <linkXref>true</linkXref>
 		    <failOnViolation>false</failOnViolation>
 		    <executions>
