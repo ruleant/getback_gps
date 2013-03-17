@@ -74,5 +74,7 @@ public class FormatUtilsTest extends TestCase {
      */
     public final void testFormatDistNeg() {
         assertEquals("1m", FormatUtils.formatDist(-1.0));
+        assertEquals("9.0km", FormatUtils.formatDist(-9000.0));
+        assertEquals("11km", FormatUtils.formatDist(-11000.0));
     }
 }
