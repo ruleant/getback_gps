@@ -36,7 +36,7 @@ public class FormatUtilsTest extends TestCase {
      * to test the different cases : in meter, kilometer, kilometer with
      * an extra decimal, more than 1,000 km.
      */
-    public void testFormatDistMain() {
+    public final void testFormatDistMain() {
         // Set English (US) locale
         Locale.setDefault(Locale.US);
 
@@ -51,7 +51,7 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
-    public void testFormatDistBelgianFormat() {
+    public final void testFormatDistBelgianFormat() {
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
@@ -64,7 +64,7 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Test if the distance is correctly rounded.
      */
-    public void testFormatDistRoundUp() {
+    public final void testFormatDistRoundUp() {
         assertEquals("10m", FormatUtils.formatDist(9.9));
     }
 
@@ -72,7 +72,7 @@ public class FormatUtilsTest extends TestCase {
      * Tests if returned formatted distance is positive,
      * even if the distance argument is negative.
      */
-    public void testFormatDistNeg() {
+    public final void testFormatDistNeg() {
         assertEquals("1m", FormatUtils.formatDist(-1.0));
     }
 }
