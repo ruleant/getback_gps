@@ -37,6 +37,7 @@ public class FormatUtilsTest extends TestCase {
      * an extra decimal, more than 1,000 km.
      */
     public final void testFormatDistMain() {
+        // TODO move setting of local to test Setup
         // Set English (US) locale
         Locale.setDefault(Locale.US);
 
@@ -52,6 +53,7 @@ public class FormatUtilsTest extends TestCase {
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
     public final void testFormatDistBelgianFormat() {
+        // TODO revert to default locale after tests
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
