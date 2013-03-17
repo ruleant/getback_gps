@@ -2,7 +2,6 @@ package org.ruleant.ariadne;
 
 import java.util.Locale;
 import junit.framework.TestCase;
-import org.ruleant.ariadne.FormatUtils;
 
 public class FormatUtilsTest extends TestCase {
     public void testFormatDist() {
