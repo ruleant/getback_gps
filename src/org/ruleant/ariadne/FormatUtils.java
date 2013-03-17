@@ -63,4 +63,35 @@ public class FormatUtils {
                 "%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
         }
     }
+
+    /**
+     * Formats a distance (in meter per second (m/s)) to a string,
+     * in kilometer per hour (km/h).
+     * The number format is localized.
+     *
+     * @param speed speed in m/s
+     * @return formatted speed with unit (km/h)
+     */
+    public static String formatSpeed(double speed) {
+        // TODO use translated string
+        String unit = "km/h";
+        double conversionRate = 3.6; // 3600s/1000m
+
+        // speed shouldn't be negative
+        speed = Math.abs(speed);
+
+        // conversion
+        double convertedSpeed = speed * conversionRate;
+
+        // formatting
+        if (convertedSpeed < 10.0) {
+            // display with 1 decimal
+            return String.format(
+                "%1$,.1f%2$s", convertedSpeed, unit);
+        } else {
+            // display as integer
+            return String.format(
+                "%1$,d%2$s", (int) convertedSpeed, unit);
+        }
+    }
 }
