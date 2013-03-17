@@ -33,7 +33,6 @@ package org.ruleant.ariadne;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class FormatUtils {
-    // TODO write Unit tests for this class
     /**
      * Formats a distance (in meter) to a string,
      * in meter or kilometer, depending on the size.
@@ -47,6 +46,9 @@ public class FormatUtils {
         String longUnit = "km";
         double scaleUnit = 1000.0;
 
+        // distance shouldn't be negative
+        distance = Math.abs(distance);
+
         // conversion and formatting
         if (distance < scaleUnit) {
             // display as short unit, as integer
@@ -59,6 +61,37 @@ public class FormatUtils {
             // display as long unit, as integer
             return String.format(
                 "%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
+        }
+    }
+
+    /**
+     * Formats a distance (in meter per second (m/s)) to a string,
+     * in kilometer per hour (km/h).
+     * The number format is localized.
+     *
+     * @param speed speed in m/s
+     * @return formatted speed with unit (km/h)
+     */
+    public static String formatSpeed(double speed) {
+        // TODO use translated string
+        String unit = "km/h";
+        double conversionRate = 3.6; // 3600s/1000m
+
+        // speed shouldn't be negative
+        speed = Math.abs(speed);
+
+        // conversion
+        double convertedSpeed = speed * conversionRate;
+
+        // formatting
+        if (convertedSpeed < 10.0) {
+            // display with 1 decimal
+            return String.format(
+                "%1$,.1f%2$s", convertedSpeed, unit);
+        } else {
+            // display as integer
+            return String.format(
+                "%1$,d%2$s", (int) convertedSpeed, unit);
         }
     }
 }
