@@ -47,6 +47,9 @@ public class FormatUtils {
         String longUnit = "km";
         double scaleUnit = 1000.0;
 
+        // distance shouldn't be negative
+        distance = Math.abs(distance);
+
         // conversion and formatting
         if (distance < scaleUnit) {
             // display as short unit, as integer
