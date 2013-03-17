@@ -63,7 +63,7 @@
 		<configuration>
 		    <skip>false</skip>
 		    <targetJdk>${compile.source}</targetJdk>
-		    <linkXref>true</linkXref>
+		    <linkXref>false</linkXref>
 		    <failOnViolation>false</failOnViolation>
 		    <executions>
 		        <execution>
@@ -80,6 +80,7 @@
                 <artifactId>maven-checkstyle-plugin</artifactId>
                 <configuration>
                     <includeTestSourceDirectory>true</includeTestSourceDirectory>
+		    <linkXref>false</linkXref>
                 </configuration>
             </plugin>
 	</plugins>
