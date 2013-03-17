@@ -36,7 +36,7 @@ public class FormatUtilsTest extends TestCase {
      * to test the different cases : in meter, kilometer, kilometer with
      * an extra decimal, more than 1,000 km.
      */
-    public void testFormatDist() {
+    public void testFormatDistMain() {
         // Set English (US) locale
         Locale.setDefault(Locale.US);
 
