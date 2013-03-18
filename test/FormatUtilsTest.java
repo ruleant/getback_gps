@@ -31,16 +31,36 @@ import junit.framework.TestCase;
  */
 public class FormatUtilsTest extends TestCase {
     /**
+     * Original Locale before tests.
+     */
+    private Locale originalLocale;
+
+    /**
+     * Sets up the test fixture.
+     * (Called before every test case method.)
+     */
+    protected void setUp() {
+        // Set English (US) locale
+        originalLocale = Locale.getDefault();
+        Locale.setDefault(Locale.US);
+    }
+
+    /**
+     * Tears down the test fixture.
+     * (Called after every test case method.)
+     */
+    protected void tearDown() {
+        // set default locale back to original
+        Locale.setDefault(originalLocale);
+    }
+
+    /**
      * Tests main functionality of method FormatDist.
      * Locale en_US is assumed, several distances are passed as an argument
      * to test the different cases : in meter, kilometer, kilometer with
      * an extra decimal, more than 1,000 km.
      */
     public final void testFormatDistMain() {
-        // TODO move setting of local to test Setup
-        // Set English (US) locale
-        Locale.setDefault(Locale.US);
-
         assertEquals("9m", FormatUtils.formatDist(9.0));
         assertEquals("10m", FormatUtils.formatDist(10.0));
         assertEquals("9.0km", FormatUtils.formatDist(9000.0));
@@ -53,7 +73,6 @@ public class FormatUtilsTest extends TestCase {
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
     public final void testFormatDistBelgianFormat() {
-        // TODO revert to default locale after tests
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
