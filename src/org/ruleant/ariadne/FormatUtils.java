@@ -34,6 +34,13 @@ package org.ruleant.ariadne;
  */
 public class FormatUtils {
     /**
+     * Hidden constructor.
+     */
+    protected FormatUtils() {
+        // prevents calls from subclass
+        throw new UnsupportedOperationException();
+    }
+    /**
      * Formats a distance (in meter) to a string,
      * in meter or kilometer, depending on the size.
      * The number format is localized.
