@@ -44,11 +44,11 @@ public class MainActivity extends Activity {
     /**
      * Interface to LocationService instance.
      */
-    LocationService mService;
+    private LocationService mService;
     /**
      * Connection state with LocationService.
      */
-    boolean mBound = false;
+    private boolean mBound = false;
     /**
      * Name of the LocationProvider.
      */

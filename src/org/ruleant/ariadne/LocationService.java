@@ -53,7 +53,7 @@ public class LocationService extends Service {
      * service.  Note that this is package scoped (instead of private) so
      * that it can be accessed more efficiently from inner classes.
      */
-    final RemoteCallbackList<ILocationServiceCallback> mCallbacks
+    private final RemoteCallbackList<ILocationServiceCallback> mCallbacks
             = new RemoteCallbackList<ILocationServiceCallback>();
     /**
      * Debug class instance.
