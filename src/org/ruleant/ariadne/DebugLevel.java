@@ -103,7 +103,7 @@ public class DebugLevel {
       * @param debugLevel Debug level to check
       * @return true if current debugLevel is at least the needed level
       */
-     public boolean checkDebugLevel(int debugLevel) {
+     public final boolean checkDebugLevel(int debugLevel) {
          return (getDebugLevel() >= debugLevel);
      }
 }
