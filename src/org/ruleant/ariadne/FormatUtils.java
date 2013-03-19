@@ -34,6 +34,21 @@ package org.ruleant.ariadne;
  */
 public class FormatUtils {
     /**
+     * Conversion rate from m/s to km/h.
+     */
+    public static final double SPEED_CONV_MPS_KPH = 3.6; // 3600s/1000m
+
+    /**
+     * Conversion rate from meter to kilometer.
+     */
+    public static final double CONV_M_KM = 1000.0;
+
+    /**
+     * 1 decimal difference
+     */
+    private static final double ONE_DEC = 10.0;
+
+    /**
      * Hidden constructor.
      */
     protected FormatUtils() {
@@ -51,7 +66,7 @@ public class FormatUtils {
     public final static String formatDist(double distance) {
         String shortUnit = "m";
         String longUnit = "km";
-        double scaleUnit = 1000.0;
+        double scaleUnit = CONV_M_KM;
 
         // distance shouldn't be negative
         distance = Math.abs(distance);
@@ -60,7 +75,7 @@ public class FormatUtils {
         if (distance < scaleUnit) {
             // display as short unit, as integer
             return String.format("%1$d%2$s", (int) distance, shortUnit);
-        } else if (distance < (scaleUnit * 10)) {
+        } else if (distance < (scaleUnit * ONE_DEC)) {
             // display as long unit, with 1 decimal
             return String.format(
                 "%1$,.1f%2$s", (distance / scaleUnit), longUnit);
@@ -82,16 +97,15 @@ public class FormatUtils {
     public final static String formatSpeed(double speed) {
         // TODO use translated string
         String unit = "km/h";
-        double conversionRate = 3.6; // 3600s/1000m
 
         // speed shouldn't be negative
         speed = Math.abs(speed);
 
         // conversion
-        double convertedSpeed = speed * conversionRate;
+        double convertedSpeed = speed * SPEED_CONV_MPS_KPH;
 
         // formatting
-        if (convertedSpeed < 10.0) {
+        if (convertedSpeed < ONE_DEC) {
             // display with 1 decimal
             return String.format(
                 "%1$,.1f%2$s", convertedSpeed, unit);
