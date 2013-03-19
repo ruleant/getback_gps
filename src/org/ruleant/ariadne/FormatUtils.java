@@ -39,9 +39,9 @@ public class FormatUtils {
     public static final double SPEED_CONV_MPS_KPH = 3.6; // 3600s/1000m
 
     /**
-     * Conversion rate from meter to kilometer.
+     * Conversion rate from kilometer to meter.
      */
-    public static final double CONV_M_KM = 1000.0;
+    public static final double CONV_KM_M = 1000.0;
 
     /**
      * 1 decimal difference
@@ -66,7 +66,7 @@ public class FormatUtils {
     public final static String formatDist(double distance) {
         String shortUnit = "m";
         String longUnit = "km";
-        double scaleUnit = CONV_M_KM;
+        double scaleUnit = CONV_KM_M;
 
         // distance shouldn't be negative
         distance = Math.abs(distance);
