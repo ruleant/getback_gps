@@ -39,7 +39,7 @@ public class FormatUtilsTest extends TestCase {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected void setUp() {
+    protected final void setUp() {
         // Set English (US) locale
         originalLocale = Locale.getDefault();
         Locale.setDefault(Locale.US);
@@ -49,7 +49,7 @@ public class FormatUtilsTest extends TestCase {
      * Tears down the test fixture.
      * (Called after every test case method.)
      */
-    protected void tearDown() {
+    protected final void tearDown() {
         // set default locale back to original
         Locale.setDefault(originalLocale);
     }
