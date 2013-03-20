@@ -63,7 +63,7 @@ public class FormatUtils {
      * @param distance distance in m
      * @return formatted distance with unit (m or km)
      */
-    public final static String formatDist(double distance) {
+    public static final String formatDist(double distance) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = CONV_KM_M;
@@ -94,7 +94,7 @@ public class FormatUtils {
      * @param speed speed in m/s
      * @return formatted speed with unit (km/h)
      */
-    public final static String formatSpeed(double speed) {
+    public static final String formatSpeed(double speed) {
         // TODO use translated string
         String unit = "km/h";
 
