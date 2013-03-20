@@ -44,7 +44,7 @@ public class FormatUtils {
     public static final double CONV_KM_M = 1000.0;
 
     /**
-     * 1 decimal difference
+     * 1 decimal difference.
      */
     private static final double ONE_DEC = 10.0;
 
