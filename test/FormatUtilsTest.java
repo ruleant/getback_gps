@@ -167,6 +167,8 @@ public class FormatUtilsTest extends TestCase {
      */
     public final void testFormatDistRoundUp() {
         assertEquals("10m", FormatUtils.formatDist(M_9P9M));
+        // TODO add test cases : 999.3m, 999.9m, 1.33km, 1.37km,
+        // 9.93km, 9,98km, 11.4km, 11.7km
     }
 
     /**
