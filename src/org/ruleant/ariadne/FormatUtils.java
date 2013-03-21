@@ -74,7 +74,7 @@ public class FormatUtils {
         // conversion and formatting
         if (distance < scaleUnit) {
             // display as short unit, as integer
-            return String.format("%1$d%2$s", (int) distance, shortUnit);
+            return String.format("%1$d%2$s", Math.round(distance), shortUnit);
         } else if (distance < (scaleUnit * ONE_DEC)) {
             // display as long unit, with 1 decimal
             return String.format(
@@ -82,7 +82,7 @@ public class FormatUtils {
         } else {
             // display as long unit, as integer
             return String.format(
-                "%1$,d%2$s", (int) (distance / scaleUnit), longUnit);
+                "%1$,d%2$s", Math.round(distance / scaleUnit), longUnit);
         }
     }
 
@@ -112,7 +112,7 @@ public class FormatUtils {
         } else {
             // display as integer
             return String.format(
-                "%1$,d%2$s", (int) convertedSpeed, unit);
+                "%1$,d%2$s", Math.round(convertedSpeed), unit);
         }
     }
 }
