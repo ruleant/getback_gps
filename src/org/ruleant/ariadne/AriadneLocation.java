@@ -82,7 +82,7 @@ public class AriadneLocation extends Location {
         if (hasSpeed()) {
             locationText += " "
                 + context.getResources().getString(R.string.speed) + ": "
-                + getSpeed() + "m/s\n";
+                + FormatUtils.formatSpeed(getSpeed()) + "\n";
         }
         if (hasAccuracy()) {
             locationText += " "
