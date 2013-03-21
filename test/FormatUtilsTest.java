@@ -71,6 +71,51 @@ public class FormatUtilsTest extends TestCase {
     private static final double D_12345K = 12345000.0;
 
     /**
+     * 3.6 km/h in m/s.
+     */
+    private static final double MPS_3P6KPH = 1.0;
+
+    /**
+     * 7.2 km/h in m/s.
+     */
+    private static final double MPS_7P2KPH = 2.0;
+
+    /**
+     * 7.43 km/h in m/s.
+     */
+    private static final double MPS_7P43KPH = 2.06389;
+
+    /**
+     * 7.48 km/h in m/s.
+     */
+    private static final double MPS_7P48KPH = 2.0778;
+
+    /**
+     * 9.9 km/h in m/s.
+     */
+    private static final double MPS_9P9KPH = 2.75;
+
+    /**
+     * 10.0 km/h in m/s.
+     */
+    private static final double MPS_10KPH = 2.78;
+
+    /**
+     * 10.8 km/h in m/s.
+     */
+    private static final double MPS_10P8KPH = 3.0;
+
+    /**
+     * 14.4 km/h in m/s.
+     */
+    private static final double MPS_14P4KPH = 4.0;
+
+    /**
+     * 1234 km/h in m/s.
+     */
+    private static final double MPS_1234KPH = 342.7778;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -142,12 +187,12 @@ public class FormatUtilsTest extends TestCase {
      * Locale en_US is assumed.
      */
     public final void testFormatSpeedMain() {
-        assertEquals("3.6km/h", FormatUtils.formatSpeed(1.0));
-        assertEquals("7.2km/h", FormatUtils.formatSpeed(2.0));
-        assertEquals("9.9km/h", FormatUtils.formatSpeed(2.75));
-        assertEquals("10km/h", FormatUtils.formatSpeed(2.78));
-        assertEquals("14km/h", FormatUtils.formatSpeed(4.0));
-        assertEquals("1,234km/h", FormatUtils.formatSpeed(342.7778));
+        assertEquals("3.6km/h", FormatUtils.formatSpeed(MPS_3P6KPH));
+        assertEquals("7.2km/h", FormatUtils.formatSpeed(MPS_7P2KPH));
+        assertEquals("9.9km/h", FormatUtils.formatSpeed(MPS_9P9KPH));
+        assertEquals("10km/h", FormatUtils.formatSpeed(MPS_10KPH));
+        assertEquals("14km/h", FormatUtils.formatSpeed(MPS_14P4KPH));
+        assertEquals("1,234km/h", FormatUtils.formatSpeed(MPS_1234KPH));
     }
 
     /**
@@ -158,22 +203,22 @@ public class FormatUtilsTest extends TestCase {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("9,9km/u", FormatUtils.formatSpeed(2.75));
-        assertEquals("1.234km/u", FormatUtils.formatSpeed(342.7778));
+        assertEquals("9,9km/u", FormatUtils.formatSpeed(MPS_9P9KPH));
+        assertEquals("1.234km/u", FormatUtils.formatSpeed(MPS_1234KPH));
     }
 
     /**
      * Test if the speed is correctly rounded.
      */
     public final void testFormatSpeedRound() {
-        // 2,06389m/s = 7,43 km/h => 7.4 km/h
-        assertEquals("7.4km/h", FormatUtils.formatSpeed(2.06389));
-        // 2,0778m/s = 7,48 km/h => 7.5 km/h
-        assertEquals("7.5km/h", FormatUtils.formatSpeed(2.0778));
-        // 3.0m/s = 12.8 km/h => 13 km/h
-        assertEquals("13km/h", FormatUtils.formatSpeed(3.0));
+        // 2.06389m/s = 7.43 km/h => 7.4 km/h
+        assertEquals("7.4km/h", FormatUtils.formatSpeed(MPS_7P43KPH));
+        // 2.0778m/s = 7.48 km/h => 7.5 km/h
+        assertEquals("7.5km/h", FormatUtils.formatSpeed(MPS_7P48KPH));
+        // 3.0m/s = 10.8 km/h => 11 km/h
+        assertEquals("11km/h", FormatUtils.formatSpeed(MPS_10P8KPH));
         // 4.0m/s = 14.4 km/h => 14 km/h
-        assertEquals("14km/h", FormatUtils.formatSpeed(4.0));
+        assertEquals("14km/h", FormatUtils.formatSpeed(MPS_14P4KPH));
     }
 
     /**
@@ -181,7 +226,7 @@ public class FormatUtilsTest extends TestCase {
      * even if the speed argument is negative.
      */
     public final void testFormatSpeedNeg() {
-        assertEquals("3.6km/h", FormatUtils.formatSpeed(-1.0));
-        assertEquals("14km/h", FormatUtils.formatSpeed(-4.0));
+        assertEquals("3.6km/h", FormatUtils.formatSpeed(-1.0 * MPS_3P6KPH));
+        assertEquals("14km/h", FormatUtils.formatSpeed(-1.0 * MPS_14P4KPH));
     }
 }
