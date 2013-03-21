@@ -142,9 +142,6 @@ public class FormatUtilsTest extends TestCase {
      * Locale en_US is assumed.
      */
     public final void testFormatSpeedMain() {
-        // Set English (US) locale
-        Locale.setDefault(Locale.US);
-
         assertEquals("3.6km/h", FormatUtils.formatSpeed(1.0));
         assertEquals("7.2km/h", FormatUtils.formatSpeed(2.0));
         assertEquals("9.9km/h", FormatUtils.formatSpeed(2.75));
