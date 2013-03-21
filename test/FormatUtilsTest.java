@@ -36,39 +36,39 @@ public class FormatUtilsTest extends TestCase {
     private Locale originalLocale;
 
     /**
-     * Number nine in double format.
+     * 9 meter.
      */
-    private static final double D_9 = 9.0;
+    private static final double M_9M = 9.0;
 
     /**
-     * Number 9.9 in double format.
+     * 9.9 meter.
      */
-    private static final double D_9P9 = 9.9;
+    private static final double M_9P9M = 9.9;
 
     /**
-     * Number ten in double format.
+     * 10 meter.
      */
-    private static final double D_10 = 10.0;
+    private static final double M_10M = 10.0;
 
     /**
-     * Number 9000 in double format.
+     * 9 kilometer in meter.
      */
-    private static final double D_9K = 9000.0;
+    private static final double M_9KM = 9000.0;
 
     /**
-     * Number 9900 in double format.
+     * 9.9 kilometer in meter.
      */
-    private static final double D_9P9K = 9900.0;
+    private static final double M_9P9KM = 9900.0;
 
     /**
-     * Number 11000 in double format.
+     * 11 kilometer in meter.
      */
-    private static final double D_11K = 11000.0;
+    private static final double M_11KM = 11000.0;
 
     /**
-     * Number 12345000 in double format.
+     * 12345 kilometer in meter.
      */
-    private static final double D_12345K = 12345000.0;
+    private static final double M_12345KM = 12345000.0;
 
     /**
      * 3.6 km/h in m/s.
@@ -141,12 +141,12 @@ public class FormatUtilsTest extends TestCase {
      * an extra decimal, more than 1,000 km.
      */
     public final void testFormatDistMain() {
-        assertEquals("9m", FormatUtils.formatDist(D_9));
-        assertEquals("10m", FormatUtils.formatDist(D_10));
-        assertEquals("9.0km", FormatUtils.formatDist(D_9K));
-        assertEquals("9.9km", FormatUtils.formatDist(D_9P9K));
-        assertEquals("11km", FormatUtils.formatDist(D_11K));
-        assertEquals("12,345km", FormatUtils.formatDist(D_12345K));
+        assertEquals("9m", FormatUtils.formatDist(M_9M));
+        assertEquals("10m", FormatUtils.formatDist(M_10M));
+        assertEquals("9.0km", FormatUtils.formatDist(M_9KM));
+        assertEquals("9.9km", FormatUtils.formatDist(M_9P9KM));
+        assertEquals("11km", FormatUtils.formatDist(M_11KM));
+        assertEquals("12,345km", FormatUtils.formatDist(M_12345KM));
     }
 
     /**
@@ -157,16 +157,16 @@ public class FormatUtilsTest extends TestCase {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("9,0km", FormatUtils.formatDist(D_9K));
-        assertEquals("9,9km", FormatUtils.formatDist(D_9P9K));
-        assertEquals("12.345km", FormatUtils.formatDist(D_12345K));
+        assertEquals("9,0km", FormatUtils.formatDist(M_9KM));
+        assertEquals("9,9km", FormatUtils.formatDist(M_9P9KM));
+        assertEquals("12.345km", FormatUtils.formatDist(M_12345KM));
     }
 
     /**
      * Test if the distance is correctly rounded.
      */
     public final void testFormatDistRoundUp() {
-        assertEquals("10m", FormatUtils.formatDist(D_9P9));
+        assertEquals("10m", FormatUtils.formatDist(M_9P9M));
     }
 
     /**
@@ -175,8 +175,8 @@ public class FormatUtilsTest extends TestCase {
      */
     public final void testFormatDistNeg() {
         assertEquals("1m", FormatUtils.formatDist(-1.0));
-        assertEquals("9.0km", FormatUtils.formatDist(-1.0 * D_9K));
-        assertEquals("11km", FormatUtils.formatDist(-1.0 * D_11K));
+        assertEquals("9.0km", FormatUtils.formatDist(-1.0 * M_9KM));
+        assertEquals("11km", FormatUtils.formatDist(-1.0 * M_11KM));
     }
 
     /**
