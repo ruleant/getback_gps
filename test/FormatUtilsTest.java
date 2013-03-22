@@ -208,7 +208,7 @@ public class FormatUtilsTest extends TestCase {
     public final void testFormatDistRoundUp() {
         assertEquals("10m", FormatUtils.formatDist(M_9P9M));
         assertEquals("999m", FormatUtils.formatDist(M_999P3M));
-        assertEquals("1km", FormatUtils.formatDist(M_999P9M));
+        assertEquals("1.0km", FormatUtils.formatDist(M_999P9M));
         assertEquals("1.3km", FormatUtils.formatDist(M_1P33KM));
         assertEquals("1.4km", FormatUtils.formatDist(M_1P37KM));
         assertEquals("9.9km", FormatUtils.formatDist(M_9P93KM));
