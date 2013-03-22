@@ -51,9 +51,39 @@ public class FormatUtilsTest extends TestCase {
     private static final double M_10M = 10.0;
 
     /**
+     * 999.3 meter.
+     */
+    private static final double M_999P3M = 999.3;
+
+    /**
+     * 999.9 meter.
+     */
+    private static final double M_999P9M = 999.9;
+
+    /**
+     * 1.33 kilometer in meter.
+     */
+    private static final double M_1P33KM = 1330.0;
+
+    /**
+     * 1.37 kilometer in meter.
+     */
+    private static final double M_1P37KM = 1370.0;
+
+    /**
      * 9 kilometer in meter.
      */
     private static final double M_9KM = 9000.0;
+
+    /**
+     * 9.93 kilometer in meter.
+     */
+    private static final double M_9P93KM = 9930.0;
+
+    /**
+     * 9.98 kilometer in meter.
+     */
+    private static final double M_9P98KM = 9980.0;
 
     /**
      * 9.9 kilometer in meter.
@@ -64,6 +94,16 @@ public class FormatUtilsTest extends TestCase {
      * 11 kilometer in meter.
      */
     private static final double M_11KM = 11000.0;
+
+    /**
+     * 11.4 kilometer in meter.
+     */
+    private static final double M_11P4KM = 11400.0;
+
+    /**
+     * 11.7 kilometer in meter.
+     */
+    private static final double M_11P7KM = 11700.0;
 
     /**
      * 12345 kilometer in meter.
@@ -167,8 +207,14 @@ public class FormatUtilsTest extends TestCase {
      */
     public final void testFormatDistRoundUp() {
         assertEquals("10m", FormatUtils.formatDist(M_9P9M));
-        // TODO add test cases : 999.3m, 999.9m, 1.33km, 1.37km,
-        // 9.93km, 9,98km, 11.4km, 11.7km
+        assertEquals("999m", FormatUtils.formatDist(M_999P3M));
+        assertEquals("1km", FormatUtils.formatDist(M_999P9M));
+        assertEquals("1.3km", FormatUtils.formatDist(M_1P33KM));
+        assertEquals("1.4km", FormatUtils.formatDist(M_1P37KM));
+        assertEquals("9.9km", FormatUtils.formatDist(M_9P93KM));
+        assertEquals("10km", FormatUtils.formatDist(M_9P98KM));
+        assertEquals("11km", FormatUtils.formatDist(M_11P4KM));
+        assertEquals("12km", FormatUtils.formatDist(M_11P7KM));
     }
 
     /**
