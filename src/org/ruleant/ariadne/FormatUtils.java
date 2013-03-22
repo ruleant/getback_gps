@@ -72,17 +72,22 @@ public class FormatUtils {
         distance = Math.abs(distance);
 
         // conversion and formatting
-        if (distance < scaleUnit) {
+        if (Math.round(distance) < scaleUnit) {
             // display as short unit, as integer
             return String.format("%1$d%2$s", Math.round(distance), shortUnit);
-        } else if (distance < (scaleUnit * ONE_DEC)) {
-            // display as long unit, with 1 decimal
-            return String.format(
-                "%1$,.1f%2$s", (distance / scaleUnit), longUnit);
         } else {
-            // display as long unit, as integer
-            return String.format(
-                "%1$,d%2$s", Math.round(distance / scaleUnit), longUnit);
+            double scaledDistance = (distance / scaleUnit);
+            // round to one decimal and check if it is
+            // smaller than a 1 decimal difference
+            if ((Math.round(scaledDistance * ONE_DEC) / ONE_DEC) < ONE_DEC) {
+                // display as long unit, with 1 decimal
+                return String.format(
+                    "%1$,.1f%2$s", scaledDistance, longUnit);
+            } else {
+                // display as long unit, as integer
+                return String.format(
+                    "%1$,d%2$s", Math.round(scaledDistance), longUnit);
+            }
         }
     }
 
