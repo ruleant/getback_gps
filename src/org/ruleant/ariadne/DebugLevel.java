@@ -85,7 +85,7 @@ public class DebugLevel {
       */
      public int getDebugLevel() {
          if ((! BuildConfig.DEBUG) || mContext == null) {
-             return 0;
+             return DEBUG_LEVEL_OFF;
          }
 
          // Get debug level from SharedPreferences
