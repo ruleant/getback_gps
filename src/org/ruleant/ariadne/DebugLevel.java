@@ -84,7 +84,7 @@ public class DebugLevel {
       * @return current debugLevel
       */
      public int getDebugLevel() {
-         if (mContext == null) {
+         if ((! BuildConfig.DEBUG) || mContext == null) {
              return 0;
          }
 
@@ -104,6 +104,6 @@ public class DebugLevel {
       * @return true if current debugLevel is at least the needed level
       */
      public final boolean checkDebugLevel(int debugLevel) {
-         return (getDebugLevel() >= debugLevel);
+         return (BuildConfig.DEBUG && (getDebugLevel() >= debugLevel));
      }
 }
