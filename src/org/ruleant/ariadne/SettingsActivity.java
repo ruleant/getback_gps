@@ -53,6 +53,9 @@ public class SettingsActivity extends PreferenceActivity {
         // In the simplified UI, fragments are not used at all and we instead
         // use the older PreferenceActivity APIs.
 
+        // TODO don't display debug mode settings when
+        // BuildConfig.DEBUG is false
+
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
 
@@ -172,6 +175,10 @@ public class SettingsActivity extends PreferenceActivity {
         @Override
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
+
+            // TODO don't display debug mode settings when
+            // BuildConfig.DEBUG is false
+
             addPreferencesFromResource(R.xml.pref_general);
 
             // Bind the summaries of EditText/List/Dialog/Ringtone preferences
