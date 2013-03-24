@@ -65,6 +65,9 @@
                     <formats>
                         <format>xml</format>
                     </formats>
+                    <excludes>
+                        <exclude>target/generated-sources/**/*.java</exclude>
+                    </excludes>
                 </configuration>
                 <executions>
                     <execution>
