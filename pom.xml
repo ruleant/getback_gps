@@ -65,10 +65,12 @@
                     <formats>
                         <format>xml</format>
                     </formats>
-                    <excludes>
-                        <exclude>**/BuildConfig.java</exclude>
-                        <exclude>**/R.java</exclude>
-                    </excludes>
+		    <instrumentation>
+                        <excludes>
+                            <exclude>**/BuildConfig.java</exclude>
+                            <exclude>**/R.java</exclude>
+                        </excludes>
+                    </instrumentation>
                 </configuration>
 	    </plugin>
 	    <plugin>
