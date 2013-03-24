@@ -84,7 +84,7 @@ public class DebugLevel {
       * @return current debugLevel
       */
      public int getDebugLevel() {
-         if ((! BuildConfig.DEBUG) || mContext == null) {
+         if (!BuildConfig.DEBUG || mContext == null) {
              return DEBUG_LEVEL_OFF;
          }
 
