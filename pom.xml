@@ -67,8 +67,8 @@
                     </formats>
 		    <instrumentation>
                         <excludes>
-                            <exclude>**/BuildConfig.java</exclude>
-                            <exclude>**/R.java</exclude>
+                            <exclude>**/BuildConfig.class</exclude>
+                            <exclude>**/R.class</exclude>
                         </excludes>
                     </instrumentation>
                 </configuration>
