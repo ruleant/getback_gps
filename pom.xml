@@ -66,7 +66,8 @@
                         <format>xml</format>
                     </formats>
                     <excludes>
-                        <exclude>target/generated-sources/**/*.java</exclude>
+                        <exclude>**/BuildConfig.java</exclude>
+                        <exclude>**/R.java</exclude>
                     </excludes>
                 </configuration>
 	    </plugin>
