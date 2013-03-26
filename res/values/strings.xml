@@ -2,6 +2,7 @@
 <resources>
 
     <string name="app_name">Ariadne</string>
+    <string name="app_desc">Find your way back to a previously visited location, using GPS coordinates.</string>
     <string name="copyright">Copyright &#169; 2012&#8211;2013 <a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens</a></string>
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
