@@ -52,6 +52,11 @@ public class AboutActivity extends Activity {
         tvVersion.setText(getResources().getString(R.string.app_name)
                 + " " + versionName);
 
+        // Version text view
+        TextView tvWebsite = (TextView) findViewById(R.id.textview_website);
+        // enable HTML links
+        tvWebsite.setMovementMethod(LinkMovementMethod.getInstance());
+
         // Updated text view
         TextView tvUpdated = (TextView) findViewById(R.id.textview_updated);
         tvUpdated.setText(getResources().getString(R.string.updated)
