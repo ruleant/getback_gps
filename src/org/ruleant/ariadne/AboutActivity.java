@@ -32,35 +32,28 @@ public class AboutActivity extends Activity {
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
             dateFormat = "yyyy-MM-dd'T'HH:mm:ssz";
         }
-        String versionName = "";
-        String lastUpdated = "";
+        String versionInfo = getResources().getString(R.string.app_name);
         PackageInfo packageInfo;
 
         try {
             packageInfo
                 = getPackageManager().getPackageInfo(getPackageName(), 0);
-            versionName = "v" + packageInfo.versionName;
+            versionInfo += " v" + packageInfo.versionName;
             Date date = new Date(packageInfo.lastUpdateTime);
             SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
-            lastUpdated = formatter.format(date);
+            versionInfo += " (" + formatter.format(date) + ")";
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
 
         // Version text view
         TextView tvVersion = (TextView) findViewById(R.id.textview_version);
-        tvVersion.setText(getResources().getString(R.string.app_name)
-                + " " + versionName);
+        tvVersion.setText(versionInfo);
 
         // Version text view
         TextView tvWebsite = (TextView) findViewById(R.id.textview_website);
         // enable HTML links
         tvWebsite.setMovementMethod(LinkMovementMethod.getInstance());
-
-        // Updated text view
-        TextView tvUpdated = (TextView) findViewById(R.id.textview_updated);
-        tvUpdated.setText(getResources().getString(R.string.updated)
-                + ": " + lastUpdated);
 
         // Copyright text view
         TextView tvCopyright = (TextView) findViewById(R.id.textview_copyright);

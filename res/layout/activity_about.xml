@@ -28,13 +28,6 @@
         android:text="@string/app_website" />
 
     <TextView
-        android:id="@+id/textview_updated"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/updated" />
-
-    <TextView
         android:id="@+id/textview_copyright"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -26,7 +26,6 @@
     <string name="button_getLocation">Update location</string>
     <string name="provider_no_support">Provider is not supported</string>
     <string name="version">Version</string>
-    <string name="updated">Last updated</string>
     <string name="about">About</string>
     <string name="license">This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
