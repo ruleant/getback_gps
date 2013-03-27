@@ -7,6 +7,8 @@
     <!-- General settings -->
     <string name="pref_header_general">General</string>
     <string name="pref_debug_level">Debugging</string>
+    <string name="pref_loc_update_dist">Update location every</string>
+    <string name="pref_loc_update_time">Update location every</string>
 
     <string-array name="pref_debug_level_list_titles">
         <item>Show all debug info</item>
@@ -21,4 +23,35 @@
         <item>0</item>
     </string-array>
 
+    <string-array name="pref_loc_update_dist_list_titles">
+        <item>100 meter</item>
+        <item>50 meter</item>
+        <item>10 meter</item>
+        <item>5 meter</item>
+        <item>1 meter</item>
+    </string-array>
+    <string-array name="pref_loc_update_dist_list_values">
+        <item>100</item>
+        <item>50</item>
+        <item>10</item>
+        <item>5</item>
+        <item>1</item>
+    </string-array>
+
+    <string-array name="pref_loc_update_time_list_titles">
+        <item>1 minute</item>
+        <item>30 seconds</item>
+        <item>10 seconds</item>
+        <item>5 seconds</item>
+        <item>2 seconds</item>
+        <item>1 second</item>
+    </string-array>
+    <string-array name="pref_loc_update_time_list_values">
+        <item>60</item>
+        <item>30</item>
+        <item>10</item>
+        <item>5</item>
+        <item>2</item>
+        <item>1</item>
+    </string-array>
 </resources>

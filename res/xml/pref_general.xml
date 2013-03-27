@@ -1,6 +1,24 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
     <ListPreference
+        android:defaultValue="10"
+        android:entries="@array/pref_loc_update_dist_list_titles"
+        android:entryValues="@array/pref_loc_update_dist_list_values"
+        android:key="loc_update_dist"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_loc_update_dist" />
+
+    <ListPreference
+        android:defaultValue="10"
+        android:entries="@array/pref_loc_update_time_list_titles"
+        android:entryValues="@array/pref_loc_update_time_list_values"
+        android:key="loc_update_time"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_loc_update_time" />
+
+    <ListPreference
         android:defaultValue="0"
         android:entries="@array/pref_debug_level_list_titles"
         android:entryValues="@array/pref_debug_level_list_values"

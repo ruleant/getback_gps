@@ -63,6 +63,10 @@ public class SettingsActivity extends PreferenceActivity {
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
         bindPreferenceSummaryToValue(
+            findPreference("loc_update_dist"));
+        bindPreferenceSummaryToValue(
+            findPreference("loc_update_time"));
+        bindPreferenceSummaryToValue(
             findPreference(DebugLevel.PREF_DEBUG_LEVEL));
     }
 
@@ -185,6 +189,10 @@ public class SettingsActivity extends PreferenceActivity {
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
             // guidelines.
+            bindPreferenceSummaryToValue(
+                findPreference("loc_update_dist"));
+            bindPreferenceSummaryToValue(
+                findPreference("loc_update_time"));
             bindPreferenceSummaryToValue(
                     findPreference(DebugLevel.PREF_DEBUG_LEVEL)
                     );
