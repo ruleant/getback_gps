@@ -6,7 +6,7 @@
 
     <!-- General settings -->
     <string name="pref_header_general">General</string>
-    <string name="debug_level">Debugging</string>
+    <string name="pref_debug_level">Debugging</string>
 
     <string-array name="pref_debug_level_list_titles">
         <item>Show all debug info</item>

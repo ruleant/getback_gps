@@ -7,6 +7,6 @@
         android:key="debug_level"
         android:negativeButtonText="@null"
         android:positiveButtonText="@null"
-        android:title="@string/debug_level" />
+        android:title="@string/pref_debug_level" />
 
 </PreferenceScreen>
