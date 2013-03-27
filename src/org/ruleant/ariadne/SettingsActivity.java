@@ -194,8 +194,7 @@ public class SettingsActivity extends PreferenceActivity {
             bindPreferenceSummaryToValue(
                 findPreference("loc_update_time"));
             bindPreferenceSummaryToValue(
-                    findPreference(DebugLevel.PREF_DEBUG_LEVEL)
-                    );
+                findPreference(DebugLevel.PREF_DEBUG_LEVEL));
         }
     }
 }
