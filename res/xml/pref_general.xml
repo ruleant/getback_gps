@@ -10,7 +10,7 @@
         android:title="@string/pref_loc_update_dist" />
 
     <ListPreference
-        android:defaultValue="10"
+        android:defaultValue="10000"
         android:entries="@array/pref_loc_update_time_list_titles"
         android:entryValues="@array/pref_loc_update_time_list_values"
         android:key="loc_update_time"

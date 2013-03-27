@@ -47,11 +47,11 @@
         <item>1 second</item>
     </string-array>
     <string-array name="pref_loc_update_time_list_values">
-        <item>60</item>
-        <item>30</item>
-        <item>10</item>
-        <item>5</item>
-        <item>2</item>
-        <item>1</item>
+        <item>60000</item>
+        <item>30000</item>
+        <item>10000</item>
+        <item>5000</item>
+        <item>2000</item>
+        <item>1000</item>
     </string-array>
 </resources>
