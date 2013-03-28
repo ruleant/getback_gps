@@ -26,6 +26,16 @@ import android.preference.PreferenceManager;
  */
 public class SettingsActivity extends PreferenceActivity {
     /**
+     * Key of preference Location Update Distance
+     */
+    public static final String KEY_PREF_LOC_UPDATE_DIST = "loc_update_dist";
+
+    /**
+     * Key of preference Location Update Time
+     */
+    public static final String KEY_PREF_LOC_UPDATE_TIME = "loc_update_time";
+
+    /**
      * Determines whether to always show the simplified settings UI, where
      * settings are presented in a single list. When false, settings are shown
      * as a master/detail two-pane view on tablets. When true, a single pane is
@@ -63,9 +73,9 @@ public class SettingsActivity extends PreferenceActivity {
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
         bindPreferenceSummaryToValue(
-            findPreference("loc_update_dist"));
+            findPreference(KEY_PREF_LOC_UPDATE_DIST));
         bindPreferenceSummaryToValue(
-            findPreference("loc_update_time"));
+            findPreference(KEY_PREF_LOC_UPDATE_TIME));
         bindPreferenceSummaryToValue(
             findPreference(DebugLevel.PREF_DEBUG_LEVEL));
     }
