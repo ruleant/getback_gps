@@ -97,6 +97,7 @@ public class LocationService extends Service {
             this.getSystemService(Context.LOCATION_SERVICE);
         mStoredLocation = new LocationStore(this.getApplicationContext());
 
+        // mProviderName is set by updateLocationProvider
         if (!updateLocationProvider().isEmpty()) {
             setLocation(requestUpdatesFromProvider(mProviderName));
         }
