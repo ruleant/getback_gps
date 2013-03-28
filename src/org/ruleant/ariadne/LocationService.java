@@ -98,8 +98,9 @@ public class LocationService extends Service {
         mStoredLocation = new LocationStore(this.getApplicationContext());
 
         // mProviderName is set by updateLocationProvider
+        // and used in requestUpdatesFromProvider
         if (!updateLocationProvider().isEmpty()) {
-            setLocation(requestUpdatesFromProvider(mProviderName));
+            setLocation(requestUpdatesFromProvider());
         }
     }
 
@@ -341,22 +342,22 @@ public class LocationService extends Service {
     }
 
     /**
-     * Method to register location updates with a desired location provider.
+     * Method to register location updates with the current location provider.
      *
      * If the requested provider is not available on the device,
      * the app displays a Toast with a message referenced by a resource id.
      *
-     * @param provider Name of the requested provider.
      * @return A previously returned {@link android.location.Location}
      *         from the requested provider, if exists.
      */
-    private Location requestUpdatesFromProvider(final String provider) {
+    private Location requestUpdatesFromProvider() {
         Location location = null;
-        if (mLocationManager.isProviderEnabled(provider)) {
+        if (mProviderName != null && !mProviderName.isEmpty()
+                && mLocationManager.isProviderEnabled(mProviderName)) {
             // TODO : define criteria in settings
             mLocationManager.requestLocationUpdates(
-                    provider, TEN_SECONDS, TEN_METERS, mListener);
-            location = mLocationManager.getLastKnownLocation(provider);
+                    mProviderName, TEN_SECONDS, TEN_METERS, mListener);
+            location = mLocationManager.getLastKnownLocation(mProviderName);
         } else {
             Toast.makeText(
                 this,
