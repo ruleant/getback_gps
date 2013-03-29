@@ -26,12 +26,12 @@ import android.preference.PreferenceManager;
  */
 public class SettingsActivity extends PreferenceActivity {
     /**
-     * Key of preference Location Update Distance
+     * Key of preference Location Update Distance.
      */
     public static final String KEY_PREF_LOC_UPDATE_DIST = "loc_update_dist";
 
     /**
-     * Key of preference Location Update Time
+     * Key of preference Location Update Time.
      */
     public static final String KEY_PREF_LOC_UPDATE_TIME = "loc_update_time";
 
