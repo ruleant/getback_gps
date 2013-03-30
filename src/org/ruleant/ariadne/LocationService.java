@@ -24,6 +24,7 @@ package org.ruleant.ariadne;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -33,6 +34,7 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
 import android.os.RemoteException;
+import android.preference.PreferenceManager;
 import android.widget.Toast;
 
 /**
@@ -354,9 +356,24 @@ public class LocationService extends Service {
         Location location = null;
         if (mProviderName != null && !mProviderName.isEmpty()
                 && mLocationManager.isProviderEnabled(mProviderName)) {
-            // TODO : define criteria in settings
+
+	    // Get debug level from SharedPreferences
+	    SharedPreferences sharedPref
+	        = PreferenceManager.getDefaultSharedPreferences(this);
+            String prefLocationUpdateDistance
+                = sharedPref.getString(
+		    SettingsActivity.KEY_PREF_LOC_UPDATE_DIST,
+		    "10");
+            String prefLocationUpdateTime
+                = sharedPref.getString(
+		    SettingsActivity.KEY_PREF_LOC_UPDATE_TIME,
+		    "10000");
+
             mLocationManager.requestLocationUpdates(
-                    mProviderName, TEN_SECONDS, TEN_METERS, mListener);
+                    mProviderName,
+                    Integer.parseInt(prefLocationUpdateTime),
+                    Integer.parseInt(prefLocationUpdateDistance),
+                    mListener);
             location = mLocationManager.getLastKnownLocation(mProviderName);
         } else {
             Toast.makeText(
