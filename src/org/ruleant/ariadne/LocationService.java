@@ -357,17 +357,17 @@ public class LocationService extends Service {
         if (mProviderName != null && !mProviderName.isEmpty()
                 && mLocationManager.isProviderEnabled(mProviderName)) {
 
-	    // Get debug level from SharedPreferences
-	    SharedPreferences sharedPref
-	        = PreferenceManager.getDefaultSharedPreferences(this);
+            // Get debug level from SharedPreferences
+            SharedPreferences sharedPref
+            = PreferenceManager.getDefaultSharedPreferences(this);
             String prefLocationUpdateDistance
-                = sharedPref.getString(
-		    SettingsActivity.KEY_PREF_LOC_UPDATE_DIST,
-		    SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST);
+            = sharedPref.getString(
+                    SettingsActivity.KEY_PREF_LOC_UPDATE_DIST,
+                    SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST);
             String prefLocationUpdateTime
-                = sharedPref.getString(
-		    SettingsActivity.KEY_PREF_LOC_UPDATE_TIME,
-		    SettingsActivity.DEFAULT_PREF_LOC_UPDATE_TIME);
+            = sharedPref.getString(
+                    SettingsActivity.KEY_PREF_LOC_UPDATE_TIME,
+                    SettingsActivity.DEFAULT_PREF_LOC_UPDATE_TIME);
 
             mLocationManager.requestLocationUpdates(
                     mProviderName,
@@ -377,10 +377,10 @@ public class LocationService extends Service {
             location = mLocationManager.getLastKnownLocation(mProviderName);
         } else {
             Toast.makeText(
-                this,
-                R.string.provider_no_support,
-                Toast.LENGTH_LONG
-            ).show();
+                    this,
+                    R.string.provider_no_support,
+                    Toast.LENGTH_LONG
+                    ).show();
         }
         return location;
     }
