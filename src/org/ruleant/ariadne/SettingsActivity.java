@@ -31,9 +31,19 @@ public class SettingsActivity extends PreferenceActivity {
     public static final String KEY_PREF_LOC_UPDATE_DIST = "loc_update_dist";
 
     /**
+     * Default value of preference Location Update Distance.
+     */
+    public static final String DEFAULT_PREF_LOC_UPDATE_DIST = "10";
+
+    /**
      * Key of preference Location Update Time.
      */
     public static final String KEY_PREF_LOC_UPDATE_TIME = "loc_update_time";
+
+    /**
+     * Default value of preference Location Update Time.
+     */
+    public static final String DEFAULT_PREF_LOC_UPDATE_TIME = "10000";
 
     /**
      * Determines whether to always show the simplified settings UI, where

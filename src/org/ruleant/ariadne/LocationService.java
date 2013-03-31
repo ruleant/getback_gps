@@ -363,11 +363,11 @@ public class LocationService extends Service {
             String prefLocationUpdateDistance
                 = sharedPref.getString(
 		    SettingsActivity.KEY_PREF_LOC_UPDATE_DIST,
-		    "10");
+		    SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST);
             String prefLocationUpdateTime
                 = sharedPref.getString(
 		    SettingsActivity.KEY_PREF_LOC_UPDATE_TIME,
-		    "10000");
+		    SettingsActivity.DEFAULT_PREF_LOC_UPDATE_TIME);
 
             mLocationManager.requestLocationUpdates(
                     mProviderName,
