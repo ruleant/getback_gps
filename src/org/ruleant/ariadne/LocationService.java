@@ -82,9 +82,6 @@ public class LocationService extends Service {
      */
     private LocationStore mStoredLocation;
 
-    private static final int TEN_SECONDS = 10000;
-    private static final int TEN_METERS = 10;
-
     @Override
     public void onCreate() {
         // Create debug class instance
