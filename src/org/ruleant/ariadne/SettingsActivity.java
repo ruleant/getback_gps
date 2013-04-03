@@ -79,6 +79,9 @@ public class SettingsActivity extends PreferenceActivity {
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
 
+        // Add 'debug' preferences.
+        addPreferencesFromResource(R.xml.pref_debug);
+        
         // Bind the summaries of the preferences to
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
@@ -200,11 +203,6 @@ public class SettingsActivity extends PreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // TODO don't display debug mode settings when
-            // BuildConfig.DEBUG is false
-
-            addPreferencesFromResource(R.xml.pref_general);
-
             // Bind the summaries of the preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
@@ -213,6 +211,28 @@ public class SettingsActivity extends PreferenceActivity {
                 findPreference("loc_update_dist"));
             bindPreferenceSummaryToValue(
                 findPreference("loc_update_time"));
+        }
+    }
+
+    /**
+     * This fragment shows general preferences only. It is used when the
+     * activity is showing a two-pane settings UI.
+     */
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+    public static class DebugPreferenceFragment extends PreferenceFragment {
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+
+            // TODO don't display debug mode settings when
+            // BuildConfig.DEBUG is false
+
+            addPreferencesFromResource(R.xml.pref_debug);
+
+            // Bind the summaries of the preferences
+            // to their values. When their values change, their summaries are
+            // updated to reflect the new value, per the Android Design
+            // guidelines.
             bindPreferenceSummaryToValue(
                 findPreference(DebugLevel.PREF_DEBUG_LEVEL));
         }

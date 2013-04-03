@@ -6,22 +6,8 @@
 
     <!-- General settings -->
     <string name="pref_header_general">General</string>
-    <string name="pref_debug_level">Debugging</string>
     <string name="pref_loc_update_dist">Update location every</string>
     <string name="pref_loc_update_time">Update location every</string>
-
-    <string-array name="pref_debug_level_list_titles">
-        <item>Show all debug info</item>
-        <item>Show some debug info</item>
-        <item>Show limited debug info</item>
-        <item>Disabled</item>
-    </string-array>
-    <string-array name="pref_debug_level_list_values">
-        <item>3</item>
-        <item>2</item>
-        <item>1</item>
-        <item>0</item>
-    </string-array>
 
     <string-array name="pref_loc_update_dist_list_titles">
         <item>100 meter</item>
@@ -54,4 +40,22 @@
         <item>2000</item>
         <item>1000</item>
     </string-array>
+
+    <!-- Debug settings -->
+    <string name="pref_header_debug">Debug</string>
+    <string name="pref_debug_level">Debugging</string>
+
+    <string-array name="pref_debug_level_list_titles">
+        <item>Show all debug info</item>
+        <item>Show some debug info</item>
+        <item>Show limited debug info</item>
+        <item>Disabled</item>
+    </string-array>
+    <string-array name="pref_debug_level_list_values">
+        <item>3</item>
+        <item>2</item>
+        <item>1</item>
+        <item>0</item>
+    </string-array>
+
 </resources>

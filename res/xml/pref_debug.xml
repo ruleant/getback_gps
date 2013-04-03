@@ -1,0 +1,12 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ListPreference
+        android:defaultValue="0"
+        android:entries="@array/pref_debug_level_list_titles"
+        android:entryValues="@array/pref_debug_level_list_values"
+        android:key="debug_level"
+        android:negativeButtonText="@null"
+        android:positiveButtonText="@null"
+        android:title="@string/pref_debug_level" />
+
+</PreferenceScreen>
