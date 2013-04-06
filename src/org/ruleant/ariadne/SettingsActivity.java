@@ -74,17 +74,16 @@ public class SettingsActivity extends PreferenceActivity {
         // In the simplified UI, fragments are not used at all and we instead
         // use the older PreferenceActivity APIs.
 
-        // TODO don't display debug mode settings when
-        // BuildConfig.DEBUG is false
-
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
 
-        // Add 'debug' preferences.
-        PreferenceCategory headerDebug = new PreferenceCategory(this);
-        headerDebug.setTitle(R.string.pref_header_debug);
-        getPreferenceScreen().addPreference(headerDebug);
-        addPreferencesFromResource(R.xml.pref_debug);
+        // Add 'debug' preferences if DEBUG is enabled.
+        if (BuildConfig.DEBUG) {
+            PreferenceCategory headerDebug = new PreferenceCategory(this);
+            headerDebug.setTitle(R.string.pref_header_debug);
+            getPreferenceScreen().addPreference(headerDebug);
+            addPreferencesFromResource(R.xml.pref_debug);
+        }
 
         // Bind the summaries of the preferences to
         // their values. When their values change, their summaries are updated
@@ -93,8 +92,10 @@ public class SettingsActivity extends PreferenceActivity {
             findPreference(KEY_PREF_LOC_UPDATE_DIST));
         bindPreferenceSummaryToValue(
             findPreference(KEY_PREF_LOC_UPDATE_TIME));
-        bindPreferenceSummaryToValue(
-            findPreference(DebugLevel.PREF_DEBUG_LEVEL));
+        if (BuildConfig.DEBUG) {
+            bindPreferenceSummaryToValue(
+                    findPreference(DebugLevel.PREF_DEBUG_LEVEL));
+        }
     }
 
     /** {@inheritDoc} */
@@ -228,7 +229,7 @@ public class SettingsActivity extends PreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // TODO don't display debug mode settings when
+            // TODO don't display debug mode settings fragment when
             // BuildConfig.DEBUG is false
 
             addPreferencesFromResource(R.xml.pref_debug);
