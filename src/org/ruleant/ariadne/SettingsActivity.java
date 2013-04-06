@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
@@ -80,6 +81,9 @@ public class SettingsActivity extends PreferenceActivity {
         addPreferencesFromResource(R.xml.pref_general);
 
         // Add 'debug' preferences.
+        PreferenceCategory headerDebug = new PreferenceCategory(this);
+        headerDebug.setTitle(R.string.pref_header_debug);
+        getPreferenceScreen().addPreference(headerDebug);
         addPreferencesFromResource(R.xml.pref_debug);
 
         // Bind the summaries of the preferences to
