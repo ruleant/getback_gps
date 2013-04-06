@@ -139,6 +139,10 @@ public class SettingsActivity extends PreferenceActivity {
     public void onBuildHeaders(List<Header> target) {
         if (!isSimplePreferences(this)) {
             loadHeadersFromResource(R.xml.pref_headers, target);
+            // Add 'debug' preference header if DEBUG is enabled.
+            if (BuildConfig.DEBUG) {
+                loadHeadersFromResource(R.xml.pref_header_debug, target);
+            }
         }
     }
 
@@ -229,8 +233,10 @@ public class SettingsActivity extends PreferenceActivity {
         public void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
-            // TODO don't display debug mode settings fragment when
-            // BuildConfig.DEBUG is false
+            // Add 'debug' preferences if DEBUG is enabled.
+            if (!BuildConfig.DEBUG) {
+                return;
+            }
 
             addPreferencesFromResource(R.xml.pref_debug);
 
