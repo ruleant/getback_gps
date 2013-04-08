@@ -109,6 +109,7 @@
                     <reportOutputDirectory>${basedir}</reportOutputDirectory>
                     <destDir>doc</destDir>
                     <show>protected</show>
+                    <sourcepath>${basedir}/src</sourcepath>
                 </configuration>
             </plugin>
 	</plugins>
