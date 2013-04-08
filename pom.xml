@@ -101,6 +101,16 @@
 		    <linkXref>false</linkXref>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.9</version>
+                <configuration>
+                    <reportOutputDirectory>${basedir}</reportOutputDirectory>
+                    <destDir>doc</destDir>
+                    <show>protected</show>
+                </configuration>
+            </plugin>
 	</plugins>
     </build>
 </project>
