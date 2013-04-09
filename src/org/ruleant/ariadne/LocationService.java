@@ -339,6 +339,7 @@ public class LocationService extends Service {
         }
         float direction = relativeBearing - currentBearing;
 
+        // TODO move to FormatUtils and write tests
         // returned value should be between 0° and 360°
         if (direction < 0.0) {
             direction += 360.0 * (1 + (int)(direction / 360.0));
