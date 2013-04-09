@@ -25,19 +25,19 @@
     </string-array>
 
     <string-array name="pref_loc_update_time_list_titles">
+        <item>5 minutes</item>
         <item>1 minute</item>
         <item>30 seconds</item>
         <item>10 seconds</item>
         <item>5 seconds</item>
-        <item>2 seconds</item>
         <item>1 second</item>
     </string-array>
     <string-array name="pref_loc_update_time_list_values">
+        <item>300000</item>
         <item>60000</item>
         <item>30000</item>
         <item>10000</item>
         <item>5000</item>
-        <item>2000</item>
         <item>1000</item>
     </string-array>
 
