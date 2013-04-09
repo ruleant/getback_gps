@@ -15,6 +15,7 @@
         <item>10 meter</item>
         <item>5 meter</item>
         <item>1 meter</item>
+        <item>distance based updates disabled</item>
     </string-array>
     <string-array name="pref_loc_update_dist_list_values">
         <item>100</item>
@@ -22,6 +23,7 @@
         <item>10</item>
         <item>5</item>
         <item>1</item>
+        <item>0</item>
     </string-array>
 
     <string-array name="pref_loc_update_time_list_titles">
