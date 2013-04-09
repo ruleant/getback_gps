@@ -235,8 +235,8 @@ public class MainActivity extends Activity {
                 + getResources().getString(R.string.distance) + ": "
                 + FormatUtils.formatDist(mService.getDistance()) + "\n";
             toDestinationText += " "
-                + getResources().getString(R.string.bearing) + ": "
-                + mService.getBearing() + "°";
+                + getResources().getString(R.string.direction) + ": "
+                + mService.getDirection() + "°";
         }
         tvToDestination.setText(toDestinationText);
     }

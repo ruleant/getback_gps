@@ -20,6 +20,7 @@
     <string name="timestamp">Timestamp</string>
     <string name="to_dest">To Destination</string>
     <string name="distance">Distance</string>
+    <string name="direction">Direction</string>
     <string name="raw">Raw</string>
     <string name="refresh">Refresh</string>
     <string name="button_getLocationProvider">Update provider</string>

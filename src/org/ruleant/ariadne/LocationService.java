@@ -321,7 +321,7 @@ public class LocationService extends Service {
      *
      * @return float distance in meters
      */
-    public float getBearing() {
+    public float getDirection() {
         // don't calculate bearing if current location is not set
         if (mCurrentLocation == null) {
             return 0;
