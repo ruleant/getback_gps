@@ -337,7 +337,16 @@ public class LocationService extends Service {
                 currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
             }
         }
-        return relativeBearing - currentBearing;
+        float direction = relativeBearing - currentBearing;
+
+        // returned value should be between 0° and 360°
+        if (direction < 0.0) {
+            direction += 360.0 * (1 + (int)(direction / 360.0));
+        } else if (direction >= 360.0) {
+            direction -= 360.0 * (int)(direction / 360.0);
+        }
+
+        return direction;
     }
 
     /**
