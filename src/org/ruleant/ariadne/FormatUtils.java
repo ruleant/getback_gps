@@ -120,4 +120,21 @@ public class FormatUtils {
                 "%1$,d%2$s", Math.round(convertedSpeed), unit);
         }
     }
+
+    /**
+     * Normalize an angle to be in the range 0°-360°
+     *
+     * @param angle Angle in degrees
+     * @return Normalized angle in range 0°-360°
+     */
+    public static final float normalizeAngle(float angle) {
+        // returned value should be between 0° and 360°
+        if (angle < 0.0) {
+            angle += 360.0 * (1 + (int) (angle / 360.0));
+        } else if (angle >= 360.0) {
+            angle -= 360.0 * (int) (angle / 360.0);
+        }
+
+        return angle;
+    }
 }
