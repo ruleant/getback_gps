@@ -89,7 +89,8 @@ public class LocationStore {
      * @param location New location
      */
     public void setLocation(Location location) {
-        mLocation = location;
+        mLocation.setLongitude(location.getLongitude());
+        mLocation.setLatitude(location.getLatitude());
     }
 
     /**
