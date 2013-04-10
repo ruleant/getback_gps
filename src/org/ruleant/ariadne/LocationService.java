@@ -323,6 +323,7 @@ public class LocationService extends Service {
      */
     public float getDirection() {
         // don't calculate bearing if current location is not set
+        // TODO : or if bearing is unknown/unreliable (prev. loc = curr. loc.)
         if (mCurrentLocation == null) {
             return 0;
         }
