@@ -130,9 +130,9 @@ public class FormatUtils {
     public static final float normalizeAngle(float angle) {
         // returned value should be between 0° and 360°
         if (angle < 0.0) {
-            angle += 360.0 * (1 + (int) (angle / 360.0));
+            angle += 360.0 * Math.ceil(Math.abs(angle / 360.0));
         } else if (angle >= 360.0) {
-            angle -= 360.0 * (int) (angle / 360.0);
+            angle -= 360.0 * Math.floor(angle / 360.0);
         }
 
         return angle;
