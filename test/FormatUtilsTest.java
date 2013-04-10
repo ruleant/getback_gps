@@ -156,6 +156,56 @@ public class FormatUtilsTest extends TestCase {
     private static final double MPS_1234KPH = 342.7778;
 
     /**
+     * 0° angle.
+     */
+    private static final float A_0 = 0;
+
+    /**
+     * 45° angle.
+     */
+    private static final float A_45 = 45;
+
+    /**
+     * -315° angle (= 45°).
+     */
+    private static final float A_M315 = -315;
+
+    /**
+     * -360° angle (= 0°).
+     */
+    private static final float A_M360 = -360;
+
+    /**
+     * -675° angle (= 45°).
+     */
+    private static final float A_M675 = -675;
+
+    /**
+     * -720° angle (= 0°).
+     */
+    private static final float A_M720 = -720;
+
+    /**
+     * 360° angle (= 0°).
+     */
+    private static final float A_360 = 360;
+
+    /**
+     * 405° angle (= 45°).
+     */
+    private static final float A_405 = 405;
+
+    /**
+     * 720° angle (= 0°).
+     */
+    private static final float A_720 = 720;
+
+    /**
+     * 765° angle (= 45°).
+     */
+    private static final float A_765 = 765;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -277,5 +327,36 @@ public class FormatUtilsTest extends TestCase {
     public final void testFormatSpeedNeg() {
         assertEquals("3.6km/h", FormatUtils.formatSpeed(-1.0 * MPS_3P6KPH));
         assertEquals("14km/h", FormatUtils.formatSpeed(-1.0 * MPS_14P4KPH));
+    }
+
+    /**
+     * Tests if returned normalized angle is unaffected if
+     * it is in the 0°-360° range.
+     */
+    public final void testnormalizeAngle() {
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_0));
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_45));
+    }
+
+    /**
+     * Tests if returned normalized angle is converted correctly
+     * to the 0°-360° range, if the angle is negative.
+     */
+    public final void testnormalizeAngleNeg() {
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_M360));
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_M720));
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_M315));
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_M675));
+    }
+
+    /**
+     * Tests if returned normalized angle is converted correctly
+     * to the 0°-360° range, if the angle is bigger than 360°.
+     */
+    public final void testnormalizeAngleBig() {
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_360));
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_720));
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_405));
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_765));
     }
 }
