@@ -33,7 +33,7 @@ import android.widget.TextView;
 public class MainActivity extends AbstractAriadneActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
@@ -71,7 +71,7 @@ public class MainActivity extends AbstractAriadneActivity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    protected void refreshDisplay() {
+    protected final void refreshDisplay() {
         // Refresh locationProvider
         TextView tvProvider
             = (TextView) findViewById(R.id.textView_LocationProvider);
