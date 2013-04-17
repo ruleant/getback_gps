@@ -21,8 +21,8 @@
 		android:title="@string/refresh" />
 	<item
         android:id="@+id/menu_about"
-        android:orderInCategory="120"
-        android:showAsAction="ifRoom"
+        android:orderInCategory="105"
+        android:showAsAction="never"
         android:onClick="displayAbout"
         android:title="@string/about" />
 
