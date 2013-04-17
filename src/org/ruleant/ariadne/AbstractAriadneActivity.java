@@ -39,7 +39,7 @@ import android.view.MenuItem;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-abstract public class AbstractAriadneActivity extends Activity {
+public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Interface to LocationService instance.
      */
@@ -145,7 +145,7 @@ abstract public class AbstractAriadneActivity extends Activity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    abstract protected void refreshDisplay();
+    protected abstract void refreshDisplay();
 
     /**
      * Defines callbacks for service binding, passed to bindService().
