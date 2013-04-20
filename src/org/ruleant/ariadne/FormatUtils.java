@@ -49,6 +49,16 @@ public class FormatUtils {
     private static final double ONE_DEC = 10.0;
 
     /**
+     * Minimal angle value = 0°.
+     */
+    private static final float MIN_ANGLE = 0;
+
+    /**
+     * Maximal angle value = 360°.
+     */
+    private static final float MAX_ANGLE = 360;
+
+    /**
      * Hidden constructor.
      */
     protected FormatUtils() {
@@ -129,10 +139,10 @@ public class FormatUtils {
      */
     public static final float normalizeAngle(float angle) {
         // returned value should be between 0° and 360°
-        if (angle < 0.0) {
-            angle += 360.0 * Math.ceil(Math.abs(angle / 360.0));
-        } else if (angle >= 360.0) {
-            angle -= 360.0 * Math.floor(angle / 360.0);
+        if (angle < MIN_ANGLE) {
+            angle += MAX_ANGLE * Math.ceil(Math.abs(angle / MAX_ANGLE));
+        } else if (angle >= MAX_ANGLE) {
+            angle -= MAX_ANGLE * Math.floor(angle / MAX_ANGLE);
         }
 
         return angle;
