@@ -136,13 +136,16 @@ public class FormatUtils {
      *
      * @param angle Angle in degrees
      * @return Normalized angle in range 0°-360°
+     * @todo low refactor to also work if range would be -180°-180°
      */
     public static final float normalizeAngle(float angle) {
+        float range = MAX_ANGLE - MIN_ANGLE;
+
         // returned value should be between 0° and 360°
         if (angle < MIN_ANGLE) {
-            angle += MAX_ANGLE * Math.ceil(Math.abs(angle / MAX_ANGLE));
+            angle += range * Math.ceil(Math.abs(angle / range));
         } else if (angle >= MAX_ANGLE) {
-            angle -= MAX_ANGLE * Math.floor(angle / MAX_ANGLE);
+            angle -= range * Math.floor(angle / range);
         }
 
         return angle;
