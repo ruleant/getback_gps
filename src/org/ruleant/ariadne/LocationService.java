@@ -72,11 +72,11 @@ public class LocationService extends Service {
     /**
      * Current Location.
      */
-    private Location mCurrentLocation = null;
+    private AriadneLocation mCurrentLocation = null;
     /**
      * Previous Location.
      */
-    private Location mPreviousLocation = null;
+    private AriadneLocation mPreviousLocation = null;
     /**
      * Previously stored Location.
      */
@@ -222,11 +222,18 @@ public class LocationService extends Service {
     /**
      * Set Location.
      *
-     * Update location
-     *
      * @param location New location
      */
     public void setLocation(final Location location) {
+        setLocation(new AriadneLocation(location));
+    }
+
+    /**
+     * Set Location.
+     *
+     * @param location New Location (AriadneLocation object)
+     */
+    public void setLocation(final AriadneLocation location) {
         // don't update location if no location is provided,
         // or if new location is the same as the previous one
         if (location == null
@@ -254,7 +261,7 @@ public class LocationService extends Service {
      *
      * @return Location
      */
-    public Location getLocation() {
+    public AriadneLocation getLocation() {
         return mCurrentLocation;
     }
 
@@ -274,7 +281,7 @@ public class LocationService extends Service {
      *
      * @return Location
      */
-    public Location updateLocation() {
+    public AriadneLocation updateLocation() {
         if (mLocationManager == null || mProviderName.isEmpty()) {
             return null;
         }
