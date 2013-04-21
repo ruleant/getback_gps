@@ -132,7 +132,7 @@ public class FormatUtils {
     }
 
     /**
-     * Normalize an angle to be in the range 0°-360°
+     * Normalize an angle to be in the range 0°-360°.
      *
      * @param angle Angle in degrees
      * @return Normalized angle in range 0°-360°
