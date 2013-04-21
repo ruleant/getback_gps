@@ -47,7 +47,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Connection state with LocationService.
      */
-    protected boolean mBound = false;
+    private boolean mBound = false;
     /**
      * Name of the LocationProvider.
      */
