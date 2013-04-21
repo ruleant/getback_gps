@@ -40,7 +40,7 @@ public class AriadneLocation extends Location {
      *
      * @param provider Provider name
      */
-    public AriadneLocation(String provider) {
+    public AriadneLocation(final String provider) {
         super(provider);
     }
 
@@ -49,7 +49,7 @@ public class AriadneLocation extends Location {
      *
      * @param location Location object
      */
-    public AriadneLocation(Location location) {
+    public AriadneLocation(final Location location) {
         super(location);
     }
 
@@ -59,7 +59,7 @@ public class AriadneLocation extends Location {
      * @param context Context of the App
      * @return String formatted string
      */
-    public String toString(Context context) {
+    public String toString(final Context context) {
         String locationText = "";
 
         // Format location

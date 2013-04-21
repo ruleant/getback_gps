@@ -64,7 +64,7 @@ public class LocationStore {
      *
      * @param context Context of the Android app
      */
-    public LocationStore(Context context) {
+    public LocationStore(final Context context) {
         mContext = context;
         mLocation = new Location("stored");
         mPrefs = mContext.getSharedPreferences(
@@ -88,7 +88,7 @@ public class LocationStore {
      *
      * @param location New location
      */
-    public void setLocation(Location location) {
+    public void setLocation(final Location location) {
         mLocation.setLongitude(location.getLongitude());
         mLocation.setLatitude(location.getLatitude());
     }

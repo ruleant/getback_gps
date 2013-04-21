@@ -104,13 +104,14 @@ public class LocationService extends Service {
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
+    public int onStartCommand(
+        final Intent intent, final int flags, final int startId) {
         // The service is starting, due to a call to startService()
         return START_NOT_STICKY;
     }
 
     @Override
-    public IBinder onBind(Intent intent) {
+    public IBinder onBind(final Intent intent) {
         if ((mDebug != null)
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
@@ -119,7 +120,7 @@ public class LocationService extends Service {
     }
 
     @Override
-    public boolean onUnbind(Intent intent) {
+    public boolean onUnbind(final Intent intent) {
         if ((mDebug != null)
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
@@ -149,7 +150,7 @@ public class LocationService extends Service {
          *
          * @param cb client callback
          */
-        public void registerCallback(ILocationServiceCallback cb) {
+        public void registerCallback(final ILocationServiceCallback cb) {
             if (cb != null) {
                 mCallbacks.register(cb);
             }
@@ -160,7 +161,7 @@ public class LocationService extends Service {
          *
          * @param cb client callback
          */
-        public void unregisterCallback(ILocationServiceCallback cb) {
+        public void unregisterCallback(final ILocationServiceCallback cb) {
             if (cb != null) {
                 mCallbacks.unregister(cb);
             }
@@ -225,7 +226,7 @@ public class LocationService extends Service {
      *
      * @param location New location
      */
-    public void setLocation(Location location) {
+    public void setLocation(final Location location) {
         // don't update location if no location is provided,
         // or if new location is the same as the previous one
         if (location == null
@@ -390,7 +391,7 @@ public class LocationService extends Service {
     private final LocationListener mListener = new LocationListener() {
 
         @Override
-        public void onLocationChanged(Location location) {
+        public void onLocationChanged(final Location location) {
             // When new location update is received, update current location
             setLocation(location);
 
@@ -408,16 +409,16 @@ public class LocationService extends Service {
         }
 
         @Override
-        public void onProviderDisabled(String provider) {
+        public void onProviderDisabled(final String provider) {
         }
 
         @Override
-        public void onProviderEnabled(String provider) {
+        public void onProviderEnabled(final String provider) {
         }
 
         @Override
         public void onStatusChanged(
-                String provider, int status, Bundle extras) {
+            final String provider, final int status, final Bundle extras) {
         }
     };
 }

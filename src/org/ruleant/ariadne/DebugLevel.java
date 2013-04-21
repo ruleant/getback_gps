@@ -74,7 +74,7 @@ public class DebugLevel {
      *
      * @param context Context of the App
      */
-     public DebugLevel(Context context) {
+     public DebugLevel(final Context context) {
         mContext = context;
      }
 
@@ -103,7 +103,7 @@ public class DebugLevel {
       * @param debugLevel Debug level to check
       * @return true if current debugLevel is at least the needed level
       */
-     public final boolean checkDebugLevel(int debugLevel) {
+     public final boolean checkDebugLevel(final int debugLevel) {
          return (BuildConfig.DEBUG && (getDebugLevel() >= debugLevel));
      }
 }
