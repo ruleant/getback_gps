@@ -62,7 +62,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     protected AriadneLocation mStoredLocation = null;
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu;
         // this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.common, menu);
@@ -92,7 +92,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void storeLocation(MenuItem item) {
+    public void storeLocation(final MenuItem item) {
         if (mBound) {
             mService.storeCurrentLocation();
             mStoredLocation
@@ -108,7 +108,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void refresh(MenuItem item) {
+    public void refresh(final MenuItem item) {
         if (mBound) {
             mProviderName = mService.getLocationProvider();
             mCurrentLocation = new AriadneLocation(mService.getLocation());
@@ -127,7 +127,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void displayAbout(MenuItem item) {
+    public void displayAbout(final MenuItem item) {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
@@ -137,7 +137,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void displaySettings(MenuItem item) {
+    public void displaySettings(final MenuItem item) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
@@ -154,7 +154,7 @@ public abstract class AbstractAriadneActivity extends Activity {
 
         @Override
         public void onServiceConnected(
-                ComponentName className, IBinder service) {
+                final ComponentName className, final IBinder service) {
             // We've bound to LocalService, cast the IBinder
             // and get LocalService instance
             LocationBinder binder = (LocationBinder) service;
@@ -175,7 +175,7 @@ public abstract class AbstractAriadneActivity extends Activity {
         }
 
         @Override
-        public void onServiceDisconnected(ComponentName arg0) {
+        public void onServiceDisconnected(final ComponentName arg0) {
             mBound = false;
         }
     };
