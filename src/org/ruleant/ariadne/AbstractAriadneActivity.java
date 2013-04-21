@@ -155,8 +155,8 @@ public abstract class AbstractAriadneActivity extends Activity {
         @Override
         public void onServiceConnected(
                 final ComponentName className, final IBinder service) {
-            // We've bound to LocalService, cast the IBinder
-            // and get LocalService instance
+            // We've bound to LocationService, cast the IBinder
+            // and get LocationService instance
             LocationBinder binder = (LocationBinder) service;
             mService = binder.getService();
             mBound = true;
