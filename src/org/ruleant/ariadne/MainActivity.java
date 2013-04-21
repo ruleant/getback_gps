@@ -44,7 +44,7 @@ public class MainActivity extends AbstractAriadneActivity {
      * @param view Button that was clicked
      */
     public void renewProvider(View view) {
-        if (mBound) {
+        if (isBound()) {
             mProviderName = mService.updateLocationProvider();
         } else {
             mProviderName = "";
@@ -58,7 +58,7 @@ public class MainActivity extends AbstractAriadneActivity {
      * @param view Button that was clicked
      */
     public void renewLocation(View view) {
-        if (mBound) {
+        if (isBound()) {
             // manually update location
             // (don't wait for listener to update location)
             mCurrentLocation = new AriadneLocation(mService.updateLocation());
