@@ -148,6 +148,13 @@ public abstract class AbstractAriadneActivity extends Activity {
     protected abstract void refreshDisplay();
 
     /**
+     * Returns bound state to Location Service.
+     */
+    protected bool isBound() {
+        return mBound;
+    }
+
+    /**
      * Defines callbacks for service binding, passed to bindService().
      */
     private ServiceConnection mConnection = new ServiceConnection() {
