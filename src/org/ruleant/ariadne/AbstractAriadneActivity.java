@@ -150,7 +150,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Returns bound state to Location Service.
      */
-    protected bool isBound() {
+    protected boolean isBound() {
         return mBound;
     }
 
