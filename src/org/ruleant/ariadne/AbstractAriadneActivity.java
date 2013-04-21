@@ -78,7 +78,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    public void onStop() {
+    protected void onStop() {
         super.onStop();
         // Unbind from the service
         if (mBound) {
