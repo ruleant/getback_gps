@@ -190,7 +190,8 @@ public class SettingsActivity extends PreferenceActivity {
      * @param preference Preference to bind to
      * @see #sBindPreferenceSummaryToValueListener
      */
-    private static void bindPreferenceSummaryToValue(final Preference preference) {
+    private static void bindPreferenceSummaryToValue(
+            final Preference preference) {
         // Set the listener to watch for value changes.
         preference
         .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
