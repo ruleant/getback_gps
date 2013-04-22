@@ -43,7 +43,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Interface to LocationService instance.
      */
-    protected LocationService mService;
+    private LocationService mService;
     /**
      * Connection state with LocationService.
      */
@@ -154,6 +154,15 @@ public abstract class AbstractAriadneActivity extends Activity {
      */
     protected boolean isBound() {
         return mBound;
+    }
+
+    /**
+     * Returns Location Service.
+     *
+     * @return LocationService
+     */
+    protected LocationService getService() {
+        return mService;
     }
 
     /**

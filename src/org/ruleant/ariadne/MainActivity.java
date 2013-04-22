@@ -45,7 +45,7 @@ public class MainActivity extends AbstractAriadneActivity {
      */
     public void renewProvider(final View view) {
         if (isBound()) {
-            mProviderName = mService.updateLocationProvider();
+            mProviderName = getService().updateLocationProvider();
         } else {
             mProviderName = "";
         }
@@ -61,7 +61,7 @@ public class MainActivity extends AbstractAriadneActivity {
         if (isBound()) {
             // manually update location
             // (don't wait for listener to update location)
-            mCurrentLocation = new AriadneLocation(mService.updateLocation());
+            mCurrentLocation = new AriadneLocation(getService().updateLocation());
         } else {
             mCurrentLocation = null;
         }
@@ -122,10 +122,10 @@ public class MainActivity extends AbstractAriadneActivity {
             // Print distance and bearing
             toDestinationText += " "
                 + getResources().getString(R.string.distance) + ": "
-                + FormatUtils.formatDist(mService.getDistance()) + "\n";
+                + FormatUtils.formatDist(getService().getDistance()) + "\n";
             toDestinationText += " "
                 + getResources().getString(R.string.direction) + ": "
-                + mService.getDirection() + "°";
+                + getService().getDirection() + "°";
         }
         tvToDestination.setText(toDestinationText);
     }
