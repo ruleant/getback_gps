@@ -142,6 +142,8 @@ public class LocationStore {
                         mLocation.getLatitude(), Location.FORMAT_DEGREES
                         )
                 );
+        editor.putLong(ALTITUDE, (long) mLocation.getAltitude());
+
         // Commit the edits!
         editor.commit();
 
@@ -163,10 +165,12 @@ public class LocationStore {
             mLocation.setLatitude(
                     Location.convert(mPrefs.getString(LATITUDE, "0.0"))
                     );
+            mLocation.setAltitude(mPrefs.getLong(ALTITUDE, 0));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             mLocation.setLongitude(0);
             mLocation.setLatitude(0);
+            mLocation.setAltitude(0);
         }
 
         return mLocation;
