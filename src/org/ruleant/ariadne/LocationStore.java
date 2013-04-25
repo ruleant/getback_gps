@@ -53,11 +53,27 @@ public class LocationStore {
     /**
      * Name of Longitude object in SharedPreferences.
      */
-    private static final String LONGITUDE = "Longitude";
+    private static final String LONGITUDE = "longitude";
     /**
      * Name of Latitude object in SharedPreferences.
      */
-    private static final String LATITUDE = "Latitude";
+    private static final String LATITUDE = "latitude";
+    /**
+     * Name of Altitude object in SharedPreferences.
+     */
+    private static final String ALTITUDE = "altitude";
+    /**
+     * Name of Accuracy object in SharedPreferences.
+     */
+    private static final String ACCURACY = "accuracy";
+    /**
+     * Name of Timestamp object in SharedPreferences.
+     */
+    private static final String TIMESTAMP = "timestamp";
+    /**
+     * Name of Location provider object in SharedPreferences.
+     */
+    private static final String LOC_PROVIDER = "loc_provider";
 
     /**
      * Constructor.
