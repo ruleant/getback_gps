@@ -144,6 +144,7 @@ public class LocationStore {
                 );
         editor.putLong(ALTITUDE, (long) mLocation.getAltitude());
         editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
+        editor.putString(LOC_PROVIDER, mLocation.getProvider());
         // Commit the edits!
         editor.commit();
 
@@ -169,12 +170,14 @@ public class LocationStore {
             mLocation.setAccuracy(
                     Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
                     );
+            mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
         } catch (IllegalArgumentException e) {
             e.printStackTrace();
             mLocation.setLongitude(0);
             mLocation.setLatitude(0);
             mLocation.setAltitude(0);
             mLocation.setAccuracy(0);
+            mLocation.setProvider("");
         }
 
         return mLocation;
