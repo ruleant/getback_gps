@@ -128,6 +128,16 @@ public class StoredLocation {
 
     /**
      * Save stored location in Shared Preferences.
+     *
+     * @param location New location
+     */
+    public void save(final Location location) {
+        setLocation(location);
+        save();
+    }
+
+    /**
+     * Save stored location in Shared Preferences.
      */
     public void save() {
         // don't save if mLocation is not set
