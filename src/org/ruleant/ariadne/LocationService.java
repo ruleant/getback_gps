@@ -44,6 +44,8 @@ import android.widget.Toast;
  * and retrieves the current location
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * @todo rename mLocationStore to mDestination
+ * @todo add mLastLocation 
  */
 public class LocationService extends Service {
     /**
