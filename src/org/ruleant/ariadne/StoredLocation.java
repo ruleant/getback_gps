@@ -1,5 +1,5 @@
 /**
- * Location Store
+ * StoredLocation
  *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
@@ -28,7 +28,7 @@ import android.content.SharedPreferences;
 import android.location.Location;
 
 /**
- * Location Store saves a location, it will store a location for future use,
+ * StoredLocation saves a location, it will store a location for future use,
  * and will the save the location when the application is stopped.
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
@@ -123,8 +123,7 @@ public class StoredLocation {
      * @param location New location
      */
     public void setLocation(final Location location) {
-        mLocation.setLongitude(location.getLongitude());
-        mLocation.setLatitude(location.getLatitude());
+        mLocation.set(location);
     }
 
     /**
@@ -242,8 +241,8 @@ public class StoredLocation {
         }
 
         // set retrieved location
-        mLocation.set(location);
+        setLocation(location);
 
-        return mLocation;
+        return getLocation();
     }
 }
