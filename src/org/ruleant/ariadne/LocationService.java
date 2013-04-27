@@ -104,7 +104,8 @@ public class LocationService extends Service {
         mLocationManager
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
-        mStoredLocation = new StoredLocation(this.getApplicationContext(), PREFS_STORE_DEST);
+        mStoredLocation = new StoredDestination(
+                this.getApplicationContext(), PREFS_STORE_DEST);
 
         // mProviderName is set by updateLocationProvider
         // and used in requestUpdatesFromProvider
