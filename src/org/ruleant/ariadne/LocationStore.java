@@ -216,10 +216,15 @@ public class LocationStore {
 
         try {
             mLocation.setTime(mPrefs.getLong(TIMESTAMP, 0));
-            mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
         } catch (Exception e) {
             e.printStackTrace();
             mLocation.setTime(0);
+        }
+
+        try {
+            mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
+        } catch (Exception e) {
+            e.printStackTrace();
             mLocation.setProvider("");
         }
 
