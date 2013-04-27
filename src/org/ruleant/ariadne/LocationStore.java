@@ -63,6 +63,10 @@ public class LocationStore {
      */
     private static final String ALTITUDE = "altitude";
     /**
+     * Name of hasAltitude object in SharedPreferences.
+     */
+    private static final String HAS_ALTITUDE = "has_altitude";
+    /**
      * Name of Accuracy object in SharedPreferences.
      */
     private static final String ACCURACY = "accuracy";
@@ -142,7 +146,15 @@ public class LocationStore {
                         mLocation.getLatitude(), Location.FORMAT_DEGREES
                         )
                 );
-        editor.putString(ALTITUDE, Double.toString(mLocation.getAltitude()));
+
+        // save altitude, if defined
+        editor.putString(
+                HAS_ALTITUDE, Boolean.toString(mLocation.hasAltitude()));
+        if (mLocation.hasAltitude()) {
+            editor.putString(
+                    ALTITUDE, Double.toString(mLocation.getAltitude()));
+        }
+
         editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
         editor.putLong(TIMESTAMP, mLocation.getTime());
         editor.putString(LOC_PROVIDER, mLocation.getProvider());
@@ -174,8 +186,16 @@ public class LocationStore {
         }
 
         try {
-            mLocation.setAltitude(
+            if (Boolean.parseBoolean(mPrefs.getString(ALTITUDE, "false"))) {
+                mLocation.setAltitude(
                     Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            mLocation.setAltitude(0);
+        }
+
+        try {
             mLocation.setAccuracy(
                     Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
                     );
@@ -183,7 +203,6 @@ public class LocationStore {
             mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
         } catch (Exception e) {
             e.printStackTrace();
-            mLocation.setAltitude(0);
             mLocation.setAccuracy(0);
             mLocation.setTime(0);
             mLocation.setProvider("");
