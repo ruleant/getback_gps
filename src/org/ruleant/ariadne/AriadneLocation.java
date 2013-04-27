@@ -90,6 +90,13 @@ public class AriadneLocation extends Location {
                 + FormatUtils.formatDist(getAccuracy()) + "\n";
         }
 
+        // Location provider
+        if (!getProvider().isEmpty()) {
+            locationText += " "
+                + context.getResources().getString(R.string.provider) + ": "
+                + getProvider() + "\n";
+        }
+
         // Format Timestamp
         if (getTime() > 0) {
             Date date = new Date(getTime());
