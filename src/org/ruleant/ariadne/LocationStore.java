@@ -196,13 +196,12 @@ public class LocationStore {
         }
 
         try {
-            if (Boolean.parseBoolean(mPrefs.getString(ALTITUDE, "false"))) {
+            if (Boolean.parseBoolean(mPrefs.getString(HAS_ALTITUDE, "false"))) {
                 mLocation.setAltitude(
                     Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
             }
         } catch (Exception e) {
             e.printStackTrace();
-            mLocation.setAltitude(0);
         }
 
         try {
