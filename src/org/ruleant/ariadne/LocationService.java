@@ -80,7 +80,7 @@ public class LocationService extends Service {
     /**
      * Previously stored Location.
      */
-    private LocationStore mStoredLocation;
+    private StoredLocation mStoredLocation;
 
     @Override
     public void onCreate() {
@@ -94,7 +94,7 @@ public class LocationService extends Service {
         mLocationManager
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
-        mStoredLocation = new LocationStore(this.getApplicationContext());
+        mStoredLocation = new StoredLocation(this.getApplicationContext());
 
         // mProviderName is set by updateLocationProvider
         // and used in requestUpdatesFromProvider

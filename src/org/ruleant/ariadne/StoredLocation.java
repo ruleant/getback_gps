@@ -33,7 +33,7 @@ import android.location.Location;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class LocationStore {
+public class StoredLocation {
     /**
      * Context of App.
      */
@@ -88,7 +88,7 @@ public class LocationStore {
      *
      * @param context Context of the Android app
      */
-    public LocationStore(final Context context) {
+    public StoredLocation(final Context context) {
         mContext = context;
         mLocation = new Location("");
         mPrefs = mContext.getSharedPreferences(
