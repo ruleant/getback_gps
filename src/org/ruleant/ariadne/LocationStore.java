@@ -142,7 +142,7 @@ public class LocationStore {
                         mLocation.getLatitude(), Location.FORMAT_DEGREES
                         )
                 );
-        editor.putLong(ALTITUDE, (long) mLocation.getAltitude());
+        editor.putString(ALTITUDE, Double.toString(mLocation.getAltitude()));
         editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
         editor.putString(LOC_PROVIDER, mLocation.getProvider());
         // Commit the edits!
@@ -166,7 +166,8 @@ public class LocationStore {
             mLocation.setLatitude(
                     Location.convert(mPrefs.getString(LATITUDE, "0.0"))
                     );
-            mLocation.setAltitude(mPrefs.getLong(ALTITUDE, 0));
+            mLocation.setAltitude(
+                    Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
             mLocation.setAccuracy(
                     Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
                     );
