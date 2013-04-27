@@ -47,6 +47,16 @@ import android.widget.Toast;
  */
 public class LocationService extends Service {
     /**
+     * SharedPreferences location for StoredDestination.
+     */
+    public static final String PREFS_STORE_DEST = "stored_destination";
+
+    /**
+     * SharedPreferences location for last known good location.
+     */
+    public static final String PREFS_LAST_LOC = "last_location";
+
+    /**
      * Binder given to clients.
      */
     private final IBinder mBinder = new LocationBinder();
@@ -94,7 +104,7 @@ public class LocationService extends Service {
         mLocationManager
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
-        mStoredLocation = new StoredLocation(this.getApplicationContext());
+        mStoredLocation = new StoredLocation(this.getApplicationContext(), PREFS_STORE_DEST);
 
         // mProviderName is set by updateLocationProvider
         // and used in requestUpdatesFromProvider

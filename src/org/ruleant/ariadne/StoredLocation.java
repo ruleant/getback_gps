@@ -49,7 +49,7 @@ public class StoredLocation {
     /**
      * SharedPreferences location for LocationStore class.
      */
-    public static final String PREFS_STORE_LOC = "LocationStore";
+    public static final String DEFAULT_PREF_NAME = "stored_location";
     /**
      * Name of Longitude object in SharedPreferences.
      */
@@ -86,13 +86,23 @@ public class StoredLocation {
     /**
      * Constructor.
      *
-     * @param context Context of the Android app
+     * @param context        Context of the Android app
+     * @param sharedPrefName Name of Shared Preferences file name
      */
-    public StoredLocation(final Context context) {
+    public StoredLocation(final Context context, final String sharedPrefName) {
         mContext = context;
         mLocation = new Location("");
+
+        String prefName;
+
+        if (sharedPrefName.isEmpty()) {
+            prefName = DEFAULT_PREF_NAME;
+        } else {
+            prefName = sharedPrefName;
+        }
+
         mPrefs = mContext.getSharedPreferences(
-                PREFS_STORE_LOC, Context.MODE_PRIVATE
+                prefName, Context.MODE_PRIVATE
                 );
 
         restore();
