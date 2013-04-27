@@ -90,7 +90,7 @@ public class LocationStore {
      */
     public LocationStore(final Context context) {
         mContext = context;
-        mLocation = new Location("stored");
+        mLocation = new Location("");
         mPrefs = mContext.getSharedPreferences(
                 PREFS_STORE_LOC, Context.MODE_PRIVATE
                 );
