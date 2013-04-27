@@ -126,12 +126,9 @@ public class LocationStore {
             return;
         }
 
-        /* set Locale temporary to US to avoid Android bug 5734
-            https://code.google.com/p/android/issues/detail?id=5734
-            Location.convert(String) is localization independent,
-            so it throws an exception when a parameter contains a ","
-            instead of a "." as decimal separator
-            changing the local to US, converts the double to a string with a "."
+        /* Set Locale temporarily to US English to make sure that the data
+         * is always stored with the same locale, to avoid data loss
+         * when the default locale of the device is changed.
          */
         Locale originalLocale = Locale.getDefault();
         Locale.setDefault(Locale.US);
@@ -171,7 +168,7 @@ public class LocationStore {
         // Commit the edits!
         editor.commit();
 
-        // set default locale back to original, workaround for Android bug 5734
+        // set default locale back to original
         Locale.setDefault(originalLocale);
     }
 
