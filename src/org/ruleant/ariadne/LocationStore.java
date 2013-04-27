@@ -181,7 +181,8 @@ public class LocationStore {
      * @return location retrieved from Preferences
      */
     public Location restore() {
-        // restore location from a SharedPreferences file
+        // retrieve longitude and latitude,
+        // return null when not set or exception is thrown
         try {
             mLocation.setLongitude(
                     Location.convert(mPrefs.getString(LONGITUDE, "0.0"))
@@ -195,6 +196,7 @@ public class LocationStore {
             return null;
         }
 
+        // retrieve altitude, if defined
         try {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ALTITUDE, "false"))) {
                 mLocation.setAltitude(
@@ -204,6 +206,7 @@ public class LocationStore {
             e.printStackTrace();
         }
 
+        // retrieve accuracy, if defined
         try {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ACCURACY, "false"))) {
                 mLocation.setAccuracy(
@@ -214,6 +217,7 @@ public class LocationStore {
             e.printStackTrace();
         }
 
+        // retrieve time stamp
         try {
             mLocation.setTime(mPrefs.getLong(TIMESTAMP, 0));
         } catch (Exception e) {
@@ -221,6 +225,7 @@ public class LocationStore {
             mLocation.setTime(0);
         }
 
+        // retrieve location provider
         try {
             mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
         } catch (Exception e) {
