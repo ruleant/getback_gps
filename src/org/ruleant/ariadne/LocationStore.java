@@ -181,25 +181,26 @@ public class LocationStore {
      * @return location retrieved from Preferences
      */
     public Location restore() {
+        Location location = new Location("");
+
         // retrieve longitude and latitude,
         // return null when not set or exception is thrown
         try {
-            mLocation.setLongitude(
+            location.setLongitude(
                     Location.convert(mPrefs.getString(LONGITUDE, "0.0"))
                     );
-            mLocation.setLatitude(
+            location.setLatitude(
                     Location.convert(mPrefs.getString(LATITUDE, "0.0"))
                     );
         } catch (Exception e) {
             e.printStackTrace();
-            mLocation.reset();
             return null;
         }
 
         // retrieve altitude, if defined
         try {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ALTITUDE, "false"))) {
-                mLocation.setAltitude(
+                location.setAltitude(
                     Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
             }
         } catch (Exception e) {
@@ -209,7 +210,7 @@ public class LocationStore {
         // retrieve accuracy, if defined
         try {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ACCURACY, "false"))) {
-                mLocation.setAccuracy(
+                location.setAccuracy(
                     Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
                     );
             }
@@ -219,19 +220,22 @@ public class LocationStore {
 
         // retrieve time stamp
         try {
-            mLocation.setTime(mPrefs.getLong(TIMESTAMP, 0));
+            location.setTime(mPrefs.getLong(TIMESTAMP, 0));
         } catch (Exception e) {
             e.printStackTrace();
-            mLocation.setTime(0);
+            location.setTime(0);
         }
 
         // retrieve location provider
         try {
-            mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
+            location.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
         } catch (Exception e) {
             e.printStackTrace();
-            mLocation.setProvider("");
+            location.setProvider("");
         }
+
+        // set retrieved location
+        mLocation.set(location);
 
         return mLocation;
     }
