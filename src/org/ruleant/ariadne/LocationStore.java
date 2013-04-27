@@ -167,6 +167,13 @@ public class LocationStore {
             mLocation.setLatitude(
                     Location.convert(mPrefs.getString(LATITUDE, "0.0"))
                     );
+        } catch (Exception e) {
+            e.printStackTrace();
+            mLocation.reset();
+            return null;
+        }
+
+        try {
             mLocation.setAltitude(
                     Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
             mLocation.setAccuracy(
@@ -174,10 +181,8 @@ public class LocationStore {
                     );
             mLocation.setTime(mPrefs.getLong(TIMESTAMP, 0));
             mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
-        } catch (IllegalArgumentException e) {
+        } catch (Exception e) {
             e.printStackTrace();
-            mLocation.setLongitude(0);
-            mLocation.setLatitude(0);
             mLocation.setAltitude(0);
             mLocation.setAccuracy(0);
             mLocation.setTime(0);
