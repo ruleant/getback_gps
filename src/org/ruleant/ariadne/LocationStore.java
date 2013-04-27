@@ -71,6 +71,10 @@ public class LocationStore {
      */
     private static final String ACCURACY = "accuracy";
     /**
+     * Name of hasAccuracy object in SharedPreferences.
+     */
+    private static final String HAS_ACCURACY = "has_accuracy";
+    /**
      * Name of Timestamp object in SharedPreferences.
      */
     private static final String TIMESTAMP = "timestamp";
@@ -155,7 +159,13 @@ public class LocationStore {
                     ALTITUDE, Double.toString(mLocation.getAltitude()));
         }
 
-        editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
+        // save accuracy, if defined
+        editor.putString(
+                HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
+        if (mLocation.hasAccuracy()) {
+            editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
+        }
+
         editor.putLong(TIMESTAMP, mLocation.getTime());
         editor.putString(LOC_PROVIDER, mLocation.getProvider());
         // Commit the edits!
@@ -196,14 +206,20 @@ public class LocationStore {
         }
 
         try {
-            mLocation.setAccuracy(
+            if (Boolean.parseBoolean(mPrefs.getString(HAS_ACCURACY, "false"))) {
+                mLocation.setAccuracy(
                     Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
                     );
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
             mLocation.setTime(mPrefs.getLong(TIMESTAMP, 0));
             mLocation.setProvider(mPrefs.getString(LOC_PROVIDER, ""));
         } catch (Exception e) {
             e.printStackTrace();
-            mLocation.setAccuracy(0);
             mLocation.setTime(0);
             mLocation.setProvider("");
         }
