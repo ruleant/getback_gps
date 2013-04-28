@@ -44,8 +44,6 @@ import android.widget.Toast;
  * and retrieves the current location
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
- * @todo rename mLocationStore to mDestination
- * @todo add mLastLocation 
  */
 public class LocationService extends Service {
     /**
@@ -90,6 +88,10 @@ public class LocationService extends Service {
      */
     private AriadneLocation mPreviousLocation = null;
     /**
+     * Last known good location.
+     */
+    private StoredLocation mLastLocation = null;
+    /**
      * Current destination.
      */
     private StoredDestination mDestination;
@@ -106,6 +108,8 @@ public class LocationService extends Service {
         mLocationManager
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
+        mLastLocation = new StoredLocation(
+                this.getApplicationContext(), PREFS_LAST_LOC);
         mDestination = new StoredDestination(
                 this.getApplicationContext(), PREFS_STORE_DEST);
 
@@ -192,6 +196,7 @@ public class LocationService extends Service {
         mLocationManager.removeUpdates(mListener);
 
         // save stored locations
+        mLastLocation.save();
         mDestination.save();
 
         // cleanup class properties
@@ -199,6 +204,7 @@ public class LocationService extends Service {
         mPreviousLocation = null;
         mProviderName = "";
         mLocationManager = null;
+        mLastLocation = null;
         mDestination = null;
 
         // display message announcing end of service
