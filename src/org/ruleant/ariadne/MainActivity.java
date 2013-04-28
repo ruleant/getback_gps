@@ -88,7 +88,7 @@ public class MainActivity extends AbstractAriadneActivity {
         TextView tvLocation
             = (TextView) findViewById(R.id.textView_Location);
         String locationText
-            = getResources().getString(R.string.location) + ":\n";
+            = getResources().getString(R.string.curr_location) + ":\n";
         if (mCurrentLocation == null) {
             locationText += " "
                 + getResources().getString(R.string.unknown);
