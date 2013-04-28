@@ -320,7 +320,7 @@ public class LocationService extends Service {
      *
      * @return Location
      */
-    public Location getStoredLocation() {
+    public Location getDestination() {
         return mDestination.getLocation();
     }
 
@@ -334,7 +334,7 @@ public class LocationService extends Service {
         if (mCurrentLocation == null) {
             return 0;
         }
-        return mCurrentLocation.distanceTo(getStoredLocation());
+        return mCurrentLocation.distanceTo(getDestination());
     }
 
     /**
@@ -348,7 +348,7 @@ public class LocationService extends Service {
         if (mCurrentLocation == null) {
             return 0;
         }
-        float relativeBearing = mCurrentLocation.bearingTo(getStoredLocation());
+        float relativeBearing = mCurrentLocation.bearingTo(getDestination());
         float currentBearing = 0;
         if (mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
