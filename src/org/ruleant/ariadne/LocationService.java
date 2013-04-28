@@ -92,7 +92,7 @@ public class LocationService extends Service {
     /**
      * Current destination.
      */
-    private StoredDestination mStoredLocation;
+    private StoredDestination mDestination;
 
     @Override
     public void onCreate() {
@@ -106,7 +106,7 @@ public class LocationService extends Service {
         mLocationManager
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
-        mStoredLocation = new StoredDestination(
+        mDestination = new StoredDestination(
                 this.getApplicationContext(), PREFS_STORE_DEST);
 
         // mProviderName is set by updateLocationProvider
@@ -192,14 +192,14 @@ public class LocationService extends Service {
         mLocationManager.removeUpdates(mListener);
 
         // save stored locations
-        mStoredLocation.save();
+        mDestination.save();
 
         // cleanup class properties
         mCurrentLocation = null;
         mPreviousLocation = null;
         mProviderName = "";
         mLocationManager = null;
-        mStoredLocation = null;
+        mDestination = null;
 
         // display message announcing end of service
         if ((mDebug != null)
@@ -311,7 +311,7 @@ public class LocationService extends Service {
     public void storeCurrentLocation() {
         // don't store current location if it is not set
         if (mCurrentLocation != null) {
-            mStoredLocation.setLocation(mCurrentLocation);
+            mDestination.setLocation(mCurrentLocation);
         }
     }
 
@@ -321,7 +321,7 @@ public class LocationService extends Service {
      * @return Location
      */
     public Location getStoredLocation() {
-        return mStoredLocation.getLocation();
+        return mDestination.getLocation();
     }
 
     /**
