@@ -126,71 +126,6 @@ public class LocationService extends Service {
     }
 
     @Override
-    public int onStartCommand(
-        final Intent intent, final int flags, final int startId) {
-        // The service is starting, due to a call to startService()
-        return START_NOT_STICKY;
-    }
-
-    @Override
-    public IBinder onBind(final Intent intent) {
-        if ((mDebug != null)
-                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
-            Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
-        }
-        return mBinder;
-    }
-
-    @Override
-    public boolean onUnbind(final Intent intent) {
-        if ((mDebug != null)
-                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
-            Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
-        }
-        // don't allow rebind
-        return false;
-    }
-
-    /**
-     * Class used for the client Binder. Because we know this service always
-     * runs in the same process as its clients, we don't need to deal with IPC.
-     */
-    public class LocationBinder extends Binder {
-        /**
-         * Returns an instance of the bound LocationService.
-         *
-         * @return LocationService
-         */
-        LocationService getService() {
-            // Return this instance of LocationService so clients
-            // can call public methods
-            return LocationService.this;
-        }
-
-        /**
-         * Register a client callback.
-         *
-         * @param cb client callback
-         */
-        public void registerCallback(final ILocationServiceCallback cb) {
-            if (cb != null) {
-                mCallbacks.register(cb);
-            }
-        }
-
-        /**
-         * Unregister a client callback.
-         *
-         * @param cb client callback
-         */
-        public void unregisterCallback(final ILocationServiceCallback cb) {
-            if (cb != null) {
-                mCallbacks.unregister(cb);
-            }
-        }
-    }
-
-    @Override
     public void onDestroy() {
         // The service is no longer used and is being destroyed
 
@@ -218,6 +153,32 @@ public class LocationService extends Service {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
         mDebug = null;
+    }
+
+    @Override
+    public int onStartCommand(
+        final Intent intent, final int flags, final int startId) {
+        // The service is starting, due to a call to startService()
+        return START_NOT_STICKY;
+    }
+
+    @Override
+    public IBinder onBind(final Intent intent) {
+        if ((mDebug != null)
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
+            Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
+        }
+        return mBinder;
+    }
+
+    @Override
+    public boolean onUnbind(final Intent intent) {
+        if ((mDebug != null)
+                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
+            Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
+        }
+        // don't allow rebind
+        return false;
     }
 
     /**
@@ -458,4 +419,43 @@ public class LocationService extends Service {
             final String provider, final int status, final Bundle extras) {
         }
     };
+
+    /**
+     * Class used for the client Binder. Because we know this service always
+     * runs in the same process as its clients, we don't need to deal with IPC.
+     */
+    public class LocationBinder extends Binder {
+        /**
+         * Returns an instance of the bound LocationService.
+         *
+         * @return LocationService
+         */
+        LocationService getService() {
+            // Return this instance of LocationService so clients
+            // can call public methods
+            return LocationService.this;
+        }
+
+        /**
+         * Register a client callback.
+         *
+         * @param cb client callback
+         */
+        public void registerCallback(final ILocationServiceCallback cb) {
+            if (cb != null) {
+                mCallbacks.register(cb);
+            }
+        }
+
+        /**
+         * Unregister a client callback.
+         *
+         * @param cb client callback
+         */
+        public void unregisterCallback(final ILocationServiceCallback cb) {
+            if (cb != null) {
+                mCallbacks.unregister(cb);
+            }
+        }
+    }
 }
