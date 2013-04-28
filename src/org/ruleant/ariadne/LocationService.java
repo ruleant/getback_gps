@@ -90,9 +90,9 @@ public class LocationService extends Service {
      */
     private AriadneLocation mPreviousLocation = null;
     /**
-     * Previously stored Location.
+     * Current destination.
      */
-    private StoredLocation mStoredLocation;
+    private StoredDestination mStoredLocation;
 
     @Override
     public void onCreate() {
