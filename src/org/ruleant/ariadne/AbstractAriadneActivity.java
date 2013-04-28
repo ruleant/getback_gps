@@ -59,7 +59,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Previously stored Location.
      */
-    protected AriadneLocation mStoredLocation = null;
+    protected AriadneLocation mDestination = null;
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
@@ -95,10 +95,10 @@ public abstract class AbstractAriadneActivity extends Activity {
     public void storeLocation(final MenuItem item) {
         if (mBound) {
             mService.storeCurrentLocation();
-            mStoredLocation
+            mDestination
                 = new AriadneLocation(mService.getStoredLocation());
         } else {
-            mStoredLocation = null;
+            mDestination = null;
         }
         refreshDisplay();
     }
@@ -112,12 +112,12 @@ public abstract class AbstractAriadneActivity extends Activity {
         if (mBound) {
             mProviderName = mService.getLocationProvider();
             mCurrentLocation = mService.getLocation();
-            mStoredLocation
+            mDestination
                 = new AriadneLocation(mService.getStoredLocation());
         } else {
             mProviderName = null;
             mCurrentLocation = null;
-            mStoredLocation = null;
+            mDestination = null;
         }
         refreshDisplay();
     }
@@ -186,7 +186,7 @@ public abstract class AbstractAriadneActivity extends Activity {
             mProviderName = mService.getLocationProvider();
             if (!mProviderName.isEmpty()) {
                 mCurrentLocation = mService.getLocation();
-                mStoredLocation
+                mDestination
                     = new AriadneLocation(mService.getStoredLocation());
                 refreshDisplay();
             }

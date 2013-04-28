@@ -102,11 +102,11 @@ public class MainActivity extends AbstractAriadneActivity {
             = (TextView) findViewById(R.id.textView_StoredLocation);
         String storedLocationText
             = getResources().getString(R.string.destination) + ":\n";
-        if (mStoredLocation == null) {
+        if (mDestination == null) {
             storedLocationText += " "
                 + getResources().getString(R.string.unknown);
         } else {
-            storedLocationText += mStoredLocation.toString(this);
+            storedLocationText += mDestination.toString(this);
         }
         tvStoredLocation.setText(storedLocationText);
 
@@ -115,7 +115,7 @@ public class MainActivity extends AbstractAriadneActivity {
             = (TextView) findViewById(R.id.textView_ToDestination);
         String toDestinationText
             = getResources().getString(R.string.to_dest) + ":\n";
-        if (mStoredLocation == null || mCurrentLocation == null) {
+        if (mDestination == null || mCurrentLocation == null) {
             toDestinationText += " "
                 + getResources().getString(R.string.unknown);
         } else {
