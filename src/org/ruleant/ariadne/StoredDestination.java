@@ -21,16 +21,15 @@ package org.ruleant.ariadne;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 
-
-import java.util.Locale;
-
 import android.content.Context;
-import android.content.SharedPreferences;
 import android.location.Location;
 
 /**
  * StoredDestination saves a location, it will store a location for future use,
  * and will the save the location when the application is stopped.
+ * The difference with StoredLocation is it will only keep location data
+ * (longitude, latitude, altitude).
+ * Other, time dependent, info will be discarded.
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
