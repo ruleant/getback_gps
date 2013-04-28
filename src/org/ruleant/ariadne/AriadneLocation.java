@@ -23,7 +23,6 @@ package org.ruleant.ariadne;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import android.content.Context;
 import android.location.Location;
 
@@ -51,6 +50,26 @@ public class AriadneLocation extends Location {
      */
     public AriadneLocation(final Location location) {
         super(location);
+    }
+
+    /**
+     * Checks if the timestamp of the provided location
+     * is more recent than the current location.
+     *
+     * @param Location object
+     */
+    public boolean isNewer(final Location location) {
+        return isNewer(new AriadneLocation(location));
+    }
+
+    /**
+     * Checks if the timestamp of the provided location
+     * is more recent than this location.
+     *
+     * @param Location object
+     */
+    public boolean isNewer(final AriadneLocation location) {
+        return (location.getTime() > super.getTime());
     }
 
     /**
