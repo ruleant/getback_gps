@@ -58,6 +58,6 @@
         android:layout_alignBottom="@+id/textView_Location"
         android:layout_toRightOf="@+id/textView_Location"
         android:padding="2dp"
-        android:text="@string/stored_location" />
+        android:text="@string/destination" />
 
 </RelativeLayout>

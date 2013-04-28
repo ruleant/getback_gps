@@ -19,6 +19,7 @@
     <string name="bearing">Bearing</string>
     <string name="accuracy">Accuracy</string>
     <string name="timestamp">Timestamp</string>
+    <string name="destination">Destination</string>
     <string name="to_dest">To Destination</string>
     <string name="distance">Distance</string>
     <string name="direction">Direction</string>

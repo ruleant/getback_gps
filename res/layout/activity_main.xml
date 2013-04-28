@@ -39,7 +39,7 @@
 	    android:layout_alignParentLeft="true"
 	    android:layout_below="@+id/textView_Location"
 	    android:padding="2dp"
-	    android:text="@string/stored_location" />
+	    android:text="@string/destination" />
 
     <Button
         android:id="@+id/button_getLocation"

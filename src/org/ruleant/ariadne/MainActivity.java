@@ -101,7 +101,7 @@ public class MainActivity extends AbstractAriadneActivity {
         TextView tvStoredLocation
             = (TextView) findViewById(R.id.textView_StoredLocation);
         String storedLocationText
-            = getResources().getString(R.string.stored_location) + ":\n";
+            = getResources().getString(R.string.destination) + ":\n";
         if (mStoredLocation == null) {
             storedLocationText += " "
                 + getResources().getString(R.string.unknown);
