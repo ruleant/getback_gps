@@ -108,8 +108,13 @@ public class LocationService extends Service {
         mLocationManager
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
+
+        // retrieve last known good location
         mLastLocation = new StoredLocation(
                 this.getApplicationContext(), PREFS_LAST_LOC);
+        setLocation(mLastLocation.getLocation());
+
+        // retrieve stored destination
         mDestination = new StoredDestination(
                 this.getApplicationContext(), PREFS_STORE_DEST);
 
@@ -255,13 +260,19 @@ public class LocationService extends Service {
     public void setLocation(final AriadneLocation location) {
         // don't update location if no location is provided,
         // or if new location is the same as the previous one
+        // or if the new location is not more recent than the current one
         if (location == null
                 || (mCurrentLocation != null
-                && location.getTime() == mCurrentLocation.getTime()
+                && ((location.getTime() == mCurrentLocation.getTime()
                 && location.getProvider() == mCurrentLocation.getProvider())
+                || !mCurrentLocation.isNewer(location)))
                 ) {
             return;
         }
+
+        // save current location
+        mLastLocation.setLocation(location);
+
         mPreviousLocation = mCurrentLocation;
         mCurrentLocation = location;
 
