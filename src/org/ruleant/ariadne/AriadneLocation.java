@@ -56,7 +56,7 @@ public class AriadneLocation extends Location {
      * Checks if the timestamp of the provided location
      * is more recent than this location.
      *
-     * @param Location object
+     * @param location Location object
      * @return true if location is more recent than this location
      */
     public boolean isNewer(final Location location) {
