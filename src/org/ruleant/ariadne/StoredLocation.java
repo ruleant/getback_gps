@@ -34,6 +34,7 @@ import android.location.Location;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class StoredLocation {
+    //TODO set mLocation to null when no saved location was found.
     /**
      * Context of App.
      */
@@ -50,6 +51,10 @@ public class StoredLocation {
      * SharedPreferences location for LocationStore class.
      */
     public static final String DEFAULT_PREF_NAME = "stored_location";
+    /**
+     * Name of Saved object in SharedPreferences.
+     */
+    private static final String SAVED = "saved";
     /**
      * Name of Longitude object in SharedPreferences.
      */
@@ -184,6 +189,8 @@ public class StoredLocation {
 
         editor.putLong(TIMESTAMP, mLocation.getTime());
         editor.putString(LOC_PROVIDER, mLocation.getProvider());
+        editor.putString(
+                SAVED, Boolean.toString(true));
         // Commit the edits!
         editor.commit();
 
@@ -198,6 +205,20 @@ public class StoredLocation {
      */
     public Location restore() {
         Location location = new Location("");
+
+        // check if a location stored. the saved parameter is set to true
+        // when storing a location, so if this it does not exist
+        // (default value is false), then the value is false
+        // and there is no location data.
+        // return null when not set or exception is thrown
+        try {
+            if (!Boolean.parseBoolean(mPrefs.getString(SAVED, "false"))) {
+                return null;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
         // retrieve longitude and latitude,
         // return null when not set or exception is thrown
