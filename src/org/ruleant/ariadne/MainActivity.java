@@ -61,7 +61,8 @@ public class MainActivity extends AbstractAriadneActivity {
         if (isBound()) {
             // manually update location
             // (don't wait for listener to update location)
-            mCurrentLocation = new AriadneLocation(getService().updateLocation());
+            mCurrentLocation
+		= new AriadneLocation(getService().updateLocation());
         } else {
             mCurrentLocation = null;
         }

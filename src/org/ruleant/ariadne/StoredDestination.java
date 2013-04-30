@@ -45,7 +45,8 @@ public class StoredDestination extends StoredLocation {
      * @param context        Context of the Android app
      * @param sharedPrefName Name of Shared Preferences file name
      */
-    public StoredDestination(final Context context, final String sharedPrefName) {
+    public StoredDestination(
+	final Context context, final String sharedPrefName) {
         super(context, sharedPrefName);
     }
 
