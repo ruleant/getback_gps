@@ -210,7 +210,9 @@ public class LocationService extends Service {
      * @param location New location
      */
     public void setLocation(final Location location) {
-        setLocation(new AriadneLocation(location));
+        if (location != null) {
+            setLocation(new AriadneLocation(location));
+        }
     }
 
     /**

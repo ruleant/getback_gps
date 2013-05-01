@@ -95,8 +95,13 @@ public abstract class AbstractAriadneActivity extends Activity {
     public void storeLocation(final MenuItem item) {
         if (mBound) {
             mService.storeCurrentLocation();
-            mDestination
-                = new AriadneLocation(mService.getDestination());
+            try {
+                mDestination
+                    = new AriadneLocation(mService.getDestination());
+            } catch (Exception e) {
+                e.printStackTrace();
+                mDestination = null;
+            }
         } else {
             mDestination = null;
         }
@@ -112,8 +117,13 @@ public abstract class AbstractAriadneActivity extends Activity {
         if (mBound) {
             mProviderName = mService.getLocationProvider();
             mCurrentLocation = mService.getLocation();
-            mDestination
-                = new AriadneLocation(mService.getDestination());
+            try {
+                mDestination
+                    = new AriadneLocation(mService.getDestination());
+            } catch (Exception e) {
+                e.printStackTrace();
+                mDestination = null;
+            }
         } else {
             mProviderName = null;
             mCurrentLocation = null;
@@ -186,8 +196,13 @@ public abstract class AbstractAriadneActivity extends Activity {
             mProviderName = mService.getLocationProvider();
             if (!mProviderName.isEmpty()) {
                 mCurrentLocation = mService.getLocation();
-                mDestination
-                    = new AriadneLocation(mService.getDestination());
+                try {
+                    mDestination
+                        = new AriadneLocation(mService.getDestination());
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    mDestination = null;
+                }
                 refreshDisplay();
             }
         }
