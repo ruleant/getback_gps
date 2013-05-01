@@ -137,6 +137,7 @@ public class StoredLocation {
      */
     public void setLocation(final Location location) {
         mLocation.set(location);
+        mHasLocation = true;
     }
 
     /**
@@ -154,7 +155,7 @@ public class StoredLocation {
      */
     public void save() {
         // don't save if mLocation is not set
-        if (mLocation == null) {
+        if (mLocation == null && mHasLocation) {
             return;
         }
 
@@ -198,14 +199,12 @@ public class StoredLocation {
         editor.putLong(TIMESTAMP, mLocation.getTime());
         editor.putString(LOC_PROVIDER, mLocation.getProvider());
         editor.putString(
-                SAVED, Boolean.toString(true));
+                SAVED, Boolean.toString(mHasLocation));
         // Commit the edits!
         editor.commit();
 
         // set default locale back to original
         Locale.setDefault(originalLocale);
-
-        mHasLocation = true;
     }
 
     /**
