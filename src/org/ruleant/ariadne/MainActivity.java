@@ -105,7 +105,7 @@ public class MainActivity extends AbstractAriadneActivity {
             = getResources().getString(R.string.destination) + ":\n";
         if (mDestination == null) {
             storedLocationText += " "
-                + getResources().getString(R.string.unknown);
+                + getResources().getString(R.string.notset);
         } else {
             storedLocationText += mDestination.toString(this);
         }
