@@ -155,7 +155,7 @@ public class StoredLocation {
      */
     public void save() {
         // don't save if mLocation is not set
-        if (mLocation == null && mHasLocation) {
+        if (mLocation == null || !mHasLocation) {
             return;
         }
 
