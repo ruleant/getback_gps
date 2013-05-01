@@ -154,11 +154,6 @@ public class StoredLocation {
      * Save stored location in Shared Preferences.
      */
     public void save() {
-        // don't save if mLocation is not set
-        if (mLocation == null || !mHasLocation) {
-            return;
-        }
-
         /* Set Locale temporarily to US English to make sure that the data
          * is always stored with the same locale, to avoid data loss
          * when the default locale of the device is changed.
@@ -168,38 +163,42 @@ public class StoredLocation {
 
         // save location to a SharedPreferences file
         SharedPreferences.Editor editor = mPrefs.edit();
-        editor.putString(
-                LONGITUDE,
-                Location.convert(
-                        mLocation.getLongitude(), Location.FORMAT_DEGREES
-                        )
-                );
-        editor.putString(
-                LATITUDE,
-                Location.convert(
-                        mLocation.getLatitude(), Location.FORMAT_DEGREES
-                        )
-                );
 
-        // save altitude, if defined
-        editor.putString(
-                HAS_ALTITUDE, Boolean.toString(mLocation.hasAltitude()));
-        if (mLocation.hasAltitude()) {
+        // only save if Location is set
+        if (mLocation != null && mHasLocation) {
             editor.putString(
-                    ALTITUDE, Double.toString(mLocation.getAltitude()));
-        }
+                    LONGITUDE,
+                    Location.convert(
+                            mLocation.getLongitude(), Location.FORMAT_DEGREES
+                            )
+                    );
+            editor.putString(
+                    LATITUDE,
+                    Location.convert(
+                            mLocation.getLatitude(), Location.FORMAT_DEGREES
+                            )
+                    );
 
-        // save accuracy, if defined
-        editor.putString(
-                HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
-        if (mLocation.hasAccuracy()) {
-            editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
-        }
+            // save altitude, if defined
+            editor.putString(
+                    HAS_ALTITUDE, Boolean.toString(mLocation.hasAltitude()));
+            if (mLocation.hasAltitude()) {
+                editor.putString(
+                        ALTITUDE, Double.toString(mLocation.getAltitude()));
+            }
 
-        editor.putLong(TIMESTAMP, mLocation.getTime());
-        editor.putString(LOC_PROVIDER, mLocation.getProvider());
+            // save accuracy, if defined
+            editor.putString(
+                    HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
+            if (mLocation.hasAccuracy()) {
+                editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
+            }
+
+            editor.putLong(TIMESTAMP, mLocation.getTime());
+            editor.putString(LOC_PROVIDER, mLocation.getProvider());
+        }
         editor.putString(
-                SAVED, Boolean.toString(mHasLocation));
+                SAVED, Boolean.toString(mLocation != null && mHasLocation));
         // Commit the edits!
         editor.commit();
 
