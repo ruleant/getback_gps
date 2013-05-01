@@ -34,7 +34,6 @@ import android.location.Location;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class StoredLocation {
-    //TODO set mLocation to null when no saved location was found.
     /**
      * Context of App.
      */
@@ -43,6 +42,10 @@ public class StoredLocation {
      * Selected Location.
      */
     private Location mLocation;
+    /**
+     * If a location was set.
+     */
+    private boolean mHasLocation;
     /**
      * SharedPreference object.
      */
@@ -97,6 +100,7 @@ public class StoredLocation {
     public StoredLocation(final Context context, final String sharedPrefName) {
         mContext = context;
         mLocation = new Location("");
+        mHasLocation = false;
 
         String prefName;
 
@@ -119,7 +123,11 @@ public class StoredLocation {
      * @return Location location
      */
     public Location getLocation() {
-        return mLocation;
+        if (mHasLocation) {
+            return mLocation;
+        }
+
+        return null;
     }
 
     /**
@@ -196,6 +204,8 @@ public class StoredLocation {
 
         // set default locale back to original
         Locale.setDefault(originalLocale);
+
+        mHasLocation = true;
     }
 
     /**
@@ -212,7 +222,8 @@ public class StoredLocation {
         // and there is no location data.
         // return null when not set or exception is thrown
         try {
-            if (!Boolean.parseBoolean(mPrefs.getString(SAVED, "false"))) {
+            mHasLocation = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
+            if(!mHasLocation) {
                 return null;
             }
         } catch (Exception e) {
