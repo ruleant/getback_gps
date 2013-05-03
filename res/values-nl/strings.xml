@@ -1,5 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
 
-</resources>
-
+<string name="app_desc">Vind je weg terug naar een eerder bezochte locatie, gebruik makende van GPS coördinaten.</string>
+    <string name="none">Geen</string>
+    <string name="unknown">Onbekend</string>
+    <string name="notset">Niet ingesteld</string>
+    </resources>
