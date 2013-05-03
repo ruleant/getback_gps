@@ -1,8 +1,34 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
 
-<string name="app_desc">Vind je weg terug naar een eerder bezochte locatie, gebruik makende van GPS coördinaten.</string>
+<string name="app_desc">Vind je weg terug naar een eerder bezochte locatie, met behulp van GPS-coördinaten.</string>
     <string name="none">Geen</string>
     <string name="unknown">Onbekend</string>
     <string name="notset">Niet ingesteld</string>
-    </resources>
+    <string name="location_provider">Locatieaanbieder</string>
+    <string name="provider">Aanbieder</string>
+    <string name="location">Locatie</string>
+    <string name="curr_location">Huidige locatie</string>
+    <string name="stored_location">Opgeslagen locatie</string>
+    <string name="store_location">Sla locatie op</string>
+    <string name="latitude">Breedtegraad</string>
+    <string name="longitude">Lengtegraad</string>
+    <string name="altitude">Hoogte</string>
+    <string name="speed">Snelheid</string>
+    <string name="bearing">Richting</string>
+    <string name="accuracy">Nauwkeurigheid</string>
+    <string name="timestamp">Tijdstip</string>
+    <string name="destination">Bestemming</string>
+    <string name="to_dest">Naar bestemming</string>
+    <string name="distance">Afstand</string>
+    <string name="direction">Richting</string>
+    <string name="raw">Onverwerkt</string>
+    <string name="refresh">Vernieuwen</string>
+    <string name="button_getLocationProvider">Aanbieder bijwerken</string>
+    <string name="button_getLocation">Locatie bijwerken</string>
+    <string name="provider_no_support">Aanbieder wordt niet ondersteund</string>
+    <string name="version">Versie</string>
+    <string name="about">Over</string>
+    <string name="menu_settings">Instellingen</string>
+
+</resources>
