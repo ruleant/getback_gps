@@ -1,5 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version='1.0' encoding='utf-8'?>
 <resources>
 
-</resources>
-
+<string name="app_desc">Najděte svoji cestu zpět k dříve navštíveným místům pomocí GPS souřadnic.</string>
+    <string name="none">Žádný</string>
+    <string name="unknown">Neznámý</string>
+    <string name="notset">Nenastavený</string>
+    <string name="location_provider">Poskytovatel polohy</string>
+    <string name="provider">Poskytovatel</string>
+    <string name="location">Poloha</string>
+    <string name="curr_location">Současné umístění</string>
+    <string name="stored_location">Uložené umístění</string>
+    <string name="store_location">Uložit umístění</string>
+    <string name="latitude">Zeměpisná šířka</string>
+    <string name="longitude">Zeměpisná délka</string>
+    <string name="altitude">Výška</string>
+    <string name="speed">Rychlost</string>
+    <string name="accuracy">Přesnost</string>
+    <string name="timestamp">Čas</string>
+    <string name="destination">Cíl</string>
+    <string name="to_dest">Do cíle</string>
+    <string name="distance">Vzdálenost</string>
+    <string name="direction">Směr</string>
+    <string name="raw">Nezpracované</string>
+    <string name="refresh">Obnovit</string>
+    <string name="button_getLocationProvider">Změnit poskytovatele</string>
+    <string name="button_getLocation">Aktualizovat polohu</string>
+    <string name="provider_no_support">Poskytovatel není podporovaný</string>
+    <string name="version">Verze</string>
+    <string name="about">O programu</string>
+    </resources>
