@@ -3,4 +3,7 @@
     <string name="app_name">Ariadne</string>
     <string name="app_website"><a href="https://github.com/ruleant/ariadne/wiki">Website</a></string>
     <string name="copyright">Copyright &#169; 2012&#8211;2013 <a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens</a></string>
+    <!-- Debug settings -->
+    <string name="pref_header_debug">Debug</string>
+    <string name="pref_debug_level">Debugging</string>
 </resources>
