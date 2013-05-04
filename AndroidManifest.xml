@@ -42,7 +42,7 @@
 
         <activity
             android:name="org.ruleant.ariadne.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:label="@string/settings" >
         </activity>
     </application>
 

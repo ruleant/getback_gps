@@ -29,6 +29,6 @@
     <string name="provider_no_support">Aanbieder wordt niet ondersteund</string>
     <string name="version">Versie</string>
     <string name="about">Over</string>
-    <string name="menu_settings">Instellingen</string>
+    <string name="settings">Instellingen</string>
 
 </resources>

@@ -5,7 +5,7 @@
         android:orderInCategory="100"
         android:showAsAction="never"
         android:onClick="displaySettings"
-        android:title="@string/menu_settings"/>
+        android:title="@string/settings"/>
 	<item
 		android:id="@+id/menu_storelocation"
 		android:onClick="storeLocation"
