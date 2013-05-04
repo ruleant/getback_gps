@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-    <string name="app_name">Ariadne</string>
     <string name="app_desc">Find your way back to a previously visited location, using GPS coordinates.</string>
-    <string name="app_website"><a href="https://github.com/ruleant/ariadne/wiki">Website</a></string>
-    <string name="copyright">Copyright &#169; 2012&#8211;2013 <a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens</a></string>
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>
