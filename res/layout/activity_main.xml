@@ -28,7 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_getLocationProvider"
+        android:layout_below="@+id/button_getLocation"
         android:padding="2dp"
         android:text="@string/location_provider" />
 
