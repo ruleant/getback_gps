@@ -51,7 +51,7 @@
     <string-array name="pref_debug_level_list_titles">
         <item>Show all debug info</item>
         <item>Show some debug info</item>
-        <item>Show limited debug info</item>
+        <item>Show minimal debug info</item>
         <item>Disabled</item>
     </string-array>
     <string-array name="pref_debug_level_list_values">
