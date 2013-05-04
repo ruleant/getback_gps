@@ -2,11 +2,7 @@
 <resources>
 
     <!-- Strings related to Settings -->
-
     <!-- General settings -->
-    <string name="pref_header_general">General</string>
-    <string name="pref_loc_update_dist">Update location every</string>
-    <string name="pref_loc_update_time">Update location every</string>
 
     <string-array name="pref_loc_update_dist_list_titles">
         <item>100 meter</item>
@@ -43,8 +39,6 @@
     </string-array>
 
     <!-- Debug settings -->
-    <string name="pref_header_debug">Debug</string>
-    <string name="pref_debug_level">Debugging</string>
 
     <string-array name="pref_debug_level_list_titles">
         <item>Show all debug info</item>

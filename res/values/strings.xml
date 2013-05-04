@@ -27,8 +27,17 @@
     <string name="button_getLocation">Update location</string>
     <string name="provider_no_support">Provider is not supported</string>
     <string name="version">Version</string>
-    <string name="about">About</string>
+    <!-- Strings related to Settings -->
     <string name="settings">Settings</string>
+    <!-- General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_loc_update_dist">Update location every</string>
+    <string name="pref_loc_update_time">Update location every</string>
+    <!-- Debug settings -->
+    <string name="pref_header_debug">Debug</string>
+    <string name="pref_debug_level">Debugging</string>
+    <!-- Strings related to About activity -->
+    <string name="about">About</string>
     <string name="license">This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
