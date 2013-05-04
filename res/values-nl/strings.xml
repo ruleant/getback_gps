@@ -31,4 +31,7 @@
     <string name="about">Over</string>
     <string name="settings">Instellingen</string>
 
-</resources>
+<string name="pref_loc_update_dist">Afstandgebaseerde locatieaanpassing na</string>
+    <string name="pref_loc_update_time">Tijdgebaseerde locatieaanpassing na</string>
+    <string name="pref_header_general">Algemeen</string>
+    </resources>
