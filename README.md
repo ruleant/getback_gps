@@ -1,4 +1,4 @@
-ariadne
+Ariadne
 =======
 
 Android app for finding your way back to a previously visited location, using GPS coordinates.
