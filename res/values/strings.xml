@@ -31,8 +31,8 @@
     <string name="settings">Settings</string>
     <!-- General settings -->
     <string name="pref_header_general">General</string>
-    <string name="pref_loc_update_dist">Update location every</string>
-    <string name="pref_loc_update_time">Update location every</string>
+    <string name="pref_loc_update_dist">Distance based location update every</string>
+    <string name="pref_loc_update_time">Time based location update every</string>
     <!-- Strings related to About activity -->
     <string name="about">About</string>
     <string name="license">This program is free software: you can redistribute it and/or modify
