@@ -9,12 +9,14 @@ Bugs and feature requests
 -------------------------
 
 Please report bugs and add feature requests on <https://github.com/ruleant/ariadne/issues>.
+
 Requests for translations to a new language can be made here as well.
 
 Translation
 -----------
 
-You can help translating the app to your onw language : <http://hosted.weblate.org/projects/ariadne/strings>
+You can help translating the app to your onw language : <http://hosted.weblate.org/projects/ariadne/strings>.
+
 Is your language not listed? Follow the instructions on the 'New language' tab on weblate or open an issue in the github tracker (see above).
 
 License
