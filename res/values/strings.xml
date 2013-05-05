@@ -4,6 +4,7 @@
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>
+    <string name="disabled">disabled</string>
     <string name="location_provider">Location Provider</string>
     <string name="provider">Provider</string>
     <string name="location">Location</string>
@@ -20,6 +21,8 @@
     <string name="destination">Destination</string>
     <string name="to_dest">To Destination</string>
     <string name="distance">Distance</string>
+    <string name="meter_singular">meter</string>
+    <string name="meter_plural">meter</string>
     <string name="direction">Direction</string>
     <string name="raw">Raw</string>
     <string name="refresh">Refresh</string>

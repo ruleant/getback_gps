@@ -76,6 +76,7 @@ public class SettingsActivity extends PreferenceActivity {
 
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
+        populateLocUpdateDist();
 
         // Add 'debug' preferences if DEBUG is enabled.
         if (BuildConfig.DEBUG) {
@@ -96,6 +97,32 @@ public class SettingsActivity extends PreferenceActivity {
             bindPreferenceSummaryToValue(
                     findPreference(DebugLevel.PREF_DEBUG_LEVEL));
         }
+    }
+
+    /*
+     *  Populate visible options in Distance based Location Update Setting.
+     */
+    private void populateLocUpdateDist()
+    {
+        // TODO: move to separate class to remove duplicate method in GeneralPreferenceFragment
+        ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
+        locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
+        CharSequence[] values = getResources().getStringArray(R.array.pref_loc_update_dist_list_values);
+        CharSequence[] captions = new CharSequence[values.length];
+        for (int i = 0; i < values.length; i++) {
+            String text = values[i].toString();
+            Long value = Long.parseLong(text);
+            if (value > 0) {
+                if (value > 1) {
+                    captions[i] = text + " " + getResources().getString(R.string.meter_plural);
+                } else {
+                    captions[i] = text + " " + getResources().getString(R.string.meter_singular);
+                }
+            } else {
+                captions[i] = getResources().getString(R.string.disabled);
+            }
+        }
+        locUpdateDistPref.setEntries(captions);
     }
 
     /** {@inheritDoc} */
@@ -215,6 +242,8 @@ public class SettingsActivity extends PreferenceActivity {
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
+            populateLocUpdateDist();
+
             // Bind the summaries of the preferences
             // to their values. When their values change, their summaries are
             // updated to reflect the new value, per the Android Design
@@ -223,6 +252,32 @@ public class SettingsActivity extends PreferenceActivity {
                 findPreference("loc_update_dist"));
             bindPreferenceSummaryToValue(
                 findPreference("loc_update_time"));
+        }
+
+        /*
+         *  Populate visible options in Distance based Location Update Setting.
+         *  Duplicate of same method in parent class.
+         */
+        private void populateLocUpdateDist()
+        {
+            ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
+            locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
+            CharSequence[] values = getResources().getStringArray(R.array.pref_loc_update_dist_list_values);
+            CharSequence[] captions = new CharSequence[values.length];
+            for (int i = 0; i < values.length; i++) {
+                String text = values[i].toString();
+                Long value = Long.parseLong(text);
+                if (value > 0) {
+                    if (value > 1) {
+                        captions[i] = text + " " + getResources().getString(R.string.meter_plural);
+                    } else {
+                        captions[i] = text + " " + getResources().getString(R.string.meter_singular);
+                    }
+                } else {
+                    captions[i] = getResources().getString(R.string.disabled);
+                }
+            }
+            locUpdateDistPref.setEntries(captions);
         }
     }
 
