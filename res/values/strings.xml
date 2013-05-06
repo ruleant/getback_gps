@@ -21,8 +21,10 @@
     <string name="destination">Destination</string>
     <string name="to_dest">To Destination</string>
     <string name="distance">Distance</string>
-    <string name="meter_singular">meter</string>
-    <string name="meter_plural">meter</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d meter</item>
+        <item quantity="other">%d meter</item>
+    </plurals>
     <string name="direction">Direction</string>
     <string name="raw">Raw</string>
     <string name="refresh">Refresh</string>

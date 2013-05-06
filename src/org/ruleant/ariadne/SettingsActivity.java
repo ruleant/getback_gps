@@ -110,14 +110,9 @@ public class SettingsActivity extends PreferenceActivity {
         CharSequence[] values = getResources().getStringArray(R.array.pref_loc_update_dist_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
-            String text = values[i].toString();
-            Long value = Long.parseLong(text);
+            int value = Integer.parseInt(values[i].toString());
             if (value > 0) {
-                if (value > 1) {
-                    captions[i] = text + " " + getResources().getString(R.string.meter_plural);
-                } else {
-                    captions[i] = text + " " + getResources().getString(R.string.meter_singular);
-                }
+                captions[i] = getResources().getQuantityString(R.plurals.distance_meter, value, value);
             } else {
                 captions[i] = getResources().getString(R.string.disabled);
             }
@@ -265,14 +260,9 @@ public class SettingsActivity extends PreferenceActivity {
             CharSequence[] values = getResources().getStringArray(R.array.pref_loc_update_dist_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                String text = values[i].toString();
-                Long value = Long.parseLong(text);
+                int value = Integer.parseInt(values[i].toString());
                 if (value > 0) {
-                    if (value > 1) {
-                        captions[i] = text + " " + getResources().getString(R.string.meter_plural);
-                    } else {
-                        captions[i] = text + " " + getResources().getString(R.string.meter_singular);
-                    }
+                    captions[i] = getResources().getQuantityString(R.plurals.distance_meter, value, value);
                 } else {
                     captions[i] = getResources().getString(R.string.disabled);
                 }
