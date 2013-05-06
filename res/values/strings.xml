@@ -50,4 +50,9 @@
     \n
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string-array name="test_array">
+        <item>first string</item>
+        <item>second string</item>
+        <item>disabled</item>
+    </string-array>
 </resources>
