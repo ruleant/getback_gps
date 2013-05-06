@@ -5,6 +5,7 @@ import java.util.List;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.ListPreference;
@@ -107,14 +108,15 @@ public class SettingsActivity extends PreferenceActivity {
         // TODO: move to separate class to remove duplicate method in GeneralPreferenceFragment
         ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
         locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
-        CharSequence[] values = getResources().getStringArray(R.array.pref_loc_update_dist_list_values);
+        Resources resources = getResources();
+        CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString());
             if (value > 0) {
-                captions[i] = getResources().getQuantityString(R.plurals.distance_meter, value, value);
+                captions[i] = resources.getQuantityString(R.plurals.distance_meter, value, value);
             } else {
-                captions[i] = getResources().getString(R.string.disabled);
+                captions[i] = resources.getString(R.string.disabled);
             }
         }
         locUpdateDistPref.setEntries(captions);
@@ -257,14 +259,15 @@ public class SettingsActivity extends PreferenceActivity {
         {
             ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
             locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
-            CharSequence[] values = getResources().getStringArray(R.array.pref_loc_update_dist_list_values);
+            Resources resources = getResources();
+            CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
                 int value = Integer.parseInt(values[i].toString());
                 if (value > 0) {
-                    captions[i] = getResources().getQuantityString(R.plurals.distance_meter, value, value);
+                    captions[i] = resources.getQuantityString(R.plurals.distance_meter, value, value);
                 } else {
-                    captions[i] = getResources().getString(R.string.disabled);
+                    captions[i] = resources.getString(R.string.disabled);
                 }
             }
             locUpdateDistPref.setEntries(captions);
