@@ -15,7 +15,7 @@
     <string name="longitude">Lengtegraad</string>
     <string name="altitude">Hoogte</string>
     <string name="speed">Snelheid</string>
-    <string name="bearing">Richting</string>
+    <string name="bearing">Koers</string>
     <string name="accuracy">Nauwkeurigheid</string>
     <string name="timestamp">Tijdstip</string>
     <string name="destination">Bestemming</string>
