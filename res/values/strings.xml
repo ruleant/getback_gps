@@ -25,11 +25,11 @@
         <item quantity="one">%d meter</item>
         <item quantity="other">%d meter</item>
     </plurals>
-    <plurals name="time_second">
+    <plurals name="time_seconds">
         <item quantity="one">%d second</item>
         <item quantity="other">%d seconds</item>
     </plurals>
-    <plurals name="time_minute">
+    <plurals name="time_minutes">
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>

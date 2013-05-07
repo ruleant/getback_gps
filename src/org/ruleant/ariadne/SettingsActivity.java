@@ -78,6 +78,7 @@ public class SettingsActivity extends PreferenceActivity {
         // Add 'general' preferences.
         addPreferencesFromResource(R.xml.pref_general);
         populateLocUpdateDist();
+        populateLocUpdateTime();
 
         // Add 'debug' preferences if DEBUG is enabled.
         if (BuildConfig.DEBUG) {
@@ -120,6 +121,29 @@ public class SettingsActivity extends PreferenceActivity {
             }
         }
         locUpdateDistPref.setEntries(captions);
+    }
+
+    /**
+     *  Populate visible options in Time based Location Update Setting.
+     */
+    private void populateLocUpdateTime()
+    {
+        // TODO: move to separate class to remove duplicate method in GeneralPreferenceFragment
+        // TODO: merge common parts with populateLocUpdateDist
+        ListPreference locUpdateTimePref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
+        Resources resources = getResources();
+        CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_time_list_values);
+        CharSequence[] captions = new CharSequence[values.length];
+        for (int i = 0; i < values.length; i++) {
+            int value = Integer.parseInt(values[i].toString()) / 1000;
+            if (value >= 60) {
+                value = value / 60;
+                captions[i] = resources.getQuantityString(R.plurals.time_minutes, value, value);
+            } else {
+                captions[i] = resources.getQuantityString(R.plurals.time_seconds, value, value);
+            }
+        }
+        locUpdateTimePref.setEntries(captions);
     }
 
     /** {@inheritDoc} */
@@ -240,6 +264,7 @@ public class SettingsActivity extends PreferenceActivity {
             super.onCreate(savedInstanceState);
 
             populateLocUpdateDist();
+            populateLocUpdateTime();
 
             // Bind the summaries of the preferences
             // to their values. When their values change, their summaries are
@@ -257,6 +282,7 @@ public class SettingsActivity extends PreferenceActivity {
          */
         private void populateLocUpdateDist()
         {
+            // duplicate of method in GeneralPreferenceFragment
             ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
             locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
             Resources resources = getResources();
@@ -271,6 +297,28 @@ public class SettingsActivity extends PreferenceActivity {
                 }
             }
             locUpdateDistPref.setEntries(captions);
+        }
+
+        /**
+         *  Populate visible options in Time based Location Update Setting.
+         */
+        private void populateLocUpdateTime()
+        {
+            // duplicate of method in GeneralPreferenceFragment
+            ListPreference locUpdateTimePref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
+            Resources resources = getResources();
+            CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_time_list_values);
+            CharSequence[] captions = new CharSequence[values.length];
+            for (int i = 0; i < values.length; i++) {
+                int value = Integer.parseInt(values[i].toString()) / 1000;
+                if (value >= 60) {
+                    value = value / 60;
+                    captions[i] = resources.getQuantityString(R.plurals.time_minutes, value, value);
+                } else {
+                    captions[i] = resources.getQuantityString(R.plurals.time_seconds, value, value);
+                }
+            }
+            locUpdateTimePref.setEntries(captions);
         }
     }
 
