@@ -48,6 +48,16 @@ public class SettingsActivity extends PreferenceActivity {
     public static final String DEFAULT_PREF_LOC_UPDATE_TIME = "10000";
 
     /**
+     * 60 seconds.
+     */
+    private static final int SIXTY_SECONDS = 60;
+
+    /**
+     * 1000 milliseconds.
+     */
+    private static final int ONEK_MSECONDS = 1000;
+
+    /**
      * Determines whether to always show the simplified settings UI, where
      * settings are presented in a single list. When false, settings are shown
      * as a master/detail two-pane view on tablets. When true, a single pane is
@@ -134,9 +144,9 @@ public class SettingsActivity extends PreferenceActivity {
         CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_time_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
-            int value = Integer.parseInt(values[i].toString()) / 1000;
-            if (value >= 60) {
-                value = value / 60;
+            int value = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
+            if (value >= SIXTY_SECONDS) {
+                value = value / SIXTY_SECONDS;
                 captions[i] = resources.getQuantityString(R.plurals.time_minutes, value, value);
             } else {
                 captions[i] = resources.getQuantityString(R.plurals.time_seconds, value, value);
@@ -308,9 +318,9 @@ public class SettingsActivity extends PreferenceActivity {
             CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_time_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                int value = Integer.parseInt(values[i].toString()) / 1000;
-                if (value >= 60) {
-                    value = value / 60;
+                int value = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
+                if (value >= SIXTY_SECONDS) {
+                    value = value / SIXTY_SECONDS;
                     captions[i] = resources.getQuantityString(R.plurals.time_minutes, value, value);
                 } else {
                     captions[i] = resources.getQuantityString(R.plurals.time_seconds, value, value);
