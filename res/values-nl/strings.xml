@@ -36,4 +36,5 @@
     <string name="pref_header_general">Algemeen</string>
     <string name="pref_header_loc_update">Locatieaanpassingen</string>
     <string name="disabled">uitgeschakeld</string>
+    <string name="license">Dit programma is vrije software: je mag het herdistribueren en/of wijzigen onder de voorwaarden van de GNU Algemene Publieke Licentie (GPL) zoals gepubliceerd door de Free Software Foundation, onder versie 3 van de Licentie of elke latere versie.\n\nDit programma is gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garanties die GEBRUIKELIJK ZIJN IN DE HANDEL of voor BRUIKBAARHEID VOOR EEN SPECIFIEK DOEL. Zie de GNU Algemene Publieke Licentie (GPL) voor meer details.\n\nJe hoort een kopie van de GNU Algemene Publieke Licentie te hebben ontvangen samen met dit programma. Als dat niet het geval is, zie &lt;a href=http://www.gnu.org/licenses/&gt;www.gnu.org/licenses&lt;/a&gt;.</string>
     </resources>
