@@ -102,12 +102,12 @@ public class AriadneLocation extends Location {
 
         // Location provider
         if (!getProvider().isEmpty()) {
-            // TODO: move provider name localisation to a separate method in FormatUtils
+            // TODO: move provider name localisation to a separate method
             String providerString = getProvider();
             if (providerString.equals("network")) {
-                providerString = context.getResources().getString(R.string.network);
+                providerString = context.getResources().getString(R.string.loc_provider_network);
             } else if (providerString.equals("gps")) {
-                providerString = context.getResources().getString(R.string.gps);
+                providerString = context.getResources().getString(R.string.loc_provider_gps);
             }
 
             locationText += " "
