@@ -108,7 +108,6 @@ public class SettingsActivity extends PreferenceActivity {
     {
         // TODO: move to separate class to remove duplicate method in GeneralPreferenceFragment
         ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
-        locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
         Resources resources = getResources();
         CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
         CharSequence[] captions = new CharSequence[values.length];
@@ -284,7 +283,6 @@ public class SettingsActivity extends PreferenceActivity {
         {
             // duplicate of method in GeneralPreferenceFragment
             ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
-            locUpdateDistPref.setEntries(R.array.pref_loc_update_dist_list_titles);
             Resources resources = getResources();
             CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
             CharSequence[] captions = new CharSequence[values.length];
