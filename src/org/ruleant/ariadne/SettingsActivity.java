@@ -100,7 +100,7 @@ public class SettingsActivity extends PreferenceActivity {
         }
     }
 
-    /*
+    /**
      *  Populate visible options in Distance based Location Update Setting.
      */
     private void populateLocUpdateDist()
@@ -251,7 +251,7 @@ public class SettingsActivity extends PreferenceActivity {
                 findPreference("loc_update_time"));
         }
 
-        /*
+        /**
          *  Populate visible options in Distance based Location Update Setting.
          *  Duplicate of same method in parent class.
          */
