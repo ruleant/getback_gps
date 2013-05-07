@@ -7,7 +7,7 @@
     <string name="disabled">disabled</string>
     <string name="location_provider">Location Provider</string>
     <string name="provider">Provider</string>
-    <string name="loc_provider_network">network</string>
+    <string name="loc_provider_network">network (Cell or Wifi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="location">Location</string>
     <string name="curr_location">Current Location</string>
