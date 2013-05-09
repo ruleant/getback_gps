@@ -40,7 +40,7 @@
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                     <artifactId>android-maven-plugin</artifactId>
-                    <version>3.5.0</version>
+                    <version>3.5.1</version>
 
                     <extensions>true</extensions>
                 </plugin>
@@ -50,12 +50,27 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>lint</id>
+                        <goals>
+                            <goal>lint</goal>
+                         </goals>
+                        <phase>install</phase>
+                    </execution>
+                </executions>
                 <configuration>
                     <sdk>
                         <!-- platform or api level (api level 4 = platform 1.6)-->
                         <platform>16</platform>
                     </sdk>
+                    <lint>
+                        <skip>false</skip>
+                        <failOnError>false</failOnError>
+                    </lint>
+                    <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
+                <extensions>true</extensions>
             </plugin>
 	    <plugin>
                 <groupId>org.codehaus.mojo</groupId>
