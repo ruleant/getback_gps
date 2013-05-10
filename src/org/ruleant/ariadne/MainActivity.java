@@ -73,6 +73,8 @@ public class MainActivity extends AbstractAriadneActivity {
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
     protected final void refreshDisplay() {
+        LocationService service = getService();
+
         // Refresh locationProvider
         TextView tvProvider
             = (TextView) findViewById(R.id.textView_LocationProvider);
@@ -123,10 +125,10 @@ public class MainActivity extends AbstractAriadneActivity {
             // Print distance and bearing
             toDestinationText += " "
                 + getResources().getString(R.string.distance) + ": "
-                + FormatUtils.formatDist(getService().getDistance()) + "\n";
+                + FormatUtils.formatDist(service.getDistance()) + "\n";
             toDestinationText += " "
                 + getResources().getString(R.string.direction) + ": "
-                + getService().getDirection() + "°";
+                + service.getDirection() + "°";
         }
         tvToDestination.setText(toDestinationText);
     }
