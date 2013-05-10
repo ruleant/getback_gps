@@ -36,9 +36,8 @@
         android:id="@+id/textView_StoredLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/textView_Location"
-        android:layout_alignBottom="@+id/textView_Location"
-        android:layout_toRightOf="@+id/textView_Location"
+        android:layout_alignTop="@+id/textView_Location"
+        android:layout_alignParentRight="true"
         android:padding="2dp"
         android:text="@string/destination" />
 
