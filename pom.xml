@@ -50,15 +50,6 @@
             <plugin>
                 <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                 <artifactId>android-maven-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>lint</id>
-                        <goals>
-                            <goal>lint</goal>
-                         </goals>
-                        <phase>install</phase>
-                    </execution>
-                </executions>
                 <configuration>
                     <sdk>
                         <!-- platform or api level (api level 4 = platform 1.6)-->
