@@ -52,10 +52,6 @@ public abstract class AbstractAriadneActivity extends Activity {
      * Current Location.
      */
     protected AriadneLocation mCurrentLocation = null;
-    /**
-     * Previously stored Location.
-     */
-    protected AriadneLocation mDestination = null;
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
@@ -91,15 +87,6 @@ public abstract class AbstractAriadneActivity extends Activity {
     public void storeLocation(final MenuItem item) {
         if (mBound) {
             mService.storeCurrentLocation();
-            try {
-                mDestination
-                    = new AriadneLocation(mService.getDestination());
-            } catch (Exception e) {
-                e.printStackTrace();
-                mDestination = null;
-            }
-        } else {
-            mDestination = null;
         }
         refreshDisplay();
     }
@@ -113,16 +100,8 @@ public abstract class AbstractAriadneActivity extends Activity {
         if (mBound) {
             mService.updateLocationProvider();
             mCurrentLocation = mService.getLocation();
-            try {
-                mDestination
-                    = new AriadneLocation(mService.getDestination());
-            } catch (Exception e) {
-                e.printStackTrace();
-                mDestination = null;
-            }
         } else {
             mCurrentLocation = null;
-            mDestination = null;
         }
         refreshDisplay();
     }
@@ -190,13 +169,6 @@ public abstract class AbstractAriadneActivity extends Activity {
 
             if (!mService.getLocationProvider().isEmpty()) {
                 mCurrentLocation = mService.getLocation();
-                try {
-                    mDestination
-                        = new AriadneLocation(mService.getDestination());
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    mDestination = null;
-                }
                 refreshDisplay();
             }
         }
