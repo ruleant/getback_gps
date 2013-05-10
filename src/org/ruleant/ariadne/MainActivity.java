@@ -39,34 +39,6 @@ public class MainActivity extends AbstractAriadneActivity {
     }
 
     /**
-     * Called when the user clicks the Renew provider button.
-     *
-     * @param view Button that was clicked
-     */
-    public void renewProvider(final View view) {
-        if (isBound()) {
-            getService().updateLocationProvider();
-        }
-
-        refreshDisplay();
-    }
-
-    /**
-     * Called when the user clicks the Update location button.
-     *
-     * @param view Button that was clicked
-     */
-    public void renewLocation(final View view) {
-        if (isBound()) {
-            // manually update location
-            // (don't wait for listener to update location)
-            getService().updateLocation();
-        }
-
-        refreshDisplay();
-    }
-
-    /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
     protected final void refreshDisplay() {

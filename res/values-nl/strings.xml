@@ -23,8 +23,6 @@
     <string name="direction">Richting</string>
     <string name="raw">Onverwerkt</string>
     <string name="refresh">Vernieuwen</string>
-    <string name="button_getLocationProvider">Aanbieder bijwerken</string>
-    <string name="button_getLocation">Locatie bijwerken</string>
     <string name="provider_no_support">Aanbieder wordt niet ondersteund</string>
     <string name="version">Versie</string>
     <string name="about">Over</string>

@@ -38,8 +38,6 @@
     <string name="direction">Direction</string>
     <string name="raw">Raw</string>
     <string name="refresh">Refresh</string>
-    <string name="button_getLocationProvider">Update provider</string>
-    <string name="button_getLocation">Update location</string>
     <string name="provider_no_support">Provider is not supported</string>
     <string name="version">Version</string>
     <!-- Strings related to Settings -->

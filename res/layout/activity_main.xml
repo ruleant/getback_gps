@@ -5,15 +5,6 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/button_getLocationProvider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:onClick="renewProvider"
-        android:text="@string/button_getLocationProvider" />
-
     <TextView
         android:id="@+id/textView_Location"
         android:layout_width="wrap_content"
@@ -28,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/button_getLocation"
+        android:layout_alignParentTop="true"
         android:padding="2dp"
         android:text="@string/location_provider" />
 
@@ -40,15 +31,6 @@
 	    android:layout_below="@+id/textView_Location"
 	    android:padding="2dp"
 	    android:text="@string/destination" />
-
-    <Button
-        android:id="@+id/button_getLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/button_getLocationProvider"
-        android:text="@string/button_getLocation"
-        android:onClick="renewLocation" />
 
     <TextView
         android:id="@+id/textView_ToDestination"

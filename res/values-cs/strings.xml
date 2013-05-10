@@ -23,8 +23,6 @@
     <string name="direction">Směr</string>
     <string name="raw">Nezpracované</string>
     <string name="refresh">Obnovit</string>
-    <string name="button_getLocationProvider">Změnit poskytovatele</string>
-    <string name="button_getLocation">Aktualizovat polohu</string>
     <string name="provider_no_support">Poskytovatel není podporovaný</string>
     <string name="version">Verze</string>
     <string name="about">O programu</string>
