@@ -45,10 +45,9 @@ public class MainActivity extends AbstractAriadneActivity {
      */
     public void renewProvider(final View view) {
         if (isBound()) {
-            mProviderName = getService().updateLocationProvider();
-        } else {
-            mProviderName = "";
+            getService().updateLocationProvider();
         }
+
         refreshDisplay();
     }
 
@@ -80,10 +79,11 @@ public class MainActivity extends AbstractAriadneActivity {
             = (TextView) findViewById(R.id.textView_LocationProvider);
         String providerText
             = getResources().getString(R.string.location_provider) + ": ";
-        if (mProviderName.isEmpty()) {
+        String providerName = service.getLocationProvider();
+        if (providerName.isEmpty()) {
             providerText += getResources().getString(R.string.none);
         } else {
-            providerText += mProviderName;
+            providerText += providerName;
         }
         tvProvider.setText(providerText);
 

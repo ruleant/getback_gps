@@ -49,10 +49,6 @@ public abstract class AbstractAriadneActivity extends Activity {
      */
     private boolean mBound = false;
     /**
-     * Name of the LocationProvider.
-     */
-    protected String mProviderName = "";
-    /**
      * Current Location.
      */
     protected AriadneLocation mCurrentLocation = null;
@@ -115,7 +111,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      */
     public void refresh(final MenuItem item) {
         if (mBound) {
-            mProviderName = mService.getLocationProvider();
+            mService.updateLocationProvider();
             mCurrentLocation = mService.getLocation();
             try {
                 mDestination
@@ -125,7 +121,6 @@ public abstract class AbstractAriadneActivity extends Activity {
                 mDestination = null;
             }
         } else {
-            mProviderName = null;
             mCurrentLocation = null;
             mDestination = null;
         }
@@ -193,8 +188,7 @@ public abstract class AbstractAriadneActivity extends Activity {
             // connected to it.
             binder.registerCallback(mCallback);
 
-            mProviderName = mService.getLocationProvider();
-            if (!mProviderName.isEmpty()) {
+            if (!mService.getLocationProvider().isEmpty()) {
                 mCurrentLocation = mService.getLocation();
                 try {
                     mDestination
@@ -237,11 +231,6 @@ public abstract class AbstractAriadneActivity extends Activity {
          * it gets the new location provider and refreshes the display.
          */
         public void providerUpdated() {
-            if (mBound) {
-                mProviderName = mService.getLocationProvider();
-            } else {
-                mProviderName = null;
-            }
             refreshDisplay();
         }
     };
