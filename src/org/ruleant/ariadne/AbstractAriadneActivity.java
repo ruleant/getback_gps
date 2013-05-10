@@ -48,10 +48,6 @@ public abstract class AbstractAriadneActivity extends Activity {
      * Connection state with LocationService.
      */
     private boolean mBound = false;
-    /**
-     * Current Location.
-     */
-    protected AriadneLocation mCurrentLocation = null;
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
@@ -99,9 +95,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     public void refresh(final MenuItem item) {
         if (mBound) {
             mService.updateLocationProvider();
-            mCurrentLocation = mService.getLocation();
-        } else {
-            mCurrentLocation = null;
+            mService.updateLocation();
         }
         refreshDisplay();
     }
@@ -167,10 +161,7 @@ public abstract class AbstractAriadneActivity extends Activity {
             // connected to it.
             binder.registerCallback(mCallback);
 
-            if (!mService.getLocationProvider().isEmpty()) {
-                mCurrentLocation = mService.getLocation();
-                refreshDisplay();
-            }
+            refreshDisplay();
         }
 
         @Override
@@ -190,11 +181,6 @@ public abstract class AbstractAriadneActivity extends Activity {
          * it gets the new location and refreshes the display.
          */
         public void locationUpdated() {
-            if (mBound) {
-                mCurrentLocation = mService.getLocation();
-            } else {
-                mCurrentLocation = null;
-            }
             refreshDisplay();
         }
 

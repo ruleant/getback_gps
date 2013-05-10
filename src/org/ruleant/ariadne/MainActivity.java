@@ -60,11 +60,9 @@ public class MainActivity extends AbstractAriadneActivity {
         if (isBound()) {
             // manually update location
             // (don't wait for listener to update location)
-            mCurrentLocation
-		= new AriadneLocation(getService().updateLocation());
-        } else {
-            mCurrentLocation = null;
+            getService().updateLocation();
         }
+
         refreshDisplay();
     }
 
@@ -74,6 +72,7 @@ public class MainActivity extends AbstractAriadneActivity {
     protected final void refreshDisplay() {
         LocationService service = getService();
         AriadneLocation destination = null;
+        AriadneLocation currentLocation = null;
 
         // Refresh locationProvider
         TextView tvProvider
@@ -93,11 +92,12 @@ public class MainActivity extends AbstractAriadneActivity {
             = (TextView) findViewById(R.id.textView_Location);
         String locationText
             = getResources().getString(R.string.curr_location) + ":\n";
-        if (mCurrentLocation == null) {
+        currentLocation = service.getLocation();
+        if (currentLocation == null) {
             locationText += " "
                 + getResources().getString(R.string.unknown);
         } else {
-            locationText += mCurrentLocation.toString(this);
+            locationText += currentLocation.toString(this);
         }
         tvLocation.setText(locationText);
 
@@ -129,7 +129,7 @@ public class MainActivity extends AbstractAriadneActivity {
             = (TextView) findViewById(R.id.textView_ToDestination);
         String toDestinationText
             = getResources().getString(R.string.to_dest) + ":\n";
-        if (destination == null || mCurrentLocation == null) {
+        if (destination == null || currentLocation == null) {
             toDestinationText += " "
                 + getResources().getString(R.string.unknown);
         } else {
