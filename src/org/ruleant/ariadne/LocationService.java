@@ -322,14 +322,14 @@ public class LocationService extends Service {
      *
      * @return float distance in meters
      */
-    public float getDirection() {
+    public double getDirection() {
         // don't calculate bearing if current location is not set
         // TODO : or if bearing is unknown/unreliable (prev. loc = curr. loc.)
         if (mCurrentLocation == null) {
-            return 0;
+            return 0.0;
         }
-        float relativeBearing = mCurrentLocation.bearingTo(getDestination());
-        float currentBearing = 0;
+        double relativeBearing = mCurrentLocation.bearingTo(getDestination());
+        double currentBearing = 0.0;
         if (mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {

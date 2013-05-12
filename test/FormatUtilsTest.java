@@ -158,62 +158,62 @@ public class FormatUtilsTest extends TestCase {
     /**
      * 0° angle.
      */
-    private static final float A_0 = 0;
+    private static final double A_0 = 0.0;
 
     /**
      * 45° angle.
      */
-    private static final float A_45 = 45;
+    private static final double A_45 = 45.0;
 
     /**
      * 45.674° angle.
      */
-    private static final float A_45P674 = (float) 45.674;
+    private static final double A_45P674 = 45.674;
 
     /**
      * 45.678° angle.
      */
-    private static final float A_45P678 = (float) 45.678;
+    private static final double A_45P678 = 45.678;
 
     /**
      * -315° angle (= 45°).
      */
-    private static final float A_M315 = -315;
+    private static final double A_M315 = -315.0;
 
     /**
      * -360° angle (= 0°).
      */
-    private static final float A_M360 = -360;
+    private static final double A_M360 = -360.0;
 
     /**
      * -675° angle (= 45°).
      */
-    private static final float A_M675 = -675;
+    private static final double A_M675 = -675.0;
 
     /**
      * -720° angle (= 0°).
      */
-    private static final float A_M720 = -720;
+    private static final double A_M720 = -720.0;
 
     /**
      * 360° angle (= 0°).
      */
-    private static final float A_360 = 360;
+    private static final double A_360 = 360.0;
 
     /**
      * 405° angle (= 45°).
      */
-    private static final float A_405 = 405;
+    private static final double A_405 = 405.0;
 
     /**
      * 720° angle (= 0°).
      */
-    private static final float A_720 = 720;
+    private static final double A_720 = 720.0;
 
     /**
      * 765° angle (= 45°).
      */
-    private static final float A_765 = 765;
+    private static final double A_765 = 765.0;
 
     /**
      * Sets up the test fixture.
@@ -367,9 +367,9 @@ public class FormatUtilsTest extends TestCase {
      * even if the angle argument is negative.
      */
     public final void testFormatAngleNeg() {
-        assertEquals("315.00°", FormatUtils.formatAngle(-1 * A_45));
-        assertEquals("314.33°", FormatUtils.formatAngle(-1 * A_45P674));
-        assertEquals("314.32°", FormatUtils.formatAngle(-1 * A_45P678));
+        assertEquals("315.00°", FormatUtils.formatAngle(-1.0 * A_45));
+        assertEquals("314.33°", FormatUtils.formatAngle(-1.0 * A_45P674));
+        assertEquals("314.32°", FormatUtils.formatAngle(-1.0 * A_45P678));
     }
 
     /**

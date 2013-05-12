@@ -138,11 +138,11 @@ public class FormatUtils {
      * @param angle Angle in °
      * @return formatted angle with unit (°)
      */
-    public static final String formatAngle(float angle) {
+    public static final String formatAngle(double angle) {
         String unit = "°";
 
         // conversion
-        float normalizedAngle = normalizeAngle(angle);
+        double normalizedAngle = normalizeAngle(angle);
 
         // formatting
         return String.format("%1$.2f%2$s", normalizedAngle, unit);
@@ -155,7 +155,7 @@ public class FormatUtils {
      * @return Normalized angle in range 0°-360°
      * @todo low refactor to also work if range would be -180°-180°
      */
-    public static final float normalizeAngle(float angle) {
+    public static final double normalizeAngle(double angle) {
         float range = MAX_ANGLE - MIN_ANGLE;
 
         // returned value should be between 0° and 360°
