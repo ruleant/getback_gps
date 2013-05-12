@@ -111,7 +111,7 @@ public class MainActivity extends AbstractAriadneActivity {
                 + FormatUtils.formatDist(service.getDistance()) + "\n";
             toDestinationText += " "
                 + getResources().getString(R.string.direction) + ": "
-                + service.getDirection() + "°";
+                + FormatUtils.formatAngle(service.getDirection());
         }
         tvToDestination.setText(toDestinationText);
     }
