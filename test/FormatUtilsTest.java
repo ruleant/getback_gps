@@ -367,9 +367,9 @@ public class FormatUtilsTest extends TestCase {
      * even if the angle argument is negative.
      */
     public final void testFormatAngleNeg() {
-        assertEquals("315.00°", FormatUtils.formatAngle(-1.0 * A_45));
-        assertEquals("314.33°", FormatUtils.formatAngle(-1.0 * A_45P674));
-        assertEquals("314.32°", FormatUtils.formatAngle(-1.0 * A_45P678));
+        assertEquals("-45.00°", FormatUtils.formatAngle(-1.0 * A_45));
+        assertEquals("-45.67°", FormatUtils.formatAngle(-1.0 * A_45P674));
+        assertEquals("-45.68°", FormatUtils.formatAngle(-1.0 * A_45P678));
     }
 
     /**

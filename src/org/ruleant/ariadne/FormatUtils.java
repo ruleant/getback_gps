@@ -141,11 +141,8 @@ public class FormatUtils {
     public static final String formatAngle(double angle) {
         String unit = "°";
 
-        // conversion
-        double normalizedAngle = normalizeAngle(angle);
-
         // formatting
-        return String.format("%1$.2f%2$s", normalizedAngle, unit);
+        return String.format("%1$.2f%2$s", angle, unit);
     }
 
     /**
