@@ -132,6 +132,23 @@ public class FormatUtils {
     }
 
     /**
+     * Formats an angle (in °) to a string.
+     * The number format is localized.
+     *
+     * @param angle Angle in °
+     * @return formatted angle with unit (°)
+     */
+    public static final String formatAngle(float angle) {
+        String unit = "°";
+
+        // conversion
+        float normalizedAngle = normalizeAngle(angle);
+
+        // formatting
+        return String.format("%1$.2f%2$s", normalizedAngle, unit);
+    }
+
+    /**
      * Normalize an angle to be in the range 0°-360°.
      *
      * @param angle Angle in degrees
