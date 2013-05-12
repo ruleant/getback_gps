@@ -166,6 +166,16 @@ public class FormatUtilsTest extends TestCase {
     private static final float A_45 = 45;
 
     /**
+     * 45.674° angle.
+     */
+    private static final float A_45P674 = (float) 45.674;
+
+    /**
+     * 45.678° angle.
+     */
+    private static final float A_45P678 = (float) 45.678;
+
+    /**
      * -315° angle (= 45°).
      */
     private static final float A_M315 = -315;
@@ -327,6 +337,39 @@ public class FormatUtilsTest extends TestCase {
     public final void testFormatSpeedNeg() {
         assertEquals("3.6km/h", FormatUtils.formatSpeed(-1.0 * MPS_3P6KPH));
         assertEquals("14km/h", FormatUtils.formatSpeed(-1.0 * MPS_14P4KPH));
+    }
+
+    /**
+     * Tests main functionality of method FormatAngle.
+     * Locale en_US is assumed, several angels are passed as an argument.
+     */
+    public final void testFormatAngle() {
+        assertEquals("45.00°", FormatUtils.formatAngle(A_45));
+        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674));
+        assertEquals("45.68°", FormatUtils.formatAngle(A_45P678));
+    }
+
+    /**
+     * Tests the formatting when a European locale is used, in this case nl_BE.
+     */
+    public final void testFormatAngleBelgianFormat() {
+        // Set Dutch (Belgium) locale
+        Locale localeDutchBelgian = new Locale("nl", "BE");
+        Locale.setDefault(localeDutchBelgian);
+
+        assertEquals("45,00°", FormatUtils.formatAngle(A_45));
+        assertEquals("45,67°", FormatUtils.formatAngle(A_45P674));
+        assertEquals("45,68°", FormatUtils.formatAngle(A_45P678));
+    }
+
+    /**
+     * Tests if returned formatted angle is positive and normalized,
+     * even if the angle argument is negative.
+     */
+    public final void testFormatAngleNeg() {
+        assertEquals("315.00°", FormatUtils.formatAngle(-1 * A_45));
+        assertEquals("314.33°", FormatUtils.formatAngle(-1 * A_45P674));
+        assertEquals("314.32°", FormatUtils.formatAngle(-1 * A_45P678));
     }
 
     /**
