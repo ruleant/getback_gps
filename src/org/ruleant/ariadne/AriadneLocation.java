@@ -103,6 +103,7 @@ public class AriadneLocation extends Location {
         // Location provider
         if (!getProvider().isEmpty()) {
             // TODO: move provider name localisation to a separate method
+            // TODO use local var for resources
             String providerString = getProvider();
             if (providerString.equals("network")) {
                 providerString = context.getResources().getString(R.string.loc_provider_network);
