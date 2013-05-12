@@ -116,15 +116,19 @@ public class SettingsActivity extends PreferenceActivity {
      */
     private void populateLocUpdateDist()
     {
-        // TODO: move to separate class to remove duplicate method in GeneralPreferenceFragment
-        ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
+        // TODO: move to separate class to remove duplicate method
+        // in GeneralPreferenceFragment
+        ListPreference locUpdateDistPref
+            = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
         Resources resources = getResources();
-        CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
+        CharSequence[] values
+            = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString());
             if (value > 0) {
-                captions[i] = resources.getQuantityString(R.plurals.distance_meter, value, value);
+                captions[i] = resources.getQuantityString(
+		    R.plurals.distance_meter, value, value);
             } else {
                 captions[i] = resources.getString(R.string.disabled);
             }
@@ -137,19 +141,24 @@ public class SettingsActivity extends PreferenceActivity {
      */
     private void populateLocUpdateTime()
     {
-        // TODO: move to separate class to remove duplicate method in GeneralPreferenceFragment
+        // TODO: move to separate class to remove duplicate method
+        // in GeneralPreferenceFragment
         // TODO: merge common parts with populateLocUpdateDist
-        ListPreference locUpdateTimePref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
+        ListPreference locUpdateTimePref
+            = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
         Resources resources = getResources();
-        CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_time_list_values);
+        CharSequence[] values
+            = resources.getStringArray(R.array.pref_loc_update_time_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
             if (value >= SIXTY_SECONDS) {
                 value = value / SIXTY_SECONDS;
-                captions[i] = resources.getQuantityString(R.plurals.time_minutes, value, value);
+                captions[i] = resources.getQuantityString(
+                    R.plurals.time_minutes, value, value);
             } else {
-                captions[i] = resources.getQuantityString(R.plurals.time_seconds, value, value);
+                captions[i] = resources.getQuantityString(
+                    R.plurals.time_seconds, value, value);
             }
         }
         locUpdateTimePref.setEntries(captions);
@@ -292,14 +301,17 @@ public class SettingsActivity extends PreferenceActivity {
         private void populateLocUpdateDist()
         {
             // duplicate of method in GeneralPreferenceFragment
-            ListPreference locUpdateDistPref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
+            ListPreference locUpdateDistPref
+                 = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
             Resources resources = getResources();
-            CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
+            CharSequence[] values
+                 = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
                 int value = Integer.parseInt(values[i].toString());
                 if (value > 0) {
-                    captions[i] = resources.getQuantityString(R.plurals.distance_meter, value, value);
+                    captions[i] = resources.getQuantityString(
+                        R.plurals.distance_meter, value, value);
                 } else {
                     captions[i] = resources.getString(R.string.disabled);
                 }
@@ -313,17 +325,21 @@ public class SettingsActivity extends PreferenceActivity {
         private void populateLocUpdateTime()
         {
             // duplicate of method in GeneralPreferenceFragment
-            ListPreference locUpdateTimePref = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
+            ListPreference locUpdateTimePref
+                 = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
             Resources resources = getResources();
-            CharSequence[] values = resources.getStringArray(R.array.pref_loc_update_time_list_values);
+            CharSequence[] values
+                 = resources.getStringArray(R.array.pref_loc_update_time_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
                 int value = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
                 if (value >= SIXTY_SECONDS) {
                     value = value / SIXTY_SECONDS;
-                    captions[i] = resources.getQuantityString(R.plurals.time_minutes, value, value);
+                    captions[i] = resources.getQuantityString(
+                        R.plurals.time_minutes, value, value);
                 } else {
-                    captions[i] = resources.getQuantityString(R.plurals.time_seconds, value, value);
+                    captions[i] = resources.getQuantityString(
+                        R.plurals.time_seconds, value, value);
                 }
             }
             locUpdateTimePref.setEntries(captions);
