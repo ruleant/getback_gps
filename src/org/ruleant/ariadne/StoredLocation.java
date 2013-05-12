@@ -221,7 +221,7 @@ public class StoredLocation {
         // return null when not set or exception is thrown
         try {
             mHasLocation = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
-            if(!mHasLocation) {
+            if (!mHasLocation) {
                 return null;
             }
         } catch (Exception e) {

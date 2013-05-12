@@ -46,7 +46,7 @@ public class StoredDestination extends StoredLocation {
      * @param sharedPrefName Name of Shared Preferences file name
      */
     public StoredDestination(
-	final Context context, final String sharedPrefName) {
+        final Context context, final String sharedPrefName) {
         super(context, sharedPrefName);
     }
 
