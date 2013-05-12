@@ -75,10 +75,10 @@ public class AriadneLocation extends Location {
         // Format location
         locationText += " "
             + context.getResources().getString(R.string.latitude) + ": "
-            + getLatitude() + "°\n";
+            + FormatUtils.formatAngle(getLatitude()) + "\n";
         locationText += " "
             + context.getResources().getString(R.string.longitude) + ": "
-            + getLongitude() + "°\n";
+            + FormatUtils.formatAngle(getLongitude()) + "\n";
         if (hasAltitude()) {
             locationText += " "
                 + context.getResources().getString(R.string.altitude) + ": "
@@ -87,7 +87,7 @@ public class AriadneLocation extends Location {
         if (hasBearing()) {
             locationText += " "
                 + context.getResources().getString(R.string.bearing) + ": "
-                + getBearing() + "°\n";
+                + FormatUtils.formatAngle(getBearing()) + "\n";
         }
         if (hasSpeed()) {
             locationText += " "
