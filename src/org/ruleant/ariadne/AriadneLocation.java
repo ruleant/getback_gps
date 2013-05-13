@@ -23,6 +23,7 @@ package org.ruleant.ariadne;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
 import android.content.Context;
 import android.location.Location;
 
@@ -75,10 +76,12 @@ public class AriadneLocation extends Location {
         // Format location
         locationText += " "
             + context.getResources().getString(R.string.latitude) + ": "
-            + FormatUtils.formatAngle(getLatitude()) + "\n";
+            + convert(getLatitude(), FORMAT_SECONDS).replaceFirst(":","° ")
+                .replace(":","' ") + "\"\n";
         locationText += " "
             + context.getResources().getString(R.string.longitude) + ": "
-            + FormatUtils.formatAngle(getLongitude()) + "\n";
+            + convert(getLongitude(), FORMAT_SECONDS).replaceFirst(":","° ")
+                .replace(":","' ") + "\"\n";
         if (hasAltitude()) {
             locationText += " "
                 + context.getResources().getString(R.string.altitude) + ": "
