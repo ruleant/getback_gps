@@ -77,30 +77,30 @@ public class AriadneLocation extends Location {
         locationText += " "
             + context.getResources().getString(R.string.latitude) + ": "
             + convert(getLatitude(), FORMAT_SECONDS).replaceFirst(":","° ")
-                .replace(":","' ") + "\"\n";
-        locationText += " "
+                .replace(":","' ") + "\"";
+        locationText += "\n "
             + context.getResources().getString(R.string.longitude) + ": "
             + convert(getLongitude(), FORMAT_SECONDS).replaceFirst(":","° ")
-                .replace(":","' ") + "\"\n";
+                .replace(":","' ") + "\"";
         if (hasAltitude()) {
-            locationText += " "
+            locationText += "\n "
                 + context.getResources().getString(R.string.altitude) + ": "
-                + FormatUtils.formatDist(getAltitude()) + "\n";
+                + FormatUtils.formatDist(getAltitude());
         }
         if (hasBearing()) {
-            locationText += " "
+            locationText += "\n "
                 + context.getResources().getString(R.string.bearing) + ": "
-                + FormatUtils.formatAngle(getBearing()) + "\n";
+                + FormatUtils.formatAngle(getBearing());
         }
         if (hasSpeed()) {
-            locationText += " "
+            locationText += "\n "
                 + context.getResources().getString(R.string.speed) + ": "
-                + FormatUtils.formatSpeed(getSpeed()) + "\n";
+                + FormatUtils.formatSpeed(getSpeed());
         }
         if (hasAccuracy()) {
-            locationText += " "
+            locationText += "\n "
                 + context.getResources().getString(R.string.accuracy) + ": "
-                + FormatUtils.formatDist(getAccuracy()) + "\n";
+                + FormatUtils.formatDist(getAccuracy());
         }
 
         // Location provider
@@ -114,9 +114,9 @@ public class AriadneLocation extends Location {
                 providerString = context.getResources().getString(R.string.loc_provider_gps);
             }
 
-            locationText += " "
+            locationText += "\n "
                 + context.getResources().getString(R.string.provider) + ": "
-                + providerString + "\n";
+                + providerString;
         }
 
         // Format Timestamp
@@ -124,7 +124,7 @@ public class AriadneLocation extends Location {
             Date date = new Date(getTime());
             SimpleDateFormat formatter
                 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
-            locationText += " "
+            locationText += "\n "
                 + context.getResources().getString(R.string.timestamp) + ": "
                 + formatter.format(date);
         }
