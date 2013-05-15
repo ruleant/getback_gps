@@ -41,4 +41,13 @@
         android:padding="2dp"
         android:text="@string/to_dest" />
 
+    <ImageView
+        android:id="@+id/image_DestinationPointer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/textView_ToDestination"
+        android:layout_toRightOf="@+id/textView_ToDestination"
+        android:rotation="270"
+        android:src="@android:drawable/ic_menu_send" />
+
 </RelativeLayout>

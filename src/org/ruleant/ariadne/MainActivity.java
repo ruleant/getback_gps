@@ -22,7 +22,7 @@
 package org.ruleant.ariadne;
 
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -99,11 +99,14 @@ public class MainActivity extends AbstractAriadneActivity {
         // Refresh Directions to destination
         TextView tvToDestination
             = (TextView) findViewById(R.id.textView_ToDestination);
+        ImageView ivDestPointer
+        = (ImageView) findViewById(R.id.image_DestinationPointer);
         String toDestinationText
             = getResources().getString(R.string.to_dest) + ":\n";
         if (destination == null || currentLocation == null) {
             toDestinationText += " "
                 + getResources().getString(R.string.unknown);
+            ivDestPointer.setVisibility(ImageView.INVISIBLE);
         } else {
             // Print distance and bearing
             toDestinationText += " "
@@ -112,6 +115,10 @@ public class MainActivity extends AbstractAriadneActivity {
             toDestinationText += " "
                 + getResources().getString(R.string.direction) + ": "
                 + FormatUtils.formatAngle(service.getDirection());
+            ivDestPointer.setVisibility(ImageView.VISIBLE);
+            // rotate 90° counter clockwise, current image is pointing right.
+            ivDestPointer.setRotation(
+                (float) FormatUtils.normalizeAngle(service.getDirection() - 90));
         }
         tvToDestination.setText(toDestinationText);
     }
