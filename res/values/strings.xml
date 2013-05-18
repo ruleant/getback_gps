@@ -22,6 +22,7 @@
     <string name="timestamp">Timestamp</string>
     <string name="destination">Destination</string>
     <string name="to_dest">To Destination</string>
+    <string name="descr_dest_pointer">Pointer indicating destination</string>
     <string name="distance">Distance</string>
     <plurals name="distance_meter">
         <item quantity="one">%d meter</item>

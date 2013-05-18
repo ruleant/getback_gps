@@ -48,6 +48,7 @@
         android:layout_alignBottom="@+id/textView_ToDestination"
         android:layout_toRightOf="@+id/textView_ToDestination"
         android:rotation="270"
+        android:contentDescription="@string/descr_dest_pointer"
         android:src="@android:drawable/ic_menu_send" />
 
 </RelativeLayout>
