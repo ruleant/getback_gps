@@ -25,6 +25,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.location.Location;
 
 /**
@@ -71,51 +72,52 @@ public class AriadneLocation extends Location {
      * @return String formatted string
      */
     public String toString(final Context context) {
+        Resources res = context.getResources();
+
         String locationText = "";
 
         // Format location
         locationText += " "
-            + context.getResources().getString(R.string.latitude) + ": "
+            + res.getString(R.string.latitude) + ": "
             + convert(getLatitude(), FORMAT_SECONDS).replaceFirst(":","° ")
                 .replace(":","' ") + "\"";
         locationText += "\n "
-            + context.getResources().getString(R.string.longitude) + ": "
+            + res.getString(R.string.longitude) + ": "
             + convert(getLongitude(), FORMAT_SECONDS).replaceFirst(":","° ")
                 .replace(":","' ") + "\"";
         if (hasAltitude()) {
             locationText += "\n "
-                + context.getResources().getString(R.string.altitude) + ": "
+                + res.getString(R.string.altitude) + ": "
                 + FormatUtils.formatDist(getAltitude());
         }
         if (hasBearing()) {
             locationText += "\n "
-                + context.getResources().getString(R.string.bearing) + ": "
+                + res.getString(R.string.bearing) + ": "
                 + FormatUtils.formatAngle(getBearing());
         }
         if (hasSpeed()) {
             locationText += "\n "
-                + context.getResources().getString(R.string.speed) + ": "
+                + res.getString(R.string.speed) + ": "
                 + FormatUtils.formatSpeed(getSpeed());
         }
         if (hasAccuracy()) {
             locationText += "\n "
-                + context.getResources().getString(R.string.accuracy) + ": "
+                + res.getString(R.string.accuracy) + ": "
                 + FormatUtils.formatDist(getAccuracy());
         }
 
         // Location provider
         if (!getProvider().isEmpty()) {
             // TODO: move provider name localisation to a separate method
-            // TODO use local var for resources
             String providerString = getProvider();
             if (providerString.equals("network")) {
-                providerString = context.getResources().getString(R.string.loc_provider_network);
+                providerString = res.getString(R.string.loc_provider_network);
             } else if (providerString.equals("gps")) {
-                providerString = context.getResources().getString(R.string.loc_provider_gps);
+                providerString = res.getString(R.string.loc_provider_gps);
             }
 
             locationText += "\n "
-                + context.getResources().getString(R.string.provider) + ": "
+                + res.getString(R.string.provider) + ": "
                 + providerString;
         }
 
@@ -125,7 +127,7 @@ public class AriadneLocation extends Location {
             SimpleDateFormat formatter
                 = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
             locationText += "\n "
-                + context.getResources().getString(R.string.timestamp) + ": "
+                + res.getString(R.string.timestamp) + ": "
                 + formatter.format(date);
         }
 
@@ -133,7 +135,7 @@ public class AriadneLocation extends Location {
         DebugLevel debug = new DebugLevel(context);
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             locationText += "\n\n "
-                + context.getResources().getString(R.string.raw) + ": "
+                + res.getString(R.string.raw) + ": "
                 + super.toString();
         }
 
