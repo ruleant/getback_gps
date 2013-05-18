@@ -31,6 +31,10 @@ import android.widget.TextView;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class MainActivity extends AbstractAriadneActivity {
+    /**
+     * Rotation of the direction pointer image.
+     */
+    private final static int POINTER_ROT = 90;
 
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
@@ -118,7 +122,7 @@ public class MainActivity extends AbstractAriadneActivity {
             ivDestPointer.setVisibility(ImageView.VISIBLE);
             // rotate 90° counter clockwise, current image is pointing right.
             ivDestPointer.setRotation(
-                (float) FormatUtils.normalizeAngle(service.getDirection() - 90));
+                (float) FormatUtils.normalizeAngle(service.getDirection() - POINTER_ROT));
         }
         tvToDestination.setText(toDestinationText);
     }
