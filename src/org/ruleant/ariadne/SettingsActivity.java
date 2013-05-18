@@ -128,7 +128,7 @@ public class SettingsActivity extends PreferenceActivity {
             int value = Integer.parseInt(values[i].toString());
             if (value > 0) {
                 captions[i] = resources.getQuantityString(
-		    R.plurals.distance_meter, value, value);
+                        R.plurals.distance_meter, value, value);
             } else {
                 captions[i] = resources.getString(R.string.disabled);
             }
