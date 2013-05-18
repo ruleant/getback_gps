@@ -10,7 +10,7 @@
 		android:id="@+id/menu_storelocation"
 		android:onClick="storeLocation"
 		android:orderInCategory="110"
-		android:showAsAction="always"
+		android:showAsAction="ifRoom"
 		android:title="@string/store_location"/>
 	<item
 		android:id="@+id/menu_refresh"
