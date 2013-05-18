@@ -23,14 +23,14 @@
         android:padding="2dp"
         android:text="@string/location_provider" />
 
-	<TextView
-	    android:id="@+id/textView_StoredLocation"
-	    android:layout_width="wrap_content"
-	    android:layout_height="wrap_content"
-	    android:layout_alignParentLeft="true"
-	    android:layout_below="@+id/textView_Location"
-	    android:padding="2dp"
-	    android:text="@string/destination" />
+    <TextView
+        android:id="@+id/textView_StoredLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/textView_Location"
+        android:padding="2dp"
+        android:text="@string/destination" />
 
     <TextView
         android:id="@+id/textView_ToDestination"
