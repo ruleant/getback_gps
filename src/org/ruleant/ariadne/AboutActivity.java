@@ -1,5 +1,6 @@
 package org.ruleant.ariadne;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -25,12 +26,12 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
 
-        String dateFormat = "yyyy-MM-dd";
+        DateFormat formatter = SimpleDateFormat.getDateInstance();
 
         // Display time when in debug mode
         DebugLevel debug = new DebugLevel(this);
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
-            dateFormat = "yyyy-MM-dd'T'HH:mm:ssz";
+            formatter = SimpleDateFormat.getDateTimeInstance();
         }
         String versionInfo = getResources().getString(R.string.app_name);
         PackageInfo packageInfo;
@@ -40,7 +41,6 @@ public class AboutActivity extends Activity {
                 = getPackageManager().getPackageInfo(getPackageName(), 0);
             versionInfo += " v" + packageInfo.versionName;
             Date date = new Date(packageInfo.lastUpdateTime);
-            SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
             versionInfo += " (" + formatter.format(date) + ")";
         } catch (NameNotFoundException e) {
             e.printStackTrace();

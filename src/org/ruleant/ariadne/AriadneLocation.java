@@ -21,6 +21,7 @@
  */
 package org.ruleant.ariadne;
 
+import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -124,8 +125,8 @@ public class AriadneLocation extends Location {
         // Format Timestamp
         if (getTime() > 0) {
             Date date = new Date(getTime());
-            SimpleDateFormat formatter
-                = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss:SSSz");
+            DateFormat formatter
+                = SimpleDateFormat.getDateTimeInstance();
             locationText += "\n "
                 + res.getString(R.string.timestamp) + ": "
                 + formatter.format(date);
