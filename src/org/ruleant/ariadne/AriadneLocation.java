@@ -80,12 +80,12 @@ public class AriadneLocation extends Location {
         // Format location
         locationText += " "
             + res.getString(R.string.latitude) + ": "
-            + convert(getLatitude(), FORMAT_SECONDS).replaceFirst(":","° ")
-                .replace(":","' ") + "\"";
+            + convert(getLatitude(), FORMAT_SECONDS).replaceFirst(":", "° ")
+                .replace(":", "' ") + "\"";
         locationText += "\n "
             + res.getString(R.string.longitude) + ": "
-            + convert(getLongitude(), FORMAT_SECONDS).replaceFirst(":","° ")
-                .replace(":","' ") + "\"";
+            + convert(getLongitude(), FORMAT_SECONDS).replaceFirst(":", "° ")
+                .replace(":", "' ") + "\"";
         if (hasAltitude()) {
             locationText += "\n "
                 + res.getString(R.string.altitude) + ": "
