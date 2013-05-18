@@ -6,20 +6,20 @@
         android:showAsAction="never"
         android:onClick="displaySettings"
         android:title="@string/settings"/>
-	<item
-		android:id="@+id/menu_storelocation"
-		android:onClick="storeLocation"
-		android:orderInCategory="110"
-		android:showAsAction="ifRoom"
-		android:title="@string/store_location"/>
-	<item
-		android:id="@+id/menu_refresh"
-		android:onClick="refresh"
-		android:orderInCategory="130"
-		android:showAsAction="always"
-		android:icon="@drawable/ic_menu_refresh"
-		android:title="@string/refresh" />
-	<item
+    <item
+        android:id="@+id/menu_storelocation"
+        android:onClick="storeLocation"
+        android:orderInCategory="110"
+        android:showAsAction="ifRoom"
+        android:title="@string/store_location"/>
+    <item
+        android:id="@+id/menu_refresh"
+        android:onClick="refresh"
+        android:orderInCategory="130"
+        android:showAsAction="always"
+        android:icon="@drawable/ic_menu_refresh"
+        android:title="@string/refresh" />
+    <item
         android:id="@+id/menu_about"
         android:orderInCategory="105"
         android:showAsAction="never"
