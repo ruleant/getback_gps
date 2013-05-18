@@ -114,8 +114,7 @@ public class SettingsActivity extends PreferenceActivity {
     /**
      *  Populate visible options in Distance based Location Update Setting.
      */
-    private void populateLocUpdateDist()
-    {
+    private void populateLocUpdateDist() {
         // TODO: move to separate class to remove duplicate method
         // in GeneralPreferenceFragment
         ListPreference locUpdateDistPref
@@ -139,8 +138,7 @@ public class SettingsActivity extends PreferenceActivity {
     /**
      *  Populate visible options in Time based Location Update Setting.
      */
-    private void populateLocUpdateTime()
-    {
+    private void populateLocUpdateTime() {
         // TODO: move to separate class to remove duplicate method
         // in GeneralPreferenceFragment
         // TODO: merge common parts with populateLocUpdateDist
@@ -298,8 +296,7 @@ public class SettingsActivity extends PreferenceActivity {
          *  Populate visible options in Distance based Location Update Setting.
          *  Duplicate of same method in parent class.
          */
-        private void populateLocUpdateDist()
-        {
+        private void populateLocUpdateDist() {
             // duplicate of method in GeneralPreferenceFragment
             ListPreference locUpdateDistPref
                  = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
@@ -322,8 +319,7 @@ public class SettingsActivity extends PreferenceActivity {
         /**
          *  Populate visible options in Time based Location Update Setting.
          */
-        private void populateLocUpdateTime()
-        {
+        private void populateLocUpdateTime() {
             // duplicate of method in GeneralPreferenceFragment
             ListPreference locUpdateTimePref
                  = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
