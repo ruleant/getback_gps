@@ -44,6 +44,7 @@
     <!-- Strings related to Settings -->
     <string name="settings">Settings</string>
     <!-- General settings -->
+    <string name="pref_header_general">General</string>
     <string name="pref_header_loc_update">Location Updates</string>
     <string name="pref_loc_update_dist">Distance based updates</string>
     <string name="pref_loc_update_time">Time based updates</string>
