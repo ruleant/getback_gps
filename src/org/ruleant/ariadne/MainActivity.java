@@ -34,7 +34,7 @@ public class MainActivity extends AbstractAriadneActivity {
     /**
      * Rotation of the direction pointer image.
      */
-    private final static int POINTER_ROT = 90;
+    private static final int POINTER_ROT = 90;
 
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
