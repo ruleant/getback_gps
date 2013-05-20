@@ -121,7 +121,8 @@ public class SettingsActivity extends PreferenceActivity {
             = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
         Resources resources = getResources();
         CharSequence[] values
-            = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
+            = resources.getStringArray(
+                R.array.pref_loc_update_dist_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString());
@@ -146,7 +147,8 @@ public class SettingsActivity extends PreferenceActivity {
             = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
         Resources resources = getResources();
         CharSequence[] values
-            = resources.getStringArray(R.array.pref_loc_update_time_list_values);
+            = resources.getStringArray(
+                R.array.pref_loc_update_time_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
@@ -302,7 +304,8 @@ public class SettingsActivity extends PreferenceActivity {
                  = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
             Resources resources = getResources();
             CharSequence[] values
-                 = resources.getStringArray(R.array.pref_loc_update_dist_list_values);
+                 = resources.getStringArray(
+                     R.array.pref_loc_update_dist_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
                 int value = Integer.parseInt(values[i].toString());
@@ -325,10 +328,12 @@ public class SettingsActivity extends PreferenceActivity {
                  = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
             Resources resources = getResources();
             CharSequence[] values
-                 = resources.getStringArray(R.array.pref_loc_update_time_list_values);
+                 = resources.getStringArray(
+                     R.array.pref_loc_update_time_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                int value = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
+                int value
+                    = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
                 if (value >= SIXTY_SECONDS) {
                     value = value / SIXTY_SECONDS;
                     captions[i] = resources.getQuantityString(

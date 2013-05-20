@@ -191,7 +191,8 @@ public class StoredLocation {
             editor.putString(
                     HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
             if (mLocation.hasAccuracy()) {
-                editor.putString(ACCURACY, Float.toString(mLocation.getAccuracy()));
+                editor.putString(
+                    ACCURACY, Float.toString(mLocation.getAccuracy()));
             }
 
             editor.putLong(TIMESTAMP, mLocation.getTime());
@@ -220,7 +221,8 @@ public class StoredLocation {
         // and there is no location data.
         // return null when not set or exception is thrown
         try {
-            mHasLocation = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
+            mHasLocation
+                = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
             if (!mHasLocation) {
                 return null;
             }

@@ -122,7 +122,8 @@ public class MainActivity extends AbstractAriadneActivity {
             ivDestPointer.setVisibility(ImageView.VISIBLE);
             // rotate 90° counter clockwise, current image is pointing right.
             ivDestPointer.setRotation(
-                (float) FormatUtils.normalizeAngle(service.getDirection() - POINTER_ROT));
+                (float) FormatUtils.normalizeAngle(
+                    service.getDirection() - POINTER_ROT));
         }
         tvToDestination.setText(toDestinationText);
     }
