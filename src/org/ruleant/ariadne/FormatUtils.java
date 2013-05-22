@@ -138,7 +138,7 @@ public class FormatUtils {
      * @param angle Angle in °
      * @return formatted angle with unit (°)
      */
-    public static final String formatAngle(double angle) {
+    public static final String formatAngle(final double angle) {
         String unit = "°";
 
         // formatting
