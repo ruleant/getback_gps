@@ -15,9 +15,9 @@ Requests for translations to a new language can be made here as well.
 Translation
 -----------
 
-[![Translation status](http://hosted.weblate.org/widgets/ariadne-287x66-grey.png)](http://hosted.weblate.org/engage/ariadne/?utm_source=widget)
-
 You can help translating the app to your own language : <http://hosted.weblate.org/projects/ariadne/strings>.
+
+[![Translation status](http://hosted.weblate.org/widgets/ariadne-287x66-grey.png)](http://hosted.weblate.org/engage/ariadne/?utm_source=widget)
 
 Is your language not listed? Follow the instructions on the 'New language' tab on weblate or open an issue in the github tracker (see above).
 
