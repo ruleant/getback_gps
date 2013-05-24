@@ -39,4 +39,5 @@ Dit programma wordt gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDE
 Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen samen met dit programma. Als dat niet het geval is, zie <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
     <string name="loc_provider_network">netwerk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
-</resources>
+<string name="descr_dest_pointer">Richtingaanwijzer</string>
+    </resources>
