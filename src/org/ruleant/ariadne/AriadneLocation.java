@@ -89,6 +89,7 @@ public class AriadneLocation extends Location {
      */
     public String toString(final Context context) {
         Resources res = context.getResources();
+        DebugLevel debug = new DebugLevel(context);
 
         String locationText = "";
 
@@ -138,10 +139,18 @@ public class AriadneLocation extends Location {
             locationText += "\n "
                 + res.getString(R.string.timestamp) + ": "
                 + formatter.format(date);
+
+            // display "recent" message
+            if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)) {
+                if (isRecent()) {
+                    locationText += "\n " + "Recent";
+                } else {
+                    locationText += "\n " + "Not recent";
+                }
+            }
         }
 
         // Display raw when in debug mode
-        DebugLevel debug = new DebugLevel(context);
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             locationText += "\n\n "
                 + res.getString(R.string.raw) + ": "
