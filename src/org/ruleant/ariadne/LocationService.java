@@ -268,21 +268,6 @@ public class LocationService extends Service {
     }
 
     /**
-     * Checks if current/last known location is recent.
-     *
-     * @return true if location is recent.
-     */
-    public boolean isLocationUptodate() {
-        // TODO use elapsedRealtimeNanos when using API 17 or higher
-        // if ((SystemClock.elapsedRealtimeNanos() - mCurrentLocation.getElapsedRealtimeNanos()) < 300000000) {
-        if ((System.currentTimeMillis() - mCurrentLocation.getTime()) < 300000) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    /**
      * Update Location.
      *
      * Force location update, using getLastKnownLocation()

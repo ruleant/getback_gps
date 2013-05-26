@@ -67,6 +67,21 @@ public class AriadneLocation extends Location {
     }
 
     /**
+     * Checks if location timestamp is recent.
+     *
+     * @return true if location is recent.
+     */
+    public boolean isRecent() {
+        // TODO use elapsedRealtimeNanos when using API 17 or higher
+        // if ((SystemClock.elapsedRealtimeNanos() - getElapsedRealtimeNanos()) < 300000000) {
+        if ((System.currentTimeMillis() - getTime()) < 300000) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
      * Overrides the toString() method, implementing a formatted String.
      *
      * @param context Context of the App
