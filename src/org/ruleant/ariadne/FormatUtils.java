@@ -27,6 +27,10 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.content.res.Resources.NotFoundException;
+
 /**
  * Methods to convert values to formatted string.
  *
@@ -163,5 +167,30 @@ public class FormatUtils {
         }
 
         return angle;
+    }
+
+    /**
+     * Localize location provider name.
+     *
+     * @param context Context of the app
+     * @return Localized location provider name
+     */
+    public static final String localizeProviderName(
+            final Context context, final String providerName) {
+        String l10nProviderName = providerName;
+
+        try {
+            Resources res = context.getResources();
+
+            if (providerName.equals("network")) {
+                l10nProviderName = res.getString(R.string.loc_provider_network);
+            } else if (providerName.equals("gps")) {
+                l10nProviderName = res.getString(R.string.loc_provider_gps);
+            }
+        } catch (NotFoundException e) {
+            e.printStackTrace();
+        }
+
+        return l10nProviderName;
     }
 }
