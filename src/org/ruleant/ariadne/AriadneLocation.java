@@ -108,18 +108,11 @@ public class AriadneLocation extends Location {
         }
 
         // Location provider
-        if (!getProvider().isEmpty()) {
-            // TODO: move provider name localisation to a separate method
-            String providerString = getProvider();
-            if (providerString.equals("network")) {
-                providerString = res.getString(R.string.loc_provider_network);
-            } else if (providerString.equals("gps")) {
-                providerString = res.getString(R.string.loc_provider_gps);
-            }
-
+        String providerName = getProvider();
+        if (!providerName.isEmpty()) {
             locationText += "\n "
                 + res.getString(R.string.provider) + ": "
-                + providerString;
+                + FormatUtils.localizeProviderName(context, providerName);
         }
 
         // Format Timestamp

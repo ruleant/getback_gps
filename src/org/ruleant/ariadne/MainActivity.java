@@ -59,7 +59,7 @@ public class MainActivity extends AbstractAriadneActivity {
         if (providerName.isEmpty()) {
             providerText += getResources().getString(R.string.none);
         } else {
-            providerText += providerName;
+            providerText += FormatUtils.localizeProviderName(this, providerName);
         }
         tvProvider.setText(providerText);
 
