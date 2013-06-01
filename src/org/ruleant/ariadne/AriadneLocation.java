@@ -143,9 +143,11 @@ public class AriadneLocation extends Location {
             // display "recent" message
             if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)) {
                 if (isRecent()) {
-                    locationText += "\n " + "Recent";
+                    locationText += "\n "
+                        + res.getString(R.string.loc_updated_recent);
                 } else {
-                    locationText += "\n " + "Not recent";
+                    locationText += "\n "
+                        + res.getString(R.string.loc_updated_not_recent);
                 }
             }
         }
