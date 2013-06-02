@@ -7,7 +7,7 @@
     <string name="location_provider">Locatieaanbieder</string>
     <string name="provider">Aanbieder</string>
     <string name="location">Locatie</string>
-    <string name="curr_location">Huidige locatie</string>
+    <string name="curr_location">Huidige (laatst gekende) locatie</string>
     <string name="stored_location">Opgeslagen locatie</string>
     <string name="store_location">Sla locatie op</string>
     <string name="latitude">Breedtegraad</string>
@@ -40,4 +40,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="loc_provider_network">netwerk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
 <string name="descr_dest_pointer">Richtingaanwijzer</string>
+    <string name="loc_updated_recent">Locatie werd recent ververst</string>
+    <string name="loc_updated_not_recent">Locatie werd niet recent ververst</string>
     </resources>
