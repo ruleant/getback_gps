@@ -54,10 +54,11 @@
         android:id="@+id/image_DestinationPointer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_ToDestination"
-        android:layout_below="@+id/textView_InaccurateDirection"
-        android:rotation="270"
+        android:layout_alignTop="@+id/textView_ToDestination"
+        android:layout_marginRight="2dp"
+        android:layout_toLeftOf="@+id/textView_ToDestination"
         android:contentDescription="@string/descr_dest_pointer"
+        android:rotation="270"
         android:src="@android:drawable/ic_menu_send" />
 
 </RelativeLayout>
