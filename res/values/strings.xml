@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_desc">Find your way back to a previously visited location, using GPS coordinates.</string>
+    <string name="copyright">Copyright</string>
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>

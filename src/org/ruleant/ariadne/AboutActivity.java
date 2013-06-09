@@ -61,7 +61,8 @@ public class AboutActivity extends Activity {
         // enable HTML links
         tvCopyright.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
-        String copyrightText = getResources().getString(R.string.copyright);
+        String copyrightText = getResources().getString(R.string.copyright)
+            + " " + getResources().getText(R.string.copyright_ruleant);
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()
