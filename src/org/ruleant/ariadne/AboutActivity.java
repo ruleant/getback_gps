@@ -9,6 +9,7 @@ import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -59,6 +60,13 @@ public class AboutActivity extends Activity {
         TextView tvCopyright = (TextView) findViewById(R.id.textview_copyright);
         // enable HTML links
         tvCopyright.setMovementMethod(LinkMovementMethod.getInstance());
+        // set text
+        String copyrightText = getResources().getString(R.string.copyright);
+        // Html.fromHtml will turn escaped HTML characters back
+        // into regular characters.
+        // The escaping is needed because Resource.getString()
+        // removes style information
+        tvCopyright.setText(Html.fromHtml(copyrightText));
 
         // License text view
         TextView tvLicense = (TextView) findViewById(R.id.textview_license);
