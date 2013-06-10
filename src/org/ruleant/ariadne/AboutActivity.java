@@ -56,7 +56,9 @@ public class AboutActivity extends Activity {
         // enable HTML links
         tvWebsite.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
-        String websiteText = getResources().getString(R.string.app_website);
+        String websiteText
+            = String.format(getResources().getString(R.string.app_website),
+                    getResources().getString(R.string.url_website));
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()
