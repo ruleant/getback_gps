@@ -7,6 +7,7 @@ import java.util.Date;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
@@ -26,6 +27,7 @@ public class AboutActivity extends Activity {
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        Resources res = getResources();
 
         DateFormat formatter = SimpleDateFormat.getDateInstance();
 
@@ -34,7 +36,7 @@ public class AboutActivity extends Activity {
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
             formatter = SimpleDateFormat.getDateTimeInstance();
         }
-        String versionInfo = getResources().getString(R.string.app_name);
+        String versionInfo = res.getString(R.string.app_name);
         PackageInfo packageInfo;
 
         try {
@@ -57,8 +59,8 @@ public class AboutActivity extends Activity {
         tvWebsite.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
         String websiteText
-            = String.format(getResources().getString(R.string.app_website),
-                    getResources().getString(R.string.url_website));
+            = String.format(res.getString(R.string.app_website),
+                    res.getString(R.string.url_website));
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()
@@ -70,8 +72,8 @@ public class AboutActivity extends Activity {
         // enable HTML links
         tvCopyright.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
-        String copyrightText = getResources().getString(R.string.copyright)
-            + " " + getResources().getText(R.string.copyright_ruleant);
+        String copyrightText = res.getString(R.string.copyright)
+            + " " + res.getText(R.string.copyright_ruleant);
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()
