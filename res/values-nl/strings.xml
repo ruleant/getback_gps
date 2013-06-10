@@ -42,4 +42,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
 <string name="descr_dest_pointer">Richtingaanwijzer</string>
     <string name="loc_updated_recent">Locatie werd recent ververst</string>
     <string name="loc_updated_not_recent">Locatie werd niet recent ververst</string>
+    <string name="copyright">Auteursrecht</string>
+    <string name="inaccurate_direction">De richting naar je bestemming is enkel accuraat als je beweegt.</string>
     </resources>
