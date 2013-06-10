@@ -55,6 +55,13 @@ public class AboutActivity extends Activity {
         TextView tvWebsite = (TextView) findViewById(R.id.textview_website);
         // enable HTML links
         tvWebsite.setMovementMethod(LinkMovementMethod.getInstance());
+        // set text
+        String websiteText = getResources().getString(R.string.app_website);
+        // Html.fromHtml will turn escaped HTML characters back
+        // into regular characters.
+        // The escaping is needed because Resource.getString()
+        // removes style information
+        tvWebsite.setText(Html.fromHtml(websiteText));
 
         // Copyright text view
         TextView tvCopyright = (TextView) findViewById(R.id.textview_copyright);
