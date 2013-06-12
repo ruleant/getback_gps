@@ -44,7 +44,7 @@
     <string name="provider_no_support">Provider is not supported</string>
     <string name="version">Version</string>
     <string name="loc_updated_recent">Location recently updated</string>
-    <string name="loc_updated_not_recent">Location not recently updated</string>
+    <string name="loc_updated_not_recent">Location NOT recently updated</string>
     <string name="inaccurate_direction">The direction to your destination is only accurate if you are moving.</string>
     <!-- Strings related to Settings -->
     <string name="settings">Settings</string>
