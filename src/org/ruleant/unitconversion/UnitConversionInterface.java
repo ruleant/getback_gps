@@ -22,7 +22,7 @@
 package org.ruleant.unitconversion;
 
 /**
- * Unit Conversion class interface
+ * Unit Conversion class interface.
  * 
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
