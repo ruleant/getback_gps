@@ -172,7 +172,8 @@ public class FormatUtils {
     /**
      * Localize location provider name.
      *
-     * @param context Context of the app
+     * @param context      Context of the app
+     * @param providerName Name of the location provider
      * @return Localized location provider name
      */
     public static final String localizeProviderName(
