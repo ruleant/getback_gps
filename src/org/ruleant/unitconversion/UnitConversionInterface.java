@@ -31,7 +31,7 @@ public interface UnitConversionInterface {
      * It will use the default unit of the conversion class,
      * so no conversion is needed.
      */
-    public static final int UNIT_DEFAULT = 0;
+    static final int UNIT_DEFAULT = 0;
 
     /**
      * Sets value, which will be converted to class unit, if necessary.
@@ -39,28 +39,28 @@ public interface UnitConversionInterface {
      * @param value New value
      * @param unit Unit of the new value
      */
-    public void setValue(double value, int unit);
+    void setValue(double value, int unit);
 
     /**
      * Sets the unit that will be used when formatting a value.
      *
      * @param unit Unit of the formatted value.
      */
-    public void setOutputUnit(int unit);
+    void setOutputUnit(int unit);
 
     /**
      * Returns a localized string of the current output unit.
      *
      * @return localized unit string
      */
-    public String getUnit();
+    String getUnit();
 
     /**
      * Converts the current value to the output unit, if necessary.
      *
      * @return value converted to selected unit
      */
-    public double getConvertedValue();
+    double getConvertedValue();
 
     /**
      * Converts the value to the set output unit, scales and formats it,
@@ -68,5 +68,5 @@ public interface UnitConversionInterface {
      * 
      * @return formatted value
      */
-    public String getFormattedValue();
+    String getFormattedValue();
 }
