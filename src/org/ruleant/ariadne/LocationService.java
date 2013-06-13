@@ -191,7 +191,7 @@ public class LocationService extends Service {
     public String updateLocationProvider() {
         // Retrieve a list of location providers that have fine accuracy,
         // no monetary cost, etc
-        // TODO : define criteria in settings
+        // TODO define criteria in settings
         Criteria criteria = new Criteria();
         criteria.setAccuracy(Criteria.ACCURACY_FINE);
         criteria.setCostAllowed(false);
@@ -324,7 +324,7 @@ public class LocationService extends Service {
      */
     public double getDirection() {
         // don't calculate bearing if current location is not set
-        // TODO : or if bearing is unknown/unreliable (prev. loc = curr. loc.)
+        // TODO or if bearing is unknown/unreliable (prev. loc = curr. loc.)
         if (mCurrentLocation == null) {
             return 0.0;
         }

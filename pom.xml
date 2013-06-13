@@ -21,7 +21,7 @@
 	    <version>v4</version>
 	    <scope>system</scope>
 	    <!-- scope system shouldn't be used -->
-	    <!-- TODO : find proper way of including the android-support lib -->
+	    <!-- TODO find proper way of including the android-support lib -->
 	    <systemPath>${basedir}/libs/android-support-v4.jar</systemPath>
 	</dependency>
 	<dependency>
