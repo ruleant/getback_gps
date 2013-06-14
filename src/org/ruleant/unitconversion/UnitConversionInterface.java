@@ -31,7 +31,7 @@ public interface UnitConversionInterface {
      * It will use the default unit of the conversion class,
      * so no conversion is needed.
      */
-    static final int UNIT_DEFAULT = 0;
+    int UNIT_DEFAULT = 0;
 
     /**
      * Sets value, which will be converted to class unit, if necessary.
