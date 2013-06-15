@@ -23,7 +23,7 @@ package org.ruleant.unitconversion;
 
 /**
  * Unit Conversion class interface.
- * 
+ *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public interface UnitConversionInterface {
@@ -65,7 +65,7 @@ public interface UnitConversionInterface {
     /**
      * Converts the value to the set output unit, scales and formats it,
      * and adds a localized unit.
-     * 
+     *
      * @return formatted value
      */
     String getFormattedValue();
