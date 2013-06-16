@@ -88,7 +88,8 @@ public abstract class AbstractAriadneActivity extends Activity {
         // https://developer.android.com/guide/topics/ui/dialogs.html
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.dialog_store_location)
-               .setPositiveButton(R.string.store_location, new DialogInterface.OnClickListener() {
+               .setPositiveButton(R.string.store_location,
+                       new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // store current location and refresh display
                        if (mBound) {
@@ -97,7 +98,8 @@ public abstract class AbstractAriadneActivity extends Activity {
                        refreshDisplay();
                    }
                })
-               .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+               .setNegativeButton(R.string.no,
+                       new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        // User cancelled the dialog
                    }
