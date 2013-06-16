@@ -79,6 +79,8 @@ public abstract class AbstractAriadneActivity extends Activity {
 
     /**
      * Called when the user clicks the Store Location menu item.
+     * It displays a dialog, where the user confirm or cancel storing
+     * the current location.
      *
      * @param item MenuItem object that was clicked
      */
