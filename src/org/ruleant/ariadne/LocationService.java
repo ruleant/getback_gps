@@ -243,7 +243,11 @@ public class LocationService extends Service {
         if ((mDebug != null)
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
                 ) {
-            Toast.makeText(this, R.string.location_updated, Toast.LENGTH_SHORT).show();
+            Toast.makeText(
+                this,
+                R.string.location_updated,
+                Toast.LENGTH_SHORT
+            ).show();
         }
     }
 
