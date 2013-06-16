@@ -16,7 +16,7 @@
     <string name="curr_location">Current (last known) location</string>
     <string name="stored_location">Stored Location</string>
     <string name="store_location">Store Location</string>
-    <string name="dialog_store_location">Store current location as your destination?</string>
+    <string name="dialog_store_location">Do you want to store your current location?</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="altitude">Altitude</string>
