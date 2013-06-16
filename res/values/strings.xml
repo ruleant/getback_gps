@@ -7,6 +7,7 @@
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>
     <string name="disabled">disabled</string>
+    <string name="no">No</string>
     <string name="location_provider">Location Provider</string>
     <string name="provider">Provider</string>
     <string name="loc_provider_network">network (Cell phone/WiFi)</string>
@@ -15,6 +16,7 @@
     <string name="curr_location">Current (last known) location</string>
     <string name="stored_location">Stored Location</string>
     <string name="store_location">Store Location</string>
+    <string name="dialog_store_location">Store current location as your destination?</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>
     <string name="altitude">Altitude</string>

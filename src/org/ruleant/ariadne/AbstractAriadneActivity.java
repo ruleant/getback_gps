@@ -24,8 +24,10 @@ package org.ruleant.ariadne;
 import org.ruleant.ariadne.LocationService.LocationBinder;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.IBinder;
@@ -81,10 +83,28 @@ public abstract class AbstractAriadneActivity extends Activity {
      * @param item MenuItem object that was clicked
      */
     public void storeLocation(final MenuItem item) {
-        if (mBound) {
-            mService.storeCurrentLocation();
-        }
-        refreshDisplay();
+        // Use the Builder class for convenient dialog construction,
+        // based on the example on
+        // https://developer.android.com/guide/topics/ui/dialogs.html
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage(R.string.dialog_store_location)
+               .setPositiveButton(R.string.store_location, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // store current location and refresh display
+                       if (mBound) {
+                           mService.storeCurrentLocation();
+                       }
+                       refreshDisplay();
+                   }
+               })
+               .setNegativeButton(R.string.no, new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       // User cancelled the dialog
+                   }
+               });
+
+        // Create the AlertDialog object and display it
+        builder.create().show();
     }
 
     /**
