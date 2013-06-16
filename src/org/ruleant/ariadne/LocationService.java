@@ -296,6 +296,11 @@ public class LocationService extends Service {
         // don't store current location if it is not set
         if (mCurrentLocation != null) {
             mDestination.setLocation(mCurrentLocation);
+            Toast.makeText(
+                    this,
+                    R.string.location_stored,
+                    Toast.LENGTH_SHORT
+                ).show();
         }
     }
 
