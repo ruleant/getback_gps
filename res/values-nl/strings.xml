@@ -45,4 +45,8 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="copyright">Auteursrecht</string>
     <string name="inaccurate_direction">De richting naar je bestemming is enkel accuraat als je beweegt.</string>
     <string name="app_website">Bezoek de &lt;a href=\"%1$s\"&gt;website&lt;/a&gt; voor meer info.</string>
+    <string name="no">Nee</string>
+    <string name="location_updated">Locatie bijgewerkt</string>
+    <string name="location_stored">Locatie bewaard</string>
+    <string name="dialog_store_location">Wil je je huidige locatie bewaren?</string>
     </resources>
