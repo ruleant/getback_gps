@@ -21,6 +21,7 @@
  */
 package org.ruleant.ariadne;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -124,10 +125,13 @@ public class MainActivity extends AbstractAriadneActivity {
                 + FormatUtils.formatAngle(service.getDirection());
             tvInaccurateDirection.setVisibility(TextView.VISIBLE);
             ivDestPointer.setVisibility(ImageView.VISIBLE);
-            // rotate 90° counter clockwise, current image is pointing right.
-            ivDestPointer.setRotation(
-                (float) FormatUtils.normalizeAngle(
-                    service.getDirection() - POINTER_ROT));
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                // rotate 90° counter clockwise,
+                // current image is pointing right.
+                ivDestPointer.setRotation(
+                        (float) FormatUtils.normalizeAngle(
+                                service.getDirection() - POINTER_ROT));
+            }
         }
         tvToDestination.setText(toDestinationText);
     }
