@@ -125,6 +125,7 @@ public class MainActivity extends AbstractAriadneActivity {
                 + FormatUtils.formatAngle(service.getDirection());
             tvInaccurateDirection.setVisibility(TextView.VISIBLE);
 
+            // setRotation require API level 11
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 ivDestPointer.setVisibility(ImageView.VISIBLE);
                 // rotate 90° counter clockwise,
