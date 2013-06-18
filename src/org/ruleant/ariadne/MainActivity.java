@@ -124,13 +124,16 @@ public class MainActivity extends AbstractAriadneActivity {
                 + getResources().getString(R.string.direction) + ": "
                 + FormatUtils.formatAngle(service.getDirection());
             tvInaccurateDirection.setVisibility(TextView.VISIBLE);
-            ivDestPointer.setVisibility(ImageView.VISIBLE);
+
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                ivDestPointer.setVisibility(ImageView.VISIBLE);
                 // rotate 90° counter clockwise,
                 // current image is pointing right.
                 ivDestPointer.setRotation(
                         (float) FormatUtils.normalizeAngle(
                                 service.getDirection() - POINTER_ROT));
+            } else {
+                ivDestPointer.setVisibility(ImageView.INVISIBLE);
             }
         }
         tvToDestination.setText(toDestinationText);
