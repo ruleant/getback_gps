@@ -21,6 +21,7 @@
  */
 package org.ruleant.ariadne;
 
+import android.annotation.TargetApi;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -46,6 +47,7 @@ public class MainActivity extends AbstractAriadneActivity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     protected final void refreshDisplay() {
         LocationService service = getService();
         AriadneLocation destination = null;
