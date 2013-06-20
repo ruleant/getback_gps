@@ -24,7 +24,7 @@ import android.widget.TextView;
 public class AboutActivity extends Activity {
 
     @Override
-    protected void onCreate(final Bundle savedInstanceState) {
+    protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Resources res = getResources();
@@ -87,7 +87,7 @@ public class AboutActivity extends Activity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(final MenuItem item) {
+    public final boolean onOptionsItemSelected(final MenuItem item) {
         switch (item.getItemId()) {
         case android.R.id.home:
             NavUtils.navigateUpFromSameTask(this);
