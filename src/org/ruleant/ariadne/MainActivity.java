@@ -47,7 +47,7 @@ public class MainActivity extends AbstractAriadneActivity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
+    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected final void refreshDisplay() {
         LocationService service = getService();
         AriadneLocation destination = null;
