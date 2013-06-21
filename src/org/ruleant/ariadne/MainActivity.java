@@ -22,6 +22,7 @@
 package org.ruleant.ariadne;
 
 import android.annotation.TargetApi;
+import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
 import android.widget.ImageView;
@@ -50,17 +51,17 @@ public class MainActivity extends AbstractAriadneActivity {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected final void refreshDisplay() {
         LocationService service = getService();
+        Resources res = getResources();
         AriadneLocation destination = null;
         AriadneLocation currentLocation = null;
 
         // Refresh locationProvider
         TextView tvProvider
             = (TextView) findViewById(R.id.textView_LocationProvider);
-        String providerText
-            = getResources().getString(R.string.location_provider) + ": ";
+        String providerText = res.getString(R.string.location_provider) + ": ";
         String providerName = service.getLocationProvider();
         if (providerName.isEmpty()) {
-            providerText += getResources().getString(R.string.none);
+            providerText += res.getString(R.string.none);
         } else {
             providerText += FormatUtils.localizeProviderName(this, providerName);
         }
@@ -70,11 +71,10 @@ public class MainActivity extends AbstractAriadneActivity {
         TextView tvLocation
             = (TextView) findViewById(R.id.textView_Location);
         String locationText
-            = getResources().getString(R.string.curr_location) + ":\n";
+            = res.getString(R.string.curr_location) + ":\n";
         currentLocation = service.getLocation();
         if (currentLocation == null) {
-            locationText += " "
-                + getResources().getString(R.string.unknown);
+            locationText += " " + res.getString(R.string.unknown);
         } else {
             locationText += currentLocation.toString(this);
         }
@@ -84,7 +84,7 @@ public class MainActivity extends AbstractAriadneActivity {
         TextView tvStoredLocation
             = (TextView) findViewById(R.id.textView_StoredLocation);
         String storedLocationText
-            = getResources().getString(R.string.destination) + ":\n";
+            = res.getString(R.string.destination) + ":\n";
 
         // get Destination from service
         try {
@@ -96,7 +96,7 @@ public class MainActivity extends AbstractAriadneActivity {
 
         if (destination == null) {
             storedLocationText += " "
-                + getResources().getString(R.string.notset);
+                + res.getString(R.string.notset);
         } else {
             storedLocationText += destination.toString(this);
         }
@@ -110,19 +110,19 @@ public class MainActivity extends AbstractAriadneActivity {
         ImageView ivDestPointer
         = (ImageView) findViewById(R.id.image_DestinationPointer);
         String toDestinationText
-            = getResources().getString(R.string.to_dest) + ":\n";
+            = res.getString(R.string.to_dest) + ":\n";
         if (destination == null || currentLocation == null) {
             toDestinationText += " "
-                + getResources().getString(R.string.unknown);
+                + res.getString(R.string.unknown);
             tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
             ivDestPointer.setVisibility(ImageView.INVISIBLE);
         } else {
             // Print distance and bearing
             toDestinationText += " "
-                + getResources().getString(R.string.distance) + ": "
+                + res.getString(R.string.distance) + ": "
                 + FormatUtils.formatDist(service.getDistance()) + "\n";
             toDestinationText += " "
-                + getResources().getString(R.string.direction) + ": "
+                + res.getString(R.string.direction) + ": "
                 + FormatUtils.formatAngle(service.getDirection());
             tvInaccurateDirection.setVisibility(TextView.VISIBLE);
 
