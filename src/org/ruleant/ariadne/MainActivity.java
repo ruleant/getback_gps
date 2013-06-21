@@ -88,8 +88,7 @@ public class MainActivity extends AbstractAriadneActivity {
 
         // get Destination from service
         try {
-            destination
-                = new AriadneLocation(service.getDestination());
+            destination = new AriadneLocation(service.getDestination());
         } catch (Exception e) {
             e.printStackTrace();
             destination = null;
