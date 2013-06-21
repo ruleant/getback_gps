@@ -97,6 +97,13 @@ public class MainActivity extends AbstractAriadneActivity {
         if (destination == null) {
             storedLocationText += " "
                 + res.getString(R.string.notset);
+
+            // display notice when no destination is set
+            // and there is a current location
+            if (currentLocation != null) {
+                storedLocationText += "\n "
+                    + res.getString(R.string.notice_no_dest);
+            }
         } else {
             storedLocationText += destination.toString(this);
         }
