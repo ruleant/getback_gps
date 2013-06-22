@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
 
-<string name="app_desc">Najděte svoji cestu zpět k dříve navštíveným místům pomocí GPS souřadnic.</string>
+    <string name="app_desc">Najděte svoji cestu zpět k dříve navštíveným místům pomocí GPS souřadnic.</string>
     <string name="none">Žádný</string>
     <string name="unknown">Neznámý</string>
     <string name="notset">Nenastavený</string>
@@ -50,4 +50,5 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="location_updated">Umístění obnoveno</string>
     <string name="location_stored">Umístění uloženo</string>
     <string name="dialog_store_location">Chcete uložit současné umístění?</string>
-    </resources>
+
+</resources>

@@ -1,5 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
+
     <string name="app_desc">Vind je weg terug naar een eerder bezochte locatie, met behulp van GPS-coördinaten.</string>
     <string name="none">Geen</string>
     <string name="unknown">Onbekend</string>
@@ -39,7 +40,7 @@ Dit programma wordt gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDE
 Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen samen met dit programma. Als dat niet het geval is, zie <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
     <string name="loc_provider_network">netwerk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
-<string name="descr_dest_pointer">Richtingaanwijzer</string>
+    <string name="descr_dest_pointer">Richtingaanwijzer</string>
     <string name="loc_updated_recent">Locatie werd recent bijgewerkt.</string>
     <string name="loc_updated_not_recent">Locatie werd NIET recent bijgewerkt.</string>
     <string name="copyright">Auteursrecht</string>
@@ -49,4 +50,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="location_updated">Locatie bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
     <string name="dialog_store_location">Wil je je huidige locatie bewaren?</string>
-    </resources>
+
+</resources>
