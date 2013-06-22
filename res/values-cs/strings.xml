@@ -23,7 +23,7 @@
     <string name="direction">Směr</string>
     <string name="raw">Nezpracované</string>
     <string name="refresh">Obnovit</string>
-    <string name="provider_no_support">Poskytovatel není podporovaný</string>
+    <string name="provider_no_support">Poskytovatel není podporovaný.</string>
     <string name="version">Verze</string>
     <string name="about">O programu</string>
     <string name="disabled">vypnuté</string>
@@ -43,8 +43,8 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="pref_header_general">Obecné</string>
     <string name="copyright">Copyright</string>
     <string name="app_website">Pro více informací navštivte <a href="%1$s">webové stránky</a>.</string>
-    <string name="loc_updated_recent">Pozice byla obnovena nedávno</string>
-    <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena</string>
+    <string name="loc_updated_recent">Pozice byla obnovena nedávno.</string>
+    <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena.</string>
     <string name="inaccurate_direction">Směr k cíli je přesný jen pokud se pohybujete.</string>
     <string name="no">Ne</string>
     <string name="location_updated">Umístění obnoveno</string>
