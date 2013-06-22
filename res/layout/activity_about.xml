@@ -34,11 +34,19 @@
         android:padding="2dp"
         android:text="@string/copyright" />
 
-    <TextView
-        android:id="@+id/textview_license"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/license" />
+    <ScrollView
+        android:id="@+id/scrollview_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:fillViewport="true"
+        android:padding="2dp" >
+
+        <TextView
+            android:id="@+id/textview_license"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="@string/license" />
+    </ScrollView>
 
 </LinearLayout>
