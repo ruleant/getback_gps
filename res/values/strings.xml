@@ -43,7 +43,7 @@
         <item quantity="other">%d minutes</item>
     </plurals>
     <string name="direction">Direction</string>
-    <string name="raw">Raw</string>
+    <string name="raw">Unformatted</string>
     <string name="refresh">Refresh</string>
     <string name="provider_no_support">Provider is not supported.</string>
     <string name="version">Version</string>
