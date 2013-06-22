@@ -47,8 +47,10 @@
             android:id="@+id/textview_license"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/license" />
+            android:padding="5dp"
+            android:text="@string/license"
+            android:textStyle="italic" />
+
     </ScrollView>
 
 </LinearLayout>
