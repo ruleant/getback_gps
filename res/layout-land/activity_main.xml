@@ -27,13 +27,13 @@
         android:id="@+id/textView_ToDestination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_StoredLocation"
-        android:layout_below="@+id/textView_StoredLocation"
+        android:layout_alignLeft="@+id/textView_Destination"
+        android:layout_below="@+id/textView_Destination"
         android:padding="2dp"
         android:text="@string/to_dest" />
 
     <TextView
-        android:id="@+id/textView_StoredLocation"
+        android:id="@+id/textView_Destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@+id/textView_Location"

@@ -24,7 +24,7 @@
         android:text="@string/location_provider" />
 
     <TextView
-        android:id="@+id/textView_StoredLocation"
+        android:id="@+id/textView_Destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
@@ -37,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView_StoredLocation"
+        android:layout_below="@+id/textView_Destination"
         android:padding="2dp"
         android:text="@string/to_dest" />
 

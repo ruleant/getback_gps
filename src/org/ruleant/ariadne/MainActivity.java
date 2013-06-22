@@ -80,10 +80,10 @@ public class MainActivity extends AbstractAriadneActivity {
         }
         tvLocation.setText(locationText);
 
-        // Refresh Stored Location
-        TextView tvStoredLocation
-            = (TextView) findViewById(R.id.textView_StoredLocation);
-        String storedLocationText
+        // Refresh Destination
+        TextView tvDestination
+            = (TextView) findViewById(R.id.textView_Destination);
+        String destinationText
             = res.getString(R.string.destination) + ":\n";
 
         // get Destination from service
@@ -95,19 +95,19 @@ public class MainActivity extends AbstractAriadneActivity {
         }
 
         if (destination == null) {
-            storedLocationText += " "
+            destinationText += " "
                 + res.getString(R.string.notset);
 
             // display notice when no destination is set
             // and there is a current location
             if (currentLocation != null) {
-                storedLocationText += "\n "
+                destinationText += "\n "
                     + res.getString(R.string.notice_no_dest);
             }
         } else {
-            storedLocationText += destination.toString(this);
+            destinationText += destination.toString(this);
         }
-        tvStoredLocation.setText(storedLocationText);
+        tvDestination.setText(destinationText);
 
         // Refresh Directions to destination
         TextView tvToDestination
