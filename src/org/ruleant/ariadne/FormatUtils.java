@@ -27,6 +27,8 @@
  */
 package org.ruleant.ariadne;
 
+import java.util.Locale;
+
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
@@ -88,7 +90,8 @@ public class FormatUtils {
         // conversion and formatting
         if (Math.round(distance) < scaleUnit) {
             // display as short unit, as integer
-            return String.format("%1$d%2$s", Math.round(distance), shortUnit);
+            return String.format(Locale.getDefault(), "%1$d%2$s",
+                    Math.round(distance), shortUnit);
         } else {
             double scaledDistance = (distance / scaleUnit);
             // round to one decimal and check if it is
@@ -96,11 +99,13 @@ public class FormatUtils {
             if ((Math.round(scaledDistance * ONE_DEC) / ONE_DEC) < ONE_DEC) {
                 // display as long unit, with 1 decimal
                 return String.format(
-                    "%1$,.1f%2$s", scaledDistance, longUnit);
+                        Locale.getDefault(), "%1$,.1f%2$s",
+                        scaledDistance, longUnit);
             } else {
                 // display as long unit, as integer
                 return String.format(
-                    "%1$,d%2$s", Math.round(scaledDistance), longUnit);
+                        Locale.getDefault(), "%1$,d%2$s",
+                        Math.round(scaledDistance), longUnit);
             }
         }
     }
@@ -127,11 +132,12 @@ public class FormatUtils {
         if (convertedSpeed < ONE_DEC) {
             // display with 1 decimal
             return String.format(
-                "%1$,.1f%2$s", convertedSpeed, unit);
+                    Locale.getDefault(), "%1$,.1f%2$s", convertedSpeed, unit);
         } else {
             // display as integer
             return String.format(
-                "%1$,d%2$s", Math.round(convertedSpeed), unit);
+                    Locale.getDefault(), "%1$,d%2$s",
+                    Math.round(convertedSpeed), unit);
         }
     }
 
@@ -146,7 +152,7 @@ public class FormatUtils {
         String unit = "°";
 
         // formatting
-        return String.format("%1$.2f%2$s", angle, unit);
+        return String.format(Locale.getDefault(), "%1$.2f%2$s", angle, unit);
     }
 
     /**
