@@ -13,29 +13,24 @@
         android:orientation="vertical">
 
     <TextView
+        android:id="@+id/textView_LocationProvider"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="@string/location_provider" />
+
+    <TextView
         android:id="@+id/textView_Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:text="@string/curr_location" />
 
-    <TextView
-        android:id="@+id/textView_LocationProvider"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/location_provider" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:orientation="vertical">
-    <TextView
-        android:id="@+id/textView_ToDestination"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/to_dest" />
 
     <TextView
         android:id="@+id/textView_Destination"
@@ -43,13 +38,6 @@
         android:layout_height="wrap_content"
         android:padding="2dp"
         android:text="@string/destination" />
-
-    <TextView
-        android:id="@+id/textView_InaccurateDirection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/inaccurate_direction" />
 
     <ImageView
         android:id="@+id/image_DestinationPointer"
@@ -59,5 +47,19 @@
         android:contentDescription="@string/descr_dest_pointer"
         android:rotation="270"
         android:src="@android:drawable/ic_menu_send" />
+
+    <TextView
+        android:id="@+id/textView_ToDestination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="@string/to_dest" />
+
+    <TextView
+        android:id="@+id/textView_InaccurateDirection"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="@string/inaccurate_direction" />
     </LinearLayout>
 </LinearLayout>
