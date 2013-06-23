@@ -8,74 +8,75 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="horizontal"
-        android:padding="5dp"
-        android:baselineAligned="false" >
+        android:padding="5dp" >
 
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView_LocationProvider"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/location_provider" />
-
-    <TextView
-        android:id="@+id/textView_Location"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/curr_location" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-    <TextView
-        android:id="@+id/textView_Destination"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/destination" />
-
-    <LinearLayout
-            android:layout_width="fill_parent"
+        <LinearLayout
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            
-    <ImageView
-        android:id="@+id/image_DestinationPointer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:layout_marginLeft="5dp"
-        android:contentDescription="@string/descr_dest_pointer"
-        android:rotation="270"
-        android:src="@android:drawable/ic_menu_send" />
+            android:layout_weight="1"
+            android:orientation="vertical" >
 
-    <TextView
-        android:id="@+id/textView_ToDestination"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_vertical"
-        android:padding="2dp"
-        android:text="@string/to_dest" />
+            <TextView
+                android:id="@+id/textView_LocationProvider"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/location_provider" />
+
+            <TextView
+                android:id="@+id/textView_Location"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/curr_location" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView_Destination"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/destination" />
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <ImageView
+                    android:id="@+id/image_DestinationPointer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:contentDescription="@string/descr_dest_pointer"
+                    android:rotation="270"
+                    android:src="@android:drawable/ic_menu_send" />
+
+                <TextView
+                    android:id="@+id/textView_ToDestination"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:padding="2dp"
+                    android:text="@string/to_dest" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView_InaccurateDirection"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/inaccurate_direction" />
+        </LinearLayout>
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView_InaccurateDirection"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:padding="2dp"
-        android:text="@string/inaccurate_direction" />
-    </LinearLayout>
-</LinearLayout>
 </ScrollView>
