@@ -1,16 +1,21 @@
 <?xml version='1.0' encoding='utf-8'?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:padding="5dp"
     tools:context=".MainActivity" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
     <TextView
         android:id="@+id/textView_Location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/textView_LocationProvider"
         android:padding="2dp"
         android:text="@string/curr_location" />
 
@@ -18,17 +23,17 @@
         android:id="@+id/textView_LocationProvider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
         android:padding="2dp"
         android:text="@string/location_provider" />
-
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
     <TextView
         android:id="@+id/textView_ToDestination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/textView_Destination"
-        android:layout_below="@+id/textView_Destination"
         android:padding="2dp"
         android:text="@string/to_dest" />
 
@@ -36,8 +41,6 @@
         android:id="@+id/textView_Destination"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView_Location"
-        android:layout_alignParentRight="true"
         android:padding="2dp"
         android:text="@string/destination" />
 
@@ -45,8 +48,6 @@
         android:id="@+id/textView_InaccurateDirection"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/textView_ToDestination"
         android:padding="2dp"
         android:text="@string/inaccurate_direction" />
 
@@ -54,11 +55,9 @@
         android:id="@+id/image_DestinationPointer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/textView_ToDestination"
         android:layout_marginRight="2dp"
-        android:layout_toLeftOf="@+id/textView_ToDestination"
         android:contentDescription="@string/descr_dest_pointer"
         android:rotation="270"
         android:src="@android:drawable/ic_menu_send" />
-
-</RelativeLayout>
+    </LinearLayout>
+</LinearLayout>
