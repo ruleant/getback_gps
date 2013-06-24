@@ -51,4 +51,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="location_stored">Locatie bewaard</string>
     <string name="dialog_store_location">Wil je je huidige locatie bewaren?</string>
 
-</resources>
+<string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen.</string>
+    </resources>
