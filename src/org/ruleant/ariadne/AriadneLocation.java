@@ -66,7 +66,7 @@ public class AriadneLocation extends Location {
      * @param location Location object
      * @return true if location is more recent than this location
      */
-    public boolean isNewer(final Location location) {
+    public final boolean isNewer(final Location location) {
         return (location.getTime() > super.getTime());
     }
 
@@ -75,7 +75,7 @@ public class AriadneLocation extends Location {
      *
      * @return true if location is recent.
      */
-    public boolean isRecent() {
+    public final boolean isRecent() {
         // TODO use elapsedRealtimeNanos when using API 17 or higher
         // if ((SystemClock.elapsedRealtimeNanos()
         // - getElapsedRealtimeNanos()) < 300000000) {
@@ -88,7 +88,7 @@ public class AriadneLocation extends Location {
      * @param context Context of the App
      * @return String formatted string
      */
-    public String toString(final Context context) {
+    public final String toString(final Context context) {
         Resources res = context.getResources();
         DebugLevel debug = new DebugLevel(context);
 
