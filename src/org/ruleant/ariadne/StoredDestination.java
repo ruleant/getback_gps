@@ -55,7 +55,7 @@ public class StoredDestination extends StoredLocation {
      *
      * @param location New location
      */
-    public void setLocation(final Location location) {
+    public final void setLocation(final Location location) {
         Location tempLocation = new Location("");
 
         tempLocation.setLongitude(location.getLongitude());
