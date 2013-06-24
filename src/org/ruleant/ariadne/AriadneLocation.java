@@ -36,6 +36,10 @@ import android.location.Location;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class AriadneLocation extends Location {
+    /**
+     * Location timestamp expiration.
+     */
+    private static final long LOC_EXPIRE = 300000;
 
     /**
      * Constructor.
@@ -75,7 +79,7 @@ public class AriadneLocation extends Location {
         // TODO use elapsedRealtimeNanos when using API 17 or higher
         // if ((SystemClock.elapsedRealtimeNanos()
         // - getElapsedRealtimeNanos()) < 300000000) {
-        return ((System.currentTimeMillis() - getTime()) < 300000);
+        return ((System.currentTimeMillis() - getTime()) < LOC_EXPIRE);
     }
 
     /**
