@@ -66,7 +66,7 @@ public class SettingsActivity extends PreferenceActivity {
     private static final boolean ALWAYS_SIMPLE_PREFS = false;
 
     @Override
-    protected void onPostCreate(final Bundle savedInstanceState) {
+    protected final void onPostCreate(final Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
         setupSimplePreferencesScreen();
@@ -166,7 +166,7 @@ public class SettingsActivity extends PreferenceActivity {
 
     /** {@inheritDoc} */
     @Override
-    public boolean onIsMultiPane() {
+    public final boolean onIsMultiPane() {
         return isXLargeTablet(this) && !isSimplePreferences(this);
     }
 
@@ -202,7 +202,7 @@ public class SettingsActivity extends PreferenceActivity {
     /** {@inheritDoc} */
     @Override
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public void onBuildHeaders(final List<Header> target) {
+    public final void onBuildHeaders(final List<Header> target) {
         if (!isSimplePreferences(this)) {
             loadHeadersFromResource(R.xml.pref_headers, target);
             // Add 'debug' preference header if DEBUG is enabled.
@@ -276,7 +276,7 @@ public class SettingsActivity extends PreferenceActivity {
      * activity is showing a two-pane settings UI.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static class GeneralPreferenceFragment extends PreferenceFragment {
+    public static final class GeneralPreferenceFragment extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -354,7 +354,7 @@ public class SettingsActivity extends PreferenceActivity {
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static class DebugPreferenceFragment extends PreferenceFragment {
         @Override
-        public void onCreate(final Bundle savedInstanceState) {
+        public final void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
             // Add 'debug' preferences if DEBUG is enabled.
