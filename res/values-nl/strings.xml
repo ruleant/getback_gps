@@ -22,7 +22,7 @@
     <string name="to_dest">Naar bestemming</string>
     <string name="distance">Afstand</string>
     <string name="direction">Richting</string>
-    <string name="raw">Onverwerkt</string>
+    <string name="raw">Niet opgemaakt</string>
     <string name="refresh">Vernieuwen</string>
     <string name="provider_no_support">Aanbieder wordt niet ondersteund.</string>
     <string name="version">Versie</string>
