@@ -276,7 +276,8 @@ public class SettingsActivity extends PreferenceActivity {
      * activity is showing a two-pane settings UI.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
-    public static final class GeneralPreferenceFragment extends PreferenceFragment {
+    public static final class GeneralPreferenceFragment
+	extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
