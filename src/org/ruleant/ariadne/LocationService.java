@@ -119,8 +119,9 @@ public class LocationService extends Service {
                 this.getApplicationContext(), PREFS_STORE_DEST);
 
         // mProviderName is set by updateLocationProvider
+        updateLocationProvider();
         // and used in requestUpdatesFromProvider
-        if (!updateLocationProvider().isEmpty()) {
+        if (isSetLocationProvider()) {
             setLocation(requestUpdatesFromProvider());
         }
     }
@@ -272,6 +273,15 @@ public class LocationService extends Service {
     }
 
     /**
+     * Checks if Location Provider is defined.
+     *
+     * @return boolean true if Location Provider is defined.
+     */
+    public boolean isSetLocationProvider() {
+        return (mProviderName != null && mProviderName.length() > 0);
+    }
+
+    /**
      * Update Location.
      *
      * Force location update, using getLastKnownLocation()
@@ -279,7 +289,7 @@ public class LocationService extends Service {
      * @return Location
      */
     public AriadneLocation updateLocation() {
-        if (mLocationManager == null || mProviderName.isEmpty()) {
+        if (mLocationManager == null || !isSetLocationProvider()) {
             return null;
         }
         // update location using getLastKnownLocation,
@@ -363,7 +373,7 @@ public class LocationService extends Service {
      */
     private Location requestUpdatesFromProvider() {
         Location location = null;
-        if (mProviderName != null && !mProviderName.isEmpty()
+        if (isSetLocationProvider()
                 && mLocationManager.isProviderEnabled(mProviderName)) {
 
             // Get debug level from SharedPreferences

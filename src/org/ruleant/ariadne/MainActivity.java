@@ -59,12 +59,11 @@ public class MainActivity extends AbstractAriadneActivity {
         TextView tvProvider
             = (TextView) findViewById(R.id.textView_LocationProvider);
         String providerText = res.getString(R.string.location_provider) + ": ";
-        String providerName = service.getLocationProvider();
-        if (providerName.isEmpty()) {
+        if (!service.isSetLocationProvider()) {
             providerText += res.getString(R.string.none);
         } else {
-            providerText
-                += FormatUtils.localizeProviderName(this, providerName);
+            providerText += FormatUtils.localizeProviderName(
+                    this, service.getLocationProvider());
         }
         tvProvider.setText(providerText);
 
