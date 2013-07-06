@@ -4,10 +4,12 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.text.Html;
@@ -21,6 +23,7 @@ import android.widget.TextView;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
+@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 public class AboutActivity extends Activity {
 
     @Override
@@ -43,8 +46,10 @@ public class AboutActivity extends Activity {
             packageInfo
                 = getPackageManager().getPackageInfo(getPackageName(), 0);
             versionInfo += " v" + packageInfo.versionName;
-            Date date = new Date(packageInfo.lastUpdateTime);
-            versionInfo += " (" + formatter.format(date) + ")";
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
+                Date date = new Date(packageInfo.lastUpdateTime);
+                versionInfo += " (" + formatter.format(date) + ")";
+            }
         } catch (NameNotFoundException e) {
             e.printStackTrace();
         }
