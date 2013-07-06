@@ -177,10 +177,12 @@ public class SettingsActivity extends PreferenceActivity {
      * @param context Context of the App
      * @return true if device has an extra-large screen
      */
+    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     private static boolean isXLargeTablet(final Context context) {
-        return (context.getResources().getConfiguration().screenLayout
+        return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD
+                && (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
-                >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
+                >= Configuration.SCREENLAYOUT_SIZE_XLARGE);
     }
 
     /**
