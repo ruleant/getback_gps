@@ -126,7 +126,7 @@ public class AriadneLocation extends Location {
 
         // Location provider
         String providerName = getProvider();
-        if (!providerName.isEmpty()) {
+        if (providerName != null && providerName.length() > 0) {
             locationText += "\n "
                 + res.getString(R.string.provider) + ": "
                 + FormatUtils.localizeProviderName(context, providerName);

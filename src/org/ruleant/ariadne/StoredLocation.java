@@ -104,7 +104,7 @@ public class StoredLocation {
 
         String prefName;
 
-        if (sharedPrefName.isEmpty()) {
+        if (sharedPrefName == null || sharedPrefName.length() == 0) {
             prefName = DEFAULT_PREF_NAME;
         } else {
             prefName = sharedPrefName;
