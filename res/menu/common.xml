@@ -7,7 +7,6 @@
         android:title="@string/settings"/>
     <item
         android:id="@+id/menu_storelocation"
-        android:onClick="storeLocation"
         android:orderInCategory="110"
         android:showAsAction="ifRoom"
         android:title="@string/store_location"/>
