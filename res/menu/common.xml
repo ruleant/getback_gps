@@ -22,7 +22,6 @@
         android:id="@+id/menu_about"
         android:orderInCategory="105"
         android:showAsAction="never"
-        android:onClick="displayAbout"
         android:title="@string/about" />
 
 </menu>
