@@ -144,6 +144,20 @@ public abstract class AbstractAriadneActivity extends Activity {
         startActivity(intent);
     }
 
+    @Override
+    public final boolean onOptionsItemSelected(MenuItem item) {
+        // One of the group items (using the onClick attribute) was clicked
+        // The item parameter passed here indicates which item it is
+        // All other menu item clicks are handled by onOptionsItemSelected()
+        switch (item.getItemId()) {
+        case R.id.menu_settings:
+            displaySettings(item);
+            return true;
+        default:
+            return super.onOptionsItemSelected(item);
+        }
+    }
+
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
