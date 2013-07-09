@@ -159,6 +159,9 @@ public abstract class AbstractAriadneActivity extends Activity {
         case R.id.menu_storelocation:
             displayAbout(item);
             return true;
+        case R.id.menu_refresh:
+            refresh(item);
+            return true;
         default:
             return super.onOptionsItemSelected(item);
         }

@@ -12,7 +12,6 @@
         android:title="@string/store_location"/>
     <item
         android:id="@+id/menu_refresh"
-        android:onClick="refresh"
         android:orderInCategory="130"
         android:showAsAction="always"
         android:icon="@drawable/ic_menu_refresh"
