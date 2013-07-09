@@ -157,7 +157,7 @@ public abstract class AbstractAriadneActivity extends Activity {
             displayAbout(item);
             return true;
         case R.id.menu_storelocation:
-            displayAbout(item);
+            storeLocation(item);
             return true;
         case R.id.menu_refresh:
             refresh(item);
