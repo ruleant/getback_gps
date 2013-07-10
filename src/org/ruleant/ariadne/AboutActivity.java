@@ -11,10 +11,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.NavUtils;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.view.MenuItem;
 import android.widget.TextView;
 
 /**
@@ -89,16 +87,5 @@ public class AboutActivity extends Activity {
         TextView tvLicense = (TextView) findViewById(R.id.textview_license);
         // enable HTML links
         tvLicense.setMovementMethod(LinkMovementMethod.getInstance());
-    }
-
-    @Override
-    public final boolean onOptionsItemSelected(final MenuItem item) {
-        switch (item.getItemId()) {
-        case android.R.id.home:
-            NavUtils.navigateUpFromSameTask(this);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
-        }
     }
 }
