@@ -122,7 +122,7 @@ public class StoredLocation {
      *
      * @return Location location
      */
-    public Location getLocation() {
+    public final Location getLocation() {
         if (mHasLocation) {
             return mLocation;
         }
@@ -145,7 +145,7 @@ public class StoredLocation {
      *
      * @param location New location
      */
-    public void save(final Location location) {
+    public final void save(final Location location) {
         setLocation(location);
         save();
     }
@@ -153,7 +153,7 @@ public class StoredLocation {
     /**
      * Save stored location in Shared Preferences.
      */
-    public void save() {
+    public final void save() {
         /* Set Locale temporarily to US English to make sure that the data
          * is always stored with the same locale, to avoid data loss
          * when the default locale of the device is changed.
@@ -212,7 +212,7 @@ public class StoredLocation {
      *
      * @return location retrieved from Preferences
      */
-    public Location restore() {
+    public final Location restore() {
         Location location = new Location("");
 
         // check if a location stored. the saved parameter is set to true
