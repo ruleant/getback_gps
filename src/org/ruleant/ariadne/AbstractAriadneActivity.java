@@ -92,7 +92,8 @@ public abstract class AbstractAriadneActivity extends Activity {
         builder.setMessage(R.string.dialog_store_location)
                .setPositiveButton(R.string.store_location,
                        new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
+                   public void onClick(final DialogInterface dialog,
+                           final int id) {
                        // store current location and refresh display
                        if (mBound) {
                            mService.storeCurrentLocation();
@@ -102,7 +103,8 @@ public abstract class AbstractAriadneActivity extends Activity {
                })
                .setNegativeButton(R.string.no,
                        new DialogInterface.OnClickListener() {
-                   public void onClick(DialogInterface dialog, int id) {
+                   public void onClick(final DialogInterface dialog,
+                           final int id) {
                        // User cancelled the dialog
                    }
                });
@@ -145,7 +147,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    public final boolean onOptionsItemSelected(MenuItem item) {
+    public final boolean onOptionsItemSelected(final MenuItem item) {
         // One of the group items (using the onClick attribute) was clicked
         // The item parameter passed here indicates which item it is
         // All other menu item clicks are handled by onOptionsItemSelected()
