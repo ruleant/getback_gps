@@ -17,15 +17,6 @@
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.google.android</groupId>
-			<artifactId>android-support</artifactId>
-			<version>v4</version>
-			<scope>system</scope>
-			<!-- scope system shouldn't be used -->
-			<!-- TODO find proper way of including the android-support lib -->
-			<systemPath>${basedir}/libs/android-support-v4.jar</systemPath>
-		</dependency>
-		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
