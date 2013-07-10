@@ -422,6 +422,7 @@ public class LocationService extends Service {
                 } catch (RemoteException e) {
                     // The RemoteCallbackList will take care of removing
                     // the dead object for us.
+                    e.printStackTrace();
                 }
             }
             mCallbacks.finishBroadcast();
