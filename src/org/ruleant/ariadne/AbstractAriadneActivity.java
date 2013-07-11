@@ -33,6 +33,7 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 /**
  * Abstract Ariadne Activity class, contains the common methods
@@ -86,6 +87,11 @@ public abstract class AbstractAriadneActivity extends Activity {
      */
     public void storeLocation(final MenuItem item) {
         if (mBound && mService.getLocation() == null) {
+            Toast.makeText(
+                    this,
+                    R.string.store_location_disabled,
+                    Toast.LENGTH_LONG
+                ).show();
             return;
         }
 

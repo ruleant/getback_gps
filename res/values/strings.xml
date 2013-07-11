@@ -18,6 +18,7 @@
     <string name="location_stored">Location stored</string>
     <string name="stored_location">Stored Location</string>
     <string name="store_location">Store Location</string>
+    <string name="store_location_disabled">Unable to store location if there is no current location</string>
     <string name="dialog_store_location">Do you want to store your current location?</string>
     <string name="latitude">Latitude</string>
     <string name="longitude">Longitude</string>

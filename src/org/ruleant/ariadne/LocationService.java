@@ -311,6 +311,12 @@ public class LocationService extends Service {
                     R.string.location_stored,
                     Toast.LENGTH_SHORT
                 ).show();
+        } else {
+            Toast.makeText(
+                    this,
+                    R.string.store_location_disabled,
+                    Toast.LENGTH_LONG
+                ).show();
         }
     }
 
