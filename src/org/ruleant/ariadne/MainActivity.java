@@ -50,6 +50,11 @@ public class MainActivity extends AbstractAriadneActivity {
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected final void refreshDisplay() {
+        // only refresh items if activity is bound to service
+        if (!isBound()) {
+            return;
+        }
+
         LocationService service = getService();
         Resources res = getResources();
         AriadneLocation destination = null;
