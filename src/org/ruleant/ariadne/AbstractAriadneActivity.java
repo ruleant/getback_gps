@@ -85,6 +85,10 @@ public abstract class AbstractAriadneActivity extends Activity {
      * @param item MenuItem object that was clicked
      */
     public void storeLocation(final MenuItem item) {
+        if (mBound && mService.getLocation() == null) {
+            return;
+        }
+
         // Use the Builder class for convenient dialog construction,
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
