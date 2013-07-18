@@ -30,6 +30,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Binder;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteCallbackList;
@@ -393,6 +394,17 @@ public class LocationService extends Service {
             = sharedPref.getString(
                     SettingsActivity.KEY_PREF_LOC_UPDATE_TIME,
                     SettingsActivity.DEFAULT_PREF_LOC_UPDATE_TIME);
+
+            /* don't allow to disable distance based updates
+             * before Jelly Bean, because the time based update parameter
+             * is not respected before Jelly Bean,
+             * so the distance based update parameter should have a value.
+             */
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN &&
+                     Integer.parseInt(prefLocationUpdateDistance) == 0) {
+                prefLocationUpdateDistance =
+                        SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST;
+            }
 
             mLocationManager.requestLocationUpdates(
                     mProviderName,
