@@ -154,20 +154,24 @@ public class SettingsActivity extends PreferenceActivity {
 
         CharSequence[] options = new CharSequence[optionsLength];
         CharSequence[] captions = new CharSequence[optionsLength];
+
+        int j = 0;
         for (int i = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString());
             if (value > 0) {
-                options[i] = values[i];
-                captions[i] = resources.getQuantityString(
+                options[j] = values[i];
+                captions[j] = resources.getQuantityString(
                         R.plurals.distance_meter, value, value);
+                j++;
             } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
                 /* don't allow to disable distance based updates
                  * before Jelly Bean, because the time based update parameter
                  * is not respected before Jelly Bean,
                  * so the distance based update parameter should have a value.
                  */
-                options[i] = values[i];
-                captions[i] = resources.getString(R.string.disabled);
+                options[j] = values[i];
+                captions[j] = resources.getString(R.string.disabled);
+                j++;
             }
         }
         locUpdateDistPref.setEntries(captions);
