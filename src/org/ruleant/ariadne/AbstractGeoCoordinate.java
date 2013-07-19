@@ -34,6 +34,6 @@ public abstract class AbstractGeoCoordinate {
      * @return String formatted string
      */
     public String convert(final String unformattedAngle) {
-	return null;
+        return null;
     }
 }
