@@ -155,8 +155,7 @@ public class SettingsActivity extends PreferenceActivity {
         CharSequence[] options = new CharSequence[optionsLength];
         CharSequence[] captions = new CharSequence[optionsLength];
 
-        int j = 0;
-        for (int i = 0; i < values.length; i++) {
+        for (int i = 0, j = 0; i < values.length; i++) {
             int value = Integer.parseInt(values[i].toString());
             if (value > 0) {
                 options[j] = values[i];
