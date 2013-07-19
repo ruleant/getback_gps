@@ -400,8 +400,8 @@ public class LocationService extends Service {
              * is not respected before Jelly Bean,
              * so the distance based update parameter should have a value.
              */
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN &&
-                     Integer.parseInt(prefLocationUpdateDistance) == 0) {
+            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN
+                    && Integer.parseInt(prefLocationUpdateDistance) == 0) {
                 prefLocationUpdateDistance =
                         SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST;
             }
