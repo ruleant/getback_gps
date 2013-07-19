@@ -161,7 +161,8 @@ public class SettingsActivity extends PreferenceActivity {
                 captions[j] = resources.getQuantityString(
                         R.plurals.distance_meter, value, value);
                 j++;
-            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            } else if (Build.VERSION.SDK_INT
+                    >= Build.VERSION_CODES.JELLY_BEAN) {
                 /* don't allow to disable distance based updates
                  * before Jelly Bean, because the time based update parameter
                  * is not respected before Jelly Bean,
