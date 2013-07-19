@@ -30,7 +30,7 @@ public abstract class AbstractGeoCoordinate {
     /**
      * Converts an unformatted angle to a GeoCoordinate.
      *
-     * @param String unformatted string
+     * @param unformattedAngle unformatted string
      * @return String formatted string
      */
     public String convert(final String unformattedAngle) {
