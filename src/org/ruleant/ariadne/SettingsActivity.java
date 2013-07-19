@@ -145,11 +145,10 @@ public class SettingsActivity extends PreferenceActivity {
             = resources.getStringArray(
                 R.array.pref_loc_update_dist_list_values);
 
-        Integer optionsLength;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            optionsLength = values.length;
-        } else {
-            optionsLength = values.length - 1;
+        Integer optionsLength = values.length;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN
+                && optionsLength >= 1) {
+            optionsLength--;
         }
 
         CharSequence[] options = new CharSequence[optionsLength];
