@@ -53,4 +53,16 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
 
 <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen.</string>
     <string name="store_location_disabled">Locatie kon niet bewaard worden omdat er geen huidige locatie is</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d meter</item>
+        <item quantity="other">%d meter</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d seconde</item>
+        <item quantity="other">%d seconden</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d minuut</item>
+        <item quantity="other">%d minuten</item>
+    </plurals>
     </resources>
