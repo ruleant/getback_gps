@@ -1,5 +1,5 @@
 /**
- * Abstract class for formatting a geological coordinates.
+ * Abstract class for formatting a geological coordinate.
  *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
@@ -22,7 +22,7 @@
 package org.ruleant.ariadne;
 
 /**
- * Abstract class for formatting a geological coordinates.
+ * Abstract class for formatting a geological coordinate.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
