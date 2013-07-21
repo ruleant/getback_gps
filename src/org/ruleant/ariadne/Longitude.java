@@ -27,4 +27,13 @@ package org.ruleant.ariadne;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Longitude extends AbstractGeoCoordinate{
+    /**
+     * Segment East
+     */
+    protected static final int SEGMENT_EAST = 1;
+
+    /**
+     * Segment West
+     */
+    protected static final int SEGMENT_WEST = 2;
 }
