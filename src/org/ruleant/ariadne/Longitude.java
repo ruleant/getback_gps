@@ -36,4 +36,14 @@ public class Longitude extends AbstractGeoCoordinate{
      * Segment West
      */
     protected static final int SEGMENT_WEST = 2;
+
+    /**
+     * Determine value segment, East if longitude is in the range 0..180,
+     * West if longitude is in the range -180..0.
+     *
+     * @return segment code : SEGMENT_EAST or SEGMENT_WEST
+     */
+    public final int getSegment() {
+        return 0;
+    }
 }

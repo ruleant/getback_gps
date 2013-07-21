@@ -36,4 +36,11 @@ public abstract class AbstractGeoCoordinate {
     public String convert(final String unformattedAngle) {
         return null;
     }
+
+    /**
+     * Determine value segment
+     *
+     * @return segment code
+     */
+    public abstract int getSegment();
 }
