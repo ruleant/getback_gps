@@ -62,6 +62,10 @@ public class Longitude extends AbstractGeoCoordinate{
      */
     public Longitude() {
         super();
+
+        // set coordinate value range
+        rangeLow = SEGMENT_WEST_LOW;
+        rangeHigh = SEGMENT_EAST_HIGH;
     }
 
     /**
