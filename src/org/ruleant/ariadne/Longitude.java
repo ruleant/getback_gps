@@ -55,4 +55,13 @@ public class Longitude extends AbstractGeoCoordinate{
     public final int getSegment() {
         return 0;
     }
+
+    /**
+     * Get segment unit, E for SEGMENT_EAST, W for SEGMENT_WEST.
+     *
+     * @return unit
+     */
+    public final String getSegmentUnit() {
+        return null;
+    }
 }

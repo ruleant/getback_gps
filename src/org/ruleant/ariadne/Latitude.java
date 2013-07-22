@@ -55,4 +55,13 @@ public class Latitude extends AbstractGeoCoordinate{
     public final int getSegment() {
         return 0;
     }
+
+    /**
+     * Get segment unit, N for SEGMENT_NORTH, S for SEGMENT_SOUTH.
+     *
+     * @return unit
+     */
+    public final String getSegmentUnit() {
+        return null;
+    }
 }

@@ -74,4 +74,11 @@ public abstract class AbstractGeoCoordinate {
      * @return segment code
      */
     public abstract int getSegment();
+
+    /**
+     * Get segment unit.
+     *
+     * @return unit
+     */
+    public abstract String getSegmentUnit();
 }
