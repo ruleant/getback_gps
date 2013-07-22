@@ -33,9 +33,29 @@ public class Longitude extends AbstractGeoCoordinate{
     public static final int SEGMENT_EAST = 1;
 
     /**
+     * Segment East upper limit
+     */
+    public static final double SEGMENT_EAST_HIGH = 180;
+
+    /**
+     * Segment East lower limit
+     */
+    public static final double SEGMENT_EAST_LOW = 0;
+
+    /**
      * Segment West
      */
     public static final int SEGMENT_WEST = 2;
+
+    /**
+     * Segment West upper limit
+     */
+    public static final double SEGMENT_WEST_HIGH = 0;
+
+    /**
+     * Segment West lower limit
+     */
+    public static final double SEGMENT_WEST_LOW = -180;
 
     /**
      * Constructor.
