@@ -33,7 +33,7 @@ public abstract class AbstractGeoCoordinate {
      * @param unformattedAngle unformatted string
      * @return String formatted string
      */
-    public String convert(final String unformattedAngle) {
+    public String convert(final double unformattedAngle) {
         return null;
     }
 
