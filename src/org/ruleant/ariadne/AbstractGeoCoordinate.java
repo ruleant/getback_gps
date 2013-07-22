@@ -35,6 +35,16 @@ public abstract class AbstractGeoCoordinate {
     protected double value;
 
     /**
+     * Lower value of allowed value range.
+     */
+    protected double rangeLow;
+
+    /**
+     * Higher value of allowed value range.
+     */
+    protected double rangeHigh;
+
+    /**
      * Constructor.
      *
      * @param newValue New value for unformatted value.
@@ -49,7 +59,9 @@ public abstract class AbstractGeoCoordinate {
      * @param newValue New value for unformatted value.
      */
     public final void setValue(final double newValue) {
-        value = newValue;
+        if (checkRange(newValue)) {
+            value = newValue;
+        }
     }
 
     /**
@@ -59,6 +71,16 @@ public abstract class AbstractGeoCoordinate {
      */
     public final double getValue() {
         return value;
+    }
+
+    /**
+     * Check if submitted value is within the allowed range.
+     *
+     * @param coordinate
+     * @return
+     */
+    private boolean checkRange(final double coordinate) {
+        return (coordinate <= rangeHigh && coordinate >= rangeLow);
     }
 
     /**
