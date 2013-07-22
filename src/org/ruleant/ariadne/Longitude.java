@@ -38,6 +38,15 @@ public class Longitude extends AbstractGeoCoordinate{
     public static final int SEGMENT_WEST = 2;
 
     /**
+     * Constructor.
+     *
+     * @param newValue New value for unformatted value.
+     */
+    public Longitude(final double newValue) {
+        super(newValue);
+    }
+
+    /**
      * Determine value segment, East if longitude is in the range 0..180,
      * West if longitude is in the range -180..0.
      *

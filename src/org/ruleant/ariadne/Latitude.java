@@ -38,6 +38,15 @@ public class Latitude extends AbstractGeoCoordinate{
     public static final int SEGMENT_SOUTH = 2;
 
     /**
+     * Constructor.
+     *
+     * @param newValue New value for unformatted value.
+     */
+    public Latitude(final double newValue) {
+        super(newValue);
+    }
+
+    /**
      * Determine value segment, North if latitude is in the range 0..90,
      * South if latitude is in the range -90..0.
      *
