@@ -30,12 +30,12 @@ public class Longitude extends AbstractGeoCoordinate{
     /**
      * Segment East
      */
-    protected static final int SEGMENT_EAST = 1;
+    public static final int SEGMENT_EAST = 1;
 
     /**
      * Segment West
      */
-    protected static final int SEGMENT_WEST = 2;
+    public static final int SEGMENT_WEST = 2;
 
     /**
      * Determine value segment, East if longitude is in the range 0..180,

@@ -30,12 +30,12 @@ public class Latitude extends AbstractGeoCoordinate{
     /**
      * Segment North
      */
-    protected static final int SEGMENT_NORTH = 1;
+    public static final int SEGMENT_NORTH = 1;
 
     /**
      * Segment South
      */
-    protected static final int SEGMENT_SOUTH = 2;
+    public static final int SEGMENT_SOUTH = 2;
 
     /**
      * Determine value segment, North if latitude is in the range 0..90,
