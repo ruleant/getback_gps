@@ -33,6 +33,15 @@ public abstract class AbstractGeoCoordinate {
     protected double value;
 
     /**
+     * Constructor.
+     *
+     * @param newValue New value for unformatted value.
+     */
+    public AbstractGeoCoordinate(final double newValue) {
+        setValue(newValue);
+    }
+
+    /**
      * Set unformatted value.
      *
      * @param newValue New value for unformatted value.
