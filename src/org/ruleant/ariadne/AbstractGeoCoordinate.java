@@ -28,6 +28,29 @@ package org.ruleant.ariadne;
  */
 public abstract class AbstractGeoCoordinate {
     /**
+     * Unformatted coordinate value.
+     */
+    protected double value;
+
+    /**
+     * Set unformatted value.
+     *
+     * @param newValue New value for unformatted value.
+     */
+    public final void setValue(final double newValue) {
+        value = newValue;
+    }
+
+    /**
+     * Get unformatted value.
+     *
+     * @return Unformatted value.
+     */
+    public final double getValue() {
+        return value;
+    }
+
+    /**
      * Converts an unformatted angle to a GeoCoordinate.
      *
      * @param unformattedAngle unformatted string
