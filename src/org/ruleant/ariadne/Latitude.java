@@ -33,9 +33,29 @@ public class Latitude extends AbstractGeoCoordinate{
     public static final int SEGMENT_NORTH = 1;
 
     /**
+     * Segment North upper limit
+     */
+    public static final double SEGMENT_NORTH_HIGH = 90;
+
+    /**
+     * Segment North lower limit
+     */
+    public static final double SEGMENT_NORTH_LOW = 0;
+
+    /**
      * Segment South
      */
     public static final int SEGMENT_SOUTH = 2;
+
+    /**
+     * Segment South upper limit
+     */
+    public static final double SEGMENT_SOUTH_HIGH = 0;
+
+    /**
+     * Segment South lower limit
+     */
+    public static final double SEGMENT_SOUTH_LOW = -90;
 
     /**
      * Constructor.
