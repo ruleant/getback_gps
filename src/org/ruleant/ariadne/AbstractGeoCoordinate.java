@@ -46,11 +46,8 @@ public abstract class AbstractGeoCoordinate {
 
     /**
      * Constructor.
-     *
-     * @param newValue New value for unformatted value.
      */
-    public AbstractGeoCoordinate(final double newValue) {
-        setValue(newValue);
+    public AbstractGeoCoordinate() {
     }
 
     /**
