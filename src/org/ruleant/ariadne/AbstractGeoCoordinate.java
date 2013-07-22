@@ -21,6 +21,8 @@
  */
 package org.ruleant.ariadne;
 
+import android.location.Location;
+
 /**
  * Abstract class for formatting a geological coordinate.
  *
@@ -60,12 +62,13 @@ public abstract class AbstractGeoCoordinate {
     }
 
     /**
-     * Converts an unformatted angle to a GeoCoordinate.
+     * Format an unformatted angle to a GeoCoordinate.
      *
      * @return String formatted string
      */
-    public String convert() {
-        return null;
+    public String format() {
+        return Location.convert(value, Location.FORMAT_SECONDS).replaceFirst(":", "° ")
+                .replace(":", "' ") + "\" " + getSegmentUnit();
     }
 
     /**
