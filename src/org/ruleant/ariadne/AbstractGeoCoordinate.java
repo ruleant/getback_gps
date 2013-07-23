@@ -81,13 +81,21 @@ public abstract class AbstractGeoCoordinate {
     }
 
     /**
+     * Convert coordinate value according to segment.
+     *
+     * @return converted coordinate value
+     */
+    protected abstract double getConvertedValue();
+
+    /**
      * Format an unformatted angle to a GeoCoordinate.
      *
      * @return String formatted string
      */
     public String format() {
-        return Location.convert(getValue(), Location.FORMAT_SECONDS).replaceFirst(":", "° ")
-                .replace(":", "' ") + "\" " + getSegmentUnit();
+        return Location.convert(getConvertedValue(), Location.FORMAT_SECONDS)
+                .replaceFirst(":", "° ").replace(":", "' ") + "\" "
+                + getSegmentUnit();
     }
 
     /**

@@ -116,4 +116,19 @@ public class Longitude extends AbstractGeoCoordinate{
         }
         return unit;
     }
+
+    /**
+     * Convert coordinate value according to segment.
+     *
+     * @return converted coordinate value
+     */
+    protected final double getConvertedValue() {
+        double coordinate = getValue();
+
+        if (getSegment() == SEGMENT_WEST) {
+            Math.abs(coordinate);
+        }
+
+        return coordinate;
+    }
 }
