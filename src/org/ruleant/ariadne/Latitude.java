@@ -104,6 +104,16 @@ public class Latitude extends AbstractGeoCoordinate{
      * @return unit
      */
     public final String getSegmentUnit() {
-        return null;
+        String unit = null;
+
+        switch (getSegment()) {
+            case SEGMENT_NORTH :
+                unit = SEGMENT_NORTH_UNIT;
+                break;
+            case SEGMENT_SOUTH :
+                unit = SEGMENT_SOUTH_UNIT;
+                break;
+        }
+        return unit;
     }
 }

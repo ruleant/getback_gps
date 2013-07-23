@@ -104,6 +104,16 @@ public class Longitude extends AbstractGeoCoordinate{
      * @return unit
      */
     public final String getSegmentUnit() {
-        return null;
+        String unit = null;
+
+        switch (getSegment()) {
+            case SEGMENT_EAST :
+                unit = SEGMENT_EAST_UNIT;
+                break;
+            case SEGMENT_WEST :
+                unit = SEGMENT_WEST_UNIT;
+                break;
+        }
+        return unit;
     }
 }
