@@ -43,6 +43,11 @@ public class Latitude extends AbstractGeoCoordinate{
     public static final double SEGMENT_NORTH_LOW = 0;
 
     /**
+     * Segment North Unit
+     */
+    public static final String SEGMENT_NORTH_UNIT = "N";
+
+    /**
      * Segment South
      */
     public static final int SEGMENT_SOUTH = 2;
@@ -56,6 +61,11 @@ public class Latitude extends AbstractGeoCoordinate{
      * Segment South lower limit
      */
     public static final double SEGMENT_SOUTH_LOW = -90;
+
+    /**
+     * Segment South Unit
+     */
+    public static final String SEGMENT_SOUTH_UNIT = "S";
 
     /**
      * Constructor.
