@@ -43,6 +43,11 @@ public class Longitude extends AbstractGeoCoordinate{
     public static final double SEGMENT_EAST_LOW = 0;
 
     /**
+     * Segment East Unit
+     */
+    public static final String SEGMENT_EAST_UNIT = "E";
+
+    /**
      * Segment West
      */
     public static final int SEGMENT_WEST = 2;
@@ -56,6 +61,11 @@ public class Longitude extends AbstractGeoCoordinate{
      * Segment West lower limit
      */
     public static final double SEGMENT_WEST_LOW = -180;
+
+    /**
+     * Segment West Unit
+     */
+    public static final String SEGMENT_WEST_UNIT = "W";
 
     /**
      * Constructor.
