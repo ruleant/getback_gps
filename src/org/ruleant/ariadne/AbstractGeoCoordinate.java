@@ -73,8 +73,8 @@ public abstract class AbstractGeoCoordinate {
     /**
      * Check if submitted value is within the allowed range.
      *
-     * @param coordinate
-     * @return
+     * @param coordinate coordinate value
+     * @return true if coordinate is within range
      */
     private boolean checkRange(final double coordinate) {
         return (coordinate <= rangeHigh && coordinate >= rangeLow);
