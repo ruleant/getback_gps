@@ -75,7 +75,17 @@ public class Longitude extends AbstractGeoCoordinate{
      * @return segment code : SEGMENT_EAST or SEGMENT_WEST
      */
     public final int getSegment() {
-        return 0;
+        double coordinate = getValue();
+        int retVal = 0;
+
+        if (coordinate <= SEGMENT_EAST_HIGH && coordinate >= SEGMENT_EAST_LOW) {
+            retVal = SEGMENT_EAST;
+        }
+        if (coordinate < SEGMENT_WEST_HIGH && coordinate >= SEGMENT_WEST_LOW) {
+            retVal = SEGMENT_WEST;
+        }
+
+        return retVal;
     }
 
     /**
