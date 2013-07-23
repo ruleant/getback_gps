@@ -32,7 +32,7 @@ public abstract class AbstractGeoCoordinate {
     /**
      * Unformatted coordinate value.
      */
-    protected double value;
+    private double value;
 
     /**
      * Lower value of allowed value range.
@@ -86,7 +86,7 @@ public abstract class AbstractGeoCoordinate {
      * @return String formatted string
      */
     public String format() {
-        return Location.convert(value, Location.FORMAT_SECONDS).replaceFirst(":", "° ")
+        return Location.convert(getValue(), Location.FORMAT_SECONDS).replaceFirst(":", "° ")
                 .replace(":", "' ") + "\" " + getSegmentUnit();
     }
 
