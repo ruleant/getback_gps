@@ -129,4 +129,25 @@ public class LatitudeTest extends TestCase {
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
         assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
     }
+
+    /**
+     * Tests getConvertedValue.
+     */
+    public final void testGetConvertedValue() {
+        assertEquals(0.0, latitude.getConvertedValue());
+
+        latitude.setValue(VALID_COORDINATE);
+        assertEquals(VALID_COORDINATE, latitude.getConvertedValue());
+
+        latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
+        assertEquals(Latitude.SEGMENT_NORTH_HIGH, latitude.getConvertedValue());
+
+        latitude.setValue(-1 * VALID_COORDINATE);
+        assertEquals(VALID_COORDINATE, latitude.getConvertedValue());
+
+        latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
+        assertEquals(
+                Math.abs(Latitude.SEGMENT_SOUTH_LOW),
+                latitude.getConvertedValue());
+    }
 }
