@@ -143,6 +143,8 @@ public class Latitude extends AbstractGeoCoordinate {
                             .getString(R.string.latitude_south_unit);
                 }
                 break;
+            default:
+                break;
         }
         return unit;
     }

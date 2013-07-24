@@ -141,6 +141,8 @@ public class Longitude extends AbstractGeoCoordinate {
                             .getString(R.string.longitude_west_unit);
                 }
                 break;
+            default:
+                break;
         }
         return unit;
     }
