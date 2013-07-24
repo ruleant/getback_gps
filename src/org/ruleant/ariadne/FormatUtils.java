@@ -119,8 +119,25 @@ public class FormatUtils {
      * @return formatted speed with unit (km/h)
      */
     public static final String formatSpeed(double speed) {
-        // TODO use translated string
+        return formatSpeed(speed, null);
+    }
+
+    /**
+     * Formats a distance (in meter per second (m/s)) to a string,
+     * in kilometer per hour (km/h).
+     * The number format is localized and speed unit is translatable.
+     *
+     * @param speed speed in m/s
+     * @param context App context.
+     * @return formatted speed with unit (km/h)
+     */
+    public static final String formatSpeed(double speed, final Context context) {
         String unit = "km/h";
+
+        // if context is defined, use android string
+        if (context != null) {
+            unit = context.getResources().getString(R.string.speed_kph);
+        }
 
         // speed shouldn't be negative
         speed = Math.abs(speed);

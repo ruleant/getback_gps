@@ -118,7 +118,7 @@ public class AriadneLocation extends Location {
         if (hasSpeed()) {
             locationText += "\n "
                 + res.getString(R.string.speed) + ": "
-                + FormatUtils.formatSpeed(getSpeed());
+                + FormatUtils.formatSpeed(getSpeed(), context);
         }
         if (hasAccuracy()) {
             locationText += "\n "

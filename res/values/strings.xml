@@ -28,6 +28,7 @@
     <string name="longitude_west_unit">W</string>
     <string name="altitude">Altitude</string>
     <string name="speed">Speed</string>
+    <string name="speed_kph">km/h</string>
     <string name="bearing">Bearing</string>
     <string name="accuracy">Accuracy</string>
     <string name="timestamp">Timestamp</string>
