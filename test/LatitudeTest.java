@@ -110,4 +110,23 @@ public class LatitudeTest extends TestCase {
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
         assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
     }
+
+    /**
+     * Tests getSegmentUnit.
+     */
+    public final void testGetSegmentUnit() {
+        assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
+
+        latitude.setValue(VALID_COORDINATE);
+        assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
+
+        latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
+        assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
+
+        latitude.setValue(-1 * VALID_COORDINATE);
+        assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
+
+        latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
+        assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
+    }
 }
