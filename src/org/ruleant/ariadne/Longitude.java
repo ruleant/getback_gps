@@ -28,7 +28,7 @@ import android.content.Context;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class Longitude extends AbstractGeoCoordinate{
+public class Longitude extends AbstractGeoCoordinate {
     /**
      * Segment East
      */
@@ -125,7 +125,7 @@ public class Longitude extends AbstractGeoCoordinate{
         switch (getSegment()) {
             case SEGMENT_EAST :
                 // if context is defined, use android string
-                if(mContext == null) {
+                if (mContext == null) {
                     unit = SEGMENT_EAST_UNIT;
                 } else {
                     unit = mContext.getResources()
@@ -134,7 +134,7 @@ public class Longitude extends AbstractGeoCoordinate{
                 break;
             case SEGMENT_WEST :
                 // if context is defined, use android string
-                if(mContext == null) {
+                if (mContext == null) {
                     unit = SEGMENT_WEST_UNIT;
                 } else {
                     unit = mContext.getResources()
