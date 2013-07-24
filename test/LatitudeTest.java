@@ -45,19 +45,42 @@ public class LatitudeTest extends TestCase {
     /**
      * Tests empty value.
      */
-    /*public final void testNoValue() {
-        // TODO add Stub for Location.convert
-        assertNull(latitude.format());
-    }*/
+    public final void testNoValue() {
+        assertEquals(0.0, latitude.getValue());
+    }
 
     /**
      * Tests value.
      */
-    /*public final void testValue() {
-        // TODO add Stub for Location.convert
-        latitude.setValue(4);
-        assertEquals("4° 0' 0\" N", latitude.format());
-    }*/
+    public final void testValue() {
+        latitude.setValue(4.0);
+        assertEquals(4.0, latitude.getValue());
+
+        latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
+        assertEquals(90.0, latitude.getValue());
+    }
+
+    /**
+     * Tests negative value.
+     */
+    public final void testNegValue() {
+        latitude.setValue(-4.0);
+        assertEquals(-4.0, latitude.getValue());
+
+        latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
+        assertEquals(-90.0, latitude.getValue());
+    }
+
+    /**
+     * Tests out of range value.
+     */
+    public final void testOutOfRangeValue() {
+        latitude.setValue(100.0);
+        assertEquals(0.0, latitude.getValue());
+
+        latitude.setValue(-100.0);
+        assertEquals(0.0, latitude.getValue());
+    }
 
     /**
      * Tests getSegment.
@@ -68,7 +91,13 @@ public class LatitudeTest extends TestCase {
         latitude.setValue(4);
         assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
+        latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
+        assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
+
         latitude.setValue(-4);
+        assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
+
+        latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
         assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
     }
 }
