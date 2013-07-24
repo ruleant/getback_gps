@@ -104,10 +104,12 @@ public class Latitude extends AbstractGeoCoordinate {
         double coordinate = getValue();
         int retVal = 0;
 
-        if (coordinate <= SEGMENT_NORTH_HIGH && coordinate >= SEGMENT_NORTH_LOW) {
+        if (coordinate <= SEGMENT_NORTH_HIGH
+                && coordinate >= SEGMENT_NORTH_LOW) {
             retVal = SEGMENT_NORTH;
         }
-        if (coordinate < SEGMENT_SOUTH_HIGH && coordinate >= SEGMENT_SOUTH_LOW) {
+        if (coordinate < SEGMENT_SOUTH_HIGH
+                && coordinate >= SEGMENT_SOUTH_LOW) {
             retVal = SEGMENT_SOUTH;
         }
 

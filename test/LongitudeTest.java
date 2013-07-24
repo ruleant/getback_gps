@@ -156,7 +156,9 @@ public class LongitudeTest extends TestCase {
         assertEquals(VALID_COORDINATE, longitude.getConvertedValue());
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(Longitude.SEGMENT_EAST_HIGH, longitude.getConvertedValue());
+        assertEquals(
+                Longitude.SEGMENT_EAST_HIGH,
+                longitude.getConvertedValue());
 
         longitude.setValue(-1 * VALID_COORDINATE);
         assertEquals(VALID_COORDINATE, longitude.getConvertedValue());
