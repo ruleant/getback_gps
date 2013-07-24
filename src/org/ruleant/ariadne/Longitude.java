@@ -126,7 +126,7 @@ public class Longitude extends AbstractGeoCoordinate{
         double coordinate = getValue();
 
         if (getSegment() == SEGMENT_WEST) {
-            Math.abs(coordinate);
+            coordinate = Math.abs(coordinate);
         }
 
         return coordinate;
