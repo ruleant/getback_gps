@@ -72,7 +72,12 @@ public class Latitude extends AbstractGeoCoordinate{
      */
     public Latitude() {
         super();
+    }
 
+    /**
+     * Initialize coordinate value range.
+     */
+    protected final void init() {
         // set coordinate value range
         rangeLow = SEGMENT_SOUTH_LOW;
         rangeHigh = SEGMENT_NORTH_HIGH;

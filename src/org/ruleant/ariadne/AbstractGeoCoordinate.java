@@ -48,7 +48,13 @@ public abstract class AbstractGeoCoordinate {
      * Constructor.
      */
     public AbstractGeoCoordinate() {
+        init();
     }
+
+    /**
+     * Initialize coordinate value range.
+     */
+    protected abstract void init();
 
     /**
      * Set unformatted value.
