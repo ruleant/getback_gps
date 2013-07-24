@@ -21,6 +21,8 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Context;
+
 /**
  * Class for formatting longitude.
  *
@@ -75,6 +77,15 @@ public class Longitude extends AbstractGeoCoordinate{
     }
 
     /**
+     * Constructor.
+     *
+     * @param context App Context.
+     */
+    public Longitude(Context context) {
+        super(context);
+    }
+
+    /**
      * Initialize coordinate value range.
      */
     protected final void init() {
@@ -113,10 +124,22 @@ public class Longitude extends AbstractGeoCoordinate{
 
         switch (getSegment()) {
             case SEGMENT_EAST :
-                unit = SEGMENT_EAST_UNIT;
+                // if context is defined, use android string
+                if(mContext == null) {
+                    unit = SEGMENT_EAST_UNIT;
+                } else {
+                    unit = mContext.getResources()
+                            .getString(R.string.longitude_east_unit);
+                }
                 break;
             case SEGMENT_WEST :
-                unit = SEGMENT_WEST_UNIT;
+                // if context is defined, use android string
+                if(mContext == null) {
+                    unit = SEGMENT_WEST_UNIT;
+                } else {
+                    unit = mContext.getResources()
+                            .getString(R.string.longitude_west_unit);
+                }
                 break;
         }
         return unit;

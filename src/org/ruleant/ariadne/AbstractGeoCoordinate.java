@@ -21,6 +21,7 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Context;
 import android.location.Location;
 
 /**
@@ -33,6 +34,11 @@ public abstract class AbstractGeoCoordinate {
      * Unformatted coordinate value.
      */
     private double value;
+
+    /**
+     * Context of App.
+     */
+    protected Context mContext = null;
 
     /**
      * Lower value of allowed value range.
@@ -48,6 +54,16 @@ public abstract class AbstractGeoCoordinate {
      * Constructor.
      */
     public AbstractGeoCoordinate() {
+        init();
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param context App Context.
+     */
+    public AbstractGeoCoordinate(Context context) {
+        mContext = context;
         init();
     }
 

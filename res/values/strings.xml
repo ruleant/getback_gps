@@ -21,7 +21,11 @@
     <string name="store_location_disabled">Unable to store location if there is no current location</string>
     <string name="dialog_store_location">Do you want to store your current location?</string>
     <string name="latitude">Latitude</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
     <string name="longitude">Longitude</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">W</string>
     <string name="altitude">Altitude</string>
     <string name="speed">Speed</string>
     <string name="bearing">Bearing</string>

@@ -21,6 +21,8 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Context;
+
 /**
  * Class for formatting latitude.
  *
@@ -75,6 +77,15 @@ public class Latitude extends AbstractGeoCoordinate{
     }
 
     /**
+     * Constructor.
+     *
+     * @param context App Context.
+     */
+    public Latitude(Context context) {
+        super(context);
+    }
+
+    /**
      * Initialize coordinate value range.
      */
     protected final void init() {
@@ -113,10 +124,22 @@ public class Latitude extends AbstractGeoCoordinate{
 
         switch (getSegment()) {
             case SEGMENT_NORTH :
-                unit = SEGMENT_NORTH_UNIT;
+                // if context is defined, use android string
+                if(mContext == null) {
+                    unit = SEGMENT_NORTH_UNIT;
+                } else {
+                    unit = mContext.getResources()
+                            .getString(R.string.latitude_north_unit);
+                }
                 break;
             case SEGMENT_SOUTH :
-                unit = SEGMENT_SOUTH_UNIT;
+                // if context is defined, use android string
+                if(mContext == null) {
+                    unit = SEGMENT_SOUTH_UNIT;
+                } else {
+                    unit = mContext.getResources()
+                            .getString(R.string.latitude_south_unit);
+                }
                 break;
         }
         return unit;
