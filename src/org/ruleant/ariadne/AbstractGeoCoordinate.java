@@ -54,10 +54,14 @@ public abstract class AbstractGeoCoordinate {
      * Set unformatted value.
      *
      * @param newValue New value for unformatted value.
+     * @throws IllegalArgumentException if new value is out of range.
      */
     public final void setValue(final double newValue) {
         if (checkRange(newValue)) {
             value = newValue;
+        } else {
+            throw new IllegalArgumentException(
+                "newValue is not in range " + rangeLow + " .. " + rangeHigh);
         }
     }
 
