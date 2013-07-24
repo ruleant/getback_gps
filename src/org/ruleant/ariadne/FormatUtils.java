@@ -40,6 +40,11 @@ import android.content.res.Resources.NotFoundException;
  */
 public class FormatUtils {
     /**
+     * Speed unit : km/h.
+     */
+    public static final String SPEED_KPH = "km/h";
+
+    /**
      * Conversion rate from m/s to km/h.
      */
     public static final double SPEED_CONV_MPS_KPH = 3.6; // 3600s/1000m
@@ -132,7 +137,7 @@ public class FormatUtils {
      * @return formatted speed with unit (km/h)
      */
     public static final String formatSpeed(double speed, final Context context) {
-        String unit = "km/h";
+        String unit = SPEED_KPH;
 
         // if context is defined, use android string
         if (context != null) {
