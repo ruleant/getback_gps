@@ -123,7 +123,7 @@ public class FormatUtils {
      * @param speed speed in m/s
      * @return formatted speed with unit (km/h)
      */
-    public static final String formatSpeed(double speed) {
+    public static final String formatSpeed(final double speed) {
         return formatSpeed(speed, null);
     }
 
@@ -136,7 +136,7 @@ public class FormatUtils {
      * @param context App context.
      * @return formatted speed with unit (km/h)
      */
-    public static final String formatSpeed(double speed, final Context context) {
+    public static final String formatSpeed(final double speed, final Context context) {
         String unit = SPEED_KPH;
 
         // if context is defined, use android string
@@ -144,11 +144,8 @@ public class FormatUtils {
             unit = context.getResources().getString(R.string.speed_kph);
         }
 
-        // speed shouldn't be negative
-        speed = Math.abs(speed);
-
-        // conversion
-        double convertedSpeed = speed * SPEED_CONV_MPS_KPH;
+        // speed shouldn't be negative, conversion to kph
+        double convertedSpeed = Math.abs(speed) * SPEED_CONV_MPS_KPH;
 
         // formatting
         if (convertedSpeed < ONE_DEC) {
