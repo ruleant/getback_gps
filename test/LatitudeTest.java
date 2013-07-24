@@ -35,6 +35,16 @@ public class LatitudeTest extends TestCase {
     private Latitude latitude;
 
     /**
+     * Valid coordinate value : 4°.
+     */
+    private static final double VALID_COORDINATE = 4.0;
+
+    /**
+     * Out of range coordinate value: 100°.
+     */
+    private static final double OUT_OF_RANGE = 100.0;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -53,32 +63,32 @@ public class LatitudeTest extends TestCase {
      * Tests value.
      */
     public final void testValue() {
-        latitude.setValue(4.0);
-        assertEquals(4.0, latitude.getValue());
+        latitude.setValue(VALID_COORDINATE);
+        assertEquals(VALID_COORDINATE, latitude.getValue());
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(90.0, latitude.getValue());
+        assertEquals(Latitude.SEGMENT_NORTH_HIGH, latitude.getValue());
     }
 
     /**
      * Tests negative value.
      */
     public final void testNegValue() {
-        latitude.setValue(-4.0);
-        assertEquals(-4.0, latitude.getValue());
+        latitude.setValue(-1.0 * VALID_COORDINATE);
+        assertEquals(-1.0 * VALID_COORDINATE, latitude.getValue());
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
-        assertEquals(-90.0, latitude.getValue());
+        assertEquals(Latitude.SEGMENT_SOUTH_LOW, latitude.getValue());
     }
 
     /**
      * Tests out of range value.
      */
     public final void testOutOfRangeValue() {
-        latitude.setValue(100.0);
+        latitude.setValue(OUT_OF_RANGE);
         assertEquals(0.0, latitude.getValue());
 
-        latitude.setValue(-100.0);
+        latitude.setValue(-1 * OUT_OF_RANGE);
         assertEquals(0.0, latitude.getValue());
     }
 
@@ -88,13 +98,13 @@ public class LatitudeTest extends TestCase {
     public final void testGetSegment() {
         assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
-        latitude.setValue(4);
+        latitude.setValue(VALID_COORDINATE);
         assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
         assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
-        latitude.setValue(-4);
+        latitude.setValue(-1 * VALID_COORDINATE);
         assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
