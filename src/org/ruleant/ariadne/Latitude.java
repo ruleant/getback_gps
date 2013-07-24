@@ -126,7 +126,7 @@ public class Latitude extends AbstractGeoCoordinate{
         double coordinate = getValue();
 
         if (getSegment() == SEGMENT_SOUTH) {
-            Math.abs(coordinate);
+            coordinate = Math.abs(coordinate);
         }
 
         return coordinate;
