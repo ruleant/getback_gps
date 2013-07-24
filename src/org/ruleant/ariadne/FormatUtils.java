@@ -136,7 +136,8 @@ public class FormatUtils {
      * @param context App context.
      * @return formatted speed with unit (km/h)
      */
-    public static final String formatSpeed(final double speed, final Context context) {
+    public static final String formatSpeed(final double speed,
+                                           final Context context) {
         String unit = SPEED_KPH;
 
         // if context is defined, use android string
