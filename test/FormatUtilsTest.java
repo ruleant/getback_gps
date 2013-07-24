@@ -295,12 +295,24 @@ public class FormatUtilsTest extends TestCase {
      * Locale en_US is assumed.
      */
     public final void testFormatSpeedMain() {
-        assertEquals("3.6km/h", FormatUtils.formatSpeed(MPS_3P6KPH));
-        assertEquals("7.2km/h", FormatUtils.formatSpeed(MPS_7P2KPH));
-        assertEquals("9.9km/h", FormatUtils.formatSpeed(MPS_9P9KPH));
-        assertEquals("10km/h", FormatUtils.formatSpeed(MPS_10KPH));
-        assertEquals("14km/h", FormatUtils.formatSpeed(MPS_14P4KPH));
-        assertEquals("1,234km/h", FormatUtils.formatSpeed(MPS_1234KPH));
+        assertEquals(
+                "3.6" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_3P6KPH));
+        assertEquals(
+                "7.2" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_7P2KPH));
+        assertEquals(
+                "9.9" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_9P9KPH));
+        assertEquals(
+                "10" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_10KPH));
+        assertEquals(
+                "14" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_14P4KPH));
+        assertEquals(
+                "1,234" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_1234KPH));
     }
 
     /**
@@ -321,13 +333,21 @@ public class FormatUtilsTest extends TestCase {
      */
     public final void testFormatSpeedRound() {
         // 2.06389m/s = 7.43 km/h => 7.4 km/h
-        assertEquals("7.4km/h", FormatUtils.formatSpeed(MPS_7P43KPH));
+        assertEquals(
+                "7.4" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_7P43KPH));
         // 2.0778m/s = 7.48 km/h => 7.5 km/h
-        assertEquals("7.5km/h", FormatUtils.formatSpeed(MPS_7P48KPH));
+        assertEquals(
+                "7.5" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_7P48KPH));
         // 3.0m/s = 10.8 km/h => 11 km/h
-        assertEquals("11km/h", FormatUtils.formatSpeed(MPS_10P8KPH));
+        assertEquals(
+                "11" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_10P8KPH));
         // 4.0m/s = 14.4 km/h => 14 km/h
-        assertEquals("14km/h", FormatUtils.formatSpeed(MPS_14P4KPH));
+        assertEquals(
+                "14" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(MPS_14P4KPH));
     }
 
     /**
@@ -335,8 +355,12 @@ public class FormatUtilsTest extends TestCase {
      * even if the speed argument is negative.
      */
     public final void testFormatSpeedNeg() {
-        assertEquals("3.6km/h", FormatUtils.formatSpeed(-1.0 * MPS_3P6KPH));
-        assertEquals("14km/h", FormatUtils.formatSpeed(-1.0 * MPS_14P4KPH));
+        assertEquals(
+                "3.6" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(-1.0 * MPS_3P6KPH));
+        assertEquals(
+                "14" + FormatUtils.SPEED_KPH,
+                FormatUtils.formatSpeed(-1.0 * MPS_14P4KPH));
     }
 
     /**
