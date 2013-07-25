@@ -65,4 +65,9 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
         <item quantity="one">%d minuut</item>
         <item quantity="other">%d minuten</item>
     </plurals>
+    <string name="latitude_north_unit">N.B.</string>
+    <string name="latitude_south_unit">Z.B.</string>
+    <string name="longitude_east_unit">O.L.</string>
+    <string name="longitude_west_unit">W.L.</string>
+    <string name="speed_kph">km/u</string>
     </resources>
