@@ -43,12 +43,12 @@ public abstract class AbstractGeoCoordinate {
     /**
      * Lower value of allowed value range.
      */
-    protected double rangeLow;
+    private double mRangeLow;
 
     /**
      * Higher value of allowed value range.
      */
-    protected double rangeHigh;
+    private double mRangeHigh;
 
     /**
      * Constructor.
@@ -73,6 +73,17 @@ public abstract class AbstractGeoCoordinate {
     protected abstract void init();
 
     /**
+     * set coordinate value range.
+     *
+     * @param rangeLow Lower limit of allowed range
+     * @param rangeHigh Higher limit of allowed range
+     */
+    protected void setRange(final double rangeLow, final double rangeHigh) {
+        mRangeLow = rangeLow;
+        mRangeHigh = rangeHigh;
+    }
+
+    /**
      * Set unformatted value.
      *
      * @param newValue New value for unformatted value.
@@ -83,7 +94,7 @@ public abstract class AbstractGeoCoordinate {
             value = newValue;
         } else {
             throw new IllegalArgumentException(
-                "newValue is not in range " + rangeLow + " .. " + rangeHigh);
+                "newValue is not in range " + mRangeLow + " .. " + mRangeHigh);
         }
     }
 
@@ -123,7 +134,7 @@ public abstract class AbstractGeoCoordinate {
      * @return true if coordinate is within range
      */
     private boolean checkRange(final double coordinate) {
-        return (coordinate <= rangeHigh && coordinate >= rangeLow);
+        return (coordinate <= mRangeHigh && coordinate >= mRangeLow);
     }
 
     /**

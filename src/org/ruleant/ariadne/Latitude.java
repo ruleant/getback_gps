@@ -90,8 +90,7 @@ public class Latitude extends AbstractGeoCoordinate {
      */
     protected final void init() {
         // set coordinate value range
-        rangeLow = SEGMENT_SOUTH_LOW;
-        rangeHigh = SEGMENT_NORTH_HIGH;
+        setRange(SEGMENT_SOUTH_LOW, SEGMENT_NORTH_HIGH);
     }
 
     /**

@@ -90,8 +90,7 @@ public class Longitude extends AbstractGeoCoordinate {
      */
     protected final void init() {
         // set coordinate value range
-        rangeLow = SEGMENT_WEST_LOW;
-        rangeHigh = SEGMENT_EAST_HIGH;
+        setRange(SEGMENT_WEST_LOW, SEGMENT_EAST_HIGH);
     }
 
     /**
