@@ -81,7 +81,7 @@ public class Longitude extends AbstractGeoCoordinate {
      *
      * @param context App Context.
      */
-    public Longitude(Context context) {
+    public Longitude(final Context context) {
         super(context);
     }
 
