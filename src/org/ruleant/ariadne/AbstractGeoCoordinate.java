@@ -36,9 +36,9 @@ public abstract class AbstractGeoCoordinate {
     private double value;
 
     /**
-     * Context of App.
+     * Current context.
      */
-    protected Context mContext = null;
+    private Context mContext = null;
 
     /**
      * Lower value of allowed value range.
@@ -63,7 +63,7 @@ public abstract class AbstractGeoCoordinate {
      * @param context App Context.
      */
     public AbstractGeoCoordinate(Context context) {
-        mContext = context;
+        setContext(context);
         init();
     }
 
@@ -94,6 +94,26 @@ public abstract class AbstractGeoCoordinate {
      */
     public final double getValue() {
         return value;
+    }
+
+    /**
+     * Set current context.
+     *
+     * @param context Current context
+     */
+    public final void setContext(final Context context) {
+        if (context != null) {
+            mContext = context;
+        }
+    }
+
+    /**
+     * Get current context.
+     *
+     * @return Current context
+     */
+    protected final Context getContext() {
+        return mContext;
     }
 
     /**

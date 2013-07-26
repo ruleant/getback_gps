@@ -123,23 +123,24 @@ public class Latitude extends AbstractGeoCoordinate {
      */
     public final String getSegmentUnit() {
         String unit = null;
+        Context context = getContext();
 
         switch (getSegment()) {
             case SEGMENT_NORTH :
                 // if context is defined, use android string
-                if (mContext == null) {
+                if (context == null) {
                     unit = SEGMENT_NORTH_UNIT;
                 } else {
-                    unit = mContext.getResources()
+                    unit = context.getResources()
                             .getString(R.string.latitude_north_unit);
                 }
                 break;
             case SEGMENT_SOUTH :
                 // if context is defined, use android string
-                if (mContext == null) {
+                if (context == null) {
                     unit = SEGMENT_SOUTH_UNIT;
                 } else {
-                    unit = mContext.getResources()
+                    unit = context.getResources()
                             .getString(R.string.latitude_south_unit);
                 }
                 break;

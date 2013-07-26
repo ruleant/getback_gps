@@ -121,23 +121,24 @@ public class Longitude extends AbstractGeoCoordinate {
      */
     public final String getSegmentUnit() {
         String unit = null;
+        Context context = getContext();
 
         switch (getSegment()) {
             case SEGMENT_EAST :
                 // if context is defined, use android string
-                if (mContext == null) {
+                if (context == null) {
                     unit = SEGMENT_EAST_UNIT;
                 } else {
-                    unit = mContext.getResources()
+                    unit = context.getResources()
                             .getString(R.string.longitude_east_unit);
                 }
                 break;
             case SEGMENT_WEST :
                 // if context is defined, use android string
-                if (mContext == null) {
+                if (context == null) {
                     unit = SEGMENT_WEST_UNIT;
                 } else {
-                    unit = mContext.getResources()
+                    unit = context.getResources()
                             .getString(R.string.longitude_west_unit);
                 }
                 break;
