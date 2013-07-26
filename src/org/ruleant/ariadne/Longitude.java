@@ -30,42 +30,42 @@ import android.content.Context;
  */
 public class Longitude extends AbstractGeoCoordinate {
     /**
-     * Segment East
+     * Segment East.
      */
     public static final int SEGMENT_EAST = 1;
 
     /**
-     * Segment East upper limit
+     * Segment East upper limit.
      */
     public static final double SEGMENT_EAST_HIGH = 180;
 
     /**
-     * Segment East lower limit
+     * Segment East lower limit.
      */
     public static final double SEGMENT_EAST_LOW = 0;
 
     /**
-     * Segment East Unit
+     * Segment East Unit.
      */
     public static final String SEGMENT_EAST_UNIT = "E";
 
     /**
-     * Segment West
+     * Segment West.
      */
     public static final int SEGMENT_WEST = 2;
 
     /**
-     * Segment West upper limit
+     * Segment West upper limit.
      */
     public static final double SEGMENT_WEST_HIGH = 0;
 
     /**
-     * Segment West lower limit
+     * Segment West lower limit.
      */
     public static final double SEGMENT_WEST_LOW = -180;
 
     /**
-     * Segment West Unit
+     * Segment West Unit.
      */
     public static final String SEGMENT_WEST_UNIT = "W";
 

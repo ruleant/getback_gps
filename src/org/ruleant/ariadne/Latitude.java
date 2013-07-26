@@ -30,42 +30,42 @@ import android.content.Context;
  */
 public class Latitude extends AbstractGeoCoordinate {
     /**
-     * Segment North
+     * Segment North.
      */
     public static final int SEGMENT_NORTH = 1;
 
     /**
-     * Segment North upper limit
+     * Segment North upper limit.
      */
     public static final double SEGMENT_NORTH_HIGH = 90;
 
     /**
-     * Segment North lower limit
+     * Segment North lower limit.
      */
     public static final double SEGMENT_NORTH_LOW = 0;
 
     /**
-     * Segment North Unit
+     * Segment North Unit.
      */
     public static final String SEGMENT_NORTH_UNIT = "N";
 
     /**
-     * Segment South
+     * Segment South.
      */
     public static final int SEGMENT_SOUTH = 2;
 
     /**
-     * Segment South upper limit
+     * Segment South upper limit.
      */
     public static final double SEGMENT_SOUTH_HIGH = 0;
 
     /**
-     * Segment South lower limit
+     * Segment South lower limit.
      */
     public static final double SEGMENT_SOUTH_LOW = -90;
 
     /**
-     * Segment South Unit
+     * Segment South Unit.
      */
     public static final String SEGMENT_SOUTH_UNIT = "S";
 

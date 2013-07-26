@@ -73,7 +73,7 @@ public abstract class AbstractGeoCoordinate {
     protected abstract void init();
 
     /**
-     * set coordinate value range.
+     * Set coordinate value range.
      *
      * @param rangeLow Lower limit of allowed range
      * @param rangeHigh Higher limit of allowed range
@@ -156,7 +156,7 @@ public abstract class AbstractGeoCoordinate {
     }
 
     /**
-     * Determine value segment
+     * Determine value segment.
      *
      * @return segment code
      */
