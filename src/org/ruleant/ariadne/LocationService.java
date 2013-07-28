@@ -346,7 +346,7 @@ public class LocationService extends Service {
     /**
      * Get bearing to stored location.
      *
-     * @return float distance in meters
+     * @return direction in ° relative to current bearing
      */
     public double getDirection() {
         // don't calculate bearing if current location is not set
