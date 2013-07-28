@@ -181,7 +181,7 @@ public abstract class AbstractAriadneActivity extends Activity {
 
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
-         MenuItem mi = (MenuItem) menu.findItem(R.id.menu_storelocation);
+         MenuItem mi = menu.findItem(R.id.menu_storelocation);
          if (mBound) {
              // enable store location button if a location is set
              mi.setEnabled(mService.getLocation() != null);
