@@ -62,7 +62,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @param context App Context.
      */
-    public AbstractGeoCoordinate(Context context) {
+    public AbstractGeoCoordinate(final Context context) {
         setContext(context);
         init();
     }
