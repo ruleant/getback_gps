@@ -52,19 +52,24 @@ public abstract class AbstractGeoCoordinate {
 
     /**
      * Constructor.
+     *
+     * @param newValue New value for unformatted value.
      */
-    public AbstractGeoCoordinate() {
+    public AbstractGeoCoordinate(final double newValue) {
         init();
+        setValue(newValue);
     }
 
     /**
      * Constructor.
      *
      * @param context App Context.
+     * @param newValue New value for unformatted value.
      */
-    public AbstractGeoCoordinate(final Context context) {
+    public AbstractGeoCoordinate(final Context context, final double newValue) {
         setContext(context);
         init();
+        setValue(newValue);
     }
 
     /**

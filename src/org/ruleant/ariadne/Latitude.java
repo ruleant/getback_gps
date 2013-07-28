@@ -71,18 +71,21 @@ public class Latitude extends AbstractGeoCoordinate {
 
     /**
      * Constructor.
+     *
+     * @param newValue New value for unformatted value.
      */
-    public Latitude() {
-        super();
+    public Latitude(final double newValue) {
+        super(newValue);
     }
 
     /**
      * Constructor.
      *
      * @param context App Context.
+     * @param newValue New value for unformatted value.
      */
-    public Latitude(final Context context) {
-        super(context);
+    public Latitude(final Context context, final double newValue) {
+        super(context, newValue);
     }
 
     /**

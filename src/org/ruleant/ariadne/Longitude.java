@@ -71,18 +71,21 @@ public class Longitude extends AbstractGeoCoordinate {
 
     /**
      * Constructor.
+     *
+     * @param newValue New value for unformatted value.
      */
-    public Longitude() {
-        super();
+    public Longitude(final double newValue) {
+        super(newValue);
     }
 
     /**
      * Constructor.
      *
      * @param context App Context.
+     * @param newValue New value for unformatted value.
      */
-    public Longitude(final Context context) {
-        super(context);
+    public Longitude(final Context context, final double newValue) {
+        super(context, newValue);
     }
 
     /**

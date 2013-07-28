@@ -95,13 +95,11 @@ public class AriadneLocation extends Location {
         String locationText = "";
 
         // Format location
-        Latitude latitude = new Latitude(context);
-        latitude.setValue(getLatitude());
+        Latitude latitude = new Latitude(context, getLatitude());
         locationText += " "
             + res.getString(R.string.latitude) + ": " + latitude.format();
 
-        Longitude longitude = new Longitude(context);
-        longitude.setValue(getLongitude());
+        Longitude longitude = new Longitude(context, getLongitude());
         locationText += "\n "
             + res.getString(R.string.longitude) + ": " + longitude.format();
 

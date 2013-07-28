@@ -49,7 +49,7 @@ public class LatitudeTest extends TestCase {
      * (Called before every test case method.)
      */
     protected final void setUp() {
-        latitude = new Latitude();
+        latitude = new Latitude(0.0);
     }
 
     /**

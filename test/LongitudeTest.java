@@ -49,7 +49,7 @@ public class LongitudeTest extends TestCase {
      * (Called before every test case method.)
      */
     protected final void setUp() {
-        longitude = new Longitude();
+        longitude = new Longitude(0.0);
     }
 
     /**
