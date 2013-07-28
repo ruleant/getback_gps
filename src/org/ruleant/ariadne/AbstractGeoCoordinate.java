@@ -83,7 +83,7 @@ public abstract class AbstractGeoCoordinate {
      * @param rangeLow Lower limit of allowed range
      * @param rangeHigh Higher limit of allowed range
      */
-    protected void setRange(final double rangeLow, final double rangeHigh) {
+    protected final void setRange(final double rangeLow, final double rangeHigh) {
         mRangeLow = rangeLow;
         mRangeHigh = rangeHigh;
     }
@@ -155,7 +155,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @return String formatted string
      */
-    public String format() {
+    public final String format() {
         return Location.convert(getConvertedValue(), Location.FORMAT_SECONDS)
                 .replaceFirst(":", "° ").replace(":", "' ") + "\" "
                 + getSegmentUnit();
