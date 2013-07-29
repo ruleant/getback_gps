@@ -229,7 +229,8 @@ public class LocationService extends Service {
         if (location == null
                 || (mCurrentLocation != null
                 && ((location.getTime() == mCurrentLocation.getTime()
-                && location.getProvider().equals(mCurrentLocation.getProvider()))
+                && location.getProvider()
+                    .equals(mCurrentLocation.getProvider()))
                 || !mCurrentLocation.isNewer(location)))
                 ) {
             return;
