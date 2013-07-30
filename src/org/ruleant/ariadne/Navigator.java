@@ -22,6 +22,7 @@
 package org.ruleant.ariadne;
 
 import android.content.Context;
+import android.location.Location;
 
 /**
  * Class with several methods useful for navigation.
@@ -82,6 +83,54 @@ public class Navigator {
      */
     protected final Context getContext() {
         return mContext;
+    }
+
+    /**
+     * Set Location.
+     *
+     * @param location New location
+     */
+    public void setLocation(final Location location) {
+        if (location != null) {
+            setLocation(new AriadneLocation(location));
+        }
+    }
+
+    /**
+     * Set Location.
+     *
+     * @param location New Location (AriadneLocation object)
+     */
+    public void setLocation(final AriadneLocation location) {
+        // don't update location if no location is provided,
+        // or if new location is the same as the previous one
+        // or if the new location is not more recent than the current one
+        if (location == null
+                || (mCurrentLocation != null
+                && ((location.getTime() == mCurrentLocation.getTime()
+                && location.getProvider()
+                .equals(mCurrentLocation.getProvider()))
+                || !mCurrentLocation.isNewer(location)))
+                ) {
+            return;
+        }
+
+        // save current location
+        mLastLocation.setLocation(location);
+
+        mPreviousLocation = mCurrentLocation;
+        mCurrentLocation = location;
+    }
+
+    /**
+     * Retrieve Location.
+     *
+     * Get last known location
+     *
+     * @return Location
+     */
+    public AriadneLocation getLocation() {
+        return mCurrentLocation;
     }
 
     /**
