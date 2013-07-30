@@ -21,12 +21,49 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Context;
+
 /**
  * Class with several methods useful for navigation.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Navigator {
+    /**
+     * SharedPreferences location for StoredDestination.
+     */
+    public static final String PREFS_STORE_DEST = "stored_destination";
+
+    /**
+     * SharedPreferences location for last known good location.
+     */
+    public static final String PREFS_LAST_LOC = "last_location";
+
+    /**
+     * Current context.
+     */
+    private Context mContext = null;
+
+    /**
+     * Current Location.
+     */
+    private AriadneLocation mCurrentLocation = null;
+
+    /**
+     * Previous Location.
+     */
+    private AriadneLocation mPreviousLocation = null;
+
+    /**
+     * Last known good location.
+     */
+    private StoredLocation mLastLocation = null;
+
+    /**
+     * Current destination.
+     */
+    private StoredDestination mDestination;
+
     /**
      * Calculate distance to current destination.
      *
