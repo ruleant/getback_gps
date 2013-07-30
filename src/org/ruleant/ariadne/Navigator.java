@@ -65,6 +65,26 @@ public class Navigator {
     private StoredDestination mDestination;
 
     /**
+     * Set current context.
+     *
+     * @param context Current context
+     */
+    public final void setContext(final Context context) {
+        if (context != null) {
+            mContext = context;
+        }
+    }
+
+    /**
+     * Get current context.
+     *
+     * @return Current context
+     */
+    protected final Context getContext() {
+        return mContext;
+    }
+
+    /**
      * Calculate distance to current destination.
      *
      * @return distance in meters
