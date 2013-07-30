@@ -66,6 +66,24 @@ public class Navigator {
     private StoredDestination mDestination;
 
     /**
+     * Constructor.
+     *
+     * @param context App context
+     */
+    public Navigator(Context context) {
+        setContext(context);
+
+        // retrieve last known good location
+        mLastLocation = new StoredLocation(
+                getContext(), PREFS_LAST_LOC);
+        setLocation(mLastLocation.getLocation());
+
+        // retrieve stored destination
+        mDestination = new StoredDestination(
+                getContext(), PREFS_STORE_DEST);
+    }
+
+    /**
      * Set current context.
      *
      * @param context Current context
