@@ -81,21 +81,13 @@ public class LocationService extends Service {
      */
     private String mProviderName = "";
     /**
-     * Current Location.
+     * Navigator.
      */
-    private AriadneLocation mCurrentLocation = null;
-    /**
-     * Previous Location.
-     */
-    private AriadneLocation mPreviousLocation = null;
+    private Navigator mNavigator = null;
     /**
      * Last known good location.
      */
     private StoredLocation mLastLocation = null;
-    /**
-     * Current destination.
-     */
-    private StoredDestination mDestination;
 
     @Override
     public void onCreate() {
@@ -110,14 +102,12 @@ public class LocationService extends Service {
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
 
+        mNavigator = new Navigator(this);
+
         // retrieve last known good location
         mLastLocation = new StoredLocation(
                 this.getApplicationContext(), PREFS_LAST_LOC);
         setLocation(mLastLocation.getLocation());
-
-        // retrieve stored destination
-        mDestination = new StoredDestination(
-                this.getApplicationContext(), PREFS_STORE_DEST);
 
         // mProviderName is set by updateLocationProvider
         updateLocationProvider();
@@ -139,15 +129,12 @@ public class LocationService extends Service {
 
         // save stored locations
         mLastLocation.save();
-        mDestination.save();
 
         // cleanup class properties
-        mCurrentLocation = null;
-        mPreviousLocation = null;
         mProviderName = "";
         mLocationManager = null;
         mLastLocation = null;
-        mDestination = null;
+        mNavigator = null;
 
         // display message announcing end of service
         if ((mDebug != null)
@@ -223,24 +210,25 @@ public class LocationService extends Service {
      * @param location New Location (AriadneLocation object)
      */
     public void setLocation(final AriadneLocation location) {
+        AriadneLocation currentLocation = getLocation();
+
         // don't update location if no location is provided,
         // or if new location is the same as the previous one
         // or if the new location is not more recent than the current one
         if (location == null
-                || (mCurrentLocation != null
-                && ((location.getTime() == mCurrentLocation.getTime()
+                || (currentLocation != null
+                && ((location.getTime() == currentLocation.getTime()
                 && location.getProvider()
-                    .equals(mCurrentLocation.getProvider()))
-                || !mCurrentLocation.isNewer(location)))
+                    .equals(currentLocation.getProvider()))
+                || !currentLocation.isNewer(location)))
                 ) {
             return;
         }
 
+        mNavigator.setLocation(location);
+
         // save current location
         mLastLocation.setLocation(location);
-
-        mPreviousLocation = mCurrentLocation;
-        mCurrentLocation = location;
 
         // display message on update
         if ((mDebug != null)
@@ -262,7 +250,7 @@ public class LocationService extends Service {
      * @return Location
      */
     public AriadneLocation getLocation() {
-        return mCurrentLocation;
+        return mNavigator.getLocation();
     }
 
     /**
@@ -298,16 +286,18 @@ public class LocationService extends Service {
         // don't wait for listener update
         setLocation(mLocationManager.getLastKnownLocation(mProviderName));
 
-        return mCurrentLocation;
+        return getLocation();
     }
 
     /**
      * Store current location.
      */
     public void storeCurrentLocation() {
+        AriadneLocation currentLocation = getLocation();
+
         // don't store current location if it is not set
-        if (mCurrentLocation != null) {
-            mDestination.setLocation(mCurrentLocation);
+        if (currentLocation != null) {
+            mNavigator.setDestination(currentLocation);
             Toast.makeText(
                     this,
                     R.string.location_stored,
@@ -328,7 +318,7 @@ public class LocationService extends Service {
      * @return Location
      */
     public Location getDestination() {
-        return mDestination.getLocation();
+        return mNavigator.getDestination();
     }
 
     /**
@@ -337,11 +327,7 @@ public class LocationService extends Service {
      * @return float distance in meters
      */
     public float getDistance() {
-        // don't calculate distance if current location is not set
-        if (mCurrentLocation == null) {
-            return 0;
-        }
-        return mCurrentLocation.distanceTo(getDestination());
+        return mNavigator.getDistance();
     }
 
     /**
@@ -350,24 +336,7 @@ public class LocationService extends Service {
      * @return direction in ° relative to current bearing
      */
     public double getDirection() {
-        // don't calculate bearing if current location is not set
-        // TODO or if bearing is unknown/unreliable (prev. loc = curr. loc.)
-        if (mCurrentLocation == null) {
-            return 0.0;
-        }
-        double relativeBearing = mCurrentLocation.bearingTo(getDestination());
-        double currentBearing = 0.0;
-        if (mCurrentLocation.hasBearing()) {
-            currentBearing = mCurrentLocation.getBearing();
-        } else {
-            // don't calculate current bearing if previous location is not set
-            // current location was checked earlier
-            if (mPreviousLocation != null) {
-                currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
-            }
-        }
-
-        return FormatUtils.normalizeAngle(relativeBearing - currentBearing);
+        return mNavigator.getRelativeDirection();
     }
 
     /**
