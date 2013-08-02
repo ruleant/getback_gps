@@ -31,11 +31,6 @@ import android.location.Location;
  */
 public class Navigator {
     /**
-     * Current context.
-     */
-    private Context mContext = null;
-
-    /**
      * Current Location.
      */
     private AriadneLocation mCurrentLocation = null;
@@ -52,31 +47,8 @@ public class Navigator {
 
     /**
      * Constructor.
-     *
-     * @param context App context
      */
-    public Navigator(Context context) {
-        setContext(context);
-    }
-
-    /**
-     * Set current context.
-     *
-     * @param context Current context
-     */
-    public final void setContext(final Context context) {
-        if (context != null) {
-            mContext = context;
-        }
-    }
-
-    /**
-     * Get current context.
-     *
-     * @return Current context
-     */
-    protected final Context getContext() {
-        return mContext;
+    public Navigator() {
     }
 
     /**

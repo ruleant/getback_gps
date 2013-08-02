@@ -106,7 +106,7 @@ public class LocationService extends Service {
             = (LocationManager)
             this.getSystemService(Context.LOCATION_SERVICE);
 
-        mNavigator = new Navigator(this);
+        mNavigator = new Navigator();
 
         // retrieve last known good location
         mLastLocation = new StoredLocation(
