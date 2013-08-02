@@ -139,7 +139,13 @@ public class Navigator {
      * @return direction in ° relative to the North
      */
     public double getAbsoluteDirection() {
-        return 0;
+        Location destination = getDestination();
+
+        // don't calculate direction if current location is not set
+        if (mCurrentLocation == null || destination == null) {
+            return 0;
+        }
+        return mCurrentLocation.bearingTo(destination);
     }
 
     /**
@@ -149,7 +155,15 @@ public class Navigator {
      * @return direction in ° relative to current bearing
      */
     public double getRelativeDirection() {
-        return 0;
+        // don't calculate bearing if current location is not set
+        // TODO or if bearing is unknown/unreliable (prev. loc = curr. loc.)
+        if (mCurrentLocation == null) {
+            return 0;
+        }
+        double absoluteDirection = getAbsoluteDirection();
+        double currentBearing = getCurrentBearing();
+
+        return FormatUtils.normalizeAngle(absoluteDirection - currentBearing);
     }
 
     /**
@@ -168,7 +182,18 @@ public class Navigator {
      *
      * @return current bearing in ° relative to the North
      */
-    public float getCurrentBearing() {
-        return 0;
+    public double getCurrentBearing() {
+        double currentBearing = 0;
+        if (mCurrentLocation.hasBearing()) {
+            currentBearing = mCurrentLocation.getBearing();
+        } else {
+            // don't calculate current bearing if previous location is not set
+            // current location was checked earlier
+            if (mPreviousLocation != null) {
+                currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
+            }
+        }
+
+        return currentBearing;
     }
 }
