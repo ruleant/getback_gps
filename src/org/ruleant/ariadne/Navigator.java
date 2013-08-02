@@ -197,8 +197,8 @@ public class Navigator {
             currentBearing = mCurrentLocation.getBearing();
         } else {
             // don't calculate current bearing if previous location is not set
-            // current location was checked earlier
-            if (mPreviousLocation != null) {
+            // or if bearing is not accurate
+            if (isBearingAccurate() && mPreviousLocation != null) {
                 currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
             }
         }
