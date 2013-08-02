@@ -151,7 +151,7 @@ public class MainActivity extends AbstractAriadneActivity {
                 tvInaccurateDirection.setVisibility(TextView.VISIBLE);
             }
 
-            // setRotation require API level 11
+            // setRotation requires API level 11
             if (isBearingAccurate
                   && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 ivDestPointer.setVisibility(ImageView.VISIBLE);
