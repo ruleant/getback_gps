@@ -263,6 +263,15 @@ public class LocationService extends Service {
     }
 
     /**
+     * Retrieve Navigator.
+     *
+     * @return Navigator Navigator object
+     */
+    public Navigator getNavigator() {
+        return mNavigator;
+    }
+
+    /**
      * Checks if Location Provider is defined.
      *
      * @return boolean true if Location Provider is defined.
