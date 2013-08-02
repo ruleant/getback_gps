@@ -205,4 +205,35 @@ public class Navigator {
 
         return currentBearing;
     }
+
+    /**
+     * Determines if current location is accurate,
+     * if it is set, if it is recent and if the accuracy is reasonable.
+     *
+     *
+     * @return true if location is accurate
+     */
+    public boolean isLocationAccurate() {
+        return  mCurrentLocation != null
+                && mCurrentLocation.isRecent()
+                && mCurrentLocation.getAccuracy() <= 50;
+    }
+
+    /**
+     * Determines if current bearing is accurate,
+     * if the current location is accurate, if previous location is set,
+     * if the previous location is recent, if the current location is
+     * not equal to the previous location
+     * and if the distance between the two is larger than the accuracy.
+     *
+     * @return true if bearing is accurate
+     */
+    public boolean isBearingAccurate() {
+        return isLocationAccurate()
+                && mPreviousLocation != null
+                && mPreviousLocation.isRecent()
+                && !mPreviousLocation.equals(mCurrentLocation)
+                && mPreviousLocation.distanceTo(mCurrentLocation)
+                > mCurrentLocation.getAccuracy();
+    }
 }
