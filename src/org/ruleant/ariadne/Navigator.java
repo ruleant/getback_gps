@@ -110,12 +110,27 @@ public class Navigator {
     }
 
     /**
+     * Get destination location.
+     *
+     * @return Location
+     */
+    public Location getDestination() {
+        return mDestination.getLocation();
+    }
+
+    /**
      * Calculate distance to current destination.
      *
      * @return distance in meters
      */
     public float getDistance() {
-        return 0;
+        Location destination = getDestination();
+
+        // don't calculate distance if current location is not set
+        if (mCurrentLocation == null || destination == null) {
+            return 0;
+        }
+        return mCurrentLocation.distanceTo(destination);
     }
 
     /**
