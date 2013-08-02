@@ -137,13 +137,23 @@ public class MainActivity extends AbstractAriadneActivity {
             toDestinationText += " "
                 + res.getString(R.string.direction) + ": "
                 + FormatUtils.formatAngle(navigator.getAbsoluteDirection());
-            toDestinationText += "\n "
-                    + res.getString(R.string.direction_relative) + ": "
-                    + FormatUtils.formatAngle(navigator.getRelativeDirection());
-            tvInaccurateDirection.setVisibility(TextView.VISIBLE);
+
+            boolean isBearingAccurate = navigator.isBearingAccurate();
+
+            // if bearing is inaccurate, don't display relative direction
+            // and display warning
+            if (isBearingAccurate) {
+                toDestinationText += "\n "
+                        + res.getString(R.string.direction_relative) + ": "
+                        + FormatUtils.formatAngle(navigator.getRelativeDirection());
+                tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
+            } else {
+                tvInaccurateDirection.setVisibility(TextView.VISIBLE);
+            }
 
             // setRotation require API level 11
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+            if (isBearingAccurate
+                  && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 ivDestPointer.setVisibility(ImageView.VISIBLE);
                 // rotate 90° counter clockwise,
                 // current image is pointing right.
