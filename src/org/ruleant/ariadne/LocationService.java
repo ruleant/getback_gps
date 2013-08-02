@@ -88,6 +88,10 @@ public class LocationService extends Service {
      * Last known good location.
      */
     private StoredLocation mLastLocation = null;
+    /**
+     * Stored location/destination.
+     */
+    private StoredDestination mStoredDestination = null;
 
     @Override
     public void onCreate() {
@@ -109,6 +113,11 @@ public class LocationService extends Service {
                 this.getApplicationContext(), PREFS_LAST_LOC);
         setLocation(mLastLocation.getLocation());
 
+        // retrieve stored destination
+        mStoredDestination = new StoredDestination(this, PREFS_STORE_DEST);
+        setDestination(mStoredDestination.getLocation());
+
+
         // mProviderName is set by updateLocationProvider
         updateLocationProvider();
         // and used in requestUpdatesFromProvider
@@ -129,11 +138,13 @@ public class LocationService extends Service {
 
         // save stored locations
         mLastLocation.save();
+        mStoredDestination.save();
 
         // cleanup class properties
         mProviderName = "";
         mLocationManager = null;
         mLastLocation = null;
+        mStoredDestination = null;
         mNavigator = null;
 
         // display message announcing end of service
@@ -254,6 +265,26 @@ public class LocationService extends Service {
     }
 
     /**
+     * Set Destination.
+     *
+     * @param destination New destination
+     */
+    public void setDestination(final Location destination) {
+        if (destination != null) {
+            setDestination(new AriadneLocation(destination));
+        }
+    }
+
+    /**
+     * Set Destination.
+     *
+     * @param destination New destination
+     */
+    public void setDestination(final AriadneLocation destination) {
+        mNavigator.setDestination(destination);
+    }
+
+    /**
      * Retrieve Location Provider.
      *
      * @return String current location provider
@@ -306,7 +337,8 @@ public class LocationService extends Service {
 
         // don't store current location if it is not set
         if (currentLocation != null) {
-            mNavigator.setDestination(currentLocation);
+            mStoredDestination.save(currentLocation);
+            setDestination(mStoredDestination.getLocation());
             Toast.makeText(
                     this,
                     R.string.location_stored,

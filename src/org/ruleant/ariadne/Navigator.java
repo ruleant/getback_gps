@@ -31,11 +31,6 @@ import android.location.Location;
  */
 public class Navigator {
     /**
-     * SharedPreferences location for StoredDestination.
-     */
-    public static final String PREFS_STORE_DEST = "stored_destination";
-
-    /**
      * Current context.
      */
     private Context mContext = null;
@@ -53,7 +48,7 @@ public class Navigator {
     /**
      * Current destination.
      */
-    private StoredDestination mDestination;
+    private AriadneLocation mDestination;
 
     /**
      * Constructor.
@@ -62,10 +57,6 @@ public class Navigator {
      */
     public Navigator(Context context) {
         setContext(context);
-
-        // retrieve stored destination
-        mDestination = new StoredDestination(
-                getContext(), PREFS_STORE_DEST);
     }
 
     /**
@@ -112,19 +103,19 @@ public class Navigator {
     /**
      * Set destination location.
      *
-     * @param location New destination
+     * @param destination New destination
      */
-    public void setDestination(Location location) {
-        mDestination.save(location);
+    public void setDestination(final AriadneLocation destination) {
+        mDestination = destination;
     }
 
     /**
      * Get destination location.
      *
-     * @return Location
+     * @return Destination
      */
-    public Location getDestination() {
-        return mDestination.getLocation();
+    public AriadneLocation getDestination() {
+        return mDestination;
     }
 
     /**
