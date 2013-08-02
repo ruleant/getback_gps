@@ -36,11 +36,6 @@ public class Navigator {
     public static final String PREFS_STORE_DEST = "stored_destination";
 
     /**
-     * SharedPreferences location for last known good location.
-     */
-    public static final String PREFS_LAST_LOC = "last_location";
-
-    /**
      * Current context.
      */
     private Context mContext = null;
@@ -56,11 +51,6 @@ public class Navigator {
     private AriadneLocation mPreviousLocation = null;
 
     /**
-     * Last known good location.
-     */
-    private StoredLocation mLastLocation = null;
-
-    /**
      * Current destination.
      */
     private StoredDestination mDestination;
@@ -72,11 +62,6 @@ public class Navigator {
      */
     public Navigator(Context context) {
         setContext(context);
-
-        // retrieve last known good location
-        mLastLocation = new StoredLocation(
-                getContext(), PREFS_LAST_LOC);
-        setLocation(mLastLocation.getLocation());
 
         // retrieve stored destination
         mDestination = new StoredDestination(
@@ -106,36 +91,9 @@ public class Navigator {
     /**
      * Set Location.
      *
-     * @param location New location
-     */
-    public void setLocation(final Location location) {
-        if (location != null) {
-            setLocation(new AriadneLocation(location));
-        }
-    }
-
-    /**
-     * Set Location.
-     *
      * @param location New Location (AriadneLocation object)
      */
     public void setLocation(final AriadneLocation location) {
-        // don't update location if no location is provided,
-        // or if new location is the same as the previous one
-        // or if the new location is not more recent than the current one
-        if (location == null
-                || (mCurrentLocation != null
-                && ((location.getTime() == mCurrentLocation.getTime()
-                && location.getProvider()
-                .equals(mCurrentLocation.getProvider()))
-                || !mCurrentLocation.isNewer(location)))
-                ) {
-            return;
-        }
-
-        // save current location
-        mLastLocation.setLocation(location);
-
         mPreviousLocation = mCurrentLocation;
         mCurrentLocation = location;
     }
