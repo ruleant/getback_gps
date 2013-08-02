@@ -56,6 +56,7 @@ public class MainActivity extends AbstractAriadneActivity {
         }
 
         LocationService service = getService();
+        Navigator navigator = service.getNavigator();
         Resources res = getResources();
         AriadneLocation destination = null;
         AriadneLocation currentLocation = null;
@@ -93,7 +94,7 @@ public class MainActivity extends AbstractAriadneActivity {
 
         // get Destination from service
         try {
-            destination = new AriadneLocation(service.getDestination());
+            destination = new AriadneLocation(navigator.getDestination());
         } catch (Exception e) {
             e.printStackTrace();
             destination = null;
@@ -132,10 +133,10 @@ public class MainActivity extends AbstractAriadneActivity {
             // Print distance and bearing
             toDestinationText += " "
                 + res.getString(R.string.distance) + ": "
-                + FormatUtils.formatDist(service.getDistance()) + "\n";
+                + FormatUtils.formatDist(navigator.getDistance()) + "\n";
             toDestinationText += " "
                 + res.getString(R.string.direction) + ": "
-                + FormatUtils.formatAngle(service.getDirection());
+                + FormatUtils.formatAngle(navigator.getRelativeDirection());
             tvInaccurateDirection.setVisibility(TextView.VISIBLE);
 
             // setRotation require API level 11
@@ -145,7 +146,7 @@ public class MainActivity extends AbstractAriadneActivity {
                 // current image is pointing right.
                 ivDestPointer.setRotation(
                         (float) FormatUtils.normalizeAngle(
-                                service.getDirection() - POINTER_ROT));
+                                navigator.getRelativeDirection() - POINTER_ROT));
             } else {
                 ivDestPointer.setVisibility(ImageView.INVISIBLE);
             }
