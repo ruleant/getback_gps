@@ -136,7 +136,10 @@ public class MainActivity extends AbstractAriadneActivity {
                 + FormatUtils.formatDist(navigator.getDistance()) + "\n";
             toDestinationText += " "
                 + res.getString(R.string.direction) + ": "
-                + FormatUtils.formatAngle(navigator.getRelativeDirection());
+                + FormatUtils.formatAngle(navigator.getAbsoluteDirection());
+            toDestinationText += "\n "
+                    + res.getString(R.string.direction_relative) + ": "
+                    + FormatUtils.formatAngle(navigator.getRelativeDirection());
             tvInaccurateDirection.setVisibility(TextView.VISIBLE);
 
             // setRotation require API level 11
