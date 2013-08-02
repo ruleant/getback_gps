@@ -164,9 +164,9 @@ public class Navigator {
      * @return direction in ° relative to current bearing
      */
     public double getRelativeDirection() {
-        // don't calculate bearing if current location is not set
-        // TODO or if bearing is unknown/unreliable (prev. loc = curr. loc.)
-        if (mCurrentLocation == null) {
+        // don't calculate bearing if bearing is inaccurate,
+        // f.e. if current location is not set or prev. loc = curr. loc.
+        if (!isBearingAccurate()) {
             return 0;
         }
         double absoluteDirection = getAbsoluteDirection();
