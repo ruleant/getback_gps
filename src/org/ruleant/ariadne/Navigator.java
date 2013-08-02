@@ -110,6 +110,15 @@ public class Navigator {
     }
 
     /**
+     * Set destination location.
+     *
+     * @param location New destination
+     */
+    public void setDestination(Location location) {
+        mDestination.save(location);
+    }
+
+    /**
      * Get destination location.
      *
      * @return Location
