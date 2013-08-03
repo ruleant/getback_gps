@@ -22,6 +22,9 @@
 package org.ruleant.ariadne;
 
 import junit.framework.TestCase;
+import static org.mockito.Mockito.*;
+
+import org.mockito.Mockito.*;
 
 /**
  * Unit tests for FormatUtils class.
@@ -40,11 +43,46 @@ public class NavigatorTest extends TestCase {
     private static final float F_ZERO = 0;
 
     /**
+     * Fifty.
+     */
+    private static final long L_FIFTY = 50;
+
+    /**
+     * Sixty.
+     */
+    private static final float F_SIXTY = 60;
+
+    /**
+     * Test location 1.
+     */
+    private AriadneLocation loc1 = null;
+
+    /**
+     * Test location 2.
+     */
+    private AriadneLocation loc2 = null;
+
+    /**
+     * Test location 3.
+     */
+    private AriadneLocation loc3 = null;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
     protected final void setUp() {
         navigator = new Navigator();
+
+        loc1 = mock(AriadneLocation.class);
+
+        loc2 = mock(AriadneLocation.class);
+        //loc2.setLatitude(0.0);
+        //loc2.setLongitude(1.0);
+
+        loc3 = mock(AriadneLocation.class);
+        //loc3.setLatitude(0.0);
+        //loc3.setLongitude(4.0);
     }
 
     /**
@@ -59,5 +97,21 @@ public class NavigatorTest extends TestCase {
         assertEquals(0.0, navigator.getAbsoluteDirection());
         assertEquals(0.0, navigator.getRelativeDirection());
         assertEquals(F_ZERO, navigator.getCurrentSpeed());
+    }
+
+    /**
+     * Tests location.
+     */
+    public final void testLocation() {
+        when(loc1.getTime()).thenReturn(L_FIFTY);
+        //when(loc1.isRecent()).thenReturn(true);
+        //doReturn(true).when(loc1).isRecent();
+        //doReturn(F_SIXTY).when(loc1).getAccuracy();
+        when(loc1.getAccuracy()).thenReturn(F_SIXTY);
+
+        navigator.setLocation(loc1);
+        assertEquals(loc1, navigator.getLocation());
+
+        assertFalse(navigator.isLocationAccurate());
     }
 }
