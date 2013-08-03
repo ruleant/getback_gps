@@ -145,7 +145,8 @@ public class MainActivity extends AbstractAriadneActivity {
             if (isBearingAccurate) {
                 toDestinationText += "\n "
                         + res.getString(R.string.direction_relative) + ": "
-                        + FormatUtils.formatAngle(navigator.getRelativeDirection());
+                        + FormatUtils.formatAngle(
+                            navigator.getRelativeDirection());
                 tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
             } else {
                 tvInaccurateDirection.setVisibility(TextView.VISIBLE);
@@ -158,8 +159,8 @@ public class MainActivity extends AbstractAriadneActivity {
                 // rotate 90° counter clockwise,
                 // current image is pointing right.
                 ivDestPointer.setRotation(
-                        (float) FormatUtils.normalizeAngle(
-                                navigator.getRelativeDirection() - POINTER_ROT));
+                    (float) FormatUtils.normalizeAngle(
+                        navigator.getRelativeDirection() - POINTER_ROT));
             } else {
                 ivDestPointer.setVisibility(ImageView.INVISIBLE);
             }
