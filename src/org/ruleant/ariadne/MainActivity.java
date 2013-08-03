@@ -28,6 +28,9 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 /**
  * Main Activity class.
  *
@@ -43,6 +46,13 @@ public class MainActivity extends AbstractAriadneActivity {
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        // Unbind from the service
+        Crouton.cancelAllCroutons();
     }
 
     /**
@@ -150,7 +160,9 @@ public class MainActivity extends AbstractAriadneActivity {
                 tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
             } else {
                 tvInaccurateDirection.setVisibility(TextView.VISIBLE);
-            }
+                Crouton.makeText(this,
+                        R.string.inaccurate_direction, Style.INFO).show();
+             }
 
             // setRotation requires API level 11
             if (isBearingAccurate
