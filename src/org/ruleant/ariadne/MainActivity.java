@@ -28,6 +28,7 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
@@ -148,6 +149,14 @@ public class MainActivity extends AbstractAriadneActivity {
                 + res.getString(R.string.direction) + ": "
                 + FormatUtils.formatAngle(navigator.getAbsoluteDirection());
 
+            // create and configure Crouton
+            Configuration croutonConfig = new Configuration.Builder()
+                    .setDuration(Configuration.DURATION_INFINITE)
+                    .build();
+            Crouton cr_notice = Crouton.makeText(this,
+                    R.string.inaccurate_direction, Style.INFO);
+            cr_notice.setConfiguration(croutonConfig);
+
             boolean isBearingAccurate = navigator.isBearingAccurate();
 
             // if bearing is inaccurate, don't display relative direction
@@ -158,10 +167,10 @@ public class MainActivity extends AbstractAriadneActivity {
                         + FormatUtils.formatAngle(
                             navigator.getRelativeDirection());
                 tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
+                cr_notice.cancel();
             } else {
                 tvInaccurateDirection.setVisibility(TextView.VISIBLE);
-                Crouton.makeText(this,
-                        R.string.inaccurate_direction, Style.INFO).show();
+                cr_notice.show();
              }
 
             // setRotation requires API level 11
