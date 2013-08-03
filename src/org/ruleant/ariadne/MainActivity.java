@@ -153,9 +153,9 @@ public class MainActivity extends AbstractAriadneActivity {
             Configuration croutonConfig = new Configuration.Builder()
                     .setDuration(Configuration.DURATION_INFINITE)
                     .build();
-            Crouton cr_notice = Crouton.makeText(this,
+            Crouton crInaccurateDirection = Crouton.makeText(this,
                     R.string.inaccurate_direction, Style.INFO);
-            cr_notice.setConfiguration(croutonConfig);
+            crInaccurateDirection.setConfiguration(croutonConfig);
 
             boolean isBearingAccurate = navigator.isBearingAccurate();
 
@@ -167,10 +167,10 @@ public class MainActivity extends AbstractAriadneActivity {
                         + FormatUtils.formatAngle(
                             navigator.getRelativeDirection());
                 tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
-                cr_notice.cancel();
+                crInaccurateDirection.cancel();
             } else {
                 tvInaccurateDirection.setVisibility(TextView.VISIBLE);
-                cr_notice.show();
+                crInaccurateDirection.show();
              }
 
             // setRotation requires API level 11
