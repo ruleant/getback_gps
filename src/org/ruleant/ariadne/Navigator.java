@@ -156,7 +156,7 @@ public class Navigator {
      */
     public double getCurrentBearing() {
         double currentBearing = 0;
-        if (mCurrentLocation.hasBearing()) {
+        if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {
             // don't calculate current bearing if previous location is not set
