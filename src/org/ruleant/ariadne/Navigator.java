@@ -21,7 +21,6 @@
  */
 package org.ruleant.ariadne;
 
-import android.content.Context;
 import android.location.Location;
 
 /**
