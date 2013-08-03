@@ -55,7 +55,7 @@ public class Navigator {
      *
      * @param location New Location (AriadneLocation object)
      */
-    public void setLocation(final AriadneLocation location) {
+    public final void setLocation(final AriadneLocation location) {
         mPreviousLocation = mCurrentLocation;
         mCurrentLocation = location;
     }
@@ -67,7 +67,7 @@ public class Navigator {
      *
      * @return Location
      */
-    public AriadneLocation getLocation() {
+    public final AriadneLocation getLocation() {
         return mCurrentLocation;
     }
 
@@ -76,7 +76,7 @@ public class Navigator {
      *
      * @param destination New destination
      */
-    public void setDestination(final AriadneLocation destination) {
+    public final void setDestination(final AriadneLocation destination) {
         mDestination = destination;
     }
 
@@ -85,7 +85,7 @@ public class Navigator {
      *
      * @return Destination
      */
-    public AriadneLocation getDestination() {
+    public final AriadneLocation getDestination() {
         return mDestination;
     }
 
@@ -94,7 +94,7 @@ public class Navigator {
      *
      * @return distance in meters
      */
-    public float getDistance() {
+    public final float getDistance() {
         Location destination = getDestination();
 
         // don't calculate distance if current location is not set
@@ -109,7 +109,7 @@ public class Navigator {
      *
      * @return direction in ° relative to the North
      */
-    public double getAbsoluteDirection() {
+    public final double getAbsoluteDirection() {
         Location destination = getDestination();
 
         // don't calculate direction if current location is not set
@@ -125,7 +125,7 @@ public class Navigator {
      *
      * @return direction in ° relative to current bearing
      */
-    public double getRelativeDirection() {
+    public final double getRelativeDirection() {
         // don't calculate bearing if bearing is inaccurate,
         // f.e. if current location is not set or prev. loc = curr. loc.
         if (!isBearingAccurate()) {
@@ -143,7 +143,7 @@ public class Navigator {
      *
      * @return current speed in m/s
      */
-    public float getCurrentSpeed() {
+    public final float getCurrentSpeed() {
         return 0;
     }
 
@@ -153,7 +153,7 @@ public class Navigator {
      *
      * @return current bearing in ° relative to the North
      */
-    public double getCurrentBearing() {
+    public final double getCurrentBearing() {
         double currentBearing = 0;
         if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
@@ -175,7 +175,7 @@ public class Navigator {
      *
      * @return true if location is accurate
      */
-    public boolean isLocationAccurate() {
+    public final boolean isLocationAccurate() {
         return  mCurrentLocation != null
                 && mCurrentLocation.isRecent()
                 && mCurrentLocation.getAccuracy() <= 50;
@@ -190,7 +190,7 @@ public class Navigator {
      *
      * @return true if bearing is accurate
      */
-    public boolean isBearingAccurate() {
+    public final boolean isBearingAccurate() {
         return isLocationAccurate()
                 && mPreviousLocation != null
                 && mPreviousLocation.isRecent()
