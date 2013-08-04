@@ -144,7 +144,28 @@ public class Navigator {
      * @return current speed in m/s
      */
     public final float getCurrentSpeed() {
-        return 0;
+        if (mCurrentLocation == null || mPreviousLocation == null
+                || mCurrentLocation.equals(mPreviousLocation)) {
+            return 0;
+        }
+
+        float speed = 0;
+
+        // if location has speed, use this
+        if (mCurrentLocation.hasSpeed()) {
+            speed = mCurrentLocation.getSpeed();
+        } else {
+            // calculate speed from difference with previous location
+            float distance = mCurrentLocation.distanceTo(mPreviousLocation);
+            long time = mCurrentLocation.getTime() - mPreviousLocation.getTime();
+            if (time > 0) {
+                // calculate speed from distance travelled and time spent
+                // time is in milliseconds, convert to seconds.
+                speed = distance / (time / 1000);
+            }
+        }
+
+        return speed;
     }
 
     /**
