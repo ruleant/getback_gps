@@ -97,6 +97,31 @@ public class MainActivity extends AbstractAriadneActivity {
         }
         tvLocation.setText(locationText);
 
+        // Refresh current
+        TextView tvCurrent
+                = (TextView) findViewById(R.id.textView_Current);
+        String currentText
+                = res.getString(R.string.current);
+
+        // current speed
+        currentText += "\n " + res.getString(R.string.speed) + ": ";
+        if (navigator == null) {
+            currentText += " " + res.getString(R.string.unknown);
+        } else {
+            currentText += FormatUtils.formatSpeed(navigator.getCurrentSpeed(), this);
+        }
+
+        // current bearing
+        currentText += "\n " + res.getString(R.string.bearing) + ": ";
+        if (navigator == null) {
+            currentText += " " + res.getString(R.string.unknown);
+        } else {
+            currentText += navigator.getCurrentBearing();
+        }
+
+        // update string
+        tvCurrent.setText(currentText);
+
         // Refresh Destination
         TextView tvDestination
             = (TextView) findViewById(R.id.textView_Destination);
