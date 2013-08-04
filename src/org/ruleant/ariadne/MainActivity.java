@@ -50,7 +50,7 @@ public class MainActivity extends AbstractAriadneActivity {
     }
 
     @Override
-    protected void onDestroy() {
+    protected final void onDestroy() {
         super.onDestroy();
         // Unbind from the service
         Crouton.cancelAllCroutons();
