@@ -108,7 +108,8 @@ public class MainActivity extends AbstractAriadneActivity {
         if (navigator == null) {
             currentText += " " + res.getString(R.string.unknown);
         } else {
-            currentText += FormatUtils.formatSpeed(navigator.getCurrentSpeed(), this);
+            currentText += FormatUtils.formatSpeed(
+                navigator.getCurrentSpeed(), this);
         }
 
         // current bearing
@@ -174,7 +175,8 @@ public class MainActivity extends AbstractAriadneActivity {
             toDestinationText += " "
                 + res.getString(R.string.direction) + ": "
                 + FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(navigator.getAbsoluteDirection()));
+                    FormatUtils.normalizeAngle(
+                        navigator.getAbsoluteDirection()));
 
             // create and configure Crouton
             Configuration croutonConfig = new Configuration.Builder()
