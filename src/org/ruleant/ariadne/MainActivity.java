@@ -116,7 +116,8 @@ public class MainActivity extends AbstractAriadneActivity {
         if (navigator == null) {
             currentText += " " + res.getString(R.string.unknown);
         } else {
-            currentText += navigator.getCurrentBearing();
+            currentText += FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
         }
 
         // update string
@@ -172,7 +173,8 @@ public class MainActivity extends AbstractAriadneActivity {
                 + FormatUtils.formatDist(navigator.getDistance()) + "\n";
             toDestinationText += " "
                 + res.getString(R.string.direction) + ": "
-                + FormatUtils.formatAngle(navigator.getAbsoluteDirection());
+                + FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(navigator.getAbsoluteDirection()));
 
             // create and configure Crouton
             Configuration croutonConfig = new Configuration.Builder()
