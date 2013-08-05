@@ -71,4 +71,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="longitude_west_unit">W.L.</string>
     <string name="speed_kph">km/u</string>
     <string name="direction_relative">ten opzichte van huidige richting</string>
+    <string name="current">Huidig</string>
     </resources>
