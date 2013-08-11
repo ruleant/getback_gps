@@ -43,10 +43,28 @@ public class MainActivity extends AbstractAriadneActivity {
      */
     private static final int POINTER_ROT = 90;
 
+    /**
+     * Crouton configuration.
+     */
+    protected Configuration croutonConfig;
+
+    /**
+     * Inaccurate direction crouton.
+     */
+    protected Crouton crInaccurateDirection;
+
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // create and configure Crouton
+        croutonConfig = new Configuration.Builder()
+                .setDuration(Configuration.DURATION_INFINITE)
+                .build();
+        crInaccurateDirection = Crouton.makeText(this,
+                R.string.inaccurate_direction, Style.INFO);
+        crInaccurateDirection.setConfiguration(croutonConfig);
     }
 
     @Override
@@ -177,14 +195,6 @@ public class MainActivity extends AbstractAriadneActivity {
                 + FormatUtils.formatAngle(
                     FormatUtils.normalizeAngle(
                         navigator.getAbsoluteDirection()));
-
-            // create and configure Crouton
-            Configuration croutonConfig = new Configuration.Builder()
-                    .setDuration(Configuration.DURATION_INFINITE)
-                    .build();
-            Crouton crInaccurateDirection = Crouton.makeText(this,
-                    R.string.inaccurate_direction, Style.INFO);
-            crInaccurateDirection.setConfiguration(croutonConfig);
 
             boolean isBearingAccurate = navigator.isBearingAccurate();
 
