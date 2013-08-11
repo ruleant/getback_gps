@@ -72,6 +72,12 @@ public class LocationService extends Service {
      * Debug class instance.
      */
     private DebugLevel mDebug;
+
+    /**
+     * Current context.
+     */
+    public Context mContext = this;
+
     /**
      * LocationManager instance.
      */
@@ -240,17 +246,6 @@ public class LocationService extends Service {
 
         // save current location
         mLastLocation.setLocation(location);
-
-        // display message on update
-        if ((mDebug != null)
-                && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
-                ) {
-            Toast.makeText(
-                this,
-                R.string.location_updated,
-                Toast.LENGTH_SHORT
-            ).show();
-        }
     }
 
     /**
@@ -442,6 +437,17 @@ public class LocationService extends Service {
         public void onLocationChanged(final Location location) {
             // When new location update is received, update current location
             setLocation(location);
+
+            // display message on update
+            if ((mDebug != null)
+                    && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
+                    ) {
+                Toast.makeText(
+                    mContext,
+                    R.string.location_updated,
+                    Toast.LENGTH_SHORT
+                ).show();
+            }
 
             // Notify bound Activities of Location Update
             final int noCallbacks = mCallbacks.beginBroadcast();
