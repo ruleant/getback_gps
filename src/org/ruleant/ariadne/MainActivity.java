@@ -218,10 +218,8 @@ public class MainActivity extends AbstractAriadneActivity {
                         + FormatUtils.formatAngle(
                             navigator.getRelativeDirection());
                 tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
-                crInaccurateDirection.cancel();
-            } else {
+             } else {
                 tvInaccurateDirection.setVisibility(TextView.VISIBLE);
-                crInaccurateDirection.show();
              }
 
             // setRotation requires API level 11
@@ -238,5 +236,32 @@ public class MainActivity extends AbstractAriadneActivity {
             }
         }
         tvToDestination.setText(toDestinationText);
+
+        refreshCrouton();
+    }
+
+    /**
+     * Update which crouton should be displayed.
+     */
+    protected final void refreshCrouton() {
+        // only refresh items if activity is bound to service
+        if (!isBound()) {
+            return;
+        }
+
+        Navigator navigator = getService().getNavigator();
+
+        // if location is inaccurate, display warning
+        if (!navigator.isLocationAccurate()) {
+            crInaccurateLocation.show();
+        } else {
+            crInaccurateLocation.cancel();
+            // if bearing is inaccurate, display warning
+            if (!navigator.isBearingAccurate()) {
+                crInaccurateDirection.show();
+            } else {
+                crInaccurateDirection.cancel();
+            }
+        }
     }
 }
