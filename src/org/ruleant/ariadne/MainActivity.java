@@ -49,6 +49,11 @@ public class MainActivity extends AbstractAriadneActivity {
     protected Configuration croutonConfig;
 
     /**
+     * Inaccurate location crouton.
+     */
+    protected Crouton crInaccurateLocation;
+
+    /**
      * Inaccurate direction crouton.
      */
     protected Crouton crInaccurateDirection;
@@ -58,10 +63,17 @@ public class MainActivity extends AbstractAriadneActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // create and configure Crouton
+        // create Crouton configuration
         croutonConfig = new Configuration.Builder()
                 .setDuration(Configuration.DURATION_INFINITE)
                 .build();
+
+        // create inaccurate location crouton
+        crInaccurateLocation = Crouton.makeText(this,
+                R.string.inaccurate_location, Style.ALERT);
+        crInaccurateLocation.setConfiguration(croutonConfig);
+
+        // create inaccurate direction crouton
         crInaccurateDirection = Crouton.makeText(this,
                 R.string.inaccurate_direction, Style.INFO);
         crInaccurateDirection.setConfiguration(croutonConfig);
