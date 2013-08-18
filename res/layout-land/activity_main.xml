@@ -77,13 +77,6 @@
                     android:padding="2dp"
                     android:text="@string/to_dest" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/textView_InaccurateDirection"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="@string/inaccurate_direction" />
         </LinearLayout>
     </LinearLayout>
 
