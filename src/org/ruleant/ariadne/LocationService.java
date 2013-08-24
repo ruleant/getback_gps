@@ -76,7 +76,7 @@ public class LocationService extends Service {
     /**
      * Current context.
      */
-    public Context mContext = this;
+    private Context mContext = this;
 
     /**
      * LocationManager instance.
