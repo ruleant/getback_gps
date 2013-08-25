@@ -35,6 +35,11 @@ public class Navigator {
     public static final double ACCURACY_LIMIT = 50;
 
     /**
+     * Conversion from seconds to milliseconds.
+     */
+    private static final float SECOND_IN_MILLIS = 1000;
+
+    /**
      * Current Location.
      */
     private AriadneLocation mCurrentLocation = null;
@@ -165,7 +170,7 @@ public class Navigator {
                 if (time > 0) {
                     // calculate speed from distance travelled and time spent
                     // time is in milliseconds, convert to seconds.
-                    currentSpeed = distance / (time / 1000);
+                    currentSpeed = distance / (time / SECOND_IN_MILLIS);
                 }
             }
         }
