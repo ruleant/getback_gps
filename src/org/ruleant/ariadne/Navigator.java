@@ -30,6 +30,11 @@ import android.location.Location;
  */
 public class Navigator {
     /**
+     * Required location accuracy in meter.
+     */
+    public static final double ACCURACY_LIMIT = 50;
+
+    /**
      * Current Location.
      */
     private AriadneLocation mCurrentLocation = null;
@@ -200,7 +205,7 @@ public class Navigator {
     public final boolean isLocationAccurate() {
         return  mCurrentLocation != null
                 && mCurrentLocation.isRecent()
-                && mCurrentLocation.getAccuracy() <= 50;
+                && mCurrentLocation.getAccuracy() <= ACCURACY_LIMIT;
     }
 
     /**
