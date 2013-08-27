@@ -85,7 +85,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void storeLocation(final MenuItem item) {
+    public final void storeLocation(final MenuItem item) {
         if (mBound && mService.getLocation() == null) {
             Toast.makeText(
                     this,
@@ -128,7 +128,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void refresh(final MenuItem item) {
+    public final void refresh(final MenuItem item) {
         if (mBound) {
             mService.updateLocationProvider();
             mService.updateLocation();
@@ -141,7 +141,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void displayAbout(final MenuItem item) {
+    public final void displayAbout(final MenuItem item) {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
@@ -151,7 +151,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void displaySettings(final MenuItem item) {
+    public final void displaySettings(final MenuItem item) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
@@ -200,7 +200,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @return boolean Bound State
      */
-    protected boolean isBound() {
+    protected final boolean isBound() {
         return mBound;
     }
 
@@ -209,7 +209,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @return LocationService
      */
-    protected LocationService getService() {
+    protected final LocationService getService() {
         return mService;
     }
 
