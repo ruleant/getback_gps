@@ -60,17 +60,17 @@ public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Crouton configuration.
      */
-    protected Configuration croutonConfig;
+    private Configuration croutonConfig;
 
     /**
      * Inaccurate location crouton.
      */
-    protected Crouton crInaccurateLocation;
+    private Crouton crInaccurateLocation;
 
     /**
      * Inaccurate direction crouton.
      */
-    protected Crouton crInaccurateDirection;
+    private Crouton crInaccurateDirection;
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
