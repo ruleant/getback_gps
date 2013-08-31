@@ -30,10 +30,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import de.keyboardsurfer.android.widget.crouton.Configuration;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /**
  * Abstract Ariadne Activity class, contains the common methods
@@ -51,6 +56,21 @@ public abstract class AbstractAriadneActivity extends Activity {
      * Connection state with LocationService.
      */
     private boolean mBound = false;
+
+    /**
+     * Crouton configuration.
+     */
+    protected Configuration croutonConfig;
+
+    /**
+     * Inaccurate location crouton.
+     */
+    protected Crouton crInaccurateLocation;
+
+    /**
+     * Inaccurate direction crouton.
+     */
+    protected Crouton crInaccurateDirection;
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
@@ -76,6 +96,33 @@ public abstract class AbstractAriadneActivity extends Activity {
             unbindService(mConnection);
             mBound = false;
         }
+    }
+
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // create Crouton configuration
+        croutonConfig = new Configuration.Builder()
+                .setDuration(Configuration.DURATION_INFINITE)
+                .build();
+
+        // create inaccurate location crouton
+        crInaccurateLocation = Crouton.makeText(this,
+                R.string.inaccurate_location, Style.ALERT);
+        crInaccurateLocation.setConfiguration(croutonConfig);
+
+        // create inaccurate direction crouton
+        crInaccurateDirection = Crouton.makeText(this,
+                R.string.inaccurate_direction, Style.INFO);
+        crInaccurateDirection.setConfiguration(croutonConfig);
+    }
+
+    @Override
+    protected final void onDestroy() {
+        super.onDestroy();
+        // Unbind from the service
+        Crouton.cancelAllCroutons();
     }
 
     /**
@@ -193,7 +240,39 @@ public abstract class AbstractAriadneActivity extends Activity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    protected abstract void refreshDisplay();
+    protected void refreshDisplay() {
+        // only refresh items if activity is bound to service
+        if (!isBound()) {
+            return;
+        }
+
+        refreshCrouton();
+    }
+
+    /**
+     * Update which crouton should be displayed.
+     */
+    protected final void refreshCrouton() {
+        // only refresh items if activity is bound to service
+        if (!isBound()) {
+            return;
+        }
+
+        Navigator navigator = getService().getNavigator();
+
+        // if location is inaccurate, display warning
+        if (!navigator.isLocationAccurate()) {
+            crInaccurateLocation.show();
+        } else {
+            crInaccurateLocation.cancel();
+            // if bearing is inaccurate, display warning
+            if (!navigator.isBearingAccurate()) {
+                crInaccurateDirection.show();
+            } else {
+                crInaccurateDirection.cancel();
+            }
+        }
+    }
 
     /**
      * Returns bound state to Location Service.

@@ -28,10 +28,6 @@ import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import de.keyboardsurfer.android.widget.crouton.Configuration;
-import de.keyboardsurfer.android.widget.crouton.Crouton;
-import de.keyboardsurfer.android.widget.crouton.Style;
-
 /**
  * Main Activity class.
  *
@@ -43,47 +39,10 @@ public class MainActivity extends AbstractAriadneActivity {
      */
     private static final int POINTER_ROT = 90;
 
-    /**
-     * Crouton configuration.
-     */
-    protected Configuration croutonConfig;
-
-    /**
-     * Inaccurate location crouton.
-     */
-    protected Crouton crInaccurateLocation;
-
-    /**
-     * Inaccurate direction crouton.
-     */
-    protected Crouton crInaccurateDirection;
-
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // create Crouton configuration
-        croutonConfig = new Configuration.Builder()
-                .setDuration(Configuration.DURATION_INFINITE)
-                .build();
-
-        // create inaccurate location crouton
-        crInaccurateLocation = Crouton.makeText(this,
-                R.string.inaccurate_location, Style.ALERT);
-        crInaccurateLocation.setConfiguration(croutonConfig);
-
-        // create inaccurate direction crouton
-        crInaccurateDirection = Crouton.makeText(this,
-                R.string.inaccurate_direction, Style.INFO);
-        crInaccurateDirection.setConfiguration(croutonConfig);
-    }
-
-    @Override
-    protected final void onDestroy() {
-        super.onDestroy();
-        // Unbind from the service
-        Crouton.cancelAllCroutons();
     }
 
     /**
@@ -231,31 +190,6 @@ public class MainActivity extends AbstractAriadneActivity {
         }
         tvToDestination.setText(toDestinationText);
 
-        refreshCrouton();
-    }
-
-    /**
-     * Update which crouton should be displayed.
-     */
-    protected final void refreshCrouton() {
-        // only refresh items if activity is bound to service
-        if (!isBound()) {
-            return;
-        }
-
-        Navigator navigator = getService().getNavigator();
-
-        // if location is inaccurate, display warning
-        if (!navigator.isLocationAccurate()) {
-            crInaccurateLocation.show();
-        } else {
-            crInaccurateLocation.cancel();
-            // if bearing is inaccurate, display warning
-            if (!navigator.isBearingAccurate()) {
-                crInaccurateDirection.show();
-            } else {
-                crInaccurateDirection.cancel();
-            }
-        }
+        super.refreshDisplay();
     }
 }
