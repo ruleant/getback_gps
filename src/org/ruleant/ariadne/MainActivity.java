@@ -21,7 +21,10 @@
  */
 package org.ruleant.ariadne;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 /**
  * Main Activity class.
@@ -33,6 +36,41 @@ public class MainActivity extends AbstractAriadneActivity {
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(final Menu menu) {
+        boolean superResult = super.onCreateOptionsMenu(menu);
+
+        // Inflate the menu;
+        // this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return superResult;
+    }
+
+    @Override
+    public final boolean onOptionsItemSelected(final MenuItem item) {
+        // One of the group items (using the onClick attribute) was clicked
+        // The item parameter passed here indicates which item it is
+        // All other menu item clicks are handled by onOptionsItemSelected()
+        switch (item.getItemId()) {
+            case R.id.menu_details:
+                displayDetails(item);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /**
+     * Called when the user clicks the About menu item.
+     *
+     * @param item MenuItem object that was clicked
+     */
+    public final void displayDetails(final MenuItem item) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        startActivity(intent);
     }
 
     /**

@@ -204,7 +204,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    public final boolean onOptionsItemSelected(final MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         // One of the group items (using the onClick attribute) was clicked
         // The item parameter passed here indicates which item it is
         // All other menu item clicks are handled by onOptionsItemSelected()
