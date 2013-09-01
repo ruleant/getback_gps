@@ -3,6 +3,7 @@
     <string name="app_desc">Find your way back to a previously visited location, using GPS coordinates.</string>
     <string name="copyright">Copyright</string>
     <string name="app_website">Visit the &lt;a href="%1$s">website&lt;/a> for more info.</string>
+    <string name="details">Location details</string>
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>
