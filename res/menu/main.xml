@@ -4,6 +4,6 @@
         android:id="@+id/menu_details"
         android:orderInCategory="150"
         android:showAsAction="ifRoom"
-        android:title="@string/details"/>
+        android:title="@string/menu_details"/>
 
 </menu>

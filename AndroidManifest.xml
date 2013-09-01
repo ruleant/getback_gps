@@ -27,7 +27,7 @@
         </activity>
         <activity
             android:name="org.ruleant.ariadne.DetailsActivity"
-            android:label="@string/details"
+            android:label="@string/activity_details"
             android:parentActivityName="org.ruleant.ariadne.DetailsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
