@@ -59,6 +59,7 @@
     <string name="version">Version</string>
     <string name="loc_updated_recent">Location recently updated.</string>
     <string name="loc_updated_not_recent">Location NOT recently updated.</string>
+    <string name="inaccurate">Inaccurate</string>
     <string name="inaccurate_direction">The direction to your destination is only accurate if you are moving.</string>
     <string name="inaccurate_location">Your current location is inaccurate.</string>
     <string name="notice_no_dest">Store your location to set a destination.</string>

@@ -22,9 +22,13 @@
 package org.ruleant.ariadne;
 
 import android.content.Intent;
+import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Main Activity class.
@@ -83,5 +87,59 @@ public class MainActivity extends AbstractAriadneActivity {
         }
 
         super.refreshDisplay();
+
+        LocationService service = getService();
+        Navigator navigator = service.getNavigator();
+        Resources res = getResources();
+        AriadneLocation destination = null;
+
+        // get Destination from service
+        try {
+            destination = new AriadneLocation(navigator.getDestination());
+        } catch (Exception e) {
+            e.printStackTrace();
+            destination = null;
+        }
+
+        // Refresh Directions to destination
+        TextView tvToDestinationDistance
+                = (TextView) findViewById(R.id.textView_toDestDist);
+        TextView tvToDestinationDirection
+                = (TextView) findViewById(R.id.textView_toDestDir);
+        TextView tvToDestinationDirectionRel
+                = (TextView) findViewById(R.id.textView_toDestDirRel);
+
+        String toDestinationDistanceText = null;
+        String toDestinationDirectionText = null;
+        String toDestinationDirectionRelText = null;
+
+
+        if (destination == null || !navigator.isLocationAccurate()) {
+            toDestinationDistanceText = res.getString(R.string.unknown);
+            toDestinationDirectionText = res.getString(R.string.unknown);
+        } else {
+            // Print distance and bearing
+            toDestinationDistanceText
+                    = FormatUtils.formatDist(navigator.getDistance());
+            toDestinationDirectionText
+                    = FormatUtils.formatAngle(
+                        FormatUtils.normalizeAngle(
+                            navigator.getAbsoluteDirection()));
+        }
+
+        // if bearing is inaccurate, don't display relative direction
+        if (navigator.isBearingAccurate()) {
+            toDestinationDirectionRelText
+                    = FormatUtils.formatAngle(
+                        navigator.getRelativeDirection());
+        } else {
+            toDestinationDirectionRelText
+                    = res.getString(R.string.inaccurate);
+        }
+
+
+        tvToDestinationDistance.setText(toDestinationDistanceText);
+        tvToDestinationDirection.setText(toDestinationDirectionText);
+        tvToDestinationDirectionRel.setText(toDestinationDirectionRelText);
     }
 }
