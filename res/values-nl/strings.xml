@@ -76,4 +76,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="details">Locatiedetails</string>
     <string name="menu_details">Locatiedetails</string>
     <string name="activity_details">Details</string>
+    <string name="inaccurate">Onnauwkeurig</string>
     </resources>
