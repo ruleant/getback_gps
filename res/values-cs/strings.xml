@@ -51,5 +51,5 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="location_stored">Umístění uloženo</string>
     <string name="dialog_store_location">Chcete uložit současné umístění?</string>
 
-<string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle.</string>
+<string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
     </resources>
