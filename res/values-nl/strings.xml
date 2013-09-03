@@ -73,7 +73,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="direction_relative">ten opzichte van huidige richting</string>
     <string name="current">Huidig</string>
     <string name="inaccurate_location">Je huidige locatie is onnauwkeurig.</string>
-    <string name="details">Locatiedetails</string>
     <string name="menu_details">Locatiedetails</string>
     <string name="activity_details">Details</string>
     <string name="inaccurate">Onnauwkeurig</string>
