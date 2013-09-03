@@ -68,6 +68,11 @@ public abstract class AbstractAriadneActivity extends Activity {
     private Crouton crInaccurateLocation;
 
     /**
+     * 'No destination set' crouton.
+     */
+    private Crouton crNoDestination;
+
+    /**
      * Inaccurate direction crouton.
      */
     private Crouton crInaccurateDirection;
@@ -116,6 +121,13 @@ public abstract class AbstractAriadneActivity extends Activity {
         crInaccurateDirection = Crouton.makeText(this,
                 R.string.inaccurate_direction, Style.INFO);
         crInaccurateDirection.setConfiguration(croutonConfig);
+
+        // create 'no destination set' crouton
+        crNoDestination = Crouton.makeText(this,
+                R.string.notice_no_dest, Style.INFO);
+        crNoDestination.setConfiguration(croutonConfig);
+
+
     }
 
     @Override
@@ -265,11 +277,19 @@ public abstract class AbstractAriadneActivity extends Activity {
             crInaccurateLocation.show();
         } else {
             crInaccurateLocation.cancel();
-            // if bearing is inaccurate, display warning
-            if (!navigator.isBearingAccurate()) {
-                crInaccurateDirection.show();
+
+            // if no destination is set, display message
+            if (navigator.getDestination() == null) {
+                crNoDestination.show();
             } else {
-                crInaccurateDirection.cancel();
+                crNoDestination.cancel();
+
+                // if bearing is inaccurate, display warning
+                if (!navigator.isBearingAccurate()) {
+                    crInaccurateDirection.show();
+                } else {
+                    crInaccurateDirection.cancel();
+                }
             }
         }
     }
