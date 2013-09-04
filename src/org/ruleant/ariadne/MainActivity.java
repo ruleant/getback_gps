@@ -41,7 +41,7 @@ public class MainActivity extends AbstractAriadneActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(final Menu menu) {
+    public final boolean onCreateOptionsMenu(final Menu menu) {
         boolean superResult = super.onCreateOptionsMenu(menu);
 
         // Inflate the menu;
