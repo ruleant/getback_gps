@@ -19,7 +19,7 @@ You can help translating the app to your own language : <http://hosted.weblate.o
 
 [![Translation status](http://hosted.weblate.org/widgets/ariadne-287x66-grey.png)](http://hosted.weblate.org/engage/ariadne/?utm_source=widget)
 
-Is your language not listed? Follow the instructions on the 'New language' tab on weblate or open an issue in the github tracker (see above).
+Is your language not listed? Follow the instructions on the 'New language' tab in Weblate or open an issue in the github tracker (see above).
 
 License
 -------
