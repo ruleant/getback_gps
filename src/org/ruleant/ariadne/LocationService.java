@@ -100,7 +100,7 @@ public class LocationService extends Service {
     private StoredDestination mStoredDestination = null;
 
     @Override
-    public void onCreate() {
+    public final void onCreate() {
         // Create debug class instance
         mDebug = new DebugLevel(this);
 
@@ -133,7 +133,7 @@ public class LocationService extends Service {
     }
 
     @Override
-    public void onDestroy() {
+    public final void onDestroy() {
         // The service is no longer used and is being destroyed
 
         // Unregister all callbacks.
@@ -162,14 +162,14 @@ public class LocationService extends Service {
     }
 
     @Override
-    public int onStartCommand(
+    public final int onStartCommand(
         final Intent intent, final int flags, final int startId) {
         // The service is starting, due to a call to startService()
         return START_NOT_STICKY;
     }
 
     @Override
-    public IBinder onBind(final Intent intent) {
+    public final IBinder onBind(final Intent intent) {
         if ((mDebug != null)
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
@@ -178,7 +178,7 @@ public class LocationService extends Service {
     }
 
     @Override
-    public boolean onUnbind(final Intent intent) {
+    public final boolean onUnbind(final Intent intent) {
         if ((mDebug != null)
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
@@ -194,7 +194,7 @@ public class LocationService extends Service {
      *
      * @return String
      */
-    public String updateLocationProvider() {
+    public final String updateLocationProvider() {
         // Retrieve a list of location providers that have fine accuracy,
         // no monetary cost, etc
         // TODO define criteria in settings
@@ -215,7 +215,7 @@ public class LocationService extends Service {
      *
      * @param location New location
      */
-    public void setLocation(final Location location) {
+    public final void setLocation(final Location location) {
         if (location != null) {
             setLocation(new AriadneLocation(location));
         }
@@ -226,7 +226,7 @@ public class LocationService extends Service {
      *
      * @param location New Location (AriadneLocation object)
      */
-    public void setLocation(final AriadneLocation location) {
+    public final void setLocation(final AriadneLocation location) {
         AriadneLocation currentLocation = getLocation();
 
         // don't update location if no location is provided,
@@ -255,7 +255,7 @@ public class LocationService extends Service {
      *
      * @return Location
      */
-    public AriadneLocation getLocation() {
+    public final AriadneLocation getLocation() {
         return mNavigator.getLocation();
     }
 
@@ -264,7 +264,7 @@ public class LocationService extends Service {
      *
      * @param destination New destination
      */
-    public void setDestination(final Location destination) {
+    public final void setDestination(final Location destination) {
         if (destination != null) {
             setDestination(new AriadneLocation(destination));
         }
@@ -275,7 +275,7 @@ public class LocationService extends Service {
      *
      * @param destination New destination
      */
-    public void setDestination(final AriadneLocation destination) {
+    public final void setDestination(final AriadneLocation destination) {
         mNavigator.setDestination(destination);
     }
 
@@ -284,7 +284,7 @@ public class LocationService extends Service {
      *
      * @return String current location provider
      */
-    public String getLocationProvider() {
+    public final String getLocationProvider() {
         return mProviderName;
     }
 
@@ -293,7 +293,7 @@ public class LocationService extends Service {
      *
      * @return Navigator Navigator object
      */
-    public Navigator getNavigator() {
+    public final Navigator getNavigator() {
         return mNavigator;
     }
 
@@ -302,7 +302,7 @@ public class LocationService extends Service {
      *
      * @return boolean true if Location Provider is defined.
      */
-    public boolean isSetLocationProvider() {
+    public final boolean isSetLocationProvider() {
         return (mProviderName != null && mProviderName.length() > 0);
     }
 
@@ -313,7 +313,7 @@ public class LocationService extends Service {
      *
      * @return Location
      */
-    public AriadneLocation updateLocation() {
+    public final AriadneLocation updateLocation() {
         if (mLocationManager == null || !isSetLocationProvider()) {
             return null;
         }
@@ -327,7 +327,7 @@ public class LocationService extends Service {
     /**
      * Store current location.
      */
-    public void storeCurrentLocation() {
+    public final void storeCurrentLocation() {
         AriadneLocation currentLocation = getLocation();
 
         // don't store current location if it is not set
@@ -353,7 +353,7 @@ public class LocationService extends Service {
      *
      * @return Location
      */
-    public Location getDestination() {
+    public final Location getDestination() {
         return mNavigator.getDestination();
     }
 
@@ -362,7 +362,7 @@ public class LocationService extends Service {
      *
      * @return float distance in meters
      */
-    public float getDistance() {
+    public final float getDistance() {
         return mNavigator.getDistance();
     }
 
@@ -371,7 +371,7 @@ public class LocationService extends Service {
      *
      * @return direction in ° relative to current bearing
      */
-    public double getDirection() {
+    public final double getDirection() {
         return mNavigator.getRelativeDirection();
     }
 
@@ -487,7 +487,7 @@ public class LocationService extends Service {
          *
          * @return LocationService
          */
-        LocationService getService() {
+        final LocationService getService() {
             // Return this instance of LocationService so clients
             // can call public methods
             return LocationService.this;
@@ -498,7 +498,7 @@ public class LocationService extends Service {
          *
          * @param cb client callback
          */
-        public void registerCallback(final ILocationServiceCallback cb) {
+        public final void registerCallback(final ILocationServiceCallback cb) {
             if (cb != null) {
                 mCallbacks.register(cb);
             }
@@ -509,7 +509,7 @@ public class LocationService extends Service {
          *
          * @param cb client callback
          */
-        public void unregisterCallback(final ILocationServiceCallback cb) {
+        public final void unregisterCallback(final ILocationServiceCallback cb) {
             if (cb != null) {
                 mCallbacks.unregister(cb);
             }
