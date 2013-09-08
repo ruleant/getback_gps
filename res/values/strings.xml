@@ -17,6 +17,8 @@
     <string name="location">Location</string>
     <string name="curr_location">Current (last known) location</string>
     <string name="current">Current</string>
+    <string name="current_speed">Current speed</string>
+    <string name="current_bearing">Current bearing</string>
     <string name="location_updated">Location updated</string>
     <string name="location_stored">Location stored</string>
     <string name="stored_location">Stored Location</string>
