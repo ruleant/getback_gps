@@ -76,4 +76,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="menu_details">Locatiedetails</string>
     <string name="activity_details">Details</string>
     <string name="inaccurate">Onnauwkeurig</string>
+    <string name="current_speed">Huidige snelheid</string>
+    <string name="current_bearing">Huidige koers</string>
     </resources>
