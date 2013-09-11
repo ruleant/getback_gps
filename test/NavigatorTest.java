@@ -19,9 +19,10 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
 
 import junit.framework.TestCase;
+
+import org.ruleant.ariadne.lib.Navigator;
 
 /**
  * Unit tests for FormatUtils class.

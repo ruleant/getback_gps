@@ -28,6 +28,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import org.ruleant.ariadne.lib.Navigator;
+
 /**
  * Main Activity class.
  *

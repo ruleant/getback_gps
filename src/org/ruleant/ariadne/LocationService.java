@@ -38,6 +38,8 @@ import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
+import org.ruleant.ariadne.lib.Navigator;
+
 /**
  * Location Service provides the current location.
  *

@@ -22,6 +22,7 @@
 package org.ruleant.ariadne;
 
 import org.ruleant.ariadne.LocationService.LocationBinder;
+import org.ruleant.ariadne.lib.Navigator;
 
 import android.app.Activity;
 import android.app.AlertDialog;

@@ -19,9 +19,12 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package org.ruleant.ariadne.lib;
 
 import android.location.Location;
+
+import org.ruleant.ariadne.AriadneLocation;
+import org.ruleant.ariadne.FormatUtils;
 
 /**
  * Class with several methods useful for navigation.
