@@ -111,17 +111,17 @@ public class MainActivity extends AbstractAriadneActivity {
         TextView tvCurrentBearing
                 = (TextView) findViewById(R.id.textView_currBearing);
 
-        String toDestinationDistanceText = null;
-        String toDestinationDirectionText = null;
-        String toDestinationDirectionRelText = null;
-        String currentSpeedText = null;
-        String currentBearingText = null;
+        String toDestinationDistanceText = res.getString(R.string.unknown);
+        String toDestinationDirectionText = res.getString(R.string.unknown);
+        String toDestinationDirectionRelText
+                = res.getString(R.string.inaccurate);
+        String currentSpeedText = res.getString(R.string.inaccurate);
+        String currentBearingText = res.getString(R.string.inaccurate);
 
 
-        if (destination == null || !navigator.isLocationAccurate()) {
-            toDestinationDistanceText = res.getString(R.string.unknown);
-            toDestinationDirectionText = res.getString(R.string.unknown);
-        } else {
+        if (destination != null
+                && navigator != null
+                && navigator.isLocationAccurate()) {
             // Print distance and bearing
             toDestinationDistanceText
                     = FormatUtils.formatDist(navigator.getDistance());
@@ -136,25 +136,18 @@ public class MainActivity extends AbstractAriadneActivity {
             toDestinationDirectionRelText
                     = FormatUtils.formatAngle(
                         navigator.getRelativeDirection());
-        } else {
-            toDestinationDirectionRelText
-                    = res.getString(R.string.inaccurate);
         }
 
         // current speed
         if (navigator != null && navigator.isLocationAccurate()) {
             currentSpeedText = FormatUtils.formatSpeed(
                     navigator.getCurrentSpeed(), this);
-        } else {
-            currentSpeedText = res.getString(R.string.inaccurate);
         }
 
         // current bearing
         if (navigator != null && navigator.isBearingAccurate()) {
             currentBearingText = FormatUtils.formatAngle(
                     FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
-        } else {
-            currentBearingText = res.getString(R.string.inaccurate);
         }
 
         // update values
