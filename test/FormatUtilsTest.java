@@ -19,10 +19,11 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
 
 import java.util.Locale;
 import junit.framework.TestCase;
+
+import org.ruleant.ariadne.lib.FormatUtils;
 
 /**
  * Unit tests for FormatUtils class.

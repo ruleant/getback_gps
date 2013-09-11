@@ -25,13 +25,15 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package org.ruleant.ariadne.lib;
 
 import java.util.Locale;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
+
+import org.ruleant.ariadne.R;
 
 /**
  * Methods to convert values to formatted string.

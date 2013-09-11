@@ -29,6 +29,8 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
 
+import org.ruleant.ariadne.lib.FormatUtils;
+
 /**
  * Custom Ariadne Location object, it inherits from Location class,
  * but overrides the getString() method.
