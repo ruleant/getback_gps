@@ -2,7 +2,7 @@
 
     <item
         android:id="@+id/menu_details"
-        android:orderInCategory="150"
+        android:orderInCategory="115"
         android:showAsAction="ifRoom"
         android:title="@string/menu_details"/>
 
