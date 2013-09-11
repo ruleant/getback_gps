@@ -106,10 +106,16 @@ public class MainActivity extends AbstractAriadneActivity {
                 = (TextView) findViewById(R.id.textView_toDestDir);
         TextView tvToDestinationDirectionRel
                 = (TextView) findViewById(R.id.textView_toDestDirRel);
+        TextView tvCurrentSpeed
+                = (TextView) findViewById(R.id.textView_currSpeed);
+        TextView tvCurrentBearing
+                = (TextView) findViewById(R.id.textView_currBearing);
 
         String toDestinationDistanceText = null;
         String toDestinationDirectionText = null;
         String toDestinationDirectionRelText = null;
+        String currentSpeedText = null;
+        String currentBearingText = null;
 
 
         if (destination == null || !navigator.isLocationAccurate()) {
@@ -135,9 +141,27 @@ public class MainActivity extends AbstractAriadneActivity {
                     = res.getString(R.string.inaccurate);
         }
 
+        // current speed
+        if (navigator != null && navigator.isLocationAccurate()) {
+            currentSpeedText = FormatUtils.formatSpeed(
+                    navigator.getCurrentSpeed(), this);
+        } else {
+            currentSpeedText = res.getString(R.string.inaccurate);
+        }
 
+        // current bearing
+        if (navigator != null && navigator.isBearingAccurate()) {
+            currentBearingText = FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
+        } else {
+            currentBearingText = res.getString(R.string.inaccurate);
+        }
+
+        // update values
         tvToDestinationDistance.setText(toDestinationDistanceText);
         tvToDestinationDirection.setText(toDestinationDirectionText);
         tvToDestinationDirectionRel.setText(toDestinationDirectionRelText);
+        tvCurrentSpeed.setText(currentSpeedText);
+        tvCurrentBearing.setText(currentBearingText);
     }
 }
