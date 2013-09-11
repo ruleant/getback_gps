@@ -133,7 +133,8 @@ public abstract class AbstractAriadneActivity extends Activity {
     @Override
     protected final void onDestroy() {
         super.onDestroy();
-        // Unbind from the service
+
+        // Cancel active croutons
         Crouton.cancelAllCroutons();
     }
 
