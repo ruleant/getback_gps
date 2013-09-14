@@ -1,4 +1,4 @@
-package org.ruleant.ariadne;
+package org.ruleant.ariadne.lib;
 /**
  * Stored Destination
  *
@@ -23,8 +23,6 @@ package org.ruleant.ariadne;
 
 import android.content.Context;
 import android.location.Location;
-
-import org.ruleant.ariadne.lib.StoredLocation;
 
 /**
  * StoredDestination saves a location, it will store a location for future use,
