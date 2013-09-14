@@ -29,7 +29,6 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
 
-import org.ruleant.ariadne.DebugLevel;
 import org.ruleant.ariadne.Latitude;
 import org.ruleant.ariadne.Longitude;
 import org.ruleant.ariadne.R;

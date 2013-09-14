@@ -36,6 +36,8 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
+import org.ruleant.ariadne.lib.DebugLevel;
+
 /**
  * This activity displays information about the App : version, build date,
  * author and license info.
