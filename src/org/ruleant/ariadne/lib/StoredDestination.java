@@ -1,4 +1,4 @@
-package org.ruleant.ariadne;
+package org.ruleant.ariadne.lib;
 /**
  * Stored Destination
  *

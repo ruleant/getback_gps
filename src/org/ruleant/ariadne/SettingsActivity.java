@@ -36,6 +36,8 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
+import org.ruleant.ariadne.lib.DebugLevel;
+
 /**
  * A PreferenceActivity that presents a set of application settings. On
  * handset devices, settings are presented as a single list. On tablets,

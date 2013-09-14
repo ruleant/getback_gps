@@ -19,7 +19,7 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package org.ruleant.ariadne.lib;
 
 import android.content.Context;
 import android.location.Location;

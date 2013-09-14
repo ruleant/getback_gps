@@ -19,7 +19,7 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package org.ruleant.ariadne.lib;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -29,7 +29,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
 
-import org.ruleant.ariadne.lib.FormatUtils;
+import org.ruleant.ariadne.R;
 
 /**
  * Custom Ariadne Location object, it inherits from Location class,
