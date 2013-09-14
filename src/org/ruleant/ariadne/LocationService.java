@@ -38,6 +38,7 @@ import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
+import org.ruleant.ariadne.lib.AriadneLocation;
 import org.ruleant.ariadne.lib.Navigator;
 
 /**
