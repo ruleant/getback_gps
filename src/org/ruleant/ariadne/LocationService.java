@@ -515,7 +515,8 @@ public class LocationService extends Service {
          *
          * @param cb client callback
          */
-        public final void unregisterCallback(final ILocationServiceCallback cb) {
+        public final void unregisterCallback(
+                final ILocationServiceCallback cb) {
             if (cb != null) {
                 mCallbacks.unregister(cb);
             }
