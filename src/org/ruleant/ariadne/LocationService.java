@@ -41,6 +41,7 @@ import android.widget.Toast;
 import org.ruleant.ariadne.lib.AriadneLocation;
 import org.ruleant.ariadne.lib.DebugLevel;
 import org.ruleant.ariadne.lib.Navigator;
+import org.ruleant.ariadne.lib.StoredLocation;
 
 /**
  * Location Service provides the current location.

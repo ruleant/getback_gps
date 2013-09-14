@@ -24,6 +24,8 @@ package org.ruleant.ariadne;
 import android.content.Context;
 import android.location.Location;
 
+import org.ruleant.ariadne.lib.StoredLocation;
+
 /**
  * StoredDestination saves a location, it will store a location for future use,
  * and will the save the location when the application is stopped.
