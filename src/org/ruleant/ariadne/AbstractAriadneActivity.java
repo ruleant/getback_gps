@@ -87,7 +87,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
+    protected final void onStart() {
         super.onStart();
         // Bind to LocationService
         Intent intent = new Intent(this, LocationService.class);
@@ -95,7 +95,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    protected void onStop() {
+    protected final void onStop() {
         super.onStop();
         // Unbind from the service
         if (mBound) {
