@@ -55,7 +55,7 @@
 				<configuration>
 					<sdk>
 						<!-- platform or api level (api level 4 = platform 1.6) -->
-						<platform>17</platform>
+						<platform>18</platform>
 					</sdk>
 					<lint>
 						<skip>false</skip>

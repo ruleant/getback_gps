@@ -8,6 +8,7 @@
         <option name="CUSTOM_APK_RESOURCE_FOLDER" value="/target/generated-sources/combined-resources/res" />
         <option name="APK_PATH" value="/target/ariadne.apk" />
         <option name="RUN_PROCESS_RESOURCES_MAVEN_TASK" value="false" />
+        <option name="COMPILE_CUSTOM_GENERATED_SOURCES" value="false" />
         <includeAssetsFromLibraries>true</includeAssetsFromLibraries>
       </configuration>
     </facet>
@@ -29,7 +30,7 @@
       <excludeFolder url="file://$MODULE_DIR$/target/surefire-reports" />
       <excludeFolder url="file://$MODULE_DIR$/target/test-classes" />
     </content>
-    <orderEntry type="jdk" jdkName="Maven Android 4.2.2 Platform" jdkType="Android SDK" />
+    <orderEntry type="jdk" jdkName="Maven Android API 18 Platform" jdkType="Android SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.google.android:android:4.1.1.4" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: commons-logging:commons-logging:1.1.1" level="project" />
