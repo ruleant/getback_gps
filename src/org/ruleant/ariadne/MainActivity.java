@@ -108,8 +108,6 @@ public class MainActivity extends AbstractAriadneActivity {
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
                 = (TextView) findViewById(R.id.textView_toDestDir);
-        TextView tvToDestinationDirectionRel
-                = (TextView) findViewById(R.id.textView_toDestDirRel);
         TextView tvCurrentSpeed
                 = (TextView) findViewById(R.id.textView_currSpeed);
         TextView tvCurrentBearing
@@ -117,8 +115,6 @@ public class MainActivity extends AbstractAriadneActivity {
 
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
-        String toDestinationDirectionRelText
-                = res.getString(R.string.inaccurate);
         String currentSpeedText = res.getString(R.string.inaccurate);
         String currentBearingText = res.getString(R.string.inaccurate);
 
@@ -129,18 +125,22 @@ public class MainActivity extends AbstractAriadneActivity {
             // Print distance and bearing
             toDestinationDistanceText
                     = FormatUtils.formatDist(navigator.getDistance());
-            toDestinationDirectionText
+
+            // if bearing is accurate, display relative direction
+            // if not, display absolute direction
+            if (navigator.isBearingAccurate()) {
+                toDestinationDirectionText
+                        = FormatUtils.formatAngle(
+                        navigator.getRelativeDirection());
+            } else {
+                toDestinationDirectionText
                     = FormatUtils.formatAngle(
                         FormatUtils.normalizeAngle(
                             navigator.getAbsoluteDirection()));
+            }
         }
 
-        // if bearing is inaccurate, don't display relative direction
-        if (navigator.isBearingAccurate()) {
-            toDestinationDirectionRelText
-                    = FormatUtils.formatAngle(
-                        navigator.getRelativeDirection());
-        }
+
 
         // current speed
         if (navigator != null && navigator.isLocationAccurate()) {
@@ -157,7 +157,6 @@ public class MainActivity extends AbstractAriadneActivity {
         // update values
         tvToDestinationDistance.setText(toDestinationDistanceText);
         tvToDestinationDirection.setText(toDestinationDirectionText);
-        tvToDestinationDirectionRel.setText(toDestinationDirectionRelText);
         tvCurrentSpeed.setText(currentSpeedText);
         tvCurrentBearing.setText(currentBearingText);
     }
