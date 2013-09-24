@@ -18,6 +18,11 @@
             android:id="@+id/imageView_grid"
             android:src="@drawable/custom_grid" />
 
+        <org.ruleant.ariadne.NavigationView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:id="@+id/navigationView" />
+
         <TextView
             android:id="@+id/textView_ToDestination"
             android:layout_width="fill_parent"
