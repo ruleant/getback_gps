@@ -52,4 +52,18 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="dialog_store_location">Chcete uložit současné umístění?</string>
 
 <string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
+    <string name="menu_details">Podrobnosti polohy</string>
+    <string name="activity_details">Podrobnosti</string>
+    <string name="current">Současná</string>
+    <string name="current_speed">Současná rychlost</string>
+    <string name="current_bearing">Současný azimut</string>
+    <string name="store_location_disabled">Nelze uložit umístění pokud není současné umístění známo</string>
+    <string name="latitude_north_unit">S</string>
+    <string name="latitude_south_unit">J</string>
+    <string name="longitude_east_unit">V</string>
+    <string name="longitude_west_unit">Z</string>
+    <string name="speed_kph">km/h</string>
+    <string name="direction_relative">relativně k současnému směru</string>
+    <string name="inaccurate">nepřesné</string>
+    <string name="inaccurate_location">Vaše současné umístění není přesné</string>
     </resources>
