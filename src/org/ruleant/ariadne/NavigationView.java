@@ -56,6 +56,11 @@ public class NavigationView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
-        canvas.drawLine(50, 50, 50, 10, mPaint);
+        int maxHeight = canvas.getHeight();
+        int maxWidth = canvas.getWidth();
+
+        canvas.drawLine(0, 0, maxWidth, maxHeight, mPaint);
+        canvas.drawLine(0, maxHeight, maxWidth, 0, mPaint);
+
     }
 }
