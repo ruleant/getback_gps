@@ -46,12 +46,14 @@ public class NavigationView extends View {
      */
     public NavigationView(Context context) {
         super(context);
-        mPaint.setColor(Color.BLACK);
+
+        initPaint();
     }
 
     public NavigationView(Context context, AttributeSet attributes) {
         super(context, attributes);
-        mPaint.setColor(Color.BLACK);
+
+        initPaint();
     }
 
     @Override
@@ -61,6 +63,13 @@ public class NavigationView extends View {
 
         canvas.drawLine(0, 0, maxWidth, maxHeight, mPaint);
         canvas.drawLine(0, maxHeight, maxWidth, 0, mPaint);
+    }
 
+    /**
+     * Initialise paint used for drawing.
+     */
+    private final void initPaint() {
+        mPaint.setColor(Color.RED);
+        mPaint.setStrokeWidth(4);
     }
 }
