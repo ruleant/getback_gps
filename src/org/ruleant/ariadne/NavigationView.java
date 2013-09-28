@@ -75,6 +75,10 @@ public class NavigationView extends View {
      * Initialise paint used for drawing.
      */
     private final void initPaint() {
+        // set Background
+        setBackgroundResource(R.drawable.custom_grid);
+
+        // initialise paint
         mPaint.setColor(Color.RED);
         mPaint.setStrokeWidth(4);
     }
