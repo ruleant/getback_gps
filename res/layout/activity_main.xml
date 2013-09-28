@@ -12,15 +12,9 @@
         android:orientation="vertical"
         android:padding="5dp">
 
-        <ImageView
+        <org.ruleant.ariadne.NavigationView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/imageView_grid"
-            android:src="@drawable/custom_grid" />
-
-        <org.ruleant.ariadne.NavigationView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
             android:id="@+id/navigationView" />
 
         <TextView
