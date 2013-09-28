@@ -47,7 +47,7 @@ public class NavigationView extends View {
     public NavigationView(Context context) {
         super(context);
 
-        initPaint();
+        init();
     }
 
     /**
@@ -59,7 +59,7 @@ public class NavigationView extends View {
     public NavigationView(Context context, AttributeSet attributes) {
         super(context, attributes);
 
-        initPaint();
+        init();
     }
 
     @Override
@@ -72,9 +72,9 @@ public class NavigationView extends View {
     }
 
     /**
-     * Initialise paint used for drawing.
+     * Initialise NavigationView.
      */
-    private final void initPaint() {
+    private final void init() {
         // set Background
         setBackgroundResource(R.drawable.custom_grid);
 
