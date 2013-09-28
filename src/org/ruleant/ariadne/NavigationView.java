@@ -26,14 +26,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
 
 /**
  * Navigation view is used to indicate the direction to the destination.
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class NavigationView extends View {
+public class NavigationView extends ImageView {
     /**
      * Paint used for drawing.
      */
@@ -64,6 +65,14 @@ public class NavigationView extends View {
 
     @Override
     public void onDraw(Canvas canvas) {
+        // scale View if it is not square
+        if (getWidth() != getHeight()) {
+            ViewGroup.LayoutParams layoutParams = getLayoutParams();
+
+            layoutParams.height = getWidth();
+            setLayoutParams(layoutParams);
+        }
+
         int maxHeight = canvas.getHeight();
         int maxWidth = canvas.getWidth();
 
