@@ -35,7 +35,7 @@ import android.view.View;
  */
 public class NavigationView extends View {
     /**
-     * Paint used for drawing
+     * Paint used for drawing.
      */
     private Paint mPaint = new Paint();
 
@@ -50,6 +50,12 @@ public class NavigationView extends View {
         initPaint();
     }
 
+    /**
+     * Constructor.
+     *
+     * @param context App context
+     * @param attributes View Attributes
+     */
     public NavigationView(Context context, AttributeSet attributes) {
         super(context, attributes);
 
