@@ -75,9 +75,16 @@ public class NavigationView extends ImageView {
 
         int maxHeight = canvas.getHeight();
         int maxWidth = canvas.getWidth();
+        int centerX = maxWidth / 2;
+        int centerY = maxHeight / 2;
 
-        canvas.drawLine(0, 0, maxWidth, maxHeight, mPaint);
-        canvas.drawLine(0, maxHeight, maxWidth, 0, mPaint);
+        // draw arrow to destination
+        double arrowLength = (maxHeight / 2) * .8;
+        double direction = 0;
+        long arrowX = centerX + Math.round(Math.sin(direction) * arrowLength);
+        long arrowY = centerY + Math.round(Math.cos(direction) * arrowLength);
+
+        canvas.drawLine(centerX, centerY, arrowX, arrowY, mPaint);
     }
 
     /**
