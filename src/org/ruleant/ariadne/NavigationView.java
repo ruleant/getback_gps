@@ -37,7 +37,7 @@ public class NavigationView extends View {
     /**
      * Paint used for drawing
      */
-    Paint mPaint = new Paint();
+    private Paint mPaint = new Paint();
 
     /**
      * Constructor.
