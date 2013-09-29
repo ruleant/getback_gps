@@ -80,11 +80,10 @@ public class NavigationView extends ImageView {
 
         // draw arrow to destination
         double arrowLength = (maxHeight / 2) * .8;
-        double direction = 0;
-        long arrowX = centerX + Math.round(Math.sin(direction) * arrowLength);
-        long arrowY = centerY + Math.round(Math.cos(direction) * arrowLength);
+        double direction = 120;
+        long coordinate[] = polarToCartesian(direction, arrowLength);
 
-        canvas.drawLine(centerX, centerY, arrowX, arrowY, mPaint);
+        canvas.drawLine(centerX, centerY, coordinate[0], coordinate[1], mPaint);
     }
 
     /**
@@ -97,5 +96,38 @@ public class NavigationView extends ImageView {
         // initialise paint
         mPaint.setColor(Color.RED);
         mPaint.setStrokeWidth(4);
+    }
+
+    /**
+     * Convert polar coordinate to Cartesian coordinate
+     * and apply the necessary transformations.
+     *
+     * The angle transformations :
+     * - to clockwise : a => -a
+     * - rotate 90° counter-clockwise : -a => PI/2 - a
+     * X = cos(PI/2 - a) = sin(a)
+     * Y = sin(PI/2 - a) = cos(a)
+     * - flip Y coordinate
+     * Y = -cos(a)
+     *
+     * @param angleDegrees Angle to coordinate point (in degrees)
+     * @param distance distance to coordinate point
+     * @return Cartesian coordinate 0 = x, 1 = y
+     */
+    private long[] polarToCartesian(final double angleDegrees, final double distance) {
+        long coordinate[] = new long[2];
+
+        // get center of ImageView
+        long centerX = getWidth() / 2;
+        long centerY = getHeight() / 2;
+
+        // convert angle in degrees to Radians
+        double angleRadian = (angleDegrees * 2 * Math.PI) / 360;
+
+        // Transform angle and convert to Cartesian
+        coordinate[0] = centerX + Math.round(Math.sin(angleRadian) * distance);
+        coordinate[1] = centerY - Math.round(Math.cos(angleRadian) * distance);
+
+        return coordinate;
     }
 }
