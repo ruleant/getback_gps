@@ -73,17 +73,15 @@ public class NavigationView extends ImageView {
             setLayoutParams(layoutParams);
         }
 
-        int maxHeight = canvas.getHeight();
-        int maxWidth = canvas.getWidth();
-        int centerX = maxWidth / 2;
-        int centerY = maxHeight / 2;
-
         // draw arrow to destination
-        double arrowLength = (maxHeight / 2) * .8;
+        double arrowLength = (getHeight() / 2) * .8;
         double direction = 120;
-        long coordinate[] = polarToCartesian(direction, arrowLength);
 
-        canvas.drawLine(centerX, centerY, coordinate[0], coordinate[1], mPaint);
+        long startCoordinate[] = polarToCartesian(0, 0);
+        long endCoordinate[] = polarToCartesian(direction, arrowLength);
+
+        canvas.drawLine(startCoordinate[0], startCoordinate[1],
+                endCoordinate[0], endCoordinate[1], mPaint);
     }
 
     /**
