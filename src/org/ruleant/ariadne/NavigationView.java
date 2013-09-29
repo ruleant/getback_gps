@@ -45,7 +45,7 @@ public class NavigationView extends ImageView {
      *
      * @param context App context
      */
-    public NavigationView(Context context) {
+    public NavigationView(final Context context) {
         super(context);
 
         init();
@@ -57,14 +57,14 @@ public class NavigationView extends ImageView {
      * @param context App context
      * @param attributes View Attributes
      */
-    public NavigationView(Context context, AttributeSet attributes) {
+    public NavigationView(final Context context, final AttributeSet attributes) {
         super(context, attributes);
 
         init();
     }
 
     @Override
-    public void onDraw(Canvas canvas) {
+    public final void onDraw(final Canvas canvas) {
         // scale View if it is not square
         if (getWidth() != getHeight()) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
@@ -90,7 +90,7 @@ public class NavigationView extends ImageView {
     /**
      * Initialise NavigationView.
      */
-    private final void init() {
+    private void init() {
         // set Background
         setBackgroundResource(R.drawable.custom_grid);
 
