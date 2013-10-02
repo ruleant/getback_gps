@@ -120,6 +120,8 @@ public class MainActivity extends AbstractAriadneActivity {
         String currentSpeedText = res.getString(R.string.inaccurate);
         String currentBearingText = res.getString(R.string.inaccurate);
 
+        nvToDestination.setMode(NavigationView.DISABLED);
+
         if (destination != null
                 && navigator != null
                 && navigator.isLocationAccurate()) {
@@ -133,8 +135,10 @@ public class MainActivity extends AbstractAriadneActivity {
             // if not, display absolute direction
             if (navigator.isBearingAccurate()) {
                 direction = navigator.getRelativeDirection();
+                nvToDestination.setMode(NavigationView.ACCURATE);
             } else {
                 direction = navigator.getAbsoluteDirection();
+                nvToDestination.setMode(NavigationView.INACCURATE);
             }
 
             toDestinationDirectionText = FormatUtils.formatAngle(
