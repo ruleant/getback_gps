@@ -31,6 +31,8 @@ import android.widget.ImageView;
 
 import org.ruleant.ariadne.lib.FormatUtils;
 
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 /**
  * Navigation view is used to indicate the direction to the destination.
  *
@@ -48,6 +50,11 @@ public class NavigationView extends ImageView {
     private double mDirection = 0;
 
     /**
+     * Navigation mode.
+     */
+    private int mMode = 0;
+
+    /**
      * X coordinate.
      */
     public static final int X = 0;
@@ -56,6 +63,21 @@ public class NavigationView extends ImageView {
      * Y coordinate.
      */
     public static final int Y = 1;
+
+    /**
+     * Mode disabled.
+     */
+    public static final int DISABLED = 0;
+
+    /**
+     * Mode inaccurate.
+     */
+    public static final int INACCURATE = 1;
+
+    /**
+     * Mode accurate.
+     */
+    public static final int ACCURATE = 2;
 
     /**
      * Constructor.
@@ -87,6 +109,29 @@ public class NavigationView extends ImageView {
      */
     public final void setDirection(final double direction) {
         this.mDirection =  FormatUtils.normalizeAngle(direction);
+    }
+
+    /**
+     * Sets navigation mode.
+     *
+     * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
+     */
+    public final void setMode(final int mode) {
+        switch (mode) {
+            default:
+            case DISABLED:
+                this.mMode = DISABLED;
+                mPaint.setColor(Color.LTGRAY);
+                break;
+            case INACCURATE:
+                this.mMode = INACCURATE;
+                mPaint.setColor(Style.holoBlueLight);
+                break;
+            case ACCURATE:
+                this.mMode = ACCURATE;
+                mPaint.setColor(Style.holoGreenLight);
+                break;
+        }
     }
 
     @Override
