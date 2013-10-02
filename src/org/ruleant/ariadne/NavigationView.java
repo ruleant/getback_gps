@@ -134,6 +134,15 @@ public class NavigationView extends ImageView {
         }
     }
 
+    /**
+     * Get navigation mode.
+     *
+     * @return Navigation mode : DISABLED, INACCURATE, ACCURATE
+     */
+    public final int getMode() {
+        return mMode;
+    }
+
     @Override
     public final void onDraw(final Canvas canvas) {
         // scale View if it is not square
