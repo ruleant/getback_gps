@@ -48,6 +48,16 @@ public class NavigationView extends ImageView {
     private double mDirection = 0;
 
     /**
+     * X coordinate.
+     */
+    public static final int X = 0;
+
+    /**
+     * Y coordinate.
+     */
+    public static final int Y = 1;
+
+    /**
      * Constructor.
      *
      * @param context App context
@@ -95,8 +105,8 @@ public class NavigationView extends ImageView {
         long startCoordinate[] = polarToCartesian(0, 0);
         long endCoordinate[] = polarToCartesian(mDirection, arrowLength);
 
-        canvas.drawLine(startCoordinate[0], startCoordinate[1],
-                endCoordinate[0], endCoordinate[1], mPaint);
+        canvas.drawLine(startCoordinate[X], startCoordinate[Y],
+                endCoordinate[X], endCoordinate[Y], mPaint);
     }
 
     /**
@@ -138,8 +148,8 @@ public class NavigationView extends ImageView {
         double angleRadian = (angleDegrees * 2 * Math.PI) / 360;
 
         // Transform angle and convert to Cartesian
-        coordinate[0] = centerX + Math.round(Math.sin(angleRadian) * distance);
-        coordinate[1] = centerY - Math.round(Math.cos(angleRadian) * distance);
+        coordinate[X] = centerX + Math.round(Math.sin(angleRadian) * distance);
+        coordinate[Y] = centerY - Math.round(Math.cos(angleRadian) * distance);
 
         return coordinate;
     }
