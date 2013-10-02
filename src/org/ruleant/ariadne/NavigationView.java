@@ -169,8 +169,8 @@ public class NavigationView extends ImageView {
         // draw arrow to destination
         double arrowLength = (getHeight() / 2) * .8;
 
-        long startCoordinate[] = polarToCartesian(0, 0);
-        long endCoordinate[] = polarToCartesian(getDirection(), arrowLength);
+        long[] startCoordinate = polarToCartesian(0, 0);
+        long[] endCoordinate = polarToCartesian(getDirection(), arrowLength);
 
         canvas.drawLine(startCoordinate[X], startCoordinate[Y],
                 endCoordinate[X], endCoordinate[Y], mPaint);
@@ -205,7 +205,7 @@ public class NavigationView extends ImageView {
      * @return Cartesian coordinate 0 = x, 1 = y
      */
     private long[] polarToCartesian(final double angleDegrees, final double distance) {
-        long coordinate[] = new long[2];
+        long[] coordinate = new long[2];
 
         // get center of ImageView
         long centerX = getWidth() / 2;
