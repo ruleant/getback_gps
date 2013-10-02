@@ -118,7 +118,6 @@ public class MainActivity extends AbstractAriadneActivity {
         String currentSpeedText = res.getString(R.string.inaccurate);
         String currentBearingText = res.getString(R.string.inaccurate);
 
-
         if (destination != null
                 && navigator != null
                 && navigator.isLocationAccurate()) {
@@ -126,21 +125,19 @@ public class MainActivity extends AbstractAriadneActivity {
             toDestinationDistanceText
                     = FormatUtils.formatDist(navigator.getDistance());
 
+            double direction;
+
             // if bearing is accurate, display relative direction
             // if not, display absolute direction
             if (navigator.isBearingAccurate()) {
-                toDestinationDirectionText
-                        = FormatUtils.formatAngle(
-                        navigator.getRelativeDirection());
+                direction = navigator.getRelativeDirection();
             } else {
-                toDestinationDirectionText
-                    = FormatUtils.formatAngle(
-                        FormatUtils.normalizeAngle(
-                            navigator.getAbsoluteDirection()));
+                direction = navigator.getAbsoluteDirection();
             }
+
+            toDestinationDirectionText = FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(direction));
         }
-
-
 
         // current speed
         if (navigator != null && navigator.isLocationAccurate()) {
