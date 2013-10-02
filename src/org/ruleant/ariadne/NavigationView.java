@@ -112,6 +112,19 @@ public class NavigationView extends ImageView {
     }
 
     /**
+     * Get direction, return nothing if mode is DISABLED.
+     *
+     * @return Direction to destination (0-360°)
+     */
+    public final double getDirection() {
+        if (getMode() == DISABLED) {
+            return 0;
+        } else {
+            return mDirection;
+        }
+    }
+
+    /**
      * Sets navigation mode.
      *
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
@@ -157,7 +170,7 @@ public class NavigationView extends ImageView {
         double arrowLength = (getHeight() / 2) * .8;
 
         long startCoordinate[] = polarToCartesian(0, 0);
-        long endCoordinate[] = polarToCartesian(mDirection, arrowLength);
+        long endCoordinate[] = polarToCartesian(getDirection(), arrowLength);
 
         canvas.drawLine(startCoordinate[X], startCoordinate[Y],
                 endCoordinate[X], endCoordinate[Y], mPaint);
