@@ -15,7 +15,7 @@
         <org.ruleant.ariadne.NavigationView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/navigationView" />
+            android:id="@+id/navigationView_ToDest" />
 
         <TextView
             android:id="@+id/textView_ToDestination"

@@ -104,6 +104,8 @@ public class MainActivity extends AbstractAriadneActivity {
         }
 
         // Refresh Directions to destination
+        NavigationView nvToDestination
+                = (NavigationView) findViewById(R.id.navigationView_ToDest);
         TextView tvToDestinationDistance
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
@@ -137,6 +139,7 @@ public class MainActivity extends AbstractAriadneActivity {
 
             toDestinationDirectionText = FormatUtils.formatAngle(
                     FormatUtils.normalizeAngle(direction));
+            nvToDestination.setDirection(direction);
         }
 
         // current speed
@@ -151,7 +154,8 @@ public class MainActivity extends AbstractAriadneActivity {
                     FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
         }
 
-        // update values
+        // update views
+        nvToDestination.invalidate();
         tvToDestinationDistance.setText(toDestinationDistanceText);
         tvToDestinationDirection.setText(toDestinationDirectionText);
         tvCurrentSpeed.setText(currentSpeedText);
