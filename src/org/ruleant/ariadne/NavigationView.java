@@ -29,6 +29,8 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import org.ruleant.ariadne.lib.FormatUtils;
+
 /**
  * Navigation view is used to indicate the direction to the destination.
  *
@@ -39,6 +41,11 @@ public class NavigationView extends ImageView {
      * Paint used for drawing.
      */
     private Paint mPaint = new Paint();
+
+    /**
+     * Direction to destination.
+     */
+    private double mDirection = 0;
 
     /**
      * Constructor.
@@ -63,6 +70,15 @@ public class NavigationView extends ImageView {
         init();
     }
 
+    /**
+     * Sets Direction.
+     *
+     * @param direction Direction to destination (0-360°).
+     */
+    public final void setDirection(final double direction) {
+        this.mDirection =  FormatUtils.normalizeAngle(direction);
+    }
+
     @Override
     public final void onDraw(final Canvas canvas) {
         // scale View if it is not square
@@ -75,10 +91,9 @@ public class NavigationView extends ImageView {
 
         // draw arrow to destination
         double arrowLength = (getHeight() / 2) * .8;
-        double direction = 120;
 
         long startCoordinate[] = polarToCartesian(0, 0);
-        long endCoordinate[] = polarToCartesian(direction, arrowLength);
+        long endCoordinate[] = polarToCartesian(mDirection, arrowLength);
 
         canvas.drawLine(startCoordinate[0], startCoordinate[1],
                 endCoordinate[0], endCoordinate[1], mPaint);
