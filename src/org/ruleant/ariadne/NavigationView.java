@@ -212,7 +212,7 @@ public class NavigationView extends ImageView {
         long centerY = getHeight() / 2;
 
         // convert angle in degrees to Radians
-        double angleRadian = (angleDegrees * 2 * Math.PI) / 360;
+        double angleRadian = Math.toRadians(angleDegrees);
 
         // Transform angle and convert to Cartesian
         coordinate[X] = centerX + Math.round(Math.sin(angleRadian) * distance);
