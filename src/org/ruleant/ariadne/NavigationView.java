@@ -96,7 +96,8 @@ public class NavigationView extends ImageView {
      * @param context App context
      * @param attributes View Attributes
      */
-    public NavigationView(final Context context, final AttributeSet attributes) {
+    public NavigationView(final Context context,
+                          final AttributeSet attributes) {
         super(context, attributes);
 
         init();
@@ -204,7 +205,8 @@ public class NavigationView extends ImageView {
      * @param distance distance to coordinate point
      * @return Cartesian coordinate 0 = x, 1 = y
      */
-    private long[] polarToCartesian(final double angleDegrees, final double distance) {
+    private long[] polarToCartesian(final double angleDegrees,
+                                    final double distance) {
         long[] coordinate = new long[2];
 
         // get center of ImageView
