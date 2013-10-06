@@ -80,6 +80,11 @@ public class NavigationView extends ImageView {
     public static final int ACCURATE = 2;
 
     /**
+     * Line thickness.
+     */
+    private static final float LINE_THICKNESS = 4;
+
+    /**
      * Constructor.
      *
      * @param context App context
@@ -186,7 +191,7 @@ public class NavigationView extends ImageView {
 
         // initialise paint
         mPaint.setColor(Color.RED);
-        mPaint.setStrokeWidth(4);
+        mPaint.setStrokeWidth(LINE_THICKNESS);
     }
 
     /**
