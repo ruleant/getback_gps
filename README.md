@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ruleant/ariadne.png?branch=master)](https://travis-ci.org/ruleant/ariadne)
+
 Ariadne
 =======
 
