@@ -41,7 +41,7 @@ public class StoredLocation {
     /**
      * Selected Location.
      */
-    private Location mLocation;
+    private AriadneLocation mLocation;
     /**
      * If a location was set.
      */
@@ -115,7 +115,7 @@ public class StoredLocation {
      */
     public StoredLocation(final Context context, final String sharedPrefName) {
         mContext = context;
-        mLocation = new Location("");
+        mLocation = new AriadneLocation("");
         mHasLocation = false;
 
         String prefName;
@@ -138,7 +138,7 @@ public class StoredLocation {
      *
      * @return Location location
      */
-    public final Location getLocation() {
+    public final AriadneLocation getLocation() {
         if (mHasLocation) {
             return mLocation;
         }
