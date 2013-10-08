@@ -53,6 +53,7 @@ public class NavigatorTest extends TestCase {
      */
     public final void testNoValue() {
         assertNull(navigator.getLocation());
+        assertNull(navigator.getPreviousLocation());
         assertNull(navigator.getDestination());
 
         assertEquals(F_ZERO, navigator.getDistance());
