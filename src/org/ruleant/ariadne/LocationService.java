@@ -64,6 +64,11 @@ public class LocationService extends Service {
     public static final String PREFS_LAST_LOC = "last_location";
 
     /**
+     * SharedPreferences location for previous location.
+     */
+    public static final String PREFS_PREV_LOC = "prev_location";
+
+    /**
      * Binder given to clients.
      */
     private final IBinder mBinder = new LocationBinder();
@@ -101,6 +106,10 @@ public class LocationService extends Service {
      */
     private StoredLocation mLastLocation = null;
     /**
+     * Last known good location.
+     */
+    private StoredLocation mPrevLocation = null;
+    /**
      * Stored location/destination.
      */
     private StoredDestination mStoredDestination = null;
@@ -124,6 +133,10 @@ public class LocationService extends Service {
         mLastLocation = new StoredLocation(
                 this.getApplicationContext(), PREFS_LAST_LOC);
         setLocation(mLastLocation.getLocation());
+
+        // retrieve previous location
+        mPrevLocation = new StoredLocation(this, PREFS_PREV_LOC);
+        mNavigator.setPreviousLocation(mPrevLocation.getLocation());
 
         // retrieve stored destination
         mStoredDestination = new StoredDestination(this, PREFS_STORE_DEST);
@@ -150,6 +163,8 @@ public class LocationService extends Service {
 
         // save stored locations
         mLastLocation.save();
+        mPrevLocation.setLocation(mNavigator.getPreviousLocation());
+        mPrevLocation.save();
         mStoredDestination.save();
 
         // cleanup class properties
