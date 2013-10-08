@@ -112,8 +112,12 @@ public class StoredLocation {
      *
      * @param context        Context of the Android app
      * @param sharedPrefName Name of Shared Preferences file name
+     * @throws IllegalArgumentException if new value is out of range.
      */
     public StoredLocation(final Context context, final String sharedPrefName) {
+        if (context == null) {
+            throw new IllegalArgumentException("context is not defined");
+        }
         mContext = context;
         mLocation = new AriadneLocation("");
         mHasLocation = false;
