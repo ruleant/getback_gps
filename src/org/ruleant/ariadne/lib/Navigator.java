@@ -71,6 +71,17 @@ public class Navigator {
     }
 
     /**
+     * Set Previous Location,
+     * this should only be done to restore a previous state.
+     * Use setLocation() for normal operation.
+     *
+     * @param location Previous Location (AriadneLocation object)
+     */
+    public final void setPreviousLocation(final AriadneLocation location) {
+        mPreviousLocation = location;
+    }
+
+    /**
      * Retrieve Location.
      *
      * Get last known location
@@ -79,6 +90,15 @@ public class Navigator {
      */
     public final AriadneLocation getLocation() {
         return mCurrentLocation;
+    }
+
+    /**
+     * Retrieve Previous Location.
+     *
+     * @return Previous Location
+     */
+    public final AriadneLocation getPreviousLocation() {
+        return mPreviousLocation;
     }
 
     /**
