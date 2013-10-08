@@ -90,14 +90,6 @@
 					<targetJdk>${compile.source}</targetJdk>
 					<linkXref>false</linkXref>
 					<failOnViolation>false</failOnViolation>
-					<executions>
-						<execution>
-							<goals>
-								<goal>check</goal>
-								<goal>cpd-check</goal>
-							</goals>
-						</execution>
-					</executions>
 				</configuration>
 			</plugin>
 			<plugin>
