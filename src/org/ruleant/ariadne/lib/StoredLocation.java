@@ -83,6 +83,14 @@ public class StoredLocation {
      */
     private static final String HAS_BEARING = "has_bearing";
     /**
+     * Name of Speed object in SharedPreferences.
+     */
+    private static final String SPEED = "speed";
+    /**
+     * Name of hasSpeed object in SharedPreferences.
+     */
+    private static final String HAS_SPEED = "has_speed";
+    /**
      * Name of Accuracy object in SharedPreferences.
      */
     private static final String ACCURACY = "accuracy";
@@ -203,6 +211,14 @@ public class StoredLocation {
                         BEARING, Float.toString(mLocation.getBearing()));
             }
 
+            // save speed, if defined
+            editor.putString(
+                    HAS_SPEED, Boolean.toString(mLocation.hasSpeed()));
+            if (mLocation.hasSpeed()) {
+                editor.putString(
+                        SPEED, Float.toString(mLocation.getSpeed()));
+            }
+
             // save accuracy, if defined
             editor.putString(
                     HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
@@ -276,6 +292,16 @@ public class StoredLocation {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_BEARING, "false"))) {
                 location.setBearing(
                         Float.parseFloat(mPrefs.getString(BEARING, "0.0")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // retrieve speed, if defined
+        try {
+            if (Boolean.parseBoolean(mPrefs.getString(HAS_SPEED, "false"))) {
+                location.setSpeed(
+                        Float.parseFloat(mPrefs.getString(SPEED, "0.0")));
             }
         } catch (Exception e) {
             e.printStackTrace();
