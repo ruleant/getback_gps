@@ -75,6 +75,14 @@ public class StoredLocation {
      */
     private static final String HAS_ALTITUDE = "has_altitude";
     /**
+     * Name of Bearing object in SharedPreferences.
+     */
+    private static final String BEARING = "bearing";
+    /**
+     * Name of hasBearing object in SharedPreferences.
+     */
+    private static final String HAS_BEARING = "has_bearing";
+    /**
      * Name of Accuracy object in SharedPreferences.
      */
     private static final String ACCURACY = "accuracy";
@@ -187,6 +195,14 @@ public class StoredLocation {
                         ALTITUDE, Double.toString(mLocation.getAltitude()));
             }
 
+            // save bearing, if defined
+            editor.putString(
+                    HAS_BEARING, Boolean.toString(mLocation.hasBearing()));
+            if (mLocation.hasBearing()) {
+                editor.putString(
+                        BEARING, Float.toString(mLocation.getBearing()));
+            }
+
             // save accuracy, if defined
             editor.putString(
                     HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
@@ -250,6 +266,16 @@ public class StoredLocation {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ALTITUDE, "false"))) {
                 location.setAltitude(
                     Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // retrieve bearing, if defined
+        try {
+            if (Boolean.parseBoolean(mPrefs.getString(HAS_BEARING, "false"))) {
+                location.setBearing(
+                        Float.parseFloat(mPrefs.getString(BEARING, "0.0")));
             }
         } catch (Exception e) {
             e.printStackTrace();
