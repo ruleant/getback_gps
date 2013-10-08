@@ -35,10 +35,6 @@ import android.location.Location;
  */
 public class StoredLocation {
     /**
-     * Context of App.
-     */
-    private Context mContext;
-    /**
      * Selected Location.
      */
     private AriadneLocation mLocation;
@@ -118,7 +114,7 @@ public class StoredLocation {
         if (context == null) {
             throw new IllegalArgumentException("context is not defined");
         }
-        mContext = context;
+
         mLocation = new AriadneLocation("");
         mHasLocation = false;
 
@@ -130,7 +126,7 @@ public class StoredLocation {
             prefName = sharedPrefName;
         }
 
-        mPrefs = mContext.getSharedPreferences(
+        mPrefs = context.getSharedPreferences(
                 prefName, Context.MODE_PRIVATE
                 );
 
