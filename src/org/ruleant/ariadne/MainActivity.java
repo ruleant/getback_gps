@@ -93,7 +93,7 @@ public class MainActivity extends AbstractAriadneActivity {
         LocationService service = getService();
         Navigator navigator = service.getNavigator();
         Resources res = getResources();
-        AriadneLocation destination = null;
+        AriadneLocation destination;
 
         // get Destination from service
         try {

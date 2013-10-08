@@ -62,8 +62,8 @@ public class DetailsActivity extends AbstractAriadneActivity {
         LocationService service = getService();
         Navigator navigator = service.getNavigator();
         Resources res = getResources();
-        AriadneLocation destination = null;
-        AriadneLocation currentLocation = null;
+        AriadneLocation destination;
+        AriadneLocation currentLocation;
 
         // Refresh locationProvider
         TextView tvProvider
