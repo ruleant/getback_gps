@@ -86,7 +86,7 @@ public class FormatUtils {
      * @param distance distance in m
      * @return formatted distance with unit (m or km)
      */
-    public static final String formatDist(double distance) {
+    public static String formatDist(double distance) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = CONV_KM_M;
@@ -125,7 +125,7 @@ public class FormatUtils {
      * @param speed speed in m/s
      * @return formatted speed with unit (km/h)
      */
-    public static final String formatSpeed(final double speed) {
+    public static String formatSpeed(final double speed) {
         return formatSpeed(speed, null);
     }
 
@@ -138,7 +138,7 @@ public class FormatUtils {
      * @param context App context.
      * @return formatted speed with unit (km/h)
      */
-    public static final String formatSpeed(final double speed,
+    public static String formatSpeed(final double speed,
                                            final Context context) {
         String unit = SPEED_KPH;
 
@@ -170,7 +170,7 @@ public class FormatUtils {
      * @param angle Angle in °
      * @return formatted angle with unit (°)
      */
-    public static final String formatAngle(final double angle) {
+    public static String formatAngle(final double angle) {
         String unit = "°";
 
         // formatting
@@ -183,7 +183,7 @@ public class FormatUtils {
      * @param angle Angle in degrees
      * @return Normalized angle in range 0°-360°
      */
-    public static final double normalizeAngle(double angle) {
+    public static double normalizeAngle(double angle) {
         // TODO low refactor to also work if range would be -180°-180°
         float range = MAX_ANGLE - MIN_ANGLE;
 
@@ -204,7 +204,7 @@ public class FormatUtils {
      * @param providerName Name of the location provider
      * @return Localized location provider name
      */
-    public static final String localizeProviderName(
+    public static String localizeProviderName(
             final Context context, final String providerName) {
         String l10nProviderName = providerName;
 
