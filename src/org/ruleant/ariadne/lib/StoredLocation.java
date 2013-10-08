@@ -152,8 +152,10 @@ public class StoredLocation {
      * @param location New location
      */
     public void setLocation(final Location location) {
-        mLocation.set(location);
-        mHasLocation = true;
+        if (location != null) {
+            mLocation.set(location);
+            mHasLocation = true;
+        }
     }
 
     /**
