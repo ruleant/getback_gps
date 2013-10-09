@@ -304,8 +304,8 @@ public class SettingsActivity extends PreferenceActivity {
     private static void bindPreferenceSummaryToValue(
             final Preference preference) {
         // Set the listener to watch for value changes.
-        preference
-                .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+        preference.setOnPreferenceChangeListener(
+                sBindPreferenceSummaryToValueListener);
 
         // Trigger the listener immediately with the preference's
         // current value.
@@ -378,8 +378,8 @@ public class SettingsActivity extends PreferenceActivity {
                     R.array.pref_loc_update_time_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                int value
-                        = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
+                int value = Integer.parseInt(
+                        values[i].toString()) / ONEK_MSECONDS;
                 if (value >= SIXTY_SECONDS) {
                     value = value / SIXTY_SECONDS;
                     captions[i] = resources.getQuantityString(

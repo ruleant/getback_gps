@@ -187,7 +187,8 @@ public class DetailsActivity extends AbstractAriadneActivity {
                 // current image is pointing right.
                 ivDestPointer.setRotation(
                         (float) FormatUtils.normalizeAngle(
-                                navigator.getRelativeDirection() - POINTER_ROT));
+                                navigator.getRelativeDirection()
+                                        - POINTER_ROT));
             } else {
                 ivDestPointer.setVisibility(ImageView.INVISIBLE);
             }
