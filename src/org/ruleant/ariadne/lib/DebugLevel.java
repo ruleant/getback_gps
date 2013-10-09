@@ -106,6 +106,6 @@ public class DebugLevel {
      * @return true if current debugLevel is at least the needed level
      */
     public final boolean checkDebugLevel(final int debugLevel) {
-        return (BuildConfig.DEBUG && (getDebugLevel() >= debugLevel));
+        return BuildConfig.DEBUG && getDebugLevel() >= debugLevel;
     }
 }

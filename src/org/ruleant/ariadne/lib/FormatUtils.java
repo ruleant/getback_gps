@@ -100,7 +100,7 @@ public class FormatUtils {
             return String.format(Locale.getDefault(), "%1$d%2$s",
                     Math.round(distance), shortUnit);
         } else {
-            double scaledDistance = (distance / scaleUnit);
+            double scaledDistance = distance / scaleUnit;
             // round to one decimal and check if it is
             // smaller than a 1 decimal difference
             if ((Math.round(scaledDistance * ONE_DEC) / ONE_DEC) < ONE_DEC) {

@@ -141,7 +141,7 @@ public abstract class AbstractGeoCoordinate {
      * @return true if coordinate is within range
      */
     private boolean checkRange(final double coordinate) {
-        return (coordinate <= mRangeHigh && coordinate >= mRangeLow);
+        return coordinate <= mRangeHigh && coordinate >= mRangeLow;
     }
 
     /**

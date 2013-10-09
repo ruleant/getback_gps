@@ -119,7 +119,7 @@ public class LocationService extends Service {
         // Create debug class instance
         mDebug = new DebugLevel(this);
 
-        if ((mDebug != null)
+        if (mDebug != null
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
@@ -175,7 +175,7 @@ public class LocationService extends Service {
         mNavigator = null;
 
         // display message announcing end of service
-        if ((mDebug != null)
+        if (mDebug != null
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
         }
@@ -191,7 +191,7 @@ public class LocationService extends Service {
 
     @Override
     public final IBinder onBind(final Intent intent) {
-        if ((mDebug != null)
+        if (mDebug != null
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service bound", Toast.LENGTH_SHORT).show();
         }
@@ -200,7 +200,7 @@ public class LocationService extends Service {
 
     @Override
     public final boolean onUnbind(final Intent intent) {
-        if ((mDebug != null)
+        if (mDebug != null
                 && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             Toast.makeText(this, "service unbound", Toast.LENGTH_SHORT).show();
         }
@@ -324,7 +324,7 @@ public class LocationService extends Service {
      * @return boolean true if Location Provider is defined.
      */
     public final boolean isSetLocationProvider() {
-        return (mProviderName != null && mProviderName.length() > 0);
+        return mProviderName != null && mProviderName.length() > 0;
     }
 
     /**
@@ -460,7 +460,7 @@ public class LocationService extends Service {
             setLocation(location);
 
             // display message on update
-            if ((mDebug != null)
+            if (mDebug != null
                     && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
                     ) {
                 Toast.makeText(
