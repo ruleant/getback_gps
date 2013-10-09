@@ -67,7 +67,7 @@ public class DetailsActivity extends AbstractAriadneActivity {
 
         // Refresh locationProvider
         TextView tvProvider
-            = (TextView) findViewById(R.id.textView_LocationProvider);
+                = (TextView) findViewById(R.id.textView_LocationProvider);
         String providerText = res.getString(R.string.location_provider) + ": ";
         if (!service.isSetLocationProvider()) {
             providerText += res.getString(R.string.none);
@@ -79,9 +79,9 @@ public class DetailsActivity extends AbstractAriadneActivity {
 
         // Refresh Location
         TextView tvLocation
-            = (TextView) findViewById(R.id.textView_Location);
+                = (TextView) findViewById(R.id.textView_Location);
         String locationText
-            = res.getString(R.string.curr_location) + ":\n";
+                = res.getString(R.string.curr_location) + ":\n";
         currentLocation = service.getLocation();
         if (currentLocation == null) {
             locationText += " " + res.getString(R.string.unknown);
@@ -102,7 +102,7 @@ public class DetailsActivity extends AbstractAriadneActivity {
             currentText += " " + res.getString(R.string.unknown);
         } else {
             currentText += FormatUtils.formatSpeed(
-                navigator.getCurrentSpeed(), this);
+                    navigator.getCurrentSpeed(), this);
         }
 
         // current bearing
@@ -119,9 +119,9 @@ public class DetailsActivity extends AbstractAriadneActivity {
 
         // Refresh Destination
         TextView tvDestination
-            = (TextView) findViewById(R.id.textView_Destination);
+                = (TextView) findViewById(R.id.textView_Destination);
         String destinationText
-            = res.getString(R.string.destination) + ":\n";
+                = res.getString(R.string.destination) + ":\n";
 
         // get Destination from service
         try {
@@ -133,13 +133,13 @@ public class DetailsActivity extends AbstractAriadneActivity {
 
         if (destination == null) {
             destinationText += " "
-                + res.getString(R.string.notset);
+                    + res.getString(R.string.notset);
 
             // display notice when no destination is set
             // and there is a current location
             if (currentLocation != null) {
                 destinationText += "\n "
-                    + res.getString(R.string.notice_no_dest);
+                        + res.getString(R.string.notice_no_dest);
             }
         } else {
             destinationText += destination.toString(this);
@@ -148,25 +148,25 @@ public class DetailsActivity extends AbstractAriadneActivity {
 
         // Refresh Directions to destination
         TextView tvToDestination
-            = (TextView) findViewById(R.id.textView_ToDestination);
+                = (TextView) findViewById(R.id.textView_ToDestination);
         ImageView ivDestPointer
-        = (ImageView) findViewById(R.id.image_DestinationPointer);
+                = (ImageView) findViewById(R.id.image_DestinationPointer);
         String toDestinationText
-            = res.getString(R.string.to_dest) + ":\n";
+                = res.getString(R.string.to_dest) + ":\n";
         if (destination == null || currentLocation == null) {
             toDestinationText += " "
-                + res.getString(R.string.unknown);
+                    + res.getString(R.string.unknown);
             ivDestPointer.setVisibility(ImageView.INVISIBLE);
         } else {
             // Print distance and bearing
             toDestinationText += " "
-                + res.getString(R.string.distance) + ": "
-                + FormatUtils.formatDist(navigator.getDistance()) + "\n";
+                    + res.getString(R.string.distance) + ": "
+                    + FormatUtils.formatDist(navigator.getDistance()) + "\n";
             toDestinationText += " "
-                + res.getString(R.string.direction) + ": "
-                + FormatUtils.formatAngle(
+                    + res.getString(R.string.direction) + ": "
+                    + FormatUtils.formatAngle(
                     FormatUtils.normalizeAngle(
-                        navigator.getAbsoluteDirection()));
+                            navigator.getAbsoluteDirection()));
 
             boolean isBearingAccurate = navigator.isBearingAccurate();
 
@@ -176,18 +176,18 @@ public class DetailsActivity extends AbstractAriadneActivity {
                 toDestinationText += "\n "
                         + res.getString(R.string.direction_relative) + ": "
                         + FormatUtils.formatAngle(
-                            navigator.getRelativeDirection());
-             }
+                        navigator.getRelativeDirection());
+            }
 
             // setRotation requires API level 11
             if (isBearingAccurate
-                  && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
                 ivDestPointer.setVisibility(ImageView.VISIBLE);
                 // rotate 90° counter clockwise,
                 // current image is pointing right.
                 ivDestPointer.setRotation(
-                    (float) FormatUtils.normalizeAngle(
-                        navigator.getRelativeDirection() - POINTER_ROT));
+                        (float) FormatUtils.normalizeAngle(
+                                navigator.getRelativeDirection() - POINTER_ROT));
             } else {
                 ivDestPointer.setVisibility(ImageView.INVISIBLE);
             }

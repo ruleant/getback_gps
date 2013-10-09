@@ -99,58 +99,58 @@ public class AriadneLocation extends Location {
         // Format location
         Latitude latitude = new Latitude(context, getLatitude());
         locationText += " "
-            + res.getString(R.string.latitude) + ": " + latitude.format();
+                + res.getString(R.string.latitude) + ": " + latitude.format();
 
         Longitude longitude = new Longitude(context, getLongitude());
         locationText += "\n "
-            + res.getString(R.string.longitude) + ": " + longitude.format();
+                + res.getString(R.string.longitude) + ": " + longitude.format();
 
         if (hasAltitude()) {
             locationText += "\n "
-                + res.getString(R.string.altitude) + ": "
-                + FormatUtils.formatDist(getAltitude());
+                    + res.getString(R.string.altitude) + ": "
+                    + FormatUtils.formatDist(getAltitude());
         }
         if (hasBearing()) {
             locationText += "\n "
-                + res.getString(R.string.bearing) + ": "
-                + FormatUtils.formatAngle(getBearing());
+                    + res.getString(R.string.bearing) + ": "
+                    + FormatUtils.formatAngle(getBearing());
         }
         if (hasSpeed()) {
             locationText += "\n "
-                + res.getString(R.string.speed) + ": "
-                + FormatUtils.formatSpeed(getSpeed(), context);
+                    + res.getString(R.string.speed) + ": "
+                    + FormatUtils.formatSpeed(getSpeed(), context);
         }
         if (hasAccuracy()) {
             locationText += "\n "
-                + res.getString(R.string.accuracy) + ": "
-                + FormatUtils.formatDist(getAccuracy());
+                    + res.getString(R.string.accuracy) + ": "
+                    + FormatUtils.formatDist(getAccuracy());
         }
 
         // Location provider
         String providerName = getProvider();
         if (providerName != null && providerName.length() > 0) {
             locationText += "\n "
-                + res.getString(R.string.provider) + ": "
-                + FormatUtils.localizeProviderName(context, providerName);
+                    + res.getString(R.string.provider) + ": "
+                    + FormatUtils.localizeProviderName(context, providerName);
         }
 
         // Format Timestamp
         if (getTime() > 0) {
             Date date = new Date(getTime());
             DateFormat formatter
-                = SimpleDateFormat.getDateTimeInstance();
+                    = SimpleDateFormat.getDateTimeInstance();
             locationText += "\n "
-                + res.getString(R.string.timestamp) + ": "
-                + formatter.format(date);
+                    + res.getString(R.string.timestamp) + ": "
+                    + formatter.format(date);
 
             // display "recent" message
             if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)) {
                 if (isRecent()) {
                     locationText += "\n "
-                        + res.getString(R.string.loc_updated_recent);
+                            + res.getString(R.string.loc_updated_recent);
                 } else {
                     locationText += "\n "
-                        + res.getString(R.string.loc_updated_not_recent);
+                            + res.getString(R.string.loc_updated_not_recent);
                 }
             }
         }
@@ -158,8 +158,8 @@ public class AriadneLocation extends Location {
         // Display raw when in debug mode
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             locationText += "\n\n "
-                + res.getString(R.string.raw) + ": "
-                + super.toString();
+                    + res.getString(R.string.raw) + ": "
+                    + super.toString();
         }
 
         return locationText;

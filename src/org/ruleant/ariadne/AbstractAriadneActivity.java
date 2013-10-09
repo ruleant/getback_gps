@@ -152,7 +152,7 @@ public abstract class AbstractAriadneActivity extends Activity {
                     this,
                     R.string.store_location_disabled,
                     Toast.LENGTH_LONG
-                ).show();
+            ).show();
             return;
         }
 
@@ -161,24 +161,24 @@ public abstract class AbstractAriadneActivity extends Activity {
         // https://developer.android.com/guide/topics/ui/dialogs.html
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.dialog_store_location)
-               .setPositiveButton(R.string.store_location,
-                       new DialogInterface.OnClickListener() {
-                   public void onClick(final DialogInterface dialog,
-                           final int id) {
-                       // store current location and refresh display
-                       if (mBound) {
-                           mService.storeCurrentLocation();
-                       }
-                       refreshDisplay();
-                   }
-               })
-               .setNegativeButton(R.string.no,
-                       new DialogInterface.OnClickListener() {
-                   public void onClick(final DialogInterface dialog,
-                           final int id) {
-                       // User cancelled the dialog
-                   }
-               });
+                .setPositiveButton(R.string.store_location,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                // store current location and refresh display
+                                if (mBound) {
+                                    mService.storeCurrentLocation();
+                                }
+                                refreshDisplay();
+                            }
+                        })
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                // User cancelled the dialog
+                            }
+                        });
 
         // Create the AlertDialog object and display it
         builder.create().show();
@@ -223,32 +223,32 @@ public abstract class AbstractAriadneActivity extends Activity {
         // The item parameter passed here indicates which item it is
         // All other menu item clicks are handled by onOptionsItemSelected()
         switch (item.getItemId()) {
-        case R.id.menu_settings:
-            displaySettings(item);
-            return true;
-        case R.id.menu_about:
-            displayAbout(item);
-            return true;
-        case R.id.menu_storelocation:
-            storeLocation(item);
-            return true;
-        case R.id.menu_refresh:
-            refresh(item);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+            case R.id.menu_settings:
+                displaySettings(item);
+                return true;
+            case R.id.menu_about:
+                displayAbout(item);
+                return true;
+            case R.id.menu_storelocation:
+                storeLocation(item);
+                return true;
+            case R.id.menu_refresh:
+                refresh(item);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
-         MenuItem mi = menu.findItem(R.id.menu_storelocation);
-         if (mBound) {
-             // enable store location button if a location is set
-             mi.setEnabled(mService.getLocation() != null);
-         }
+        MenuItem mi = menu.findItem(R.id.menu_storelocation);
+        if (mBound) {
+            // enable store location button if a location is set
+            mi.setEnabled(mService.getLocation() != null);
+        }
 
-         return super.onPrepareOptionsMenu(menu);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     /**
@@ -346,7 +346,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      * from the remote service.
      */
     private ILocationServiceCallback mCallback
-        = new ILocationServiceCallback.Stub() {
+            = new ILocationServiceCallback.Stub() {
         /**
          * Called by the LocationService when a location is updated,
          * it gets the new location and refreshes the display.

@@ -128,7 +128,7 @@ public class StoredLocation {
 
         mPrefs = context.getSharedPreferences(
                 prefName, Context.MODE_PRIVATE
-                );
+        );
 
         restore();
     }
@@ -188,14 +188,14 @@ public class StoredLocation {
                     LONGITUDE,
                     Location.convert(
                             mLocation.getLongitude(), Location.FORMAT_DEGREES
-                            )
-                    );
+                    )
+            );
             editor.putString(
                     LATITUDE,
                     Location.convert(
                             mLocation.getLatitude(), Location.FORMAT_DEGREES
-                            )
-                    );
+                    )
+            );
 
             // save altitude, if defined
             editor.putString(
@@ -226,7 +226,7 @@ public class StoredLocation {
                     HAS_ACCURACY, Boolean.toString(mLocation.hasAccuracy()));
             if (mLocation.hasAccuracy()) {
                 editor.putString(
-                    ACCURACY, Float.toString(mLocation.getAccuracy()));
+                        ACCURACY, Float.toString(mLocation.getAccuracy()));
             }
 
             editor.putLong(TIMESTAMP, mLocation.getTime());
@@ -256,7 +256,7 @@ public class StoredLocation {
         // return null when not set or exception is thrown
         try {
             mHasLocation
-                = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
+                    = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
             if (!mHasLocation) {
                 return null;
             }
@@ -270,10 +270,10 @@ public class StoredLocation {
         try {
             location.setLongitude(
                     Location.convert(mPrefs.getString(LONGITUDE, "0.0"))
-                    );
+            );
             location.setLatitude(
                     Location.convert(mPrefs.getString(LATITUDE, "0.0"))
-                    );
+            );
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -283,7 +283,7 @@ public class StoredLocation {
         try {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ALTITUDE, "false"))) {
                 location.setAltitude(
-                    Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
+                        Double.parseDouble(mPrefs.getString(ALTITUDE, "0.0")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -313,8 +313,8 @@ public class StoredLocation {
         try {
             if (Boolean.parseBoolean(mPrefs.getString(HAS_ACCURACY, "false"))) {
                 location.setAccuracy(
-                    Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
-                    );
+                        Float.parseFloat(mPrefs.getString(ACCURACY, "0.0"))
+                );
             }
         } catch (Exception e) {
             e.printStackTrace();

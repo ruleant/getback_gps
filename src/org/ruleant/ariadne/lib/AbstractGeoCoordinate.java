@@ -101,7 +101,7 @@ public abstract class AbstractGeoCoordinate {
             value = newValue;
         } else {
             throw new IllegalArgumentException(
-                "newValue is not in range " + mRangeLow + " .. " + mRangeHigh);
+                    "newValue is not in range " + mRangeLow + " .. " + mRangeHigh);
         }
     }
 

@@ -124,8 +124,8 @@ public class LocationService extends Service {
             Toast.makeText(this, "service created", Toast.LENGTH_SHORT).show();
         }
         mLocationManager
-            = (LocationManager)
-            this.getSystemService(Context.LOCATION_SERVICE);
+                = (LocationManager)
+                this.getSystemService(Context.LOCATION_SERVICE);
 
         mNavigator = new Navigator();
 
@@ -184,7 +184,7 @@ public class LocationService extends Service {
 
     @Override
     public final int onStartCommand(
-        final Intent intent, final int flags, final int startId) {
+            final Intent intent, final int flags, final int startId) {
         // The service is starting, due to a call to startService()
         return START_NOT_STICKY;
     }
@@ -257,7 +257,7 @@ public class LocationService extends Service {
                 || (currentLocation != null
                 && ((location.getTime() == currentLocation.getTime()
                 && location.getProvider()
-                    .equals(currentLocation.getProvider()))
+                .equals(currentLocation.getProvider()))
                 || !currentLocation.isNewer(location)))
                 ) {
             return;
@@ -359,13 +359,13 @@ public class LocationService extends Service {
                     this,
                     R.string.location_stored,
                     Toast.LENGTH_SHORT
-                ).show();
+            ).show();
         } else {
             Toast.makeText(
                     this,
                     R.string.store_location_disabled,
                     Toast.LENGTH_LONG
-                ).show();
+            ).show();
         }
     }
 
@@ -412,13 +412,13 @@ public class LocationService extends Service {
 
             // Get debug level from SharedPreferences
             SharedPreferences sharedPref
-            = PreferenceManager.getDefaultSharedPreferences(this);
+                    = PreferenceManager.getDefaultSharedPreferences(this);
             String prefLocationUpdateDistance
-            = sharedPref.getString(
+                    = sharedPref.getString(
                     SettingsActivity.KEY_PREF_LOC_UPDATE_DIST,
                     SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST);
             String prefLocationUpdateTime
-            = sharedPref.getString(
+                    = sharedPref.getString(
                     SettingsActivity.KEY_PREF_LOC_UPDATE_TIME,
                     SettingsActivity.DEFAULT_PREF_LOC_UPDATE_TIME);
 
@@ -444,7 +444,7 @@ public class LocationService extends Service {
                     this,
                     R.string.provider_no_support,
                     Toast.LENGTH_LONG
-                    ).show();
+            ).show();
         }
         return location;
     }
@@ -464,9 +464,9 @@ public class LocationService extends Service {
                     && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
                     ) {
                 Toast.makeText(
-                    mContext,
-                    R.string.location_updated,
-                    Toast.LENGTH_SHORT
+                        mContext,
+                        R.string.location_updated,
+                        Toast.LENGTH_SHORT
                 ).show();
             }
 
@@ -494,7 +494,7 @@ public class LocationService extends Service {
 
         @Override
         public void onStatusChanged(
-            final String provider, final int status, final Bundle extras) {
+                final String provider, final int status, final Bundle extras) {
         }
     };
 

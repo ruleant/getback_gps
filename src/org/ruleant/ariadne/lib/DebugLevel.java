@@ -76,36 +76,36 @@ public class DebugLevel {
      *
      * @param context Context of the App
      */
-     public DebugLevel(final Context context) {
+    public DebugLevel(final Context context) {
         mContext = context;
-     }
+    }
 
-     /**
-      * Get current debug level from SharedPreferences.
-      *
-      * @return current debugLevel
-      */
-     public final int getDebugLevel() {
-         if (!BuildConfig.DEBUG || mContext == null) {
-             return DEBUG_LEVEL_OFF;
-         }
+    /**
+     * Get current debug level from SharedPreferences.
+     *
+     * @return current debugLevel
+     */
+    public final int getDebugLevel() {
+        if (!BuildConfig.DEBUG || mContext == null) {
+            return DEBUG_LEVEL_OFF;
+        }
 
-         // Get debug level from SharedPreferences
-         SharedPreferences sharedPref
-             = PreferenceManager.getDefaultSharedPreferences(mContext);
-         String prefDebugLevel
-             = sharedPref.getString(PREF_DEBUG_LEVEL, DEFAULT_DEBUG_LEVEL);
+        // Get debug level from SharedPreferences
+        SharedPreferences sharedPref
+                = PreferenceManager.getDefaultSharedPreferences(mContext);
+        String prefDebugLevel
+                = sharedPref.getString(PREF_DEBUG_LEVEL, DEFAULT_DEBUG_LEVEL);
 
-         return Integer.parseInt(prefDebugLevel);
-     }
+        return Integer.parseInt(prefDebugLevel);
+    }
 
-     /**
-      * Check if the current debug level is set to the required level.
-      *
-      * @param debugLevel Debug level to check
-      * @return true if current debugLevel is at least the needed level
-      */
-     public final boolean checkDebugLevel(final int debugLevel) {
-         return (BuildConfig.DEBUG && (getDebugLevel() >= debugLevel));
-     }
+    /**
+     * Check if the current debug level is set to the required level.
+     *
+     * @param debugLevel Debug level to check
+     * @return true if current debugLevel is at least the needed level
+     */
+    public final boolean checkDebugLevel(final int debugLevel) {
+        return (BuildConfig.DEBUG && (getDebugLevel() >= debugLevel));
+    }
 }
