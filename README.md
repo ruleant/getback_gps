@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.org/ruleant/ariadne.png?branch=master)](https://travis-ci.org/ruleant/ariadne)
-
 Ariadne
 =======
+
+[![Build Status](https://travis-ci.org/ruleant/ariadne.png?branch=master)](https://travis-ci.org/ruleant/ariadne)
 
 Android app for finding your way back to a previously visited location, using GPS coordinates.
 
