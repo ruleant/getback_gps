@@ -49,12 +49,12 @@ public class FormatUtils {
     /**
      * Conversion rate from m/s to km/h.
      */
-    public static final double SPEED_CONV_MPS_KPH = 3.6; // 3600s/1000m
+    private static final double SPEED_CONV_MPS_KPH = 3.6; // 3600s/1000m
 
     /**
      * Conversion rate from kilometer to meter.
      */
-    public static final double CONV_KM_M = 1000.0;
+    private static final double CONV_KM_M = 1000.0;
 
     /**
      * 1 decimal difference.

@@ -32,7 +32,7 @@ public class Navigator {
     /**
      * Required location accuracy in meter.
      */
-    public static final double ACCURACY_LIMIT = 50;
+    private static final double ACCURACY_LIMIT = 50;
 
     /**
      * Conversion from seconds to milliseconds.
