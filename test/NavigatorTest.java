@@ -245,6 +245,29 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Tests getSpeed of current location.
+     */
+    public final void testGetSpeed() {
+        // set location
+        navigator.setLocation(loc1);
+
+        // get Speed
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        // mock : define hasSpeed
+        when(loc1.hasSpeed()).thenReturn(true);
+
+        // get Speed
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        // mock : define getSpeed
+        when(loc1.getSpeed()).thenReturn(F_SIXTY);
+
+        // get Speed
+        assertEquals(F_SIXTY, navigator.getCurrentSpeed());
+    }
+
+    /**
      * Tests location.
      */
     public final void testLocation() {
