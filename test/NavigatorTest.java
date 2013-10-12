@@ -45,9 +45,14 @@ public class NavigatorTest extends TestCase {
     private static final float F_ZERO = 0;
 
     /**
-     * Ten.
+     * Distance between location 1 and 2.
      */
-    private static final float F_TEN = 10;
+    private static final float DIST_LOC1_2 = 10;
+
+    /**
+     * Distance between location 1 and 3.
+     */
+    private static final float DIST_LOC1_3 = 20;
 
     /**
      * Fifty.
@@ -90,6 +95,10 @@ public class NavigatorTest extends TestCase {
         loc3 = mock(AriadneLocation.class);
         //loc3.setLatitude(0.0);
         //loc3.setLongitude(4.0);
+
+        // setup mock objects
+        when(loc1.distanceTo(loc2)).thenReturn(DIST_LOC1_2);
+        when(loc1.distanceTo(loc3)).thenReturn(DIST_LOC1_3);
     }
 
     /**
@@ -192,22 +201,18 @@ public class NavigatorTest extends TestCase {
      * Tests getDistance.
      */
     public final void testGetDistance() {
-        // setup mock objects
-        when(loc1.distanceTo(loc2)).thenReturn(F_TEN);
-        when(loc1.distanceTo(loc3)).thenReturn(F_SIXTY);
-
         // set location
         navigator.setLocation(loc1);
         // set destination
         navigator.setDestination(loc3);
 
         // test Distance
-        assertEquals(F_SIXTY, navigator.getDistance());
+        assertEquals(DIST_LOC1_3, navigator.getDistance());
 
         // set another destination
         navigator.setDestination(loc2);
         // test Distance
-        assertEquals(F_TEN, navigator.getDistance());
+        assertEquals(DIST_LOC1_2, navigator.getDistance());
     }
 
     /**
