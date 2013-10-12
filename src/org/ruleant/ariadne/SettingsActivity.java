@@ -36,6 +36,8 @@ import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
+import org.ruleant.ariadne.lib.DebugLevel;
+
 /**
  * A PreferenceActivity that presents a set of application settings. On
  * handset devices, settings are presented as a single list. On tablets,
@@ -123,9 +125,9 @@ public class SettingsActivity extends PreferenceActivity {
         // their values. When their values change, their summaries are updated
         // to reflect the new value, per the Android Design guidelines.
         bindPreferenceSummaryToValue(
-            findPreference(KEY_PREF_LOC_UPDATE_DIST));
+                findPreference(KEY_PREF_LOC_UPDATE_DIST));
         bindPreferenceSummaryToValue(
-            findPreference(KEY_PREF_LOC_UPDATE_TIME));
+                findPreference(KEY_PREF_LOC_UPDATE_TIME));
         if (BuildConfig.DEBUG) {
             bindPreferenceSummaryToValue(
                     findPreference(DebugLevel.PREF_DEBUG_LEVEL));
@@ -139,10 +141,10 @@ public class SettingsActivity extends PreferenceActivity {
         // TODO move to separate class to remove duplicate method
         // in GeneralPreferenceFragment
         ListPreference locUpdateDistPref
-            = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
+                = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
         Resources resources = getResources();
         CharSequence[] values
-            = resources.getStringArray(
+                = resources.getStringArray(
                 R.array.pref_loc_update_dist_list_values);
 
         Integer optionsLength = values.length;
@@ -185,10 +187,10 @@ public class SettingsActivity extends PreferenceActivity {
         // in GeneralPreferenceFragment
         // TODO merge common parts with populateLocUpdateDist
         ListPreference locUpdateTimePref
-            = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
+                = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
         Resources resources = getResources();
         CharSequence[] values
-            = resources.getStringArray(
+                = resources.getStringArray(
                 R.array.pref_loc_update_time_list_values);
         CharSequence[] captions = new CharSequence[values.length];
         for (int i = 0; i < values.length; i++) {
@@ -196,10 +198,10 @@ public class SettingsActivity extends PreferenceActivity {
             if (value >= SIXTY_SECONDS) {
                 value = value / SIXTY_SECONDS;
                 captions[i] = resources.getQuantityString(
-                    R.plurals.time_minutes, value, value);
+                        R.plurals.time_minutes, value, value);
             } else {
                 captions[i] = resources.getQuantityString(
-                    R.plurals.time_seconds, value, value);
+                        R.plurals.time_seconds, value, value);
             }
         }
         locUpdateTimePref.setEntries(captions);
@@ -220,10 +222,10 @@ public class SettingsActivity extends PreferenceActivity {
      */
     @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     private static boolean isXLargeTablet(final Context context) {
-        return (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD
                 && (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
-                >= Configuration.SCREENLAYOUT_SIZE_XLARGE);
+                >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
 
     /**
@@ -260,11 +262,11 @@ public class SettingsActivity extends PreferenceActivity {
      * to reflect its new value.
      */
     private static Preference.OnPreferenceChangeListener
-        sBindPreferenceSummaryToValueListener
-        = new Preference.OnPreferenceChangeListener() {
+            sBindPreferenceSummaryToValueListener
+            = new Preference.OnPreferenceChangeListener() {
         @Override
         public boolean onPreferenceChange(
-            final Preference preference, final Object value) {
+                final Preference preference, final Object value) {
 
             String stringValue = value.toString();
 
@@ -302,8 +304,8 @@ public class SettingsActivity extends PreferenceActivity {
     private static void bindPreferenceSummaryToValue(
             final Preference preference) {
         // Set the listener to watch for value changes.
-        preference
-        .setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
+        preference.setOnPreferenceChangeListener(
+                sBindPreferenceSummaryToValueListener);
 
         // Trigger the listener immediately with the preference's
         // current value.
@@ -311,7 +313,7 @@ public class SettingsActivity extends PreferenceActivity {
                 preference,
                 PreferenceManager.getDefaultSharedPreferences(
                         preference.getContext()).getString(preference.getKey(),
-                                ""));
+                        ""));
     }
 
     /**
@@ -320,7 +322,7 @@ public class SettingsActivity extends PreferenceActivity {
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public static final class GeneralPreferenceFragment
-        extends PreferenceFragment {
+            extends PreferenceFragment {
         @Override
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
@@ -333,9 +335,9 @@ public class SettingsActivity extends PreferenceActivity {
             // updated to reflect the new value, per the Android Design
             // guidelines.
             bindPreferenceSummaryToValue(
-                findPreference("loc_update_dist"));
+                    findPreference("loc_update_dist"));
             bindPreferenceSummaryToValue(
-                findPreference("loc_update_time"));
+                    findPreference("loc_update_time"));
         }
 
         /**
@@ -345,17 +347,17 @@ public class SettingsActivity extends PreferenceActivity {
         private void populateLocUpdateDist() {
             // duplicate of method in GeneralPreferenceFragment
             ListPreference locUpdateDistPref
-                 = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
+                    = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_DIST);
             Resources resources = getResources();
             CharSequence[] values
-                 = resources.getStringArray(
-                     R.array.pref_loc_update_dist_list_values);
+                    = resources.getStringArray(
+                    R.array.pref_loc_update_dist_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
                 int value = Integer.parseInt(values[i].toString());
                 if (value > 0) {
                     captions[i] = resources.getQuantityString(
-                        R.plurals.distance_meter, value, value);
+                            R.plurals.distance_meter, value, value);
                 } else {
                     captions[i] = resources.getString(R.string.disabled);
                 }
@@ -369,22 +371,22 @@ public class SettingsActivity extends PreferenceActivity {
         private void populateLocUpdateTime() {
             // duplicate of method in GeneralPreferenceFragment
             ListPreference locUpdateTimePref
-                 = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
+                    = (ListPreference) findPreference(KEY_PREF_LOC_UPDATE_TIME);
             Resources resources = getResources();
             CharSequence[] values
-                 = resources.getStringArray(
-                     R.array.pref_loc_update_time_list_values);
+                    = resources.getStringArray(
+                    R.array.pref_loc_update_time_list_values);
             CharSequence[] captions = new CharSequence[values.length];
             for (int i = 0; i < values.length; i++) {
-                int value
-                    = Integer.parseInt(values[i].toString()) / ONEK_MSECONDS;
+                int value = Integer.parseInt(
+                        values[i].toString()) / ONEK_MSECONDS;
                 if (value >= SIXTY_SECONDS) {
                     value = value / SIXTY_SECONDS;
                     captions[i] = resources.getQuantityString(
-                        R.plurals.time_minutes, value, value);
+                            R.plurals.time_minutes, value, value);
                 } else {
                     captions[i] = resources.getQuantityString(
-                        R.plurals.time_seconds, value, value);
+                            R.plurals.time_seconds, value, value);
                 }
             }
             locUpdateTimePref.setEntries(captions);
@@ -413,7 +415,7 @@ public class SettingsActivity extends PreferenceActivity {
             // updated to reflect the new value, per the Android Design
             // guidelines.
             bindPreferenceSummaryToValue(
-                findPreference(DebugLevel.PREF_DEBUG_LEVEL));
+                    findPreference(DebugLevel.PREF_DEBUG_LEVEL));
         }
     }
 }

@@ -21,12 +21,16 @@
  */
 package org.ruleant.ariadne;
 
-import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.widget.ImageView;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.TextView;
+
+import org.ruleant.ariadne.lib.AriadneLocation;
+import org.ruleant.ariadne.lib.FormatUtils;
+import org.ruleant.ariadne.lib.Navigator;
 
 /**
  * Main Activity class.
@@ -34,63 +38,62 @@ import android.widget.TextView;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class MainActivity extends AbstractAriadneActivity {
-    /**
-     * Rotation of the direction pointer image.
-     */
-    private static final int POINTER_ROT = 90;
-
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
+    @Override
+    public final boolean onCreateOptionsMenu(final Menu menu) {
+        boolean superResult = super.onCreateOptionsMenu(menu);
+
+        // Inflate the menu;
+        // this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+
+        return superResult;
+    }
+
+    @Override
+    public final boolean onOptionsItemSelected(final MenuItem item) {
+        // One of the group items (using the onClick attribute) was clicked
+        // The item parameter passed here indicates which item it is
+        // All other menu item clicks are handled by onOptionsItemSelected()
+        switch (item.getItemId()) {
+            case R.id.menu_details:
+                displayDetails(item);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
+    /**
+     * Called when the user clicks the About menu item.
+     *
+     * @param item MenuItem object that was clicked
+     */
+    public final void displayDetails(final MenuItem item) {
+        Intent intent = new Intent(this, DetailsActivity.class);
+        startActivity(intent);
+    }
+
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected final void refreshDisplay() {
         // only refresh items if activity is bound to service
         if (!isBound()) {
             return;
         }
 
+        super.refreshDisplay();
+
         LocationService service = getService();
         Navigator navigator = service.getNavigator();
         Resources res = getResources();
-        AriadneLocation destination = null;
-        AriadneLocation currentLocation = null;
-
-        // Refresh locationProvider
-        TextView tvProvider
-            = (TextView) findViewById(R.id.textView_LocationProvider);
-        String providerText = res.getString(R.string.location_provider) + ": ";
-        if (!service.isSetLocationProvider()) {
-            providerText += res.getString(R.string.none);
-        } else {
-            providerText += FormatUtils.localizeProviderName(
-                    this, service.getLocationProvider());
-        }
-        tvProvider.setText(providerText);
-
-        // Refresh Location
-        TextView tvLocation
-            = (TextView) findViewById(R.id.textView_Location);
-        String locationText
-            = res.getString(R.string.curr_location) + ":\n";
-        currentLocation = service.getLocation();
-        if (currentLocation == null) {
-            locationText += " " + res.getString(R.string.unknown);
-        } else {
-            locationText += currentLocation.toString(this);
-        }
-        tvLocation.setText(locationText);
-
-        // Refresh Destination
-        TextView tvDestination
-            = (TextView) findViewById(R.id.textView_Destination);
-        String destinationText
-            = res.getString(R.string.destination) + ":\n";
+        AriadneLocation destination;
 
         // get Destination from service
         try {
@@ -100,70 +103,66 @@ public class MainActivity extends AbstractAriadneActivity {
             destination = null;
         }
 
-        if (destination == null) {
-            destinationText += " "
-                + res.getString(R.string.notset);
-
-            // display notice when no destination is set
-            // and there is a current location
-            if (currentLocation != null) {
-                destinationText += "\n "
-                    + res.getString(R.string.notice_no_dest);
-            }
-        } else {
-            destinationText += destination.toString(this);
-        }
-        tvDestination.setText(destinationText);
-
         // Refresh Directions to destination
-        TextView tvToDestination
-            = (TextView) findViewById(R.id.textView_ToDestination);
-        TextView tvInaccurateDirection
-        = (TextView) findViewById(R.id.textView_InaccurateDirection);
-        ImageView ivDestPointer
-        = (ImageView) findViewById(R.id.image_DestinationPointer);
-        String toDestinationText
-            = res.getString(R.string.to_dest) + ":\n";
-        if (destination == null || currentLocation == null) {
-            toDestinationText += " "
-                + res.getString(R.string.unknown);
-            tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
-            ivDestPointer.setVisibility(ImageView.INVISIBLE);
-        } else {
+        NavigationView nvToDestination
+                = (NavigationView) findViewById(R.id.navigationView_ToDest);
+        TextView tvToDestinationDistance
+                = (TextView) findViewById(R.id.textView_toDestDist);
+        TextView tvToDestinationDirection
+                = (TextView) findViewById(R.id.textView_toDestDir);
+        TextView tvCurrentSpeed
+                = (TextView) findViewById(R.id.textView_currSpeed);
+        TextView tvCurrentBearing
+                = (TextView) findViewById(R.id.textView_currBearing);
+
+        String toDestinationDistanceText = res.getString(R.string.unknown);
+        String toDestinationDirectionText = res.getString(R.string.unknown);
+        String currentSpeedText = res.getString(R.string.inaccurate);
+        String currentBearingText = res.getString(R.string.inaccurate);
+
+        nvToDestination.setMode(NavigationView.DISABLED);
+
+        if (destination != null
+                && navigator != null
+                && navigator.isLocationAccurate()) {
             // Print distance and bearing
-            toDestinationText += " "
-                + res.getString(R.string.distance) + ": "
-                + FormatUtils.formatDist(navigator.getDistance()) + "\n";
-            toDestinationText += " "
-                + res.getString(R.string.direction) + ": "
-                + FormatUtils.formatAngle(navigator.getAbsoluteDirection());
+            toDestinationDistanceText
+                    = FormatUtils.formatDist(navigator.getDistance());
 
-            boolean isBearingAccurate = navigator.isBearingAccurate();
+            double direction;
 
-            // if bearing is inaccurate, don't display relative direction
-            // and display warning
-            if (isBearingAccurate) {
-                toDestinationText += "\n "
-                        + res.getString(R.string.direction_relative) + ": "
-                        + FormatUtils.formatAngle(navigator.getRelativeDirection());
-                tvInaccurateDirection.setVisibility(TextView.INVISIBLE);
+            // if bearing is accurate, display relative direction
+            // if not, display absolute direction
+            if (navigator.isBearingAccurate()) {
+                direction = navigator.getRelativeDirection();
+                nvToDestination.setMode(NavigationView.ACCURATE);
             } else {
-                tvInaccurateDirection.setVisibility(TextView.VISIBLE);
+                direction = navigator.getAbsoluteDirection();
+                nvToDestination.setMode(NavigationView.INACCURATE);
             }
 
-            // setRotation requires API level 11
-            if (isBearingAccurate
-                  && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                ivDestPointer.setVisibility(ImageView.VISIBLE);
-                // rotate 90° counter clockwise,
-                // current image is pointing right.
-                ivDestPointer.setRotation(
-                        (float) FormatUtils.normalizeAngle(
-                                navigator.getRelativeDirection() - POINTER_ROT));
-            } else {
-                ivDestPointer.setVisibility(ImageView.INVISIBLE);
-            }
+            toDestinationDirectionText = FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(direction));
+            nvToDestination.setDirection(direction);
         }
-        tvToDestination.setText(toDestinationText);
+
+        // current speed
+        if (navigator != null && navigator.isLocationAccurate()) {
+            currentSpeedText = FormatUtils.formatSpeed(
+                    navigator.getCurrentSpeed(), this);
+        }
+
+        // current bearing
+        if (navigator != null && navigator.isBearingAccurate()) {
+            currentBearingText = FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
+        }
+
+        // update views
+        nvToDestination.invalidate();
+        tvToDestinationDistance.setText(toDestinationDistanceText);
+        tvToDestinationDirection.setText(toDestinationDirectionText);
+        tvCurrentSpeed.setText(currentSpeedText);
+        tvCurrentBearing.setText(currentBearingText);
     }
 }

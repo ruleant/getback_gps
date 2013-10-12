@@ -22,6 +22,7 @@
 package org.ruleant.ariadne;
 
 import org.ruleant.ariadne.LocationService.LocationBinder;
+import org.ruleant.ariadne.lib.Navigator;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -30,10 +31,15 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import de.keyboardsurfer.android.widget.crouton.Configuration;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /**
  * Abstract Ariadne Activity class, contains the common methods
@@ -52,6 +58,26 @@ public abstract class AbstractAriadneActivity extends Activity {
      */
     private boolean mBound = false;
 
+    /**
+     * Crouton configuration.
+     */
+    private Configuration croutonConfig;
+
+    /**
+     * Inaccurate location crouton.
+     */
+    private Crouton crInaccurateLocation;
+
+    /**
+     * 'No destination set' crouton.
+     */
+    private Crouton crNoDestination;
+
+    /**
+     * Inaccurate direction crouton.
+     */
+    private Crouton crInaccurateDirection;
+
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu;
@@ -61,7 +87,7 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    protected void onStart() {
+    protected final void onStart() {
         super.onStart();
         // Bind to LocationService
         Intent intent = new Intent(this, LocationService.class);
@@ -69,13 +95,48 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     @Override
-    protected void onStop() {
+    protected final void onStop() {
         super.onStop();
         // Unbind from the service
         if (mBound) {
             unbindService(mConnection);
             mBound = false;
         }
+    }
+
+    @Override
+    protected void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        // create Crouton configuration
+        croutonConfig = new Configuration.Builder()
+                .setDuration(Configuration.DURATION_INFINITE)
+                .build();
+
+        // create inaccurate location crouton
+        crInaccurateLocation = Crouton.makeText(this,
+                R.string.inaccurate_location, Style.ALERT);
+        crInaccurateLocation.setConfiguration(croutonConfig);
+
+        // create inaccurate direction crouton
+        crInaccurateDirection = Crouton.makeText(this,
+                R.string.inaccurate_direction, Style.INFO);
+        crInaccurateDirection.setConfiguration(croutonConfig);
+
+        // create 'no destination set' crouton
+        crNoDestination = Crouton.makeText(this,
+                R.string.notice_no_dest, Style.INFO);
+        crNoDestination.setConfiguration(croutonConfig);
+
+
+    }
+
+    @Override
+    protected final void onDestroy() {
+        super.onDestroy();
+
+        // Cancel active croutons
+        Crouton.cancelAllCroutons();
     }
 
     /**
@@ -85,13 +146,13 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void storeLocation(final MenuItem item) {
+    public final void storeLocation(final MenuItem item) {
         if (mBound && mService.getLocation() == null) {
             Toast.makeText(
                     this,
                     R.string.store_location_disabled,
                     Toast.LENGTH_LONG
-                ).show();
+            ).show();
             return;
         }
 
@@ -100,24 +161,24 @@ public abstract class AbstractAriadneActivity extends Activity {
         // https://developer.android.com/guide/topics/ui/dialogs.html
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setMessage(R.string.dialog_store_location)
-               .setPositiveButton(R.string.store_location,
-                       new DialogInterface.OnClickListener() {
-                   public void onClick(final DialogInterface dialog,
-                           final int id) {
-                       // store current location and refresh display
-                       if (mBound) {
-                           mService.storeCurrentLocation();
-                       }
-                       refreshDisplay();
-                   }
-               })
-               .setNegativeButton(R.string.no,
-                       new DialogInterface.OnClickListener() {
-                   public void onClick(final DialogInterface dialog,
-                           final int id) {
-                       // User cancelled the dialog
-                   }
-               });
+                .setPositiveButton(R.string.store_location,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                // store current location and refresh display
+                                if (mBound) {
+                                    mService.storeCurrentLocation();
+                                }
+                                refreshDisplay();
+                            }
+                        })
+                .setNegativeButton(R.string.no,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                // User cancelled the dialog
+                            }
+                        });
 
         // Create the AlertDialog object and display it
         builder.create().show();
@@ -128,7 +189,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void refresh(final MenuItem item) {
+    public final void refresh(final MenuItem item) {
         if (mBound) {
             mService.updateLocationProvider();
             mService.updateLocation();
@@ -141,7 +202,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void displayAbout(final MenuItem item) {
+    public final void displayAbout(final MenuItem item) {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
@@ -151,56 +212,96 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    public void displaySettings(final MenuItem item) {
+    public final void displaySettings(final MenuItem item) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
 
     @Override
-    public final boolean onOptionsItemSelected(final MenuItem item) {
+    public boolean onOptionsItemSelected(final MenuItem item) {
         // One of the group items (using the onClick attribute) was clicked
         // The item parameter passed here indicates which item it is
         // All other menu item clicks are handled by onOptionsItemSelected()
         switch (item.getItemId()) {
-        case R.id.menu_settings:
-            displaySettings(item);
-            return true;
-        case R.id.menu_about:
-            displayAbout(item);
-            return true;
-        case R.id.menu_storelocation:
-            storeLocation(item);
-            return true;
-        case R.id.menu_refresh:
-            refresh(item);
-            return true;
-        default:
-            return super.onOptionsItemSelected(item);
+            case R.id.menu_settings:
+                displaySettings(item);
+                return true;
+            case R.id.menu_about:
+                displayAbout(item);
+                return true;
+            case R.id.menu_storelocation:
+                storeLocation(item);
+                return true;
+            case R.id.menu_refresh:
+                refresh(item);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
         }
     }
 
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
-         MenuItem mi = menu.findItem(R.id.menu_storelocation);
-         if (mBound) {
-             // enable store location button if a location is set
-             mi.setEnabled(mService.getLocation() != null);
-         }
+        MenuItem mi = menu.findItem(R.id.menu_storelocation);
+        if (mBound) {
+            // enable store location button if a location is set
+            mi.setEnabled(mService.getLocation() != null);
+        }
 
-         return super.onPrepareOptionsMenu(menu);
+        return super.onPrepareOptionsMenu(menu);
     }
 
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    protected abstract void refreshDisplay();
+    protected void refreshDisplay() {
+        // only refresh items if activity is bound to service
+        if (!isBound()) {
+            return;
+        }
+
+        refreshCrouton();
+    }
+
+    /**
+     * Update which crouton should be displayed.
+     */
+    protected final void refreshCrouton() {
+        // only refresh items if activity is bound to service
+        if (!isBound()) {
+            return;
+        }
+
+        Navigator navigator = getService().getNavigator();
+
+        // if location is inaccurate, display warning
+        if (!navigator.isLocationAccurate()) {
+            crInaccurateLocation.show();
+        } else {
+            crInaccurateLocation.cancel();
+
+            // if no destination is set, display message
+            if (navigator.getDestination() == null) {
+                crNoDestination.show();
+            } else {
+                crNoDestination.cancel();
+
+                // if bearing is inaccurate, display warning
+                if (!navigator.isBearingAccurate()) {
+                    crInaccurateDirection.show();
+                } else {
+                    crInaccurateDirection.cancel();
+                }
+            }
+        }
+    }
 
     /**
      * Returns bound state to Location Service.
      *
      * @return boolean Bound State
      */
-    protected boolean isBound() {
+    protected final boolean isBound() {
         return mBound;
     }
 
@@ -209,7 +310,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      *
      * @return LocationService
      */
-    protected LocationService getService() {
+    protected final LocationService getService() {
         return mService;
     }
 
@@ -245,7 +346,7 @@ public abstract class AbstractAriadneActivity extends Activity {
      * from the remote service.
      */
     private ILocationServiceCallback mCallback
-        = new ILocationServiceCallback.Stub() {
+            = new ILocationServiceCallback.Stub() {
         /**
          * Called by the LocationService when a location is updated,
          * it gets the new location and refreshes the display.

@@ -10,74 +10,108 @@
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:padding="5dp" >
+        android:paddingTop="25dp" >
+
+        <org.ruleant.ariadne.NavigationView
+            android:layout_width="250dp"
+            android:layout_height="250dp"
+            android:id="@+id/navigationView_ToDest" />
 
         <LinearLayout
-            android:layout_width="0dp"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical" >
+            android:baselineAligned="false"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <TextView
-                android:id="@+id/textView_LocationProvider"
+                android:id="@+id/textView_ToDestination"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="@string/location_provider" />
-
-            <TextView
-                android:id="@+id/textView_Location"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="@string/curr_location" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/textView_Destination"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="@string/destination" />
+                android:layout_gravity="center_vertical"
+                android:text="@string/to_dest"
+                android:textSize="16sp"
+                android:textIsSelectable="false" />
 
             <LinearLayout
-                tools:ignore="UseCompoundDrawables"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:paddingTop="2dp"
                 android:orientation="horizontal" >
 
-                <ImageView
-                    android:id="@+id/image_DestinationPointer"
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginLeft="5dp"
-                    android:contentDescription="@string/descr_dest_pointer"
-                    android:rotation="270"
-                    android:src="@android:drawable/ic_menu_send" />
+                    android:paddingLeft="5dp"
+                    android:text="@string/distance"
+                    android:textStyle="bold" />
 
                 <TextView
-                    android:id="@+id/textView_ToDestination"
+                    android:id="@+id/textView_toDestDist"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:padding="2dp"
-                    android:text="@string/to_dest" />
+                    android:paddingLeft="5dp" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/textView_InaccurateDirection"
+            <LinearLayout
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:padding="2dp"
-                android:text="@string/inaccurate_direction" />
+                android:paddingTop="2dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/direction"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_toDestDir"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/current_speed"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_currSpeed"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:text="@string/current_bearing"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView_currBearing"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
-
 </ScrollView>

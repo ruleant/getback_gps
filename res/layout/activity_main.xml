@@ -8,61 +8,104 @@
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:baselineAligned="false"
         android:orientation="vertical"
-        android:padding="5dp" >
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="50dp" >
+
+        <org.ruleant.ariadne.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="50dp"
+            android:id="@+id/navigationView_ToDest" />
 
         <TextView
-            android:id="@+id/textView_LocationProvider"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/location_provider" />
-
-        <TextView
-            android:id="@+id/textView_Location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/curr_location" />
-
-        <TextView
-            android:id="@+id/textView_Destination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/destination" />
-
-        <LinearLayout
-            tools:ignore="UseCompoundDrawables"
+            android:id="@+id/textView_ToDestination"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:text="@string/to_dest"
+            android:textSize="16sp"
+            android:textIsSelectable="false" />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
             android:orientation="horizontal" >
 
             <TextView
-                android:id="@+id/textView_ToDestination"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="2dp"
-                android:text="@string/to_dest" />
+                android:paddingLeft="5dp"
+                android:text="@string/distance"
+                android:textStyle="bold" />
 
-            <ImageView
-                android:id="@+id/image_DestinationPointer"
-                android:layout_width="wrap_content"
+            <TextView
+                android:id="@+id/textView_toDestDist"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:contentDescription="@string/descr_dest_pointer"
-                android:rotation="270"
-                android:src="@android:drawable/ic_menu_send" />
+                android:paddingLeft="5dp" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/textView_InaccurateDirection"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/inaccurate_direction" />
-    </LinearLayout>
+            android:paddingTop="2dp"
+            android:orientation="horizontal" >
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="@string/direction"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_toDestDir"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="10dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="@string/current_speed"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_currSpeed"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp"
+                android:text="@string/current_bearing"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textView_currBearing"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="5dp" />
+        </LinearLayout>
+    </LinearLayout>
 </ScrollView>

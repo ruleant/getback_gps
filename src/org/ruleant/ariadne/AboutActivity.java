@@ -36,6 +36,8 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
+import org.ruleant.ariadne.lib.DebugLevel;
+
 /**
  * This activity displays information about the App : version, build date,
  * author and license info.
@@ -63,7 +65,7 @@ public class AboutActivity extends Activity {
 
         try {
             packageInfo
-                = getPackageManager().getPackageInfo(getPackageName(), 0);
+                    = getPackageManager().getPackageInfo(getPackageName(), 0);
             versionInfo += " v" + packageInfo.versionName;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                 Date date = new Date(packageInfo.lastUpdateTime);
@@ -83,8 +85,8 @@ public class AboutActivity extends Activity {
         tvWebsite.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
         String websiteText
-            = String.format(res.getString(R.string.app_website),
-                    res.getString(R.string.url_website));
+                = String.format(res.getString(R.string.app_website),
+                res.getString(R.string.url_website));
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()
@@ -97,7 +99,7 @@ public class AboutActivity extends Activity {
         tvCopyright.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
         String copyrightText = res.getString(R.string.copyright)
-            + " " + res.getText(R.string.copyright_ruleant);
+                + " " + res.getText(R.string.copyright_ruleant);
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()

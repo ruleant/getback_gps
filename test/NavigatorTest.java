@@ -19,12 +19,13 @@
  * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
 
 import junit.framework.TestCase;
 import static org.mockito.Mockito.*;
 
 import org.mockito.Mockito.*;
+
+import org.ruleant.ariadne.lib.Navigator;
 
 /**
  * Unit tests for FormatUtils class.
@@ -90,6 +91,7 @@ public class NavigatorTest extends TestCase {
      */
     public final void testNoValue() {
         assertNull(navigator.getLocation());
+        assertNull(navigator.getPreviousLocation());
         assertNull(navigator.getDestination());
 
         assertEquals(F_ZERO, navigator.getDistance());

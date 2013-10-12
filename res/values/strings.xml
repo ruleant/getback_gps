@@ -3,6 +3,8 @@
     <string name="app_desc">Find your way back to a previously visited location, using GPS coordinates.</string>
     <string name="copyright">Copyright</string>
     <string name="app_website">Visit the &lt;a href="%1$s">website&lt;/a> for more info.</string>
+    <string name="menu_details">Location details</string>
+    <string name="activity_details">Details</string>
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>
@@ -14,6 +16,9 @@
     <string name="loc_provider_gps">GPS</string>
     <string name="location">Location</string>
     <string name="curr_location">Current (last known) location</string>
+    <string name="current">Current</string>
+    <string name="current_speed">Current speed</string>
+    <string name="current_bearing">Current bearing</string>
     <string name="location_updated">Location updated</string>
     <string name="location_stored">Location stored</string>
     <string name="stored_location">Stored Location</string>
@@ -56,8 +61,10 @@
     <string name="version">Version</string>
     <string name="loc_updated_recent">Location recently updated.</string>
     <string name="loc_updated_not_recent">Location NOT recently updated.</string>
-    <string name="inaccurate_direction">The direction to your destination is only accurate if you are moving.</string>
-    <string name="notice_no_dest">Store your location to set a destination.</string>
+    <string name="inaccurate">Inaccurate</string>
+    <string name="inaccurate_direction">Start moving to have an accurate direction to your destination</string>
+    <string name="inaccurate_location">Your current location is inaccurate</string>
+    <string name="notice_no_dest">Store your location to set a destination</string>
     <!-- Strings related to Settings -->
     <string name="settings">Settings</string>
     <!-- General settings -->
