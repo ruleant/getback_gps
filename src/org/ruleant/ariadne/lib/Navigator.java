@@ -40,6 +40,11 @@ public class Navigator {
     private static final float SECOND_IN_MILLIS = 1000;
 
     /**
+     * Zero distance.
+     */
+    public static final float DIST_ZERO = 0;
+
+    /**
      * Current Location.
      */
     private AriadneLocation mCurrentLocation = null;
@@ -129,7 +134,7 @@ public class Navigator {
 
         // don't calculate distance if current location is not set
         if (mCurrentLocation == null || destination == null) {
-            return 0;
+            return DIST_ZERO;
         }
         return mCurrentLocation.distanceTo(destination);
     }
