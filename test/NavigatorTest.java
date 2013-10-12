@@ -55,11 +55,6 @@ public class NavigatorTest extends TestCase {
     private static final float DIST_LOC1_3 = 30;
 
     /**
-     * Direction zero.
-     */
-    private static final double DIR_ZERO = 0.0;
-
-    /**
      * Direction from location 1 to 2.
      */
     private static final double DIR_LOC1_2 = 45.0;
@@ -129,9 +124,9 @@ public class NavigatorTest extends TestCase {
         assertNull(navigator.getDestination());
 
         assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
-        assertEquals(DIR_ZERO, navigator.getCurrentBearing());
-        assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
-        assertEquals(DIR_ZERO, navigator.getRelativeDirection());
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
+        assertEquals(Navigator.DIR_ZERO, navigator.getRelativeDirection());
         assertEquals(F_ZERO, navigator.getCurrentSpeed());
     }
 
@@ -205,7 +200,7 @@ public class NavigatorTest extends TestCase {
         // set destination
         navigator.setDestination(loc3);
         assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
-        assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
+        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
     }
 
     /**
@@ -215,7 +210,7 @@ public class NavigatorTest extends TestCase {
         // set location
         navigator.setLocation(loc1);
         assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
-        assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
+        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
     }
 
     /**
