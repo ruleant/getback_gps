@@ -199,21 +199,23 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
-     * Tests getDistance, without a currentLocation.
+     * Tests without a current Location.
      */
-    public final void testGetDistanceNoLocation() {
+    public final void testNoLocation() {
         // set destination
         navigator.setDestination(loc3);
         assertEquals(F_ZERO, navigator.getDistance());
+        assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
     }
 
     /**
-     * Tests getDistance, without a Destination.
+     * Tests without a Destination.
      */
     public final void testGetDistanceNoDestination() {
         // set location
         navigator.setLocation(loc1);
         assertEquals(F_ZERO, navigator.getDistance());
+        assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
     }
 
     /**
