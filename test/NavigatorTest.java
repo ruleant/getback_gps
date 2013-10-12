@@ -45,6 +45,11 @@ public class NavigatorTest extends TestCase {
     private static final float F_ZERO = 0;
 
     /**
+     * Ten.
+     */
+    private static final float F_TEN = 10;
+
+    /**
      * Fifty.
      */
     private static final long L_FIFTY = 50;
@@ -163,6 +168,46 @@ public class NavigatorTest extends TestCase {
         // set destination
         navigator.setDestination(null);
         assertNull(navigator.getDestination());
+    }
+
+    /**
+     * Tests getDistance, without a currentLocation.
+     */
+    public final void testGetDistanceNoLocation() {
+        // set destination
+        navigator.setDestination(loc3);
+        assertEquals(F_ZERO, navigator.getDistance());
+    }
+
+    /**
+     * Tests getDistance, without a Destination.
+     */
+    public final void testGetDistanceNoDestination() {
+        // set location
+        navigator.setLocation(loc1);
+        assertEquals(F_ZERO, navigator.getDistance());
+    }
+
+    /**
+     * Tests getDistance.
+     */
+    public final void testGetDistance() {
+        // setup mock objects
+        when(loc1.distanceTo(loc2)).thenReturn(F_TEN);
+        when(loc1.distanceTo(loc3)).thenReturn(F_SIXTY);
+
+        // set location
+        navigator.setLocation(loc1);
+        // set destination
+        navigator.setDestination(loc3);
+
+        // test Distance
+        assertEquals(F_SIXTY, navigator.getDistance());
+
+        // set another destination
+        navigator.setDestination(loc2);
+        // test Distance
+        assertEquals(F_TEN, navigator.getDistance());
     }
 
     /**
