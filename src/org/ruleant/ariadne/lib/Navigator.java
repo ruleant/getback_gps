@@ -45,6 +45,11 @@ public class Navigator {
     public static final float DIST_ZERO = 0;
 
     /**
+     * Direction zero.
+     */
+    public static final double DIR_ZERO = 0.0;
+
+    /**
      * Current Location.
      */
     private AriadneLocation mCurrentLocation = null;
@@ -149,7 +154,7 @@ public class Navigator {
 
         // don't calculate direction if current location is not set
         if (mCurrentLocation == null || destination == null) {
-            return 0;
+            return DIR_ZERO;
         }
         return mCurrentLocation.bearingTo(destination);
     }
