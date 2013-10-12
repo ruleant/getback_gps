@@ -109,7 +109,7 @@ public class NavigatorTest extends TestCase {
         assertEquals(loc1, navigator.getLocation());
         assertNull(navigator.getPreviousLocation());
 
-        // set same location, location should not be updated
+        // set same location
         navigator.setLocation(loc1);
         assertEquals(loc1, navigator.getLocation());
         assertEquals(loc1, navigator.getPreviousLocation());
