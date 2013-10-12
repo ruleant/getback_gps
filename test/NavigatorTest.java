@@ -55,14 +55,19 @@ public class NavigatorTest extends TestCase {
     private static final float DIST_LOC1_3 = 30;
 
     /**
+     * Direction zero.
+     */
+    private static final double DIR_ZERO = 0.0;
+
+    /**
      * Direction from location 1 to 2.
      */
-    private static final double DIR_LOC1_2 = 45;
+    private static final double DIR_LOC1_2 = 45.0;
 
     /**
      * Direction from location 1 to 3.
      */
-    private static final double DIR_LOC1_3 = 135;
+    private static final double DIR_LOC1_3 = 135.0;
 
     /**
      * Fifty.
@@ -124,9 +129,9 @@ public class NavigatorTest extends TestCase {
         assertNull(navigator.getDestination());
 
         assertEquals(F_ZERO, navigator.getDistance());
-        assertEquals(0.0, navigator.getCurrentBearing());
-        assertEquals(0.0, navigator.getAbsoluteDirection());
-        assertEquals(0.0, navigator.getRelativeDirection());
+        assertEquals(DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
+        assertEquals(DIR_ZERO, navigator.getRelativeDirection());
         assertEquals(F_ZERO, navigator.getCurrentSpeed());
     }
 
