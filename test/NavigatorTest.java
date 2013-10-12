@@ -151,6 +151,19 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Tests setting a destination.
+     */
+    public final void testSetDestination() {
+        // set destination
+        navigator.setDestination(loc3);
+        assertEquals(loc3, navigator.getDestination());
+
+        // set destination
+        navigator.setDestination(null);
+        assertNull(navigator.getDestination());
+    }
+
+    /**
      * Tests location.
      */
     public final void testLocation() {
