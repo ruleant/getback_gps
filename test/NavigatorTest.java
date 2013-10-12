@@ -40,11 +40,6 @@ public class NavigatorTest extends TestCase {
     private Navigator navigator;
 
     /**
-     * Zero.
-     */
-    private static final float F_ZERO = 0;
-
-    /**
      * Distance between location 1 and 2.
      */
     private static final float DIST_LOC1_2 = 20;
@@ -127,7 +122,7 @@ public class NavigatorTest extends TestCase {
         assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
         assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
         assertEquals(Navigator.DIR_ZERO, navigator.getRelativeDirection());
-        assertEquals(F_ZERO, navigator.getCurrentSpeed());
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
     }
 
     /**
