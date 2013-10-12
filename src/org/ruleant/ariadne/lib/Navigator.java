@@ -50,6 +50,11 @@ public class Navigator {
     public static final double DIR_ZERO = 0.0;
 
     /**
+     * Zero distance.
+     */
+    public static final float SPEED_ZERO = 0;
+
+    /**
      * Current Location.
      */
     private AriadneLocation mCurrentLocation = null;
@@ -184,7 +189,7 @@ public class Navigator {
      * @return current speed in m/s
      */
     public final float getCurrentSpeed() {
-        float currentSpeed = 0;
+        float currentSpeed = SPEED_ZERO;
         // if location has speed, use this
         if (mCurrentLocation != null && mCurrentLocation.hasSpeed()) {
             currentSpeed = mCurrentLocation.getSpeed();
