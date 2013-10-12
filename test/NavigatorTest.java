@@ -128,7 +128,7 @@ public class NavigatorTest extends TestCase {
         assertNull(navigator.getPreviousLocation());
         assertNull(navigator.getDestination());
 
-        assertEquals(F_ZERO, navigator.getDistance());
+        assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
         assertEquals(DIR_ZERO, navigator.getCurrentBearing());
         assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
         assertEquals(DIR_ZERO, navigator.getRelativeDirection());
@@ -204,7 +204,7 @@ public class NavigatorTest extends TestCase {
     public final void testNoLocation() {
         // set destination
         navigator.setDestination(loc3);
-        assertEquals(F_ZERO, navigator.getDistance());
+        assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
         assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
     }
 
@@ -214,7 +214,7 @@ public class NavigatorTest extends TestCase {
     public final void testGetDistanceNoDestination() {
         // set location
         navigator.setLocation(loc1);
-        assertEquals(F_ZERO, navigator.getDistance());
+        assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
         assertEquals(DIR_ZERO, navigator.getAbsoluteDirection());
     }
 
