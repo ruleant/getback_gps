@@ -23,8 +23,6 @@
 import junit.framework.TestCase;
 import static org.mockito.Mockito.*;
 
-import org.mockito.Mockito.*;
-
 import org.ruleant.ariadne.lib.AriadneLocation;
 import org.ruleant.ariadne.lib.Navigator;
 
