@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:baselineAligned="false"
         android:orientation="horizontal"
-        android:padding="5dp">
+        android:paddingTop="25dp" >
 
         <org.ruleant.ariadne.NavigationView
             android:layout_width="250dp"
@@ -31,8 +31,7 @@
                 android:layout_gravity="center_vertical"
                 android:text="@string/to_dest"
                 android:textSize="16sp"
-                android:textIsSelectable="false"
-                android:paddingTop="25dp" />
+                android:textIsSelectable="false" />
 
             <LinearLayout
                 android:layout_width="fill_parent"
