@@ -103,6 +103,31 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Tests setting a location.
+     */
+    public final void testSetLocation() {
+        // set location
+        navigator.setLocation(loc1);
+        assertEquals(loc1, navigator.getLocation());
+        assertNull(navigator.getPreviousLocation());
+
+        // set same location, location should not be updated
+        navigator.setLocation(loc1);
+        assertEquals(loc1, navigator.getLocation());
+        assertEquals(loc1, navigator.getPreviousLocation());
+
+        // set new location
+        navigator.setLocation(loc2);
+        assertEquals(loc2, navigator.getLocation());
+        assertEquals(loc1, navigator.getPreviousLocation());
+
+        // set empty location
+        navigator.setLocation(null);
+        assertNull(navigator.getLocation());
+        assertEquals(loc2, navigator.getPreviousLocation());
+    }
+
+    /**
      * Tests location.
      */
     public final void testLocation() {
