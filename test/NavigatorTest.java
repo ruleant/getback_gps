@@ -47,12 +47,22 @@ public class NavigatorTest extends TestCase {
     /**
      * Distance between location 1 and 2.
      */
-    private static final float DIST_LOC1_2 = 10;
+    private static final float DIST_LOC1_2 = 20;
 
     /**
      * Distance between location 1 and 3.
      */
-    private static final float DIST_LOC1_3 = 20;
+    private static final float DIST_LOC1_3 = 30;
+
+    /**
+     * Direction from location 1 to 2.
+     */
+    private static final double DIR_LOC1_2 = 45;
+
+    /**
+     * Direction from location 1 to 3.
+     */
+    private static final double DIR_LOC1_3 = 135;
 
     /**
      * Fifty.
@@ -96,9 +106,13 @@ public class NavigatorTest extends TestCase {
         //loc3.setLatitude(0.0);
         //loc3.setLongitude(4.0);
 
-        // setup mock objects
+        /* setup mock objects */
+        // set distance
         when(loc1.distanceTo(loc2)).thenReturn(DIST_LOC1_2);
         when(loc1.distanceTo(loc3)).thenReturn(DIST_LOC1_3);
+        // set direction
+        when(loc1.bearingTo(loc2)).thenReturn((float) DIR_LOC1_2);
+        when(loc1.bearingTo(loc3)).thenReturn((float) DIR_LOC1_3);
     }
 
     /**
@@ -213,6 +227,24 @@ public class NavigatorTest extends TestCase {
         navigator.setDestination(loc2);
         // test Distance
         assertEquals(DIST_LOC1_2, navigator.getDistance());
+    }
+
+    /**
+     * Tests getAbsoluteDirection.
+     */
+    public final void testGetAbsoluteDirection() {
+        // set location
+        navigator.setLocation(loc1);
+        // set destination
+        navigator.setDestination(loc3);
+
+        // get Absolute Direction
+        assertEquals(DIR_LOC1_3, navigator.getAbsoluteDirection());
+
+        // set another destination
+        navigator.setDestination(loc2);
+        // test Distance
+        assertEquals(DIR_LOC1_2, navigator.getAbsoluteDirection());
     }
 
     /**
