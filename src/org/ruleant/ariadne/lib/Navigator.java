@@ -169,7 +169,7 @@ public class Navigator {
         // don't calculate bearing if bearing is inaccurate,
         // f.e. if current location is not set or prev. loc = curr. loc.
         if (!isBearingAccurate()) {
-            return 0;
+            return DIR_ZERO;
         }
         double absoluteDirection = getAbsoluteDirection();
         double currentBearing = getCurrentBearing();
@@ -215,7 +215,7 @@ public class Navigator {
      * @return current bearing in ° relative to the North
      */
     public final double getCurrentBearing() {
-        double currentBearing = 0;
+        double currentBearing = DIR_ZERO;
         if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {
