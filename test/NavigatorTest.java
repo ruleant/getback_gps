@@ -81,11 +81,6 @@ public class NavigatorTest extends TestCase {
     private static final float SPEED_1_2 = 4;
 
     /**
-     * Sixty.
-     */
-    private static final float F_SIXTY = 60;
-
-    /**
      * Accuracy is OK.
      */
     private static final float ACCURACY_OK = 40;
@@ -289,10 +284,10 @@ public class NavigatorTest extends TestCase {
         assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
 
         // mock : define getSpeed
-        when(loc1.getSpeed()).thenReturn(F_SIXTY);
+        when(loc1.getSpeed()).thenReturn(SPEED_1_2);
 
         // get Speed
-        assertEquals(F_SIXTY, navigator.getCurrentSpeed());
+        assertEquals(SPEED_1_2, navigator.getCurrentSpeed());
     }
 
     /**
