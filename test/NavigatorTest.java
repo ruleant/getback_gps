@@ -60,6 +60,27 @@ public class NavigatorTest extends TestCase {
     private static final double DIR_LOC1_3 = 135.0;
 
     /**
+     * Timestamp 1.
+     */
+    private static final long TIMESTAMP_1 = 5000;
+
+    /**
+     * Timestamp 2.
+     */
+    private static final long TIMESTAMP_2 = 10000;
+
+    /**
+     * Timestamp 3.
+     */
+    private static final long TIMESTAMP_3 = 15000;
+
+    /**
+     * Speed between location 1 at timestamp 1 and location 2 at timestamp 2.
+     * Speed = 20m / 5s = 4m/s
+     */
+    private static final float SPEED_1_2 = 4;
+
+    /**
      * Fifty.
      */
     private static final long L_FIFTY = 50;
@@ -104,7 +125,9 @@ public class NavigatorTest extends TestCase {
         /* setup mock objects */
         // set distance
         when(loc1.distanceTo(loc2)).thenReturn(DIST_LOC1_2);
+        when(loc2.distanceTo(loc1)).thenReturn(DIST_LOC1_2);
         when(loc1.distanceTo(loc3)).thenReturn(DIST_LOC1_3);
+        when(loc3.distanceTo(loc1)).thenReturn(DIST_LOC1_3);
         // set direction
         when(loc1.bearingTo(loc2)).thenReturn((float) DIR_LOC1_2);
         when(loc1.bearingTo(loc3)).thenReturn((float) DIR_LOC1_3);
@@ -265,6 +288,35 @@ public class NavigatorTest extends TestCase {
 
         // get Speed
         assertEquals(F_SIXTY, navigator.getCurrentSpeed());
+    }
+
+    /**
+     * Tests getSpeed, calculated by current and previous location.
+     */
+    public final void testGetSpeedPrevLoc() {
+        // set location
+        navigator.setLocation(loc1);
+        navigator.setLocation(loc1);
+
+        // speed is zero when current and last location are the same
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        navigator.setLocation(loc2);
+
+        // mock : define getTime of location 1 and 2
+        when(loc1.getTime()).thenReturn(TIMESTAMP_1);
+        when(loc2.getTime()).thenReturn(TIMESTAMP_2);
+
+        // get Speed
+        assertEquals(SPEED_1_2, navigator.getCurrentSpeed());
+
+        // mock : define getTime of location 1
+        when(loc1.getTime()).thenReturn(TIMESTAMP_3);
+
+        // get Speed
+        // should be zero because the timestamp of the previous location is
+        // more recent than that of the current location
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
     }
 
     /**
