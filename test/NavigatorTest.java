@@ -81,14 +81,19 @@ public class NavigatorTest extends TestCase {
     private static final float SPEED_1_2 = 4;
 
     /**
-     * Fifty.
-     */
-    private static final long L_FIFTY = 50;
-
-    /**
      * Sixty.
      */
     private static final float F_SIXTY = 60;
+
+    /**
+     * Accuracy is OK.
+     */
+    private static final float ACCURACY_OK = 40;
+
+    /**
+     * Accuracy is too low.
+     */
+    private static final float ACCURACY_LOW = 60;
 
     /**
      * Test location 1.
@@ -320,18 +325,37 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
-     * Tests location.
+     * Tests location accuracy.
      */
-    public final void testLocation() {
-        when(loc1.getTime()).thenReturn(L_FIFTY);
-        //when(loc1.isRecent()).thenReturn(true);
-        //doReturn(true).when(loc1).isRecent();
-        //doReturn(F_SIXTY).when(loc1).getAccuracy();
-        when(loc1.getAccuracy()).thenReturn(F_SIXTY);
-
-        navigator.setLocation(loc1);
-        assertEquals(loc1, navigator.getLocation());
-
+    public final void testIsLocationAccurate() {
+        // location is inaccurate because no location is set
         assertFalse(navigator.isLocationAccurate());
+
+        // set location
+        navigator.setLocation(loc1);
+
+        // location is inaccurate because timestamp is not recent
+        // and accuracy is above threshold
+        when(loc1.isRecent()).thenReturn(false);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_LOW);
+        assertFalse(navigator.isLocationAccurate());
+
+        // location is inaccurate because accuracy is above threshold,
+        // while timestamp is recent
+        when(loc1.isRecent()).thenReturn(true);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_LOW);
+        assertFalse(navigator.isLocationAccurate());
+
+        // location is inaccurate because timestamp is not recent,
+        // while accuracy is OK
+        when(loc1.isRecent()).thenReturn(false);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        assertFalse(navigator.isLocationAccurate());
+
+        // location is accurate because timestamp is recent
+        // and accuracy is OK
+        when(loc1.isRecent()).thenReturn(true);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        assertTrue(navigator.isLocationAccurate());
     }
 }
