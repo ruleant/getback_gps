@@ -77,7 +77,7 @@ public class AriadneLocation extends Location {
      *
      * @return true if location is recent.
      */
-    public final boolean isRecent() {
+    public boolean isRecent() {
         // TODO use elapsedRealtimeNanos when using API 17 or higher
         // if ((SystemClock.elapsedRealtimeNanos()
         // - getElapsedRealtimeNanos()) < 300000000) {
