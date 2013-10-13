@@ -60,7 +60,7 @@
                 <artifactId>android-maven-plugin</artifactId>
                 <configuration>
                     <sdk>
-                        <!-- platform or api level (api level 4 = platform 1.6) -->
+                        <!-- platform or api level (api level 18 = platform 4.3) -->
                         <platform>18</platform>
                     </sdk>
                     <lint>
