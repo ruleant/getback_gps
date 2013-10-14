@@ -14,7 +14,7 @@ Then the Ariadne app is what you need. Store a location when you start your trip
 Bugs and feature requests
 -------------------------
 
-Please report bugs and add feature requests on <https://github.com/ruleant/ariadne/issues>.
+Please report bugs and add feature requests in the Github [issue tracker](https://github.com/ruleant/ariadne/issues).
 
 Requests for translations to a new language can be made here as well.
 
@@ -25,7 +25,7 @@ You can help translating the app to your own language : <http://hosted.weblate.o
 
 [![Translation status](http://hosted.weblate.org/widgets/ariadne-287x66-grey.png)](http://hosted.weblate.org/engage/ariadne/?utm_source=widget)
 
-Is your language not listed? Follow the instructions on the 'New language' tab in Weblate or open an issue in the github tracker (see above).
+Is your language not listed? Follow the instructions on the 'New language' tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/ariadne/issues).
 
 License
 -------
