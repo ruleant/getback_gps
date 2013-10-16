@@ -12,3 +12,4 @@ before_install:
   # only update the sdk for the tools and platform-tools (1,2) and whatever api level
   # you are building for android (run "android list sdk" to get the full list.  4 = 4.3 or API level 18
   - echo "y" | android update sdk --filter 1,2,4 --no-ui --force
+script: mvn install test cobertura:cobertura coveralls:cobertura -B
