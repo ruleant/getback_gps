@@ -80,6 +80,11 @@ public class NavigatorTest extends TestCase {
     private static final float SPEED_1_2 = 4;
 
     /**
+     * Accuracy is 10 meter.
+     */
+    private static final float ACCURACY_10 = 10;
+
+    /**
      * Accuracy is OK.
      */
     private static final float ACCURACY_OK = 40;
@@ -351,5 +356,48 @@ public class NavigatorTest extends TestCase {
         when(loc1.isRecent()).thenReturn(true);
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
         assertTrue(navigator.isLocationAccurate());
+    }
+
+    /**
+     * Tests bearing accuracy.
+     */
+    public final void testIsBearingAccurate() {
+        // location is inaccurate because no location is set
+        assertFalse(navigator.isBearingAccurate());
+
+        // set location
+        navigator.setLocation(loc1);
+
+        // location is accurate
+        when(loc1.isRecent()).thenReturn(true);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+
+        // isLocationAccurate is true,
+        // but previous location is not set so bearing is not accurate
+        assertFalse(navigator.isBearingAccurate());
+
+        // set previous location (= same as current location)
+        navigator.setPreviousLocation(loc1);
+        // current and previous location are the same,
+        // so bearing is not accurate
+        assertFalse(navigator.isBearingAccurate());
+
+        // set previous location (= different as current location)
+        navigator.setPreviousLocation(loc2);
+        // previous location is not recent
+        when(loc2.isRecent()).thenReturn(false);
+        assertFalse(navigator.isBearingAccurate());
+
+        // previous location is recent, but distance between
+        // previous and current location is smaller than current accuracy
+        when(loc2.isRecent()).thenReturn(true);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        assertFalse(navigator.isBearingAccurate());
+
+        // distance between previous and current location
+        // is larger than current accuracy
+        when(loc2.isRecent()).thenReturn(true);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_10);
+        assertTrue(navigator.isBearingAccurate());
     }
 }
