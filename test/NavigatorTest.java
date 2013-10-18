@@ -116,15 +116,10 @@ public class NavigatorTest extends TestCase {
     protected final void setUp() {
         navigator = new Navigator();
 
+        // create mock locations
         loc1 = mock(AriadneLocation.class);
-
         loc2 = mock(AriadneLocation.class);
-        //loc2.setLatitude(0.0);
-        //loc2.setLongitude(1.0);
-
         loc3 = mock(AriadneLocation.class);
-        //loc3.setLatitude(0.0);
-        //loc3.setLongitude(4.0);
 
         /* setup mock objects */
         // set distance
