@@ -59,6 +59,11 @@ public class NavigatorTest extends TestCase {
     private static final double DIR_LOC1_3 = 135.0;
 
     /**
+     * Direction from location 2 to 3.
+     */
+    private static final double DIR_LOC2_3 = 160.0;
+
+    /**
      * Bearing 1 (60°).
      */
     private static final double BEARING_1 = 60.0;
@@ -135,6 +140,7 @@ public class NavigatorTest extends TestCase {
         // set direction
         when(loc1.bearingTo(loc2)).thenReturn((float) DIR_LOC1_2);
         when(loc1.bearingTo(loc3)).thenReturn((float) DIR_LOC1_3);
+        when(loc2.bearingTo(loc3)).thenReturn((float) DIR_LOC2_3);
     }
 
     /**
@@ -269,6 +275,33 @@ public class NavigatorTest extends TestCase {
         navigator.setDestination(loc2);
         // test Distance
         assertEquals(DIR_LOC1_2, navigator.getAbsoluteDirection());
+    }
+
+    /**
+     * Tests getRelativeDirection.
+     */
+    public final void testGetRelativeDirection() {
+        // set location
+        navigator.setLocation(loc1);
+        navigator.setLocation(loc2);
+        // set destination
+        navigator.setDestination(loc3);
+
+        when(loc1.isRecent()).thenReturn(true);
+        when(loc2.isRecent()).thenReturn(true);
+        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
+
+        // get current bearing
+        assertEquals(
+                DIR_LOC1_2, navigator.getCurrentBearing());
+
+        // get absolute direction
+        assertEquals(
+                DIR_LOC2_3, navigator.getAbsoluteDirection());
+
+        // get relative direction
+        assertEquals(
+                DIR_LOC2_3 - DIR_LOC1_2, navigator.getRelativeDirection());
     }
 
     /**
