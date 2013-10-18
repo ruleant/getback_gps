@@ -59,6 +59,11 @@ public class NavigatorTest extends TestCase {
     private static final double DIR_LOC1_3 = 135.0;
 
     /**
+     * Bearing 1 (60°).
+     */
+    private static final double BEARING_1 = 60.0;
+
+    /**
      * Timestamp 1.
      */
     private static final long TIMESTAMP_1 = 5000;
@@ -316,6 +321,29 @@ public class NavigatorTest extends TestCase {
         // should be zero because the timestamp of the previous location is
         // more recent than that of the current location
         assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+    }
+
+    /**
+     * Tests getCurrentBearing of current location.
+     */
+    public final void testGetBearingCurrLoc() {
+        // set location
+        navigator.setLocation(loc1);
+
+        // get current bearing
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+
+        // mock : define hasSpeed
+        when(loc1.hasBearing()).thenReturn(true);
+
+        // get current bearing
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+
+        // mock : define getBearing
+        when(loc1.getBearing()).thenReturn((float) BEARING_1);
+
+        // get current bearing
+        assertEquals(BEARING_1, navigator.getCurrentBearing());
     }
 
     /**
