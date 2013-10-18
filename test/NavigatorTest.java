@@ -347,6 +347,29 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Tests getCurrentBearing, calculated by current and previous location.
+     */
+    public final void testGetBearingPrevLoc() {
+        // set location
+        navigator.setLocation(loc1);
+
+        // Bearing is zero if there is no previous location
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+
+        navigator.setLocation(loc2);
+
+        // Bearing is zero if the current bearing is not accurate
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+
+        when(loc1.isRecent()).thenReturn(true);
+        when(loc2.isRecent()).thenReturn(true);
+        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
+
+        // get current bearing
+        assertEquals(DIR_LOC1_2, navigator.getCurrentBearing());
+    }
+
+    /**
      * Tests location accuracy.
      */
     public final void testIsLocationAccurate() {
