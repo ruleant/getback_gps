@@ -80,19 +80,19 @@ public class NavigatorTest extends TestCase {
     private static final float SPEED_1_2 = 4;
 
     /**
-     * Accuracy is 10 meter.
+     * Accuracy is 10 meter (OK).
      */
-    private static final float ACCURACY_10 = 10;
+    private static final float ACCURACY_OK_10 = 10;
 
     /**
-     * Accuracy is OK.
+     * Accuracy is 40 meter (OK).
      */
-    private static final float ACCURACY_OK = 40;
+    private static final float ACCURACY_OK_40 = 40;
 
     /**
-     * Accuracy is too low.
+     * Accuracy is 60 meter (too low).
      */
-    private static final float ACCURACY_LOW = 60;
+    private static final float ACCURACY_LOW_60 = 60;
 
     /**
      * Test location 1.
@@ -336,25 +336,25 @@ public class NavigatorTest extends TestCase {
         // location is inaccurate because timestamp is not recent
         // and accuracy is above threshold
         when(loc1.isRecent()).thenReturn(false);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_LOW);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_LOW_60);
         assertFalse(navigator.isLocationAccurate());
 
         // location is inaccurate because accuracy is above threshold,
         // while timestamp is recent
         when(loc1.isRecent()).thenReturn(true);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_LOW);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_LOW_60);
         assertFalse(navigator.isLocationAccurate());
 
         // location is inaccurate because timestamp is not recent,
         // while accuracy is OK
         when(loc1.isRecent()).thenReturn(false);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
         assertFalse(navigator.isLocationAccurate());
 
         // location is accurate because timestamp is recent
         // and accuracy is OK
         when(loc1.isRecent()).thenReturn(true);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
         assertTrue(navigator.isLocationAccurate());
     }
 
@@ -370,7 +370,7 @@ public class NavigatorTest extends TestCase {
 
         // location is accurate
         when(loc1.isRecent()).thenReturn(true);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
 
         // isLocationAccurate is true,
         // but previous location is not set so bearing is not accurate
@@ -391,13 +391,13 @@ public class NavigatorTest extends TestCase {
         // previous location is recent, but distance between
         // previous and current location is smaller than current accuracy
         when(loc2.isRecent()).thenReturn(true);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
         assertFalse(navigator.isBearingAccurate());
 
         // distance between previous and current location
         // is larger than current accuracy
         when(loc2.isRecent()).thenReturn(true);
-        when(loc1.getAccuracy()).thenReturn(ACCURACY_10);
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
         assertTrue(navigator.isBearingAccurate());
     }
 }
