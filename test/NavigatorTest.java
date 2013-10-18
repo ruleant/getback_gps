@@ -144,6 +144,21 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Create mock for isBearingAccurate.
+     */
+    private void initMockIsBearingAccurate(
+            AriadneLocation currentLocation,
+            AriadneLocation previousLocation) {
+        // set location
+        navigator.setLocation(currentLocation);
+        navigator.setPreviousLocation(previousLocation);
+
+        when(currentLocation.isRecent()).thenReturn(true);
+        when(previousLocation.isRecent()).thenReturn(true);
+        when(currentLocation.getAccuracy()).thenReturn(ACCURACY_OK_10);
+    }
+
+    /**
      * Tests no location or destination.
      */
     public final void testNoValue() {
