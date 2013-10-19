@@ -144,7 +144,11 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
-     * Create mock for isBearingAccurate.
+     * Create mock setting right conditions for
+     * isBearingAccurate() to return true.
+     *
+     * @param currentLocation Mock object for currentLocation
+     * @param previousLocation Mock object for PreviousLocation
      */
     private void initMockIsBearingAccurate(
             AriadneLocation currentLocation,
