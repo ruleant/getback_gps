@@ -297,15 +297,11 @@ public class NavigatorTest extends TestCase {
      */
     public final void testGetRelativeDirection() {
 	// TODO create test in other direction (switch loc1 and loc2)
-        // set location
-        navigator.setLocation(loc1);
-        navigator.setLocation(loc2);
+        // initialise mock setting right conditions for isBearingAccurate
+        initMockIsBearingAccurate(loc2, loc1);
+
         // set destination
         navigator.setDestination(loc3);
-
-        when(loc1.isRecent()).thenReturn(true);
-        when(loc2.isRecent()).thenReturn(true);
-        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
 
         // get current bearing
         assertEquals(
@@ -410,9 +406,8 @@ public class NavigatorTest extends TestCase {
         // Bearing is zero if the current bearing is not accurate
         assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
 
-        when(loc1.isRecent()).thenReturn(true);
-        when(loc2.isRecent()).thenReturn(true);
-        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
+        // initialise mock setting right conditions for isBearingAccurate
+        initMockIsBearingAccurate(loc2, loc1);
 
         // get current bearing
         assertEquals(DIR_LOC1_2, navigator.getCurrentBearing());
