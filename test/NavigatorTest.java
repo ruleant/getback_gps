@@ -296,6 +296,7 @@ public class NavigatorTest extends TestCase {
      * Tests getRelativeDirection.
      */
     public final void testGetRelativeDirection() {
+	// TODO create test in other direction (switch loc1 and loc2)
         // set location
         navigator.setLocation(loc1);
         navigator.setLocation(loc2);
