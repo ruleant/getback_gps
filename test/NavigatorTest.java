@@ -151,8 +151,8 @@ public class NavigatorTest extends TestCase {
      * @param previousLocation Mock object for PreviousLocation
      */
     private void initMockIsBearingAccurate(
-            AriadneLocation currentLocation,
-            AriadneLocation previousLocation) {
+            final AriadneLocation currentLocation,
+            final AriadneLocation previousLocation) {
         // set location
         navigator.setLocation(currentLocation);
         navigator.setPreviousLocation(previousLocation);
