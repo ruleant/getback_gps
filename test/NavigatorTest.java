@@ -59,6 +59,11 @@ public class NavigatorTest extends TestCase {
     private static final double DIR_LOC1_3 = 135.0;
 
     /**
+     * Direction from location 2 to 1 (= 360° - DIR_LOC1_2).
+     */
+    private static final double DIR_LOC2_1 = 225.0;
+
+    /**
      * Direction from location 2 to 3.
      */
     private static final double DIR_LOC2_3 = 160.0;
@@ -140,6 +145,7 @@ public class NavigatorTest extends TestCase {
         // set direction
         when(loc1.bearingTo(loc2)).thenReturn((float) DIR_LOC1_2);
         when(loc1.bearingTo(loc3)).thenReturn((float) DIR_LOC1_3);
+        when(loc2.bearingTo(loc1)).thenReturn((float) DIR_LOC2_1);
         when(loc2.bearingTo(loc3)).thenReturn((float) DIR_LOC2_3);
     }
 
