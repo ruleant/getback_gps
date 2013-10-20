@@ -25,6 +25,7 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 import org.ruleant.ariadne.lib.AriadneLocation;
+import org.ruleant.ariadne.lib.FormatUtils;
 import org.ruleant.ariadne.lib.Navigator;
 
 /**
@@ -306,8 +307,8 @@ public class NavigatorTest extends TestCase {
      * Tests getRelativeDirection.
      */
     public final void testGetRelativeDirection() {
-	// TODO create test in other direction (switch loc1 and loc2)
-        // initialise mock setting right conditions for isBearingAccurate
+        // initialise mock setting with right conditions for isBearingAccurate
+        // (currentLocation = loc2, previousLocation = loc1)
         initMockIsBearingAccurate(loc2, loc1);
 
         // set destination
@@ -324,6 +325,19 @@ public class NavigatorTest extends TestCase {
         // get relative direction
         assertEquals(
                 DIR_LOC2_3 - DIR_LOC1_2, navigator.getRelativeDirection());
+
+        // reverse bearing of mock
+        // (currentLocation = loc1, previousLocation = loc2)
+        initMockIsBearingAccurate(loc1, loc2);
+
+        // get current bearing
+        assertEquals(
+                DIR_LOC2_1, navigator.getCurrentBearing());
+
+        // get relative direction
+        assertEquals(
+                FormatUtils.normalizeAngle(DIR_LOC1_3 - DIR_LOC2_1),
+                navigator.getRelativeDirection());
     }
 
     /**
