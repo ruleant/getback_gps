@@ -182,6 +182,9 @@ public class NavigatorTest extends TestCase {
         assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
         assertEquals(Navigator.DIR_ZERO, navigator.getRelativeDirection());
         assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        assertFalse(navigator.isLocationAccurate());
+        assertFalse(navigator.isBearingAccurate());
     }
 
     /**
@@ -441,9 +444,6 @@ public class NavigatorTest extends TestCase {
      * Tests location accuracy.
      */
     public final void testIsLocationAccurate() {
-        // location is inaccurate because no location is set
-        assertFalse(navigator.isLocationAccurate());
-
         // set location
         navigator.setLocation(loc1);
 
@@ -476,9 +476,6 @@ public class NavigatorTest extends TestCase {
      * Tests bearing accuracy.
      */
     public final void testIsBearingAccurate() {
-        // location is inaccurate because no location is set
-        assertFalse(navigator.isBearingAccurate());
-
         // set location
         navigator.setLocation(loc1);
 
