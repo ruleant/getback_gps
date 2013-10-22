@@ -21,8 +21,6 @@
  */
 package org.ruleant.ariadne.lib;
 
-import android.location.Location;
-
 /**
  * Class with several methods useful for navigation.
  *
@@ -140,7 +138,7 @@ public class Navigator {
      * @return distance in meters
      */
     public final float getDistance() {
-        Location destination = getDestination();
+        AriadneLocation destination = getDestination();
 
         // don't calculate distance if current location is not set
         if (mCurrentLocation == null || destination == null) {
@@ -155,7 +153,7 @@ public class Navigator {
      * @return direction in ° relative to the North
      */
     public final double getAbsoluteDirection() {
-        Location destination = getDestination();
+        AriadneLocation destination = getDestination();
 
         // don't calculate direction if current location is not set
         if (mCurrentLocation == null || destination == null) {
