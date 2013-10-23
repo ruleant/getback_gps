@@ -86,21 +86,21 @@ public class FormatUtils {
      * @param distance distance in m
      * @return formatted distance with unit (m or km)
      */
-    public static String formatDist(double distance) {
+    public static String formatDist(final double distance) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = CONV_KM_M;
 
         // distance shouldn't be negative
-        distance = Math.abs(distance);
+        double distanceAbs = Math.abs(distance);
 
         // conversion and formatting
-        if (Math.round(distance) < scaleUnit) {
+        if (Math.round(distanceAbs) < scaleUnit) {
             // display as short unit, as integer
             return String.format(Locale.getDefault(), "%1$d%2$s",
-                    Math.round(distance), shortUnit);
+                    Math.round(distanceAbs), shortUnit);
         } else {
-            double scaledDistance = distance / scaleUnit;
+            double scaledDistance = distanceAbs / scaleUnit;
             // round to one decimal and check if it is
             // smaller than a 1 decimal difference
             if ((Math.round(scaledDistance * ONE_DEC) / ONE_DEC) < ONE_DEC) {
