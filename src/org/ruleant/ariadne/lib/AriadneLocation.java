@@ -39,7 +39,8 @@ import org.ruleant.ariadne.R;
  */
 public class AriadneLocation extends Location {
     /**
-     * Location timestamp expiration.
+     * Location timestamp expiration,
+     * 5 minutes in milliseconds (5 * 60 * 1000).
      */
     private static final long LOC_EXPIRE = 300000;
 
