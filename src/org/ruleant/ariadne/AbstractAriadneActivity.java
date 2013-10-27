@@ -59,11 +59,6 @@ public abstract class AbstractAriadneActivity extends Activity {
     private boolean mBound = false;
 
     /**
-     * Crouton configuration.
-     */
-    private Configuration croutonConfig;
-
-    /**
      * Inaccurate location crouton.
      */
     private Crouton crInaccurateLocation;
@@ -109,7 +104,7 @@ public abstract class AbstractAriadneActivity extends Activity {
         super.onCreate(savedInstanceState);
 
         // create Crouton configuration
-        croutonConfig = new Configuration.Builder()
+        Configuration croutonConfig = new Configuration.Builder()
                 .setDuration(Configuration.DURATION_INFINITE)
                 .build();
 
