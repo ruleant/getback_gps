@@ -93,11 +93,9 @@ public class DetailsActivity extends AbstractAriadneActivity {
         // Refresh current
         TextView tvCurrent
                 = (TextView) findViewById(R.id.textView_Current);
-        String currentText
-                = res.getString(R.string.current);
 
         // current speed
-        currentText += "\n " + res.getString(R.string.speed) + ": ";
+        String currentText = res.getString(R.string.current_speed) + ": ";
         if (navigator == null) {
             currentText += " " + res.getString(R.string.unknown);
         } else {
@@ -106,7 +104,7 @@ public class DetailsActivity extends AbstractAriadneActivity {
         }
 
         // current bearing
-        currentText += "\n " + res.getString(R.string.bearing) + ": ";
+        currentText += "\n" + res.getString(R.string.current_bearing) + ": ";
         if (navigator == null) {
             currentText += " " + res.getString(R.string.unknown);
         } else {
