@@ -16,7 +16,6 @@
     <string name="loc_provider_gps">GPS</string>
     <string name="location">Location</string>
     <string name="curr_location">Current (last known) location</string>
-    <string name="current">Current</string>
     <string name="current_speed">Current speed</string>
     <string name="current_bearing">Current bearing</string>
     <string name="location_updated">Location updated</string>

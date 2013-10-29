@@ -54,7 +54,6 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
 <string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
     <string name="menu_details">Podrobnosti polohy</string>
     <string name="activity_details">Podrobnosti</string>
-    <string name="current">Současná</string>
     <string name="current_speed">Současná rychlost</string>
     <string name="current_bearing">Současný azimut</string>
     <string name="store_location_disabled">Nelze uložit umístění pokud není současné umístění známo</string>
