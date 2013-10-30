@@ -8,7 +8,7 @@
     <string name="none">None</string>
     <string name="unknown">Unknown</string>
     <string name="notset">Not set</string>
-    <string name="disabled">disabled</string>
+    <string name="disabled">Disabled</string>
     <string name="no">No</string>
     <string name="location_provider">Location Provider</string>
     <string name="provider">Provider</string>
