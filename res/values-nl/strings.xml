@@ -32,7 +32,7 @@
     <string name="pref_loc_update_time">Tijdgebaseerde aanpassingen</string>
     <string name="pref_header_general">Algemeen</string>
     <string name="pref_header_loc_update">Locatieaanpassingen</string>
-    <string name="disabled">uitgeschakeld</string>
+    <string name="disabled">Uitgeschakeld</string>
     <string name="license">Dit programma is vrije software: je mag het herdistribueren en/of wijzigen onder de voorwaarden van de GNU Algemene Publieke Licentie (GNU General Public License) zoals gepubliceerd door de Free Software Foundation, onder versie 3 van de Licentie of elke latere versie.\n
 \n
 Dit programma wordt gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garanties die GEBRUIKELIJK ZIJN IN DE HANDEL of voor BRUIKBAARHEID VOOR EEN SPECIFIEK DOEL. Zie de GNU Algemene Publieke Licentie voor meer details.\n
