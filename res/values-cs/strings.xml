@@ -26,7 +26,7 @@
     <string name="provider_no_support">Poskytovatel není podporovaný.</string>
     <string name="version">Verze</string>
     <string name="about">O programu</string>
-    <string name="disabled">vypnuté</string>
+    <string name="disabled">Vypnuté</string>
     <string name="bearing">Azimut</string>
     <string name="settings">Nastavení</string>
     <string name="pref_header_loc_update">Aktualizace polohy</string>
