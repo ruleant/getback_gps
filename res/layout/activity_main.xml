@@ -32,40 +32,38 @@
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
                     android:orientation="vertical" >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
                         android:text="@string/current_speed"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView_currSpeed"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp" />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="2dp"
+                    android:paddingLeft="5dp"
                     android:orientation="vertical" >
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingLeft="5dp"
                         android:text="@string/current_bearing"
                         android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/textView_currBearing"
                         android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="5dp" />
+                        android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
         <LinearLayout
@@ -86,40 +84,38 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingTop="2dp"
+            android:paddingLeft="5dp"
             android:orientation="vertical" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
                 android:text="@string/distance"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView_toDestDist"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:paddingTop="2dp"
+            android:paddingLeft="5dp"
             android:orientation="vertical" >
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
                 android:text="@string/direction"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/textView_toDestDir"
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:paddingLeft="5dp" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
         </LinearLayout>
 
