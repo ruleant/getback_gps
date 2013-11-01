@@ -24,6 +24,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -73,59 +74,57 @@
                         android:layout_height="wrap_content" />
                 </LinearLayout>
             </LinearLayout>
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:paddingLeft="15dp"
-            android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/textView_ToDestination"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/to_dest"
-            android:textSize="16sp"
-            android:textIsSelectable="false" />
-
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-
-            android:paddingLeft="5dp"
-            android:orientation="vertical" >
-
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/distance"
-                android:textStyle="bold" />
+                android:paddingLeft="15dp"
+                android:orientation="vertical" >
 
-            <TextView
-                android:id="@+id/textView_toDestDist"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
+                <TextView
+                    android:id="@+id/textView_ToDestination"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/to_dest"
+                    android:textSize="16sp"
+                    android:textIsSelectable="false" />
 
-        <LinearLayout
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:paddingTop="2dp"
-            android:paddingLeft="5dp"
-            android:orientation="vertical" >
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:orientation="vertical" >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/direction"
-                android:textStyle="bold" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/distance"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/textView_toDestDir"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView_toDestDist"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
 
+                <LinearLayout
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingTop="2dp"
+                    android:paddingLeft="5dp"
+                    android:orientation="vertical" >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/direction"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textView_toDestDir"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </ScrollView>
