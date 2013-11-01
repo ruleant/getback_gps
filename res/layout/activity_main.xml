@@ -45,7 +45,7 @@
 
                     <TextView
                         android:id="@+id/textView_currSpeed"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/captionValue" />
 
@@ -65,7 +65,7 @@
 
                     <TextView
                         android:id="@+id/textView_currBearing"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/captionValue" />
 
@@ -84,7 +84,7 @@
 
                 <TextView
                     android:id="@+id/textView_ToDestination"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     style="@style/captionGroupTitle"
                     android:text="@string/to_dest"
@@ -98,7 +98,7 @@
 
                     <TextView
                         android:id="@+id/textView_toDestDist"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/captionValue" />
 
@@ -119,7 +119,7 @@
 
                     <TextView
                         android:id="@+id/textView_toDestDir"
-                        android:layout_width="fill_parent"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         style="@style/captionValue" />
 
