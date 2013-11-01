@@ -5,11 +5,11 @@ before_install:
   - sudo apt-get update -qq
   - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
   # download the latest android sdk and unzip
-  - wget http://dl.google.com/android/android-sdk_r22.2.1-linux.tgz
-  - tar -zxf android-sdk_r22.2.1-linux.tgz
+  - wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
+  - tar -zxf android-sdk_r22.3-linux.tgz
   - export ANDROID_HOME=`pwd`/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   # only update the sdk for the tools and platform-tools (1,2) and whatever api level
-  # you are building for android (run "android list sdk" to get the full list.  4 = 4.3 or API level 18
+  # you are building for android (run "android list sdk" to get the full list.  4 = 4.4 or API level 19
   - echo "y" | android update sdk --filter 1,2,4 --no-ui --force
 script: mvn test cobertura:cobertura coveralls:cobertura -B
