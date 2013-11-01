@@ -20,4 +20,13 @@
 
     <style name="captionGroupTitle" parent="@android:style/TextAppearance.Medium" />
 
+    <style name="captionDescription">
+        <item name="android:textSize">10dp</item>
+        <item name="android:textAllCaps">true</item>
+    </style>
+
+    <style name="captionValue">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
