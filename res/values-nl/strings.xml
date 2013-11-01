@@ -70,7 +70,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="longitude_west_unit">W.L.</string>
     <string name="speed_kph">km/u</string>
     <string name="direction_relative">ten opzichte van huidige richting</string>
-    <string name="current">Huidig</string>
     <string name="inaccurate_location">Je huidige locatie is onnauwkeurig</string>
     <string name="menu_details">Locatiedetails</string>
     <string name="activity_details">Details</string>
