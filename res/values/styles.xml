@@ -22,7 +22,6 @@
 
     <style name="captionDescription">
         <item name="android:textSize">10sp</item>
-        <item name="android:textAllCaps">true</item>
     </style>
 
     <style name="captionValue">
