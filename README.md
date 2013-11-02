@@ -28,6 +28,11 @@ You can help translating the app to your own language : <http://hosted.weblate.o
 
 Is your language not listed? Follow the instructions on the 'New language' tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/ariadne/issues).
 
+Code documentation
+------------------
+
+Code documentation of all classes and their methods can be found [here](doc/index.html).
+
 License
 -------
 
