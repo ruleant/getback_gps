@@ -24,7 +24,7 @@
         <item name="android:textSize">10sp</item>
     </style>
 
-    <style name="captionValue">
+    <style name="captionValue" parent="@android:style/TextAppearance.Medium" >
         <item name="android:textStyle">bold</item>
     </style>
 
