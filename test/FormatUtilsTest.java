@@ -177,6 +177,16 @@ public class FormatUtilsTest extends TestCase {
     private static final double A_45P678 = 45.678;
 
     /**
+     * 180° angle.
+     */
+    private static final double A_180 = 180.0;
+
+    /**
+     * 225° angle.
+     */
+    private static final double A_225 = 225.0;
+
+    /**
      * -315° angle (= 45°).
      */
     private static final double A_M315 = -315.0;
@@ -426,5 +436,15 @@ public class FormatUtilsTest extends TestCase {
         assertEquals(A_0, FormatUtils.normalizeAngle(A_720));
         assertEquals(A_45, FormatUtils.normalizeAngle(A_405));
         assertEquals(A_45, FormatUtils.normalizeAngle(A_765));
+    }
+
+    /**
+     * Tests inverseAngle.
+     */
+    public final void testInverseAngle() {
+        assertEquals(A_180, FormatUtils.inverseAngle(A_0));
+        assertEquals(A_0, FormatUtils.inverseAngle(A_180));
+        assertEquals(A_225, FormatUtils.inverseAngle(A_45));
+        assertEquals(A_45, FormatUtils.inverseAngle(A_225));
     }
 }
