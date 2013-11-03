@@ -5,11 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
-        android:orientation="vertical"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingTop="50dp" >
@@ -21,31 +20,38 @@
             android:id="@+id/navigationView_ToDest" />
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:id="@+id/centerBelowGrid"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:orientation="vertical"
+            android:layout_below="@+id/navigationView_ToDest"
+            android:layout_centerHorizontal="true" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:paddingRight="10dp"
+                android:layout_below="@+id/centerBelowGrid"
+                android:layout_toLeftOf="@+id/centerBelowGrid" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
                     android:orientation="vertical" >
 
                     <TextView
                         android:id="@+id/textView_currSpeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         style="@style/captionValue" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/current_speed"
+                        android:layout_gravity="right"
                         style="@style/captionDescription" />
                 </LinearLayout>
 
@@ -53,32 +59,35 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="2dp"
-                    android:paddingLeft="5dp"
-                    android:orientation="vertical" >
+                    android:orientation="vertical"
+                    android:layout_gravity="right">
 
                     <TextView
                         android:id="@+id/textView_currBearing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_gravity="right"
                         style="@style/captionValue" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/current_bearing"
+                        android:layout_gravity="right"
                         style="@style/captionDescription" />
                 </LinearLayout>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="15dp"
-                android:orientation="vertical" >
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:layout_below="@+id/centerBelowGrid"
+                android:layout_toRightOf="@+id/centerBelowGrid" >
 
                 <LinearLayout
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:paddingLeft="5dp"
                     android:orientation="vertical" >
 
                     <TextView
@@ -99,7 +108,6 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="2dp"
-                    android:paddingLeft="5dp"
                     android:orientation="vertical" >
 
                     <TextView
@@ -116,6 +124,5 @@
 
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
