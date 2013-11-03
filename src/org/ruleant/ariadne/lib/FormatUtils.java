@@ -72,6 +72,11 @@ public class FormatUtils {
     private static final float MAX_ANGLE = 360;
 
     /**
+     * Halfway angle value = PI = 180°.
+     */
+    private static final float HALF_ANGLE = 180;
+
+    /**
      * Hidden constructor.
      */
     protected FormatUtils() {
@@ -196,6 +201,16 @@ public class FormatUtils {
         }
 
         return convertedAngle;
+    }
+
+    /**
+     * Get an inverse angle, ie. angle pointing in opposite direction.
+     *
+     * @param angle Angle in degrees (0°-360°)
+     * @return angle in opposite direction (0°-360°)
+     */
+    public static double inverseAngle(final double angle) {
+        return normalizeAngle(angle - HALF_ANGLE);
     }
 
     /**
