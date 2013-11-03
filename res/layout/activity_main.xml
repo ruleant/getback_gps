@@ -44,6 +44,7 @@
                         android:id="@+id/textView_currSpeed"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/unknown"
                         android:layout_gravity="right"
                         style="@style/captionValue" />
 
@@ -66,6 +67,7 @@
                         android:id="@+id/textView_currBearing"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/unknown"
                         android:layout_gravity="right"
                         style="@style/captionValue" />
 
@@ -94,6 +96,7 @@
                         android:id="@+id/textView_toDestDist"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/unknown"
                         style="@style/captionValue" />
 
                     <TextView
@@ -114,6 +117,7 @@
                         android:id="@+id/textView_toDestDir"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:text="@string/unknown"
                         style="@style/captionValue" />
 
                     <TextView
