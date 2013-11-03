@@ -174,9 +174,12 @@ public class NavigationView extends ImageView {
 
         // draw arrow to destination
         double arrowLength = (getHeight() / 2) * .8;
+        double arrowLengthTail = (getHeight() / 2) * .2;
+        double direction = getDirection();
 
-        long[] startCoordinate = polarToCartesian(0, 0);
-        long[] endCoordinate = polarToCartesian(getDirection(), arrowLength);
+        long[] startCoordinate = polarToCartesian(
+                FormatUtils.inverseAngle(direction), arrowLengthTail);
+        long[] endCoordinate = polarToCartesian(direction, arrowLength);
 
         canvas.drawLine(startCoordinate[X], startCoordinate[Y],
                 endCoordinate[X], endCoordinate[Y], mPaint);
