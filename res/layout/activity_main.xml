@@ -26,107 +26,107 @@
             android:layout_below="@+id/navigationView_ToDest"
             android:layout_centerHorizontal="true" />
 
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingRight="10dp"
+            android:layout_below="@+id/centerBelowGrid"
+            android:layout_toLeftOf="@+id/centerBelowGrid" >
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:paddingRight="10dp"
-                android:layout_below="@+id/centerBelowGrid"
-                android:layout_toLeftOf="@+id/centerBelowGrid" >
+                android:layout_gravity="right"
+                android:orientation="vertical" >
 
-                <LinearLayout
+                <TextView
+                    android:id="@+id/textView_currSpeed"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/unknown"
                     android:layout_gravity="right"
-                    android:orientation="vertical" >
+                    style="@style/captionValue" />
 
-                    <TextView
-                        android:id="@+id/textView_currSpeed"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unknown"
-                        android:layout_gravity="right"
-                        style="@style/captionValue" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/current_speed"
-                        android:layout_gravity="right"
-                        style="@style/captionDescription" />
-                </LinearLayout>
-
-                <LinearLayout
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="2dp"
-                    android:orientation="vertical"
-                    android:layout_gravity="right">
-
-                    <TextView
-                        android:id="@+id/textView_currBearing"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unknown"
-                        android:layout_gravity="right"
-                        style="@style/captionValue" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/current_bearing"
-                        android:layout_gravity="right"
-                        style="@style/captionDescription" />
-                </LinearLayout>
+                    android:text="@string/current_speed"
+                    android:layout_gravity="right"
+                    style="@style/captionDescription" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:paddingTop="2dp"
                 android:orientation="vertical"
-                android:paddingLeft="10dp"
-                android:layout_below="@+id/centerBelowGrid"
-                android:layout_toRightOf="@+id/centerBelowGrid" >
+                android:layout_gravity="right">
 
-                <LinearLayout
-                    android:layout_width="fill_parent"
+                <TextView
+                    android:id="@+id/textView_currBearing"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="vertical" >
+                    android:text="@string/unknown"
+                    android:layout_gravity="right"
+                    style="@style/captionValue" />
 
-                    <TextView
-                        android:id="@+id/textView_toDestDist"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unknown"
-                        style="@style/captionValue" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/distance"
-                        style="@style/captionDescription" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="fill_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:paddingTop="2dp"
-                    android:orientation="vertical" >
-
-                    <TextView
-                        android:id="@+id/textView_toDestDir"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/unknown"
-                        style="@style/captionValue" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/direction"
-                        style="@style/captionDescription" />
-
-                </LinearLayout>
+                    android:text="@string/current_bearing"
+                    android:layout_gravity="right"
+                    style="@style/captionDescription" />
             </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:layout_below="@+id/centerBelowGrid"
+            android:layout_toRightOf="@+id/centerBelowGrid" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView_toDestDist"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unknown"
+                    style="@style/captionValue" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/distance"
+                    style="@style/captionDescription" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="2dp"
+                android:orientation="vertical" >
+
+                <TextView
+                    android:id="@+id/textView_toDestDir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/unknown"
+                    style="@style/captionValue" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/direction"
+                    style="@style/captionDescription" />
+
+            </LinearLayout>
+        </LinearLayout>
     </RelativeLayout>
 </ScrollView>
