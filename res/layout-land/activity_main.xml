@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:baselineAligned="false"
@@ -17,11 +17,14 @@
             android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_centerVertical="true"
+            android:paddingRight="10dp"
+            android:layout_toLeftOf="@+id/navigationView_ToDest" >
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_gravity="right"
                 android:orientation="vertical" >
 
                 <TextView
@@ -41,7 +44,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:orientation="vertical" >
@@ -65,16 +68,19 @@
         </LinearLayout>
 
         <org.ruleant.ariadne.NavigationView
+            android:id="@+id/navigationView_ToDest"
             android:layout_width="250dp"
             android:layout_height="250dp"
-            android:id="@+id/navigationView_ToDest" />
+            android:layout_centerHorizontal="true" />
 
         <LinearLayout
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:baselineAligned="false"
             android:orientation="vertical"
-            android:padding="5dp">
+            android:layout_centerVertical="true"
+            android:paddingLeft="10dp"
+            android:layout_toRightOf="@+id/navigationView_ToDest" >
 
             <LinearLayout
                 android:layout_width="fill_parent"
@@ -97,14 +103,14 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="2dp"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_toDestDir"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/unknown"
                     style="@style/captionValue" />
@@ -116,5 +122,5 @@
                     style="@style/captionDescription" />
             </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </ScrollView>
