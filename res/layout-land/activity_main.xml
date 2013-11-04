@@ -20,8 +20,8 @@
 
         <org.ruleant.ariadne.NavigationView
             android:id="@+id/navigationView_ToDest"
-            android:layout_width="250dp"
-            android:layout_height="250dp"
+            android:layout_width="225dp"
+            android:layout_height="225dp"
             android:layout_centerHorizontal="true" />
 
         <include
