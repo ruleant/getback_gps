@@ -263,10 +263,14 @@ public class LocationService extends Service {
             return;
         }
 
-        mNavigator.setLocation(location);
+        if (mNavigator != null) {
+            mNavigator.setLocation(location);
+        }
 
         // save current location
-        mLastLocation.setLocation(location);
+        if (mLastLocation != null) {
+            mLastLocation.setLocation(location);
+        }
     }
 
     /**
@@ -277,6 +281,10 @@ public class LocationService extends Service {
      * @return Location
      */
     public final AriadneLocation getLocation() {
+        if (mNavigator == null) {
+            return null;
+        }
+
         return mNavigator.getLocation();
     }
 
@@ -297,7 +305,9 @@ public class LocationService extends Service {
      * @param destination New destination
      */
     public final void setDestination(final AriadneLocation destination) {
-        mNavigator.setDestination(destination);
+        if (mNavigator != null) {
+            mNavigator.setDestination(destination);
+        }
     }
 
     /**
@@ -352,7 +362,7 @@ public class LocationService extends Service {
         AriadneLocation currentLocation = getLocation();
 
         // don't store current location if it is not set
-        if (currentLocation != null) {
+        if (currentLocation != null && mStoredDestination != null) {
             mStoredDestination.save(currentLocation);
             setDestination(mStoredDestination.getLocation());
             Toast.makeText(
@@ -375,6 +385,10 @@ public class LocationService extends Service {
      * @return Location
      */
     public final Location getDestination() {
+        if (mNavigator == null) {
+            return null;
+        }
+
         return mNavigator.getDestination();
     }
 
@@ -384,6 +398,10 @@ public class LocationService extends Service {
      * @return float distance in meters
      */
     public final float getDistance() {
+        if (mNavigator == null) {
+            return 0;
+        }
+
         return mNavigator.getDistance();
     }
 
@@ -393,6 +411,10 @@ public class LocationService extends Service {
      * @return direction in ° relative to current bearing
      */
     public final double getDirection() {
+        if (mNavigator == null) {
+            return 0;
+        }
+
         return mNavigator.getRelativeDirection();
     }
 
@@ -408,6 +430,7 @@ public class LocationService extends Service {
     private Location requestUpdatesFromProvider() {
         Location location = null;
         if (isSetLocationProvider()
+                && mLastLocation != null
                 && mLocationManager.isProviderEnabled(mProviderName)) {
 
             // Get debug level from SharedPreferences
