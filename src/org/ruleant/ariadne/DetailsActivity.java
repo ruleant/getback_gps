@@ -52,7 +52,6 @@ public class DetailsActivity extends AbstractAriadneActivity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     protected final void refreshDisplay() {
         // only refresh items if activity is bound to service
         if (!isBound()) {
@@ -147,14 +146,11 @@ public class DetailsActivity extends AbstractAriadneActivity {
         // Refresh Directions to destination
         TextView tvToDestination
                 = (TextView) findViewById(R.id.textView_ToDestination);
-        ImageView ivDestPointer
-                = (ImageView) findViewById(R.id.image_DestinationPointer);
         String toDestinationText
                 = res.getString(R.string.to_dest) + ":\n";
         if (destination == null || currentLocation == null) {
             toDestinationText += " "
                     + res.getString(R.string.unknown);
-            ivDestPointer.setVisibility(ImageView.INVISIBLE);
         } else {
             // Print distance and bearing
             toDestinationText += " "
@@ -175,20 +171,6 @@ public class DetailsActivity extends AbstractAriadneActivity {
                         + res.getString(R.string.direction_relative) + ": "
                         + FormatUtils.formatAngle(
                         navigator.getRelativeDirection());
-            }
-
-            // setRotation requires API level 11
-            if (isBearingAccurate
-                    && Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                ivDestPointer.setVisibility(ImageView.VISIBLE);
-                // rotate 90° counter clockwise,
-                // current image is pointing right.
-                ivDestPointer.setRotation(
-                        (float) FormatUtils.normalizeAngle(
-                                navigator.getRelativeDirection()
-                                        - POINTER_ROT));
-            } else {
-                ivDestPointer.setVisibility(ImageView.INVISIBLE);
             }
         }
         tvToDestination.setText(toDestinationText);
