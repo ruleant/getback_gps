@@ -263,11 +263,12 @@ public abstract class AbstractAriadneActivity extends Activity {
      */
     protected final void refreshCrouton() {
         // only refresh items if activity is bound to service
-        if (!isBound()) {
+        // connection state is checked in getNavigator
+        Navigator navigator = getNavigator();
+
+        if (navigator == null) {
             return;
         }
-
-        Navigator navigator = getService().getNavigator();
 
         // if location is inaccurate, display warning
         if (!navigator.isLocationAccurate()) {

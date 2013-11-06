@@ -54,12 +54,14 @@ public class DetailsActivity extends AbstractAriadneActivity {
      */
     protected final void refreshDisplay() {
         // only refresh items if activity is bound to service
-        if (!isBound()) {
+        // connection state is checked in getNavigator
+        LocationService service = getService();
+        Navigator navigator = getNavigator();
+
+        if (service == null || navigator == null) {
             return;
         }
 
-        LocationService service = getService();
-        Navigator navigator = service.getNavigator();
         Resources res = getResources();
         AriadneLocation destination;
         AriadneLocation currentLocation;

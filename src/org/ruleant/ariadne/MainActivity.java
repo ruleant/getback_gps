@@ -83,15 +83,16 @@ public class MainActivity extends AbstractAriadneActivity {
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
     protected final void refreshDisplay() {
+        super.refreshDisplay();
+
         // only refresh items if activity is bound to service
-        if (!isBound()) {
+        // connection state is checked in getNavigator
+        Navigator navigator = getNavigator();
+
+        if (navigator == null) {
             return;
         }
 
-        super.refreshDisplay();
-
-        LocationService service = getService();
-        Navigator navigator = service.getNavigator();
         Resources res = getResources();
         AriadneLocation destination;
 
