@@ -85,6 +85,16 @@ public class NavigationView extends ImageView {
     private static final float LINE_THICKNESS = 4;
 
     /**
+     * 20 %.
+     */
+    private static final double D_20PCT = 0.2;
+
+    /**
+     * 80 %.
+     */
+    private static final double D_80PCT = 0.8;
+
+    /**
      * Constructor.
      *
      * @param context App context
@@ -173,8 +183,8 @@ public class NavigationView extends ImageView {
         }
 
         // draw arrow to destination
-        double arrowLength = (getHeight() / 2) * .8;
-        double arrowLengthTail = (getHeight() / 2) * .2;
+        double arrowLength = (getHeight() / 2) * D_80PCT;
+        double arrowLengthTail = (getHeight() / 2) * D_20PCT;
         double direction = getDirection();
 
         long[] startCoordinate = polarToCartesian(
