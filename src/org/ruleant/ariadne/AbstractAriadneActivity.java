@@ -314,6 +314,21 @@ public abstract class AbstractAriadneActivity extends Activity {
     }
 
     /**
+     * Returns Navigator.
+     *
+     * @return Navigator
+     */
+    protected final Navigator getNavigator() {
+        LocationService service = getService();
+
+        if (service == null) {
+            return null;
+        }
+
+        return service.getNavigator();
+    }
+
+    /**
      * Defines callbacks for service binding, passed to bindService().
      */
     private ServiceConnection mConnection = new ServiceConnection() {
