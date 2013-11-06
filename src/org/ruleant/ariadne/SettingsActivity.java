@@ -21,8 +21,6 @@
  */
 package org.ruleant.ariadne;
 
-import java.util.List;
-
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Configuration;
@@ -37,6 +35,8 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 
 import org.ruleant.ariadne.lib.DebugLevel;
+
+import java.util.List;
 
 /**
  * A PreferenceActivity that presents a set of application settings. On

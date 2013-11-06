@@ -27,13 +27,13 @@
  */
 package org.ruleant.ariadne.lib;
 
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.Resources.NotFoundException;
 
 import org.ruleant.ariadne.R;
+
+import java.util.Locale;
 
 /**
  * Methods to convert values to formatted string.
