@@ -21,11 +21,11 @@
  */
 package org.ruleant.ariadne.lib;
 
-import java.util.Locale;
-
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.location.Location;
+
+import java.util.Locale;
 
 /**
  * StoredLocation saves a location, it will store a location for future use,

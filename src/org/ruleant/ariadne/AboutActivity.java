@@ -21,10 +21,6 @@
  */
 package org.ruleant.ariadne;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
@@ -37,6 +33,10 @@ import android.text.method.LinkMovementMethod;
 import android.widget.TextView;
 
 import org.ruleant.ariadne.lib.DebugLevel;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * This activity displays information about the App : version, build date,

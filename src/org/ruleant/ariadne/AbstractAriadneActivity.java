@@ -21,9 +21,6 @@
  */
 package org.ruleant.ariadne;
 
-import org.ruleant.ariadne.LocationService.LocationBinder;
-import org.ruleant.ariadne.lib.Navigator;
-
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -36,6 +33,9 @@ import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import org.ruleant.ariadne.LocationService.LocationBinder;
+import org.ruleant.ariadne.lib.Navigator;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;

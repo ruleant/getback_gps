@@ -21,15 +21,15 @@
  */
 package org.ruleant.ariadne.lib;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
 
 import org.ruleant.ariadne.R;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Custom Ariadne Location object, it inherits from Location class,
