@@ -21,11 +21,8 @@
  */
 package org.ruleant.ariadne;
 
-import android.annotation.TargetApi;
 import android.content.res.Resources;
-import android.os.Build;
 import android.os.Bundle;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.ruleant.ariadne.lib.AriadneLocation;
