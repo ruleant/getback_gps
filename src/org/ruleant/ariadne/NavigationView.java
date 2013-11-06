@@ -183,8 +183,9 @@ public class NavigationView extends ImageView {
         }
 
         // draw arrow to destination
-        double arrowLength = (getHeight() / 2) * D_80PCT;
-        double arrowLengthTail = (getHeight() / 2) * D_20PCT;
+        double radius = getHeight() / 2;
+        double arrowLength = radius * D_80PCT;
+        double arrowLengthTail = radius * D_20PCT;
         double direction = getDirection();
 
         long[] startCoordinate = polarToCartesian(
