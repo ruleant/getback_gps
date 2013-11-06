@@ -306,7 +306,11 @@ public abstract class AbstractAriadneActivity extends Activity {
      * @return LocationService
      */
     protected final LocationService getService() {
-        return mService;
+        if (isBound()) {
+            return mService;
+        } else {
+            return null;
+        }
     }
 
     /**
