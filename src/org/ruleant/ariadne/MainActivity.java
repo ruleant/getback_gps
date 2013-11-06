@@ -124,7 +124,6 @@ public class MainActivity extends AbstractAriadneActivity {
         nvToDestination.setMode(NavigationView.DISABLED);
 
         if (destination != null
-                && navigator != null
                 && navigator.isLocationAccurate()) {
             // Print distance and bearing
             toDestinationDistanceText
@@ -148,13 +147,13 @@ public class MainActivity extends AbstractAriadneActivity {
         }
 
         // current speed
-        if (navigator != null && navigator.isLocationAccurate()) {
+        if (navigator.isLocationAccurate()) {
             currentSpeedText = FormatUtils.formatSpeed(
                     navigator.getCurrentSpeed(), this);
         }
 
         // current bearing
-        if (navigator != null && navigator.isBearingAccurate()) {
+        if (navigator.isBearingAccurate()) {
             currentBearingText = FormatUtils.formatAngle(
                     FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
         }
