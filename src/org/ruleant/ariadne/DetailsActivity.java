@@ -88,6 +88,7 @@ public class DetailsActivity extends AbstractAriadneActivity {
         }
         tvLocation.setText(locationText);
 
+        // TODO : reuse same section from main activity
         // Refresh current
         TextView tvCurrent
                 = (TextView) findViewById(R.id.textView_Current);
