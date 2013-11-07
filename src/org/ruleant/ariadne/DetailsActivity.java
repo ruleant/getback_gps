@@ -35,11 +35,6 @@ import org.ruleant.ariadne.lib.Navigator;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class DetailsActivity extends AbstractAriadneActivity {
-    /**
-     * Rotation of the direction pointer image.
-     */
-    private static final int POINTER_ROT = 90;
-
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
