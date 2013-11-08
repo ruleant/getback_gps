@@ -74,7 +74,7 @@ public class MainActivity extends AbstractAriadneActivity {
      *
      * @param item MenuItem object that was clicked
      */
-    public final void displayDetails(final MenuItem item) {
+    final void displayDetails(final MenuItem item) {
         Intent intent = new Intent(this, DetailsActivity.class);
         startActivity(intent);
     }
