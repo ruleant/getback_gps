@@ -212,10 +212,8 @@ public class LocationService extends Service {
      * Retrieve Location Provider.
      *
      * Define best location provider based on certain criteria
-     *
-     * @return String
      */
-    public final String updateLocationProvider() {
+    public final void updateLocationProvider() {
         // Retrieve a list of location providers that have fine accuracy,
         // no monetary cost, etc
         // TODO define criteria in settings
@@ -227,8 +225,6 @@ public class LocationService extends Service {
         if (mLocationManager != null) {
             mProviderName = mLocationManager.getBestProvider(criteria, true);
         }
-
-        return mProviderName;
     }
 
     /**
