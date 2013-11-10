@@ -29,6 +29,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.ruleant.ariadne.lib.AriadneLocation;
+import org.ruleant.ariadne.lib.DebugLevel;
 import org.ruleant.ariadne.lib.FormatUtils;
 import org.ruleant.ariadne.lib.Navigator;
 
@@ -48,9 +49,14 @@ public class MainActivity extends AbstractAriadneActivity {
     public final boolean onCreateOptionsMenu(final Menu menu) {
         boolean superResult = super.onCreateOptionsMenu(menu);
 
-        // Inflate the menu;
-        // this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.main, menu);
+        DebugLevel debug = new DebugLevel(this);
+
+        // don't add details button when debugging is disabled
+        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
+            // Inflate the menu;
+            // this adds items to the action bar if it is present.
+            getMenuInflater().inflate(R.menu.main, menu);
+        }
 
         return superResult;
     }
@@ -69,12 +75,26 @@ public class MainActivity extends AbstractAriadneActivity {
         }
     }
 
+    @Override
+    public boolean onPrepareOptionsMenu(final Menu menu) {
+        MenuItem miDetails = menu.findItem(R.id.menu_details);
+        DebugLevel debug = new DebugLevel(this);
+
+        if (miDetails != null) {
+            // hide details button when debugging is disabled
+            miDetails.setVisible(
+                    debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW));
+        }
+
+        return super.onPrepareOptionsMenu(menu);
+    }
+
     /**
      * Called when the user clicks the About menu item.
      *
      * @param item MenuItem object that was clicked
      */
-    public final void displayDetails(final MenuItem item) {
+    final void displayDetails(final MenuItem item) {
         Intent intent = new Intent(this, DetailsActivity.class);
         startActivity(intent);
     }
@@ -141,8 +161,9 @@ public class MainActivity extends AbstractAriadneActivity {
                 nvToDestination.setMode(NavigationView.INACCURATE);
             }
 
-            toDestinationDirectionText = FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(direction));
+            toDestinationDirectionText
+                    = FormatUtils.formatAngle(FormatUtils.normalizeAngle(
+                    navigator.getAbsoluteDirection()));
             nvToDestination.setDirection(direction);
         }
 

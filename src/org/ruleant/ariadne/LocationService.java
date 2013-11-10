@@ -212,10 +212,8 @@ public class LocationService extends Service {
      * Retrieve Location Provider.
      *
      * Define best location provider based on certain criteria
-     *
-     * @return String
      */
-    public final String updateLocationProvider() {
+    public final void updateLocationProvider() {
         // Retrieve a list of location providers that have fine accuracy,
         // no monetary cost, etc
         // TODO define criteria in settings
@@ -227,8 +225,6 @@ public class LocationService extends Service {
         if (mLocationManager != null) {
             mProviderName = mLocationManager.getBestProvider(criteria, true);
         }
-
-        return mProviderName;
     }
 
     /**
@@ -341,18 +337,14 @@ public class LocationService extends Service {
      * Update Location.
      *
      * Force location update, using getLastKnownLocation()
-     *
-     * @return Location
      */
-    public final AriadneLocation updateLocation() {
+    public final void updateLocation() {
         if (mLocationManager == null || !isSetLocationProvider()) {
-            return null;
+            return;
         }
         // update location using getLastKnownLocation,
         // don't wait for listener update
         setLocation(mLocationManager.getLastKnownLocation(mProviderName));
-
-        return getLocation();
     }
 
     /**

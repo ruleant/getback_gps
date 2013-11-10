@@ -95,6 +95,11 @@ public class NavigationView extends ImageView {
     private static final double D_80PCT = 0.8;
 
     /**
+     * arrow side angle.
+     */
+    private static final double ARROW_ANGLE = 25.0;
+
+    /**
      * Constructor.
      *
      * @param context App context
@@ -186,14 +191,23 @@ public class NavigationView extends ImageView {
         double radius = getHeight() / 2;
         double arrowLength = radius * D_80PCT;
         double arrowLengthTail = radius * D_20PCT;
-        double direction = getDirection();
+        double directionArrowPoint = getDirection();
+        double directionArrowTail
+                = FormatUtils.inverseAngle(directionArrowPoint);
 
-        long[] startCoordinate = polarToCartesian(
-                FormatUtils.inverseAngle(direction), arrowLengthTail);
-        long[] endCoordinate = polarToCartesian(direction, arrowLength);
+        long[] arrowPointCoordinate
+                = polarToCartesian(directionArrowPoint, arrowLength);
+        long[] tailRightCoordinate = polarToCartesian(
+                directionArrowTail - ARROW_ANGLE, arrowLengthTail);
+        long[] tailLeftCoordinate = polarToCartesian(
+                directionArrowTail + ARROW_ANGLE, arrowLengthTail);
 
-        canvas.drawLine(startCoordinate[X], startCoordinate[Y],
-                endCoordinate[X], endCoordinate[Y], mPaint);
+        canvas.drawLine(tailRightCoordinate[X], tailRightCoordinate[Y],
+                arrowPointCoordinate[X], arrowPointCoordinate[Y], mPaint);
+        canvas.drawLine(tailLeftCoordinate[X], tailLeftCoordinate[Y],
+                arrowPointCoordinate[X], arrowPointCoordinate[Y], mPaint);
+        canvas.drawLine(tailLeftCoordinate[X], tailLeftCoordinate[Y],
+                tailRightCoordinate[X], tailRightCoordinate[Y], mPaint);
     }
 
     /**

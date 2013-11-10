@@ -17,6 +17,13 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/textview_buildtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/build"
+        android:padding="2dp" />
+
+    <TextView
         android:id="@+id/textview_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

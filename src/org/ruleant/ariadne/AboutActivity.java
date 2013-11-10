@@ -30,6 +30,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
+import android.view.View;
 import android.widget.TextView;
 
 import org.ruleant.ariadne.lib.DebugLevel;
@@ -52,15 +53,11 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Resources res = getResources();
-
-        DateFormat formatter = SimpleDateFormat.getDateInstance();
-
-        // Display time when in debug mode
         DebugLevel debug = new DebugLevel(this);
-        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
-            formatter = SimpleDateFormat.getDateTimeInstance();
-        }
+
+        DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
         String versionInfo = res.getString(R.string.app_name);
+        String buildTime = "";
         PackageInfo packageInfo;
 
         try {
@@ -69,7 +66,8 @@ public class AboutActivity extends Activity {
             versionInfo += " v" + packageInfo.versionName;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                 Date date = new Date(packageInfo.lastUpdateTime);
-                versionInfo += " (" + formatter.format(date) + ")";
+                buildTime = res.getString(R.string.build)
+                        + " " + formatter.format(date);
             }
         } catch (NameNotFoundException e) {
             e.printStackTrace();
@@ -78,6 +76,14 @@ public class AboutActivity extends Activity {
         // Version text view
         TextView tvVersion = (TextView) findViewById(R.id.textview_version);
         tvVersion.setText(versionInfo);
+
+        // Build time text view
+        TextView tvBuildTime = (TextView) findViewById(R.id.textview_buildtime);
+        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
+            tvBuildTime.setText(buildTime);
+        } else {
+            tvBuildTime.setVisibility(View.INVISIBLE);
+        }
 
         // Version text view
         TextView tvWebsite = (TextView) findViewById(R.id.textview_website);

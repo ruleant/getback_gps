@@ -243,10 +243,8 @@ public class StoredLocation {
 
     /**
      * Restore stored location from Shared Preferences.
-     *
-     * @return location retrieved from Preferences
      */
-    public final Location restore() {
+    public final void restore() {
         Location location = new Location("");
 
         // check if a location stored. the saved parameter is set to true
@@ -258,11 +256,11 @@ public class StoredLocation {
             mHasLocation
                     = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
             if (!mHasLocation) {
-                return null;
+                return;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return;
         }
 
         // retrieve longitude and latitude,
@@ -276,7 +274,7 @@ public class StoredLocation {
             );
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return;
         }
 
         // retrieve altitude, if defined
@@ -338,7 +336,5 @@ public class StoredLocation {
 
         // set retrieved location
         setLocation(location);
-
-        return getLocation();
     }
 }
