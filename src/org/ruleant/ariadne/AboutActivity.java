@@ -53,14 +53,9 @@ public class AboutActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
         Resources res = getResources();
-
-        DateFormat formatter = SimpleDateFormat.getDateInstance();
-
-        // Display time when in debug mode
         DebugLevel debug = new DebugLevel(this);
-        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
-            formatter = SimpleDateFormat.getDateTimeInstance();
-        }
+
+        DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
         String versionInfo = res.getString(R.string.app_name);
         String buildTime = "";
         PackageInfo packageInfo;
