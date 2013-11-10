@@ -161,8 +161,9 @@ public class MainActivity extends AbstractAriadneActivity {
                 nvToDestination.setMode(NavigationView.INACCURATE);
             }
 
-            toDestinationDirectionText = FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(direction));
+            toDestinationDirectionText
+                    = FormatUtils.formatAngle(FormatUtils.normalizeAngle(
+                    navigator.getAbsoluteDirection()));
             nvToDestination.setDirection(direction);
         }
 
