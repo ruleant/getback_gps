@@ -1,35 +1,30 @@
 <?xml version='1.0' encoding='utf-8'?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:paddingTop="25dp"
     tools:context=".MainActivity" >
 
-    <RelativeLayout
-        android:layout_width="fill_parent"
+    <include
+        layout="@layout/section_current"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingTop="25dp" >
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/navigationView_ToDest" />
 
-        <include
-            layout="@layout/section_current"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/navigationView_ToDest" />
+    <org.ruleant.ariadne.NavigationView
+        android:id="@+id/navigationView_ToDest"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true" />
 
-        <org.ruleant.ariadne.NavigationView
-            android:id="@+id/navigationView_ToDest"
-            android:layout_width="225dp"
-            android:layout_height="225dp"
-            android:layout_centerHorizontal="true" />
+    <include
+        layout="@layout/section_to_destination"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@+id/navigationView_ToDest" />
 
-        <include
-            layout="@layout/section_to_destination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toRightOf="@+id/navigationView_ToDest" />
-
-    </RelativeLayout>
-</ScrollView>
+</RelativeLayout>
