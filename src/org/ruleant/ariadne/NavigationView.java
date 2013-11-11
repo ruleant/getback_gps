@@ -22,6 +22,7 @@
 package org.ruleant.ariadne;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -53,6 +54,16 @@ public class NavigationView extends ImageView {
      * Navigation mode.
      */
     private int mMode = 0;
+
+    /**
+     * Attribute layout_width.
+     */
+    private int mAttributeLayoutWidth = ViewGroup.LayoutParams.MATCH_PARENT;
+
+    /**
+     * Attribute layout_height.
+     */
+    private int mAttributeLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
     /**
      * X coordinate.
@@ -119,6 +130,28 @@ public class NavigationView extends ImageView {
     public NavigationView(final Context context,
                           final AttributeSet attributes) {
         super(context, attributes);
+
+        int[] lookForAttributes = new int[] { android.R.attr.layout_width,
+                android.R.attr.layout_height };
+
+        TypedArray foundAttributes = context.getTheme().obtainStyledAttributes(
+                attributes,
+                lookForAttributes,
+                0, 0);
+
+        // TODO debug, getInteger throws ArrayIndexOutOfBoundsException
+        try {
+            mAttributeLayoutWidth = foundAttributes.getInteger(
+                    android.R.attr.layout_width,
+                    ViewGroup.LayoutParams.MATCH_PARENT);
+            mAttributeLayoutHeight = foundAttributes.getInteger(
+                    android.R.attr.layout_height,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            e.printStackTrace();
+        } finally {
+            foundAttributes.recycle();
+        }
 
         init();
     }
