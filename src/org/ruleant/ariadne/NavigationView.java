@@ -213,7 +213,15 @@ public class NavigationView extends ImageView {
         if (getWidth() != getHeight()) {
             ViewGroup.LayoutParams layoutParams = getLayoutParams();
 
-            layoutParams.height = getWidth();
+            // adjust height/width according to attribute setting
+            if (mAttributeLayoutHeight
+                    == ViewGroup.LayoutParams.WRAP_CONTENT) {
+                layoutParams.height = getWidth();
+            } else if (mAttributeLayoutWidth
+                    == ViewGroup.LayoutParams.WRAP_CONTENT) {
+                layoutParams.width = getHeight();
+            }
+
             setLayoutParams(layoutParams);
         }
 
