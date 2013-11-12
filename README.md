@@ -7,7 +7,7 @@ Ariadne
 
 Android app for finding your way back to a previously visited location, using GPS coordinates.
 
-Imagine visiting a town, going to an event or doing some hiking. When finished, you have to find your car again, or the way to the station, or any other other point where you started.
+Imagine visiting a town, going to an event or doing some hiking. When finished, you have to find your car again, or the way to the station, or any other point where you started.
 Then the Ariadne app is what you need. Store a location when you start your trip, and at the end of the day, use the app to find your way back to where you started.
 
 More info on our [website](https://github.com/ruleant/ariadne/wiki).
