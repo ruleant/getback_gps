@@ -131,8 +131,8 @@ public class NavigationView extends ImageView {
                           final AttributeSet attributes) {
         super(context, attributes);
 
-        int[] lookForAttributes = new int[] { android.R.attr.layout_width,
-                android.R.attr.layout_height };
+        int[] lookForAttributes = new int[] {android.R.attr.layout_width,
+                android.R.attr.layout_height};
 
         TypedArray foundAttributes = context.getTheme().obtainStyledAttributes(
                 attributes,
