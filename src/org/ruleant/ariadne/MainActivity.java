@@ -105,6 +105,9 @@ public class MainActivity extends AbstractAriadneActivity {
     protected final void refreshDisplay() {
         super.refreshDisplay();
 
+        // refresh views with "current" info
+        refreshCurrentViews();
+
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         Navigator navigator = getNavigator();
@@ -131,15 +134,9 @@ public class MainActivity extends AbstractAriadneActivity {
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
                 = (TextView) findViewById(R.id.textView_toDestDir);
-        TextView tvCurrentSpeed
-                = (TextView) findViewById(R.id.textView_currSpeed);
-        TextView tvCurrentBearing
-                = (TextView) findViewById(R.id.textView_currBearing);
 
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
-        String currentSpeedText = res.getString(R.string.inaccurate);
-        String currentBearingText = res.getString(R.string.inaccurate);
 
         nvToDestination.setMode(NavigationView.DISABLED);
 
@@ -167,23 +164,9 @@ public class MainActivity extends AbstractAriadneActivity {
             nvToDestination.setDirection(direction);
         }
 
-        // current speed
-        if (navigator.isLocationAccurate()) {
-            currentSpeedText = FormatUtils.formatSpeed(
-                    navigator.getCurrentSpeed(), this);
-        }
-
-        // current bearing
-        if (navigator.isBearingAccurate()) {
-            currentBearingText = FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
-        }
-
         // update views
         nvToDestination.invalidate();
         tvToDestinationDistance.setText(toDestinationDistanceText);
         tvToDestinationDirection.setText(toDestinationDirectionText);
-        tvCurrentSpeed.setText(currentSpeedText);
-        tvCurrentBearing.setText(currentBearingText);
     }
 }
