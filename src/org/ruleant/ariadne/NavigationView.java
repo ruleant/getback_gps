@@ -139,14 +139,11 @@ public class NavigationView extends ImageView {
                 lookForAttributes,
                 0, 0);
 
-        // TODO debug, getInteger throws ArrayIndexOutOfBoundsException
         try {
             mAttributeLayoutWidth = foundAttributes.getInteger(
-                    android.R.attr.layout_width,
-                    ViewGroup.LayoutParams.MATCH_PARENT);
+                    0, ViewGroup.LayoutParams.MATCH_PARENT);
             mAttributeLayoutHeight = foundAttributes.getInteger(
-                    android.R.attr.layout_height,
-                    ViewGroup.LayoutParams.WRAP_CONTENT);
+                    1, ViewGroup.LayoutParams.WRAP_CONTENT);
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         } finally {
