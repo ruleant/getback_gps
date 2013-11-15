@@ -1,32 +1,32 @@
-Ariadne
-=======
+GetBack GPS
+===========
 
-[![Build Status](https://travis-ci.org/ruleant/ariadne.png?branch=master)](https://travis-ci.org/ruleant/ariadne)
-[![Coverage Status](https://coveralls.io/repos/ruleant/ariadne/badge.png?branch=master)](https://coveralls.io/r/ruleant/ariadne?branch=master)
-[![Translation status](http://hosted.weblate.org/widgets/ariadne-status-badge.png)](http://hosted.weblate.org/engage/ariadne/?utm_source=widget)
+[![Build Status](https://travis-ci.org/ruleant/getback_gps.png?branch=master)](https://travis-ci.org/ruleant/getback_gps)
+[![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
+[![Translation status](http://hosted.weblate.org/widgets/getback_gps-status-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
 
 Open Source Android app for finding your way back to a previously visited location, using GPS coordinates.
 
 Imagine visiting a town, going to an event or doing some hiking. When finished, you have to find your car again, or the way to the station, or any other point where you started.
 Then the Ariadne app is what you need. Store a location when you start your trip, and at the end of the day, use the app to find your way back to where you started.
 
-More info on our [website](https://github.com/ruleant/ariadne/wiki).
+More info on our [website](https://github.com/ruleant/getback_gps/wiki).
 
 Bugs and feature requests
 -------------------------
 
-Please report bugs and add feature requests in the Github [issue tracker](https://github.com/ruleant/ariadne/issues).
+Please report bugs and add feature requests in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
 
 Requests for translations to a new language can be made here as well.
 
 Translation
 -----------
 
-You can help translating the app to your own language : <http://hosted.weblate.org/projects/ariadne/strings>.
+You can help translating the app to your own language : <http://hosted.weblate.org/projects/getback_gps/strings>.
 
-[![Translation status](http://hosted.weblate.org/widgets/ariadne-287x66-grey.png)](http://hosted.weblate.org/engage/ariadne/?utm_source=widget)
+[![Translation status](http://hosted.weblate.org/widgets/getback_gps-287x66-grey.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
 
-Is your language not listed? Follow the instructions on the 'New language' tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/ariadne/issues).
+Is your language not listed? Follow the instructions on the 'New language' tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
 
 Code documentation
 ------------------
