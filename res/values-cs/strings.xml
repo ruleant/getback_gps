@@ -64,4 +64,5 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="direction_relative">relativně k současnému směru</string>
     <string name="inaccurate">nepřesné</string>
     <string name="inaccurate_location">Vaše současné umístění není přesné</string>
+    <string name="build">Používá:</string>
     </resources>
