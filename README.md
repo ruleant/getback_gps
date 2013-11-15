@@ -10,7 +10,7 @@ Open Source Android app for finding your way back to a previously visited locati
 Imagine visiting a town, going to an event or doing some hiking. When finished, you have to find your car again, or the way to the station, or any other point where you started.
 Then the Ariadne app is what you need. Store a location when you start your trip, and at the end of the day, use the app to find your way back to where you started.
 
-More info on our [website](https://github.com/ruleant/getback_gps/wiki).
+More info on our [website](http://ruleant.github.io/getback_gps).
 
 Bugs and feature requests
 -------------------------
