@@ -73,6 +73,11 @@ abstract class AbstractAriadneActivity extends Activity {
      */
     private Crouton crInaccurateDirection;
 
+    /**
+     * 'Destination reached' crouton.
+     */
+    private Crouton crDestinationReached;
+
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
         // Inflate the menu;
@@ -123,7 +128,10 @@ abstract class AbstractAriadneActivity extends Activity {
                 R.string.notice_no_dest, Style.INFO);
         crNoDestination.setConfiguration(croutonConfig);
 
-
+        // create 'destination reached' crouton
+        crDestinationReached = Crouton.makeText(this,
+                R.string.notice_destination_reached, Style.CONFIRM);
+        crDestinationReached.setConfiguration(croutonConfig);
     }
 
     @Override
@@ -281,11 +289,18 @@ abstract class AbstractAriadneActivity extends Activity {
             } else {
                 crNoDestination.cancel();
 
-                // if bearing is inaccurate, display warning
-                if (!navigator.isBearingAccurate()) {
-                    crInaccurateDirection.show();
+                // distination was reached
+                if (navigator.isDestinationReached()) {
+                    crDestinationReached.show();
                 } else {
-                    crInaccurateDirection.cancel();
+                    crDestinationReached.cancel();
+
+                    // if bearing is inaccurate, display warning
+                    if (!navigator.isBearingAccurate()) {
+                        crInaccurateDirection.show();
+                    } else {
+                        crInaccurateDirection.cancel();
+                    }
                 }
             }
         }
