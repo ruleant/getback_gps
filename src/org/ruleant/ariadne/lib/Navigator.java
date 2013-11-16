@@ -181,6 +181,21 @@ public class Navigator {
     }
 
     /**
+     * Check if current location is destination.
+     *
+     * @return true if current location is destination
+     */
+    public final boolean isDestinationReached() {
+        // don't check destination if location is not accurate,
+        // or if destination is not set
+        if (!isLocationAccurate() || getDestination() == null) {
+            return false;
+        }
+
+        return getDistance() < mCurrentLocation.getAccuracy();
+    }
+
+    /**
      * Calculate most accurate current speed,
      * depending on available sensors and data.
      *
