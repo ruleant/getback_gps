@@ -77,4 +77,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="current_speed">Huidige snelheid</string>
     <string name="current_bearing">Huidige koers</string>
     <string name="build">Gecompileerd op :</string>
+    <string name="notice_destination_reached">Je hebt je bestemming bereikt</string>
     </resources>
