@@ -64,10 +64,10 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
         <item quantity="one">%d minuut</item>
         <item quantity="other">%d minuten</item>
     </plurals>
-    <string name="latitude_north_unit">N.B.</string>
-    <string name="latitude_south_unit">Z.B.</string>
-    <string name="longitude_east_unit">O.L.</string>
-    <string name="longitude_west_unit">W.L.</string>
+    <string name="latitude_north_unit">NB</string>
+    <string name="latitude_south_unit">ZB</string>
+    <string name="longitude_east_unit">OL</string>
+    <string name="longitude_west_unit">WL</string>
     <string name="speed_kph">km/u</string>
     <string name="direction_relative">ten opzichte van huidige richting</string>
     <string name="inaccurate_location">Je huidige locatie is onnauwkeurig</string>
