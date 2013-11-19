@@ -24,7 +24,7 @@ package org.ruleant.ariadne.lib;
 import junit.framework.TestCase;
 
 /**
- * Unit tests for FormatUtils class.
+ * Unit tests for Latitude class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
