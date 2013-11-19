@@ -106,7 +106,7 @@ public class MainActivity extends AbstractAriadneActivity {
         super.refreshDisplay();
 
         // refresh views with "current" info
-        refreshCurrentViews();
+        refreshCurrentViews(true);
 
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator

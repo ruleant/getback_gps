@@ -297,8 +297,10 @@ abstract class AbstractAriadneActivity extends Activity {
 
     /**
      * Refresh current speed/bearing views.
+     *
+     * @param displayInaccurate display value when it is inaccurate
      */
-    protected final void refreshCurrentViews() {
+    protected final void refreshCurrentViews(final boolean displayInaccurate) {
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         Navigator navigator = getNavigator();
@@ -320,13 +322,13 @@ abstract class AbstractAriadneActivity extends Activity {
         String currentBearingText = res.getString(R.string.inaccurate);
 
         // Update current speed
-        if (navigator.isLocationAccurate()) {
+        if (!displayInaccurate || navigator.isLocationAccurate()) {
             currentSpeedText = FormatUtils.formatSpeed(
                     navigator.getCurrentSpeed(), this);
         }
 
         // Update current bearing
-        if (navigator.isBearingAccurate()) {
+        if (!displayInaccurate || navigator.isBearingAccurate()) {
             currentBearingText = FormatUtils.formatAngle(
                     FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
         }
