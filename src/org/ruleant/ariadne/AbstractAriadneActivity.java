@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import org.ruleant.ariadne.LocationService.LocationBinder;
+import org.ruleant.ariadne.lib.CardinalDirection;
 import org.ruleant.ariadne.lib.FormatUtils;
 import org.ruleant.ariadne.lib.Navigator;
 
@@ -344,8 +345,12 @@ abstract class AbstractAriadneActivity extends Activity {
 
         // Update current bearing
         if (!displayInaccurate || navigator.isBearingAccurate()) {
-            currentBearingText = FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
+            CardinalDirection cd = new CardinalDirection(
+                    this,
+                    FormatUtils.normalizeAngle(
+                            navigator.getCurrentBearing()));
+
+            currentBearingText = cd.format();
         }
 
         // update views
