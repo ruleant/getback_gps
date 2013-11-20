@@ -26,6 +26,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 import org.ruleant.ariadne.lib.AriadneLocation;
+import org.ruleant.ariadne.lib.CardinalDirection;
 import org.ruleant.ariadne.lib.FormatUtils;
 import org.ruleant.ariadne.lib.Navigator;
 
@@ -102,8 +103,12 @@ public class DetailsActivity extends AbstractAriadneActivity {
         if (navigator == null) {
             currentText += " " + res.getString(R.string.unknown);
         } else {
-            currentText += FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
+            CardinalDirection cd = new CardinalDirection(
+                    this,
+                    FormatUtils.normalizeAngle(
+                            navigator.getCurrentBearing()));
+
+            currentText += cd.format();
         }
 
         // update string
@@ -151,11 +156,15 @@ public class DetailsActivity extends AbstractAriadneActivity {
             toDestinationText += " "
                     + res.getString(R.string.distance) + ": "
                     + FormatUtils.formatDist(navigator.getDistance()) + "\n";
-            toDestinationText += " "
-                    + res.getString(R.string.direction) + ": "
-                    + FormatUtils.formatAngle(
+
+            CardinalDirection cd = new CardinalDirection(
+                    this,
                     FormatUtils.normalizeAngle(
                             navigator.getAbsoluteDirection()));
+
+            toDestinationText += " "
+                    + res.getString(R.string.direction) + ": "
+                    + cd.format();
 
             boolean isBearingAccurate = navigator.isBearingAccurate();
 
