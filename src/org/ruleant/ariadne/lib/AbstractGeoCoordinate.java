@@ -22,7 +22,6 @@
 package org.ruleant.ariadne.lib;
 
 import android.content.Context;
-import android.location.Location;
 
 /**
  * Abstract class for formatting a geological coordinate.
@@ -158,10 +157,15 @@ public abstract class AbstractGeoCoordinate {
      * @return String formatted string
      */
     public final String format() {
-        return Location.convert(getConvertedValue(), Location.FORMAT_SECONDS)
-                .replaceFirst(":", "° ").replace(":", "' ") + "\" "
-                + getSegmentUnit();
+        return formatValue() + " " + getSegmentUnit();
     }
+
+    /**
+     * Format value.
+     *
+     * @return formatted value
+     */
+    protected abstract String formatValue();
 
     /**
      * Determine value segment.

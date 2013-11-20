@@ -22,6 +22,7 @@
 package org.ruleant.ariadne.lib;
 
 import android.content.Context;
+import android.location.Location;
 
 import org.ruleant.ariadne.R;
 
@@ -167,5 +168,15 @@ public class Latitude extends AbstractGeoCoordinate {
         }
 
         return coordinate;
+    }
+
+    /**
+     * Format value.
+     *
+     * @return formatted value
+     */
+    protected final String formatValue() {
+        return Location.convert(getConvertedValue(), Location.FORMAT_SECONDS)
+                .replaceFirst(":", "° ").replace(":", "' ") + "\"";
     }
 }
