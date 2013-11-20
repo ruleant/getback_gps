@@ -29,6 +29,7 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.ruleant.ariadne.lib.AriadneLocation;
+import org.ruleant.ariadne.lib.CardinalDirection;
 import org.ruleant.ariadne.lib.DebugLevel;
 import org.ruleant.ariadne.lib.FormatUtils;
 import org.ruleant.ariadne.lib.Navigator;
@@ -158,9 +159,12 @@ public class MainActivity extends AbstractAriadneActivity {
                 nvToDestination.setMode(NavigationView.INACCURATE);
             }
 
-            toDestinationDirectionText
-                    = FormatUtils.formatAngle(FormatUtils.normalizeAngle(
-                    navigator.getAbsoluteDirection()));
+            CardinalDirection cd = new CardinalDirection(
+                    this,
+                    FormatUtils.normalizeAngle(
+                            navigator.getAbsoluteDirection()));
+
+            toDestinationDirectionText = cd.format();
             nvToDestination.setDirection(direction);
         }
 
