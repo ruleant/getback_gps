@@ -28,13 +28,16 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.ruleant.ariadne.LocationService.LocationBinder;
+import org.ruleant.ariadne.lib.FormatUtils;
 import org.ruleant.ariadne.lib.Navigator;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
@@ -271,11 +274,12 @@ abstract class AbstractAriadneActivity extends Activity {
      */
     protected final void refreshCrouton() {
         // only refresh items if activity is bound to service
-        if (!isBound()) {
+        // connection state is checked in getNavigator
+        Navigator navigator = getNavigator();
+
+        if (navigator == null) {
             return;
         }
-
-        Navigator navigator = getService().getNavigator();
 
         // if location is inaccurate, display warning
         if (!navigator.isLocationAccurate()) {
@@ -307,6 +311,49 @@ abstract class AbstractAriadneActivity extends Activity {
     }
 
     /**
+     * Refresh current speed/bearing views.
+     *
+     * @param displayInaccurate display value when it is inaccurate
+     */
+    protected final void refreshCurrentViews(final boolean displayInaccurate) {
+        // only refresh items if activity is bound to service
+        // connection state is checked in getNavigator
+        Navigator navigator = getNavigator();
+
+        if (navigator == null) {
+            return;
+        }
+
+        Resources res = getResources();
+
+        // Get "Current" TextViews
+        TextView tvCurrentSpeed
+                = (TextView) findViewById(R.id.textView_currSpeed);
+        TextView tvCurrentBearing
+                = (TextView) findViewById(R.id.textView_currBearing);
+
+        // Define strings
+        String currentSpeedText = res.getString(R.string.inaccurate);
+        String currentBearingText = res.getString(R.string.inaccurate);
+
+        // Update current speed
+        if (!displayInaccurate || navigator.isLocationAccurate()) {
+            currentSpeedText = FormatUtils.formatSpeed(
+                    navigator.getCurrentSpeed(), this);
+        }
+
+        // Update current bearing
+        if (!displayInaccurate || navigator.isBearingAccurate()) {
+            currentBearingText = FormatUtils.formatAngle(
+                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
+        }
+
+        // update views
+        tvCurrentSpeed.setText(currentSpeedText);
+        tvCurrentBearing.setText(currentBearingText);
+    }
+
+    /**
      * Returns bound state to Location Service.
      *
      * @return boolean Bound State
@@ -321,7 +368,26 @@ abstract class AbstractAriadneActivity extends Activity {
      * @return LocationService
      */
     protected final LocationService getService() {
-        return mService;
+        if (isBound()) {
+            return mService;
+        } else {
+            return null;
+        }
+    }
+
+    /**
+     * Returns Navigator.
+     *
+     * @return Navigator
+     */
+    protected final Navigator getNavigator() {
+        LocationService service = getService();
+
+        if (service == null) {
+            return null;
+        }
+
+        return service.getNavigator();
     }
 
     /**

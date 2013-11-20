@@ -103,15 +103,19 @@ public class MainActivity extends AbstractAriadneActivity {
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
     protected final void refreshDisplay() {
+        super.refreshDisplay();
+
+        // refresh views with "current" info
+        refreshCurrentViews(true);
+
         // only refresh items if activity is bound to service
-        if (!isBound()) {
+        // connection state is checked in getNavigator
+        Navigator navigator = getNavigator();
+
+        if (navigator == null) {
             return;
         }
 
-        super.refreshDisplay();
-
-        LocationService service = getService();
-        Navigator navigator = service.getNavigator();
         Resources res = getResources();
         AriadneLocation destination;
 
@@ -130,20 +134,13 @@ public class MainActivity extends AbstractAriadneActivity {
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
                 = (TextView) findViewById(R.id.textView_toDestDir);
-        TextView tvCurrentSpeed
-                = (TextView) findViewById(R.id.textView_currSpeed);
-        TextView tvCurrentBearing
-                = (TextView) findViewById(R.id.textView_currBearing);
 
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
-        String currentSpeedText = res.getString(R.string.inaccurate);
-        String currentBearingText = res.getString(R.string.inaccurate);
 
         nvToDestination.setMode(NavigationView.DISABLED);
 
         if (destination != null
-                && navigator != null
                 && navigator.isLocationAccurate()) {
             // Print distance and bearing
             toDestinationDistanceText
@@ -167,23 +164,9 @@ public class MainActivity extends AbstractAriadneActivity {
             nvToDestination.setDirection(direction);
         }
 
-        // current speed
-        if (navigator != null && navigator.isLocationAccurate()) {
-            currentSpeedText = FormatUtils.formatSpeed(
-                    navigator.getCurrentSpeed(), this);
-        }
-
-        // current bearing
-        if (navigator != null && navigator.isBearingAccurate()) {
-            currentBearingText = FormatUtils.formatAngle(
-                    FormatUtils.normalizeAngle(navigator.getCurrentBearing()));
-        }
-
         // update views
         nvToDestination.invalidate();
         tvToDestinationDistance.setText(toDestinationDistanceText);
         tvToDestinationDirection.setText(toDestinationDirectionText);
-        tvCurrentSpeed.setText(currentSpeedText);
-        tvCurrentBearing.setText(currentBearingText);
     }
 }
