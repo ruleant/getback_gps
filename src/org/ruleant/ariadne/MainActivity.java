@@ -138,8 +138,7 @@ public class MainActivity extends AbstractAriadneActivity {
 
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
-
-        nvToDestination.setMode(NavigationView.DISABLED);
+        Integer nvMode = NavigationView.DISABLED;
 
         if (navigator.isDestinationReached()) {
             toDestinationDistanceText = res.getString(R.string.destination_reached);
@@ -156,10 +155,10 @@ public class MainActivity extends AbstractAriadneActivity {
             // if not, display absolute direction
             if (navigator.isBearingAccurate()) {
                 direction = navigator.getRelativeDirection();
-                nvToDestination.setMode(NavigationView.ACCURATE);
+                nvMode = NavigationView.ACCURATE;
             } else {
                 direction = navigator.getAbsoluteDirection();
-                nvToDestination.setMode(NavigationView.INACCURATE);
+                nvMode = NavigationView.INACCURATE;
             }
 
             CardinalDirection cd = new CardinalDirection(
@@ -172,6 +171,7 @@ public class MainActivity extends AbstractAriadneActivity {
         }
 
         // update views
+        nvToDestination.setMode(nvMode);
         nvToDestination.invalidate();
         tvToDestinationDistance.setText(toDestinationDistanceText);
         tvToDestinationDirection.setText(toDestinationDirectionText);
