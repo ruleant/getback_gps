@@ -141,7 +141,10 @@ public class MainActivity extends AbstractAriadneActivity {
 
         nvToDestination.setMode(NavigationView.DISABLED);
 
-        if (destination != null
+        if (navigator.isDestinationReached()) {
+            toDestinationDistanceText = res.getString(R.string.destination_reached);
+            toDestinationDirectionText = res.getString(R.string.destination_reached);
+        } else if (destination != null
                 && navigator.isLocationAccurate()) {
             // Print distance and bearing
             toDestinationDistanceText
