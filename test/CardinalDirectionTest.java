@@ -132,19 +132,24 @@ public class CardinalDirectionTest extends TestCase {
      * Tests getSegmentUnit.
      */
     public final void testGetSegmentUnit() {
-        assertEquals(CardinalDirection.SEGMENT_NE_UNIT, object.getSegmentUnit());
+        assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
+                object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE);
-        assertEquals(CardinalDirection.SEGMENT_NE_UNIT, object.getSegmentUnit());
+        assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
+                object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_SE_LOW);
-        assertEquals(CardinalDirection.SEGMENT_SE_UNIT, object.getSegmentUnit());
+        assertEquals(CardinalDirection.SEGMENT_SE_UNIT,
+                object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_SW_LOW);
-        assertEquals(CardinalDirection.SEGMENT_SW_UNIT, object.getSegmentUnit());
+        assertEquals(CardinalDirection.SEGMENT_SW_UNIT,
+                object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_NW_LOW);
-        assertEquals(CardinalDirection.SEGMENT_NW_UNIT, object.getSegmentUnit());
+        assertEquals(CardinalDirection.SEGMENT_NW_UNIT,
+                object.getSegmentUnit());
     }
 
     /**
@@ -157,6 +162,7 @@ public class CardinalDirectionTest extends TestCase {
         assertEquals(VALID_COORDINATE, object.getConvertedValue());
 
         object.setValue(CardinalDirection.SEGMENT_NW_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_NW_HIGH, object.getConvertedValue());
+        assertEquals(CardinalDirection.SEGMENT_NW_HIGH,
+                object.getConvertedValue());
     }
 }
