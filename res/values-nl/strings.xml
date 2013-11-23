@@ -82,4 +82,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="southeast_unit">ZO</string>
     <string name="southwest_unit">ZW</string>
     <string name="northwest_unit">NW</string>
+    <string name="destination_reached">Op bestemming</string>
     </resources>
