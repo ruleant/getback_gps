@@ -168,7 +168,7 @@ public class CardinalDirection extends AbstractGeoCoordinate {
     }
 
     /**
-     * Get segment unit,
+     * Get segment unit.
      *
      * @return unit
      */
