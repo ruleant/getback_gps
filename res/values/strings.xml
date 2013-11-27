@@ -5,7 +5,7 @@
     <string name="inaccurate_location">Your current location is inaccurate</string>
     <string name="notice_no_dest">Store your location to set a destination</string>
     <string name="inaccurate_direction">Start moving to have an accurate direction to your destination</string>
-    <string name="notice_destination_reached">You have reached your destination</string>
+    <string name="notice_destination_reached">You are at your destination</string>
     <!-- Strings related to Main activity -->
     <string name="current_speed">Current speed</string>
     <string name="speed_kph">km/h</string>
