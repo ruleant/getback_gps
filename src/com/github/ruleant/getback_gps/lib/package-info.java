@@ -1,6 +1,4 @@
 /**
- * Location Service Callback Interface
- *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
@@ -15,25 +13,12 @@
  *
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+/**
+ * Ariadne is an android app for finding your way back to a previously
+ * visited location, using GPS coordinates.
+ * This package contains supporting classes.
  *
- * @package org.ruleant.ariadne
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
-
-/**
- * Callback interface used by LocationService to send
- * synchronous notifications back to its clients.  Note that this is a
- * one-way interface so the server does not block waiting for the client.
- */
-oneway interface ILocationServiceCallback {
-    /**
-     * Called when the service has an updated location.
-     */
-    void locationUpdated();
-    
-    /**
-     * Called when the service has an updated provider.
-     */
-    void providerUpdated();
-}
+package com.github.ruleant.getback_gps.lib;

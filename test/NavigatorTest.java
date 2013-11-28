@@ -16,17 +16,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 
+import com.github.ruleant.getback_gps.lib.AriadneLocation;
+import com.github.ruleant.getback_gps.lib.FormatUtils;
+import com.github.ruleant.getback_gps.lib.Navigator;
+
 import junit.framework.TestCase;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
-
-import org.ruleant.ariadne.lib.AriadneLocation;
-import org.ruleant.ariadne.lib.FormatUtils;
-import org.ruleant.ariadne.lib.Navigator;
 
 /**
  * Unit tests for FormatUtils class.

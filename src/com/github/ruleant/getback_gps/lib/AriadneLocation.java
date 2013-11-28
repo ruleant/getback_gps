@@ -16,16 +16,16 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne.lib;
+package com.github.ruleant.getback_gps.lib;
 
 import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
 
-import org.ruleant.ariadne.R;
+import com.github.ruleant.getback_gps.R;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

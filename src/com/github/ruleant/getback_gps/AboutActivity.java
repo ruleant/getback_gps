@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package com.github.ruleant.getback_gps;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
@@ -33,7 +33,7 @@ import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
-import org.ruleant.ariadne.lib.DebugLevel;
+import com.github.ruleant.getback_gps.lib.DebugLevel;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

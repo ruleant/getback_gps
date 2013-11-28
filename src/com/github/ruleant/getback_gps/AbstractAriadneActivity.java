@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package com.github.ruleant.getback_gps;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -36,10 +36,10 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.ruleant.ariadne.LocationService.LocationBinder;
-import org.ruleant.ariadne.lib.CardinalDirection;
-import org.ruleant.ariadne.lib.FormatUtils;
-import org.ruleant.ariadne.lib.Navigator;
+import com.github.ruleant.getback_gps.LocationService.LocationBinder;
+import com.github.ruleant.getback_gps.lib.CardinalDirection;
+import com.github.ruleant.getback_gps.lib.FormatUtils;
+import com.github.ruleant.getback_gps.lib.Navigator;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;

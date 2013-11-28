@@ -16,19 +16,19 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package com.github.ruleant.getback_gps;
 
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.ruleant.ariadne.lib.AriadneLocation;
-import org.ruleant.ariadne.lib.CardinalDirection;
-import org.ruleant.ariadne.lib.FormatUtils;
-import org.ruleant.ariadne.lib.Navigator;
+import com.github.ruleant.getback_gps.lib.AriadneLocation;
+import com.github.ruleant.getback_gps.lib.CardinalDirection;
+import com.github.ruleant.getback_gps.lib.FormatUtils;
+import com.github.ruleant.getback_gps.lib.Navigator;
 
 /**
  * Main Activity class.

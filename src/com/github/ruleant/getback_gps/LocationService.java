@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package com.github.ruleant.getback_gps;
 
 import android.app.Service;
 import android.content.Context;
@@ -38,11 +38,11 @@ import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
 
-import org.ruleant.ariadne.lib.AriadneLocation;
-import org.ruleant.ariadne.lib.DebugLevel;
-import org.ruleant.ariadne.lib.Navigator;
-import org.ruleant.ariadne.lib.StoredDestination;
-import org.ruleant.ariadne.lib.StoredLocation;
+import com.github.ruleant.getback_gps.lib.AriadneLocation;
+import com.github.ruleant.getback_gps.lib.DebugLevel;
+import com.github.ruleant.getback_gps.lib.Navigator;
+import com.github.ruleant.getback_gps.lib.StoredDestination;
+import com.github.ruleant.getback_gps.lib.StoredLocation;
 
 /**
  * Location Service provides the current location.

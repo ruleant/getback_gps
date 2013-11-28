@@ -16,10 +16,10 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.unitconversion
+ * @package com.github.ruleant.getback_gps.unitconversion
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.unitconversion;
+package com.github.ruleant.unitconversion;
 
 /**
  * Unit Conversion class interface.

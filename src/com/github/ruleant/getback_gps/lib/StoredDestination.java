@@ -1,4 +1,4 @@
-package org.ruleant.ariadne.lib;
+package com.github.ruleant.getback_gps.lib;
 /**
  * Stored Destination
  *
@@ -17,7 +17,7 @@ package org.ruleant.ariadne.lib;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 

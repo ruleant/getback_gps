@@ -15,10 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Ariadne is an android app for finding your way back to a previously
- * visited location, using GPS coordinates.
- * This package contains all Activities, Services and Custom Views.
+ * Classes to convert units, fe. meter to feet, kg to lb.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne;
+package com.github.ruleant.unitconversion;

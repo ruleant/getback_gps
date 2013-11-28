@@ -1,5 +1,5 @@
 /**
- * Class for formatting longitude.
+ * Class for formatting latitude.
  *
  * Copyright (C) 2012-2013 Dieter Adriaenssens
  *
@@ -16,68 +16,68 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package org.ruleant.ariadne
+ * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne.lib;
+package com.github.ruleant.getback_gps.lib;
 
 import android.content.Context;
 import android.location.Location;
 
-import org.ruleant.ariadne.R;
+import com.github.ruleant.getback_gps.R;
 
 /**
- * Class for formatting longitude.
+ * Class for formatting latitude.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class Longitude extends AbstractGeoCoordinate {
+public class Latitude extends AbstractGeoCoordinate {
     /**
-     * Segment East.
+     * Segment North.
      */
-    public static final int SEGMENT_EAST = 1;
+    public static final int SEGMENT_NORTH = 1;
 
     /**
-     * Segment East upper limit.
+     * Segment North upper limit.
      */
-    public static final double SEGMENT_EAST_HIGH = 180;
+    public static final double SEGMENT_NORTH_HIGH = 90;
 
     /**
-     * Segment East lower limit.
+     * Segment North lower limit.
      */
-    public static final double SEGMENT_EAST_LOW = 0;
+    public static final double SEGMENT_NORTH_LOW = 0;
 
     /**
-     * Segment East Unit.
+     * Segment North Unit.
      */
-    public static final String SEGMENT_EAST_UNIT = "E";
+    public static final String SEGMENT_NORTH_UNIT = "N";
 
     /**
-     * Segment West.
+     * Segment South.
      */
-    public static final int SEGMENT_WEST = 2;
+    public static final int SEGMENT_SOUTH = 2;
 
     /**
-     * Segment West upper limit.
+     * Segment South upper limit.
      */
-    public static final double SEGMENT_WEST_HIGH = 0;
+    public static final double SEGMENT_SOUTH_HIGH = 0;
 
     /**
-     * Segment West lower limit.
+     * Segment South lower limit.
      */
-    public static final double SEGMENT_WEST_LOW = -180;
+    public static final double SEGMENT_SOUTH_LOW = -90;
 
     /**
-     * Segment West Unit.
+     * Segment South Unit.
      */
-    public static final String SEGMENT_WEST_UNIT = "W";
+    public static final String SEGMENT_SOUTH_UNIT = "S";
 
     /**
      * Constructor.
      *
      * @param newValue New value for unformatted value.
      */
-    public Longitude(final double newValue) {
+    public Latitude(final double newValue) {
         super(newValue);
     }
 
@@ -87,7 +87,7 @@ public class Longitude extends AbstractGeoCoordinate {
      * @param context App Context.
      * @param newValue New value for unformatted value.
      */
-    public Longitude(final Context context, final double newValue) {
+    public Latitude(final Context context, final double newValue) {
         super(context, newValue);
     }
 
@@ -96,31 +96,33 @@ public class Longitude extends AbstractGeoCoordinate {
      */
     protected final void init() {
         // set coordinate value range
-        setRange(SEGMENT_WEST_LOW, SEGMENT_EAST_HIGH);
+        setRange(SEGMENT_SOUTH_LOW, SEGMENT_NORTH_HIGH);
     }
 
     /**
-     * Determine value segment, East if longitude is in the range 0..180,
-     * West if longitude is in the range -180..0.
+     * Determine value segment, North if latitude is in the range 0..90,
+     * South if latitude is in the range -90..0.
      *
-     * @return segment code : SEGMENT_EAST or SEGMENT_WEST
+     * @return segment code : SEGMENT_NORTH or SEGMENT_SOUTH
      */
     public final int getSegment() {
         double coordinate = getValue();
         int retVal = 0;
 
-        if (coordinate <= SEGMENT_EAST_HIGH && coordinate >= SEGMENT_EAST_LOW) {
-            retVal = SEGMENT_EAST;
+        if (coordinate <= SEGMENT_NORTH_HIGH
+                && coordinate >= SEGMENT_NORTH_LOW) {
+            retVal = SEGMENT_NORTH;
         }
-        if (coordinate < SEGMENT_WEST_HIGH && coordinate >= SEGMENT_WEST_LOW) {
-            retVal = SEGMENT_WEST;
+        if (coordinate < SEGMENT_SOUTH_HIGH
+                && coordinate >= SEGMENT_SOUTH_LOW) {
+            retVal = SEGMENT_SOUTH;
         }
 
         return retVal;
     }
 
     /**
-     * Get segment unit, E for SEGMENT_EAST, W for SEGMENT_WEST.
+     * Get segment unit, N for SEGMENT_NORTH, S for SEGMENT_SOUTH.
      *
      * @return unit
      */
@@ -129,22 +131,22 @@ public class Longitude extends AbstractGeoCoordinate {
         Context context = getContext();
 
         switch (getSegment()) {
-            case SEGMENT_EAST :
+            case SEGMENT_NORTH :
                 // if context is defined, use android string
                 if (context == null) {
-                    unit = SEGMENT_EAST_UNIT;
+                    unit = SEGMENT_NORTH_UNIT;
                 } else {
                     unit = context.getResources()
-                            .getString(R.string.longitude_east_unit);
+                            .getString(R.string.latitude_north_unit);
                 }
                 break;
-            case SEGMENT_WEST :
+            case SEGMENT_SOUTH :
                 // if context is defined, use android string
                 if (context == null) {
-                    unit = SEGMENT_WEST_UNIT;
+                    unit = SEGMENT_SOUTH_UNIT;
                 } else {
                     unit = context.getResources()
-                            .getString(R.string.longitude_west_unit);
+                            .getString(R.string.latitude_south_unit);
                 }
                 break;
             default:
@@ -161,7 +163,7 @@ public class Longitude extends AbstractGeoCoordinate {
     protected final double getConvertedValue() {
         double coordinate = getValue();
 
-        if (getSegment() == SEGMENT_WEST) {
+        if (getSegment() == SEGMENT_SOUTH) {
             coordinate = Math.abs(coordinate);
         }
 

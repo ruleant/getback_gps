@@ -17,8 +17,8 @@
 /**
  * Ariadne is an android app for finding your way back to a previously
  * visited location, using GPS coordinates.
- * This package contains supporting classes.
+ * This package contains all Activities, Services and Custom Views.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-package org.ruleant.ariadne.lib;
+package com.github.ruleant.getback_gps;
