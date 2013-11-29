@@ -176,10 +176,33 @@ public class FormatUtils {
      * @return formatted angle with unit (°)
      */
     public static String formatAngle(final double angle) {
+        return formatAngle(angle, 2);
+    }
+
+    /**
+     * Formats an angle (in °) to a string.
+     * The number format is localized.
+     *
+     * @param angle Angle in °
+     * @param precision number of decimals
+     * @return formatted angle with unit (°)
+     */
+    public static String formatAngle(final double angle, final int precision) {
+        if (precision < 0) {
+            throw new IllegalArgumentException(
+                    "Precision can't be a negative value");
+        }
+
         String unit = "°";
 
+        // generate format string
+        // format number with variable precision (%s.xf), with x = precision
+        String formatString = "%1$." + String.format("%d", precision) + "f";
+        // add unit
+        formatString += "%2$s";
+
         // formatting
-        return String.format(Locale.getDefault(), "%1$.2f%2$s", angle, unit);
+        return String.format(Locale.getDefault(), formatString, angle, unit);
     }
 
     /**

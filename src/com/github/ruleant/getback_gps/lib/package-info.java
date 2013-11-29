@@ -15,8 +15,8 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Ariadne is an android app for finding your way back to a previously
- * visited location, using GPS coordinates.
+ * GetBack GPS is an android app for finding your way back to a previously
+ * visited location using GPS coordinates.
  * This package contains supporting classes.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
