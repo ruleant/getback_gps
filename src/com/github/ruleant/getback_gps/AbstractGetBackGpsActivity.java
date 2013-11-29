@@ -52,7 +52,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-abstract class AbstractAriadneActivity extends Activity {
+abstract class AbstractGetBackGpsActivity extends Activity {
     /**
      * Interface to LocationService instance.
      */

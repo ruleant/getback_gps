@@ -39,7 +39,7 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class MainActivity extends AbstractAriadneActivity {
+public class MainActivity extends AbstractGetBackGpsActivity {
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
