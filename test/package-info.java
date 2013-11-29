@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Unit tests for Ariadne library.
+ * Unit tests for GetBack GPS library.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
