@@ -4,7 +4,7 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="${packageName}.${activityClass}$DebugPreferenceFragment"
+        android:fragment="com.github.ruleant.getback_gps.SettingsActivity$DebugPreferenceFragment"
         android:title="@string/pref_header_debug" />
 
 </preference-headers>
