@@ -26,6 +26,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
@@ -136,21 +137,26 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         TextView tvToDestinationDirection
                 = (TextView) findViewById(R.id.textView_toDestDir);
 
+        LinearLayout sectionToDestination
+                = (LinearLayout) findViewById(R.id.section_toDestination);
+        TextView tvToDestinationMessage
+                = (TextView) findViewById(R.id.textView_toDest_Message);
+
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
+        String toDestinationMessage = res.getString(R.string.unknown);
         Integer nvMode = NavigationView.DISABLED;
+        Boolean displayToDest = false;
 
         if (destination == null) {
-            toDestinationDistanceText
-                    = res.getString(R.string.no_destination);
-            toDestinationDirectionText
+            toDestinationMessage
                     = res.getString(R.string.no_destination);
         } else if (navigator.isDestinationReached()) {
-            toDestinationDistanceText
-                    = res.getString(R.string.destination_reached);
-            toDestinationDirectionText
+            toDestinationMessage
                     = res.getString(R.string.destination_reached);
         } else if (navigator.isLocationAccurate()) {
+            displayToDest = true;
+
             // Print distance and bearing
             toDestinationDistanceText
                     = FormatUtils.formatDist(navigator.getDistance());
@@ -176,10 +182,26 @@ public class MainActivity extends AbstractGetBackGpsActivity {
             nvToDestination.setDirection(direction);
         }
 
+        if (displayToDest) {
+            // show 'to Destination' info, hide message
+            sectionToDestination.setVisibility(LinearLayout.VISIBLE);
+            tvToDestinationMessage.setVisibility(LinearLayout.INVISIBLE);
+
+            // update views
+            tvToDestinationDistance.setText(toDestinationDistanceText);
+            tvToDestinationDirection.setText(toDestinationDirectionText);
+        } else {
+            // hide 'to Destination' info, show message
+            sectionToDestination.setVisibility(LinearLayout.INVISIBLE);
+            tvToDestinationMessage.setVisibility(LinearLayout.VISIBLE);
+
+            // update views
+            tvToDestinationMessage.setText(toDestinationMessage);
+        }
+
         // update views
         nvToDestination.setMode(nvMode);
         nvToDestination.invalidate();
-        tvToDestinationDistance.setText(toDestinationDistanceText);
-        tvToDestinationDirection.setText(toDestinationDirectionText);
+
     }
 }
