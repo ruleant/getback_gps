@@ -140,13 +140,17 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         String toDestinationDirectionText = res.getString(R.string.unknown);
         Integer nvMode = NavigationView.DISABLED;
 
-        if (navigator.isDestinationReached()) {
+        if (destination == null) {
+            toDestinationDistanceText
+                    = res.getString(R.string.no_destination);
+            toDestinationDirectionText
+                    = res.getString(R.string.no_destination);
+        } else if (navigator.isDestinationReached()) {
             toDestinationDistanceText
                     = res.getString(R.string.destination_reached);
             toDestinationDirectionText
                     = res.getString(R.string.destination_reached);
-        } else if (destination != null
-                && navigator.isLocationAccurate()) {
+        } else if (navigator.isLocationAccurate()) {
             // Print distance and bearing
             toDestinationDistanceText
                     = FormatUtils.formatDist(navigator.getDistance());
