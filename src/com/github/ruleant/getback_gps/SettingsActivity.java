@@ -327,6 +327,8 @@ public class SettingsActivity extends PreferenceActivity {
         public void onCreate(final Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
 
+            addPreferencesFromResource(R.xml.pref_general);
+
             populateLocUpdateDist();
             populateLocUpdateTime();
 
