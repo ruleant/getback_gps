@@ -173,17 +173,6 @@ public class FormatUtils {
      * The number format is localized.
      *
      * @param angle Angle in °
-     * @return formatted angle with unit (°)
-     */
-    public static String formatAngle(final double angle) {
-        return formatAngle(angle, 2);
-    }
-
-    /**
-     * Formats an angle (in °) to a string.
-     * The number format is localized.
-     *
-     * @param angle Angle in °
      * @param precision number of decimals
      * @return formatted angle with unit (°)
      */
