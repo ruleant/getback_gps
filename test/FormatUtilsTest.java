@@ -380,9 +380,9 @@ public class FormatUtilsTest extends TestCase {
      * Locale en_US is assumed, several angels are passed as an argument.
      */
     public final void testFormatAngle() {
-        assertEquals("45.00°", FormatUtils.formatAngle(A_45));
-        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674));
-        assertEquals("45.68°", FormatUtils.formatAngle(A_45P678));
+        assertEquals("45.00°", FormatUtils.formatAngle(A_45, 2));
+        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, 2));
+        assertEquals("45.68°", FormatUtils.formatAngle(A_45P678, 2));
     }
 
     /**
@@ -393,9 +393,9 @@ public class FormatUtilsTest extends TestCase {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("45,00°", FormatUtils.formatAngle(A_45));
-        assertEquals("45,67°", FormatUtils.formatAngle(A_45P674));
-        assertEquals("45,68°", FormatUtils.formatAngle(A_45P678));
+        assertEquals("45,00°", FormatUtils.formatAngle(A_45, 2));
+        assertEquals("45,67°", FormatUtils.formatAngle(A_45P674, 2));
+        assertEquals("45,68°", FormatUtils.formatAngle(A_45P678, 2));
     }
 
     /**
@@ -403,9 +403,9 @@ public class FormatUtilsTest extends TestCase {
      * even if the angle argument is negative.
      */
     public final void testFormatAngleNeg() {
-        assertEquals("-45.00°", FormatUtils.formatAngle(-1.0 * A_45));
-        assertEquals("-45.67°", FormatUtils.formatAngle(-1.0 * A_45P674));
-        assertEquals("-45.68°", FormatUtils.formatAngle(-1.0 * A_45P678));
+        assertEquals("-45.00°", FormatUtils.formatAngle(-1.0 * A_45, 2));
+        assertEquals("-45.67°", FormatUtils.formatAngle(-1.0 * A_45P674, 2));
+        assertEquals("-45.68°", FormatUtils.formatAngle(-1.0 * A_45P678, 2));
     }
 
     /**
