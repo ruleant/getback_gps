@@ -386,6 +386,35 @@ public class FormatUtilsTest extends TestCase {
     }
 
     /**
+     * Tests range of precision parameter of method FormatAngle.
+     */
+    public final void testFormatAngleWrongPrecision() {
+        try {
+            FormatUtils.formatAngle(A_45, -1);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Precision can't be a negative value",
+                    e.getMessage());
+        }
+    }
+
+    /**
+     * Tests precision parameter of method FormatAngle.
+     */
+    public final void testFormatAnglePrecision() {
+        assertEquals("45°", FormatUtils.formatAngle(A_45, 0));
+        assertEquals("46°", FormatUtils.formatAngle(A_45P674, 0));
+        assertEquals("45.7°", FormatUtils.formatAngle(A_45P674, 1));
+        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, 2));
+        assertEquals("45.674°", FormatUtils.formatAngle(A_45P674, 3));
+        assertEquals("45.678°", FormatUtils.formatAngle(A_45P678, 3));
+
+        assertEquals("3.14159°", FormatUtils.formatAngle(Math.PI, 5));
+        assertEquals("3.1415926536°", FormatUtils.formatAngle(Math.PI, 10));
+    }
+
+    /**
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
     public final void testFormatAngleBelgianFormat() {
