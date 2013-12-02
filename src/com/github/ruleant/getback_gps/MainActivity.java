@@ -158,9 +158,16 @@ public class MainActivity extends AbstractGetBackGpsActivity {
             displayToDest = true;
 
             if (navigator.isLocationAccurate()) {
-                // Print distance and bearing
+                // Set distance to destination
                 toDestinationDistanceText
                         = FormatUtils.formatDist(navigator.getDistance());
+
+                // Set direction to destination
+                CardinalDirection cd = new CardinalDirection(
+                        this,
+                        FormatUtils.normalizeAngle(
+                                navigator.getAbsoluteDirection()));
+                toDestinationDirectionText = cd.format();
 
                 // if bearing is accurate, display relative direction
                 // if not, display absolute direction
@@ -173,12 +180,6 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                             navigator.getAbsoluteDirection());
                     nvMode = NavigationView.INACCURATE;
                 }
-
-                CardinalDirection cd = new CardinalDirection(
-                        this,
-                        FormatUtils.normalizeAngle(
-                                navigator.getAbsoluteDirection()));
-                toDestinationDirectionText = cd.format();
             }
         }
 
