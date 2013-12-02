@@ -154,32 +154,34 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         } else if (navigator.isDestinationReached()) {
             toDestinationMessage
                     = res.getString(R.string.destination_reached);
-        } else if (navigator.isLocationAccurate()) {
+        } else {
             displayToDest = true;
 
-            // Print distance and bearing
-            toDestinationDistanceText
-                    = FormatUtils.formatDist(navigator.getDistance());
+            if (navigator.isLocationAccurate()) {
+                // Print distance and bearing
+                toDestinationDistanceText
+                        = FormatUtils.formatDist(navigator.getDistance());
 
-            double direction;
+                double direction;
 
-            // if bearing is accurate, display relative direction
-            // if not, display absolute direction
-            if (navigator.isBearingAccurate()) {
-                direction = navigator.getRelativeDirection();
-                nvMode = NavigationView.ACCURATE;
-            } else {
-                direction = navigator.getAbsoluteDirection();
-                nvMode = NavigationView.INACCURATE;
+                // if bearing is accurate, display relative direction
+                // if not, display absolute direction
+                if (navigator.isBearingAccurate()) {
+                    direction = navigator.getRelativeDirection();
+                    nvMode = NavigationView.ACCURATE;
+                } else {
+                    direction = navigator.getAbsoluteDirection();
+                    nvMode = NavigationView.INACCURATE;
+                }
+
+                CardinalDirection cd = new CardinalDirection(
+                        this,
+                        FormatUtils.normalizeAngle(
+                                navigator.getAbsoluteDirection()));
+
+                toDestinationDirectionText = cd.format();
+                nvToDestination.setDirection(direction);
             }
-
-            CardinalDirection cd = new CardinalDirection(
-                    this,
-                    FormatUtils.normalizeAngle(
-                            navigator.getAbsoluteDirection()));
-
-            toDestinationDirectionText = cd.format();
-            nvToDestination.setDirection(direction);
         }
 
         if (displayToDest) {
