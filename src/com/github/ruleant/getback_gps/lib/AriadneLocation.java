@@ -114,7 +114,7 @@ public class AriadneLocation extends Location {
         if (hasBearing()) {
             locationText += "\n "
                     + res.getString(R.string.bearing) + ": "
-                    + FormatUtils.formatAngle(getBearing());
+                    + FormatUtils.formatAngle(getBearing(), 2);
         }
         if (hasSpeed()) {
             locationText += "\n "
