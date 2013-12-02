@@ -234,6 +234,6 @@ public class CardinalDirection extends AbstractGeoCoordinate {
      * @return formatted value
      */
     protected final String formatValue() {
-        return FormatUtils.formatAngle(getConvertedValue());
+        return FormatUtils.formatAngle(getConvertedValue(), 0);
     }
 }
