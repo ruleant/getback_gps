@@ -174,7 +174,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                 toDestinationText += "\n "
                         + res.getString(R.string.direction_relative) + ": "
                         + FormatUtils.formatAngle(
-                        navigator.getRelativeDirection());
+                        navigator.getRelativeDirection(), 2);
             }
         }
         tvToDestination.setText(toDestinationText);
