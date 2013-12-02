@@ -203,6 +203,5 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         // update views
         nvToDestination.setMode(nvMode);
         nvToDestination.invalidate();
-
     }
 }
