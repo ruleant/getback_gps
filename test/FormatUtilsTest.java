@@ -228,6 +228,36 @@ public class FormatUtilsTest extends TestCase {
     private static final double A_765 = 765.0;
 
     /**
+     * Precision 0 decimals.
+     */
+    private static final int PRECISION_0 = 0;
+
+    /**
+     * Precision 1 decimal.
+     */
+    private static final int PRECISION_1 = 1;
+
+    /**
+     * Precision 2 decimals.
+     */
+    private static final int PRECISION_2 = 2;
+
+    /**
+     * Precision 3 decimals.
+     */
+    private static final int PRECISION_3 = 3;
+
+    /**
+     * Precision 5 decimals.
+     */
+    private static final int PRECISION_5 = 5;
+
+    /**
+     * Precision 10 decimals.
+     */
+    private static final int PRECISION_10 = 10;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -403,15 +433,19 @@ public class FormatUtilsTest extends TestCase {
      * Tests precision parameter of method FormatAngle.
      */
     public final void testFormatAnglePrecision() {
-        assertEquals("45°", FormatUtils.formatAngle(A_45, 0));
-        assertEquals("46°", FormatUtils.formatAngle(A_45P674, 0));
-        assertEquals("45.7°", FormatUtils.formatAngle(A_45P674, 1));
-        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, 2));
-        assertEquals("45.674°", FormatUtils.formatAngle(A_45P674, 3));
-        assertEquals("45.678°", FormatUtils.formatAngle(A_45P678, 3));
+        assertEquals("45°", FormatUtils.formatAngle(A_45, PRECISION_0));
+        assertEquals("46°", FormatUtils.formatAngle(A_45P674, PRECISION_0));
+        assertEquals("45.7°", FormatUtils.formatAngle(A_45P674, PRECISION_1));
+        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, PRECISION_2));
+        assertEquals("45.674°",
+                FormatUtils.formatAngle(A_45P674, PRECISION_3));
+        assertEquals("45.678°",
+                FormatUtils.formatAngle(A_45P678, PRECISION_3));
 
-        assertEquals("3.14159°", FormatUtils.formatAngle(Math.PI, 5));
-        assertEquals("3.1415926536°", FormatUtils.formatAngle(Math.PI, 10));
+        assertEquals("3.14159°",
+                FormatUtils.formatAngle(Math.PI, PRECISION_5));
+        assertEquals("3.1415926536°",
+                FormatUtils.formatAngle(Math.PI, PRECISION_10));
     }
 
     /**
@@ -422,9 +456,9 @@ public class FormatUtilsTest extends TestCase {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("45,00°", FormatUtils.formatAngle(A_45, 2));
-        assertEquals("45,67°", FormatUtils.formatAngle(A_45P674, 2));
-        assertEquals("45,68°", FormatUtils.formatAngle(A_45P678, 2));
+        assertEquals("45,00°", FormatUtils.formatAngle(A_45, PRECISION_2));
+        assertEquals("45,67°", FormatUtils.formatAngle(A_45P674, PRECISION_2));
+        assertEquals("45,68°", FormatUtils.formatAngle(A_45P678, PRECISION_2));
     }
 
     /**
@@ -432,9 +466,12 @@ public class FormatUtilsTest extends TestCase {
      * even if the angle argument is negative.
      */
     public final void testFormatAngleNeg() {
-        assertEquals("-45.00°", FormatUtils.formatAngle(-1.0 * A_45, 2));
-        assertEquals("-45.67°", FormatUtils.formatAngle(-1.0 * A_45P674, 2));
-        assertEquals("-45.68°", FormatUtils.formatAngle(-1.0 * A_45P678, 2));
+        assertEquals("-45.00°",
+                FormatUtils.formatAngle(-1.0 * A_45, PRECISION_2));
+        assertEquals("-45.67°",
+                FormatUtils.formatAngle(-1.0 * A_45P674, PRECISION_2));
+        assertEquals("-45.68°",
+                FormatUtils.formatAngle(-1.0 * A_45P678, PRECISION_2));
     }
 
     /**
