@@ -53,6 +53,11 @@ From the Action Bar Icon Pack, see http://developer.android.com/design/style/ico
 origin : http://developer.android.com/downloads/design/Android_Design_Icons_20131106.zip
 license : Apache 2.0
 
+- Crouton library
+version : v1.8.1
+website : https://github.com/keyboardsurfer/Crouton
+license : Apache 2.0
+
 License
 -------
 
