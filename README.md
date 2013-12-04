@@ -45,6 +45,14 @@ Code documentation
 
 Code documentation of all classes and their methods can be found [here](doc/index.html).
 
+Third party material
+--------------------
+
+- res/drawable-*/ic_action_refresh.png
+From the Action Bar Icon Pack, see http://developer.android.com/design/style/iconography.html
+origin : http://developer.android.com/downloads/design/Android_Design_Icons_20131106.zip
+license : Apache 2.0
+
 License
 -------
 

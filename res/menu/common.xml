@@ -14,7 +14,7 @@
         android:id="@+id/menu_refresh"
         android:orderInCategory="60"
         android:showAsAction="always"
-        android:icon="@drawable/ic_menu_refresh"
+        android:icon="@drawable/ic_action_refresh"
         android:title="@string/refresh" />
     <item
         android:id="@+id/menu_about"
