@@ -12,6 +12,18 @@ Then the GetBack GPS app is what you need. Store a location when you start your 
 
 More info on our [website](http://ruleant.github.io/getback_gps).
 
+Features
+--------
+
+- determine location based on GPS signal, WiFi or cell phone network :
+    - use best/most accurate location provider
+    - get location updates automatically (based on a time interval or change of location) or
+    - get location on demand (by manually refreshing)
+- save a location
+- ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
+- indicate current speed and current bearing
+
+
 Bugs and feature requests
 -------------------------
 
