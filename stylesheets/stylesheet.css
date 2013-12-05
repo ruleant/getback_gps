@@ -284,6 +284,10 @@ Full-Width Styles
   border-bottom-right-radius: 2px;
 }
 
+#project_logo {
+  border:0;
+}
+
 #header_wrap {
   background: #212121;
   background: -moz-linear-gradient(top, #373737, #212121);
