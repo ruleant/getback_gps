@@ -1,5 +1,7 @@
  v0.2 (not released)
  - issue #112 : update ic_launcher-web.png icon
+ - issue #111 : add xxhdpi and xxxhdpi version of all images
+ - optimize size of all PNG images
 
  v0.1.1 (released 04Dec2013)
  
