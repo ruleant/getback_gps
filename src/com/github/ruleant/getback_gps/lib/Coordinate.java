@@ -28,6 +28,16 @@ package com.github.ruleant.getback_gps.lib;
  */
 public class Coordinate {
     /**
+     * Polar angle coordinate.
+     */
+    private double mAngle;
+
+    /**
+     * Polar radius coordinate.
+     */
+    private double mRadius;
+
+    /**
      * Constructor.
      *
      * @param angle Angle coordinate
