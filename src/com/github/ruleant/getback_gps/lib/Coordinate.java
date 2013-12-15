@@ -65,7 +65,17 @@ public class Coordinate {
      */
     public final void setPolarCoordinate(final double angle,
                                          final double radius) {
-
+        if (radius >= 0) {
+            // if radius is a positive number
+            mAngle = FormatUtils.normalizeAngle(angle);
+            mRadius = radius;
+        } else {
+            // if radius is negative number
+            // invert angle
+            mAngle = FormatUtils.inverseAngle(angle);
+            // use positive value for radius
+            mRadius = Math.abs(radius);
+        }
     }
 
     /**
