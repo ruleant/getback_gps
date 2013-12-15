@@ -89,36 +89,6 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         }
         tvLocation.setText(locationText);
 
-        // TODO : reuse same section from main activity
-        // Refresh current
-        TextView tvCurrent
-                = (TextView) findViewById(R.id.textView_Current);
-
-        // current speed
-        String currentText = res.getString(R.string.current_speed) + ": ";
-        if (navigator == null) {
-            currentText += " " + res.getString(R.string.unknown);
-        } else {
-            currentText += FormatUtils.formatSpeed(
-                    navigator.getCurrentSpeed(), this);
-        }
-
-        // current bearing
-        currentText += "\n" + res.getString(R.string.current_bearing) + ": ";
-        if (navigator == null) {
-            currentText += " " + res.getString(R.string.unknown);
-        } else {
-            CardinalDirection cd = new CardinalDirection(
-                    this,
-                    FormatUtils.normalizeAngle(
-                            navigator.getCurrentBearing()));
-
-            currentText += cd.format();
-        }
-
-        // update string
-        tvCurrent.setText(currentText);
-
         // Refresh Destination
         TextView tvDestination
                 = (TextView) findViewById(R.id.textView_Destination);
