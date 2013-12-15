@@ -85,7 +85,7 @@ public class Coordinate {
      * @param y Y coordinate
      */
     public final void setCartesianCoordinate(final long x, final long y) {
-
+        //TODO implement
     }
 
     /**
@@ -94,6 +94,7 @@ public class Coordinate {
      * @return array with angle in degrees and radius
      */
     public final double[] getPolarCoordinate() {
+        //TODO implement
         return null;
     }
 
@@ -125,6 +126,7 @@ public class Coordinate {
      * @return array with X and Y coordinate
      */
     public final long[] getCartesianCoordinate() {
+        //TODO implement
         return null;
     }
 
@@ -134,6 +136,7 @@ public class Coordinate {
      * @return X coordinate
      */
     public final long getCartesianX() {
+        //TODO implement
         return 0;
     }
 
@@ -143,6 +146,7 @@ public class Coordinate {
      * @return Y coordinate
      */
     public final long getCartesianY() {
+        //TODO implement
         return 0;
     }
 }
