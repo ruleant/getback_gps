@@ -28,7 +28,7 @@ package com.github.ruleant.getback_gps.lib;
  */
 public class Coordinate {
     /**
-     * Polar angle coordinate.
+     * Polar angle coordinate in degrees.
      */
     private double mAngle;
 
@@ -40,7 +40,7 @@ public class Coordinate {
     /**
      * Constructor.
      *
-     * @param angle Angle coordinate
+     * @param angle Angle coordinate in degrees
      * @param radius Radius coordinate
      */
     public Coordinate(final double angle, final double radius) {
@@ -60,7 +60,7 @@ public class Coordinate {
     /**
      * Set coordinate in polar format.
      *
-     * @param angle Angle coordinate
+     * @param angle Angle coordinate in degrees
      * @param radius Radius coordinate
      */
     public final void setPolarCoordinate(final double angle,
@@ -91,7 +91,7 @@ public class Coordinate {
     /**
      * Get coordinate in polar format.
      *
-     * @return array with angle and radius
+     * @return array with angle in degrees and radius
      */
     public final double[] getPolarCoordinate() {
         return null;
@@ -100,7 +100,7 @@ public class Coordinate {
     /**
      * Get polar angle coordinate.
      *
-     * @return angle coordinate (0-360°)
+     * @return angle coordinate in degrees (0-360°)
      */
     public final double getPolarAngle() {
         return 0;
