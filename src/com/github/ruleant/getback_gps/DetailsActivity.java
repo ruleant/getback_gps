@@ -46,6 +46,9 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
     protected final void refreshDisplay() {
+        // refresh views with "current" info
+        refreshCurrentViews(false);
+
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         LocationService service = getService();
