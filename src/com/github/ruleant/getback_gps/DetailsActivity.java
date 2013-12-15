@@ -46,6 +46,8 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
     protected final void refreshDisplay() {
+        super.refreshDisplay();
+
         // refresh views with "current" info
         refreshCurrentViews(false);
 
@@ -181,7 +183,5 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
             }
         }
         tvToDestination.setText(toDestinationText);
-
-        super.refreshDisplay();
     }
 }
