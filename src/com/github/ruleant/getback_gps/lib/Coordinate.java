@@ -103,7 +103,11 @@ public class Coordinate {
      * @return angle coordinate in degrees (0-360°)
      */
     public final double getPolarAngle() {
-        return mAngle;
+        if (mRadius > 0.0) {
+            return mAngle;
+        } else {
+            return 0.0;
+        }
     }
 
     /**
