@@ -5,4 +5,5 @@ target
 .project
 .settings
 out
-/.idea/workspace.xml
+/.idea
+*.iml
