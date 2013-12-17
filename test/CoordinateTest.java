@@ -115,4 +115,28 @@ public class CoordinateTest extends TestCase {
         assertEquals(ANGLE_45, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
     }
+
+    /**
+     * Tests setCoordinate.
+     */
+    public final void testSetCoordinate() {
+        Coordinate newCoordinate = new Coordinate(ANGLE_45, RADIUS_20);
+        coordinate.setCoordinate(newCoordinate);
+        assertEquals(ANGLE_45, coordinate.getPolarAngle());
+        assertEquals(RADIUS_20, coordinate.getPolarRadius());
+    }
+
+    /**
+     * Tests null value for new coordinate in setCoordinate.
+     */
+    public final void testSetCoordinateNull() {
+        try {
+            coordinate.setCoordinate(null);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Parameter coordinate should not be null",
+                    e.getMessage());
+        }
+    }
 }

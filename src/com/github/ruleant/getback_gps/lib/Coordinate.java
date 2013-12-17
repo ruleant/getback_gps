@@ -89,6 +89,20 @@ public class Coordinate {
     }
 
     /**
+     * Set coordinate with a Coordinate instance.
+     *
+     * @param coordinate New Coordinate
+     */
+    public final void setCoordinate(final Coordinate coordinate) {
+        if (coordinate == null) {
+            throw new IllegalArgumentException(
+                    "Parameter coordinate should not be null");
+        }
+
+        setPolarCoordinate(coordinate.getPolarAngle(), coordinate.getPolarRadius());
+    }
+
+    /**
      * Get coordinate in polar format.
      *
      * @return array with angle in degrees and radius
