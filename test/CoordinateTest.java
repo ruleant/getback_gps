@@ -88,6 +88,16 @@ public class CoordinateTest extends TestCase {
     }
 
     /**
+     * Tests Coordinate constructor.
+     */
+    public final void testCoordinateConstructor() {
+        Coordinate newCoordinate = new Coordinate(ANGLE_45, RADIUS_20);
+        coordinate = new Coordinate(newCoordinate);
+        assertEquals(ANGLE_45, coordinate.getPolarAngle());
+        assertEquals(RADIUS_20, coordinate.getPolarRadius());
+    }
+
+    /**
      * Tests setPolarCoordinate.
      */
     public final void testSetPolarCoordinate() {

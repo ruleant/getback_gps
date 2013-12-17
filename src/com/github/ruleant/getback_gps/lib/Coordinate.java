@@ -58,6 +58,15 @@ public class Coordinate {
     }
 
     /**
+     * Constructor.
+     *
+     * @param coordinate New Coordinate
+     */
+    public Coordinate(final Coordinate coordinate) {
+        setCoordinate(coordinate);
+    }
+
+    /**
      * Set coordinate in polar format.
      *
      * @param angle Angle coordinate in degrees
