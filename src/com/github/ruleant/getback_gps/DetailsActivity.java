@@ -1,0 +1,157 @@
+/**
+ * Main Activity
+ *
+ * Copyright (C) 2012-2013 Dieter Adriaenssens
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ *
+ * @package com.github.ruleant.getback_gps
+ * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ */
+package com.github.ruleant.getback_gps;
+
+import android.content.res.Resources;
+import android.os.Bundle;
+import android.widget.TextView;
+
+import com.github.ruleant.getback_gps.lib.AriadneLocation;
+import com.github.ruleant.getback_gps.lib.CardinalDirection;
+import com.github.ruleant.getback_gps.lib.FormatUtils;
+import com.github.ruleant.getback_gps.lib.Navigator;
+
+/**
+ * Main Activity class.
+ *
+ * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ */
+public class DetailsActivity extends AbstractGetBackGpsActivity {
+    @Override
+    protected final void onCreate(final Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_details);
+    }
+
+    /**
+     * Refresh display : refresh the values of Location Provider, Location, ...
+     */
+    protected final void refreshDisplay() {
+        super.refreshDisplay();
+
+        // refresh views with "current" info
+        refreshCurrentViews(false);
+
+        // only refresh items if activity is bound to service
+        // connection state is checked in getNavigator
+        LocationService service = getService();
+        Navigator navigator = getNavigator();
+
+        if (service == null || navigator == null) {
+            return;
+        }
+
+        Resources res = getResources();
+        AriadneLocation destination;
+        AriadneLocation currentLocation;
+
+        // Refresh locationProvider
+        TextView tvProvider
+                = (TextView) findViewById(R.id.textView_LocationProvider);
+        String providerText = res.getString(R.string.location_provider) + ": ";
+        if (!service.isSetLocationProvider()) {
+            providerText += res.getString(R.string.none);
+        } else {
+            providerText += FormatUtils.localizeProviderName(
+                    this, service.getLocationProvider());
+        }
+        tvProvider.setText(providerText);
+
+        // Refresh Location
+        TextView tvLocation
+                = (TextView) findViewById(R.id.textView_Location);
+        String locationText
+                = res.getString(R.string.curr_location) + ":\n";
+        currentLocation = service.getLocation();
+        if (currentLocation == null) {
+            locationText += " " + res.getString(R.string.unknown);
+        } else {
+            locationText += currentLocation.toString(this);
+        }
+        tvLocation.setText(locationText);
+
+        // Refresh Destination
+        TextView tvDestination
+                = (TextView) findViewById(R.id.textView_Destination);
+        String destinationText
+                = res.getString(R.string.destination) + ":\n";
+
+        // get Destination from service
+        try {
+            destination = new AriadneLocation(navigator.getDestination());
+        } catch (Exception e) {
+            e.printStackTrace();
+            destination = null;
+        }
+
+        if (destination == null) {
+            destinationText += " "
+                    + res.getString(R.string.notset);
+
+            // display notice when no destination is set
+            // and there is a current location
+            if (currentLocation != null) {
+                destinationText += "\n "
+                        + res.getString(R.string.notice_no_dest);
+            }
+        } else {
+            destinationText += destination.toString(this);
+        }
+        tvDestination.setText(destinationText);
+
+        // Refresh Directions to destination
+        TextView tvToDestination
+                = (TextView) findViewById(R.id.textView_ToDestination);
+        String toDestinationText
+                = res.getString(R.string.to_dest) + ":\n";
+        if (destination == null || currentLocation == null) {
+            toDestinationText += " "
+                    + res.getString(R.string.unknown);
+        } else {
+            // Print distance and bearing
+            toDestinationText += " "
+                    + res.getString(R.string.distance) + ": "
+                    + FormatUtils.formatDist(navigator.getDistance()) + "\n";
+
+            CardinalDirection cd = new CardinalDirection(
+                    this,
+                    FormatUtils.normalizeAngle(
+                            navigator.getAbsoluteDirection()));
+
+            toDestinationText += " "
+                    + res.getString(R.string.direction) + ": "
+                    + cd.format();
+
+            boolean isBearingAccurate = navigator.isBearingAccurate();
+
+            // if bearing is inaccurate, don't display relative direction
+            // and display warning
+            if (isBearingAccurate) {
+                toDestinationText += "\n "
+                        + res.getString(R.string.direction_relative) + ": "
+                        + FormatUtils.formatAngle(
+                        navigator.getRelativeDirection(), 2);
+            }
+        }
+        tvToDestination.setText(toDestinationText);
+    }
+}

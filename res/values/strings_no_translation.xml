@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Ariadne</string>
-    <string name="url_website">https://github.com/ruleant/ariadne/wiki</string>
+    <string name="app_name">GetBack GPS</string>
+    <string name="url_website">http://ruleant.github.io/getback_gps</string>
     <string name="copyright_ruleant">&#169; 2012&#8211;2013 &lt;a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens&lt;/a></string>
     <!-- Debug settings -->
     <string name="pref_header_debug">Debug</string>

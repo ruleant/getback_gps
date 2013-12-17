@@ -18,4 +18,14 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
 
+    <style name="captionGroupTitle" parent="@android:style/TextAppearance.Medium" />
+
+    <style name="captionDescription">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="captionValue" parent="@android:style/TextAppearance.Medium" >
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>

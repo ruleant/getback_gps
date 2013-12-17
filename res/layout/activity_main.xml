@@ -5,64 +5,40 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="5dp" >
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="50dp" >
 
-        <TextView
-            android:id="@+id/textView_LocationProvider"
-            android:layout_width="wrap_content"
+        <com.github.ruleant.getback_gps.NavigationView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/location_provider" />
-
-        <TextView
-            android:id="@+id/textView_Location"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/curr_location" />
-
-        <TextView
-            android:id="@+id/textView_Destination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/destination" />
+            android:paddingTop="50dp"
+            android:id="@+id/navigationView_ToDest" />
 
         <LinearLayout
-            tools:ignore="UseCompoundDrawables"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/textView_ToDestination"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:padding="2dp"
-                android:text="@string/to_dest" />
-
-            <ImageView
-                android:id="@+id/image_DestinationPointer"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:contentDescription="@string/descr_dest_pointer"
-                android:rotation="270"
-                android:src="@android:drawable/ic_menu_send" />
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/textView_InaccurateDirection"
+            android:id="@+id/centerBelowGrid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="2dp"
-            android:text="@string/inaccurate_direction" />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:layout_below="@+id/navigationView_ToDest"
+            android:layout_centerHorizontal="true" />
 
+        <include
+            layout="@layout/section_current"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/centerBelowGrid"
+            android:layout_toLeftOf="@+id/centerBelowGrid" />
+
+        <include
+            layout="@layout/section_to_destination"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/centerBelowGrid"
+            android:layout_toRightOf="@+id/centerBelowGrid" />
+
+    </RelativeLayout>
 </ScrollView>

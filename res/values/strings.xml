@@ -1,26 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_desc">Find your way back to a previously visited location, using GPS coordinates.</string>
-    <string name="copyright">Copyright</string>
-    <string name="app_website">Visit the &lt;a href="%1$s">website&lt;/a> for more info.</string>
-    <string name="none">None</string>
+    <string name="app_desc">Find your way back to a previously visited location using GPS coordinates.</string>
+    <!-- Crouton messages -->
+    <string name="inaccurate_location">Your current location is inaccurate</string>
+    <string name="notice_no_dest">Store your location to set a destination</string>
+    <string name="inaccurate_direction">Start moving to have an accurate direction to your destination</string>
+    <string name="notice_destination_reached">You are at your destination</string>
+    <!-- Strings related to Main activity -->
+    <string name="current_speed">Current speed</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">Current bearing</string>
+    <string name="distance">Distance</string>
+    <string name="direction">Direction</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Location updated</string>
+    <string name="inaccurate">Inaccurate</string>
+    <string name="destination_reached">At destination</string>
+    <string name="no_destination">No destination set</string>
     <string name="unknown">Unknown</string>
-    <string name="notset">Not set</string>
-    <string name="disabled">disabled</string>
+    <string name="refresh">Refresh</string>
+    <!-- Strings related to Storing a location -->
+    <string name="dialog_store_location">Do you want to store your current location?</string>
     <string name="no">No</string>
+    <string name="store_location">Store Location</string>
+    <string name="store_location_disabled">Unable to store location if there is no current location</string>
+    <string name="location_stored">Location stored</string>
+    <!-- Strings related to Details activity -->
+    <string name="menu_details">Location details</string>
+    <string name="activity_details">Details</string>
     <string name="location_provider">Location Provider</string>
     <string name="provider">Provider</string>
     <string name="loc_provider_network">network (Cell phone/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Provider is not supported.</string>
     <string name="location">Location</string>
-    <string name="curr_location">Current (last known) location</string>
-    <string name="location_updated">Location updated</string>
-    <string name="location_stored">Location stored</string>
     <string name="stored_location">Stored Location</string>
-    <string name="store_location">Store Location</string>
-    <string name="dialog_store_location">Do you want to store your current location?</string>
+    <string name="curr_location">Current (last known) location</string>
     <string name="latitude">Latitude</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
     <string name="longitude">Longitude</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">W</string>
     <string name="altitude">Altitude</string>
     <string name="speed">Speed</string>
     <string name="bearing">Bearing</string>
@@ -29,7 +53,20 @@
     <string name="destination">Destination</string>
     <string name="to_dest">To Destination</string>
     <string name="descr_dest_pointer">Pointer indicating destination</string>
-    <string name="distance">Distance</string>
+    <string name="direction_relative">relative to current heading</string>
+    <string name="raw">Unformatted</string>
+    <string name="none">None</string>
+    <string name="notset">Not set</string>
+    <string name="loc_updated_recent">Location recently updated.</string>
+    <string name="loc_updated_not_recent">Location NOT recently updated.</string>
+    <!-- Strings related to Settings -->
+    <string name="settings">Settings</string>
+    <!-- General settings -->
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_loc_update">Location Updates</string>
+    <string name="pref_loc_update_dist">Distance based updates</string>
+    <string name="pref_loc_update_time">Time based updates</string>
+    <string name="disabled">Disabled</string>
     <plurals name="distance_meter">
         <item quantity="one">%d meter</item>
         <item quantity="other">%d meter</item>
@@ -42,24 +79,12 @@
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
-    <string name="direction">Direction</string>
-    <string name="raw">Unformatted</string>
-    <string name="refresh">Refresh</string>
-    <string name="provider_no_support">Provider is not supported.</string>
-    <string name="version">Version</string>
-    <string name="loc_updated_recent">Location recently updated.</string>
-    <string name="loc_updated_not_recent">Location NOT recently updated.</string>
-    <string name="inaccurate_direction">The direction to your destination is only accurate if you are moving.</string>
-    <string name="notice_no_dest">Store your location to set a destination.</string>
-    <!-- Strings related to Settings -->
-    <string name="settings">Settings</string>
-    <!-- General settings -->
-    <string name="pref_header_general">General</string>
-    <string name="pref_header_loc_update">Location Updates</string>
-    <string name="pref_loc_update_dist">Distance based updates</string>
-    <string name="pref_loc_update_time">Time based updates</string>
     <!-- Strings related to About activity -->
     <string name="about">About</string>
+    <string name="version">Version</string>
+    <string name="build">Built on :</string>
+    <string name="app_website">Visit the &lt;a href="%1$s">website&lt;/a> for more info.</string>
+    <string name="copyright">Copyright</string>
     <string name="license">This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or

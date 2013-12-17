@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
 
-    <string name="app_desc">Vind je weg terug naar een eerder bezochte locatie, met behulp van GPS-coördinaten.</string>
+    <string name="app_desc">Vind je weg terug naar een eerder bezochte locatie met behulp van GPS-coördinaten.</string>
     <string name="none">Geen</string>
     <string name="unknown">Onbekend</string>
     <string name="notset">Niet ingesteld</string>
@@ -32,7 +32,7 @@
     <string name="pref_loc_update_time">Tijdgebaseerde aanpassingen</string>
     <string name="pref_header_general">Algemeen</string>
     <string name="pref_header_loc_update">Locatieaanpassingen</string>
-    <string name="disabled">uitgeschakeld</string>
+    <string name="disabled">Uitgeschakeld</string>
     <string name="license">Dit programma is vrije software: je mag het herdistribueren en/of wijzigen onder de voorwaarden van de GNU Algemene Publieke Licentie (GNU General Public License) zoals gepubliceerd door de Free Software Foundation, onder versie 3 van de Licentie of elke latere versie.\n
 \n
 Dit programma wordt gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garanties die GEBRUIKELIJK ZIJN IN DE HANDEL of voor BRUIKBAARHEID VOOR EEN SPECIFIEK DOEL. Zie de GNU Algemene Publieke Licentie voor meer details.\n
@@ -44,12 +44,44 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="loc_updated_recent">Locatie werd recent bijgewerkt.</string>
     <string name="loc_updated_not_recent">Locatie werd NIET recent bijgewerkt.</string>
     <string name="copyright">Auteursrecht</string>
-    <string name="inaccurate_direction">De richting naar je bestemming is enkel accuraat als je beweegt.</string>
+    <string name="inaccurate_direction">Start met bewegen voor een nauwkeurige richting naar je bestemming</string>
     <string name="app_website">Bezoek de &lt;a href=\"%1$s\"&gt;website&lt;/a&gt; voor meer info.</string>
     <string name="no">Nee</string>
     <string name="location_updated">Locatie bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
     <string name="dialog_store_location">Wil je je huidige locatie bewaren?</string>
-
-<string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen.</string>
+    <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen</string>
+    <string name="store_location_disabled">Locatie kon niet bewaard worden omdat er geen huidige locatie is</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d meter</item>
+        <item quantity="other">%d meter</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d seconde</item>
+        <item quantity="other">%d seconden</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d minuut</item>
+        <item quantity="other">%d minuten</item>
+    </plurals>
+    <string name="latitude_north_unit">NB</string>
+    <string name="latitude_south_unit">ZB</string>
+    <string name="longitude_east_unit">OL</string>
+    <string name="longitude_west_unit">WL</string>
+    <string name="speed_kph">km/u</string>
+    <string name="direction_relative">ten opzichte van huidige richting</string>
+    <string name="inaccurate_location">Je huidige locatie is onnauwkeurig</string>
+    <string name="menu_details">Locatiedetails</string>
+    <string name="activity_details">Details</string>
+    <string name="inaccurate">Onnauwkeurig</string>
+    <string name="current_speed">Huidige snelheid</string>
+    <string name="current_bearing">Huidige koers</string>
+    <string name="build">Gecompileerd op :</string>
+    <string name="notice_destination_reached">Je bent op je bestemming</string>
+    <string name="northeast_unit">NO</string>
+    <string name="southeast_unit">ZO</string>
+    <string name="southwest_unit">ZW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="destination_reached">Op bestemming</string>
+    <string name="no_destination">Geen bestemming ingesteld</string>
     </resources>

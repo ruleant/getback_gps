@@ -8,7 +8,7 @@
     <string name="location_provider">Poskytovatel polohy</string>
     <string name="provider">Poskytovatel</string>
     <string name="location">Poloha</string>
-    <string name="curr_location">Současné umístění</string>
+    <string name="curr_location">Současné (poslední známé) umístění</string>
     <string name="stored_location">Uložené umístění</string>
     <string name="store_location">Uložit umístění</string>
     <string name="latitude">Zeměpisná šířka</string>
@@ -21,12 +21,12 @@
     <string name="to_dest">Do cíle</string>
     <string name="distance">Vzdálenost</string>
     <string name="direction">Směr</string>
-    <string name="raw">Nezpracované</string>
+    <string name="raw">Neformátované</string>
     <string name="refresh">Obnovit</string>
     <string name="provider_no_support">Poskytovatel není podporovaný.</string>
     <string name="version">Verze</string>
     <string name="about">O programu</string>
-    <string name="disabled">vypnuté</string>
+    <string name="disabled">Vypnuté</string>
     <string name="bearing">Azimut</string>
     <string name="settings">Nastavení</string>
     <string name="pref_header_loc_update">Aktualizace polohy</string>
@@ -45,11 +45,31 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="app_website">Pro více informací navštivte <a href="%1$s">webové stránky</a>.</string>
     <string name="loc_updated_recent">Pozice byla obnovena nedávno.</string>
     <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena.</string>
-    <string name="inaccurate_direction">Směr k cíli je přesný jen pokud se pohybujete.</string>
+    <string name="inaccurate_direction">Začněte se pohybovat aby byl směr k cíli přesný</string>
     <string name="no">Ne</string>
     <string name="location_updated">Umístění obnoveno</string>
     <string name="location_stored">Umístění uloženo</string>
     <string name="dialog_store_location">Chcete uložit současné umístění?</string>
-
-<string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle.</string>
+    <string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
+    <string name="menu_details">Podrobnosti polohy</string>
+    <string name="activity_details">Podrobnosti</string>
+    <string name="current_speed">Současná rychlost</string>
+    <string name="current_bearing">Současný azimut</string>
+    <string name="store_location_disabled">Nelze uložit umístění pokud není současné umístění známo</string>
+    <string name="latitude_north_unit">S</string>
+    <string name="latitude_south_unit">J</string>
+    <string name="longitude_east_unit">V</string>
+    <string name="longitude_west_unit">Z</string>
+    <string name="speed_kph">km/h</string>
+    <string name="direction_relative">relativně k současnému směru</string>
+    <string name="inaccurate">nepřesné</string>
+    <string name="inaccurate_location">Vaše současné umístění není přesné</string>
+    <string name="build">Používá:</string>
+    <string name="notice_destination_reached">Jste u vašeho cíle</string>
+    <string name="northeast_unit">SV</string>
+    <string name="southeast_unit">JV</string>
+    <string name="southwest_unit">JZ</string>
+    <string name="northwest_unit">SZ</string>
+    <string name="destination_reached">Na cíl</string>
+    <string name="no_destination">Nebyl nastaven cíl</string>
     </resources>

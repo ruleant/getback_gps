@@ -4,7 +4,7 @@
     <!-- These settings headers are only used on tablets. -->
 
     <header
-        android:fragment="${packageName}.${activityClass}$GeneralPreferenceFragment"
+        android:fragment="com.github.ruleant.getback_gps.SettingsActivity$GeneralPreferenceFragment"
         android:title="@string/pref_header_general" />
 
 </preference-headers>
