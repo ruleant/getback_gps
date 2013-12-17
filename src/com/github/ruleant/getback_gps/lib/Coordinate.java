@@ -40,11 +40,11 @@ public class Coordinate {
     /**
      * Constructor.
      *
-     * @param angle Angle coordinate in degrees
      * @param radius Radius coordinate
+     * @param angle Angle coordinate in degrees
      */
-    public Coordinate(final double angle, final double radius) {
-        setPolarCoordinate(angle, radius);
+    public Coordinate(final double radius, final double angle) {
+        setPolarCoordinate(radius, angle);
     }
 
     /**
@@ -69,11 +69,11 @@ public class Coordinate {
     /**
      * Set coordinate in polar format.
      *
-     * @param angle Angle coordinate in degrees
      * @param radius Radius coordinate
+     * @param angle Angle coordinate in degrees
      */
-    public final void setPolarCoordinate(final double angle,
-                                         final double radius) {
+    public final void setPolarCoordinate(final double radius,
+                                         final double angle) {
         if (radius >= 0) {
             // if radius is a positive number
             mAngle = FormatUtils.normalizeAngle(angle);
@@ -108,13 +108,13 @@ public class Coordinate {
                     "Parameter coordinate should not be null");
         }
 
-        setPolarCoordinate(coordinate.getPolarAngle(), coordinate.getPolarRadius());
+        setPolarCoordinate(coordinate.getPolarRadius(), coordinate.getPolarAngle());
     }
 
     /**
      * Get coordinate in polar format.
      *
-     * @return array with angle in degrees and radius
+     * @return array with radius and angle in degrees
      */
     public final double[] getPolarCoordinate() {
         //TODO implement

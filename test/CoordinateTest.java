@@ -82,27 +82,27 @@ public class CoordinateTest extends TestCase {
      * Tests setPolarCoordinate.
      */
     public final void testSetPolarCoordinate() {
-        coordinate.setPolarCoordinate(ANGLE_45, RADIUS_20);
+        coordinate.setPolarCoordinate(RADIUS_20, ANGLE_45);
         assertEquals(ANGLE_45, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
 
         // test zero radius
-        coordinate.setPolarCoordinate(ANGLE_45, 0.0);
+        coordinate.setPolarCoordinate(0.0, ANGLE_45);
         assertEquals(ANGLE_0, coordinate.getPolarAngle());
         assertEquals(0.0, coordinate.getPolarRadius());
 
         // test negative radius
-        coordinate.setPolarCoordinate(ANGLE_45, RADIUS_20 * -1);
+        coordinate.setPolarCoordinate(RADIUS_20 * -1, ANGLE_45);
         assertEquals(ANGLE_225, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
 
         // test 360° angle
-        coordinate.setPolarCoordinate(ANGLE_360, RADIUS_20);
+        coordinate.setPolarCoordinate(RADIUS_20, ANGLE_360);
         assertEquals(ANGLE_0, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
 
         // test 45° + 1 turn angle (=405°)
-        coordinate.setPolarCoordinate(ANGLE_360 + ANGLE_45, RADIUS_20);
+        coordinate.setPolarCoordinate(RADIUS_20, ANGLE_360 + ANGLE_45);
         assertEquals(ANGLE_45, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
     }
@@ -111,7 +111,10 @@ public class CoordinateTest extends TestCase {
      * Tests setCoordinate.
      */
     public final void testSetCoordinate() {
-        Coordinate newCoordinate = new Coordinate(ANGLE_45, RADIUS_20);
+        Coordinate newCoordinate = new Coordinate(RADIUS_20, ANGLE_45);
+        assertEquals(ANGLE_45, newCoordinate.getPolarAngle());
+        assertEquals(RADIUS_20, newCoordinate.getPolarRadius());
+
         coordinate.setCoordinate(newCoordinate);
         assertEquals(ANGLE_45, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
@@ -135,7 +138,7 @@ public class CoordinateTest extends TestCase {
      * Tests polar Coordinate constructor.
      */
     public final void testPolarConstructor() {
-        coordinate = new Coordinate(ANGLE_45, RADIUS_20);
+        coordinate = new Coordinate(RADIUS_20, ANGLE_45);
         assertEquals(ANGLE_45, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
     }
@@ -144,8 +147,7 @@ public class CoordinateTest extends TestCase {
      * Tests Coordinate constructor.
      */
     public final void testCoordinateConstructor() {
-        Coordinate newCoordinate = new Coordinate(ANGLE_45, RADIUS_20);
-        coordinate = new Coordinate(newCoordinate);
+        coordinate = new Coordinate(new Coordinate(RADIUS_20, ANGLE_45));
         assertEquals(ANGLE_45, coordinate.getPolarAngle());
         assertEquals(RADIUS_20, coordinate.getPolarRadius());
     }
