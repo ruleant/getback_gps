@@ -1,5 +1,9 @@
 bin
 .metadata
 target
+.classpath
+.project
+.settings
 out
-/.idea/workspace.xml
+/.idea
+*.iml
