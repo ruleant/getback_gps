@@ -144,7 +144,7 @@ public class Coordinate {
     }
 
     /**
-     * Get coordinate in cartesian format.
+     * Get coordinate in Cartesian format.
      *
      * @return array with X and Y coordinate
      */
