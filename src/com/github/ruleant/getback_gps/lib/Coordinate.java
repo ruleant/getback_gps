@@ -108,7 +108,8 @@ public class Coordinate {
                     "Parameter coordinate should not be null");
         }
 
-        setPolarCoordinate(coordinate.getPolarRadius(), coordinate.getPolarAngle());
+        setPolarCoordinate(coordinate.getPolarRadius(),
+                coordinate.getPolarAngle());
     }
 
     /**
