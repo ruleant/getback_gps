@@ -164,8 +164,7 @@ public class Coordinate {
      * @return X coordinate
      */
     public final long getCartesianX() {
-        //TODO implement
-        return 0;
+        return Math.round(Math.cos(Math.toRadians(mAngle)) * mRadius);
     }
 
     /**
@@ -174,7 +173,6 @@ public class Coordinate {
      * @return Y coordinate
      */
     public final long getCartesianY() {
-        //TODO implement
-        return 0;
+        return Math.round(Math.sin(Math.toRadians(mAngle)) * mRadius);
     }
 }
