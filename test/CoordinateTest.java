@@ -266,4 +266,41 @@ public class CoordinateTest extends TestCase {
         assertEquals(UNIT_20, coordinate.getCartesianX());
         assertEquals(-1 * UNIT_20, coordinate.getCartesianY());
     }
+
+    /**
+     * Tests Cartesian to Cartesian conversion.
+     */
+    public final void testCartesianConversion() {
+        coordinate.setCartesianCoordinate(UNIT_20, 0);
+        assertEquals(UNIT_20, coordinate.getCartesianX());
+        assertEquals(0, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(0, UNIT_20);
+        assertEquals(0, coordinate.getCartesianX());
+        assertEquals(UNIT_20, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(UNIT_40, UNIT_20);
+        assertEquals(UNIT_40, coordinate.getCartesianX());
+        assertEquals(UNIT_20, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(UNIT_20, UNIT_40);
+        assertEquals(UNIT_20, coordinate.getCartesianX());
+        assertEquals(UNIT_40, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(1, 1);
+        assertEquals(1, coordinate.getCartesianX());
+        assertEquals(1, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(1, -1);
+        assertEquals(1, coordinate.getCartesianX());
+        assertEquals(-1, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(-1, -1);
+        assertEquals(-1, coordinate.getCartesianX());
+        assertEquals(-1, coordinate.getCartesianY());
+
+        coordinate.setCartesianCoordinate(-1, 1);
+        assertEquals(-1, coordinate.getCartesianX());
+        assertEquals(1, coordinate.getCartesianY());
+    }
 }
