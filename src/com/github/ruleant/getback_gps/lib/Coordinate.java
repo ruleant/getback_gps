@@ -38,6 +38,16 @@ public class Coordinate {
     private double mRadius;
 
     /**
+     * X coordinate.
+     */
+    public static final int X = 0;
+
+    /**
+     * Y coordinate.
+     */
+    public static final int Y = 1;
+
+    /**
      * Constructor.
      *
      * @param radius Radius coordinate
@@ -154,8 +164,12 @@ public class Coordinate {
      * @return array with X and Y coordinate
      */
     public final long[] getCartesianCoordinate() {
-        //TODO implement
-        return null;
+        long[] coordinate = new long[2];
+
+        coordinate[X] = getCartesianX();
+        coordinate[Y] = getCartesianY();
+
+        return coordinate;
     }
 
     /**
