@@ -1,3 +1,69 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-</resources>
+<string name="app_desc">Finde den Rückweg zu einem vorher besuchten Ort mit Hilfe der GPS-Koordinaten.</string>
+    <string name="inaccurate_location">Dein jetztiger Ort ist nicht akkurat</string>
+    <string name="notice_no_dest">Speichere deine Position um einen Zielpunkt zu speichern</string>
+    <string name="inaccurate_direction">Fang an dich zu bewegen um die exakte Richtung auf dein ziel zu bekommen</string>
+    <string name="notice_destination_reached">Du bist an deinem Ziel</string>
+    <string name="current_speed">Derzeitige Geschwindigkeit</string>
+    <string name="speed_kph">km/h</string>
+    <string name="distance">Entfernung</string>
+    <string name="direction">Richtung</string>
+    <string name="northeast_unit">NO</string>
+    <string name="southeast_unit">SO</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Ort aktualisiert</string>
+    <string name="inaccurate">Ungenau</string>
+    <string name="destination_reached">Am Ziel</string>
+    <string name="no_destination">Kein Ziel angegeben</string>
+    <string name="unknown">Unbekannt</string>
+    <string name="refresh">Aktualisieren</string>
+    <string name="dialog_store_location">Willst du den aktuellen Ort speichern?</string>
+    <string name="no">Nein</string>
+    <string name="store_location">Ort speichern</string>
+    <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen.</string>
+    <string name="location_stored">Ort gespeichert</string>
+    <string name="menu_details">Ort Details</string>
+    <string name="activity_details">Details</string>
+    <string name="location_provider">Ort Provider</string>
+    <string name="provider">Provider</string>
+    <string name="loc_provider_network">Netzwerk (Telefon/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Provider wird nicht unterstützt.</string>
+    <string name="location">Ort</string>
+    <string name="stored_location">Gespeicherter Ort</string>
+    <string name="curr_location">Aktueller (letzter bekannter) Ort</string>
+    <string name="latitude">Breitengrad</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Längengrad</string>
+    <string name="longitude_east_unit">O</string>
+    <string name="longitude_west_unit">W</string>
+    <string name="speed">Geschwindigkeit</string>
+    <string name="bearing">Peilung</string>
+    <string name="accuracy">Genauigkeit</string>
+    <string name="timestamp">Zeitstempel</string>
+    <string name="destination">Ziel</string>
+    <string name="to_dest">Zum Ziel</string>
+    <string name="descr_dest_pointer">Zeiger weist auf Ziel</string>
+    <string name="direction_relative">relativ zu laufender Richtung</string>
+    <string name="raw">Unformatiert</string>
+    <string name="none">None</string>
+    <string name="notset">nicht festgelegt</string>
+    <string name="loc_updated_recent">Ort kürzlich aktualisiert.</string>
+    <string name="loc_updated_not_recent">Ort NICHT kürzlich aktualisiert.</string>
+    <string name="settings">Einstellungen</string>
+    <string name="pref_header_general">Allgemein</string>
+    <string name="disabled">Inaktiv</string>
+    <string name="about">Über</string>
+    <string name="version">Version</string>
+    <string name="app_website">Visit the &lt;a href=%1$s&gt;website&lt;/a&gt; for more info.</string>
+    <string name="copyright">Copyright</string>
+    <string name="license">Dieses Programm ist freie Software. Sie können es unter den Bedingungen der GNU General Public License, wie von der Free Software Foundation veröffentlicht, weitergeben und/oder modifizieren, entweder gemäß Version 3 der Lizenz oder jeder späteren Version.
+
+Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen von Nutzen sein wird, aber OHNE IRGENDEINE GARANTIE, sogar ohne die implizite Garantie der MARKTREIFE oder der VERWENDBARKEIT FÜR EINEN BESTIMMTEN ZWECK. Details finden Sie in der GNU General Public License.
+
+Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+<string name="altitude">Höhe</string>
+    </resources>
