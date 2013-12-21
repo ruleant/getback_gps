@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-<string name="app_desc">Finde den Rückweg zu einem vorher besuchten Ort mit Hilfe der GPS-Koordinaten.\napp_desc</string>
+<string name="app_desc">Finde den Rückweg zu einem vorher besuchten Ort mit Hilfe der GPS-Koordinaten.</string>
     <string name="inaccurate_location">Dein jetztiger Ort ist nicht akkurat</string>
     <string name="notice_no_dest">Speichere deine Position um einen Zielpunkt zu speichern</string>
     <string name="inaccurate_direction">Fang an dich zu bewegen um die exakte Richtung auf dein ziel zu bekommen</string>
@@ -22,7 +22,7 @@
     <string name="dialog_store_location">Willst du den aktuellen Ort speichern?</string>
     <string name="no">Nein</string>
     <string name="store_location">Ort speichern</string>
-    <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen.\nstore_location_disabled</string>
+    <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen.</string>
     <string name="location_stored">Ort gespeichert</string>
     <string name="menu_details">Ort Details</string>
     <string name="activity_details">Details</string>
