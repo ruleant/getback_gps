@@ -75,4 +75,13 @@ public class Coordinates {
 
         mCoordinates.add(coordinate);
     }
+
+    /**
+     * Get size of the Coordinates collection.
+     *
+     * @return number of Coordinate instances
+     */
+    public final int getSize() {
+        return mCoordinates.size();
+    }
 }
