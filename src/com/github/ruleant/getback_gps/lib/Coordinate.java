@@ -48,6 +48,16 @@ public class Coordinate {
     public static final int Y = 1;
 
     /**
+     * Polar radius coordinate.
+     */
+    public static final int RADIUS = 0;
+
+    /**
+     * Polar angle coordinate.
+     */
+    public static final int ANGLE = 1;
+
+    /**
      * Constructor.
      *
      * @param radius Radius coordinate
@@ -132,8 +142,12 @@ public class Coordinate {
      * @return array with radius and angle in degrees
      */
     public final double[] getPolarCoordinate() {
-        //TODO implement
-        return null;
+        double[] coordinate = new double[2];
+
+        coordinate[RADIUS] = getPolarRadius();
+        coordinate[ANGLE] = getPolarAngle();
+
+        return coordinate;
     }
 
     /**

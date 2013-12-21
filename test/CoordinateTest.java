@@ -304,7 +304,7 @@ public class CoordinateTest extends TestCase {
      * Tests getCartesianCoordinate as array.
      */
     public final void testGetCartesianCoordinateArray() {
-        long [] coordinateArray;
+        long[] coordinateArray;
 
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_0);
         coordinateArray = coordinate.getCartesianCoordinate();
@@ -320,5 +320,27 @@ public class CoordinateTest extends TestCase {
         coordinateArray = coordinate.getCartesianCoordinate();
         assertEquals(UNIT_30, coordinateArray[Coordinate.X]);
         assertEquals(UNIT_40, coordinateArray[Coordinate.Y]);
+    }
+
+    /**
+     * Tests getPolarCoordinate as array.
+     */
+    public final void testGetPolarCoordinateArray() {
+        double[] coordinateArray;
+
+        coordinate.setPolarCoordinate(RADIUS_20, ANGLE_0);
+        coordinateArray = coordinate.getPolarCoordinate();
+        assertEquals(RADIUS_20, coordinateArray[Coordinate.RADIUS]);
+        assertEquals(ANGLE_0, coordinateArray[Coordinate.ANGLE]);
+
+        coordinate.setPolarCoordinate(RADIUS_20, ANGLE_90);
+        coordinateArray = coordinate.getPolarCoordinate();
+        assertEquals(RADIUS_20, coordinateArray[Coordinate.RADIUS]);
+        assertEquals(ANGLE_90, coordinateArray[Coordinate.ANGLE]);
+
+        coordinate.setPolarCoordinate(RADIUS_50, ANGLE_53P129);
+        coordinateArray = coordinate.getPolarCoordinate();
+        assertEquals(RADIUS_50, coordinateArray[Coordinate.RADIUS]);
+        assertEquals(ANGLE_53P129, coordinateArray[Coordinate.ANGLE]);
     }
 }
