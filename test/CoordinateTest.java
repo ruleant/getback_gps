@@ -111,6 +111,7 @@ public class CoordinateTest extends TestCase {
         assertEquals(0.0, coordinate.getPolarRadius());
         assertEquals(0, coordinate.getCartesianX());
         assertEquals(0, coordinate.getCartesianY());
+        // TODO add tests for getPolar and getCartesian
     }
 
     /**
