@@ -220,7 +220,7 @@ public class CoordinateTest extends TestCase {
      * Tests Cartesian Coordinate constructor.
      */
     public final void testCartesianConstructor() {
-        coordinate.setCartesianCoordinate(UNIT_30, UNIT_40);
+        coordinate = new Coordinate(UNIT_30, UNIT_40);
         assertEquals(ANGLE_53P129, coordinate.getPolarAngle());
         assertEquals(RADIUS_50, coordinate.getPolarRadius());
     }
