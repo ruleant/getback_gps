@@ -42,4 +42,12 @@ public class CoordinatesTest extends TestCase {
     protected final void setUp() {
         coordinates = new Coordinates();
     }
+
+    /**
+     * Tests empty collection.
+     */
+    public final void testEmpty() {
+        // TODO test values of Coordinate instances
+        assertEquals(0, coordinates.getSize());
+    }
 }
