@@ -20,6 +20,7 @@
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 
+import com.github.ruleant.getback_gps.lib.Coordinate;
 import com.github.ruleant.getback_gps.lib.Coordinates;
 
 import junit.framework.TestCase;
@@ -51,5 +52,20 @@ public class CoordinatesTest extends TestCase {
 
         Object[] coordinatesArray = coordinates.toArray();
         assertEquals(0, coordinatesArray.length);
+    }
+
+    /**
+     * Tests adding Coordinate with polar coordinates.
+     */
+    public final void testaddPolarCoordinate() {
+        coordinates.addCoordinate(CoordinateTest.RADIUS_20, CoordinateTest.ANGLE_45);
+        assertEquals(1, coordinates.getSize());
+
+        Object[] coordinatesArray = coordinates.toArray();
+        assertEquals(1, coordinatesArray.length);
+
+        Coordinate coordinate = (Coordinate) coordinatesArray[0];
+        assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
+        assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
     }
 }
