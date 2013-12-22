@@ -22,7 +22,7 @@
     <string name="dialog_store_location">Willst du den aktuellen Ort speichern?</string>
     <string name="no">Nein</string>
     <string name="store_location">Ort speichern</string>
-    <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen.</string>
+    <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen</string>
     <string name="location_stored">Ort gespeichert</string>
     <string name="menu_details">Ort Details</string>
     <string name="activity_details">Details</string>
