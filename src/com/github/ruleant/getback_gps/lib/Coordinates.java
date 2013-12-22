@@ -84,4 +84,13 @@ public class Coordinates {
     public final int getSize() {
         return mCoordinates.size();
     }
+
+    /**
+     * Return Coordinates collection in array format.
+     *
+     * @return array with Coordinate instances
+     */
+    public final Object[] toArray() {
+        return mCoordinates.toArray();
+    }
 }
