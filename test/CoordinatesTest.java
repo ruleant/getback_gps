@@ -58,7 +58,8 @@ public class CoordinatesTest extends TestCase {
      * Tests adding Coordinate with polar coordinates.
      */
     public final void testaddPolarCoordinate() {
-        coordinates.addCoordinate(CoordinateTest.RADIUS_20, CoordinateTest.ANGLE_45);
+        coordinates.addCoordinate(CoordinateTest.RADIUS_20,
+                                    CoordinateTest.ANGLE_45);
         assertEquals(1, coordinates.getSize());
 
         Object[] coordinatesArray = coordinates.toArray();
