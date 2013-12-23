@@ -85,4 +85,20 @@ public class CoordinatesTest extends TestCase {
         assertEquals(CoordinateTest.UNIT_20, coordinate.getCartesianX());
         assertEquals(CoordinateTest.UNIT_30, coordinate.getCartesianY());
     }
+
+    /**
+     * Tests adding Coordinate with Coordinate instance.
+     */
+    public final void testaddCoordinate() {
+        coordinates.addCoordinate(new Coordinate(CoordinateTest.RADIUS_20,
+                                    CoordinateTest.ANGLE_45));
+        assertEquals(1, coordinates.getSize());
+
+        Object[] coordinatesArray = coordinates.toArray();
+        assertEquals(1, coordinatesArray.length);
+
+        Coordinate coordinate = (Coordinate) coordinatesArray[0];
+        assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
+        assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
+    }
 }
