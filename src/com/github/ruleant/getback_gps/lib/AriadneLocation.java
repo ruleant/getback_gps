@@ -112,9 +112,11 @@ public class AriadneLocation extends Location {
                     + FormatUtils.formatDist(getAltitude());
         }
         if (hasBearing()) {
+            CardinalDirection cd = new CardinalDirection(context, getBearing());
+
             locationText += "\n "
                     + res.getString(R.string.bearing) + ": "
-                    + FormatUtils.formatAngle(getBearing(), 2);
+                    + cd.format();
         }
         if (hasSpeed()) {
             locationText += "\n "
