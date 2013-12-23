@@ -20,7 +20,7 @@
         android:id="@+id/textview_buildtime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/build"
+        android:text="@string/build_time"
         android:padding="2dp" />
 
     <TextView
