@@ -21,6 +21,8 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
+import android.graphics.Path;
+
 import java.util.ArrayList;
 
 /**
@@ -92,5 +94,39 @@ public class Coordinates {
      */
     public final Object[] toArray() {
         return mCoordinates.toArray();
+    }
+
+    /**
+     * Return Coordinates as Path.
+     *
+     * @return coordinates as Path instance
+     */
+    public final Path toPath() {
+        Path path = new Path();
+
+        // TODO use conversion/iterator to create all points of the path
+        /*path.moveTo(coordinateX, coordinateY);
+        path.lineTo(coordinateX, coordinateY);
+        path.close();*/
+
+        return path;
+    }
+
+    /**
+     * Return Coordinates as Canvas.DrawLines array.
+     *
+     * @return coordinates as array
+     */
+    public final float[] toLinesArray() {
+        // calculate array length, based on number of coordinates
+        // length = #points * 4 (=number of coordinates needed to draw
+        // a line between 2 points)
+        int arrayLength = getSize() * 4;
+
+        float[] array = new float[arrayLength];
+
+        // TODO use conversion/iterator to create all points of the array
+
+        return array;
     }
 }
