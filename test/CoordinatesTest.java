@@ -101,4 +101,29 @@ public class CoordinatesTest extends TestCase {
         assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
         assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
     }
+
+    /**
+     * Tests adding multiple Coordinates.
+     */
+    public final void testaddMultipleCoordinates() {
+        coordinates.addCoordinate(CoordinateTest.RADIUS_20,
+                                    CoordinateTest.ANGLE_45);
+        assertEquals(1, coordinates.getSize());
+
+        coordinates.addCoordinate(CoordinateTest.RADIUS_50,
+                                    CoordinateTest.ANGLE_90);
+
+        assertEquals(2, coordinates.getSize());
+
+        Object[] coordinatesArray = coordinates.toArray();
+        assertEquals(2, coordinatesArray.length);
+
+        Coordinate coordinate = (Coordinate) coordinatesArray[0];
+        assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
+        assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
+
+        coordinate = (Coordinate) coordinatesArray[1];
+        assertEquals(CoordinateTest.ANGLE_90, coordinate.getPolarAngle());
+        assertEquals(CoordinateTest.RADIUS_50, coordinate.getPolarRadius());
+    }
 }
