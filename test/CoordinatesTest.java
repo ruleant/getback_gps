@@ -103,6 +103,20 @@ public class CoordinatesTest extends TestCase {
     }
 
     /**
+     * Tests null value for new coordinate in setCoordinate.
+     */
+    public final void testSetCoordinateNull() {
+        try {
+            coordinates.addCoordinate(null);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Parameter coordinate should not be null",
+                    e.getMessage());
+        }
+    }
+
+    /**
      * Tests adding multiple Coordinates.
      */
     public final void testaddMultipleCoordinates() {
