@@ -38,6 +38,11 @@ public class Coordinates {
     private ArrayList<Coordinate> mCoordinates;
 
     /**
+     * Number of coordinates per line : x,y of start and end point.
+     */
+    private static final int NUM_COORD_LINE = 4;
+
+    /**
      * Constructor.
      */
     public Coordinates() {
@@ -121,7 +126,7 @@ public class Coordinates {
         // calculate array length, based on number of coordinates
         // length = #points * 4 (=number of coordinates needed to draw
         // a line between 2 points)
-        int arrayLength = getSize() * 4;
+        int arrayLength = getSize() * NUM_COORD_LINE;
 
         float[] array = new float[arrayLength];
 
