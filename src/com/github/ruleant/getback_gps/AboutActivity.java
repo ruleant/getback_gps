@@ -66,8 +66,8 @@ public class AboutActivity extends Activity {
             versionInfo += " v" + packageInfo.versionName;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                 Date date = new Date(packageInfo.lastUpdateTime);
-                buildTime = res.getString(R.string.build_time)
-                        + " " + formatter.format(date);
+                buildTime = String.format(res.getString(R.string.build_time),
+                        formatter.format(date));
             }
         } catch (NameNotFoundException e) {
             e.printStackTrace();
