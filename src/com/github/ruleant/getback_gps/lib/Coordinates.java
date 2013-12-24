@@ -173,7 +173,7 @@ public class Coordinates {
             if (arrayPosition >= arrayLength) {
                 return array;
             }
-            
+
             // add next line
             array[arrayPosition + POS_START_X] = previousPoint[Coordinate.X];
             array[arrayPosition + POS_START_Y] = previousPoint[Coordinate.Y];
@@ -188,7 +188,7 @@ public class Coordinates {
         if (arrayPosition >= arrayLength) {
             return array;
         }
-        
+
         // close figure
         array[arrayPosition + POS_START_X] = previousPoint[Coordinate.X];
         array[arrayPosition + POS_START_Y] = previousPoint[Coordinate.Y];
