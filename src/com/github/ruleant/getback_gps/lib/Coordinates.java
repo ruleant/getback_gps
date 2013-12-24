@@ -24,6 +24,7 @@ package com.github.ruleant.getback_gps.lib;
 import android.graphics.Path;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Coordinates is a container that can contain
@@ -38,9 +39,34 @@ public class Coordinates {
     private ArrayList<Coordinate> mCoordinates;
 
     /**
+     * Iterator for Coordinates collection.
+     */
+    private Iterator<Coordinate> mCoordinateIterator;
+
+    /**
      * Number of coordinates per line : x,y of start and end point.
      */
     private static final int NUM_COORD_LINE = 4;
+
+    /**
+     * Position in array of X coordinate of the start point.
+     */
+    public static final int POS_START_X = 0;
+
+    /**
+     * Position in array of Y coordinate of the start point.
+     */
+    public static final int POS_START_Y = 1;
+
+    /**
+     * Position in array of X coordinate of the end point.
+     */
+    public static final int POS_END_X = 2;
+
+    /**
+     * Position in array of Y coordinate of the end point.
+     */
+    public static final int POS_END_Y = 3;
 
     /**
      * Constructor.
@@ -123,6 +149,11 @@ public class Coordinates {
      * @return coordinates as array
      */
     public final float[] toLinesArray() {
+        // 2 points or more are required to draw a line
+        if (getSize() <= 1) {
+            return null;
+        }
+
         // calculate array length, based on number of coordinates
         // length = #points * 4 (=number of coordinates needed to draw
         // a line between 2 points)
@@ -130,8 +161,68 @@ public class Coordinates {
 
         float[] array = new float[arrayLength];
 
-        // TODO use conversion/iterator to create all points of the array
+        long[] firstPoint = getFirstCoordinateCartesian();
+        long[] previousPoint = firstPoint;
+        long[] currentPoint;
+        int arrayPosition = 0;
+
+        while (mCoordinateIterator.hasNext()) {
+            currentPoint = getNextCoordinateCartesian();
+
+            // prevent to overfilling array
+            if (arrayPosition >= arrayLength) {
+                return array;
+            }
+            
+            // add next line
+            array[arrayPosition + POS_START_X] = previousPoint[Coordinate.X];
+            array[arrayPosition + POS_START_Y] = previousPoint[Coordinate.Y];
+            array[arrayPosition + POS_END_X] = currentPoint[Coordinate.X];
+            array[arrayPosition + POS_END_Y] = currentPoint[Coordinate.Y];
+
+            arrayPosition += NUM_COORD_LINE;
+            previousPoint = currentPoint;
+        }
+
+        // prevent to overfilling array
+        if (arrayPosition >= arrayLength) {
+            return array;
+        }
+        
+        // close figure
+        array[arrayPosition + POS_START_X] = previousPoint[Coordinate.X];
+        array[arrayPosition + POS_START_Y] = previousPoint[Coordinate.Y];
+        array[arrayPosition + POS_END_X] = firstPoint[Coordinate.X];
+        array[arrayPosition + POS_END_Y] = firstPoint[Coordinate.Y];
 
         return array;
+    }
+
+    /**
+     * Get first Coordinate and return it as Cartesian coordinate array.
+     *
+     * @return Cartesian coordinate array
+     */
+    private long[] getFirstCoordinateCartesian() {
+        mCoordinateIterator = mCoordinates.iterator();
+
+        if (mCoordinateIterator.hasNext()) {
+            return mCoordinateIterator.next().getCartesianCoordinate();
+        }
+
+        return null;
+    }
+
+    /**
+     * Get next Coordinate and return it as Cartesian coordinate array.
+     *
+     * @return Cartesian coordinate array
+     */
+    private long[] getNextCoordinateCartesian() {
+        if (mCoordinateIterator.hasNext()) {
+            return mCoordinateIterator.next().getCartesianCoordinate();
+        }
+
+        return null;
     }
 }
