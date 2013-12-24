@@ -205,12 +205,7 @@ public class Coordinates {
      */
     private long[] getFirstCoordinateCartesian() {
         mCoordinateIterator = mCoordinates.iterator();
-
-        if (mCoordinateIterator.hasNext()) {
-            return mCoordinateIterator.next().getCartesianCoordinate();
-        }
-
-        return null;
+        return getNextCoordinateCartesian();
     }
 
     /**
