@@ -214,7 +214,7 @@ public class Coordinates {
      * @return Cartesian coordinate array
      */
     private long[] getNextCoordinateCartesian() {
-        if (mCoordinateIterator.hasNext()) {
+        if (mCoordinateIterator != null && mCoordinateIterator.hasNext()) {
             return mCoordinateIterator.next().getCartesianCoordinate();
         }
 
