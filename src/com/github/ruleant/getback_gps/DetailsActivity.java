@@ -85,7 +85,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         if (currentLocation == null) {
             locationText += " " + res.getString(R.string.unknown);
         } else {
-            locationText += currentLocation.toString(this);
+            locationText += currentLocation.toFormattedString(this);
         }
         tvLocation.setText(locationText);
 
@@ -114,7 +114,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                         + res.getString(R.string.notice_no_dest);
             }
         } else {
-            destinationText += destination.toString(this);
+            destinationText += destination.toFormattedString(this);
         }
         tvDestination.setText(destinationText);
 
