@@ -57,7 +57,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests adding Coordinate with polar coordinates.
      */
-    public final void testaddPolarCoordinate() {
+    public final void testAddPolarCoordinate() {
         coordinates.addCoordinate(CoordinateTest.RADIUS_20,
                                     CoordinateTest.ANGLE_45);
         assertEquals(1, coordinates.getSize());
@@ -73,7 +73,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests adding Coordinate with Cartesian coordinates.
      */
-    public final void testaddCartesianCoordinate() {
+    public final void testAddCartesianCoordinate() {
         coordinates.addCoordinate(CoordinateTest.UNIT_20,
                                     CoordinateTest.UNIT_30);
         assertEquals(1, coordinates.getSize());
@@ -89,7 +89,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests adding Coordinate with Coordinate instance.
      */
-    public final void testaddCoordinate() {
+    public final void testAddCoordinate() {
         coordinates.addCoordinate(new Coordinate(CoordinateTest.RADIUS_20,
                                     CoordinateTest.ANGLE_45));
         assertEquals(1, coordinates.getSize());
@@ -119,7 +119,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests adding multiple Coordinates.
      */
-    public final void testaddMultipleCoordinates() {
+    public final void testAddMultipleCoordinates() {
         coordinates.addCoordinate(CoordinateTest.RADIUS_20,
                                     CoordinateTest.ANGLE_45);
         assertEquals(1, coordinates.getSize());
