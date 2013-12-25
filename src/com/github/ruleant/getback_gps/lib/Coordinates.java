@@ -135,10 +135,22 @@ public class Coordinates {
     public final Path toPath() {
         Path path = new Path();
 
-        // TODO use conversion/iterator to create all points of the path
-        /*path.moveTo(coordinateX, coordinateY);
-        path.lineTo(coordinateX, coordinateY);
-        path.close();*/
+        // 2 points or more are required to draw a line
+        if (getSize() <= 1) {
+            return path;
+        }
+
+        long[] firstPoint = getFirstCoordinateCartesian();
+        path.moveTo(firstPoint[Coordinate.X], firstPoint[Coordinate.Y]);
+
+        long[] currentPoint;
+        while (mCoordinateIterator.hasNext()) {
+            currentPoint = getNextCoordinateCartesian();
+
+            path.lineTo(currentPoint[Coordinate.X], currentPoint[Coordinate.Y]);
+        }
+
+        path.close();
 
         return path;
     }
