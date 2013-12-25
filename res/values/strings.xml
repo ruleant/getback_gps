@@ -82,7 +82,7 @@
     <!-- Strings related to About activity -->
     <string name="about">About</string>
     <string name="version">Version</string>
-    <string name="build">Built on :</string>
+    <string name="build_time">Built on %s.</string>
     <string name="app_website">Visit the &lt;a href="%1$s">website&lt;/a> for more info.</string>
     <string name="copyright">Copyright</string>
     <string name="license">This program is free software: you can redistribute it and/or modify
