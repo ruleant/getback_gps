@@ -46,7 +46,7 @@ public class Coordinates {
     /**
      * Number of coordinates per line : x,y of start and end point.
      */
-    private static final int NUM_COORD_LINE = 4;
+    public static final int NUM_COORD_LINE = 4;
 
     /**
      * Position in array of X coordinate of the start point.
