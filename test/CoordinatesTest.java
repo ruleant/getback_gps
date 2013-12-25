@@ -49,9 +49,7 @@ public class CoordinatesTest extends TestCase {
      */
     public final void testEmpty() {
         assertEquals(0, coordinates.getSize());
-
-        Object[] coordinatesArray = coordinates.toArray();
-        assertEquals(0, coordinatesArray.length);
+        assertEquals(0, coordinates.toArray().length);
     }
 
     /**
