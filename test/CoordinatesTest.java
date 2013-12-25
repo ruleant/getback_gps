@@ -149,7 +149,8 @@ public class CoordinatesTest extends TestCase {
         // two lines are needed to draw a line
         assertEquals(0, coordinates.toLinesArray().length);
 
-        coordinates.addCoordinate(CoordinateTest.UNIT_30, CoordinateTest.UNIT_40);
+        coordinates.addCoordinate(CoordinateTest.UNIT_30,
+                CoordinateTest.UNIT_40);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
