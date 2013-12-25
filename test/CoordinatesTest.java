@@ -37,6 +37,11 @@ public class CoordinatesTest extends TestCase {
     private Coordinates coordinates;
 
     /**
+     * 3 POINTS.
+     */
+    public static final int NUM_POINTS_3 = 3;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -171,7 +176,7 @@ public class CoordinatesTest extends TestCase {
         coordinates.addCoordinate(CoordinateTest.UNIT_30,
                 CoordinateTest.UNIT_40);
         float[] coordinatesArray = coordinates.toLinesArray();
-        assertEquals(3 * Coordinates.NUM_COORD_LINE, coordinatesArray.length);
+        assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         // first line
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
@@ -195,16 +200,20 @@ public class CoordinatesTest extends TestCase {
 
         // closing line
         assertEquals((float) CoordinateTest.UNIT_30,
-                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                coordinatesArray[(NUM_POINTS_3 - 1)
+                        * Coordinates.NUM_COORD_LINE
                         + Coordinates.POS_START_X]);
         assertEquals((float) CoordinateTest.UNIT_40,
-                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                coordinatesArray[(NUM_POINTS_3 - 1)
+                        * Coordinates.NUM_COORD_LINE
                         + Coordinates.POS_START_Y]);
         assertEquals((float) 0,
-                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                coordinatesArray[(NUM_POINTS_3 - 1)
+                        * Coordinates.NUM_COORD_LINE
                         + Coordinates.POS_END_X]);
         assertEquals((float) 0,
-                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                coordinatesArray[(NUM_POINTS_3 - 1)
+                        * Coordinates.NUM_COORD_LINE
                         + Coordinates.POS_END_Y]);
     }
 }
