@@ -139,4 +139,71 @@ public class CoordinatesTest extends TestCase {
         assertEquals(CoordinateTest.ANGLE_90, coordinate.getPolarAngle());
         assertEquals(CoordinateTest.RADIUS_50, coordinate.getPolarRadius());
     }
+
+    /**
+     * Tests toLinesArray, one line.
+     */
+    public final void testToLinesArray() {
+        coordinates.addCoordinate(0, CoordinateTest.UNIT_20);
+        // array should be empty in only 1 point is added,
+        // two lines are needed to draw a line
+        assertEquals(0, coordinates.toLinesArray().length);
+
+        coordinates.addCoordinate(CoordinateTest.UNIT_30, CoordinateTest.UNIT_40);
+        float[] coordinatesArray = coordinates.toLinesArray();
+        assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
+        assertEquals((float) CoordinateTest.UNIT_20,
+                coordinatesArray[Coordinates.POS_START_Y]);
+        assertEquals((float) CoordinateTest.UNIT_30,
+                coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals((float) CoordinateTest.UNIT_40,
+                coordinatesArray[Coordinates.POS_END_Y]);
+    }
+
+    /**
+     * Tests toLinesArray, multiple lines.
+     */
+    public final void testToLinesArrayMulti() {
+        coordinates.addCoordinate(0, 0);
+        coordinates.addCoordinate(0, CoordinateTest.UNIT_20);
+        coordinates.addCoordinate(CoordinateTest.UNIT_30,
+                CoordinateTest.UNIT_40);
+        float[] coordinatesArray = coordinates.toLinesArray();
+        assertEquals(3 * Coordinates.NUM_COORD_LINE, coordinatesArray.length);
+        // first line
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals((float) CoordinateTest.UNIT_20,
+                coordinatesArray[Coordinates.POS_END_Y]);
+
+        // second line
+        assertEquals((float) 0,
+                coordinatesArray[Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_START_X]);
+        assertEquals((float) CoordinateTest.UNIT_20,
+                coordinatesArray[Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_START_Y]);
+        assertEquals((float) CoordinateTest.UNIT_30,
+                coordinatesArray[Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_END_X]);
+        assertEquals((float) CoordinateTest.UNIT_40,
+                coordinatesArray[Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_END_Y]);
+
+        // closing line
+        assertEquals((float) CoordinateTest.UNIT_30,
+                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_START_X]);
+        assertEquals((float) CoordinateTest.UNIT_40,
+                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_START_Y]);
+        assertEquals((float) 0,
+                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_END_X]);
+        assertEquals((float) 0,
+                coordinatesArray[2 * Coordinates.NUM_COORD_LINE
+                        + Coordinates.POS_END_Y]);
+    }
 }
