@@ -30,6 +30,7 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.github.ruleant.getback_gps.lib.Coordinates;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
 
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -240,12 +241,12 @@ public class NavigationView extends ImageView {
         long[] tailLeftCoordinate = polarToCartesian(
                 directionArrowTail + ARROW_ANGLE, arrowLengthTail);
 
-        canvas.drawLine(tailRightCoordinate[X], tailRightCoordinate[Y],
-                arrowPointCoordinate[X], arrowPointCoordinate[Y], mPaint);
-        canvas.drawLine(tailLeftCoordinate[X], tailLeftCoordinate[Y],
-                arrowPointCoordinate[X], arrowPointCoordinate[Y], mPaint);
-        canvas.drawLine(tailLeftCoordinate[X], tailLeftCoordinate[Y],
-                tailRightCoordinate[X], tailRightCoordinate[Y], mPaint);
+        Coordinates arrow = new Coordinates();
+        arrow.addCoordinate(arrowPointCoordinate[X], arrowPointCoordinate[Y]);
+        arrow.addCoordinate(tailLeftCoordinate[X], tailLeftCoordinate[Y]);
+        arrow.addCoordinate(tailRightCoordinate[X], tailRightCoordinate[Y]);
+
+        canvas.drawPath(arrow.toPath(), mPaint);
     }
 
     /**

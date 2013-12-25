@@ -86,12 +86,12 @@ public class AriadneLocation extends Location {
     }
 
     /**
-     * Overrides the toString() method, implementing a formatted String.
+     * Returns a formatted String representing the object.
      *
      * @param context Context of the App
-     * @return String formatted string
+     * @return formatted string
      */
-    public final String toString(final Context context) {
+    public final String toFormattedString(final Context context) {
         Resources res = context.getResources();
         DebugLevel debug = new DebugLevel(context);
 
@@ -162,7 +162,7 @@ public class AriadneLocation extends Location {
         if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)) {
             locationText += "\n\n "
                     + res.getString(R.string.raw) + ": "
-                    + super.toString();
+                    + toString();
         }
 
         return locationText;

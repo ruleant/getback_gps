@@ -38,62 +38,62 @@ public class CoordinateTest extends TestCase {
     /**
      * Radius 20 * sqrt(2) units.
      */
-    private static final double RADIUS_20SQRT2 = 28.284271247461902;
+    public static final double RADIUS_20SQRT2 = 28.284271247461902;
 
     /**
      * Radius 20 units.
      */
-    private static final double RADIUS_20 = 20.0;
+    public static final double RADIUS_20 = 20.0;
 
     /**
      * Radius 50 units.
      */
-    private static final double RADIUS_50 = 50.0;
+    public static final double RADIUS_50 = 50.0;
 
     /**
      * Angle 0°.
      */
-    private static final double ANGLE_0 = 0.0;
+    public static final double ANGLE_0 = 0.0;
 
     /**
      * Angle 45°.
      */
-    private static final double ANGLE_45 = 45.0;
+    public static final double ANGLE_45 = 45.0;
 
     /**
      * Angle 53,129°.
      */
-    private static final double ANGLE_53P129 = 53.13010235415598;
+    public static final double ANGLE_53P129 = 53.13010235415598;
 
     /**
      * Angle 90°.
      */
-    private static final double ANGLE_90 = 90.0;
+    public static final double ANGLE_90 = 90.0;
 
     /**
      * Angle 225° (inverse angle of 45°).
      */
-    private static final double ANGLE_225 = 225.0;
+    public static final double ANGLE_225 = 225.0;
 
     /**
      * Angle 360°.
      */
-    private static final double ANGLE_360 = 360.0;
+    public static final double ANGLE_360 = 360.0;
 
     /**
      * Unit 20 (for X and Y coordinates).
      */
-    private static final long UNIT_20 = 20;
+    public static final long UNIT_20 = 20;
 
     /**
      * Unit 30 (for X and Y coordinates).
      */
-    private static final long UNIT_30 = 30;
+    public static final long UNIT_30 = 30;
 
     /**
      * Unit 40 (for X and Y coordinates).
      */
-    private static final long UNIT_40 = 40;
+    public static final long UNIT_40 = 40;
 
     /**
      * Sets up the test fixture.
@@ -111,6 +111,14 @@ public class CoordinateTest extends TestCase {
         assertEquals(0.0, coordinate.getPolarRadius());
         assertEquals(0, coordinate.getCartesianX());
         assertEquals(0, coordinate.getCartesianY());
+
+        double[] coordinatePolarArray = coordinate.getPolarCoordinate();
+        assertEquals(0.0, coordinatePolarArray[Coordinate.RADIUS]);
+        assertEquals(ANGLE_0, coordinatePolarArray[Coordinate.ANGLE]);
+
+        long[] coordinateCartesianArray = coordinate.getCartesianCoordinate();
+        assertEquals(0, coordinateCartesianArray[Coordinate.X]);
+        assertEquals(0, coordinateCartesianArray[Coordinate.Y]);
     }
 
     /**
