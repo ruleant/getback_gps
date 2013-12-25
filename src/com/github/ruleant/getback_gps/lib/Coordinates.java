@@ -151,7 +151,7 @@ public class Coordinates {
     public final float[] toLinesArray() {
         // 2 points or more are required to draw a line
         if (getSize() <= 1) {
-            return null;
+            return new float[0];
         }
 
         // calculate array length, based on number of coordinates

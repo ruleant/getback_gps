@@ -50,6 +50,7 @@ public class CoordinatesTest extends TestCase {
     public final void testEmpty() {
         assertEquals(0, coordinates.getSize());
         assertEquals(0, coordinates.toArray().length);
+        assertEquals(0, coordinates.toLinesArray().length);
     }
 
     /**
