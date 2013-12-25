@@ -169,7 +169,8 @@ public class Coordinates {
         while (mCoordinateIterator.hasNext()) {
             currentPoint = getNextCoordinateCartesian();
 
-            // prevent to overfilling array
+            // prevent overfilling array in case the
+            // coordinates collection changes
             if (arrayPosition >= arrayLength) {
                 return array;
             }
@@ -184,7 +185,8 @@ public class Coordinates {
             previousPoint = currentPoint;
         }
 
-        // prevent to overfilling array
+        // prevent overfilling array in case the
+        // coordinates collection changes
         if (arrayPosition >= arrayLength) {
             return array;
         }
