@@ -176,7 +176,8 @@ public class CoordinatesTest extends TestCase {
         coordinates.addCoordinate(CoordinateTest.UNIT_30,
                 CoordinateTest.UNIT_40);
         float[] coordinatesArray = coordinates.toLinesArray();
-        assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE, coordinatesArray.length);
+        assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
+                coordinatesArray.length);
         // first line
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
