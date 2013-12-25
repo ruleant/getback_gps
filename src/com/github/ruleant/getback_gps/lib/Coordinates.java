@@ -154,10 +154,17 @@ public class Coordinates {
             return new float[0];
         }
 
-        // calculate array length, based on number of coordinates
-        // length = #points * 4 (=number of coordinates needed to draw
-        // a line between 2 points)
-        int arrayLength = getSize() * NUM_COORD_LINE;
+        int arrayLength;
+
+        if (getSize() == 2) {
+            // only 1 line between 2 points (no need to close)
+            arrayLength = NUM_COORD_LINE;
+        } else {
+            // calculate array length, based on number of coordinates
+            // length = #points * 4 (=number of coordinates needed to draw
+            // a line between 2 points)
+            arrayLength = getSize() * NUM_COORD_LINE;
+        }
 
         float[] array = new float[arrayLength];
 
