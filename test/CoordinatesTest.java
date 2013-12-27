@@ -21,9 +21,13 @@
  */
 
 import com.github.ruleant.getback_gps.lib.Coordinate;
+import com.github.ruleant.getback_gps.lib.CoordinateConverterInterface;
 import com.github.ruleant.getback_gps.lib.Coordinates;
 
 import junit.framework.TestCase;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Unit tests for Coordinates class.
@@ -32,9 +36,39 @@ import junit.framework.TestCase;
  */
 public class CoordinatesTest extends TestCase {
     /**
-     * Instance of the coordinate class.
+     * Instance of the coordinates class.
      */
     private Coordinates coordinates;
+
+    /**
+     * Mock for objectConverter class.
+     */
+    private CoordinateConverterInterface converter;
+
+    /**
+     * Test coordinate 0 (0, 0).
+     */
+    private Coordinate coordinate0;
+
+    /**
+     * Test coordinate 1 (0, 20).
+     */
+    private Coordinate coordinate1;
+
+    /**
+     * Test coordinate 2 (30, 40).
+     */
+    private Coordinate coordinate2;
+
+    /**
+     * Test converted coordinate 1 (-20, 0).
+     */
+    private Coordinate convertedCoordinate1;
+
+    /**
+     * Test converted coordinate 2 (-40, -30).
+     */
+    private Coordinate convertedCoordinate2;
 
     /**
      * 3 POINTS.
@@ -47,6 +81,24 @@ public class CoordinatesTest extends TestCase {
      */
     protected final void setUp() {
         coordinates = new Coordinates();
+
+        coordinate0 = new Coordinate(0, 0);
+        coordinate1 = new Coordinate(0, CoordinateTest.UNIT_20);
+        coordinate2 = new Coordinate(CoordinateTest.UNIT_30,
+                CoordinateTest.UNIT_40);
+
+        convertedCoordinate1 = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
+        convertedCoordinate2 = new Coordinate(-1 * CoordinateTest.UNIT_40,
+                -1 * CoordinateTest.UNIT_30);
+
+        // create mock object
+        converter = mock(CoordinateConverterInterface.class);
+
+        // setup mock object
+        when(converter.getConvertedCoordinate(coordinate1))
+                .thenReturn(convertedCoordinate1);
+        when(converter.getConvertedCoordinate(coordinate2))
+                .thenReturn(convertedCoordinate2);
     }
 
     /**
@@ -149,32 +201,25 @@ public class CoordinatesTest extends TestCase {
      * Tests toLinesArray, one line.
      */
     public final void testToLinesArray() {
-        coordinates.addCoordinate(0, CoordinateTest.UNIT_20);
+        coordinates.addCoordinate(coordinate1);
         // array should be empty in only 1 point is added,
         // two lines are needed to draw a line
         assertEquals(0, coordinates.toLinesArray().length);
 
-        coordinates.addCoordinate(CoordinateTest.UNIT_30,
-                CoordinateTest.UNIT_40);
+        coordinates.addCoordinate(coordinate2);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
-        assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.POS_START_Y]);
-        assertEquals((float) CoordinateTest.UNIT_30,
-                coordinatesArray[Coordinates.POS_END_X]);
-        assertEquals((float) CoordinateTest.UNIT_40,
-                coordinatesArray[Coordinates.POS_END_Y]);
+        assertCoordinates(coordinatesArray, 0);
     }
 
     /**
      * Tests toLinesArray, multiple lines.
      */
     public final void testToLinesArrayMulti() {
-        coordinates.addCoordinate(0, 0);
-        coordinates.addCoordinate(0, CoordinateTest.UNIT_20);
-        coordinates.addCoordinate(CoordinateTest.UNIT_30,
-                CoordinateTest.UNIT_40);
+        coordinates.addCoordinate(coordinate0);
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
                 coordinatesArray.length);
@@ -186,18 +231,7 @@ public class CoordinatesTest extends TestCase {
                 coordinatesArray[Coordinates.POS_END_Y]);
 
         // second line
-        assertEquals((float) 0,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_START_X]);
-        assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_START_Y]);
-        assertEquals((float) CoordinateTest.UNIT_30,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_END_X]);
-        assertEquals((float) CoordinateTest.UNIT_40,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_END_Y]);
+        assertCoordinates(coordinates.toLinesArray(), 1);
 
         // closing line
         assertEquals((float) CoordinateTest.UNIT_30,
@@ -216,5 +250,77 @@ public class CoordinatesTest extends TestCase {
                 coordinatesArray[(NUM_POINTS_3 - 1)
                         * Coordinates.NUM_COORD_LINE
                         + Coordinates.POS_END_Y]);
+    }
+
+    /**
+     * Tests setting CoordinateConverter class.
+     */
+    public final void testSetCoordinateConverter() {
+        coordinates.setCoordinateConverter(converter);
+
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
+        assertConvertedCoordinates(coordinates.toLinesArray());
+    }
+
+    /**
+     * Tests constructor taking CoordinateConverter as a parameter.
+     */
+    public final void testConstructorCoordinateConverter() {
+        coordinates = new Coordinates(converter);
+
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
+        assertConvertedCoordinates(coordinates.toLinesArray());
+    }
+
+    /**
+     * Assert unconverted coordinates.
+     *
+     * @param coordinatesArray array with Cartesian coordinates
+     * @param lineNumber number of the line
+     *                   (to determine offset in coordinate array)
+     */
+    private void assertCoordinates(final float[] coordinatesArray,
+                                   final int lineNumber) {
+        int offset = Coordinates.NUM_COORD_LINE * lineNumber;
+        assertEquals((float) 0,
+                coordinatesArray[offset + Coordinates.POS_START_X]);
+        assertEquals((float) CoordinateTest.UNIT_20,
+                coordinatesArray[offset + Coordinates.POS_START_Y]);
+        assertEquals((float) CoordinateTest.UNIT_30,
+                coordinatesArray[offset + Coordinates.POS_END_X]);
+        assertEquals((float) CoordinateTest.UNIT_40,
+                coordinatesArray[offset + Coordinates.POS_END_Y]);
+    }
+
+    /**
+     * Assert converted coordinates.
+     *
+     * @param coordinatesArray array with Cartesian coordinates
+     */
+    private void assertConvertedCoordinates(final float[] coordinatesArray) {
+        assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
+        assertEquals((float) -1 * CoordinateTest.UNIT_20,
+                coordinatesArray[Coordinates.POS_START_X]);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
+        assertEquals((float) -1 * CoordinateTest.UNIT_40,
+                coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals((float) -1 * CoordinateTest.UNIT_30,
+                coordinatesArray[Coordinates.POS_END_Y]);
+    }
+
+    /**
+     * Tests null value for new converter in setCoordinateConverter.
+     */
+    public final void testSetCoordinateConverterNull() {
+        try {
+            coordinates.setCoordinateConverter(null);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Parameter converter should not be null",
+                    e.getMessage());
+        }
     }
 }
