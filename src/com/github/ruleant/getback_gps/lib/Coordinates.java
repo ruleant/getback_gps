@@ -44,6 +44,11 @@ public class Coordinates {
     private Iterator<Coordinate> mCoordinateIterator;
 
     /**
+     * Coordinate converter.
+     */
+    private CoordinateConverterInterface mCoordinateConverter;
+
+    /**
      * Number of coordinates per line : x,y of start and end point.
      */
     public static final int NUM_COORD_LINE = 4;
@@ -236,9 +241,28 @@ public class Coordinates {
      */
     private long[] getNextCoordinateCartesian() {
         if (mCoordinateIterator != null && mCoordinateIterator.hasNext()) {
-            return mCoordinateIterator.next().getCartesianCoordinate();
+            return ConvertCoordinate(mCoordinateIterator.next())
+                    .getCartesianCoordinate();
         }
 
         return null;
+    }
+
+    /**
+     * Converts a Coordinate using the defined CoordinateConverter class,
+     * it returns an unconverted Coordinate if the CoordinateConverter class
+     * is not set.
+     *
+     * @param coordinate Unconverted coordinate
+     * @return Converted coordinate
+     */
+    private Coordinate ConvertCoordinate(Coordinate coordinate) {
+        // if CoordinateConverter is not set, return coordinate unconverted
+        if (mCoordinateConverter == null) {
+            return coordinate;
+        }
+
+        // convert Coordinate using defined CoordinateConverter
+        return mCoordinateConverter.getConvertedCoordinate(coordinate);
     }
 }
