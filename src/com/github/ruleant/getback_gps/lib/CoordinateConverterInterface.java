@@ -27,5 +27,11 @@ package com.github.ruleant.getback_gps.lib;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public interface CoordinateConverterInterface {
+    /**
+     * Converts a Coordinate instance, fe. rotation, moving, scaling.
+     *
+     * @param coordinate Unconverted coordinate
+     * @return Converted coordinate
+     */
     Coordinate getConvertedCoordinate(Coordinate coordinate);
 }
