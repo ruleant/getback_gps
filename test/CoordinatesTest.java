@@ -208,12 +208,7 @@ public class CoordinatesTest extends TestCase {
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
-        assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.POS_START_Y]);
-        assertEquals((float) CoordinateTest.UNIT_30,
-                coordinatesArray[Coordinates.POS_END_X]);
-        assertEquals((float) CoordinateTest.UNIT_40,
-                coordinatesArray[Coordinates.POS_END_Y]);
+        assertCoordinates(coordinatesArray, 0);
     }
 
     /**
@@ -234,18 +229,7 @@ public class CoordinatesTest extends TestCase {
                 coordinatesArray[Coordinates.POS_END_Y]);
 
         // second line
-        assertEquals((float) 0,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_START_X]);
-        assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_START_Y]);
-        assertEquals((float) CoordinateTest.UNIT_30,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_END_X]);
-        assertEquals((float) CoordinateTest.UNIT_40,
-                coordinatesArray[Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_END_Y]);
+        assertCoordinates(coordinates.toLinesArray(), 1);
 
         // closing line
         assertEquals((float) CoordinateTest.UNIT_30,
@@ -275,6 +259,26 @@ public class CoordinatesTest extends TestCase {
         coordinates.addCoordinate(coordinate1);
         coordinates.addCoordinate(coordinate2);
         assertConvertedCoordinates(coordinates.toLinesArray());
+    }
+
+    /**
+     * Assert unconverted coordinates.
+     *
+     * @param coordinatesArray array with Cartesian coordinates
+     * @param lineNumber number of the line
+     *                   (to determine offset in coordinate array)
+     */
+    private void assertCoordinates(final float[] coordinatesArray,
+                                   final int lineNumber) {
+        int offset = Coordinates.NUM_COORD_LINE * lineNumber;
+        assertEquals((float) 0,
+                coordinatesArray[offset + Coordinates.POS_START_X]);
+        assertEquals((float) CoordinateTest.UNIT_20,
+                coordinatesArray[offset + Coordinates.POS_START_Y]);
+        assertEquals((float) CoordinateTest.UNIT_30,
+                coordinatesArray[offset + Coordinates.POS_END_X]);
+        assertEquals((float) CoordinateTest.UNIT_40,
+                coordinatesArray[offset + Coordinates.POS_END_Y]);
     }
 
     /**
