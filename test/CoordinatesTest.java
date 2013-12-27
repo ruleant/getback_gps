@@ -274,7 +274,15 @@ public class CoordinatesTest extends TestCase {
 
         coordinates.addCoordinate(coordinate1);
         coordinates.addCoordinate(coordinate2);
-        float[] coordinatesArray = coordinates.toLinesArray();
+        assertConvertedCoordinates(coordinates.toLinesArray());
+    }
+
+    /**
+     * Assert converted coordinates.
+     *
+     * @param coordinatesArray array with Cartesian coordinates
+     */
+    private void assertConvertedCoordinates(final float[] coordinatesArray) {
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         assertEquals((float) -1 * CoordinateTest.UNIT_20,
                 coordinatesArray[Coordinates.POS_START_X]);
