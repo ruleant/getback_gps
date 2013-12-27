@@ -262,6 +262,17 @@ public class CoordinatesTest extends TestCase {
     }
 
     /**
+     * Tests constructor taking CoordinateConverter as a parameter.
+     */
+    public final void testConstructorCoordinateConverter() {
+        coordinates = new Coordinates(converter);
+
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
+        assertConvertedCoordinates(coordinates.toLinesArray());
+    }
+
+    /**
      * Assert unconverted coordinates.
      *
      * @param coordinatesArray array with Cartesian coordinates
