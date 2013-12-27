@@ -266,7 +266,7 @@ public class Coordinates {
      */
     private long[] getNextCoordinateCartesian() {
         if (mCoordinateIterator != null && mCoordinateIterator.hasNext()) {
-            return ConvertCoordinate(mCoordinateIterator.next())
+            return convertCoordinate(mCoordinateIterator.next())
                     .getCartesianCoordinate();
         }
 
@@ -281,7 +281,7 @@ public class Coordinates {
      * @param coordinate Unconverted coordinate
      * @return Converted coordinate
      */
-    private Coordinate ConvertCoordinate(Coordinate coordinate) {
+    private Coordinate convertCoordinate(Coordinate coordinate) {
         // if CoordinateConverter is not set, return coordinate unconverted
         if (mCoordinateConverter == null) {
             return coordinate;
