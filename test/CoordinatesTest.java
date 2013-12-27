@@ -95,8 +95,10 @@ public class CoordinatesTest extends TestCase {
         converter = mock(CoordinateConverterInterface.class);
 
         // setup mock object
-        when(converter.getConvertedCoordinate(coordinate1)).thenReturn(convertedCoordinate1);
-        when(converter.getConvertedCoordinate(coordinate2)).thenReturn(convertedCoordinate2);
+        when(converter.getConvertedCoordinate(coordinate1))
+                .thenReturn(convertedCoordinate1);
+        when(converter.getConvertedCoordinate(coordinate2))
+                .thenReturn(convertedCoordinate2);
     }
 
     /**
