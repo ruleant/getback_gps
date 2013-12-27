@@ -81,6 +81,16 @@ public class Coordinates {
     }
 
     /**
+     * Constructor.
+     *
+     * @param converter CoordinateConverter class
+     */
+    public Coordinates(final CoordinateConverterInterface converter) {
+        this();
+        setCoordinateConverter(converter);
+    }
+
+    /**
      * Add coordinate in polar format.
      *
      * @param radius Radius coordinate
