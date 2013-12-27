@@ -115,6 +115,21 @@ public class Coordinates {
     }
 
     /**
+     * Set CoordinateConverter.
+     *
+     * @param converter CoordinateConverter class
+     */
+    public final void setCoordinateConverter(
+            final CoordinateConverterInterface converter) {
+        if (converter == null) {
+            throw new IllegalArgumentException(
+                    "Parameter converter should not be null");
+        }
+
+        mCoordinateConverter = converter;
+    }
+
+    /**
      * Get size of the Coordinates collection.
      *
      * @return number of Coordinate instances
