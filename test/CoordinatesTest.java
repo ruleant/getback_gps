@@ -36,9 +36,24 @@ import static org.mockito.Mockito.when;
  */
 public class CoordinatesTest extends TestCase {
     /**
-     * Instance of the coordinate class.
+     * Instance of the coordinates class.
      */
     private Coordinates coordinates;
+
+    /**
+     * Test coordinate 0 (0, 0).
+     */
+    private Coordinate coordinate0;
+
+    /**
+     * Test coordinate 1 (0, 20).
+     */
+    private Coordinate coordinate1;
+
+    /**
+     * Test coordinate 2 (30, 40).
+     */
+    private Coordinate coordinate2;
 
     /**
      * 3 POINTS.
@@ -51,6 +66,11 @@ public class CoordinatesTest extends TestCase {
      */
     protected final void setUp() {
         coordinates = new Coordinates();
+
+        coordinate0 = new Coordinate(0, 0);
+        coordinate1 = new Coordinate(0, CoordinateTest.UNIT_20);
+        coordinate2 = new Coordinate(CoordinateTest.UNIT_30,
+                CoordinateTest.UNIT_40);
     }
 
     /**
@@ -153,13 +173,12 @@ public class CoordinatesTest extends TestCase {
      * Tests toLinesArray, one line.
      */
     public final void testToLinesArray() {
-        coordinates.addCoordinate(0, CoordinateTest.UNIT_20);
+        coordinates.addCoordinate(coordinate1);
         // array should be empty in only 1 point is added,
         // two lines are needed to draw a line
         assertEquals(0, coordinates.toLinesArray().length);
 
-        coordinates.addCoordinate(CoordinateTest.UNIT_30,
-                CoordinateTest.UNIT_40);
+        coordinates.addCoordinate(coordinate2);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
@@ -175,10 +194,9 @@ public class CoordinatesTest extends TestCase {
      * Tests toLinesArray, multiple lines.
      */
     public final void testToLinesArrayMulti() {
-        coordinates.addCoordinate(0, 0);
-        coordinates.addCoordinate(0, CoordinateTest.UNIT_20);
-        coordinates.addCoordinate(CoordinateTest.UNIT_30,
-                CoordinateTest.UNIT_40);
+        coordinates.addCoordinate(coordinate0);
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
                 coordinatesArray.length);
@@ -226,9 +244,6 @@ public class CoordinatesTest extends TestCase {
      * Tests setting CoordinateConverter class.
      */
     public final void testSetCoordinateConverter() {
-        Coordinate coordinate1 = new Coordinate(0, CoordinateTest.UNIT_20);
-        Coordinate coordinate2 = new Coordinate(CoordinateTest.UNIT_30,
-                CoordinateTest.UNIT_40);
         Coordinate convertedCoordinate1 = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
         Coordinate convertedCoordinate2
                 = new Coordinate(-1 * CoordinateTest.UNIT_40,
