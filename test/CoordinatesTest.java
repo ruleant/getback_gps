@@ -21,9 +21,13 @@
  */
 
 import com.github.ruleant.getback_gps.lib.Coordinate;
+import com.github.ruleant.getback_gps.lib.CoordinateConverterInterface;
 import com.github.ruleant.getback_gps.lib.Coordinates;
 
 import junit.framework.TestCase;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Unit tests for Coordinates class.
@@ -216,5 +220,53 @@ public class CoordinatesTest extends TestCase {
                 coordinatesArray[(NUM_POINTS_3 - 1)
                         * Coordinates.NUM_COORD_LINE
                         + Coordinates.POS_END_Y]);
+    }
+
+    /**
+     * Tests setting CoordinateConverter class.
+     */
+    public final void testSetCoordinateConverter() {
+        Coordinate coordinate1 = new Coordinate(0, CoordinateTest.UNIT_20);
+        Coordinate coordinate2 = new Coordinate(CoordinateTest.UNIT_30,
+                CoordinateTest.UNIT_40);
+        Coordinate convertedCoordinate1 = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
+        Coordinate convertedCoordinate2
+                = new Coordinate(-1 * CoordinateTest.UNIT_40,
+                -1 * CoordinateTest.UNIT_30);
+
+        // create mock object
+        CoordinateConverterInterface converter = mock(CoordinateConverterInterface.class);
+
+        // setup mock object
+        when(converter.getConvertedCoordinate(coordinate1)).thenReturn(convertedCoordinate1);
+        when(converter.getConvertedCoordinate(coordinate2)).thenReturn(convertedCoordinate2);
+
+        coordinates.setCoordinateConverter(converter);
+
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
+        float[] coordinatesArray = coordinates.toLinesArray();
+        assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
+        assertEquals((float) -1 * CoordinateTest.UNIT_20,
+                coordinatesArray[Coordinates.POS_START_X]);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
+        assertEquals((float) -1 * CoordinateTest.UNIT_40,
+                coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals((float) -1 * CoordinateTest.UNIT_30,
+                coordinatesArray[Coordinates.POS_END_Y]);
+    }
+
+    /**
+     * Tests null value for new converter in setCoordinateConverter.
+     */
+    public final void testSetCoordinateConverterNull() {
+        try {
+            coordinates.setCoordinateConverter(null);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Parameter converter should not be null",
+                    e.getMessage());
+        }
     }
 }
