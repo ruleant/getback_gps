@@ -281,7 +281,7 @@ public class Coordinates {
      * @param coordinate Unconverted coordinate
      * @return Converted coordinate
      */
-    private Coordinate convertCoordinate(Coordinate coordinate) {
+    private Coordinate convertCoordinate(final Coordinate coordinate) {
         // if CoordinateConverter is not set, return coordinate unconverted
         if (mCoordinateConverter == null) {
             return coordinate;
