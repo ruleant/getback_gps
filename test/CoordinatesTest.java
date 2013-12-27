@@ -41,6 +41,11 @@ public class CoordinatesTest extends TestCase {
     private Coordinates coordinates;
 
     /**
+     * Mock for objectConverter class.
+     */
+    private CoordinateConverterInterface converter;
+
+    /**
      * Test coordinate 0 (0, 0).
      */
     private Coordinate coordinate0;
@@ -85,6 +90,13 @@ public class CoordinatesTest extends TestCase {
         convertedCoordinate1 = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
         convertedCoordinate2 = new Coordinate(-1 * CoordinateTest.UNIT_40,
                 -1 * CoordinateTest.UNIT_30);
+
+        // create mock object
+        converter = mock(CoordinateConverterInterface.class);
+
+        // setup mock object
+        when(converter.getConvertedCoordinate(coordinate1)).thenReturn(convertedCoordinate1);
+        when(converter.getConvertedCoordinate(coordinate2)).thenReturn(convertedCoordinate2);
     }
 
     /**
@@ -258,13 +270,6 @@ public class CoordinatesTest extends TestCase {
      * Tests setting CoordinateConverter class.
      */
     public final void testSetCoordinateConverter() {
-        // create mock object
-        CoordinateConverterInterface converter = mock(CoordinateConverterInterface.class);
-
-        // setup mock object
-        when(converter.getConvertedCoordinate(coordinate1)).thenReturn(convertedCoordinate1);
-        when(converter.getConvertedCoordinate(coordinate2)).thenReturn(convertedCoordinate2);
-
         coordinates.setCoordinateConverter(converter);
 
         coordinates.addCoordinate(coordinate1);
