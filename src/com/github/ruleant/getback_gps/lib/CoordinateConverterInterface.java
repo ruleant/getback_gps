@@ -27,5 +27,5 @@ package com.github.ruleant.getback_gps.lib;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public interface CoordinateConverterInterface {
-    public Coordinate getConvertedCoordinate(Coordinate coordinate);
+    Coordinate getConvertedCoordinate(Coordinate coordinate);
 }
