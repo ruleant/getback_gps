@@ -7,3 +7,5 @@ target
 out
 /.idea
 *.iml
+.gradle/
+local.properties
