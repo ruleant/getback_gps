@@ -1,7 +1,7 @@
 /**
  * Custom Ariadne Location object
  *
- * Copyright (C) 2012-2013 Dieter Adriaenssens
+ * Copyright (C) 2012-2014 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -24,6 +24,7 @@ package com.github.ruleant.getback_gps.lib;
 import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
+import android.os.SystemClock;
 
 import com.github.ruleant.getback_gps.R;
 
@@ -82,7 +83,7 @@ public class AriadneLocation extends Location {
         // TODO use elapsedRealtimeNanos when using API 17 or higher
         // if ((SystemClock.elapsedRealtimeNanos()
         // - getElapsedRealtimeNanos()) < 300000000) {
-        return (System.currentTimeMillis() - getTime()) < LOC_EXPIRE;
+        return (SystemClock.elapsedRealtime() - getTime()) < LOC_EXPIRE;
     }
 
     /**
