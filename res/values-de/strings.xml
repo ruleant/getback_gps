@@ -3,7 +3,7 @@
 <string name="app_desc">Finde den Rückweg zu einem vorher besuchten Ort mit Hilfe der GPS-Koordinaten.</string>
     <string name="inaccurate_location">Dein jetztiger Ort ist nicht akkurat</string>
     <string name="notice_no_dest">Speichere deine Position um einen Zielpunkt zu speichern</string>
-    <string name="inaccurate_direction">Fang an dich zu bewegen um die exakte Richtung auf dein ziel zu bekommen</string>
+    <string name="inaccurate_direction">Fang an dich zu bewegen um die exakte Richtung auf dein Ziel zu bekommen</string>
     <string name="notice_destination_reached">Du bist an deinem Ziel</string>
     <string name="current_speed">Derzeitige Geschwindigkeit</string>
     <string name="speed_kph">km/h</string>
