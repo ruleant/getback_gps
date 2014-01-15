@@ -2,7 +2,7 @@
  * Class to format distances, speeds and numbers.
  *
  * Copyright (C) 2010 Peer internet solutions
- * Copyright (C) 2013 Dieter Adriaenssens
+ * Copyright (C) 2013-2014 Dieter Adriaenssens
  *
  * This file is based on a class that is part of mixare.
  * The original source can be found on :

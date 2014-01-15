@@ -1,7 +1,7 @@
 /**
  * Unit tests for Latitude class
  *
- * Copyright (C) 2012-2013 Dieter Adriaenssens
+ * Copyright (C) 2012-2014 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
