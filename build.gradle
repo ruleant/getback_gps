@@ -53,3 +53,31 @@ dependencies {
         exclude group: 'com.google.android', module: 'support-v4'
     }
 }
+
+// Unit tests
+
+sourceSets {
+    unitTest {
+        java.srcDir file('test')
+        resources.srcDir file('test/resources')
+    }
+}
+
+dependencies {
+    unitTestCompile files("$project.buildDir/classes/debug")
+    unitTestCompile 'junit:junit:3.8.1', 'org.mockito:mockito-core:1.9.5'
+    unitTestCompile 'com.google.android:android:4.1.1.4'
+}
+
+configurations {
+    unitTestCompile.extendsFrom runtime
+    unitTestRuntime.extendsFrom unitTestCompile
+}
+
+task unitTest(type:Test, dependsOn: assemble) {
+    description = "run unit tests"
+    testClassesDir = project.sourceSets.unitTest.output.classesDir
+    classpath = project.sourceSets.unitTest.runtimeClasspath
+}
+
+check.dependsOn unitTest
