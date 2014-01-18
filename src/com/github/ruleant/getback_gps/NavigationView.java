@@ -47,6 +47,11 @@ public class NavigationView extends ImageView {
     private Paint mPaint = new Paint();
 
     /**
+     * Arrow indicating direction.
+     */
+    private Coordinates mArrow = new Coordinates();
+
+    /**
      * Direction to destination.
      */
     private double mDirection = 0;
@@ -241,12 +246,12 @@ public class NavigationView extends ImageView {
         long[] tailLeftCoordinate = polarToCartesian(
                 directionArrowTail + ARROW_ANGLE, arrowLengthTail);
 
-        Coordinates arrow = new Coordinates();
-        arrow.addCoordinate(arrowPointCoordinate[X], arrowPointCoordinate[Y]);
-        arrow.addCoordinate(tailLeftCoordinate[X], tailLeftCoordinate[Y]);
-        arrow.addCoordinate(tailRightCoordinate[X], tailRightCoordinate[Y]);
+        // draw arrow
+        mArrow.addCoordinate(arrowPointCoordinate[X], arrowPointCoordinate[Y]);
+        mArrow.addCoordinate(tailLeftCoordinate[X], tailLeftCoordinate[Y]);
+        mArrow.addCoordinate(tailRightCoordinate[X], tailRightCoordinate[Y]);
 
-        canvas.drawPath(arrow.toPath(), mPaint);
+        canvas.drawPath(mArrow.toPath(), mPaint);
     }
 
     /**
