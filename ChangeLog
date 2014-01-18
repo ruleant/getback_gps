@@ -4,6 +4,8 @@
  - optimize size of all PNG images
  - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in
  AriadneLocation.isRecent()
+ - convert switch with android resources to if-else, see
+ http://tools.android.com/tips/non-constant-fields
 
  v0.1.1 (released 04Dec2013)
  
