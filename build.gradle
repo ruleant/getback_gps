@@ -32,6 +32,10 @@ android {
 
         instrumentTest.setRoot('test')
     }
+    lintOptions {
+            // if true, stop the gradle build if errors are found
+            abortOnError false
+    }
 }
 
 repositories {
