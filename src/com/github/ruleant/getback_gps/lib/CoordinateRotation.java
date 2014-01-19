@@ -49,7 +49,8 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
      * @param angle Rotation angle to apply to coordinate (0-360°)
      * @param maxRadius Maximum value of the radius
      */
-    public CoordinateRotation(final Coordinate center, final double angle, final double maxRadius) {
+    public CoordinateRotation(final Coordinate center, final double angle,
+                              final double maxRadius) {
         setRotationCenter(center);
         setRotationAngle(angle);
         setMaxRadius(maxRadius);
@@ -93,7 +94,8 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
         double radius = coordinate.getPolarRadius() * mMaxRadius;
 
         // Transform angle and convert to Cartesian
-        return new Coordinate(mCenter.getCartesianX() + Math.round(Math.sin(angle) * radius),
+        return new Coordinate(
+                mCenter.getCartesianX() + Math.round(Math.sin(angle) * radius),
                 mCenter.getCartesianY() - Math.round(Math.cos(angle) * radius));
     }
 }
