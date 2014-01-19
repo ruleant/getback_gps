@@ -89,7 +89,7 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
      * @param coordinate Unconverted coordinate
      * @return Converted coordinate
      */
-    public final Coordinate getConvertedCoordinate(Coordinate coordinate) {
+    public final Coordinate getConvertedCoordinate(final Coordinate coordinate) {
         double angle = Math.toRadians(coordinate.getPolarAngle()) + mAngle;
         double radius = coordinate.getPolarRadius() * mMaxRadius;
 
