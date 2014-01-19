@@ -59,6 +59,11 @@ public class NavigationView extends ImageView {
     private CoordinateRotation mRotationConverter;
 
     /**
+     * Rotation center.
+     */
+    private Coordinate mRotationCenter;
+
+    /**
      * Direction to destination.
      */
     private double mDirection = 0;
@@ -239,8 +244,8 @@ public class NavigationView extends ImageView {
         }
 
         // draw arrow to destination
-        mRotationConverter.setRotationCenter(
-                new Coordinate((long) getWidth() / 2, (long) getHeight() / 2));
+        mRotationCenter.setCartesianCoordinate(getWidth() / 2, getHeight() / 2);
+        mRotationConverter.setRotationCenter(mRotationCenter);
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setMaxRadius(getHeight() / 2);
 
@@ -260,8 +265,8 @@ public class NavigationView extends ImageView {
         mPaint.setStrokeWidth(LINE_THICKNESS);
 
         // initialise rotationConverter
-        mRotationConverter = new CoordinateRotation(new Coordinate(0,0),
-                0.0, 1.0);
+        mRotationCenter = new Coordinate(0, 0);
+        mRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
         mArrow.setCoordinateConverter(mRotationConverter);
 
         double arrowLength = D_80PCT;
