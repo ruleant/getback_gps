@@ -30,6 +30,8 @@ import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.github.ruleant.getback_gps.lib.Coordinate;
+import com.github.ruleant.getback_gps.lib.CoordinateRotation;
 import com.github.ruleant.getback_gps.lib.Coordinates;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
 
@@ -50,6 +52,11 @@ public class NavigationView extends ImageView {
      * Arrow indicating direction.
      */
     private Coordinates mArrow = new Coordinates();
+
+    /**
+     * Arrow indicating direction.
+     */
+    private CoordinateRotation mRotationConverter;
 
     /**
      * Direction to destination.
@@ -232,25 +239,12 @@ public class NavigationView extends ImageView {
         }
 
         // draw arrow to destination
-        double radius = getHeight() / 2;
-        double arrowLength = radius * D_80PCT;
-        double arrowLengthTail = radius * D_20PCT;
-        double directionArrowPoint = getDirection();
-        double directionArrowTail
-                = FormatUtils.inverseAngle(directionArrowPoint);
+        mRotationConverter.setRotationCenter(
+                new Coordinate((long) getWidth() / 2, (long) getHeight() / 2));
+        mRotationConverter.setRotationAngle(getDirection());
+        mRotationConverter.setMaxRadius(getHeight() / 2);
 
-        long[] arrowPointCoordinate
-                = polarToCartesian(directionArrowPoint, arrowLength);
-        long[] tailRightCoordinate = polarToCartesian(
-                directionArrowTail - ARROW_ANGLE, arrowLengthTail);
-        long[] tailLeftCoordinate = polarToCartesian(
-                directionArrowTail + ARROW_ANGLE, arrowLengthTail);
-
-        // draw arrow
-        mArrow.addCoordinate(arrowPointCoordinate[X], arrowPointCoordinate[Y]);
-        mArrow.addCoordinate(tailLeftCoordinate[X], tailLeftCoordinate[Y]);
-        mArrow.addCoordinate(tailRightCoordinate[X], tailRightCoordinate[Y]);
-
+        mArrow.setCoordinateConverter(mRotationConverter);
         canvas.drawPath(mArrow.toPath(), mPaint);
     }
 
@@ -264,39 +258,18 @@ public class NavigationView extends ImageView {
         // initialise paint
         mPaint.setColor(Color.RED);
         mPaint.setStrokeWidth(LINE_THICKNESS);
-    }
 
-    /**
-     * Convert polar coordinate to Cartesian coordinate
-     * and apply the necessary transformations.
-     *
-     * The angle transformations :
-     * - to clockwise : a => -a
-     * - rotate 90° counter-clockwise : -a => PI/2 - a
-     * X = cos(PI/2 - a) = sin(a)
-     * Y = sin(PI/2 - a) = cos(a)
-     * - flip Y coordinate
-     * Y = -cos(a)
-     *
-     * @param angleDegrees Angle to coordinate point (in degrees)
-     * @param distance distance to coordinate point
-     * @return Cartesian coordinate 0 = x, 1 = y
-     */
-    private long[] polarToCartesian(final double angleDegrees,
-                                    final double distance) {
-        long[] coordinate = new long[2];
+        // initialise rotationConverter
+        mRotationConverter = new CoordinateRotation(new Coordinate(0,0),
+                0.0, 1.0);
+        mArrow.setCoordinateConverter(mRotationConverter);
 
-        // get center of ImageView
-        long centerX = getWidth() / 2;
-        long centerY = getHeight() / 2;
+        double arrowLength = D_80PCT;
+        double arrowLengthTail = -1 * D_20PCT;
 
-        // convert angle in degrees to Radians
-        double angleRadian = Math.toRadians(angleDegrees);
-
-        // Transform angle and convert to Cartesian
-        coordinate[X] = centerX + Math.round(Math.sin(angleRadian) * distance);
-        coordinate[Y] = centerY - Math.round(Math.cos(angleRadian) * distance);
-
-        return coordinate;
+        // draw arrow
+        mArrow.addCoordinate(arrowLength, 0);
+        mArrow.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
+        mArrow.addCoordinate(arrowLengthTail, ARROW_ANGLE);
     }
 }
