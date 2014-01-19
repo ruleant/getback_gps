@@ -84,7 +84,15 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
     }
 
     /**
-     * Converts a Coordinate instance, fe. rotation, moving, scaling.
+     * Rotate coordinates with an angle, around a center.
+     *
+     * A couple of transformations are applied to convert the coordinates :
+     * - to clockwise : a => -a
+     * - rotate 90° counter-clockwise : -a => PI/2 - a
+     * X = cos(PI/2 - a) = sin(a)
+     * Y = sin(PI/2 - a) = cos(a)
+     * - flip Y coordinate
+     * Y = -cos(a)
      *
      * @param coordinate Unconverted coordinate
      * @return Converted coordinate
