@@ -47,6 +47,16 @@ public class CoordinateRotationTest extends TestCase {
     private Coordinate coordinate1;
 
     /**
+     * Center X coordinate.
+     */
+    private static long CENTER_X = 100;
+
+    /**
+     * Center Y coordinate.
+     */
+    private static long CENTER_Y = 150;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -65,5 +75,16 @@ public class CoordinateRotationTest extends TestCase {
         Coordinate converted = converter.getConvertedCoordinate(coordinate1);
         assertEquals(0, converted.getCartesianX());
         assertEquals(0, converted.getCartesianY());
+    }
+
+    /**
+     * Tests center coordinate.
+     */
+    public final void testCenterCoordinate() {
+        rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
+
+        Coordinate converted = converter.getConvertedCoordinate(coordinate1);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y, converted.getCartesianY());
     }
 }
