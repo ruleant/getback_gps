@@ -25,8 +25,6 @@ import com.github.ruleant.getback_gps.lib.CoordinateRotation;
 
 import junit.framework.TestCase;
 
-import static org.mockito.Mockito.mock;
-
 /**
  * Unit tests for Coordinate class.
  *
@@ -53,11 +51,11 @@ public class CoordinateRotationTest extends TestCase {
      * (Called before every test case method.)
      */
     protected final void setUp() {
-        rotationCenter = mock(Coordinate.class);
+        rotationCenter = new Coordinate(0, 0);
 
         converter = new CoordinateRotation(rotationCenter, 0, 0);
 
-        coordinate1 = mock(Coordinate.class);
+        coordinate1 = new Coordinate(0, 0);
     }
 
     /**
