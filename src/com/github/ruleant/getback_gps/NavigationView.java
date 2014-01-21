@@ -243,13 +243,15 @@ public class NavigationView extends ImageView {
             setLayoutParams(layoutParams);
         }
 
-        // draw arrow to destination
+        // Set up rotation converter
         mRotationCenter.setCartesianCoordinate(getWidth() / 2, getHeight() / 2);
-        mRotationConverter.setRotationCenter(mRotationCenter);
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setMaxRadius(getHeight() / 2);
+        // no need to reassign mRotationCenter to mRotationConverter,
+        // and mRotationConverter to mArrow,
+        // the instances were assigned in init().
 
-        mArrow.setCoordinateConverter(mRotationConverter);
+        // draw arrow to destination
         canvas.drawPath(mArrow.toPath(), mPaint);
     }
 
