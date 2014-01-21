@@ -49,12 +49,12 @@ public class CoordinateRotationTest extends TestCase {
     /**
      * Center X coordinate.
      */
-    private static long CENTER_X = 100;
+    private static final long CENTER_X = 100;
 
     /**
      * Center Y coordinate.
      */
-    private static long CENTER_Y = 150;
+    private static final long CENTER_Y = 150;
 
     /**
      * Sets up the test fixture.
