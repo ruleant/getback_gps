@@ -174,6 +174,12 @@ public class CoordinateRotationTest extends TestCase {
         assertEquals(CENTER_X + UNIT_30, converted.getCartesianX());
         assertEquals(CENTER_Y, converted.getCartesianY());
 
+        // after -90° (= 270°) rotation pointing left
+        converter.setRotationAngle(-1 * ANGLE_90);
+        converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X - UNIT_30, converted.getCartesianX());
+        assertEquals(CENTER_Y, converted.getCartesianY());
+
         // after 180° rotation pointing down
         converter.setRotationAngle(ANGLE_180);
         converted = converter.getConvertedCoordinate(testCoordinate);
