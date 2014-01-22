@@ -67,6 +67,26 @@ public class CoordinateRotationTest extends TestCase {
     public static final long UNIT_40 = 40;
 
     /**
+     * Angle 90°.
+     */
+    public static final double ANGLE_90 = 90.0;
+
+    /**
+     * Angle 180°.
+     */
+    public static final double ANGLE_180 = 180.0;
+
+    /**
+     * Angle 270°.
+     */
+    public static final double ANGLE_270 = 270.0;
+
+    /**
+     * Angle 360°.
+     */
+    public static final double ANGLE_360 = 360.0;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -133,5 +153,43 @@ public class CoordinateRotationTest extends TestCase {
         converted = converter.getConvertedCoordinate(testCoordinate);
         assertEquals(CENTER_X - UNIT_30, converted.getCartesianX());
         assertEquals(CENTER_Y, converted.getCartesianY());
+    }
+
+    /**
+     * Tests coordinate conversion with rotation,
+     * letting the coordinate point to all quadrants.
+     */
+    public final void testConversionWithRotation() {
+        rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
+
+        // pointing right, after conversion pointing up
+        testCoordinate.setCartesianCoordinate(UNIT_30, 0);
+        Coordinate converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y - UNIT_30, converted.getCartesianY());
+
+        // after 90° rotation pointing right
+        converter.setRotationAngle(ANGLE_90);
+        converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X + UNIT_30, converted.getCartesianX());
+        assertEquals(CENTER_Y, converted.getCartesianY());
+
+        // after 180° rotation pointing down
+        converter.setRotationAngle(ANGLE_180);
+        converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y + UNIT_30, converted.getCartesianY());
+
+        // after 270° rotation pointing left
+        converter.setRotationAngle(ANGLE_270);
+        converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X - UNIT_30, converted.getCartesianX());
+        assertEquals(CENTER_Y, converted.getCartesianY());
+
+        // after 360° rotation pointing up
+        converter.setRotationAngle(ANGLE_360);
+        converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y - UNIT_30, converted.getCartesianY());
     }
 }
