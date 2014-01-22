@@ -57,6 +57,16 @@ public class CoordinateRotationTest extends TestCase {
     private static final long CENTER_Y = 150;
 
     /**
+     * Unit 30 (for X and Y coordinates).
+     */
+    public static final long UNIT_30 = 30;
+
+    /**
+     * Unit 40 (for X and Y coordinates).
+     */
+    public static final long UNIT_40 = 40;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -85,6 +95,43 @@ public class CoordinateRotationTest extends TestCase {
 
         Coordinate converted = converter.getConvertedCoordinate(coordinate1);
         assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y, converted.getCartesianY());
+    }
+
+    /**
+     * Tests coordinate conversion without rotation,
+     * letting the coordinates point to all quadrants.
+     */
+    public final void testNoRotation() {
+        rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
+
+        // pointing right, after conversion pointing up
+        coordinate1.setCartesianCoordinate(UNIT_30, 0);
+        Coordinate converted = converter.getConvertedCoordinate(coordinate1);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y - UNIT_30, converted.getCartesianY());
+
+        coordinate1.setCartesianCoordinate(UNIT_30, UNIT_40);
+        converted = converter.getConvertedCoordinate(coordinate1);
+        assertEquals(CENTER_X + UNIT_40, converted.getCartesianX());
+        assertEquals(CENTER_Y - UNIT_30, converted.getCartesianY());
+
+        // pointing up, after conversion pointing right
+        coordinate1.setCartesianCoordinate(0, UNIT_30);
+        converted = converter.getConvertedCoordinate(coordinate1);
+        assertEquals(CENTER_X + UNIT_30, converted.getCartesianX());
+        assertEquals(CENTER_Y, converted.getCartesianY());
+
+        // pointing left, after conversion pointing down
+        coordinate1.setCartesianCoordinate(-1 * UNIT_30, 0);
+        converted = converter.getConvertedCoordinate(coordinate1);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y + UNIT_30, converted.getCartesianY());
+
+        // pointing down, after conversion pointing left
+        coordinate1.setCartesianCoordinate(0, -1 * UNIT_30);
+        converted = converter.getConvertedCoordinate(coordinate1);
+        assertEquals(CENTER_X - UNIT_30, converted.getCartesianX());
         assertEquals(CENTER_Y, converted.getCartesianY());
     }
 }
