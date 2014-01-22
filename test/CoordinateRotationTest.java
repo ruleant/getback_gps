@@ -63,7 +63,7 @@ public class CoordinateRotationTest extends TestCase {
     protected final void setUp() {
         rotationCenter = new Coordinate(0, 0);
 
-        converter = new CoordinateRotation(rotationCenter, 0, 0);
+        converter = new CoordinateRotation(rotationCenter, 0, 1);
 
         coordinate1 = new Coordinate(0, 0);
     }
