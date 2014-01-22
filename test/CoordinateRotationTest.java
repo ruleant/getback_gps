@@ -57,6 +57,11 @@ public class CoordinateRotationTest extends TestCase {
     private static final long CENTER_Y = 150;
 
     /**
+     * Scale to 50%.
+     */
+    public static final double SCALE_HALF = 0.5;
+
+    /**
      * Unit 30 (for X and Y coordinates).
      */
     public static final long UNIT_30 = 30;
@@ -231,7 +236,7 @@ public class CoordinateRotationTest extends TestCase {
         assertEquals(CENTER_X + (2 * UNIT_40), converted.getCartesianX());
         assertEquals(CENTER_Y - (2 * UNIT_30), converted.getCartesianY());
 
-        converter.setScaleRadius(0.5);
+        converter.setScaleRadius(SCALE_HALF);
 
         // pointing right, after conversion pointing up
         testCoordinate.setCartesianCoordinate(UNIT_30, 0);
