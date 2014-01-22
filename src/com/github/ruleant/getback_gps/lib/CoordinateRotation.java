@@ -53,7 +53,7 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
                               final double scaleRadius) {
         setRotationCenter(center);
         setRotationAngle(angle);
-        setMaxRadius(scaleRadius);
+        setScaleRadius(scaleRadius);
     }
 
     /**
@@ -87,7 +87,7 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
      *
      * @param scaleRadius Radius scale ratio
      */
-    public final void setMaxRadius(final double scaleRadius) {
+    public final void setScaleRadius(final double scaleRadius) {
         mScaleRadius = scaleRadius;
     }
 
