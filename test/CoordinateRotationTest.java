@@ -108,6 +108,20 @@ public class CoordinateRotationTest extends TestCase {
     }
 
     /**
+     * Tests setting empty center coordinate.
+     */
+    public final void testNoCenter() {
+        try {
+            converter.setRotationCenter(null);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Parameter center should not be null",
+                    e.getMessage());
+        }
+    }
+
+    /**
      * Tests center coordinate.
      */
     public final void testCenterCoordinate() {
