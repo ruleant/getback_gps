@@ -76,8 +76,16 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
 
     /**
      * Sets radius scale ratio.
+     * Possible values :
+     * - value > 1 : scale up
+     * - value = 1 : no scaling
+     * - 0 < value < 1 : scale down
+     * - value = 0 : no radius (converted coordinate = rotation center)
+     * - -1 < value < 0 : inverse angle + scale down
+     * - value = -1 : inverse angle + no scaling
+     * - value < -1 : inverse angle + scale up
      *
-     * @param scaleRadius Maximum value of the radius
+     * @param scaleRadius Radius scale ratio
      */
     public final void setMaxRadius(final double scaleRadius) {
         mScaleRadius = scaleRadius;
