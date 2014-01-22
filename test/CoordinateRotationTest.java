@@ -192,4 +192,23 @@ public class CoordinateRotationTest extends TestCase {
         assertEquals(CENTER_X, converted.getCartesianX());
         assertEquals(CENTER_Y - UNIT_30, converted.getCartesianY());
     }
+
+    /**
+     * Tests coordinate conversion scaling the radius.
+     */
+    public final void testConversionScaleRadius() {
+        rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
+        converter.setMaxRadius(2);
+
+        // pointing right, after conversion pointing up
+        testCoordinate.setCartesianCoordinate(UNIT_30, 0);
+        Coordinate converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X, converted.getCartesianX());
+        assertEquals(CENTER_Y - (2 * UNIT_30), converted.getCartesianY());
+
+        testCoordinate.setCartesianCoordinate(UNIT_30, UNIT_40);
+        converted = converter.getConvertedCoordinate(testCoordinate);
+        assertEquals(CENTER_X + (2 * UNIT_40), converted.getCartesianX());
+        assertEquals(CENTER_Y - (2 * UNIT_30), converted.getCartesianY());
+    }
 }
