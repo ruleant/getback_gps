@@ -122,7 +122,7 @@ public class CoordinateRotationTest extends TestCase {
      * Tests coordinate conversion without rotation,
      * letting the coordinates point to all quadrants.
      */
-    public final void testNoRotation() {
+    public final void testConversionNoRotation() {
         rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
 
         // pointing right, after conversion pointing up
