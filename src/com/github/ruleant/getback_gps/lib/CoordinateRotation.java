@@ -38,22 +38,22 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
     private Coordinate mCenter;
 
     /**
-     * Maximum radius.
+     * Radius scale ratio.
      */
-    private double mMaxRadius;
+    private double mScaleRadius;
 
     /**
      * Constructor.
      *
      * @param center Rotation center coordinate
      * @param angle Rotation angle to apply to coordinate (0-360°)
-     * @param maxRadius Maximum value of the radius
+     * @param scaleRadius Radius scale ratio
      */
     public CoordinateRotation(final Coordinate center, final double angle,
-                              final double maxRadius) {
+                              final double scaleRadius) {
         setRotationCenter(center);
         setRotationAngle(angle);
-        setMaxRadius(maxRadius);
+        setMaxRadius(scaleRadius);
     }
 
     /**
@@ -75,12 +75,12 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
     }
 
     /**
-     * Sets maximum radius.
+     * Sets radius scale ratio.
      *
-     * @param maxRadius Maximum value of the radius
+     * @param scaleRadius Maximum value of the radius
      */
-    public final void setMaxRadius(final double maxRadius) {
-        mMaxRadius = maxRadius;
+    public final void setMaxRadius(final double scaleRadius) {
+        mScaleRadius = scaleRadius;
     }
 
     /**
@@ -100,7 +100,7 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
     public final Coordinate getConvertedCoordinate(
             final Coordinate coordinate) {
         double angle = Math.toRadians(coordinate.getPolarAngle()) + mAngle;
-        double radius = coordinate.getPolarRadius() * mMaxRadius;
+        double radius = coordinate.getPolarRadius() * mScaleRadius;
 
         // Transform angle and convert to Cartesian
         return new Coordinate(
