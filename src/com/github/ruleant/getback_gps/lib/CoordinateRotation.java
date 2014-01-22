@@ -71,6 +71,11 @@ public class CoordinateRotation  implements CoordinateConverterInterface {
      * @param center Rotation center coordinate
      */
     public final void setRotationCenter(final Coordinate center) {
+        if (center == null) {
+            throw new IllegalArgumentException(
+                    "Parameter center should not be null");
+        }
+
         mCenter = center;
     }
 
