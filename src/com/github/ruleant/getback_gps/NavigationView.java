@@ -51,7 +51,12 @@ public class NavigationView extends ImageView {
     /**
      * Arrow indicating direction.
      */
-    private Coordinates mArrow = new Coordinates();
+    private Coordinates mArrowLines = new Coordinates();
+
+    /**
+     * Arrow indicating direction.
+     */
+    private Coordinates mArrowBody = new Coordinates();
 
     /**
      * Arrow indicating direction.
@@ -114,9 +119,14 @@ public class NavigationView extends ImageView {
     private static final float LINE_THICKNESS = 4;
 
     /**
-     * 20 %.
+     * 10 %.
      */
-    private static final double D_20PCT = 0.2;
+    private static final double D_10PCT = 0.1;
+
+    /**
+     * 40 %.
+     */
+    private static final double D_40PCT = 0.4;
 
     /**
      * 80 %.
@@ -126,7 +136,7 @@ public class NavigationView extends ImageView {
     /**
      * arrow side angle.
      */
-    private static final double ARROW_ANGLE = 25.0;
+    private static final double ARROW_ANGLE = 35.0;
 
     /**
      * Constructor.
@@ -248,11 +258,12 @@ public class NavigationView extends ImageView {
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setScaleRadius(getHeight() / 2);
         // no need to reassign mRotationCenter to mRotationConverter,
-        // and mRotationConverter to mArrow,
+        // and mRotationConverter to mArrowLines and mArrowBody,
         // the instances were assigned in init().
 
         // draw arrow to destination
-        canvas.drawPath(mArrow.toPath(), mPaint);
+        canvas.drawLines(mArrowLines.toLinesArray(), mPaint);
+        canvas.drawPath(mArrowBody.toPath(), mPaint);
     }
 
     /**
@@ -269,14 +280,23 @@ public class NavigationView extends ImageView {
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
         mRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
-        mArrow.setCoordinateConverter(mRotationConverter);
+        mArrowLines.setCoordinateConverter(mRotationConverter);
+        mArrowBody.setCoordinateConverter(mRotationConverter);
 
         double arrowLength = D_80PCT;
-        double arrowLengthTail = -1 * D_20PCT;
+        double arrowLengthDivide = -1 * D_10PCT;
+        double arrowLengthTail = -1 * D_40PCT;
 
         // draw arrow
-        mArrow.addCoordinate(arrowLength, 0);
-        mArrow.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
-        mArrow.addCoordinate(arrowLengthTail, ARROW_ANGLE);
+        // left side/outline in lines
+        mArrowLines.addCoordinate(arrowLength, 0);
+        mArrowLines.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
+        mArrowLines.addCoordinate(arrowLengthDivide, 0);
+        mArrowLines.addCoordinate(arrowLengthTail, ARROW_ANGLE);
+
+        // right side filled body
+        mArrowBody.addCoordinate(arrowLength, 0);
+        mArrowBody.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
+        mArrowBody.addCoordinate(arrowLengthDivide, 0);
     }
 }
