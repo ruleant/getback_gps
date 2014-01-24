@@ -3,8 +3,8 @@
  - issue #111 : add xxhdpi and xxxhdpi version of all images
  - optimize size of all PNG images
  - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in AriadneLocation.isRecent()
- - issue #78 : add classes to convert (rotate) coordinates
- - Redesign arrow pointing to destination, using coordinates class
+ - issue #78 : add classes to convert (rotate) sets of coordinates
+ - Redesign arrow pointing to destination, using RotationConverter and Coordinates classes
 
  v0.1.1 (released 04Dec2013)
  
