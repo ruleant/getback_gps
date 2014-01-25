@@ -283,12 +283,16 @@ public class NavigationView extends ImageView {
      * Initialise NavigationView.
      */
     private void init() {
+        Resources res = getResources();
+
         // set Background
         setBackgroundResource(R.drawable.custom_grid);
 
         // initialise paint
-        mPaintLines.setColor(Color.RED);
-        mPaintSolids.setColor(Color.rgb(200,0,0));
+        mPaintLines.setColor(
+                res.getColor(android.R.color.holo_red_dark));
+        mPaintSolids.setColor(
+                res.getColor(android.R.color.holo_red_light));
         mPaintLines.setStrokeWidth(LINE_THICKNESS);
 
         // initialise rotationConverter
