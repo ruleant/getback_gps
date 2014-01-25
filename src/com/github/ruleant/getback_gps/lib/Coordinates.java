@@ -49,6 +49,11 @@ public class Coordinates {
     private CoordinateConverterInterface mCoordinateConverter;
 
     /**
+     * Close line when exporting sets of coordinates.
+     */
+    private boolean mCloseLine = true;
+
+    /**
      * Number of coordinates per line : x,y of start and end point.
      */
     public static final int NUM_COORD_LINE = 4;
@@ -140,6 +145,16 @@ public class Coordinates {
     }
 
     /**
+     * Close line (add a line from last to first point)
+     * when exporting sets of coordinates.
+     *
+     * @param close true closes line
+     */
+    public final void close (final boolean close) {
+        mCloseLine = close;
+    }
+
+    /**
      * Get size of the Coordinates collection.
      *
      * @return number of Coordinate instances
@@ -180,7 +195,9 @@ public class Coordinates {
             path.lineTo(currentPoint[Coordinate.X], currentPoint[Coordinate.Y]);
         }
 
-        path.close();
+        if (mCloseLine) {
+            path.close();
+        }
 
         return path;
     }
@@ -191,21 +208,32 @@ public class Coordinates {
      * @return coordinates as array
      */
     public final float[] toLinesArray() {
+        int totalPoints = getSize();
+
         // 2 points or more are required to draw a line
-        if (getSize() <= 1) {
+        if (totalPoints <= 1) {
             return new float[0];
         }
 
         int arrayLength;
+        boolean closeLine;
 
-        if (getSize() == 2) {
+        if (totalPoints == 2) {
             // only 1 line between 2 points (no need to close)
-            arrayLength = NUM_COORD_LINE;
+            closeLine = false;
         } else {
+            // use class parameter
+            closeLine = mCloseLine;
+        }
+
+        if (closeLine) {
             // calculate array length, based on number of coordinates
             // length = #points * 4 (=number of coordinates needed to draw
             // a line between 2 points)
-            arrayLength = getSize() * NUM_COORD_LINE;
+            arrayLength = totalPoints * NUM_COORD_LINE;
+        } else {
+            // when not closing, one set of coordinates less is needed.
+            arrayLength = (totalPoints - 1) * NUM_COORD_LINE;
         }
 
         float[] array = new float[arrayLength];
@@ -236,7 +264,8 @@ public class Coordinates {
 
         // prevent overfilling array in case the
         // coordinates collection changes
-        if (arrayPosition >= arrayLength) {
+        // or when line doesn't need to be closed
+        if (!closeLine || arrayPosition >= arrayLength) {
             return array;
         }
 
