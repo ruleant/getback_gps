@@ -120,7 +120,7 @@ public class NavigationView extends ImageView {
     /**
      * Line thickness.
      */
-    private static final float LINE_THICKNESS = 4;
+    private static final float LINE_THICKNESS = 1;
 
     /**
      * 10 %.
@@ -288,12 +288,16 @@ public class NavigationView extends ImageView {
         // set Background
         setBackgroundResource(R.drawable.custom_grid);
 
+        // Get the screen's density scale
+        final float scale = res.getDisplayMetrics().density;
+
         // initialise paint
+        // Convert the line thickness to pixels, based on density scale
+        mPaintLines.setStrokeWidth((int) (LINE_THICKNESS * scale + 0.5f));
         mPaintLines.setColor(
                 res.getColor(android.R.color.holo_red_dark));
         mPaintSolids.setColor(
                 res.getColor(android.R.color.holo_red_light));
-        mPaintLines.setStrokeWidth(LINE_THICKNESS);
 
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
