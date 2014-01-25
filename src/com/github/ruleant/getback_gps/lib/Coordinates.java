@@ -147,8 +147,9 @@ public class Coordinates {
     /**
      * Close line (add a line from last to first point)
      * when exporting sets of coordinates.
+     * By default, the line is closed.
      *
-     * @param close true closes line
+     * @param close set to true to close the line
      */
     public final void setCloseLine(final boolean close) {
         mCloseLine = close;
