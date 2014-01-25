@@ -317,6 +317,8 @@ public class NavigationView extends ImageView {
         mArrowLines.addCoordinate(arrowLengthTail, ARROW_ANGLE);
         mArrowLines.addCoordinate(arrowLength, 0);
         mArrowLines.addCoordinate(arrowLengthDivide, 0);
+        // don't close line
+        mArrowLines.setCloseLine(false);
 
         // right side filled body
         mArrowBody.addCoordinate(arrowLength, 0);
