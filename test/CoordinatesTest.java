@@ -259,7 +259,7 @@ public class CoordinatesTest extends TestCase {
         coordinates.addCoordinate(coordinate0);
         coordinates.addCoordinate(coordinate1);
         coordinates.addCoordinate(coordinate2);
-        coordinates.setClose(false);
+        coordinates.setCloseLine(false);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(2 * Coordinates.NUM_COORD_LINE,
                 coordinatesArray.length);
@@ -288,13 +288,13 @@ public class CoordinatesTest extends TestCase {
                 coordinates.toLinesArray().length);
 
         // test not closing the line
-        coordinates.setClose(false);
+        coordinates.setCloseLine(false);
         // 2 lines expected
         assertEquals(2 * Coordinates.NUM_COORD_LINE,
                 coordinates.toLinesArray().length);
 
         // test closing the line
-        coordinates.setClose(true);
+        coordinates.setCloseLine(true);
         // 3 lines expected
         assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
                 coordinates.toLinesArray().length);

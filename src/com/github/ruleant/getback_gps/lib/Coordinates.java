@@ -150,7 +150,7 @@ public class Coordinates {
      *
      * @param close true closes line
      */
-    public final void setClose (final boolean close) {
+    public final void setCloseLine(final boolean close) {
         mCloseLine = close;
     }
 
