@@ -275,8 +275,8 @@ public class NavigationView extends ImageView {
         // the instances were assigned in init().
 
         // draw arrow to destination
-        canvas.drawLines(mArrowLines.toLinesArray(), mPaintLines);
         canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
+        canvas.drawLines(mArrowLines.toLinesArray(), mPaintLines);
     }
 
     /**
