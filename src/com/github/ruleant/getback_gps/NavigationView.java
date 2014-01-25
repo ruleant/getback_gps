@@ -293,7 +293,7 @@ public class NavigationView extends ImageView {
 
         // initialise paint
         // Convert the line thickness to pixels, based on density scale
-        mPaintLines.setStrokeWidth((int) (LINE_THICKNESS * scale + 0.5f));
+        mPaintLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
         mPaintLines.setColor(
                 res.getColor(android.R.color.holo_red_dark));
         mPaintSolids.setColor(
