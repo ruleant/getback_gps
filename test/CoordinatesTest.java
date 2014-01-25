@@ -253,6 +253,54 @@ public class CoordinatesTest extends TestCase {
     }
 
     /**
+     * Tests toLinesArray, multiple lines, not closing the line.
+     */
+    public final void testToLinesArrayMultiNoClosing() {
+        coordinates.addCoordinate(coordinate0);
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
+        coordinates.setClose(false);
+        float[] coordinatesArray = coordinates.toLinesArray();
+        assertEquals(2 * Coordinates.NUM_COORD_LINE,
+                coordinatesArray.length);
+        // first line
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
+        assertEquals((float) 0, coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals((float) CoordinateTest.UNIT_20,
+                coordinatesArray[Coordinates.POS_END_Y]);
+
+        // second line
+        assertCoordinates(coordinates.toLinesArray(), 1);
+    }
+
+    /**
+     * Test closing the line.
+     */
+    public final void testToLinesArrayClosing() {
+        coordinates.addCoordinate(coordinate0);
+        coordinates.addCoordinate(coordinate1);
+        coordinates.addCoordinate(coordinate2);
+
+        // testing default value (= closing the line)
+        // 3 lines expected
+        assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
+                coordinates.toLinesArray().length);
+
+        // test not closing the line
+        coordinates.setClose(false);
+        // 2 lines expected
+        assertEquals(2 * Coordinates.NUM_COORD_LINE,
+                coordinates.toLinesArray().length);
+
+        // test closing the line
+        coordinates.setClose(true);
+        // 3 lines expected
+        assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
+                coordinates.toLinesArray().length);
+    }
+
+    /**
      * Tests setting CoordinateConverter class.
      */
     public final void testSetCoordinateConverter() {
