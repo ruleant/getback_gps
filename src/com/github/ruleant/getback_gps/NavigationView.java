@@ -21,12 +21,14 @@
  */
 package com.github.ruleant.getback_gps;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.os.Build;
 import android.util.AttributeSet;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -35,6 +37,8 @@ import com.github.ruleant.getback_gps.lib.Coordinate;
 import com.github.ruleant.getback_gps.lib.CoordinateRotation;
 import com.github.ruleant.getback_gps.lib.Coordinates;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
+
+import de.keyboardsurfer.android.widget.crouton.Style;
 
 /**
  * Navigation view is used to indicate the direction to the destination.
@@ -212,6 +216,7 @@ public class NavigationView extends ImageView {
      *
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public final void setMode(final int mode) {
         Resources res = getResources();
 
@@ -224,17 +229,29 @@ public class NavigationView extends ImageView {
                 break;
             case INACCURATE:
                 this.mMode = INACCURATE;
-                mPaintLines.setColor(
-                        res.getColor(android.R.color.holo_blue_dark));
-                mPaintSolids.setColor(
-                        res.getColor(android.R.color.holo_blue_light));
+                if (Build.VERSION.SDK_INT
+                        >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                    mPaintLines.setColor(
+                            res.getColor(android.R.color.holo_blue_dark));
+                    mPaintSolids.setColor(
+                            res.getColor(android.R.color.holo_blue_light));
+                } else {
+                    mPaintLines.setColor(Style.holoBlueLight);
+                    mPaintSolids.setColor(Style.holoBlueLight);
+                }
                 break;
             case ACCURATE:
                 this.mMode = ACCURATE;
-                mPaintLines.setColor(
-                        res.getColor(android.R.color.holo_blue_dark));
-                mPaintSolids.setColor(
-                        res.getColor(android.R.color.holo_blue_light));
+                if (Build.VERSION.SDK_INT
+                        >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                    mPaintLines.setColor(
+                            res.getColor(android.R.color.holo_green_dark));
+                    mPaintSolids.setColor(
+                            res.getColor(android.R.color.holo_green_light));
+                } else {
+                    mPaintLines.setColor(Style.holoGreenLight);
+                    mPaintSolids.setColor(Style.holoGreenLight);
+                }
                 break;
         }
     }
@@ -282,6 +299,7 @@ public class NavigationView extends ImageView {
     /**
      * Initialise NavigationView.
      */
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void init() {
         Resources res = getResources();
 
@@ -294,10 +312,15 @@ public class NavigationView extends ImageView {
         // initialise paint
         // Convert the line thickness to pixels, based on density scale
         mPaintLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
-        mPaintLines.setColor(
-                res.getColor(android.R.color.holo_red_dark));
-        mPaintSolids.setColor(
-                res.getColor(android.R.color.holo_red_light));
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+            mPaintLines.setColor(
+                    res.getColor(android.R.color.holo_red_dark));
+            mPaintSolids.setColor(
+                    res.getColor(android.R.color.holo_red_light));
+        } else {
+            mPaintLines.setColor(Color.RED);
+            mPaintSolids.setColor(Color.RED);
+        }
 
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
