@@ -218,7 +218,8 @@ public class Coordinates {
 
         int arrayLength;
 
-        // only 1 line between 2 points (no need to close), else use class parameter
+        // only 1 line between 2 points (no need to close),
+        // else use class property mCloseLine
         boolean closeLine = totalPoints != 2 && mCloseLine;
 
         if (closeLine) {
