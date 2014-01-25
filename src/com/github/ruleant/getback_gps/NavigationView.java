@@ -219,7 +219,7 @@ public class NavigationView extends ImageView {
             default:
             case DISABLED:
                 this.mMode = DISABLED;
-                mPaintLines.setColor(Color.DKGRAY);
+                mPaintLines.setColor(Color.GRAY);
                 mPaintSolids.setColor(Color.LTGRAY);
                 break;
             case INACCURATE:
