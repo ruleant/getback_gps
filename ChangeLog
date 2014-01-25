@@ -5,6 +5,7 @@
  - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in AriadneLocation.isRecent()
  - issue #78 : add classes to convert (rotate) sets of coordinates
  - Redesign arrow pointing to destination, using RotationConverter and Coordinates classes
+ - issue #125 : add property to close the line to Coordinates class
 
  v0.1.1 (released 04Dec2013)
  
