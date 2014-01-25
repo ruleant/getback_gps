@@ -22,6 +22,7 @@
 package com.github.ruleant.getback_gps;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -35,8 +36,6 @@ import com.github.ruleant.getback_gps.lib.CoordinateRotation;
 import com.github.ruleant.getback_gps.lib.Coordinates;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
 
-import de.keyboardsurfer.android.widget.crouton.Style;
-
 /**
  * Navigation view is used to indicate the direction to the destination.
  *
@@ -44,9 +43,14 @@ import de.keyboardsurfer.android.widget.crouton.Style;
  */
 public class NavigationView extends ImageView {
     /**
-     * Paint used for drawing.
+     * Paint used for drawing lines.
      */
-    private Paint mPaint = new Paint();
+    private Paint mPaintLines = new Paint();
+
+    /**
+     * Paint used for drawing solids.
+     */
+    private Paint mPaintSolids = new Paint();
 
     /**
      * Arrow indicating direction.
@@ -209,19 +213,28 @@ public class NavigationView extends ImageView {
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
     public final void setMode(final int mode) {
+        Resources res = getResources();
+
         switch (mode) {
             default:
             case DISABLED:
                 this.mMode = DISABLED;
-                mPaint.setColor(Color.LTGRAY);
+                mPaintLines.setColor(Color.DKGRAY);
+                mPaintSolids.setColor(Color.LTGRAY);
                 break;
             case INACCURATE:
                 this.mMode = INACCURATE;
-                mPaint.setColor(Style.holoBlueLight);
+                mPaintLines.setColor(
+                        res.getColor(android.R.color.holo_blue_dark));
+                mPaintSolids.setColor(
+                        res.getColor(android.R.color.holo_blue_light));
                 break;
             case ACCURATE:
                 this.mMode = ACCURATE;
-                mPaint.setColor(Style.holoGreenLight);
+                mPaintLines.setColor(
+                        res.getColor(android.R.color.holo_blue_dark));
+                mPaintSolids.setColor(
+                        res.getColor(android.R.color.holo_blue_light));
                 break;
         }
     }
@@ -262,8 +275,8 @@ public class NavigationView extends ImageView {
         // the instances were assigned in init().
 
         // draw arrow to destination
-        canvas.drawLines(mArrowLines.toLinesArray(), mPaint);
-        canvas.drawPath(mArrowBody.toPath(), mPaint);
+        canvas.drawLines(mArrowLines.toLinesArray(), mPaintLines);
+        canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
     }
 
     /**
@@ -274,8 +287,9 @@ public class NavigationView extends ImageView {
         setBackgroundResource(R.drawable.custom_grid);
 
         // initialise paint
-        mPaint.setColor(Color.RED);
-        mPaint.setStrokeWidth(LINE_THICKNESS);
+        mPaintLines.setColor(Color.RED);
+        mPaintSolids.setColor(Color.rgb(200,0,0));
+        mPaintLines.setStrokeWidth(LINE_THICKNESS);
 
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
