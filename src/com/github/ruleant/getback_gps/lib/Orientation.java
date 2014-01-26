@@ -49,6 +49,16 @@ public class Orientation {
     private Sensor mAccelerometer;
 
     /**
+     * Accelerometer Sensor values.
+     */
+    private float[] mAccelerometerValues;
+
+    /**
+     * Accelerometer Sensor values timestamp.
+     */
+    private long mAccelerometerTimestamp;
+
+    /**
      * Magnetic field Sensor.
      */
     private Sensor mMagneticFieldSensor;
@@ -82,6 +92,11 @@ public class Orientation {
      * @param event Sensor event from TYPE_ACCELEROMETER sensor
      */
     public final void setAcceleration(final SensorEvent event) {
+        if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
+            return;
+        }
+        mAccelerometerValues = event.values;
+        mAccelerometerTimestamp = event.timestamp;
     }
 
     /**
