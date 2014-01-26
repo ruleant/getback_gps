@@ -23,6 +23,7 @@ package com.github.ruleant.getback_gps.lib;
 
 import android.content.Context;
 import android.hardware.SensorEvent;
+import android.hardware.SensorManager;
 
 /**
  * Calculates current orientation from sensors.
@@ -31,9 +32,29 @@ import android.hardware.SensorEvent;
  */
 public class Orientation {
     /**
-     * Constructor.
+     * Context of the Android app.
      */
-    public Orientation() {
+    private Context mContext;
+
+    /**
+     * Context of the Android app.
+     */
+    private SensorManager mSensorManager;
+
+    /**
+     * Constructor.
+     *
+     * @param context Context of the Android app
+     * @throws IllegalArgumentException if context is not defined
+     */
+    public Orientation(final Context context) {
+        if (context == null) {
+            throw new IllegalArgumentException("context is not defined");
+        }
+
+        mContext = context;
+        mSensorManager = (SensorManager) mContext.getSystemService(
+                Context.SENSOR_SERVICE);
     }
 
     /**
@@ -66,9 +87,9 @@ public class Orientation {
      * - TYPE_MAGNETIC_FIELD
      * - TYPE_ACCELERATION
      *
-     * @param context Context of the Android app
+     * @return true if required sensors are available
      */
-    public final boolean hasSensors(final Context context) {
+    public final boolean hasSensors() {
         return false;
     }
 
