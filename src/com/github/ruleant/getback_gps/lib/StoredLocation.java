@@ -108,7 +108,7 @@ public class StoredLocation {
      *
      * @param context        Context of the Android app
      * @param sharedPrefName Name of Shared Preferences file name
-     * @throws IllegalArgumentException if new value is out of range.
+     * @throws IllegalArgumentException if context is not definied
      */
     public StoredLocation(final Context context, final String sharedPrefName) {
         if (context == null) {
