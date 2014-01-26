@@ -142,7 +142,6 @@ public class LocationService extends Service {
         mStoredDestination = new StoredDestination(this, PREFS_STORE_DEST);
         setDestination(mStoredDestination.getLocation());
 
-
         // mProviderName is set by updateLocationProvider
         updateLocationProvider();
         // and used in requestUpdatesFromProvider
