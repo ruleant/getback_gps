@@ -68,9 +68,23 @@ public class Navigator {
     private AriadneLocation mDestination;
 
     /**
+     * Current orientation based on sensors.
+     */
+    private Orientation mOrientation;
+
+    /**
      * Constructor.
      */
     public Navigator() {
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param orientation Orientation instance
+     */
+    public Navigator(final Orientation orientation) {
+        mOrientation = orientation;
     }
 
     /**
@@ -234,7 +248,9 @@ public class Navigator {
      */
     public final double getCurrentBearing() {
         double currentBearing = DIR_ZERO;
-        if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
+        if (mOrientation != null && mOrientation.hasOrientation()) {
+            currentBearing = mOrientation.getOrientation();
+        } else if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {
             // don't calculate current bearing if previous location is not set
