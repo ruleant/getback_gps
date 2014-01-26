@@ -31,7 +31,12 @@ oneway interface ILocationServiceCallback {
      * Called when the service has an updated location.
      */
     void locationUpdated();
-    
+
+    /**
+     * Called when the service has an updated orientation.
+     */
+    void orientationUpdated();
+
     /**
      * Called when the service has an updated provider.
      */

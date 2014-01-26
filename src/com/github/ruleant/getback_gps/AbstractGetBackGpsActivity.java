@@ -437,6 +437,14 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         }
 
         /**
+         * Called by the LocationService when a orientation is updated,
+         * it gets the new location provider and refreshes the display.
+         */
+        public void orientationUpdated() {
+            refreshDisplay();
+        }
+
+        /**
          * Called by the LocationService when a location provider is updated,
          * it gets the new location provider and refreshes the display.
          */
