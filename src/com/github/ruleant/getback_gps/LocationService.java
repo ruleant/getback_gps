@@ -25,6 +25,9 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.hardware.Sensor;
+import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -41,6 +44,7 @@ import android.widget.Toast;
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
 import com.github.ruleant.getback_gps.lib.DebugLevel;
 import com.github.ruleant.getback_gps.lib.Navigator;
+import com.github.ruleant.getback_gps.lib.Orientation;
 import com.github.ruleant.getback_gps.lib.StoredDestination;
 import com.github.ruleant.getback_gps.lib.StoredLocation;
 
@@ -52,7 +56,7 @@ import com.github.ruleant.getback_gps.lib.StoredLocation;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class LocationService extends Service {
+public class LocationService extends Service implements SensorEventListener {
     /**
      * SharedPreferences location for StoredDestination.
      */
@@ -102,6 +106,10 @@ public class LocationService extends Service {
      */
     private Navigator mNavigator = null;
     /**
+     * Orientation class.
+     */
+    private Orientation mOrientation = null;
+    /**
      * Last known good location.
      */
     private StoredLocation mLastLocation = null;
@@ -127,7 +135,8 @@ public class LocationService extends Service {
                 = (LocationManager)
                 this.getSystemService(Context.LOCATION_SERVICE);
 
-        mNavigator = new Navigator();
+        mOrientation = new Orientation(this);
+        mNavigator = new Navigator(mOrientation);
 
         // retrieve last known good location
         mLastLocation = new StoredLocation(
@@ -148,6 +157,11 @@ public class LocationService extends Service {
         if (isSetLocationProvider()) {
             setLocation(requestUpdatesFromProvider());
         }
+
+        // Subscribe to sensor events
+        if (mOrientation.hasSensors()) {
+            mOrientation.registerEvents(this);
+        }
     }
 
     @Override
@@ -160,6 +174,9 @@ public class LocationService extends Service {
         // unsubscribe from LocationManager updates
         mLocationManager.removeUpdates(mListener);
 
+        // unsubscribe  from Orientation sensor events
+        mOrientation.unRegisterEvents(this);
+
         // save stored locations
         mLastLocation.save();
         mPrevLocation.setLocation(mNavigator.getPreviousLocation());
@@ -171,6 +188,7 @@ public class LocationService extends Service {
         mLocationManager = null;
         mLastLocation = null;
         mStoredDestination = null;
+        mOrientation = null;
         mNavigator = null;
 
         // display message announcing end of service
@@ -511,6 +529,54 @@ public class LocationService extends Service {
                 final String provider, final int status, final Bundle extras) {
         }
     };
+
+    /**
+     * Called when sensor accuracy changes, not implemented.
+     *
+     * @param sensor
+     * @param accuracy
+     */
+    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
+    }
+
+    /**
+     * Called when a Sensor value changes.
+     *
+     * @param event Sensor event
+     */
+    public final void onSensorChanged(final SensorEvent event) {
+        boolean updateOrientation = false;
+
+        switch (event.sensor.getType()) {
+            case Sensor.TYPE_ACCELEROMETER:
+                if (mOrientation != null) {
+                    mOrientation.setAcceleration(event);
+                }
+                updateOrientation = true;
+                break;
+            case Sensor.TYPE_MAGNETIC_FIELD:
+                if (mOrientation != null) {
+                    mOrientation.setMagneticField(event);
+                }
+                updateOrientation = true;
+                break;
+        }
+
+        if (updateOrientation) {
+            // Notify bound Activities of orientation Update
+            final int noCallbacks = mCallbacks.beginBroadcast();
+            for (int i = 0; i < noCallbacks; i++) {
+                try {
+                    mCallbacks.getBroadcastItem(i).orientationUpdated();
+                } catch (RemoteException e) {
+                    // The RemoteCallbackList will take care of removing
+                    // the dead object for us.
+                    e.printStackTrace();
+                }
+            }
+            mCallbacks.finishBroadcast();
+        }
+    }
 
     /**
      * Class used for the client Binder. Because we know this service always
