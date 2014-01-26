@@ -24,6 +24,7 @@ package com.github.ruleant.getback_gps.lib;
 import android.content.Context;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
+import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 
 /**
@@ -38,9 +39,19 @@ public class Orientation {
     private Context mContext;
 
     /**
-     * Context of the Android app.
+     * Sensor manager
      */
     private SensorManager mSensorManager;
+
+    /**
+     * Accelerometer Sensor
+     */
+    private Sensor mAccelerometer;
+
+    /**
+     * Magnetic field Sensor.
+     */
+    private Sensor mMagneticFieldSensor;
 
     /**
      * Constructor.
@@ -56,6 +67,13 @@ public class Orientation {
         mContext = context;
         mSensorManager = (SensorManager) mContext.getSystemService(
                 Context.SENSOR_SERVICE);
+
+        if (hasSensors()) {
+            mAccelerometer = mSensorManager.getDefaultSensor(
+                    Sensor.TYPE_ACCELEROMETER);
+            mMagneticFieldSensor = mSensorManager.getDefaultSensor(
+                    Sensor.TYPE_MAGNETIC_FIELD);
+        }
     }
 
     /**
@@ -99,6 +117,35 @@ public class Orientation {
                 Sensor.TYPE_MAGNETIC_FIELD).size() > 0
             && mSensorManager.getSensorList(
                 Sensor.TYPE_ACCELEROMETER).size() > 0;
+    }
+
+    /**
+     * Register for Sensor events for
+     * TYPE_ACCELEROMETER and TYPE_MAGNETIC_FIELD.
+     *
+     * @param listener SensorEventListener
+     */
+    public final void registerEvents(SensorEventListener listener) {
+        if (mAccelerometer != null && mMagneticFieldSensor != null) {
+            mSensorManager.registerListener(
+                    listener, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+            mSensorManager.registerListener(
+                    listener, mMagneticFieldSensor,
+                    SensorManager.SENSOR_DELAY_UI);
+        }
+    }
+
+    /**
+     * Register for Sensor events for
+     * TYPE_ACCELEROMETER and TYPE_MAGNETIC_FIELD.
+     *
+     * @param listener SensorEventListener
+     */
+    public final void unRegisterEvents(SensorEventListener listener) {
+        if (mAccelerometer != null && mMagneticFieldSensor != null) {
+            mSensorManager.unregisterListener(listener, mAccelerometer);
+            mSensorManager.unregisterListener(listener, mMagneticFieldSensor);
+        }
     }
 
     /**
