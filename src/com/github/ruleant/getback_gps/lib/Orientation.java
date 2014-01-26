@@ -128,6 +128,7 @@ public class Orientation {
      * - sensor values were recently updated
      */
     public final boolean hasOrientation() {
+        // TODO define when Orientation is present and accurate
         return false;
     }
 
@@ -185,6 +186,23 @@ public class Orientation {
      * @return current Orientation
      */
     public final double getOrientation() {
+        if (mAccelerometerValues.length != 9 || mMagneticFieldValues.length != 9) {
+            return 0;
+        }
+
+        float[] rotationMatrixR = null;
+        float[] rotationMatrixI = null;
+        float[] orientationValues = null;
+
+        if (SensorManager.getRotationMatrix(rotationMatrixR, rotationMatrixI,
+                mAccelerometerValues, mMagneticFieldValues)) {
+            orientationValues = SensorManager.getOrientation(rotationMatrixR, orientationValues);
+
+            if (orientationValues.length == 3) {
+                return Math.toDegrees(orientationValues[0]);
+            }
+        }
+
         return 0;
     }
 }
