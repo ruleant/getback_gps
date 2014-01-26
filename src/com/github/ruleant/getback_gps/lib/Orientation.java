@@ -22,6 +22,7 @@
 package com.github.ruleant.getback_gps.lib;
 
 import android.content.Context;
+import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorManager;
 
@@ -60,7 +61,7 @@ public class Orientation {
     /**
      * Set acceleration by an event from a TYPE_ACCELERATION sensor
      *
-     * @param event Sensor event from TYPE_ACCELERATION sensor
+     * @param event Sensor event from TYPE_ACCELEROMETER sensor
      */
     public final void setAcceleration(final SensorEvent event) {
     }
@@ -85,17 +86,24 @@ public class Orientation {
     /**
      * Returns true if the required sensors are available :
      * - TYPE_MAGNETIC_FIELD
-     * - TYPE_ACCELERATION
+     * - TYPE_ACCELEROMETER
      *
      * @return true if required sensors are available
      */
     public final boolean hasSensors() {
-        return false;
+        if (mSensorManager == null) {
+            return false;
+        }
+
+        return mSensorManager.getSensorList(
+                Sensor.TYPE_MAGNETIC_FIELD).size() > 0
+            && mSensorManager.getSensorList(
+                Sensor.TYPE_ACCELEROMETER).size() > 0;
     }
 
     /**
      * Calculates current orientation, based on
-     * TYPE_MAGNETIC_FIELD and TYPE_ACCELERATION sensor values.
+     * TYPE_MAGNETIC_FIELD and TYPE_ACCELEROMETER sensor values.
      *
      * @return current Orientation
      */
