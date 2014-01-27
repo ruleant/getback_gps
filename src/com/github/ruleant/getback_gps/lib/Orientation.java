@@ -159,10 +159,9 @@ public class Orientation {
     public final void registerEvents(SensorEventListener listener) {
         if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.registerListener(
-                    listener, mAccelerometer, SensorManager.SENSOR_DELAY_UI);
+                    listener, mAccelerometer, 500000);
             mSensorManager.registerListener(
-                    listener, mMagneticFieldSensor,
-                    SensorManager.SENSOR_DELAY_UI);
+                    listener, mMagneticFieldSensor, 500000);
         }
     }
 
