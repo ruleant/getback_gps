@@ -560,6 +560,8 @@ public class LocationService extends Service implements SensorEventListener {
                 }
                 updateOrientation = true;
                 break;
+            default:
+                break;
         }
 
         if (updateOrientation) {
