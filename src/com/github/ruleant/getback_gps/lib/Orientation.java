@@ -156,7 +156,7 @@ public class Orientation {
      *
      * @param listener SensorEventListener
      */
-    public final void registerEvents(SensorEventListener listener) {
+    public final void registerEvents(final SensorEventListener listener) {
         if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.registerListener(
                     listener, mAccelerometer, 500000);
@@ -171,7 +171,7 @@ public class Orientation {
      *
      * @param listener SensorEventListener
      */
-    public final void unRegisterEvents(SensorEventListener listener) {
+    public final void unRegisterEvents(final SensorEventListener listener) {
         if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.unregisterListener(listener, mAccelerometer);
             mSensorManager.unregisterListener(listener, mMagneticFieldSensor);
