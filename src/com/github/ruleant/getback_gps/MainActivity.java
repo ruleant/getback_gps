@@ -119,15 +119,9 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         }
 
         Resources res = getResources();
-        AriadneLocation destination;
 
         // get Destination from service
-        try {
-            destination = new AriadneLocation(navigator.getDestination());
-        } catch (Exception e) {
-            e.printStackTrace();
-            destination = null;
-        }
+        AriadneLocation destination = navigator.getDestination();
 
         // Refresh Directions to destination
         NavigationView nvToDestination

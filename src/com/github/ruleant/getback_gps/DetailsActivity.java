@@ -61,8 +61,9 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         }
 
         Resources res = getResources();
-        AriadneLocation destination;
-        AriadneLocation currentLocation;
+        // get Destination and current location from service
+        AriadneLocation destination = navigator.getDestination();
+        AriadneLocation currentLocation = service.getLocation();
 
         // Refresh locationProvider
         TextView tvProvider
@@ -81,7 +82,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                 = (TextView) findViewById(R.id.textView_Location);
         String locationText
                 = res.getString(R.string.curr_location) + ":\n";
-        currentLocation = service.getLocation();
+
         if (currentLocation == null) {
             locationText += " " + res.getString(R.string.unknown);
         } else {
@@ -94,14 +95,6 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                 = (TextView) findViewById(R.id.textView_Destination);
         String destinationText
                 = res.getString(R.string.destination) + ":\n";
-
-        // get Destination from service
-        try {
-            destination = new AriadneLocation(navigator.getDestination());
-        } catch (Exception e) {
-            e.printStackTrace();
-            destination = null;
-        }
 
         if (destination == null) {
             destinationText += " "
