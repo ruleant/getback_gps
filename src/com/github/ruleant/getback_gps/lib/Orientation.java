@@ -186,7 +186,8 @@ public class Orientation {
      * @return current Orientation
      */
     public final double getOrientation() {
-        if (mAccelerometerValues.length != 9 || mMagneticFieldValues.length != 9) {
+        if (mAccelerometerValues.length != 9
+                || mMagneticFieldValues.length != 9) {
             return 0;
         }
 
@@ -196,7 +197,8 @@ public class Orientation {
 
         if (SensorManager.getRotationMatrix(rotationMatrixR, rotationMatrixI,
                 mAccelerometerValues, mMagneticFieldValues)) {
-            orientationValues = SensorManager.getOrientation(rotationMatrixR, orientationValues);
+            orientationValues = SensorManager.getOrientation(rotationMatrixR,
+                    orientationValues);
 
             if (orientationValues.length == 3) {
                 return Math.toDegrees(orientationValues[0]);
