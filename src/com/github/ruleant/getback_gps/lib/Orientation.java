@@ -185,16 +185,15 @@ public class Orientation {
      * @return current Orientation
      */
     public final double getOrientation() {
-        if (mAccelerometerValues.length != 9
-                || mMagneticFieldValues.length != 9) {
+        if (mAccelerometerValues.length != 3
+                || mMagneticFieldValues.length != 3) {
             return 0;
         }
 
-        float[] rotationMatrixR = null;
-        float[] rotationMatrixI = null;
-        float[] orientationValues = null;
+        float[] rotationMatrixR = new float[9];
+        float[] orientationValues = new float[3];
 
-        if (SensorManager.getRotationMatrix(rotationMatrixR, rotationMatrixI,
+        if (SensorManager.getRotationMatrix(rotationMatrixR, null,
                 mAccelerometerValues, mMagneticFieldValues)) {
             orientationValues = SensorManager.getOrientation(rotationMatrixR,
                     orientationValues);
