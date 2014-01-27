@@ -39,12 +39,12 @@ public class Orientation {
     private Context mContext;
 
     /**
-     * Sensor manager
+     * Sensor manager.
      */
     private SensorManager mSensorManager;
 
     /**
-     * Accelerometer Sensor
+     * Accelerometer Sensor.
      */
     private Sensor mAccelerometer;
 
@@ -97,7 +97,7 @@ public class Orientation {
     }
 
     /**
-     * Set acceleration by an event from a TYPE_ACCELERATION sensor
+     * Set acceleration by an event from a TYPE_ACCELERATION sensor.
      *
      * @param event Sensor event from TYPE_ACCELEROMETER sensor
      */
@@ -110,7 +110,7 @@ public class Orientation {
     }
 
     /**
-     * Set acceleration by an event from a TYPE_MAGNETIC_FIELD sensor
+     * Set acceleration by an event from a TYPE_MAGNETIC_FIELD sensor.
      *
      * @param event Sensor event from TYPE_MAGNETIC_FIELD sensor
      */
@@ -125,7 +125,7 @@ public class Orientation {
     /**
      * Returns true if an orientation can be provided :
      * - required sensors are available
-     * - sensor values were recently updated
+     * - sensor values were recently updated.
      */
     public final boolean hasOrientation() {
         // TODO define when Orientation is present and accurate
@@ -135,7 +135,7 @@ public class Orientation {
     /**
      * Returns true if the required sensors are available :
      * - TYPE_MAGNETIC_FIELD
-     * - TYPE_ACCELEROMETER
+     * - TYPE_ACCELEROMETER.
      *
      * @return true if required sensors are available
      */
