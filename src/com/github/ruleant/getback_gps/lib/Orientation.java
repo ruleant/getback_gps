@@ -26,6 +26,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.SystemClock;
 
 /**
  * Calculates current orientation from sensors.
@@ -37,6 +38,16 @@ public class Orientation {
      * Context of the Android app.
      */
     private Context mContext;
+
+    /**
+     * Current calculated orientation.
+     */
+    private double mOrientation = 0;
+
+    /**
+     * Timestamp in milliseconds when current orientation was calculated.
+     */
+    private long mOrientationTimestamp = 0;
 
     /**
      * Sensor manager.
@@ -199,7 +210,10 @@ public class Orientation {
                     orientationValues);
 
             if (orientationValues.length == 3) {
-                return Math.toDegrees(orientationValues[0]);
+                mOrientation = Math.toDegrees(orientationValues[0]);
+                mOrientationTimestamp = SystemClock.elapsedRealtime();
+
+                return mOrientation;
             }
         }
 
