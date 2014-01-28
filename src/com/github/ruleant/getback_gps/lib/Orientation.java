@@ -139,8 +139,8 @@ public class Orientation {
      * - sensor values were recently updated.
      */
     public final boolean hasOrientation() {
-        // TODO define when Orientation is present and accurate
-        return false;
+        return mAccelerometer != null && mMagneticFieldSensor != null
+                && mAccelerometerTimestamp > 0 && mMagneticFieldTimestamp > 0;
     }
 
     /**
