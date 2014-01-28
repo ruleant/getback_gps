@@ -196,7 +196,8 @@ public class Orientation {
      * @return current Orientation
      */
     public final double getOrientation() {
-        if (mAccelerometerValues.length != 3
+        if (mAccelerometerValues == null || mAccelerometerValues.length != 3
+                || mMagneticFieldValues == null
                 || mMagneticFieldValues.length != 3) {
             return 0;
         }
