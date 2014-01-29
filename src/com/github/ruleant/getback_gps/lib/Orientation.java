@@ -117,6 +117,8 @@ public class Orientation {
         }
         mAccelerometerValues = event.values;
         mAccelerometerTimestamp = event.timestamp;
+
+        calculateOrientation();
     }
 
     /**
@@ -130,6 +132,8 @@ public class Orientation {
         }
         mMagneticFieldValues = event.values;
         mMagneticFieldTimestamp = event.timestamp;
+
+        calculateOrientation();
     }
 
     /**
@@ -140,6 +144,15 @@ public class Orientation {
     public final boolean hasOrientation() {
         return mAccelerometer != null && mMagneticFieldSensor != null
                 && mAccelerometerTimestamp > 0 && mMagneticFieldTimestamp > 0;
+    }
+
+    /**
+     * Gets current Orientation
+     *
+     * @return current Orientation
+     */
+    public final double getOrientation() {
+        return mOrientation;
     }
 
     /**
@@ -194,7 +207,7 @@ public class Orientation {
      *
      * @return current Orientation
      */
-    public final double getOrientation() {
+    private double calculateOrientation() {
         if (mAccelerometerValues == null || mAccelerometerValues.length != 3
                 || mMagneticFieldValues == null
                 || mMagneticFieldValues.length != 3) {
