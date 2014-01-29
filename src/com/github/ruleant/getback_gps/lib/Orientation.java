@@ -26,6 +26,7 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.os.SystemClock;
 
 /**
  * Calculates current orientation from sensors.
@@ -82,6 +83,17 @@ public class Orientation {
      * Magnetic field sensor values timestamp.
      */
     private long mMagneticFieldTimestamp;
+
+    /**
+     * Sensor timestamp expiration,
+     * 5 seconds in milliseconds (5 * 1000).
+     */
+    private static final long TIMESTAMP_EXPIRE = 5000;
+
+    /**
+     * Millisecond to nanosecond conversion rate.
+     */
+    private static final long MILLI_IN_NANO = 1000000;
 
     /**
      * Constructor.
@@ -143,7 +155,8 @@ public class Orientation {
      */
     public final boolean hasOrientation() {
         return mAccelerometer != null && mMagneticFieldSensor != null
-                && mAccelerometerTimestamp > 0 && mMagneticFieldTimestamp > 0;
+                && isTimestampRecent(mAccelerometerTimestamp)
+                && isTimestampRecent(mMagneticFieldTimestamp);
     }
 
     /**
@@ -232,5 +245,18 @@ public class Orientation {
         }
 
         return 0;
+    }
+
+    /**
+     * Checks if timestamp is recent.
+     *
+     * @param timestamp timestamp in nanoseconds
+     * @return true if timestamp is recent.
+     */
+    private boolean isTimestampRecent(final long timestamp) {
+        // TODO use elapsedRealtimeNanos when using API 17 or higher
+        return timestamp > 0
+            && (SystemClock.elapsedRealtime() - (timestamp / MILLI_IN_NANO))
+                < TIMESTAMP_EXPIRE;
     }
 }
