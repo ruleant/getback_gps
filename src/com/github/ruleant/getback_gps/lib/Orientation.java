@@ -96,6 +96,11 @@ public class Orientation {
     private static final long MILLI_IN_NANO = 1000000;
 
     /**
+     * Sensor update rate in microseconds.
+     */
+    private static final int SENSOR_UPDATE_RATE = 500000;
+
+    /**
      * Constructor.
      *
      * @param context Context of the Android app
@@ -195,9 +200,9 @@ public class Orientation {
     public final void registerEvents(final SensorEventListener listener) {
         if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.registerListener(
-                    listener, mAccelerometer, 500000);
+                    listener, mAccelerometer, SENSOR_UPDATE_RATE);
             mSensorManager.registerListener(
-                    listener, mMagneticFieldSensor, 500000);
+                    listener, mMagneticFieldSensor, SENSOR_UPDATE_RATE);
         }
     }
 
