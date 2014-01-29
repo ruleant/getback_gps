@@ -96,6 +96,11 @@ public class Orientation {
     private static final long MILLI_IN_NANO = 1000000;
 
     /**
+     * Microsecond to nanosecond conversion rate.
+     */
+    private static final long MICRO_IN_NANO = 1000;
+
+    /**
      * Sensor update rate in microseconds.
      */
     private static final int SENSOR_UPDATE_RATE = 500000;
@@ -129,7 +134,9 @@ public class Orientation {
      * @param event Sensor event from TYPE_ACCELEROMETER sensor
      */
     public final void setAcceleration(final SensorEvent event) {
-        if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER) {
+        if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER
+            || (event.timestamp - mAccelerometerTimestamp)
+                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
             return;
         }
         mAccelerometerValues = event.values;
@@ -144,7 +151,9 @@ public class Orientation {
      * @param event Sensor event from TYPE_MAGNETIC_FIELD sensor
      */
     public final void setMagneticField(final SensorEvent event) {
-        if (event.sensor.getType() != Sensor.TYPE_MAGNETIC_FIELD) {
+        if (event.sensor.getType() != Sensor.TYPE_MAGNETIC_FIELD
+            || (event.timestamp - mMagneticFieldTimestamp)
+                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
             return;
         }
         mMagneticFieldValues = event.values;
