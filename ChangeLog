@@ -8,6 +8,7 @@
  - issue #125 : add property to close the line to Coordinates class
  - issue #130 : remove unnecessary AriadneLocation conversion and try-catch in DetailsActivity and MainActivity
  - issue #132 : remove Android permission INTERNET, it is not needed to get WiFi/cell phone based location updates
+ - issue #133 : Add list of used required sensors to AndroidManifest
 
  v0.1.1 (released 04Dec2013)
  
