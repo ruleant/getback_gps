@@ -294,7 +294,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             } else {
                 crNoDestination.cancel();
 
-                // distination was reached
+                // destination was reached
                 if (navigator.isDestinationReached()) {
                     crDestinationReached.show();
                 } else {
