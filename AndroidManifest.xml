@@ -47,7 +47,11 @@
         </activity>
         <activity
             android:name="com.github.ruleant.getback_gps.SettingsActivity"
-            android:label="@string/settings" >
+            android:label="@string/settings"
+            android:parentActivityName="com.github.ruleant.getback_gps.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.github.ruleant.getback_gps.MainActivity" />
         </activity>
 
         <service
