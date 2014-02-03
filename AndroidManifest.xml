@@ -45,17 +45,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.ruleant.getback_gps.MainActivity" />
         </activity>
+        <activity
+            android:name="com.github.ruleant.getback_gps.SettingsActivity"
+            android:label="@string/settings" >
+        </activity>
 
         <service
             android:name="com.github.ruleant.getback_gps.LocationService"
             android:enabled="true"
             android:exported="false" >
         </service>
-
-        <activity
-            android:name="com.github.ruleant.getback_gps.SettingsActivity"
-            android:label="@string/settings" >
-        </activity>
     </application>
-
 </manifest>
