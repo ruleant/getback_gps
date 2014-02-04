@@ -53,6 +53,11 @@ Third party material
     - origin : http://developer.android.com/downloads/design/Android_Design_Icons_20131106.zip
     - license : Apache 2.0
 
+- src/com/github/ruleant/getback_gps/lib/FormatUtils.java
+    - Method FormatUtils.formatDist() is based on method formatDist in class MixUtils that is part of mixare
+    - origin : http://www.java2s.com/Code/Android/Date-Type/FormatDistance.htm
+    - license : GPLv3+
+
 - Crouton library
     - version : v1.8.1
     - website : https://github.com/keyboardsurfer/Crouton
