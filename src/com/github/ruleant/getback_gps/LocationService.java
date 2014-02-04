@@ -536,7 +536,8 @@ public class LocationService extends Service implements SensorEventListener {
      * @param sensor
      * @param accuracy
      */
-    public final void onAccuracyChanged(Sensor sensor, int accuracy) {
+    public final void onAccuracyChanged(final Sensor sensor,
+                                        final int accuracy) {
     }
 
     /**
