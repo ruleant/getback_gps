@@ -163,9 +163,11 @@ public class Orientation {
     }
 
     /**
-     * Returns true if an orientation can be provided :
+     * Checks if an orientation can be provided :
      * - required sensors are available
      * - sensor values were recently updated.
+     *
+     * @return true if an orientation can be provided
      */
     public final boolean hasOrientation() {
         return mAccelerometer != null && mMagneticFieldSensor != null
@@ -174,7 +176,7 @@ public class Orientation {
     }
 
     /**
-     * Gets current Orientation
+     * Gets current Orientation.
      *
      * @return current Orientation
      */
