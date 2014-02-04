@@ -272,7 +272,7 @@ public class Orientation {
     private boolean isTimestampRecent(final long timestamp) {
         // TODO use elapsedRealtimeNanos when using API 17 or higher
         return timestamp > 0
-            && (SystemClock.elapsedRealtime() - (timestamp / MILLI_IN_NANO))
+            && SystemClock.elapsedRealtime() - (timestamp / MILLI_IN_NANO)
                 < TIMESTAMP_EXPIRE;
     }
 }
