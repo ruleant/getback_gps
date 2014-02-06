@@ -188,11 +188,8 @@ public class Navigator {
     public final boolean isDestinationReached() {
         // don't check destination if location is not accurate,
         // or if destination is not set
-        if (!isLocationAccurate() || getDestination() == null) {
-            return false;
-        }
-
-        return getDistance() < mCurrentLocation.getAccuracy();
+        return isLocationAccurate() && getDestination() != null
+                && getDistance() < mCurrentLocation.getAccuracy();
     }
 
     /**
