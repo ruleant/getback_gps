@@ -106,6 +106,16 @@ public class Orientation {
     private static final int SENSOR_UPDATE_RATE = 500000;
 
     /**
+     * Number of sensor value components.
+     */
+    private static final int SENSOR_VALUES_SIZE = 3;
+
+    /**
+     * Number of rotation matrix components.
+     */
+    private static final int MATRIX_SIZE = 9;
+
+    /**
      * Constructor.
      *
      * @param context Context of the Android app
@@ -237,21 +247,22 @@ public class Orientation {
      * @return current Orientation
      */
     private double calculateOrientation() {
-        if (mAccelerometerValues == null || mAccelerometerValues.length != 3
+        if (mAccelerometerValues == null
+                || mAccelerometerValues.length != SENSOR_VALUES_SIZE
                 || mMagneticFieldValues == null
-                || mMagneticFieldValues.length != 3) {
+                || mMagneticFieldValues.length != SENSOR_VALUES_SIZE) {
             return 0;
         }
 
-        float[] rotationMatrixR = new float[9];
-        float[] orientationValues = new float[3];
+        float[] rotationMatrixR = new float[MATRIX_SIZE];
+        float[] orientationValues = new float[SENSOR_VALUES_SIZE];
 
         if (SensorManager.getRotationMatrix(rotationMatrixR, null,
                 mAccelerometerValues, mMagneticFieldValues)) {
             orientationValues = SensorManager.getOrientation(rotationMatrixR,
                     orientationValues);
 
-            if (orientationValues.length == 3) {
+            if (orientationValues.length == SENSOR_VALUES_SIZE) {
                 mOrientation = Math.toDegrees(orientationValues[0]);
                 mOrientationTimestamp = getMax(mMagneticFieldTimestamp,
                         mAccelerometerTimestamp);
