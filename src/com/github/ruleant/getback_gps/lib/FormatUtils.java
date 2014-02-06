@@ -4,7 +4,8 @@
  * Copyright (C) 2010 Peer internet solutions
  * Copyright (C) 2013-2014 Dieter Adriaenssens
  *
- * This file is based on a class that is part of mixare.
+ * Method formatDist() in this file is based on method formatDist
+ * in class MixUtils that is part of mixare.
  * The original source can be found on :
  * http://www.java2s.com/Code/Android/Date-Type/FormatDistance.htm
  * See commit logs for changes.

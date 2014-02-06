@@ -54,7 +54,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @param newValue New value for unformatted value.
      */
-    public AbstractGeoCoordinate(final double newValue) {
+    AbstractGeoCoordinate(final double newValue) {
         init();
         setValue(newValue);
     }
@@ -65,7 +65,7 @@ public abstract class AbstractGeoCoordinate {
      * @param context App Context.
      * @param newValue New value for unformatted value.
      */
-    public AbstractGeoCoordinate(final Context context, final double newValue) {
+    AbstractGeoCoordinate(final Context context, final double newValue) {
         setContext(context);
         init();
         setValue(newValue);
@@ -82,7 +82,7 @@ public abstract class AbstractGeoCoordinate {
      * @param rangeLow Lower limit of allowed range
      * @param rangeHigh Higher limit of allowed range
      */
-    protected final void setRange(
+    final void setRange(
             final double rangeLow,
             final double rangeHigh) {
         mRangeLow = rangeLow;
@@ -119,7 +119,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @param context Current context
      */
-    public final void setContext(final Context context) {
+    final void setContext(final Context context) {
         if (context != null) {
             mContext = context;
         }
@@ -130,7 +130,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @return Current context
      */
-    protected final Context getContext() {
+    final Context getContext() {
         return mContext;
     }
 

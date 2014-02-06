@@ -117,7 +117,7 @@ public class Coordinate {
         // calculate radius
         mRadius = Math.sqrt(x * x + y * y);
 
-        // calculate angle, atan2 returns the polar angle
+        // calculate angle, atan2() returns the polar angle
         mAngle = FormatUtils.normalizeAngle(Math.toDegrees(Math.atan2(y, x)));
     }
 

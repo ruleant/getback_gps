@@ -261,7 +261,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
      */
-    protected void refreshDisplay() {
+    void refreshDisplay() {
         // only refresh items if activity is bound to service
         if (!isBound()) {
             return;
@@ -273,7 +273,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     /**
      * Update which crouton should be displayed.
      */
-    protected final void refreshCrouton() {
+    final void refreshCrouton() {
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         Navigator navigator = getNavigator();
@@ -294,7 +294,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             } else {
                 crNoDestination.cancel();
 
-                // distination was reached
+                // destination was reached
                 if (navigator.isDestinationReached()) {
                     crDestinationReached.show();
                 } else {
@@ -316,7 +316,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @param displayInaccurate display value when it is inaccurate
      */
-    protected final void refreshCurrentViews(final boolean displayInaccurate) {
+    final void refreshCurrentViews(final boolean displayInaccurate) {
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         Navigator navigator = getNavigator();
@@ -363,7 +363,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @return boolean Bound State
      */
-    protected final boolean isBound() {
+    final boolean isBound() {
         return mBound;
     }
 
@@ -372,7 +372,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @return LocationService
      */
-    protected final LocationService getService() {
+    final LocationService getService() {
         if (isBound()) {
             return mService;
         } else {
@@ -385,7 +385,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @return Navigator
      */
-    protected final Navigator getNavigator() {
+    final Navigator getNavigator() {
         LocationService service = getService();
 
         if (service == null) {

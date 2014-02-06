@@ -202,11 +202,8 @@ public class Navigator {
     public final boolean isDestinationReached() {
         // don't check destination if location is not accurate,
         // or if destination is not set
-        if (!isLocationAccurate() || getDestination() == null) {
-            return false;
-        }
-
-        return getDistance() < mCurrentLocation.getAccuracy();
+        return isLocationAccurate() && getDestination() != null
+                && getDistance() < mCurrentLocation.getAccuracy();
     }
 
     /**
@@ -217,8 +214,12 @@ public class Navigator {
      */
     public final float getCurrentSpeed() {
         float currentSpeed = SPEED_ZERO;
+        if (mCurrentLocation == null) {
+            return currentSpeed;
+        }
+
         // if location has speed, use this
-        if (mCurrentLocation != null && mCurrentLocation.hasSpeed()) {
+        if (mCurrentLocation.hasSpeed()) {
             currentSpeed = mCurrentLocation.getSpeed();
         } else {
             if (mPreviousLocation != null
@@ -229,7 +230,11 @@ public class Navigator {
                 long time
                         = mCurrentLocation.getTime()
                         - mPreviousLocation.getTime();
-                if (time > 0) {
+                // only calculate speed if there is time difference
+                // and a distance bigger than the current accuracy
+                if (time > 0
+                        && distance > mCurrentLocation.getAccuracy()
+                        && distance > mPreviousLocation.getAccuracy()) {
                     // calculate speed from distance travelled and time spent
                     // time is in milliseconds, convert to seconds.
                     currentSpeed = distance / (time / SECOND_IN_MILLIS);
