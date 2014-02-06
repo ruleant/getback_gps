@@ -203,8 +203,12 @@ public class Navigator {
      */
     public final float getCurrentSpeed() {
         float currentSpeed = SPEED_ZERO;
+        if (mCurrentLocation == null) {
+            return currentSpeed;
+        }
+
         // if location has speed, use this
-        if (mCurrentLocation != null && mCurrentLocation.hasSpeed()) {
+        if (mCurrentLocation.hasSpeed()) {
             currentSpeed = mCurrentLocation.getSpeed();
         } else {
             if (mPreviousLocation != null
