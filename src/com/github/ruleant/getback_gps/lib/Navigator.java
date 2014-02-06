@@ -216,7 +216,11 @@ public class Navigator {
                 long time
                         = mCurrentLocation.getTime()
                         - mPreviousLocation.getTime();
-                if (time > 0) {
+                // only calculate speed if there is time difference
+                // and a distance bigger than the current accuracy
+                if (time > 0
+                        && distance > mCurrentLocation.getAccuracy()
+                        && distance > mPreviousLocation.getAccuracy()) {
                     // calculate speed from distance travelled and time spent
                     // time is in milliseconds, convert to seconds.
                     currentSpeed = distance / (time / SECOND_IN_MILLIS);
