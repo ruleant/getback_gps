@@ -39,7 +39,7 @@ public class DebugLevel {
     /**
      * Context of the App.
      */
-    private Context mContext;
+    private final Context mContext;
 
     /**
      * Default debug level (string).
