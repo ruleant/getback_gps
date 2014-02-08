@@ -10,3 +10,4 @@ out
 .gradle/
 local.properties
 build/
+javadoc/
