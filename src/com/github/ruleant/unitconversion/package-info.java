@@ -15,7 +15,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 /**
- * Classes to convert units, fe. meter to feet, kg to lb.
+ * Classes to convert units, for example : meter to feet, kg to lb.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
