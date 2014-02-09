@@ -2,7 +2,7 @@
 language: java
 env:
   global:
-    secure: rCOwlFN+0JH+fG/tzZFlYIA98oUh1dFISppwGqAQHzX4NSnzm+z8CNx1/R8DPJQc6NmxAV4voEVd8Oi5QRqpJq+iAYWLAtwcm8gVRo6EjZg3hLorO9xJh31RVoj61MqFpY4orN397htO9Yac0rjbeB8dKRDv0Xz/wVbOMcl2/FM=
+    secure: r4rxCKk6sReLlIQIZ4R9d1ADpBhG0DWPOMcsMkw7lJZ66XVHhfQ2GNVBReGOTetVlCHPxvvYb+FZX+kIQbl/1k4SsrNJJY8QeleMbR6RuSc92W7o6ZXkjc2B7FTGAreHBtP/uv8wTtnfHKON/2N6mgAd1Smwk5dTUkpPpfcSgs4=
 before_install:
   - mvn -v
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
