@@ -5,9 +5,12 @@
 #
 # This script was originally written by maxiaohao in the aws-mock GitHub project.
 # origin : https://github.com/treelogic-swe/aws-mock/blob/04746419b409e1689632da53a7ea6063dbe33ef8/.utility/push-javadoc-to-gh-pages.sh
+# Updated by Ben Limmer : only update JavaDoc when master branch is built.
+# see : https://github.com/ReadyTalk/swt-bling/commit/c1ab076ea07b97c19c43e509fe387fc4d1fdcab5
 # See git history for changes.
 #
 # Copyright 2013 Xiaohao Ma
+# Copyright 2013 Ben Limmer
 # Copyright 2014 Dieter Adriaenssens
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +26,8 @@
 # limitations under the License.
 
 # don't update JavaDoc when it is a pull request
-if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
+# only update Javadoc when master branch is built
+if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
 
 echo -e "Start to publish lastest Javadoc to gh-pages...\n"
 
