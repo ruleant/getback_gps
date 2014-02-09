@@ -5,8 +5,10 @@
 #
 # This script was originally written by maxiaohao in the aws-mock GitHub project.
 # origin : https://github.com/treelogic-swe/aws-mock/blob/04746419b409e1689632da53a7ea6063dbe33ef8/.utility/push-javadoc-to-gh-pages.sh
+# See git history for changes.
 #
 # Copyright 2013 Xiaohao Ma
+# Copyright 2014 Dieter Adriaenssens
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -30,7 +32,7 @@ echo -e "Start to publish lastest Javadoc to gh-pages...\n"
   cd $HOME
   git config --global user.email "travis@travis-ci.org"
   git config --global user.name "travis-ci"
-  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/ruleant/getback_gps gh-pages > /dev/null
+  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG} gh-pages > /dev/null
 
   cd gh-pages
   git rm -rf ./javadoc
