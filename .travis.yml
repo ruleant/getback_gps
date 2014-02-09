@@ -1,7 +1,8 @@
 #based on https://raw.github.com/leviwilson/android-travis-ci-example/master/.travis.yml
 language: java
-dd:
-  secure: rCOwlFN+0JH+fG/tzZFlYIA98oUh1dFISppwGqAQHzX4NSnzm+z8CNx1/R8DPJQc6NmxAV4voEVd8Oi5QRqpJq+iAYWLAtwcm8gVRo6EjZg3hLorO9xJh31RVoj61MqFpY4orN397htO9Yac0rjbeB8dKRDv0Xz/wVbOMcl2/FM=
+env:
+  global:
+    secure: rCOwlFN+0JH+fG/tzZFlYIA98oUh1dFISppwGqAQHzX4NSnzm+z8CNx1/R8DPJQc6NmxAV4voEVd8Oi5QRqpJq+iAYWLAtwcm8gVRo6EjZg3hLorO9xJh31RVoj61MqFpY4orN397htO9Yac0rjbeB8dKRDv0Xz/wVbOMcl2/FM=
 before_install:
   - mvn -v
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
