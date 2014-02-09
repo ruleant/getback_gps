@@ -119,7 +119,7 @@
                 <version>2.9.1</version>
                 <configuration>
                     <reportOutputDirectory>${basedir}</reportOutputDirectory>
-                    <destDir>javadoc</destDir>
+                    <destDir>build/docs/javadoc</destDir>
                     <show>protected</show>
                     <sourcepath>${basedir}/src</sourcepath>
                 </configuration>
