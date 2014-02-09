@@ -7,7 +7,7 @@
 # origin : https://github.com/treelogic-swe/aws-mock/blob/04746419b409e1689632da53a7ea6063dbe33ef8/.utility/push-javadoc-to-gh-pages.sh
 # Updated by Ben Limmer : only update JavaDoc when master branch is built.
 # see : https://github.com/ReadyTalk/swt-bling/commit/c1ab076ea07b97c19c43e509fe387fc4d1fdcab5
-# See git history for changes.
+# Updated by Dieter Adriaenssens : see git history for changes.
 #
 # Copyright 2013 Xiaohao Ma
 # Copyright 2013 Ben Limmer
