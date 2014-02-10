@@ -84,6 +84,11 @@ public class Navigator {
      * @param orientation Orientation instance
      */
     public Navigator(final Orientation orientation) {
+        if (orientation == null) {
+            throw new IllegalArgumentException(
+                    "Parameter orientation should not be null");
+        }
+
         mOrientation = orientation;
     }
 
