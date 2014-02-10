@@ -87,7 +87,7 @@ public class LatitudeTest extends TestCase {
     public final void testOutOfRangeValue() {
         try {
             latitude.setValue(OUT_OF_RANGE);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "newValue is not in range -90.0 .. 90.0",
@@ -98,7 +98,7 @@ public class LatitudeTest extends TestCase {
 
         try {
             latitude.setValue(-1 * OUT_OF_RANGE);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "newValue is not in range -90.0 .. 90.0",

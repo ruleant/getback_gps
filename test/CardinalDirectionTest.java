@@ -76,7 +76,7 @@ public class CardinalDirectionTest extends TestCase {
     public final void testOutOfRangeValue() {
         try {
             object.setValue(OUT_OF_RANGE);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "newValue is not in range 0.0 .. 360.0",
@@ -87,7 +87,7 @@ public class CardinalDirectionTest extends TestCase {
 
         try {
             object.setValue(-1 * OUT_OF_RANGE);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "newValue is not in range 0.0 .. 360.0",

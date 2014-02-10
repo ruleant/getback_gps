@@ -220,7 +220,7 @@ public class NavigatorTest extends TestCase {
 
         try {
             new Navigator(orientation);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "Parameter orientation should not be null",

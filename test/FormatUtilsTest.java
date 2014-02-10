@@ -421,7 +421,7 @@ public class FormatUtilsTest extends TestCase {
     public final void testFormatAngleWrongPrecision() {
         try {
             FormatUtils.formatAngle(A_45, -1);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "Precision can't be a negative value",

@@ -207,7 +207,7 @@ public class CoordinateTest extends TestCase {
     public final void testSetCoordinateNull() {
         try {
             coordinate.setCoordinate(null);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "Parameter coordinate should not be null",

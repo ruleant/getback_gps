@@ -164,7 +164,7 @@ public class CoordinatesTest extends TestCase {
     public final void testSetCoordinateNull() {
         try {
             coordinates.addCoordinate(null);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "Parameter coordinate should not be null",
@@ -364,7 +364,7 @@ public class CoordinatesTest extends TestCase {
     public final void testSetCoordinateConverterNull() {
         try {
             coordinates.setCoordinateConverter(null);
-            fail("should have thrown exception.");
+            fail("should have thrown an exception.");
         } catch (IllegalArgumentException e) {
             assertEquals(
                     "Parameter converter should not be null",
