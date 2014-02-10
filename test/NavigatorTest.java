@@ -489,7 +489,7 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
-     * Tests getCurrentBearing, using Orientation class
+     * Tests getCurrentBearing, using Orientation class.
      */
     public final void testGetBearingWithOrientation() {
         navigator = new Navigator(orientation);
