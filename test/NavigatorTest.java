@@ -435,6 +435,30 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Tests getCurrentBearing, using Orientation class
+     */
+    public final void testGetBearingWithOrientation() {
+        Orientation orientation = mock(Orientation.class);
+
+        navigator = new Navigator(orientation);
+
+        // get current bearing
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+
+        // mock : define hasOrientation
+        when(orientation.hasOrientation()).thenReturn(true);
+
+        // get current bearing
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+
+        // mock : define getOrientation
+        when(orientation.getOrientation()).thenReturn(BEARING_1);
+
+        // get current bearing
+        assertEquals(BEARING_1, navigator.getCurrentBearing());
+    }
+
+    /**
      * Tests getCurrentBearing of current location.
      */
     public final void testGetBearingCurrLoc() {

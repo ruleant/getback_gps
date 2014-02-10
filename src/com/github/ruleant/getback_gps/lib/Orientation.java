@@ -190,7 +190,7 @@ public class Orientation {
      *
      * @return current Orientation
      */
-    public final double getOrientation() {
+    public double getOrientation() {
         return mOrientation;
     }
 
