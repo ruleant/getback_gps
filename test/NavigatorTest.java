@@ -128,6 +128,11 @@ public class NavigatorTest extends TestCase {
     private AriadneLocation loc3 = null;
 
     /**
+     * Mock of the orientation class.
+     */
+    private Orientation orientation;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -138,6 +143,9 @@ public class NavigatorTest extends TestCase {
         loc1 = mock(AriadneLocation.class);
         loc2 = mock(AriadneLocation.class);
         loc3 = mock(AriadneLocation.class);
+
+        // create mock orientation
+        orientation = mock(Orientation.class);
 
         /* setup mock objects */
         // set distance
@@ -438,8 +446,6 @@ public class NavigatorTest extends TestCase {
      * Tests getCurrentBearing, using Orientation class
      */
     public final void testGetBearingWithOrientation() {
-        Orientation orientation = mock(Orientation.class);
-
         navigator = new Navigator(orientation);
 
         // get current bearing
@@ -579,8 +585,6 @@ public class NavigatorTest extends TestCase {
      * Tests bearing accuracy when orientation class is used.
      */
     public final void testIsBearingAccurateWithOrientation() {
-        Orientation orientation = mock(Orientation.class);
-
         navigator = new Navigator(orientation);
 
         assertFalse(navigator.isBearingAccurate());
