@@ -1,4 +1,4 @@
- v0.2 (not released)
+ v0.2 (not yet released)
  - issue #112 : update ic_launcher-web.png icon
  - issue #111 : add xxhdpi and xxxhdpi version of all images
  - optimize size of all PNG images
@@ -12,13 +12,12 @@
  - issue #103 : Don't calculate speed if distance between current and previous location is smaller than the current accuracy
  - issue #135 : Update JavaDoc on website (gh-pages) after a successful Travis CI build.
 
- v0.1.1 (released 04Dec2013)
- 
+ v0.1.1 (released on 04Dec2013)
  - updated license info about third party material
  - updated ic_action_refresh.png icon
  - added feature list to README.md
 
- v0.1 (released 03Dec2013)
+ v0.1 (released on 03Dec2013)
 features :
  - determine location based on GPS signal, WiFi or cell phone network :
      - use best/most accurate location provider
