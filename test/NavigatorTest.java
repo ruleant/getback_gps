@@ -430,6 +430,22 @@ public class NavigatorTest extends TestCase {
         when(loc1.getTime()).thenReturn(TIMESTAMP_1);
         when(loc2.getTime()).thenReturn(TIMESTAMP_2);
 
+        // distance is smaller than accuracy
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
+        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_40);
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
+        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_40);
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+
+        // distance is bigger than accuracy of both locations.
+        when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
+        when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
+
         // get Speed
         assertEquals(SPEED_1_2, navigator.getCurrentSpeed());
 
