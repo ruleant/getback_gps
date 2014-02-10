@@ -23,6 +23,7 @@
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
 import com.github.ruleant.getback_gps.lib.Navigator;
+import com.github.ruleant.getback_gps.lib.Orientation;
 
 import junit.framework.TestCase;
 
@@ -547,6 +548,25 @@ public class NavigatorTest extends TestCase {
         // is larger than current accuracy
         when(loc2.isRecent()).thenReturn(true);
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
+        assertTrue(navigator.isBearingAccurate());
+    }
+
+    /**
+     * Tests bearing accuracy when orientation class is used.
+     */
+    public final void testIsBearingAccurateWithOrientation() {
+        Orientation orientation = mock(Orientation.class);
+
+        navigator = new Navigator(orientation);
+
+        assertFalse(navigator.isBearingAccurate());
+
+        // Orientation class has no orientation value
+        when(orientation.hasOrientation()).thenReturn(false);
+        assertFalse(navigator.isBearingAccurate());
+
+        // Orientation class has an orientation value
+        when(orientation.hasOrientation()).thenReturn(true);
         assertTrue(navigator.isBearingAccurate());
     }
 }

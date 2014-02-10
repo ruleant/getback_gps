@@ -179,7 +179,7 @@ public class Orientation {
      *
      * @return true if an orientation can be provided
      */
-    public final boolean hasOrientation() {
+    public boolean hasOrientation() {
         return mAccelerometer != null && mMagneticFieldSensor != null
                 && isTimestampRecent(mAccelerometerTimestamp)
                 && isTimestampRecent(mMagneticFieldTimestamp);
