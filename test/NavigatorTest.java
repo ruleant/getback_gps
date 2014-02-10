@@ -199,6 +199,36 @@ public class NavigatorTest extends TestCase {
     }
 
     /**
+     * Tests constructor with Orientation parameter.
+     */
+    public final void testConstructorOrientation() {
+        orientation = mock(Orientation.class);
+
+        try {
+            navigator = new Navigator(orientation);
+            assertTrue(navigator.getClass() == Navigator.class);
+        } catch (IllegalArgumentException e) {
+            fail("shouldn't have thrown an exception.");
+        }
+    }
+
+    /**
+     * Tests constructor with Orientation parameter = null.
+     */
+    public final void testConstructorOrientationNull() {
+        orientation = null;
+
+        try {
+            new Navigator(orientation);
+            fail("should have thrown exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "Parameter orientation should not be null",
+                    e.getMessage());
+        }
+    }
+
+    /**
      * Tests setting a location.
      */
     public final void testSetLocation() {
