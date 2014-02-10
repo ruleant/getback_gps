@@ -230,7 +230,7 @@ public class Navigator {
                 long time
                         = mCurrentLocation.getTime()
                         - mPreviousLocation.getTime();
-                // only calculate speed if there is time difference
+                // only calculate speed if there is a time difference
                 // and a distance bigger than the current accuracy
                 if (time > 0
                         && distance > mCurrentLocation.getAccuracy()
