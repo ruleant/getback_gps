@@ -43,7 +43,7 @@ Is your language not listed? Follow the instructions on the 'New translation' ta
 Code documentation
 ------------------
 
-Code documentation of all classes and their methods can be found [here](doc/index.html).
+Code documentation of all classes and their methods can be found [here](http://ruleant.github.io/getback_gps/javadoc/index.html).
 
 Third party material
 --------------------
