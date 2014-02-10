@@ -58,6 +58,11 @@ Third party material
     - origin : http://www.java2s.com/Code/Android/Date-Type/FormatDistance.htm
     - license : GPLv3+
 
+- .utility/copy-javadoc-to-gh-pages.sh
+    - This script was originally written by Xiaohao Ma in the aws-mock project and modified by Ben Limmer.
+      See script file for more details.
+    - license : Apache 2.0
+
 - Crouton library
     - version : v1.8.1
     - website : https://github.com/keyboardsurfer/Crouton
