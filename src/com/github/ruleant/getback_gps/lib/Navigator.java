@@ -299,12 +299,12 @@ public class Navigator {
      * @return true if bearing is accurate
      */
     public final boolean isBearingAccurate() {
-        return  (mOrientation != null && mOrientation.hasOrientation())
-                || (isLocationAccurate()
+        return  mOrientation != null && mOrientation.hasOrientation()
+                || isLocationAccurate()
                 && mPreviousLocation != null
                 && mPreviousLocation.isRecent()
                 && !mPreviousLocation.equals(mCurrentLocation)
                 && mPreviousLocation.distanceTo(mCurrentLocation)
-                > mCurrentLocation.getAccuracy());
+                > mCurrentLocation.getAccuracy();
     }
 }
