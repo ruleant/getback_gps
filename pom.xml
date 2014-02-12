@@ -21,7 +21,7 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
-    <repositories>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>com.google.android</groupId>
