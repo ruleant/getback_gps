@@ -49,22 +49,22 @@ public class NavigationView extends ImageView {
     /**
      * Paint used for drawing lines.
      */
-    private Paint mPaintLines = new Paint();
+    private final Paint mPaintLines = new Paint();
 
     /**
      * Paint used for drawing solids.
      */
-    private Paint mPaintSolids = new Paint();
+    private final Paint mPaintSolids = new Paint();
 
     /**
      * Arrow indicating direction.
      */
-    private Coordinates mArrowLines = new Coordinates();
+    private final Coordinates mArrowLines = new Coordinates();
 
     /**
      * Arrow indicating direction.
      */
-    private Coordinates mArrowBody = new Coordinates();
+    private final Coordinates mArrowBody = new Coordinates();
 
     /**
      * Arrow indicating direction.

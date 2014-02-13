@@ -1,5 +1,8 @@
 #based on https://raw.github.com/leviwilson/android-travis-ci-example/master/.travis.yml
 language: java
+env:
+  global:
+    secure: 1K5DKXfDf/oAONWdwWL+7ZT6x3Z/xvWrFIGm9RnR9kMMjfcQ3HO0QazMwjI07f9TORQaQpCiTrQld377+Bgw91P5WOkT+Jfp+G0RPqt/h9OBAJVCc4uvhbeqk6udpBfAuhCykoZASZK8nJ75RCZRybsl6SpmvdUR4jGnNszcaJs=
 before_install:
   - mvn -v
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
@@ -13,4 +16,6 @@ before_install:
   # only update the sdk for the tools and platform-tools and required api level
   # (run "android list sdk --extended" to get the full list)
   - echo "y" | android update sdk --filter tools,platform-tools,build-tools-19.0.1,android-19 --no-ui --force
-script: mvn test cobertura:cobertura coveralls:cobertura -B
+script: mvn test cobertura:cobertura coveralls:cobertura javadoc:javadoc -B
+after_success:
+  - .utility/copy-javadoc-to-gh-pages.sh

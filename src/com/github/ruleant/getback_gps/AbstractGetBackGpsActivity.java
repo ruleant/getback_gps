@@ -398,7 +398,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     /**
      * Defines callbacks for service binding, passed to bindService().
      */
-    private ServiceConnection mConnection = new ServiceConnection() {
+    private final ServiceConnection mConnection = new ServiceConnection() {
 
         @Override
         public void onServiceConnected(
@@ -426,7 +426,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * This implementation is used to receive callbacks
      * from the remote service.
      */
-    private ILocationServiceCallback mCallback
+    private final ILocationServiceCallback mCallback
             = new ILocationServiceCallback.Stub() {
         /**
          * Called by the LocationService when a location is updated,

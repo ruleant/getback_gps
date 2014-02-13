@@ -36,7 +36,7 @@ public class Coordinates {
     /**
      * Collection of Coordinate instances.
      */
-    private ArrayList<Coordinate> mCoordinates;
+    private final ArrayList<Coordinate> mCoordinates;
 
     /**
      * Iterator for Coordinates collection.

@@ -91,7 +91,7 @@ public class LocationService extends Service implements SensorEventListener {
     /**
      * Current context.
      */
-    private Context mContext = this;
+    private final Context mContext = this;
 
     /**
      * LocationManager instance.

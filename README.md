@@ -43,7 +43,7 @@ Is your language not listed? Follow the instructions on the 'New translation' ta
 Code documentation
 ------------------
 
-Code documentation of all classes and their methods can be found [here](doc/index.html).
+Code documentation of all classes and their methods can be found [here](http://ruleant.github.io/getback_gps/javadoc/index.html).
 
 Third party material
 --------------------
@@ -57,6 +57,11 @@ Third party material
     - Method FormatUtils.formatDist() is based on method formatDist in class MixUtils that is part of mixare
     - origin : http://www.java2s.com/Code/Android/Date-Type/FormatDistance.htm
     - license : GPLv3+
+
+- .utility/copy-javadoc-to-gh-pages.sh
+    - This script was originally written by Xiaohao Ma in the aws-mock project and modified by Ben Limmer.
+      See script file for more details.
+    - license : Apache 2.0
 
 - Crouton library
     - version : v1.8.1
