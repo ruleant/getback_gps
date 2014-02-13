@@ -116,6 +116,11 @@ public class Orientation {
     private static final int MATRIX_SIZE = 9;
 
     /**
+     * Low pass filter alpha value.
+     */
+    private static final float LOW_PASS_ALPHA = 0.8f;
+
+    /**
      * Constructor.
      *
      * @param context Context of the Android app
@@ -302,5 +307,23 @@ public class Orientation {
         } else {
             return value2;
         }
+    }
+
+    private float lowPassFilter (float previousValue, float newValue) {
+        return previousValue + LOW_PASS_ALPHA * (newValue - previousValue);
+    }
+
+    private float[] lowPassFilterArray (float[] previousArray, float[] newArray) {
+        float[] returnArray = new float[newArray.length];
+
+        if (previousArray == null) {
+            return newArray;
+        }
+
+        for (int i = 0; i < newArray.length; i++) {
+            returnArray[i] = lowPassFilter(previousArray[i], newArray[i]);
+        }
+
+        return returnArray;
     }
 }
