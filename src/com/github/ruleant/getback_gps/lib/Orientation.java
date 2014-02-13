@@ -118,7 +118,7 @@ public class Orientation {
     /**
      * Low pass filter alpha value.
      */
-    private static final float LOW_PASS_ALPHA = 0.8f;
+    private static final float LOW_PASS_ALPHA = 0.6f;
 
     /**
      * Constructor.
@@ -155,7 +155,8 @@ public class Orientation {
                 < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
             return;
         }
-        mAccelerometerValues = event.values;
+        mAccelerometerValues
+            = lowPassFilterArray(mAccelerometerValues, event.values);
         mAccelerometerTimestamp = event.timestamp;
 
         calculateOrientation();
@@ -173,7 +174,8 @@ public class Orientation {
                 < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
             return;
         }
-        mMagneticFieldValues = event.values;
+        mMagneticFieldValues
+            = lowPassFilterArray(mMagneticFieldValues, event.values);
         mMagneticFieldTimestamp = event.timestamp;
 
         calculateOrientation();
