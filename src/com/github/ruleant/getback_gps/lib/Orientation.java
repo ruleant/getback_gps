@@ -145,6 +145,7 @@ public class Orientation {
      */
     public final void setAcceleration(final SensorEvent event) {
         if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER
+            // reject values that arrive sooner than the update rate
             || (event.timestamp - mAccelerometerTimestamp)
                 < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
             return;
@@ -162,6 +163,7 @@ public class Orientation {
      */
     public final void setMagneticField(final SensorEvent event) {
         if (event.sensor.getType() != Sensor.TYPE_MAGNETIC_FIELD
+            // reject values that arrive sooner than the update rate
             || (event.timestamp - mMagneticFieldTimestamp)
                 < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
             return;
