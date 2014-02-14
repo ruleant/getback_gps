@@ -316,10 +316,20 @@ public class Orientation {
     }
 
     private float[] lowPassFilterArray (float[] previousArray, float[] newArray) {
+        // newArray should not be empty
+        if (newArray == null || newArray.length = 0) {
+            throw new IllegalArgumentException("newArray should not be an empty array");
+        }
+        
         float[] returnArray = new float[newArray.length];
 
         if (previousArray == null) {
             return newArray;
+        }
+        
+        // previousArray should have the same size as newArray
+        if (newArray.length != previousArray.length) {
+            throw new IllegalArgumentException("previousArray should have the same size as newArray");
         }
 
         for (int i = 0; i < newArray.length; i++) {
