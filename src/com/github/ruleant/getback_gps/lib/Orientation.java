@@ -375,11 +375,11 @@ public class Orientation implements SensorEventListener {
     }
 
 
-    interface OrientationEventListener extends EventListener {
+    public interface OrientationEventListener extends EventListener {
         /**
          * Indicates there has been a orientation change.
          */
-        public void onOrientationChangeEvent();
+        public void onOrientationChanged();
     }
 
     ArrayList<OrientationEventListener> eventListenerList
@@ -416,7 +416,7 @@ public class Orientation implements SensorEventListener {
      */
     private void onOrientationChange() {
         for (OrientationEventListener eventListener : eventListenerList) {
-            eventListener.onOrientationChangeEvent();
+            eventListener.onOrientationChanged();
         }
     }
 
