@@ -25,9 +25,6 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -56,7 +53,7 @@ import com.github.ruleant.getback_gps.lib.StoredLocation;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class LocationService extends Service implements SensorEventListener {
+public class LocationService extends Service implements Orientation.OrientationEventListener {
     /**
      * SharedPreferences location for StoredDestination.
      */
@@ -160,7 +157,7 @@ public class LocationService extends Service implements SensorEventListener {
 
         // Subscribe to sensor events
         if (mOrientation.hasSensors()) {
-            mOrientation.registerEvents(this);
+            mOrientation.addEventListener(this);
         }
     }
 
@@ -175,7 +172,7 @@ public class LocationService extends Service implements SensorEventListener {
         mLocationManager.removeUpdates(mListener);
 
         // unsubscribe  from Orientation sensor events
-        mOrientation.unRegisterEvents(this);
+        mOrientation.removeEventListener(this);
 
         // save stored locations
         mLastLocation.save();
@@ -531,54 +528,21 @@ public class LocationService extends Service implements SensorEventListener {
     };
 
     /**
-     * Called when sensor accuracy changes, not implemented.
-     *
-     * @param sensor Sensor that has a changed accuracy
-     * @param accuracy New accuracy
+     * Called when the orientation value changes.
      */
-    public final void onAccuracyChanged(final Sensor sensor,
-                                        final int accuracy) {
-    }
-
-    /**
-     * Called when a Sensor value changes.
-     *
-     * @param event Sensor event
-     */
-    public final void onSensorChanged(final SensorEvent event) {
-        boolean updateOrientation = false;
-
-        switch (event.sensor.getType()) {
-            case Sensor.TYPE_ACCELEROMETER:
-                if (mOrientation != null) {
-                    mOrientation.setAcceleration(event);
-                }
-                updateOrientation = true;
-                break;
-            case Sensor.TYPE_MAGNETIC_FIELD:
-                if (mOrientation != null) {
-                    mOrientation.setMagneticField(event);
-                }
-                updateOrientation = true;
-                break;
-            default:
-                break;
-        }
-
-        if (updateOrientation) {
-            // Notify bound Activities of orientation Update
-            final int noCallbacks = mCallbacks.beginBroadcast();
-            for (int i = 0; i < noCallbacks; i++) {
-                try {
-                    mCallbacks.getBroadcastItem(i).orientationUpdated();
-                } catch (RemoteException e) {
-                    // The RemoteCallbackList will take care of removing
-                    // the dead object for us.
-                    e.printStackTrace();
-                }
+    public final void onOrientationChanged() {
+        // Notify bound Activities of orientation Update
+        final int noCallbacks = mCallbacks.beginBroadcast();
+        for (int i = 0; i < noCallbacks; i++) {
+            try {
+                mCallbacks.getBroadcastItem(i).orientationUpdated();
+            } catch (RemoteException e) {
+                // The RemoteCallbackList will take care of removing
+                // the dead object for us.
+                e.printStackTrace();
             }
-            mCallbacks.finishBroadcast();
         }
+        mCallbacks.finishBroadcast();
     }
 
     /**
