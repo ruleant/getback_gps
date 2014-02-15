@@ -28,6 +28,9 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.SystemClock;
 
+import java.util.ArrayList;
+import java.util.EventListener;
+
 /**
  * Calculates current orientation from sensors.
  *
@@ -367,5 +370,41 @@ public class Orientation {
         }
 
         return returnArray;
+    }
+
+
+    interface OrientationEventListener extends EventListener {
+        /**
+         * Indicates there has been a orientation change.
+         */
+        public void onOrientationChangeEvent();
+    }
+
+    ArrayList<OrientationEventListener> eventListenerList
+            = new ArrayList<OrientationEventListener>();
+
+    /**
+     * Adds the listener to eventListenerList
+     * @param listener Orientation event listener
+     */
+    public void addEventListener(OrientationEventListener listener){
+        eventListenerList.add(listener);
+    }
+
+    /**
+     * Removes the listener from eventListenerList
+     * @param listener Orientation event listener
+     */
+    public void removeEventListener(OrientationEventListener listener){
+        eventListenerList.remove(listener);
+    }
+
+    /**
+     * Notify all event listeners
+     */
+    private void onOrientationChange() {
+        for (OrientationEventListener eventListener : eventListenerList) {
+            eventListener.onOrientationChangeEvent();
+        }
     }
 }
