@@ -163,6 +163,7 @@ public class Orientation implements SensorEventListener {
         mAccelerometerTimestamp = event.timestamp;
 
         calculateOrientation();
+        onOrientationChange();
     }
 
     /**
@@ -182,6 +183,7 @@ public class Orientation implements SensorEventListener {
         mMagneticFieldTimestamp = event.timestamp;
 
         calculateOrientation();
+        onOrientationChange();
     }
 
     /**
@@ -389,6 +391,11 @@ public class Orientation implements SensorEventListener {
      */
     public void addEventListener(OrientationEventListener listener){
         eventListenerList.add(listener);
+
+        // register listening to events when the first listener is added
+        if (eventListenerList.size() == 1) {
+            registerEvents(this);
+        }
     }
 
     /**
@@ -397,6 +404,11 @@ public class Orientation implements SensorEventListener {
      */
     public void removeEventListener(OrientationEventListener listener){
         eventListenerList.remove(listener);
+
+        // unregister listening to events when the last listener is removed
+        if (eventListenerList.size() == 0) {
+            unRegisterEvents(this);
+        }
     }
 
     /**
