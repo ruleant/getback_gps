@@ -379,7 +379,7 @@ public class Orientation implements SensorEventListener {
         /**
          * Indicates there has been a orientation change.
          */
-        public void onOrientationChanged();
+        void onOrientationChanged();
     }
 
     ArrayList<OrientationEventListener> eventListenerList
