@@ -36,7 +36,7 @@ import java.util.EventListener;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class Orientation {
+public class Orientation implements SensorEventListener {
     /**
      * Context of the Android app.
      */
@@ -405,6 +405,34 @@ public class Orientation {
     private void onOrientationChange() {
         for (OrientationEventListener eventListener : eventListenerList) {
             eventListener.onOrientationChangeEvent();
+        }
+    }
+
+    /**
+     * Called when sensor accuracy changes, not implemented.
+     *
+     * @param sensor Sensor that has a changed accuracy
+     * @param accuracy New accuracy
+     */
+    public final void onAccuracyChanged(final Sensor sensor,
+                                        final int accuracy) {
+    }
+
+    /**
+     * Called when a Sensor value changes.
+     *
+     * @param event Sensor event
+     */
+    public final void onSensorChanged(final SensorEvent event) {
+        switch (event.sensor.getType()) {
+            case Sensor.TYPE_ACCELEROMETER:
+                setAcceleration(event);
+                break;
+            case Sensor.TYPE_MAGNETIC_FIELD:
+                setMagneticField(event);
+                break;
+            default:
+                break;
         }
     }
 }
