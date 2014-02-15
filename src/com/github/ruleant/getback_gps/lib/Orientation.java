@@ -311,11 +311,33 @@ public class Orientation {
         }
     }
 
+    /**
+     * Implements a low pass filter, topping of high frequency changes,
+     * reducing the jumpiness of the signal.
+     *
+     * @param previousValue previous sensor value
+     * @param newValue new sensor value
+     * @return filtered value
+     */
     public static float lowPassFilter (
             final float previousValue, final float newValue) {
         return previousValue + LOW_PASS_ALPHA * (newValue - previousValue);
     }
 
+    /**
+     * Runs a low pass filter on an array of unrelated values in parallel.
+     *
+     * There is no relation between the values,
+     * this method passes a set of separate signals in parallel.
+     *
+     * Not be confused by an array of values from the same sensor (FIFO),
+     * where the result of passing each value in an array is influenced
+     * by the result of the previous value.
+     *
+     * @param previousArray array of previous values
+     * @param newArray array of current values
+     * @return array with filtered values.
+     */
     public static float[] lowPassFilterArray (
             final float[] previousArray, final float[] newArray) {
         // newArray should not be empty
