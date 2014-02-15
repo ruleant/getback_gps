@@ -311,16 +311,18 @@ public class Orientation {
         }
     }
 
-    private float lowPassFilter (float previousValue, float newValue) {
+    public static float lowPassFilter (
+            final float previousValue, final float newValue) {
         return previousValue + LOW_PASS_ALPHA * (newValue - previousValue);
     }
 
-    private float[] lowPassFilterArray (float[] previousArray, float[] newArray) {
+    public static float[] lowPassFilterArray (
+            final float[] previousArray, final float[] newArray) {
         // newArray should not be empty
         if (newArray == null || newArray.length == 0) {
             throw new IllegalArgumentException("parameter newArray should not be an empty array");
         }
-        
+
         float[] returnArray = new float[newArray.length];
 
         if (previousArray == null) {
