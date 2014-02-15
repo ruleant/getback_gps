@@ -342,7 +342,8 @@ public class Orientation {
             final float[] previousArray, final float[] newArray) {
         // newArray should not be empty
         if (newArray == null || newArray.length == 0) {
-            throw new IllegalArgumentException("parameter newArray should not be an empty array");
+            throw new IllegalArgumentException(
+                    "parameter newArray should not be an empty array");
         }
 
         float[] returnArray = new float[newArray.length];
@@ -354,7 +355,11 @@ public class Orientation {
         // previousArray should have the same size as newArray
         if (newArray.length != previousArray.length) {
             throw new IllegalArgumentException(
-                "parameter previousArray should have the same size as parameter newArray");
+                "parameter previousArray (length = "
+                    + Integer.toString(previousArray.length)
+                    + ") should have the same size as parameter "
+                    + "newArray (length = " + Integer.toString(newArray.length)
+                    + ")");
         }
 
         for (int i = 0; i < newArray.length; i++) {
