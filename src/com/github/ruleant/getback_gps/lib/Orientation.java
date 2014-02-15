@@ -319,7 +319,7 @@ public class Orientation {
      * @param newValue new sensor value
      * @return filtered value
      */
-    public static float lowPassFilter (
+    public static float lowPassFilter(
             final float previousValue, final float newValue) {
         return previousValue + LOW_PASS_ALPHA * (newValue - previousValue);
     }
@@ -338,7 +338,7 @@ public class Orientation {
      * @param newArray array of current values
      * @return array with filtered values.
      */
-    public static float[] lowPassFilterArray (
+    public static float[] lowPassFilterArray(
             final float[] previousArray, final float[] newArray) {
         // newArray should not be empty
         if (newArray == null || newArray.length == 0) {
@@ -351,7 +351,7 @@ public class Orientation {
         if (previousArray == null) {
             return newArray;
         }
-        
+
         // previousArray should have the same size as newArray
         if (newArray.length != previousArray.length) {
             throw new IllegalArgumentException(
