@@ -106,7 +106,7 @@ public class Orientation implements SensorEventListener {
     /**
      * Sensor update rate in microseconds.
      */
-    private static final int SENSOR_UPDATE_RATE = 500000;
+    private static final int SENSOR_UPDATE_RATE = 200000;
 
     /**
      * Number of sensor value components.
