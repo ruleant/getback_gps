@@ -375,7 +375,9 @@ public class Orientation implements SensorEventListener {
         return returnArray;
     }
 
-
+    /**
+     * Event listener interface for Orientation updates.
+     */
     public interface OrientationEventListener extends EventListener {
         /**
          * Indicates there has been a orientation change.
@@ -383,11 +385,14 @@ public class Orientation implements SensorEventListener {
         void onOrientationChanged();
     }
 
+    /**
+     * List with subscribed listeners.
+     */
     ArrayList<OrientationEventListener> eventListenerList
             = new ArrayList<OrientationEventListener>();
 
     /**
-     * Adds the listener to eventListenerList
+     * Adds the listener to eventListenerList.
      * @param listener Orientation event listener
      */
     public void addEventListener(OrientationEventListener listener){
@@ -400,7 +405,7 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Removes the listener from eventListenerList
+     * Removes the listener from eventListenerList.
      * @param listener Orientation event listener
      */
     public void removeEventListener(OrientationEventListener listener){
@@ -413,7 +418,7 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Notify all event listeners
+     * Notify all event listeners.
      */
     private void onOrientationChange() {
         for (OrientationEventListener eventListener : eventListenerList) {
