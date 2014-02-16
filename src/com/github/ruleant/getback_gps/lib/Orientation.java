@@ -395,7 +395,8 @@ public class Orientation implements SensorEventListener {
      * Adds the listener to eventListenerList.
      * @param listener Orientation event listener
      */
-    public void addEventListener(OrientationEventListener listener){
+    public final void addEventListener(
+            final OrientationEventListener listener) {
         eventListenerList.add(listener);
 
         // register listening to events when the first listener is added
@@ -408,7 +409,8 @@ public class Orientation implements SensorEventListener {
      * Removes the listener from eventListenerList.
      * @param listener Orientation event listener
      */
-    public void removeEventListener(OrientationEventListener listener){
+    public final void removeEventListener(
+            final OrientationEventListener listener) {
         eventListenerList.remove(listener);
 
         // unregister listening to events when the last listener is removed
