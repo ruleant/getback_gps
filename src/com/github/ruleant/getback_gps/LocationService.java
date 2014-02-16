@@ -53,7 +53,8 @@ import com.github.ruleant.getback_gps.lib.StoredLocation;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class LocationService extends Service implements Orientation.OrientationEventListener {
+public class LocationService extends Service
+        implements Orientation.OrientationEventListener {
     /**
      * SharedPreferences location for StoredDestination.
      */
