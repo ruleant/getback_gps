@@ -196,7 +196,8 @@ public class Orientation implements SensorEventListener {
     public boolean hasOrientation() {
         return mAccelerometer != null && mMagneticFieldSensor != null
                 && isTimestampRecent(mAccelerometerTimestamp)
-                && isTimestampRecent(mMagneticFieldTimestamp);
+                && isTimestampRecent(mMagneticFieldTimestamp)
+                && isTimestampRecent(mOrientationTimestamp);
     }
 
     /**
