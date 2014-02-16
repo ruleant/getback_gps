@@ -217,11 +217,8 @@ public class Orientation implements SensorEventListener {
      * @return true if required sensors are available
      */
     public final boolean hasSensors() {
-        if (mSensorManager == null) {
-            return false;
-        }
-
-        return mSensorManager.getSensorList(
+        return mSensorManager != null
+            && mSensorManager.getSensorList(
                 Sensor.TYPE_MAGNETIC_FIELD).size() > 0
             && mSensorManager.getSensorList(
                 Sensor.TYPE_ACCELEROMETER).size() > 0;
