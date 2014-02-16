@@ -388,7 +388,7 @@ public class Orientation implements SensorEventListener {
     /**
      * List with subscribed listeners.
      */
-    ArrayList<OrientationEventListener> eventListenerList
+    private ArrayList<OrientationEventListener> eventListenerList
             = new ArrayList<OrientationEventListener>();
 
     /**
