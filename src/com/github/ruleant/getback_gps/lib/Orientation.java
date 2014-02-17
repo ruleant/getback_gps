@@ -320,12 +320,13 @@ public class Orientation implements SensorEventListener {
      *
      * @param previousValue previous sensor value
      * @param newValue new sensor value
-     * @param alpha Alpha value of low pass filter
+     * @param alpha Alpha value of low pass filter (valid range : 0-1)
      * @return filtered value
      */
     public static float lowPassFilter(
             final float previousValue, final float newValue,
             final float alpha) {
+        // TODO check alpha value range
         return previousValue + alpha * (newValue - previousValue);
     }
 
@@ -341,7 +342,7 @@ public class Orientation implements SensorEventListener {
      *
      * @param previousArray array of previous values
      * @param newArray array of current values
-     * @param alpha Alpha value of low pass filter
+     * @param alpha Alpha value of low pass filter (valid range : 0-1)
      * @return array with filtered values.
      */
     public static float[] lowPassFilterArray(
