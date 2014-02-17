@@ -159,7 +159,7 @@ public class Orientation implements SensorEventListener {
             return;
         }
         mAccelerometerValues
-            = lowPassFilterArray(mAccelerometerValues, event.values);
+            = lowPassFilterArray(mAccelerometerValues, event.values, LOW_PASS_ALPHA);
         mAccelerometerTimestamp = event.timestamp;
 
         calculateOrientation();
@@ -179,7 +179,7 @@ public class Orientation implements SensorEventListener {
             return;
         }
         mMagneticFieldValues
-            = lowPassFilterArray(mMagneticFieldValues, event.values);
+            = lowPassFilterArray(mMagneticFieldValues, event.values, LOW_PASS_ALPHA);
         mMagneticFieldTimestamp = event.timestamp;
 
         calculateOrientation();
@@ -320,11 +320,13 @@ public class Orientation implements SensorEventListener {
      *
      * @param previousValue previous sensor value
      * @param newValue new sensor value
+     * @param alpha Alpha value of low pass filter
      * @return filtered value
      */
     public static float lowPassFilter(
-            final float previousValue, final float newValue) {
-        return previousValue + LOW_PASS_ALPHA * (newValue - previousValue);
+            final float previousValue, final float newValue,
+            final float alpha) {
+        return previousValue + alpha * (newValue - previousValue);
     }
 
     /**
@@ -339,10 +341,12 @@ public class Orientation implements SensorEventListener {
      *
      * @param previousArray array of previous values
      * @param newArray array of current values
+     * @param alpha Alpha value of low pass filter
      * @return array with filtered values.
      */
     public static float[] lowPassFilterArray(
-            final float[] previousArray, final float[] newArray) {
+            final float[] previousArray, final float[] newArray,
+            final float alpha) {
         // newArray should not be empty
         if (newArray == null || newArray.length == 0) {
             throw new IllegalArgumentException(
@@ -366,7 +370,7 @@ public class Orientation implements SensorEventListener {
         }
 
         for (int i = 0; i < newArray.length; i++) {
-            returnArray[i] = lowPassFilter(previousArray[i], newArray[i]);
+            returnArray[i] = lowPassFilter(previousArray[i], newArray[i], alpha);
         }
 
         return returnArray;
