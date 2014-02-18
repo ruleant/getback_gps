@@ -90,11 +90,11 @@ public class LowPassFilter {
         // previousArray should have the same size as newArray
         if (newArray.length != previousArray.length) {
             throw new IllegalArgumentException(
-                    "parameter previousArray (length = "
-                            + Integer.toString(previousArray.length)
-                            + ") should have the same size as parameter "
-                            + "newArray (length = " + Integer.toString(newArray.length)
-                            + ")");
+                String.format(
+                    "parameter previousArray (length = %1$d) should have the "
+                        + "same size as parameter newArray (length = %2$d)",
+                    previousArray.length,
+                    newArray.length));
         }
 
         for (int i = 0; i < newArray.length; i++) {
