@@ -159,7 +159,8 @@ public class Orientation implements SensorEventListener {
             return;
         }
         mAccelerometerValues
-            = lowPassFilterArray(mAccelerometerValues, event.values, LOW_PASS_ALPHA);
+            = lowPassFilterArray(mAccelerometerValues,
+                event.values, LOW_PASS_ALPHA);
         mAccelerometerTimestamp = event.timestamp;
 
         calculateOrientation();
@@ -179,7 +180,8 @@ public class Orientation implements SensorEventListener {
             return;
         }
         mMagneticFieldValues
-            = lowPassFilterArray(mMagneticFieldValues, event.values, LOW_PASS_ALPHA);
+            = lowPassFilterArray(mMagneticFieldValues,
+                event.values, LOW_PASS_ALPHA);
         mMagneticFieldTimestamp = event.timestamp;
 
         calculateOrientation();
@@ -371,7 +373,8 @@ public class Orientation implements SensorEventListener {
         }
 
         for (int i = 0; i < newArray.length; i++) {
-            returnArray[i] = lowPassFilter(previousArray[i], newArray[i], alpha);
+            returnArray[i] = lowPassFilter(
+                    previousArray[i],newArray[i], alpha);
         }
 
         return returnArray;
