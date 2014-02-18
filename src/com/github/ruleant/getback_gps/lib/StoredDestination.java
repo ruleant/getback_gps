@@ -17,7 +17,7 @@ package com.github.ruleant.getback_gps.lib;
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @package com.github.ruleant.getback_gps
+ * @package com.github.ruleant.getback_gps.lib
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 
