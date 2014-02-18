@@ -29,6 +29,14 @@ package com.github.ruleant.getback_gps.lib;
  */
 public class LowPassFilter {
     /**
+     * Hidden constructor, to prevent instantiating.
+     */
+    protected LowPassFilter() {
+        // prevents calls from subclass
+        throw new UnsupportedOperationException();
+    }
+
+    /**
      * Implements a low pass filter, topping of high frequency changes,
      * reducing the jumpiness of the signal.
      *
@@ -91,7 +99,7 @@ public class LowPassFilter {
 
         for (int i = 0; i < newArray.length; i++) {
             returnArray[i] = filterValue(
-                    previousArray[i],newArray[i], alpha);
+                    previousArray[i], newArray[i], alpha);
         }
 
         return returnArray;
