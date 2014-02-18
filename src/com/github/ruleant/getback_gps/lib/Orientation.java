@@ -278,7 +278,7 @@ public class Orientation implements SensorEventListener {
 
             if (orientationValues.length == SENSOR_VALUES_SIZE) {
                 mOrientation = Math.toDegrees(orientationValues[0]);
-                mOrientationTimestamp = getMax(mMagneticFieldTimestamp,
+                mOrientationTimestamp = Tools.getMax(mMagneticFieldTimestamp,
                         mAccelerometerTimestamp);
 
                 return mOrientation;
@@ -299,21 +299,6 @@ public class Orientation implements SensorEventListener {
         return timestamp > 0
             && SystemClock.elapsedRealtime() - (timestamp / MILLI_IN_NANO)
                 < TIMESTAMP_EXPIRE;
-    }
-
-    /**
-     * Return biggest number.
-     *
-     * @param value1 one value
-     * @param value2 another value
-     * @return biggest number
-     */
-    private long getMax(final long value1, final long value2) {
-        if (value1 > value2) {
-            return value1;
-        } else {
-            return value2;
-        }
     }
 
     /**
