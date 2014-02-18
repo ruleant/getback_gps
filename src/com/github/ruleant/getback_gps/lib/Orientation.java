@@ -328,7 +328,12 @@ public class Orientation implements SensorEventListener {
     public static float lowPassFilter(
             final float previousValue, final float newValue,
             final float alpha) {
-        // TODO check alpha value range
+        // check alpha value range
+        if (alpha > 1 || alpha < 0) {
+            throw new IllegalArgumentException(
+                    "parameter alpha is not in range 0.0 .. 1.0");
+        }
+
         return previousValue + alpha * (newValue - previousValue);
     }
 
