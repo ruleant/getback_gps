@@ -78,12 +78,13 @@ public class FormatUtils {
     private static final float HALF_ANGLE = 180;
 
     /**
-     * Hidden constructor.
+     * Hidden constructor, to prevent instantiating.
      */
     protected FormatUtils() {
         // prevents calls from subclass
         throw new UnsupportedOperationException();
     }
+
     /**
      * Formats a distance (in meter) to a string,
      * in meter or kilometer, depending on the size.
