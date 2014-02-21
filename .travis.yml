@@ -19,6 +19,6 @@ before_install:
 script: mvn test cobertura:cobertura javadoc:javadoc -B
 after_success:
   # send code coverage results to coveralls.io
-  - mvn coveralls:cobertura -B
+  - mvn coveralls:cobertura -e -B
   # update javadoc on Github Pages (gh-pages)
   - .utility/copy-javadoc-to-gh-pages.sh
