@@ -159,7 +159,7 @@ public class Orientation implements SensorEventListener {
             return;
         }
         mAccelerometerValues
-            = LowPassFilter.filterArray(mAccelerometerValues,
+            = LowPassFilter.filterValueSet(mAccelerometerValues,
                 event.values, LOW_PASS_ALPHA);
         mAccelerometerTimestamp = event.timestamp;
 
@@ -180,7 +180,7 @@ public class Orientation implements SensorEventListener {
             return;
         }
         mMagneticFieldValues
-            = LowPassFilter.filterArray(mMagneticFieldValues,
+            = LowPassFilter.filterValueSet(mMagneticFieldValues,
                 event.values, LOW_PASS_ALPHA);
         mMagneticFieldTimestamp = event.timestamp;
 

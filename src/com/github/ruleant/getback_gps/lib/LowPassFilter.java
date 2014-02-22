@@ -72,7 +72,7 @@ public class LowPassFilter {
      * @param alpha Alpha value of low pass filter (valid range : 0-1)
      * @return array with filtered values.
      */
-    public static float[] filterArray(
+    public static float[] filterValueSet(
             final float[] previousArray, final float[] newArray,
             final float alpha) {
         // newArray should not be empty
