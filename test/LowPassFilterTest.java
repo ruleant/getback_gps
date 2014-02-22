@@ -86,17 +86,20 @@ public class LowPassFilterTest extends TestCase {
     public final void testFilterValue() {
         // value changes from 0 to 1, with different alpha values
         assertEquals(0.0f, LowPassFilter.filterValue(0, 1, 0));
-        assertEquals(ALPHA_VALUE, LowPassFilter.filterValue(0, 1, ALPHA_VALUE));
+        assertEquals(ALPHA_VALUE,
+                LowPassFilter.filterValue(0, 1, ALPHA_VALUE));
         assertEquals(1.0f, LowPassFilter.filterValue(0, 1, 1));
 
         // value changes from 1 to 0, with different alpha values
         assertEquals(1.0f, LowPassFilter.filterValue(1, 0, 0));
-        assertEquals(1 - ALPHA_VALUE, LowPassFilter.filterValue(1, 0, ALPHA_VALUE));
+        assertEquals(1 - ALPHA_VALUE,
+                LowPassFilter.filterValue(1, 0, ALPHA_VALUE));
         assertEquals(0.0f, LowPassFilter.filterValue(1, 0, 1));
 
         // value changes from 1 to 2, with different alpha values
         assertEquals(1.0f, LowPassFilter.filterValue(1, 2, 0));
-        assertEquals(1 + ALPHA_VALUE, LowPassFilter.filterValue(1, 2, ALPHA_VALUE));
+        assertEquals(1 + ALPHA_VALUE,
+                LowPassFilter.filterValue(1, 2, ALPHA_VALUE));
         assertEquals(2.0f, LowPassFilter.filterValue(1, 2, 1));
 
         // value stays the same, alpha value should have no effect
@@ -106,7 +109,8 @@ public class LowPassFilterTest extends TestCase {
 
         // value changes from 0 to -1, with different alpha values
         assertEquals(0.0f, LowPassFilter.filterValue(0, -1, 0));
-        assertEquals(-1 * ALPHA_VALUE, LowPassFilter.filterValue(0, -1, ALPHA_VALUE));
+        assertEquals(-1 * ALPHA_VALUE,
+                LowPassFilter.filterValue(0, -1, ALPHA_VALUE));
         assertEquals(-1.0f, LowPassFilter.filterValue(0, -1, 1));
     }
 }
