@@ -113,4 +113,52 @@ public class LowPassFilterTest extends TestCase {
                 LowPassFilter.filterValue(0, -1, ALPHA_VALUE));
         assertEquals(-1.0f, LowPassFilter.filterValue(0, -1, 1));
     }
+
+    /**
+     * Tests filterValueSet array parameters.
+     */
+    public final void testFilterValueSetParams() {
+        float[] newArray = null;
+        float[] previousArray = null;
+
+        // empty newArray
+        try {
+            LowPassFilter.filterValueSet(previousArray, newArray, 0f);
+            fail("should have thrown an exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "parameter newArray should not be an empty array",
+                    e.getMessage());
+        }
+
+        // zero length newArray
+        newArray = new float[0];
+
+        try {
+            LowPassFilter.filterValueSet(previousArray, newArray, 0f);
+            fail("should have thrown an exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "parameter newArray should not be an empty array",
+                    e.getMessage());
+        }
+
+        // empty previousArray
+        newArray = new float[1];
+
+        assertEquals(newArray, LowPassFilter.filterValueSet(previousArray, newArray, 0f));
+
+        // size of newArray and previousArray is not equal
+        previousArray = new float[2];
+
+        try {
+            LowPassFilter.filterValueSet(previousArray, newArray, 0f);
+            fail("should have thrown an exception.");
+        } catch (IllegalArgumentException e) {
+            assertEquals(
+                    "parameter previousArray (length = 2) should have the "
+                        + "same size as parameter newArray (length = 1)",
+                    e.getMessage());
+        }
+    }
 }
