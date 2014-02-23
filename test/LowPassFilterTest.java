@@ -43,6 +43,16 @@ public class LowPassFilterTest extends TestCase {
     }
 
     /**
+     * Tests empty value.
+     */
+    public final void testNoValue() {
+        assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0));
+        assertEquals(0.0f, LowPassFilter.filterValueSet(
+                new float[1], new float[1], 0)[0]);
+    }
+
+
+    /**
      * Tests range of alpha parameter.
      */
     public final void testAlphaParameterRange() {
