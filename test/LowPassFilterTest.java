@@ -171,4 +171,18 @@ public class LowPassFilterTest extends TestCase {
                     e.getMessage());
         }
     }
+
+    /**
+     * Tests filterValueSet.
+     */
+    public final void testFilterValueSet() {
+        float[] newArray = {1,0};
+        float[] previousArray = {0,1};
+
+        float[] filteredArray = LowPassFilter.filterValueSet(
+                previousArray, newArray, ALPHA_VALUE);
+
+        assertEquals(ALPHA_VALUE, filteredArray[0]);
+        assertEquals(1 - ALPHA_VALUE, filteredArray[1]);
+    }
 }
