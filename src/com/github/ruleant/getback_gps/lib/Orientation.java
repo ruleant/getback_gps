@@ -38,6 +38,11 @@ import java.util.EventListener;
  */
 public class Orientation implements SensorEventListener {
     /**
+     * Accelerometer Sensor.
+     */
+    private Sensor mOrientationSensor;
+
+    /**
      * Context of the Android app.
      */
     private Context mContext;
@@ -143,6 +148,8 @@ public class Orientation implements SensorEventListener {
                     Sensor.TYPE_ACCELEROMETER);
             mMagneticFieldSensor = mSensorManager.getDefaultSensor(
                     Sensor.TYPE_MAGNETIC_FIELD);
+            mOrientationSensor = mSensorManager.getDefaultSensor(
+                    Sensor.TYPE_ORIENTATION);
         }
     }
 
@@ -189,6 +196,24 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
+     * Set orientation by an event from a TYPE_ORIENTATION sensor.
+     *
+     * @param event Sensor event from TYPE_ACCELEROMETER sensor
+     */
+    public final void setOrientation(final SensorEvent event) {
+        if (event.sensor.getType() != Sensor.TYPE_ORIENTATION
+                // reject values that arrive sooner than the update rate
+                || (event.timestamp - mOrientationTimestamp)
+                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
+            return;
+        }
+        mOrientation = event.values[0];
+        mOrientationTimestamp = event.timestamp;
+
+        onOrientationChange();
+    }
+
+    /**
      * Checks if an orientation can be provided :
      * - required sensors are available
      * - sensor values were recently updated.
@@ -199,7 +224,8 @@ public class Orientation implements SensorEventListener {
         return mAccelerometer != null && mMagneticFieldSensor != null
                 && isTimestampRecent(mAccelerometerTimestamp)
                 && isTimestampRecent(mMagneticFieldTimestamp)
-                && isTimestampRecent(mOrientationTimestamp);
+                || (mOrientationSensor != null
+                && isTimestampRecent(mOrientationTimestamp));
     }
 
     /**
@@ -220,10 +246,12 @@ public class Orientation implements SensorEventListener {
      */
     public final boolean hasSensors() {
         return mSensorManager != null
-            && mSensorManager.getSensorList(
+            && (mSensorManager.getSensorList(
                 Sensor.TYPE_MAGNETIC_FIELD).size() > 0
             && mSensorManager.getSensorList(
-                Sensor.TYPE_ACCELEROMETER).size() > 0;
+                Sensor.TYPE_ACCELEROMETER).size() > 0
+            || mSensorManager.getSensorList(
+                Sensor.TYPE_ORIENTATION).size() > 0);
     }
 
     /**
@@ -238,6 +266,9 @@ public class Orientation implements SensorEventListener {
                     listener, mAccelerometer, SENSOR_UPDATE_RATE);
             mSensorManager.registerListener(
                     listener, mMagneticFieldSensor, SENSOR_UPDATE_RATE);
+        } else if (mOrientationSensor != null) {
+            mSensorManager.registerListener(
+                    listener, mOrientationSensor, SENSOR_UPDATE_RATE);
         }
     }
 
@@ -251,6 +282,9 @@ public class Orientation implements SensorEventListener {
         if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.unregisterListener(listener, mAccelerometer);
             mSensorManager.unregisterListener(listener, mMagneticFieldSensor);
+        }
+        if (mOrientationSensor != null) {
+            mSensorManager.unregisterListener(listener, mOrientationSensor);
         }
     }
 
@@ -376,6 +410,9 @@ public class Orientation implements SensorEventListener {
                 break;
             case Sensor.TYPE_MAGNETIC_FIELD:
                 setMagneticField(event);
+                break;
+            case Sensor.TYPE_ORIENTATION:
+                setOrientation(event);
                 break;
             default:
                 break;
