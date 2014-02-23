@@ -156,7 +156,8 @@ public class LowPassFilterTest extends TestCase {
         // empty previousArray
         newArray = new float[1];
 
-        assertEquals(newArray, LowPassFilter.filterValueSet(previousArray, newArray, 0f));
+        assertEquals(newArray,
+                LowPassFilter.filterValueSet(previousArray, newArray, 0f));
 
         // size of newArray and previousArray is not equal
         previousArray = new float[2];
@@ -176,8 +177,8 @@ public class LowPassFilterTest extends TestCase {
      * Tests filterValueSet.
      */
     public final void testFilterValueSet() {
-        float[] newArray = {1,0};
-        float[] previousArray = {0,1};
+        float[] newArray = {1, 0};
+        float[] previousArray = {0, 1};
 
         float[] filteredArray = LowPassFilter.filterValueSet(
                 previousArray, newArray, ALPHA_VALUE);
