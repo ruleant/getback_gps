@@ -16,6 +16,10 @@ before_install:
   # only update the sdk for the tools and platform-tools and required api level
   # (run "android list sdk --extended" to get the full list)
   - echo "y" | android update sdk --filter tools,platform-tools,build-tools-19.0.2,android-19 --no-ui --force
+  # deploy android SDK jar to local maven repository
+  - git clone https://github.com/mosabua/maven-android-sdk-deployer.git
+  - cd maven-android-sdk-deployer
+  - mvn install
 script: mvn test -B
 after_success:
   # send code coverage results to coveralls.io
