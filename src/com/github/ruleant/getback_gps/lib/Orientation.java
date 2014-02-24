@@ -261,14 +261,16 @@ public class Orientation implements SensorEventListener {
      * @param listener SensorEventListener
      */
     public final void registerEvents(final SensorEventListener listener) {
-        if (mAccelerometer != null && mMagneticFieldSensor != null) {
+        // TODO use preference to select used sensor
+        if (mOrientationSensor != null) {
+            // orientation sensor is deprecated
+            mSensorManager.registerListener(
+                    listener, mOrientationSensor, SENSOR_UPDATE_RATE);
+        } else if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.registerListener(
                     listener, mAccelerometer, SENSOR_UPDATE_RATE);
             mSensorManager.registerListener(
                     listener, mMagneticFieldSensor, SENSOR_UPDATE_RATE);
-        } else if (mOrientationSensor != null) {
-            mSensorManager.registerListener(
-                    listener, mOrientationSensor, SENSOR_UPDATE_RATE);
         }
     }
 
