@@ -19,7 +19,8 @@ before_install:
   # deploy android SDK jar to local maven repository
   - git clone https://github.com/mosabua/maven-android-sdk-deployer.git
   - cd maven-android-sdk-deployer
-  - mvn install
+  # only deploy SDK 4.4
+  - mvn install -P 4.4
 script: mvn test -B
 after_success:
   # send code coverage results to coveralls.io
