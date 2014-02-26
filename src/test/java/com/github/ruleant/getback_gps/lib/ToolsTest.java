@@ -19,17 +19,21 @@
  * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
+package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.Tools;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for FormatUtils class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class ToolsTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class ToolsTest {
     /**
      * Test value 1.
      */
@@ -50,6 +54,7 @@ public class ToolsTest extends TestCase {
     /**
      * Test getMax() method.
      */
+    @Test
     public final void testGetMax() {
         // equal values
         assertEquals(0, Tools.getMax(0, 0));
