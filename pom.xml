@@ -138,7 +138,7 @@
                     <reportOutputDirectory>${basedir}</reportOutputDirectory>
                     <destDir>build/docs/javadoc</destDir>
                     <show>protected</show>
-                    <sourcepath>${basedir}/src</sourcepath>
+                    <sourcepath>${basedir}/src/java</sourcepath>
                 </configuration>
             </plugin>
         </plugins>

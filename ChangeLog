@@ -11,6 +11,8 @@
  - issue #133 : Add list of used required sensors to AndroidManifest
  - issue #103 : Don't calculate speed if distance between current and previous location is smaller than the current accuracy
  - issue #135 : Update JavaDoc on website (gh-pages) after a successful Travis CI build.
+ - translated to German (thanks to Christian Orj and Kilian Köppchen)
+ - translated to Romanian (thanks to Eduard Moraru)
 
  v0.1.1 (released on 04Dec2013)
  - updated license info about third party material
