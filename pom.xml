@@ -55,7 +55,7 @@
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
-        <sourceDirectory>src</sourceDirectory>
+        <sourceDirectory>src/java</sourceDirectory>
         <testSourceDirectory>test</testSourceDirectory>
         <pluginManagement>
             <plugins>
