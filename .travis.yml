@@ -18,14 +18,7 @@ before_install:
   # (run "android list sdk --extended" to get the full list)
   - echo "y" | android update sdk --filter tools,platform-tools,build-tools-19.0.2,android-19 --no-ui --force
   # deploy android SDK jar to local maven repository
-  - git clone https://github.com/mosabua/maven-android-sdk-deployer.git
-  - cd maven-android-sdk-deployer
-  # only deploy SDK 4.4 (API 19)
-  - mvn clean install -N
-  - cd platforms
-  - mvn clean install -N
-  - cd android-19
-  - mvn clean install
+  - .utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
   - cd $TRAVIS_BUILD_DIR
 script: mvn test -B
