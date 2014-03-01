@@ -21,14 +21,27 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for Longitude class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class LongitudeTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class LongitudeTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Instance of the longitude class.
      */
@@ -45,72 +58,72 @@ public class LongitudeTest extends TestCase {
     private static final double OUT_OF_RANGE = 190.0;
 
     /**
+     * Accuracy.
+     */
+    private static final double ACCURACY = 0.00001;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         longitude = new Longitude(0.0);
     }
 
     /**
      * Tests empty value.
      */
+    @Test
     public final void testNoValue() {
-        assertEquals(0.0, longitude.getValue());
+        assertEquals(0.0, longitude.getValue(), ACCURACY);
     }
 
     /**
      * Tests value.
      */
+    @Test
     public final void testValue() {
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, longitude.getValue());
+        assertEquals(VALID_COORDINATE, longitude.getValue(), ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(Longitude.SEGMENT_EAST_HIGH, longitude.getValue());
+        assertEquals(Longitude.SEGMENT_EAST_HIGH, longitude.getValue(),
+                ACCURACY);
     }
 
     /**
      * Tests negative value.
      */
+    @Test
     public final void testNegValue() {
         longitude.setValue(-1.0 * VALID_COORDINATE);
-        assertEquals(-1.0 * VALID_COORDINATE, longitude.getValue());
+        assertEquals(-1.0 * VALID_COORDINATE, longitude.getValue(), ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
-        assertEquals(Longitude.SEGMENT_WEST_LOW, longitude.getValue());
+        assertEquals(Longitude.SEGMENT_WEST_LOW, longitude.getValue(),
+                ACCURACY);
     }
 
     /**
      * Tests out of range value.
      */
+    @Test
     public final void testOutOfRangeValue() {
-        try {
-            longitude.setValue(OUT_OF_RANGE);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "newValue is not in range -180.0 .. 180.0",
-                    e.getMessage());
-        }
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("newValue is not in range -180.0 .. 180.0");
 
-        assertEquals(0.0, longitude.getValue());
+        longitude.setValue(OUT_OF_RANGE);
+        assertEquals(0.0, longitude.getValue(), ACCURACY);
 
-        try {
-            longitude.setValue(-1 * OUT_OF_RANGE);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "newValue is not in range -180.0 .. 180.0",
-                    e.getMessage());
-        }
-
-        assertEquals(0.0, longitude.getValue());
+        longitude.setValue(-1 * OUT_OF_RANGE);
+        assertEquals(0.0, longitude.getValue(), ACCURACY);
     }
 
     /**
      * Tests getSegment.
      */
+    @Test
     public final void testGetSegment() {
         assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
 
@@ -130,6 +143,7 @@ public class LongitudeTest extends TestCase {
     /**
      * Tests getSegmentUnit.
      */
+    @Test
     public final void testGetSegmentUnit() {
         assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
 
@@ -149,23 +163,28 @@ public class LongitudeTest extends TestCase {
     /**
      * Tests getConvertedValue.
      */
+    @Test
     public final void testGetConvertedValue() {
-        assertEquals(0.0, longitude.getConvertedValue());
+        assertEquals(0.0, longitude.getConvertedValue(), ACCURACY);
 
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, longitude.getConvertedValue());
+        assertEquals(VALID_COORDINATE, longitude.getConvertedValue(),
+                ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
         assertEquals(
                 Longitude.SEGMENT_EAST_HIGH,
-                longitude.getConvertedValue());
+                longitude.getConvertedValue(),
+                ACCURACY);
 
         longitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, longitude.getConvertedValue());
+        assertEquals(VALID_COORDINATE, longitude.getConvertedValue(),
+                ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
         assertEquals(
                 Math.abs(Longitude.SEGMENT_WEST_LOW),
-                longitude.getConvertedValue());
+                longitude.getConvertedValue(),
+                ACCURACY);
     }
 }
