@@ -41,7 +41,10 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(RobolectricTestRunner.class)
 public class FormatUtilsTest {
-    @Rule public ExpectedException thrown = ExpectedException.none();
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
 
     /**
      * Original Locale before tests.
