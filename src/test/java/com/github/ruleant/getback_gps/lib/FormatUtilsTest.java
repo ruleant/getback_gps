@@ -19,19 +19,30 @@
  * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
+package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.FormatUtils;
-
-import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
 import java.util.Locale;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for FormatUtils class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class FormatUtilsTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class FormatUtilsTest {
+    @Rule public ExpectedException thrown = ExpectedException.none();
+
     /**
      * Original Locale before tests.
      */
@@ -258,10 +269,16 @@ public class FormatUtilsTest extends TestCase {
     private static final int PRECISION_10 = 10;
 
     /**
+     * Angle accuracy.
+     */
+    private static final double ANGLE_ACCURACY = 0.001;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         // Set English (US) locale
         originalLocale = Locale.getDefault();
         Locale.setDefault(Locale.US);
@@ -271,7 +288,8 @@ public class FormatUtilsTest extends TestCase {
      * Tears down the test fixture.
      * (Called after every test case method.)
      */
-    protected final void tearDown() {
+    @After
+    public final void tearDown() {
         // set default locale back to original
         Locale.setDefault(originalLocale);
     }
@@ -282,6 +300,7 @@ public class FormatUtilsTest extends TestCase {
      * to test the different cases : in meter, kilometer, kilometer with
      * an extra decimal, more than 1,000 km.
      */
+    @Test
     public final void testFormatDistMain() {
         assertEquals("9m", FormatUtils.formatDist(M_9M));
         assertEquals("10m", FormatUtils.formatDist(M_10M));
@@ -294,6 +313,7 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
+    @Test
     public final void testFormatDistBelgianFormat() {
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
@@ -307,6 +327,7 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Test if the distance is correctly rounded.
      */
+    @Test
     public final void testFormatDistRoundUp() {
         assertEquals("10m", FormatUtils.formatDist(M_9P9M));
         assertEquals("999m", FormatUtils.formatDist(M_999P3M));
@@ -323,6 +344,7 @@ public class FormatUtilsTest extends TestCase {
      * Tests if returned formatted distance is positive,
      * even if the distance argument is negative.
      */
+    @Test
     public final void testFormatDistNeg() {
         assertEquals("1m", FormatUtils.formatDist(-1.0));
         assertEquals("9.0km", FormatUtils.formatDist(-1.0 * M_9KM));
@@ -336,6 +358,7 @@ public class FormatUtilsTest extends TestCase {
      * no decimals when speed is bigger than 10 km/h
      * Locale en_US is assumed.
      */
+    @Test
     public final void testFormatSpeedMain() {
         assertEquals(
                 "3.6" + FormatUtils.SPEED_KPH,
@@ -361,6 +384,8 @@ public class FormatUtilsTest extends TestCase {
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
     // FIXME speed unit is not localized yet
+    @Ignore("speed unit is not localized yet")
+    @Test
     public final void skiptestFormatSpeedBelgianFormat() {
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
@@ -373,6 +398,7 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Test if the speed is correctly rounded.
      */
+    @Test
     public final void testFormatSpeedRound() {
         // 2.06389m/s = 7.43 km/h => 7.4 km/h
         assertEquals(
@@ -396,6 +422,7 @@ public class FormatUtilsTest extends TestCase {
      * Tests if returned formatted speed is positive,
      * even if the speed argument is negative.
      */
+    @Test
     public final void testFormatSpeedNeg() {
         assertEquals(
                 "3.6" + FormatUtils.SPEED_KPH,
@@ -409,6 +436,7 @@ public class FormatUtilsTest extends TestCase {
      * Tests main functionality of method FormatAngle.
      * Locale en_US is assumed, several angels are passed as an argument.
      */
+    @Test
     public final void testFormatAngle() {
         assertEquals("45.00°", FormatUtils.formatAngle(A_45, 2));
         assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, 2));
@@ -418,20 +446,18 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Tests range of precision parameter of method FormatAngle.
      */
+    @Test
     public final void testFormatAngleWrongPrecision() {
-        try {
-            FormatUtils.formatAngle(A_45, -1);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "Precision can't be a negative value",
-                    e.getMessage());
-        }
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Precision can't be a negative value");
+
+        FormatUtils.formatAngle(A_45, -1);
     }
 
     /**
      * Tests precision parameter of method FormatAngle.
      */
+    @Test
     public final void testFormatAnglePrecision() {
         assertEquals("45°", FormatUtils.formatAngle(A_45, PRECISION_0));
         assertEquals("46°", FormatUtils.formatAngle(A_45P674, PRECISION_0));
@@ -451,6 +477,7 @@ public class FormatUtilsTest extends TestCase {
     /**
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
+    @Test
     public final void testFormatAngleBelgianFormat() {
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
@@ -465,6 +492,7 @@ public class FormatUtilsTest extends TestCase {
      * Tests if returned formatted angle is positive and normalized,
      * even if the angle argument is negative.
      */
+    @Test
     public final void testFormatAngleNeg() {
         assertEquals("-45.00°",
                 FormatUtils.formatAngle(-1.0 * A_45, PRECISION_2));
@@ -478,40 +506,44 @@ public class FormatUtilsTest extends TestCase {
      * Tests if returned normalized angle is unaffected if
      * it is in the 0°-360° range.
      */
+    @Test
     public final void testnormalizeAngle() {
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_0));
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_45));
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_0), ANGLE_ACCURACY);
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_45), ANGLE_ACCURACY);
     }
 
     /**
      * Tests if returned normalized angle is converted correctly
      * to the 0°-360° range, if the angle is negative.
      */
+    @Test
     public final void testnormalizeAngleNeg() {
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_M360));
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_M720));
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_M315));
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_M675));
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_M360), ANGLE_ACCURACY);
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_M720), ANGLE_ACCURACY);
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_M315), ANGLE_ACCURACY);
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_M675), ANGLE_ACCURACY);
     }
 
     /**
      * Tests if returned normalized angle is converted correctly
      * to the 0°-360° range, if the angle is bigger than 360°.
      */
+    @Test
     public final void testnormalizeAngleBig() {
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_360));
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_720));
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_405));
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_765));
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_360), ANGLE_ACCURACY);
+        assertEquals(A_0, FormatUtils.normalizeAngle(A_720), ANGLE_ACCURACY);
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_405), ANGLE_ACCURACY);
+        assertEquals(A_45, FormatUtils.normalizeAngle(A_765), ANGLE_ACCURACY);
     }
 
     /**
      * Tests inverseAngle.
      */
+    @Test
     public final void testInverseAngle() {
-        assertEquals(A_180, FormatUtils.inverseAngle(A_0));
-        assertEquals(A_0, FormatUtils.inverseAngle(A_180));
-        assertEquals(A_225, FormatUtils.inverseAngle(A_45));
-        assertEquals(A_45, FormatUtils.inverseAngle(A_225));
+        assertEquals(A_180, FormatUtils.inverseAngle(A_0), ANGLE_ACCURACY);
+        assertEquals(A_0, FormatUtils.inverseAngle(A_180), ANGLE_ACCURACY);
+        assertEquals(A_225, FormatUtils.inverseAngle(A_45), ANGLE_ACCURACY);
+        assertEquals(A_45, FormatUtils.inverseAngle(A_225), ANGLE_ACCURACY);
     }
 }
