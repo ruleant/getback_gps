@@ -70,16 +70,6 @@ public class CoordinatesTest {
     private Coordinate coordinate2;
 
     /**
-     * Test converted coordinate 1 (-20, 0).
-     */
-    private Coordinate convertedCoordinate1;
-
-    /**
-     * Test converted coordinate 2 (-40, -30).
-     */
-    private Coordinate convertedCoordinate2;
-
-    /**
      * 3 POINTS.
      */
     public static final int NUM_POINTS_3 = 3;
@@ -102,8 +92,10 @@ public class CoordinatesTest {
         coordinate2 = new Coordinate(CoordinateTest.UNIT_30,
                 CoordinateTest.UNIT_40);
 
-        convertedCoordinate1 = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
-        convertedCoordinate2 = new Coordinate(-1 * CoordinateTest.UNIT_40,
+        Coordinate convertedCoordinate1
+                = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
+        Coordinate convertedCoordinate2
+                = new Coordinate(-1 * CoordinateTest.UNIT_40,
                 -1 * CoordinateTest.UNIT_30);
 
         // create mock object
