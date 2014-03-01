@@ -386,7 +386,7 @@ public class FormatUtilsTest {
     // FIXME speed unit is not localized yet
     @Ignore("speed unit is not localized yet")
     @Test
-    public final void skiptestFormatSpeedBelgianFormat() {
+    public final void testFormatSpeedBelgianFormat() {
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
@@ -507,7 +507,7 @@ public class FormatUtilsTest {
      * it is in the 0°-360° range.
      */
     @Test
-    public final void testnormalizeAngle() {
+    public final void testNormalizeAngle() {
         assertEquals(A_0, FormatUtils.normalizeAngle(A_0), ANGLE_ACCURACY);
         assertEquals(A_45, FormatUtils.normalizeAngle(A_45), ANGLE_ACCURACY);
     }
@@ -517,7 +517,7 @@ public class FormatUtilsTest {
      * to the 0°-360° range, if the angle is negative.
      */
     @Test
-    public final void testnormalizeAngleNeg() {
+    public final void testNormalizeAngleNeg() {
         assertEquals(A_0, FormatUtils.normalizeAngle(A_M360), ANGLE_ACCURACY);
         assertEquals(A_0, FormatUtils.normalizeAngle(A_M720), ANGLE_ACCURACY);
         assertEquals(A_45, FormatUtils.normalizeAngle(A_M315), ANGLE_ACCURACY);
@@ -529,7 +529,7 @@ public class FormatUtilsTest {
      * to the 0°-360° range, if the angle is bigger than 360°.
      */
     @Test
-    public final void testnormalizeAngleBig() {
+    public final void testNormalizeAngleBig() {
         assertEquals(A_0, FormatUtils.normalizeAngle(A_360), ANGLE_ACCURACY);
         assertEquals(A_0, FormatUtils.normalizeAngle(A_720), ANGLE_ACCURACY);
         assertEquals(A_45, FormatUtils.normalizeAngle(A_405), ANGLE_ACCURACY);
