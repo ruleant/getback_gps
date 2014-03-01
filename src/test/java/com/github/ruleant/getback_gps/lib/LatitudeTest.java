@@ -63,6 +63,12 @@ public class LatitudeTest {
     private static final double ACCURACY = 0.00001;
 
     /**
+     * Exception message when value is out of range.
+     */
+    private static final String VALUE_RANGE_MESSAGE
+            = "newValue is not in range -90.0 .. 90.0";
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
@@ -106,18 +112,25 @@ public class LatitudeTest {
     }
 
     /**
-     * Tests out of range value.
+     * Tests out of range value, bigger than highest allowed value.
      */
     @Test
-    public final void testOutOfRangeValue() {
+    public final void testOutOfRangeValueBigger() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("newValue is not in range -90.0 .. 90.0");
+        thrown.expectMessage(VALUE_RANGE_MESSAGE);
 
         latitude.setValue(OUT_OF_RANGE);
-        assertEquals(0.0, latitude.getValue(), ACCURACY);
+    }
+
+    /**
+     * Tests out of range value, smaller than lowest allowed value.
+     */
+    @Test
+    public final void testOutOfRangeValueSmaller() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(VALUE_RANGE_MESSAGE);
 
         latitude.setValue(-1 * OUT_OF_RANGE);
-        assertEquals(0.0, latitude.getValue(), ACCURACY);
     }
 
     /**
