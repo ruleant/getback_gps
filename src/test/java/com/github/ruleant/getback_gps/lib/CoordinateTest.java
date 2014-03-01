@@ -110,7 +110,7 @@ public class CoordinateTest {
     /**
      * Polar accuracy.
      */
-    private static final double POLAR_ACCURACY = 0.00000000000001;
+    public static final double POLAR_ACCURACY = 0.00000000000001;
 
     /**
      * Sets up the test fixture.
