@@ -21,6 +21,7 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
@@ -48,7 +49,8 @@ public class ToolsTest {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
     }
 
     /**
