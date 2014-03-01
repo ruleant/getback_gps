@@ -21,14 +21,27 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for CardinalDirection class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class CardinalDirectionTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class CardinalDirectionTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Instance of the CardinalDirection class.
      */
@@ -45,61 +58,73 @@ public class CardinalDirectionTest extends TestCase {
     private static final double OUT_OF_RANGE = 400.0;
 
     /**
+     * Accuracy.
+     */
+    private static final double ACCURACY = 0.001;
+
+    /**
+     * Exception message when value is out of range.
+     */
+    private static final String MESSAGE_VALUE_RANGE
+            = "newValue is not in range 0.0 .. 360.0";
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         object = new CardinalDirection(0.0);
     }
 
     /**
      * Tests empty value.
      */
+    @Test
     public final void testNoValue() {
-        assertEquals(0.0, object.getValue());
+        assertEquals(0.0, object.getValue(), ACCURACY);
     }
 
     /**
      * Tests value.
      */
+    @Test
     public final void testValue() {
         object.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, object.getValue());
+        assertEquals(VALID_COORDINATE, object.getValue(), ACCURACY);
 
         object.setValue(CardinalDirection.SEGMENT_NW_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_NW_HIGH, object.getValue());
+        assertEquals(
+                CardinalDirection.SEGMENT_NW_HIGH, object.getValue(),
+                ACCURACY);
     }
 
     /**
-     * Tests out of range value.
+     * Tests out of range value, bigger than highest allowed value.
      */
-    public final void testOutOfRangeValue() {
-        try {
-            object.setValue(OUT_OF_RANGE);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "newValue is not in range 0.0 .. 360.0",
-                    e.getMessage());
-        }
+    @Test
+    public final void testOutOfRangeValueBigger() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
-        assertEquals(0.0, object.getValue());
+        object.setValue(OUT_OF_RANGE);
+    }
 
-        try {
-            object.setValue(-1 * OUT_OF_RANGE);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "newValue is not in range 0.0 .. 360.0",
-                    e.getMessage());
-        }
+    /**
+     * Tests out of range value, smaller than lowest allowed value.
+     */
+    @Test
+    public final void testOutOfRangeValueSmaller() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
-        assertEquals(0.0, object.getValue());
+        object.setValue(-1 * OUT_OF_RANGE);
     }
 
     /**
      * Tests getSegment.
      */
+    @Test
     public final void testGetSegment() {
         assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
 
@@ -131,6 +156,7 @@ public class CardinalDirectionTest extends TestCase {
     /**
      * Tests getSegmentUnit.
      */
+    @Test
     public final void testGetSegmentUnit() {
         assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
                 object.getSegmentUnit());
@@ -155,14 +181,16 @@ public class CardinalDirectionTest extends TestCase {
     /**
      * Tests getConvertedValue.
      */
+    @Test
     public final void testGetConvertedValue() {
-        assertEquals(0.0, object.getConvertedValue());
+        assertEquals(0.0, object.getConvertedValue(), ACCURACY);
 
         object.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, object.getConvertedValue());
+        assertEquals(VALID_COORDINATE, object.getConvertedValue(), ACCURACY);
 
         object.setValue(CardinalDirection.SEGMENT_NW_HIGH);
         assertEquals(CardinalDirection.SEGMENT_NW_HIGH,
-                object.getConvertedValue());
+                object.getConvertedValue(),
+                ACCURACY);
     }
 }
