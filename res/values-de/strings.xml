@@ -46,7 +46,6 @@
     <string name="timestamp">Zeitstempel</string>
     <string name="destination">Ziel</string>
     <string name="to_dest">Zum Ziel</string>
-    <string name="descr_dest_pointer">Zeiger weist auf Ziel</string>
     <string name="direction_relative">relativ zu laufender Richtung</string>
     <string name="raw">Unformatiert</string>
     <string name="none">None</string>

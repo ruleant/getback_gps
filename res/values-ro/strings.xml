@@ -48,7 +48,6 @@
     <string name="timestamp">Timpul înregistrării</string>
     <string name="destination">Destinație</string>
     <string name="to_dest">Către destinație</string>
-    <string name="descr_dest_pointer">Indicator către destinație</string>
     <string name="direction_relative">relativ la direcția curentă</string>
     <string name="raw">Neformatat</string>
     <string name="none">Niciunul</string>

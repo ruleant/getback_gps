@@ -52,7 +52,6 @@
     <string name="timestamp">Timestamp</string>
     <string name="destination">Destination</string>
     <string name="to_dest">To Destination</string>
-    <string name="descr_dest_pointer">Pointer indicating destination</string>
     <string name="direction_relative">relative to current heading</string>
     <string name="raw">Unformatted</string>
     <string name="none">None</string>

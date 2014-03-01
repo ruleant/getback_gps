@@ -39,7 +39,6 @@ Tento program je rozšiřován v naději, že bude užitečný, avšak BEZ JAKÉ
 Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem. Pokud se tak nestalo, najdete ji zde: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses/</a>.</string>
     <string name="loc_provider_network">síť (mobilní/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
-    <string name="descr_dest_pointer">Ukazatel cíle</string>
     <string name="pref_header_general">Obecné</string>
     <string name="copyright">Copyright</string>
     <string name="app_website">Pro více informací navštivte <a href="%1$s">webové stránky</a>.</string>
