@@ -21,14 +21,27 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
+
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for Latitude class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class LatitudeTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class LatitudeTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Instance of the latitude class.
      */
@@ -45,72 +58,72 @@ public class LatitudeTest extends TestCase {
     private static final double OUT_OF_RANGE = 100.0;
 
     /**
+     * Accuracy.
+     */
+    private static final double ACCURACY = 0.00001;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         latitude = new Latitude(0.0);
     }
 
     /**
      * Tests empty value.
      */
+    @Test
     public final void testNoValue() {
-        assertEquals(0.0, latitude.getValue());
+        assertEquals(0.0, latitude.getValue(), ACCURACY);
     }
 
     /**
      * Tests value.
      */
+    @Test
     public final void testValue() {
         latitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, latitude.getValue());
+        assertEquals(VALID_COORDINATE, latitude.getValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(Latitude.SEGMENT_NORTH_HIGH, latitude.getValue());
+        assertEquals(Latitude.SEGMENT_NORTH_HIGH, latitude.getValue(),
+                ACCURACY);
     }
 
     /**
      * Tests negative value.
      */
+    @Test
     public final void testNegValue() {
         latitude.setValue(-1.0 * VALID_COORDINATE);
-        assertEquals(-1.0 * VALID_COORDINATE, latitude.getValue());
+        assertEquals(-1.0 * VALID_COORDINATE, latitude.getValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
-        assertEquals(Latitude.SEGMENT_SOUTH_LOW, latitude.getValue());
+        assertEquals(Latitude.SEGMENT_SOUTH_LOW, latitude.getValue(),
+                ACCURACY);
     }
 
     /**
      * Tests out of range value.
      */
+    @Test
     public final void testOutOfRangeValue() {
-        try {
-            latitude.setValue(OUT_OF_RANGE);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "newValue is not in range -90.0 .. 90.0",
-                    e.getMessage());
-        }
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("newValue is not in range -90.0 .. 90.0");
 
-        assertEquals(0.0, latitude.getValue());
+        latitude.setValue(OUT_OF_RANGE);
+        assertEquals(0.0, latitude.getValue(), ACCURACY);
 
-        try {
-            latitude.setValue(-1 * OUT_OF_RANGE);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "newValue is not in range -90.0 .. 90.0",
-                    e.getMessage());
-        }
-
-        assertEquals(0.0, latitude.getValue());
+        latitude.setValue(-1 * OUT_OF_RANGE);
+        assertEquals(0.0, latitude.getValue(), ACCURACY);
     }
 
     /**
      * Tests getSegment.
      */
+    @Test
     public final void testGetSegment() {
         assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
@@ -130,6 +143,7 @@ public class LatitudeTest extends TestCase {
     /**
      * Tests getSegmentUnit.
      */
+    @Test
     public final void testGetSegmentUnit() {
         assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
 
@@ -149,21 +163,23 @@ public class LatitudeTest extends TestCase {
     /**
      * Tests getConvertedValue.
      */
+    @Test
     public final void testGetConvertedValue() {
-        assertEquals(0.0, latitude.getConvertedValue());
+        assertEquals(0.0, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, latitude.getConvertedValue());
+        assertEquals(VALID_COORDINATE, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(Latitude.SEGMENT_NORTH_HIGH, latitude.getConvertedValue());
+        assertEquals(Latitude.SEGMENT_NORTH_HIGH, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, latitude.getConvertedValue());
+        assertEquals(VALID_COORDINATE, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
         assertEquals(
                 Math.abs(Latitude.SEGMENT_SOUTH_LOW),
-                latitude.getConvertedValue());
+                latitude.getConvertedValue(),
+                ACCURACY);
     }
 }
