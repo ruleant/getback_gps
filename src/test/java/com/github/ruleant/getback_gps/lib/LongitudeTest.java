@@ -94,7 +94,9 @@ public class LongitudeTest {
         assertEquals(VALID_COORDINATE, longitude.getValue(), ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(Longitude.SEGMENT_EAST_HIGH, longitude.getValue(),
+        assertEquals(
+                Longitude.SEGMENT_EAST_HIGH,
+                longitude.getValue(),
                 ACCURACY);
     }
 
@@ -107,7 +109,9 @@ public class LongitudeTest {
         assertEquals(-1.0 * VALID_COORDINATE, longitude.getValue(), ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
-        assertEquals(Longitude.SEGMENT_WEST_LOW, longitude.getValue(),
+        assertEquals(
+                Longitude.SEGMENT_WEST_LOW,
+                longitude.getValue(),
                 ACCURACY);
     }
 
@@ -181,7 +185,9 @@ public class LongitudeTest {
         assertEquals(0.0, longitude.getConvertedValue(), ACCURACY);
 
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, longitude.getConvertedValue(),
+        assertEquals(
+                VALID_COORDINATE,
+                longitude.getConvertedValue(),
                 ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
@@ -191,7 +197,9 @@ public class LongitudeTest {
                 ACCURACY);
 
         longitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, longitude.getConvertedValue(),
+        assertEquals(
+                VALID_COORDINATE,
+                longitude.getConvertedValue(),
                 ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
