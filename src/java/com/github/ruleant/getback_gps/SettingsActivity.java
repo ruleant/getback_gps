@@ -261,7 +261,7 @@ public class SettingsActivity extends PreferenceActivity {
      * A preference value change listener that updates the preference's summary
      * to reflect its new value.
      */
-    private static final Preference.OnPreferenceChangeListener
+    private static Preference.OnPreferenceChangeListener
             sBindPreferenceSummaryToValueListener
             = new Preference.OnPreferenceChangeListener() {
         @Override
