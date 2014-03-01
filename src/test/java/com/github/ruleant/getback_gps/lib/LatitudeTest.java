@@ -65,7 +65,7 @@ public class LatitudeTest {
     /**
      * Exception message when value is out of range.
      */
-    private static final String VALUE_RANGE_MESSAGE
+    private static final String MESSAGE_VALUE_RANGE
             = "newValue is not in range -90.0 .. 90.0";
 
     /**
@@ -121,7 +121,7 @@ public class LatitudeTest {
     @Test
     public final void testOutOfRangeValueBigger() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(VALUE_RANGE_MESSAGE);
+        thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         latitude.setValue(OUT_OF_RANGE);
     }
@@ -132,7 +132,7 @@ public class LatitudeTest {
     @Test
     public final void testOutOfRangeValueSmaller() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(VALUE_RANGE_MESSAGE);
+        thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         latitude.setValue(-1 * OUT_OF_RANGE);
     }
