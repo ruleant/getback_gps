@@ -14,6 +14,7 @@
  - translated to German (thanks to Christian Orj and Kilian Köppchen)
  - translated to Romanian (thanks to Eduard Moraru)
  - issue #143 : compile against latest Android SDK using maven-android-sdk-deployer plugin
+ - issue #144 : use Robolectric for unit tests
 
  v0.1.1 (released on 04Dec2013)
  - updated license info about third party material
