@@ -66,6 +66,7 @@ public class LowPassFilterTest {
     /**
      * Tests empty value.
      */
+    @Test
     public final void testNoValue() {
         assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0), ACCURACY);
         assertEquals(
@@ -78,6 +79,7 @@ public class LowPassFilterTest {
     /**
      * Tests range of alpha parameter.
      */
+    @Test
     public final void testAlphaParameterRange() {
         // valid range for parameter alpha
         assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0), ACCURACY);
@@ -126,6 +128,7 @@ public class LowPassFilterTest {
     /**
      * Tests filterValue() method.
      */
+    @Test
     public final void testFilterValue() {
         // value changes from 0 to 1, with different alpha values
         assertEquals(0.0f, LowPassFilter.filterValue(0, 1, 0), ACCURACY);
@@ -226,6 +229,7 @@ public class LowPassFilterTest {
     /**
      * Tests filterValueSet.
      */
+    @Test
     public final void testFilterValueSet() {
         float[] newArray = {1, 0};
         float[] previousArray = {0, 1};
