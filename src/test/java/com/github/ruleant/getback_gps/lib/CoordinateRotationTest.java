@@ -19,18 +19,29 @@
  * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
+package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.Coordinate;
-import com.github.ruleant.getback_gps.lib.CoordinateRotation;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
-import junit.framework.TestCase;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Unit tests for Coordinate class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class CoordinateRotationTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class CoordinateRotationTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Instance of the coordinate class.
      */
@@ -95,7 +106,8 @@ public class CoordinateRotationTest extends TestCase {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         rotationCenter = new Coordinate(0, 0);
 
         converter = new CoordinateRotation(rotationCenter, 0, 1);
@@ -106,6 +118,7 @@ public class CoordinateRotationTest extends TestCase {
     /**
      * Tests empty value.
      */
+    @Test
     public final void testNoValue() {
         Coordinate converted = converter.getConvertedCoordinate(testCoordinate);
         assertEquals(0, converted.getCartesianX());
@@ -115,20 +128,18 @@ public class CoordinateRotationTest extends TestCase {
     /**
      * Tests setting empty center coordinate.
      */
+    @Test
     public final void testNoCenter() {
-        try {
-            converter.setRotationCenter(null);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "Parameter center should not be null",
-                    e.getMessage());
-        }
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Parameter center should not be null");
+
+        converter.setRotationCenter(null);
     }
 
     /**
      * Tests center coordinate.
      */
+    @Test
     public final void testCenterCoordinate() {
         rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
 
@@ -141,6 +152,7 @@ public class CoordinateRotationTest extends TestCase {
      * Tests coordinate conversion without rotation,
      * letting the coordinates point to all quadrants.
      */
+    @Test
     public final void testConversionNoRotation() {
         rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
 
@@ -178,6 +190,7 @@ public class CoordinateRotationTest extends TestCase {
      * Tests coordinate conversion with rotation,
      * letting the coordinate point to all quadrants.
      */
+    @Test
     public final void testConversionWithRotation() {
         rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
 
@@ -221,6 +234,7 @@ public class CoordinateRotationTest extends TestCase {
     /**
      * Tests coordinate conversion scaling the radius.
      */
+    @Test
     public final void testConversionScaleRadius() {
         rotationCenter.setCartesianCoordinate(CENTER_X, CENTER_Y);
         converter.setScaleRadius(2);

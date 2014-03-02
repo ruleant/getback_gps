@@ -19,14 +19,19 @@
  * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
+package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.AriadneLocation;
-import com.github.ruleant.getback_gps.lib.FormatUtils;
-import com.github.ruleant.getback_gps.lib.Navigator;
-import com.github.ruleant.getback_gps.lib.Orientation;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
-import junit.framework.TestCase;
-
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -35,7 +40,13 @@ import static org.mockito.Mockito.when;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class NavigatorTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class NavigatorTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Instance of the navigator class.
      */
@@ -133,10 +144,16 @@ public class NavigatorTest extends TestCase {
     private Orientation orientation;
 
     /**
+     * Assert accuracy.
+     */
+    private static final double ASSERT_ACCURACY = 0.001;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         navigator = new Navigator();
 
         // create mock locations
@@ -182,16 +199,22 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests no location or destination.
      */
+    @Test
     public final void testNoValue() {
         assertNull(navigator.getLocation());
         assertNull(navigator.getPreviousLocation());
         assertNull(navigator.getDestination());
 
-        assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
-        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
-        assertEquals(Navigator.DIR_ZERO, navigator.getRelativeDirection());
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(Navigator.DIST_ZERO, navigator.getDistance(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.DIR_ZERO, navigator.getRelativeDirection(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         assertFalse(navigator.isLocationAccurate());
         assertFalse(navigator.isBearingAccurate());
@@ -201,36 +224,29 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests constructor with Orientation parameter.
      */
+    @Test
     public final void testConstructorOrientation() {
         orientation = mock(Orientation.class);
 
-        try {
-            navigator = new Navigator(orientation);
-            assertTrue(navigator.getClass() == Navigator.class);
-        } catch (IllegalArgumentException e) {
-            fail("shouldn't have thrown an exception.");
-        }
+        navigator = new Navigator(orientation);
+        assertTrue(navigator.getClass() == Navigator.class);
     }
 
     /**
      * Tests constructor with Orientation parameter = null.
      */
+    @Test
     public final void testConstructorOrientationNull() {
-        orientation = null;
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Parameter orientation should not be null");
 
-        try {
-            new Navigator(orientation);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "Parameter orientation should not be null",
-                    e.getMessage());
-        }
+        new Navigator(null);
     }
 
     /**
      * Tests setting a location.
      */
+    @Test
     public final void testSetLocation() {
         // set location
         navigator.setLocation(loc1);
@@ -256,6 +272,7 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests setting previous location.
      */
+    @Test
     public final void testSetPreviousLocation() {
         // set previous location
         navigator.setPreviousLocation(loc2);
@@ -281,6 +298,7 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests setting a destination.
      */
+    @Test
     public final void testSetDestination() {
         // set destination
         navigator.setDestination(loc3);
@@ -294,26 +312,33 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests without a current Location.
      */
+    @Test
     public final void testNoLocation() {
         // set destination
         navigator.setDestination(loc3);
-        assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
-        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
+        assertEquals(Navigator.DIST_ZERO, navigator.getDistance(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests without a Destination.
      */
+    @Test
     public final void testGetDistanceNoDestination() {
         // set location
         navigator.setLocation(loc1);
-        assertEquals(Navigator.DIST_ZERO, navigator.getDistance());
-        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection());
+        assertEquals(Navigator.DIST_ZERO, navigator.getDistance(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.DIR_ZERO, navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests getDistance.
      */
+    @Test
     public final void testGetDistance() {
         // set location
         navigator.setLocation(loc1);
@@ -321,17 +346,18 @@ public class NavigatorTest extends TestCase {
         navigator.setDestination(loc3);
 
         // test Distance
-        assertEquals(DIST_LOC1_3, navigator.getDistance());
+        assertEquals(DIST_LOC1_3, navigator.getDistance(), ASSERT_ACCURACY);
 
         // set another destination
         navigator.setDestination(loc2);
         // test Distance
-        assertEquals(DIST_LOC1_2, navigator.getDistance());
+        assertEquals(DIST_LOC1_2, navigator.getDistance(), ASSERT_ACCURACY);
     }
 
     /**
      * Tests getAbsoluteDirection.
      */
+    @Test
     public final void testGetAbsoluteDirection() {
         // set location
         navigator.setLocation(loc1);
@@ -339,17 +365,24 @@ public class NavigatorTest extends TestCase {
         navigator.setDestination(loc3);
 
         // get Absolute Direction
-        assertEquals(DIR_LOC1_3, navigator.getAbsoluteDirection());
+        assertEquals(
+                DIR_LOC1_3,
+                navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
 
         // set another destination
         navigator.setDestination(loc2);
         // test Distance
-        assertEquals(DIR_LOC1_2, navigator.getAbsoluteDirection());
+        assertEquals(
+                DIR_LOC1_2,
+                navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests getRelativeDirection.
      */
+    @Test
     public final void testGetRelativeDirection() {
         // initialise mock setting with right conditions for isBearingAccurate
         // (currentLocation = loc2, previousLocation = loc1)
@@ -360,15 +393,16 @@ public class NavigatorTest extends TestCase {
 
         // get current bearing
         assertEquals(
-                DIR_LOC1_2, navigator.getCurrentBearing());
+                DIR_LOC1_2, navigator.getCurrentBearing(), ASSERT_ACCURACY);
 
         // get absolute direction
         assertEquals(
-                DIR_LOC2_3, navigator.getAbsoluteDirection());
+                DIR_LOC2_3, navigator.getAbsoluteDirection(), ASSERT_ACCURACY);
 
         // get relative direction
         assertEquals(
-                DIR_LOC2_3 - DIR_LOC1_2, navigator.getRelativeDirection());
+                DIR_LOC2_3 - DIR_LOC1_2, navigator.getRelativeDirection(),
+                ASSERT_ACCURACY);
 
         // reverse bearing of mock
         // (currentLocation = loc1, previousLocation = loc2)
@@ -376,17 +410,19 @@ public class NavigatorTest extends TestCase {
 
         // get current bearing
         assertEquals(
-                DIR_LOC2_1, navigator.getCurrentBearing());
+                DIR_LOC2_1, navigator.getCurrentBearing(), ASSERT_ACCURACY);
 
         // get relative direction
         assertEquals(
                 FormatUtils.normalizeAngle(DIR_LOC1_3 - DIR_LOC2_1),
-                navigator.getRelativeDirection());
+                navigator.getRelativeDirection(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests isDestinationReached.
      */
+    @Test
     public final void testIsDestinationReached() {
         // set location
         navigator.setLocation(loc1);
@@ -404,7 +440,7 @@ public class NavigatorTest extends TestCase {
 
         // destination and current location are the same,
         // check should return true
-        assertEquals((float) 0, navigator.getDistance());
+        assertEquals(0f, navigator.getDistance(), ASSERT_ACCURACY);
         assertTrue(navigator.isDestinationReached());
 
         // set new destination
@@ -423,36 +459,50 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests getSpeed of current location.
      */
+    @Test
     public final void testGetSpeed() {
         // set location
         navigator.setLocation(loc1);
 
         // get Speed
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         // mock : define hasSpeed
         when(loc1.hasSpeed()).thenReturn(true);
 
         // get Speed
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         // mock : define getSpeed
         when(loc1.getSpeed()).thenReturn(SPEED_1_2);
 
         // get Speed
-        assertEquals(SPEED_1_2, navigator.getCurrentSpeed());
+        assertEquals(
+                SPEED_1_2,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests getSpeed, calculated by current and previous location.
      */
+    @Test
     public final void testGetSpeedPrevLoc() {
         // set location
         navigator.setLocation(loc1);
         navigator.setLocation(loc1);
 
         // speed is zero when current and last location are the same
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         navigator.setLocation(loc2);
 
@@ -463,21 +513,33 @@ public class NavigatorTest extends TestCase {
         // distance is smaller than accuracy
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
         when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_40);
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
         when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_40);
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         // distance is bigger than accuracy of both locations.
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
         when(loc2.getAccuracy()).thenReturn(ACCURACY_OK_10);
 
         // get Speed
-        assertEquals(SPEED_1_2, navigator.getCurrentSpeed());
+        assertEquals(
+                SPEED_1_2,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
 
         // mock : define getTime of location 1
         when(loc1.getTime()).thenReturn(TIMESTAMP_3);
@@ -485,79 +547,113 @@ public class NavigatorTest extends TestCase {
         // get Speed
         // should be zero because the timestamp of the previous location is
         // more recent than that of the current location
-        assertEquals(Navigator.SPEED_ZERO, navigator.getCurrentSpeed());
+        assertEquals(
+                Navigator.SPEED_ZERO,
+                navigator.getCurrentSpeed(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests getCurrentBearing, using Orientation class.
      */
+    @Test
     public final void testGetBearingWithOrientation() {
         navigator = new Navigator(orientation);
 
         // get current bearing
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
 
         // mock : define hasOrientation
         when(orientation.hasOrientation()).thenReturn(true);
 
         // get current bearing
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
 
         // mock : define getOrientation
         when(orientation.getOrientation()).thenReturn(BEARING_1);
 
         // get current bearing
-        assertEquals(BEARING_1, navigator.getCurrentBearing());
+        assertEquals(
+                BEARING_1,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests getCurrentBearing of current location.
      */
+    @Test
     public final void testGetBearingCurrLoc() {
         // set location
         navigator.setLocation(loc1);
 
         // get current bearing
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
 
         // mock : define hasSpeed
         when(loc1.hasBearing()).thenReturn(true);
 
         // get current bearing
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
 
         // mock : define getBearing
         when(loc1.getBearing()).thenReturn((float) BEARING_1);
 
         // get current bearing
-        assertEquals(BEARING_1, navigator.getCurrentBearing());
+        assertEquals(
+                BEARING_1,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests getCurrentBearing, calculated by current and previous location.
      */
+    @Test
     public final void testGetBearingPrevLoc() {
         // set location
         navigator.setLocation(loc1);
 
         // Bearing is zero if there is no previous location
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
 
         navigator.setLocation(loc2);
 
         // Bearing is zero if the current bearing is not accurate
-        assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing());
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
 
         // initialise mock setting right conditions for isBearingAccurate
         initMockIsBearingAccurate(loc2, loc1);
 
         // get current bearing
-        assertEquals(DIR_LOC1_2, navigator.getCurrentBearing());
+        assertEquals(
+                DIR_LOC1_2,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
     }
 
     /**
      * Tests location accuracy.
      */
+    @Test
     public final void testIsLocationAccurate() {
         // set location
         navigator.setLocation(loc1);
@@ -590,6 +686,7 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests bearing accuracy.
      */
+    @Test
     public final void testIsBearingAccurate() {
         // set location
         navigator.setLocation(loc1);
@@ -630,6 +727,7 @@ public class NavigatorTest extends TestCase {
     /**
      * Tests bearing accuracy when orientation class is used.
      */
+    @Test
     public final void testIsBearingAccurateWithOrientation() {
         navigator = new Navigator(orientation);
 
