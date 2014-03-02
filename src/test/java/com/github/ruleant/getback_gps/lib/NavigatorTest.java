@@ -365,12 +365,18 @@ public class NavigatorTest {
         navigator.setDestination(loc3);
 
         // get Absolute Direction
-        assertEquals(DIR_LOC1_3, navigator.getAbsoluteDirection(), ASSERT_ACCURACY);
+        assertEquals(
+                DIR_LOC1_3,
+                navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
 
         // set another destination
         navigator.setDestination(loc2);
         // test Distance
-        assertEquals(DIR_LOC1_2, navigator.getAbsoluteDirection(), ASSERT_ACCURACY);
+        assertEquals(
+                DIR_LOC1_2,
+                navigator.getAbsoluteDirection(),
+                ASSERT_ACCURACY);
     }
 
     /**
