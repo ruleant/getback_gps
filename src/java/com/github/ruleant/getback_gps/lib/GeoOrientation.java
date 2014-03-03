@@ -36,7 +36,7 @@ import java.util.EventListener;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class Orientation implements SensorEventListener {
+public class GeoOrientation implements SensorEventListener {
     /**
      * Context of the Android app.
      */
@@ -129,7 +129,7 @@ public class Orientation implements SensorEventListener {
      * @param context Context of the Android app
      * @throws IllegalArgumentException if context is not defined
      */
-    public Orientation(final Context context) {
+    public GeoOrientation(final Context context) {
         if (context == null) {
             throw new IllegalArgumentException("context is not defined");
         }
@@ -203,9 +203,9 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Gets current Orientation.
+     * Gets current GeoOrientation.
      *
-     * @return current Orientation
+     * @return current GeoOrientation
      */
     public double getOrientation() {
         return mOrientation;
@@ -258,7 +258,7 @@ public class Orientation implements SensorEventListener {
      * Calculates current orientation, based on
      * TYPE_MAGNETIC_FIELD and TYPE_ACCELEROMETER sensor values.
      *
-     * @return current Orientation
+     * @return current GeoOrientation
      */
     private double calculateOrientation() {
         if (mAccelerometerValues == null
@@ -302,7 +302,7 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Event listener interface for Orientation updates.
+     * Event listener interface for GeoOrientation updates.
      */
     public interface OrientationEventListener extends EventListener {
         /**
@@ -319,7 +319,7 @@ public class Orientation implements SensorEventListener {
 
     /**
      * Adds the listener to eventListenerList.
-     * @param listener Orientation event listener
+     * @param listener GeoOrientation event listener
      */
     public final void addEventListener(
             final OrientationEventListener listener) {
@@ -333,7 +333,7 @@ public class Orientation implements SensorEventListener {
 
     /**
      * Removes the listener from eventListenerList.
-     * @param listener Orientation event listener
+     * @param listener GeoOrientation event listener
      */
     public final void removeEventListener(
             final OrientationEventListener listener) {

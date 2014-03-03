@@ -139,9 +139,9 @@ public class NavigatorTest {
     private AriadneLocation loc3 = null;
 
     /**
-     * Mock of the orientation class.
+     * Mock of the geoOrientation class.
      */
-    private Orientation orientation;
+    private GeoOrientation geoOrientation;
 
     /**
      * Assert accuracy.
@@ -161,8 +161,8 @@ public class NavigatorTest {
         loc2 = mock(AriadneLocation.class);
         loc3 = mock(AriadneLocation.class);
 
-        // create mock orientation
-        orientation = mock(Orientation.class);
+        // create mock geoOrientation
+        geoOrientation = mock(GeoOrientation.class);
 
         /* setup mock objects */
         // set distance
@@ -222,23 +222,23 @@ public class NavigatorTest {
     }
 
     /**
-     * Tests constructor with Orientation parameter.
+     * Tests constructor with GeoOrientation parameter.
      */
     @Test
     public final void testConstructorOrientation() {
-        orientation = mock(Orientation.class);
+        geoOrientation = mock(GeoOrientation.class);
 
-        navigator = new Navigator(orientation);
+        navigator = new Navigator(geoOrientation);
         assertTrue(navigator.getClass() == Navigator.class);
     }
 
     /**
-     * Tests constructor with Orientation parameter = null.
+     * Tests constructor with GeoOrientation parameter = null.
      */
     @Test
     public final void testConstructorOrientationNull() {
         thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Parameter orientation should not be null");
+        thrown.expectMessage("Parameter geoOrientation should not be null");
 
         new Navigator(null);
     }
@@ -554,11 +554,11 @@ public class NavigatorTest {
     }
 
     /**
-     * Tests getCurrentBearing, using Orientation class.
+     * Tests getCurrentBearing, using GeoOrientation class.
      */
     @Test
     public final void testGetBearingWithOrientation() {
-        navigator = new Navigator(orientation);
+        navigator = new Navigator(geoOrientation);
 
         // get current bearing
         assertEquals(
@@ -567,7 +567,7 @@ public class NavigatorTest {
                 ASSERT_ACCURACY);
 
         // mock : define hasOrientation
-        when(orientation.hasOrientation()).thenReturn(true);
+        when(geoOrientation.hasOrientation()).thenReturn(true);
 
         // get current bearing
         assertEquals(
@@ -576,7 +576,7 @@ public class NavigatorTest {
                 ASSERT_ACCURACY);
 
         // mock : define getOrientation
-        when(orientation.getOrientation()).thenReturn(BEARING_1);
+        when(geoOrientation.getOrientation()).thenReturn(BEARING_1);
 
         // get current bearing
         assertEquals(
@@ -725,20 +725,20 @@ public class NavigatorTest {
     }
 
     /**
-     * Tests bearing accuracy when orientation class is used.
+     * Tests bearing accuracy when geoOrientation class is used.
      */
     @Test
     public final void testIsBearingAccurateWithOrientation() {
-        navigator = new Navigator(orientation);
+        navigator = new Navigator(geoOrientation);
 
         assertFalse(navigator.isBearingAccurate());
 
-        // Orientation class has no orientation value
-        when(orientation.hasOrientation()).thenReturn(false);
+        // GeoOrientation class has no geoOrientation value
+        when(geoOrientation.hasOrientation()).thenReturn(false);
         assertFalse(navigator.isBearingAccurate());
 
-        // Orientation class has an orientation value
-        when(orientation.hasOrientation()).thenReturn(true);
+        // GeoOrientation class has an geoOrientation value
+        when(geoOrientation.hasOrientation()).thenReturn(true);
         assertTrue(navigator.isBearingAccurate());
     }
 }
