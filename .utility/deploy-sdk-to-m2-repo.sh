@@ -2,7 +2,7 @@
 #
 # Script to deploy Android SDK jar files to local maven repository.
 #
-# Copyright (C) 2012-2014 Dieter Adriaenssens
+# Copyright (C) 2014 Dieter Adriaenssens
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
