@@ -4,12 +4,17 @@ env:
   global:
     secure: 1K5DKXfDf/oAONWdwWL+7ZT6x3Z/xvWrFIGm9RnR9kMMjfcQ3HO0QazMwjI07f9TORQaQpCiTrQld377+Bgw91P5WOkT+Jfp+G0RPqt/h9OBAJVCc4uvhbeqk6udpBfAuhCykoZASZK8nJ75RCZRybsl6SpmvdUR4jGnNszcaJs=
 before_install:
+  - cd $HOME
+  # install and initialise build-trend scripts
+  - git clone https://github.com/ruleant/build-trend.git
+  - source build-trend/init.sh
   - mvn -v
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
+  - timestamp.sh install_libs
   - sudo apt-get update -qq
   - sudo apt-get install -qq libstdc++6:i386 lib32z1
   # download the latest android sdk and unzip
-  - cd $HOME
+  - timestamp.sh install_android_sdk
   - wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
   - tar -zxf android-sdk_r22.3-linux.tgz
   - export ANDROID_HOME=`pwd`/android-sdk-linux
@@ -21,10 +26,19 @@ before_install:
   - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
   - cd $TRAVIS_BUILD_DIR
-script: mvn test -B
+  - timestamp.sh build
+script:
+  - timestamp.sh test
+  - mvn test -B
 after_success:
   # send code coverage results to coveralls.io
+  - timestamp.sh coverage
   - mvn clean test cobertura:cobertura coveralls:cobertura -B
   # update javadoc on Github Pages (gh-pages)
+  - timestamp.sh update_javadoc
   - mvn clean install javadoc:javadoc -DskipTests=true
   - .utility/copy-javadoc-to-gh-pages.sh
+after_script:
+  # analyse build timestamps
+  - timestamp.sh end
+  - analyse.sh
