@@ -21,12 +21,21 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.SystemClock;
+
 /**
  * Collection of useful methods.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class Tools {
+    /**
+     * Millisecond to nanosecond conversion rate.
+     */
+    public static final long MILLI_IN_NANO = 1000000;
+
     /**
      * Hidden constructor, to prevent instantiating.
      */
@@ -47,6 +56,42 @@ public class Tools {
             return value1;
         } else {
             return value2;
+        }
+    }
+
+    /**
+     * Checks if timestamp (in milliseconds) is recent.
+     *
+     * @param timestamp timestamp in milliseconds
+     * @param validity timestamp validity in milliseconds
+     * @return true if timestamp is recent.
+     */
+    public static boolean isTimestampRecent(final long timestamp,
+                                      final long validity) {
+        return timestamp > 0
+                && validity > 0
+                && (SystemClock.elapsedRealtime() - timestamp) < validity;
+    }
+
+    /**
+     * Checks if timestamp (in nanoseconds) is recent.
+     *
+     * @param timestamp timestamp in nanoseconds
+     * @param validity timestamp validity in nanoseconds
+     * @return true if timestamp is recent.
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public static boolean isTimestampNanoRecent(final long timestamp,
+                                          final long validity) {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return isTimestampRecent(timestamp / MILLI_IN_NANO,
+                    validity / MILLI_IN_NANO);
+        } else {
+            // use elapsedRealtimeNanos when using API 17 or higher
+            return timestamp > 0
+                    && validity > 0
+                    && (SystemClock.elapsedRealtimeNanos() - timestamp)
+                    < validity;
         }
     }
 }
