@@ -21,10 +21,11 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.Resources;
 import android.location.Location;
-import android.os.SystemClock;
+import android.os.Build;
 
 import com.github.ruleant.getback_gps.R;
 
@@ -79,11 +80,15 @@ public class AriadneLocation extends Location {
      *
      * @return true if location is recent.
      */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public boolean isRecent() {
-        // TODO use elapsedRealtimeNanos when using API 17 or higher
-        // if ((SystemClock.elapsedRealtimeNanos()
-        // - getElapsedRealtimeNanos()) < 300000000) {
-        return (SystemClock.elapsedRealtime() - getTime()) < LOC_EXPIRE;
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            return Tools.isTimestampRecent(getTime(), LOC_EXPIRE);
+        } else {
+            // use getElapsedRealtimeNanos when using API 17 or higher
+            return Tools.isTimestampNanoRecent(getElapsedRealtimeNanos(),
+                    LOC_EXPIRE * Tools.MILLI_IN_NANO);
+        }
     }
 
     /**
