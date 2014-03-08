@@ -26,7 +26,6 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.SystemClock;
 
 import java.util.ArrayList;
 import java.util.EventListener;
@@ -92,11 +91,6 @@ public class GeoOrientation implements SensorEventListener {
      * 5 seconds in milliseconds (5 * 1000).
      */
     private static final long TIMESTAMP_EXPIRE = 5000;
-
-    /**
-     * Millisecond to nanosecond conversion rate.
-     */
-    private static final long MILLI_IN_NANO = 1000000;
 
     /**
      * Microsecond to nanosecond conversion rate.
@@ -295,10 +289,7 @@ public class GeoOrientation implements SensorEventListener {
      * @return true if timestamp is recent.
      */
     private boolean isTimestampRecent(final long timestamp) {
-        // TODO use elapsedRealtimeNanos when using API 17 or higher
-        return timestamp > 0
-            && SystemClock.elapsedRealtime() - (timestamp / MILLI_IN_NANO)
-                < TIMESTAMP_EXPIRE;
+        return Tools.isTimestampNanoRecent(timestamp, TIMESTAMP_EXPIRE);
     }
 
     /**
