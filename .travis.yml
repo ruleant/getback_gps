@@ -6,8 +6,8 @@ env:
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
-  - git clone https://github.com/ruleant/build-trend.git
-  - source build-trend/init.sh
+  - git clone https://github.com/ruleant/buildtime-trend.git
+  - source buildtime-trend/init.sh
   - mvn -v
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
   - timestamp.sh install_libs
