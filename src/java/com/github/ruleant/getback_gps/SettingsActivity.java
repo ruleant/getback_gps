@@ -337,9 +337,9 @@ public class SettingsActivity extends PreferenceActivity {
             // updated to reflect the new value, per the Android Design
             // guidelines.
             bindPreferenceSummaryToValue(
-                    findPreference("loc_update_dist"));
+                    findPreference(KEY_PREF_LOC_UPDATE_DIST));
             bindPreferenceSummaryToValue(
-                    findPreference("loc_update_time"));
+                    findPreference(KEY_PREF_LOC_UPDATE_TIME));
             bindPreferenceSummaryToValue(
                     findPreference("enable_sensors"));
         }
