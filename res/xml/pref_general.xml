@@ -17,5 +17,11 @@
 	        android:negativeButtonText="@null"
 	        android:positiveButtonText="@null"
 	        android:title="@string/pref_loc_update_dist" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:summaryOn="@string/sensors_enabled"
+            android:summaryOff="@string/sensors_disabled"
+            android:key="enable_sensors"
+            android:title="@string/pref_enable_sensors" />
     </PreferenceCategory>
 </PreferenceScreen>

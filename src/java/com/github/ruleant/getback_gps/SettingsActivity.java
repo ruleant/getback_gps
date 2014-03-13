@@ -340,6 +340,8 @@ public class SettingsActivity extends PreferenceActivity {
                     findPreference("loc_update_dist"));
             bindPreferenceSummaryToValue(
                     findPreference("loc_update_time"));
+            bindPreferenceSummaryToValue(
+                    findPreference("enable_sensors"));
         }
 
         /**
