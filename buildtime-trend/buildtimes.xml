@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<builds>
+  <build branch="test_travis" id="250" job="250.1">
+    <stages>
+      <stage duration="23" name="install_libs"/>
+      <stage duration="52" name="install_android_sdk"/>
+      <stage duration="69" name="build"/>
+      <stage duration="32" name="test"/>
+      <stage duration="9" name="coverage"/>
+      <stage duration="29" name="update_javadoc"/>
+    </stages>
+  </build>
+</builds>
