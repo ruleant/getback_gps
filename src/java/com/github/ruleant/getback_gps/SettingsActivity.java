@@ -71,6 +71,16 @@ public class SettingsActivity extends PreferenceActivity {
     public static final String DEFAULT_PREF_LOC_UPDATE_TIME = "10000";
 
     /**
+     * Key of preference Enable sensors.
+     */
+    public static final String KEY_PREF_ENABLE_SENSORS = "enable_sensors";
+
+    /**
+     * Default value of preference Enable sensors.
+     */
+    public static final boolean DEFAULT_PREF_ENABLE_SENSORS = true;
+
+    /**
      * 60 seconds.
      */
     private static final int SIXTY_SECONDS = 60;

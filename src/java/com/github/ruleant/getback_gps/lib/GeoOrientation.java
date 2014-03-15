@@ -26,6 +26,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.preference.PreferenceManager;
+
+import com.github.ruleant.getback_gps.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.EventListener;
@@ -190,7 +193,8 @@ public class GeoOrientation implements SensorEventListener {
      * @return true if an orientation can be provided
      */
     public boolean hasOrientation() {
-        return mAccelerometer != null && mMagneticFieldSensor != null
+        return isSensorsEnabled()
+                && mAccelerometer != null && mMagneticFieldSensor != null
                 && isTimestampRecent(mAccelerometerTimestamp)
                 && isTimestampRecent(mMagneticFieldTimestamp)
                 && isTimestampRecent(mOrientationTimestamp);
@@ -221,13 +225,28 @@ public class GeoOrientation implements SensorEventListener {
     }
 
     /**
-     * Register for Sensor events for
+     * Returns true if use of sensors is enabled
+     * - TYPE_MAGNETIC_FIELD
+     * - TYPE_ACCELEROMETER.
+     *
+     * @return true if sensors are enabled
+     */
+    public final boolean isSensorsEnabled() {
+        return PreferenceManager.getDefaultSharedPreferences(mContext)
+                .getBoolean(
+                        SettingsActivity.KEY_PREF_ENABLE_SENSORS,
+                        SettingsActivity.DEFAULT_PREF_ENABLE_SENSORS);
+    }
+
+    /**
+     * Register for Sensor events of
      * TYPE_ACCELEROMETER and TYPE_MAGNETIC_FIELD.
      *
      * @param listener SensorEventListener
      */
     public final void registerEvents(final SensorEventListener listener) {
-        if (mAccelerometer != null && mMagneticFieldSensor != null) {
+        if (isSensorsEnabled()
+                && mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.registerListener(
                     listener, mAccelerometer, SENSOR_UPDATE_RATE);
             mSensorManager.registerListener(
@@ -236,7 +255,7 @@ public class GeoOrientation implements SensorEventListener {
     }
 
     /**
-     * Register for Sensor events for
+     * Unregister for Sensor events of
      * TYPE_ACCELEROMETER and TYPE_MAGNETIC_FIELD.
      *
      * @param listener SensorEventListener

@@ -157,7 +157,8 @@ public class LocationService extends Service
         }
 
         // Subscribe to sensor events
-        if (mGeoOrientation.hasSensors()) {
+        if (mGeoOrientation.hasSensors()
+                && mGeoOrientation.isSensorsEnabled()) {
             mGeoOrientation.addEventListener(this);
         }
     }
