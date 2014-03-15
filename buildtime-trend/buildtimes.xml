@@ -10,4 +10,4 @@
       <stage duration="29" name="update_javadoc"/>
     </stages>
   </build>
-</builds>
+<build branch="master" id="251" job="251.1"><stages><stage duration="23" name="install_libs"/><stage duration="56" name="install_android_sdk"/><stage duration="61" name="build"/><stage duration="27" name="test"/><stage duration="9" name="coverage"/><stage duration="30" name="update_javadoc"/></stages></build></builds>
