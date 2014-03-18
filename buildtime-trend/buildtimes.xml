@@ -1,5 +1,35 @@
 <?xml version='1.0' encoding='utf-8'?>
 <builds>
+  <build branch="master" id="247" job="247.1">
+    <stages>
+      <stage duration="26" name="install_libs"/>
+      <stage duration="59" name="install_android_sdk"/>
+      <stage duration="73" name="build"/>
+      <stage duration="32" name="test"/>
+      <stage duration="11" name="coverage"/>
+      <stage duration="36" name="update_javadoc"/>
+    </stages>
+  </build>
+  <build branch="test_travis" id="248" job="248.1">
+    <stages>
+      <stage duration="23" name="install_libs"/>
+      <stage duration="45" name="install_android_sdk"/>
+      <stage duration="55" name="build"/>
+      <stage duration="26" name="test"/>
+      <stage duration="9" name="coverage"/>
+      <stage duration="32" name="update_javadoc"/>
+    </stages>
+  </build>
+  <build branch="test_travis" id="249" job="249.1">
+    <stages>
+      <stage duration="23" name="install_libs"/>
+      <stage duration="53" name="install_android_sdk"/>
+      <stage duration="61" name="build"/>
+      <stage duration="26" name="test"/>
+      <stage duration="9" name="coverage"/>
+      <stage duration="29" name="update_javadoc"/>
+    </stages>
+  </build>
   <build branch="test_travis" id="250" job="250.1">
     <stages>
       <stage duration="23" name="install_libs"/>
