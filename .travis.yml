@@ -12,7 +12,7 @@ before_install:
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
   - timestamp.sh install_libs
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libstdc++6:i386 lib32z1 python-lxml
+  - sudo apt-get install -qq libstdc++6:i386 lib32z1 python-lxml python-matplotlib
   # download the latest android sdk and unzip
   - timestamp.sh install_android_sdk
   - wget http://dl.google.com/android/android-sdk_r22.6-linux.tgz
