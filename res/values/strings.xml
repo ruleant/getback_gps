@@ -66,6 +66,7 @@
     <string name="pref_loc_update_dist">Distance based updates</string>
     <string name="pref_loc_update_time">Time based updates</string>
     <string name="pref_enable_sensors">Enable sensors (if available)</string>
+    <string name="pref_geo_orientation_sensor">Default orientation sensor</string>
     <string name="sensors_enabled">Enabled : quicker updated and more accurate bearing</string>
     <string name="sensors_disabled">Disabled : saves power</string>
     <string name="disabled">Disabled</string>

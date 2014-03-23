@@ -37,4 +37,13 @@
         <item>5000</item>
         <item>1000</item>
     </string-array>
+
+    <string-array name="pref_geo_orientation_sensor_titles">
+        <item>Raw sensors (gyroscope, acceleration, compass)</item>
+        <item>Calculated orientation sensor (deprecated)</item>
+    </string-array>
+    <string-array name="pref_geo_orientation_sensor_values">
+        <item>1</item>
+        <item>2</item>
+    </string-array>
 </resources>

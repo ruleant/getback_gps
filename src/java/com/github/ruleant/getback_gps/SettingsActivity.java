@@ -81,6 +81,17 @@ public class SettingsActivity extends PreferenceActivity {
     public static final boolean DEFAULT_PREF_ENABLE_SENSORS = true;
 
     /**
+     * Key of preference Default geo orientation sensor.
+     */
+    public static final String KEY_PREF_GEO_ORIENTATION_SENSOR
+            = "geo_orientation_sensor";
+
+    /**
+     * Default value of preference Default geo orientation sensor.
+     */
+    public static final String DEFAULT_PREF_GEO_ORIENTATION_SENSOR = "1";
+
+    /**
      * 60 seconds.
      */
     private static final int SIXTY_SECONDS = 60;
@@ -138,6 +149,8 @@ public class SettingsActivity extends PreferenceActivity {
                 findPreference(KEY_PREF_LOC_UPDATE_DIST));
         bindPreferenceSummaryToValue(
                 findPreference(KEY_PREF_LOC_UPDATE_TIME));
+        bindPreferenceSummaryToValue(
+                findPreference(KEY_PREF_GEO_ORIENTATION_SENSOR));
         if (BuildConfig.DEBUG) {
             bindPreferenceSummaryToValue(
                     findPreference(DebugLevel.PREF_DEBUG_LEVEL));
@@ -350,6 +363,8 @@ public class SettingsActivity extends PreferenceActivity {
                     findPreference(KEY_PREF_LOC_UPDATE_DIST));
             bindPreferenceSummaryToValue(
                     findPreference(KEY_PREF_LOC_UPDATE_TIME));
+            bindPreferenceSummaryToValue(
+                    findPreference(KEY_PREF_GEO_ORIENTATION_SENSOR));
         }
 
         /**

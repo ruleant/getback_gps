@@ -23,5 +23,14 @@
             android:summaryOff="@string/sensors_disabled"
             android:key="enable_sensors"
             android:title="@string/pref_enable_sensors" />
+        <ListPreference
+            android:defaultValue="1"
+            android:entries="@array/pref_geo_orientation_sensor_titles"
+            android:entryValues="@array/pref_geo_orientation_sensor_values"
+            android:key="geo_orientation_sensor"
+            android:negativeButtonText="@null"
+            android:positiveButtonText="@null"
+            android:dependency="enable_sensors"
+            android:title="@string/pref_geo_orientation_sensor" />
     </PreferenceCategory>
 </PreferenceScreen>
