@@ -15,7 +15,7 @@ before_install:
   - sudo apt-get install -qq libstdc++6:i386 lib32z1 python-pip
   # install buildtime-trend dependencies using pip
   - timestamp.sh install_python_libs
-  - CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
+  - sudo CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
   # download the latest android sdk and unzip
   - timestamp.sh install_android_sdk
   - wget http://dl.google.com/android/android-sdk_r22.6-linux.tgz
