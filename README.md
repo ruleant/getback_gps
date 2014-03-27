@@ -3,7 +3,7 @@ GetBack GPS
 
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg)](https://travis-ci.org/ruleant/getback_gps)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
-[![Translation status](https://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![Translation status](http://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
 
 Open Source Android app for finding your way back to a previously visited location using GPS coordinates.
 
