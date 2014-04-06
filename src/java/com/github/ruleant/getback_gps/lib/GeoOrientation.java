@@ -277,10 +277,11 @@ public class GeoOrientation implements SensorEventListener {
             return;
         }
 
-        int sensor = PreferenceManager.getDefaultSharedPreferences(mContext)
-                .getInt(
+        int sensor = Integer.parseInt(
+                PreferenceManager.getDefaultSharedPreferences(mContext)
+                .getString(
                         SettingsActivity.KEY_PREF_GEO_ORIENTATION_SENSOR,
-                        SettingsActivity.DEFAULT_PREF_GEO_ORIENTATION_SENSOR);
+                        SettingsActivity.DEFAULT_PREF_GEO_ORIENTATION_SENSOR));
 
         if (sensor == SettingsActivity.GEO_ORIENTATION_SENSOR_CALCULATED
             && mOrientationSensor != null) {
