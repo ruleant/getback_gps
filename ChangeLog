@@ -4,13 +4,13 @@
  - optimize size of PNG images
  - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in AriadneLocation.isRecent()
  - issue #78 : add classes to convert (rotate) sets of coordinates
- - Redesign arrow pointing to destination, using RotationConverter and Coordinates classes
+ - redesign arrow pointing to destination, using RotationConverter and Coordinates classes
  - issue #125 : add property to Coordinates class to close a line 
  - issue #130 : remove unnecessary AriadneLocation conversion and try-catch in DetailsActivity and MainActivity
  - issue #132 : remove Android permission INTERNET, it is not needed to get WiFi/cell phone based location updates
- - issue #133 : Add list of used sensors to AndroidManifest
- - issue #103 : Don't calculate speed if distance between current and previous location is smaller than the current accuracy
- - issue #135 : Update JavaDoc on website (gh-pages) after a successful Travis CI build.
+ - issue #133 : add list of used sensors to AndroidManifest
+ - issue #103 : don't calculate speed if distance between current and previous location is smaller than the current accuracy
+ - issue #135 : update JavaDoc on website (gh-pages) after a successful Travis CI build.
  - translated to German (thanks to Christian Orj and Kilian Köppchen)
  - translated to Romanian (thanks to Eduard Moraru)
  - issue #143 : compile against latest Android SDK using maven-android-sdk-deployer plugin
