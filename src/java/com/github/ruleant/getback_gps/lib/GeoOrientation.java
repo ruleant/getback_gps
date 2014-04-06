@@ -96,9 +96,9 @@ public class GeoOrientation implements SensorEventListener {
 
     /**
      * Sensor timestamp expiration,
-     * 5 seconds in milliseconds (5 * 1000).
+     * 5 seconds in nanoseconds (5 * 10^9).
      */
-    private static final long TIMESTAMP_EXPIRE = 5000;
+    private static final long TIMESTAMP_EXPIRE = 5000 * Tools.MILLI_IN_NANO;
 
     /**
      * Microsecond to nanosecond conversion rate.
