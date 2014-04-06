@@ -273,7 +273,7 @@ public class GeoOrientation implements SensorEventListener {
      * @param listener SensorEventListener
      */
     public final void registerEvents(final SensorEventListener listener) {
-        if (! isSensorsEnabled()) {
+        if (!isSensorsEnabled()) {
             return;
         }
 
