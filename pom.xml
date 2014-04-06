@@ -24,15 +24,21 @@
     </pluginRepositories>
     <dependencies>
         <dependency>
-            <groupId>com.google.android</groupId>
+            <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>4.1.1.4</version>
+            <version>4.4.2_r3</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>3.8.1</version>
+            <version>4.8.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.robolectric</groupId>
+            <artifactId>robolectric</artifactId>
+            <version>2.2</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -55,8 +61,8 @@
     </dependencies>
     <build>
         <finalName>${project.artifactId}</finalName>
-        <sourceDirectory>src</sourceDirectory>
-        <testSourceDirectory>test</testSourceDirectory>
+        <sourceDirectory>src/java</sourceDirectory>
+        <testSourceDirectory>src/test/java</testSourceDirectory>
         <pluginManagement>
             <plugins>
                 <plugin>
@@ -87,7 +93,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.6</version>
+                <version>2.5.2</version>
                 <configuration>
                     <aggregate>true</aggregate>
                     <format>xml</format>
@@ -102,7 +108,7 @@
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
-                <version>2.2.0-SNAPSHOT</version>
+                <version>2.2.0</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -132,7 +138,7 @@
                     <reportOutputDirectory>${basedir}</reportOutputDirectory>
                     <destDir>build/docs/javadoc</destDir>
                     <show>protected</show>
-                    <sourcepath>${basedir}/src</sourcepath>
+                    <sourcepath>${basedir}/src/java</sourcepath>
                 </configuration>
             </plugin>
         </plugins>

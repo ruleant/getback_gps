@@ -19,13 +19,16 @@
  * @package com.github.ruleant.getback_gps
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
+package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.Coordinate;
-import com.github.ruleant.getback_gps.lib.CoordinateConverterInterface;
-import com.github.ruleant.getback_gps.lib.Coordinates;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.Test;
+import org.junit.rules.ExpectedException;
+import org.junit.runner.RunWith;
+import org.robolectric.RobolectricTestRunner;
 
-import junit.framework.TestCase;
-
+import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -34,7 +37,13 @@ import static org.mockito.Mockito.when;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class CoordinatesTest extends TestCase {
+@RunWith(RobolectricTestRunner.class)
+public class CoordinatesTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Instance of the coordinates class.
      */
@@ -61,25 +70,21 @@ public class CoordinatesTest extends TestCase {
     private Coordinate coordinate2;
 
     /**
-     * Test converted coordinate 1 (-20, 0).
-     */
-    private Coordinate convertedCoordinate1;
-
-    /**
-     * Test converted coordinate 2 (-40, -30).
-     */
-    private Coordinate convertedCoordinate2;
-
-    /**
      * 3 POINTS.
      */
     public static final int NUM_POINTS_3 = 3;
 
     /**
+     * Cartesian accuracy.
+     */
+    public static final double CARTESIAN_ACCURACY = 0.01;
+
+    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    protected final void setUp() {
+    @Before
+    public final void setUp() {
         coordinates = new Coordinates();
 
         coordinate0 = new Coordinate(0, 0);
@@ -87,8 +92,10 @@ public class CoordinatesTest extends TestCase {
         coordinate2 = new Coordinate(CoordinateTest.UNIT_30,
                 CoordinateTest.UNIT_40);
 
-        convertedCoordinate1 = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
-        convertedCoordinate2 = new Coordinate(-1 * CoordinateTest.UNIT_40,
+        Coordinate convertedCoordinate1
+                = new Coordinate(-1 * CoordinateTest.UNIT_20, 0);
+        Coordinate convertedCoordinate2
+                = new Coordinate(-1 * CoordinateTest.UNIT_40,
                 -1 * CoordinateTest.UNIT_30);
 
         // create mock object
@@ -104,6 +111,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests empty collection.
      */
+    @Test
     public final void testEmpty() {
         assertEquals(0, coordinates.getSize());
         assertEquals(0, coordinates.toArray().length);
@@ -113,6 +121,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests adding Coordinate with polar coordinates.
      */
+    @Test
     public final void testAddPolarCoordinate() {
         coordinates.addCoordinate(CoordinateTest.RADIUS_20,
                                     CoordinateTest.ANGLE_45);
@@ -122,13 +131,20 @@ public class CoordinatesTest extends TestCase {
         assertEquals(1, coordinatesArray.length);
 
         Coordinate coordinate = (Coordinate) coordinatesArray[0];
-        assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
-        assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
+        assertEquals(
+                CoordinateTest.ANGLE_45,
+                coordinate.getPolarAngle(),
+                CoordinateTest.POLAR_ACCURACY);
+        assertEquals(
+                CoordinateTest.RADIUS_20,
+                coordinate.getPolarRadius(),
+                CoordinateTest.POLAR_ACCURACY);
     }
 
     /**
      * Tests adding Coordinate with Cartesian coordinates.
      */
+    @Test
     public final void testAddCartesianCoordinate() {
         coordinates.addCoordinate(CoordinateTest.UNIT_20,
                                     CoordinateTest.UNIT_30);
@@ -145,6 +161,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests adding Coordinate with Coordinate instance.
      */
+    @Test
     public final void testAddCoordinate() {
         coordinates.addCoordinate(new Coordinate(CoordinateTest.RADIUS_20,
                                     CoordinateTest.ANGLE_45));
@@ -154,27 +171,31 @@ public class CoordinatesTest extends TestCase {
         assertEquals(1, coordinatesArray.length);
 
         Coordinate coordinate = (Coordinate) coordinatesArray[0];
-        assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
-        assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
+        assertEquals(
+                CoordinateTest.ANGLE_45,
+                coordinate.getPolarAngle(),
+                CoordinateTest.POLAR_ACCURACY);
+        assertEquals(
+                CoordinateTest.RADIUS_20,
+                coordinate.getPolarRadius(),
+                CoordinateTest.POLAR_ACCURACY);
     }
 
     /**
      * Tests null value for new coordinate in setCoordinate.
      */
+    @Test
     public final void testSetCoordinateNull() {
-        try {
-            coordinates.addCoordinate(null);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "Parameter coordinate should not be null",
-                    e.getMessage());
-        }
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Parameter coordinate should not be null");
+
+        coordinates.addCoordinate(null);
     }
 
     /**
      * Tests adding multiple Coordinates.
      */
+    @Test
     public final void testAddMultipleCoordinates() {
         coordinates.addCoordinate(CoordinateTest.RADIUS_20,
                                     CoordinateTest.ANGLE_45);
@@ -189,17 +210,30 @@ public class CoordinatesTest extends TestCase {
         assertEquals(2, coordinatesArray.length);
 
         Coordinate coordinate = (Coordinate) coordinatesArray[0];
-        assertEquals(CoordinateTest.ANGLE_45, coordinate.getPolarAngle());
-        assertEquals(CoordinateTest.RADIUS_20, coordinate.getPolarRadius());
+        assertEquals(
+                CoordinateTest.ANGLE_45,
+                coordinate.getPolarAngle(),
+                CoordinateTest.POLAR_ACCURACY);
+        assertEquals(
+                CoordinateTest.RADIUS_20,
+                coordinate.getPolarRadius(),
+                CoordinateTest.POLAR_ACCURACY);
 
         coordinate = (Coordinate) coordinatesArray[1];
-        assertEquals(CoordinateTest.ANGLE_90, coordinate.getPolarAngle());
-        assertEquals(CoordinateTest.RADIUS_50, coordinate.getPolarRadius());
+        assertEquals(
+                CoordinateTest.ANGLE_90,
+                coordinate.getPolarAngle(),
+                CoordinateTest.POLAR_ACCURACY);
+        assertEquals(
+                CoordinateTest.RADIUS_50,
+                coordinate.getPolarRadius(),
+                CoordinateTest.POLAR_ACCURACY);
     }
 
     /**
      * Tests toLinesArray, one line.
      */
+    @Test
     public final void testToLinesArray() {
         coordinates.addCoordinate(coordinate1);
         // array should be empty in only 1 point is added,
@@ -209,13 +243,17 @@ public class CoordinatesTest extends TestCase {
         coordinates.addCoordinate(coordinate2);
         float[] coordinatesArray = coordinates.toLinesArray();
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
+        assertEquals(
+                0.0f,
+                coordinatesArray[Coordinates.POS_START_X],
+                CARTESIAN_ACCURACY);
         assertCoordinates(coordinatesArray, 0);
     }
 
     /**
      * Tests toLinesArray, multiple lines.
      */
+    @Test
     public final void testToLinesArrayMulti() {
         coordinates.addCoordinate(coordinate0);
         coordinates.addCoordinate(coordinate1);
@@ -224,11 +262,18 @@ public class CoordinatesTest extends TestCase {
         assertEquals(NUM_POINTS_3 * Coordinates.NUM_COORD_LINE,
                 coordinatesArray.length);
         // first line
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals(0f,
+                coordinatesArray[Coordinates.POS_START_X],
+                CARTESIAN_ACCURACY);
+        assertEquals(0f,
+                coordinatesArray[Coordinates.POS_START_Y],
+                CARTESIAN_ACCURACY);
+        assertEquals(0f,
+                coordinatesArray[Coordinates.POS_END_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.POS_END_Y]);
+                coordinatesArray[Coordinates.POS_END_Y],
+                CARTESIAN_ACCURACY);
 
         // second line
         assertCoordinates(coordinates.toLinesArray(), 1);
@@ -237,24 +282,29 @@ public class CoordinatesTest extends TestCase {
         assertEquals((float) CoordinateTest.UNIT_30,
                 coordinatesArray[(NUM_POINTS_3 - 1)
                         * Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_START_X]);
+                        + Coordinates.POS_START_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) CoordinateTest.UNIT_40,
                 coordinatesArray[(NUM_POINTS_3 - 1)
                         * Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_START_Y]);
+                        + Coordinates.POS_START_Y],
+                CARTESIAN_ACCURACY);
         assertEquals((float) 0,
                 coordinatesArray[(NUM_POINTS_3 - 1)
                         * Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_END_X]);
+                        + Coordinates.POS_END_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) 0,
                 coordinatesArray[(NUM_POINTS_3 - 1)
                         * Coordinates.NUM_COORD_LINE
-                        + Coordinates.POS_END_Y]);
+                        + Coordinates.POS_END_Y],
+                CARTESIAN_ACCURACY);
     }
 
     /**
      * Tests toLinesArray, multiple lines, not closing the line.
      */
+    @Test
     public final void testToLinesArrayMultiNoClosing() {
         coordinates.addCoordinate(coordinate0);
         coordinates.addCoordinate(coordinate1);
@@ -264,11 +314,15 @@ public class CoordinatesTest extends TestCase {
         assertEquals(2 * Coordinates.NUM_COORD_LINE,
                 coordinatesArray.length);
         // first line
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_X]);
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_END_X]);
+        assertEquals(0f, coordinatesArray[Coordinates.POS_START_X],
+                CARTESIAN_ACCURACY);
+        assertEquals(0f, coordinatesArray[Coordinates.POS_START_Y],
+                CARTESIAN_ACCURACY);
+        assertEquals(0f, coordinatesArray[Coordinates.POS_END_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.POS_END_Y]);
+                coordinatesArray[Coordinates.POS_END_Y],
+                CARTESIAN_ACCURACY);
 
         // second line
         assertCoordinates(coordinates.toLinesArray(), 1);
@@ -277,6 +331,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Test closing the line.
      */
+    @Test
     public final void testToLinesArrayClosing() {
         coordinates.addCoordinate(coordinate0);
         coordinates.addCoordinate(coordinate1);
@@ -303,6 +358,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests setting CoordinateConverter class.
      */
+    @Test
     public final void testSetCoordinateConverter() {
         coordinates.setCoordinateConverter(converter);
 
@@ -314,6 +370,7 @@ public class CoordinatesTest extends TestCase {
     /**
      * Tests constructor taking CoordinateConverter as a parameter.
      */
+    @Test
     public final void testConstructorCoordinateConverter() {
         coordinates = new Coordinates(converter);
 
@@ -332,14 +389,18 @@ public class CoordinatesTest extends TestCase {
     private void assertCoordinates(final float[] coordinatesArray,
                                    final int lineNumber) {
         int offset = Coordinates.NUM_COORD_LINE * lineNumber;
-        assertEquals((float) 0,
-                coordinatesArray[offset + Coordinates.POS_START_X]);
+        assertEquals(0f,
+                coordinatesArray[offset + Coordinates.POS_START_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) CoordinateTest.UNIT_20,
-                coordinatesArray[offset + Coordinates.POS_START_Y]);
+                coordinatesArray[offset + Coordinates.POS_START_Y],
+                CARTESIAN_ACCURACY);
         assertEquals((float) CoordinateTest.UNIT_30,
-                coordinatesArray[offset + Coordinates.POS_END_X]);
+                coordinatesArray[offset + Coordinates.POS_END_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) CoordinateTest.UNIT_40,
-                coordinatesArray[offset + Coordinates.POS_END_Y]);
+                coordinatesArray[offset + Coordinates.POS_END_Y],
+                CARTESIAN_ACCURACY);
     }
 
     /**
@@ -350,25 +411,26 @@ public class CoordinatesTest extends TestCase {
     private void assertConvertedCoordinates(final float[] coordinatesArray) {
         assertEquals(Coordinates.NUM_COORD_LINE, coordinatesArray.length);
         assertEquals((float) -1 * CoordinateTest.UNIT_20,
-                coordinatesArray[Coordinates.POS_START_X]);
-        assertEquals((float) 0, coordinatesArray[Coordinates.POS_START_Y]);
+                coordinatesArray[Coordinates.POS_START_X],
+                CARTESIAN_ACCURACY);
+        assertEquals(0f, coordinatesArray[Coordinates.POS_START_Y],
+                CARTESIAN_ACCURACY);
         assertEquals((float) -1 * CoordinateTest.UNIT_40,
-                coordinatesArray[Coordinates.POS_END_X]);
+                coordinatesArray[Coordinates.POS_END_X],
+                CARTESIAN_ACCURACY);
         assertEquals((float) -1 * CoordinateTest.UNIT_30,
-                coordinatesArray[Coordinates.POS_END_Y]);
+                coordinatesArray[Coordinates.POS_END_Y],
+                CARTESIAN_ACCURACY);
     }
 
     /**
      * Tests null value for new converter in setCoordinateConverter.
      */
+    @Test
     public final void testSetCoordinateConverterNull() {
-        try {
-            coordinates.setCoordinateConverter(null);
-            fail("should have thrown an exception.");
-        } catch (IllegalArgumentException e) {
-            assertEquals(
-                    "Parameter converter should not be null",
-                    e.getMessage());
-        }
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("Parameter converter should not be null");
+
+        coordinates.setCoordinateConverter(null);
     }
 }

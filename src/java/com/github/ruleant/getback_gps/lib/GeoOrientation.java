@@ -26,7 +26,9 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
-import android.os.SystemClock;
+import android.preference.PreferenceManager;
+
+import com.github.ruleant.getback_gps.SettingsActivity;
 
 import java.util.ArrayList;
 import java.util.EventListener;
@@ -36,7 +38,7 @@ import java.util.EventListener;
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class Orientation implements SensorEventListener {
+public class GeoOrientation implements SensorEventListener {
     /**
      * Accelerometer Sensor.
      */
@@ -99,11 +101,6 @@ public class Orientation implements SensorEventListener {
     private static final long TIMESTAMP_EXPIRE = 5000;
 
     /**
-     * Millisecond to nanosecond conversion rate.
-     */
-    private static final long MILLI_IN_NANO = 1000000;
-
-    /**
      * Microsecond to nanosecond conversion rate.
      */
     private static final long MICRO_IN_NANO = 1000;
@@ -134,7 +131,7 @@ public class Orientation implements SensorEventListener {
      * @param context Context of the Android app
      * @throws IllegalArgumentException if context is not defined
      */
-    public Orientation(final Context context) {
+    public GeoOrientation(final Context context) {
         if (context == null) {
             throw new IllegalArgumentException("context is not defined");
         }
@@ -221,7 +218,8 @@ public class Orientation implements SensorEventListener {
      * @return true if an orientation can be provided
      */
     public boolean hasOrientation() {
-        return mAccelerometer != null && mMagneticFieldSensor != null
+        return isSensorsEnabled()
+                && mAccelerometer != null && mMagneticFieldSensor != null
                 && isTimestampRecent(mAccelerometerTimestamp)
                 && isTimestampRecent(mMagneticFieldTimestamp)
                 || (mOrientationSensor != null
@@ -229,9 +227,9 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Gets current Orientation.
+     * Gets current GeoOrientation.
      *
-     * @return current Orientation
+     * @return current GeoOrientation
      */
     public double getOrientation() {
         return mOrientation;
@@ -255,12 +253,30 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Register for Sensor events for
+     * Returns true if use of sensors is enabled
+     * - TYPE_MAGNETIC_FIELD
+     * - TYPE_ACCELEROMETER.
+     *
+     * @return true if sensors are enabled
+     */
+    public final boolean isSensorsEnabled() {
+        return PreferenceManager.getDefaultSharedPreferences(mContext)
+                .getBoolean(
+                        SettingsActivity.KEY_PREF_ENABLE_SENSORS,
+                        SettingsActivity.DEFAULT_PREF_ENABLE_SENSORS);
+    }
+
+    /**
+     * Register for Sensor events of
      * TYPE_ACCELEROMETER and TYPE_MAGNETIC_FIELD.
      *
      * @param listener SensorEventListener
      */
     public final void registerEvents(final SensorEventListener listener) {
+        if (! isSensorsEnabled()) {
+            return;
+        }
+
         // TODO use preference to select used sensor
         if (mOrientationSensor != null) {
             // orientation sensor is deprecated
@@ -275,7 +291,7 @@ public class Orientation implements SensorEventListener {
     }
 
     /**
-     * Register for Sensor events for
+     * Unregister for Sensor events of
      * TYPE_ACCELEROMETER and TYPE_MAGNETIC_FIELD.
      *
      * @param listener SensorEventListener
@@ -294,7 +310,7 @@ public class Orientation implements SensorEventListener {
      * Calculates current orientation, based on
      * TYPE_MAGNETIC_FIELD and TYPE_ACCELEROMETER sensor values.
      *
-     * @return current Orientation
+     * @return current GeoOrientation
      */
     private double calculateOrientation() {
         if (mAccelerometerValues == null
@@ -331,14 +347,11 @@ public class Orientation implements SensorEventListener {
      * @return true if timestamp is recent.
      */
     private boolean isTimestampRecent(final long timestamp) {
-        // TODO use elapsedRealtimeNanos when using API 17 or higher
-        return timestamp > 0
-            && SystemClock.elapsedRealtime() - (timestamp / MILLI_IN_NANO)
-                < TIMESTAMP_EXPIRE;
+        return Tools.isTimestampNanoRecent(timestamp, TIMESTAMP_EXPIRE);
     }
 
     /**
-     * Event listener interface for Orientation updates.
+     * Event listener interface for GeoOrientation updates.
      */
     public interface OrientationEventListener extends EventListener {
         /**
@@ -355,7 +368,7 @@ public class Orientation implements SensorEventListener {
 
     /**
      * Adds the listener to eventListenerList.
-     * @param listener Orientation event listener
+     * @param listener GeoOrientation event listener
      */
     public final void addEventListener(
             final OrientationEventListener listener) {
@@ -369,7 +382,7 @@ public class Orientation implements SensorEventListener {
 
     /**
      * Removes the listener from eventListenerList.
-     * @param listener Orientation event listener
+     * @param listener GeoOrientation event listener
      */
     public final void removeEventListener(
             final OrientationEventListener listener) {

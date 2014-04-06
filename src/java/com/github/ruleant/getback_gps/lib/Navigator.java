@@ -70,7 +70,7 @@ public class Navigator {
     /**
      * Current orientation based on sensors.
      */
-    private Orientation mOrientation;
+    private GeoOrientation mGeoOrientation;
 
     /**
      * Constructor.
@@ -81,15 +81,15 @@ public class Navigator {
     /**
      * Constructor.
      *
-     * @param orientation Orientation instance
+     * @param geoOrientation GeoOrientation instance
      */
-    public Navigator(final Orientation orientation) {
-        if (orientation == null) {
+    public Navigator(final GeoOrientation geoOrientation) {
+        if (geoOrientation == null) {
             throw new IllegalArgumentException(
-                    "Parameter orientation should not be null");
+                    "Parameter geoOrientation should not be null");
         }
 
-        mOrientation = orientation;
+        mGeoOrientation = geoOrientation;
     }
 
     /**
@@ -258,8 +258,8 @@ public class Navigator {
      */
     public final double getCurrentBearing() {
         double currentBearing = DIR_ZERO;
-        if (mOrientation != null && mOrientation.hasOrientation()) {
-            currentBearing = mOrientation.getOrientation();
+        if (mGeoOrientation != null && mGeoOrientation.hasOrientation()) {
+            currentBearing = mGeoOrientation.getOrientation();
         } else if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {
@@ -289,7 +289,7 @@ public class Navigator {
 
     /**
      * Determines if current bearing is accurate,
-     * If Orientation is accurate
+     * If GeoOrientation is accurate
      * OR
      * if the current location is accurate, if previous location is set,
      * if the previous location is recent, if the current location is
@@ -299,7 +299,7 @@ public class Navigator {
      * @return true if bearing is accurate
      */
     public final boolean isBearingAccurate() {
-        return  mOrientation != null && mOrientation.hasOrientation()
+        return  mGeoOrientation != null && mGeoOrientation.hasOrientation()
                 || isLocationAccurate()
                 && mPreviousLocation != null
                 && mPreviousLocation.isRecent()

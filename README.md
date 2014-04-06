@@ -1,9 +1,9 @@
 GetBack GPS
 ===========
 
-[![Build Status](https://travis-ci.org/ruleant/getback_gps.png?branch=master)](https://travis-ci.org/ruleant/getback_gps)
+[![Build Status](https://travis-ci.org/ruleant/getback_gps.svg)](https://travis-ci.org/ruleant/getback_gps)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
-[![Translation status](http://hosted.weblate.org/widgets/getback_gps-status-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![Translation status](http://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
 
 Open Source Android app for finding your way back to a previously visited location using GPS coordinates.
 
@@ -38,7 +38,7 @@ You can help translating the app to your own language : <http://hosted.weblate.o
 
 [![Translation status](http://hosted.weblate.org/widgets/getback_gps-287x66-grey.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
 
-Is your language not listed? Follow the instructions on the 'New translation' tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
+Is your language not listed? Follow the instructions on the [New translation](https://hosted.weblate.org/projects/getback_gps/strings/#new-lang) tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
 
 Code documentation
 ------------------
@@ -85,7 +85,3 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/ruleant/getback_gps/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
-
