@@ -277,8 +277,13 @@ public class GeoOrientation implements SensorEventListener {
             return;
         }
 
-        // TODO use preference to select used sensor
-        if (mOrientationSensor != null) {
+        int sensor = PreferenceManager.getDefaultSharedPreferences(mContext)
+                .getInt(
+                        SettingsActivity.KEY_PREF_GEO_ORIENTATION_SENSOR,
+                        SettingsActivity.DEFAULT_PREF_GEO_ORIENTATION_SENSOR);
+
+        if (sensor == SettingsActivity.GEO_ORIENTATION_SENSOR_CALCULATED
+            && mOrientationSensor != null) {
             // orientation sensor is deprecated
             mSensorManager.registerListener(
                     listener, mOrientationSensor, SENSOR_UPDATE_RATE);
