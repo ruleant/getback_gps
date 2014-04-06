@@ -101,11 +101,6 @@ public class GeoOrientation implements SensorEventListener {
     private static final long TIMESTAMP_EXPIRE = 5000 * Tools.MILLI_IN_NANO;
 
     /**
-     * Microsecond to nanosecond conversion rate.
-     */
-    private static final long MICRO_IN_NANO = 1000;
-
-    /**
      * Sensor update rate in microseconds.
      */
     private static final int SENSOR_UPDATE_RATE = 200000;
@@ -159,7 +154,7 @@ public class GeoOrientation implements SensorEventListener {
         if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER
             // reject values that arrive sooner than the update rate
             || (event.timestamp - mAccelerometerTimestamp)
-                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
+                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
             return;
         }
         mAccelerometerValues
@@ -180,7 +175,7 @@ public class GeoOrientation implements SensorEventListener {
         if (event.sensor.getType() != Sensor.TYPE_MAGNETIC_FIELD
             // reject values that arrive sooner than the update rate
             || (event.timestamp - mMagneticFieldTimestamp)
-                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
+                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
             return;
         }
         mMagneticFieldValues
@@ -201,7 +196,7 @@ public class GeoOrientation implements SensorEventListener {
         if (event.sensor.getType() != Sensor.TYPE_ORIENTATION
                 // reject values that arrive sooner than the update rate
                 || (event.timestamp - mOrientationTimestamp)
-                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
+                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
             return;
         }
         mOrientation = event.values[0];
