@@ -40,6 +40,11 @@ import java.util.EventListener;
  */
 public class GeoOrientation implements SensorEventListener {
     /**
+     * Accelerometer Sensor.
+     */
+    private Sensor mOrientationSensor;
+
+    /**
      * Context of the Android app.
      */
     private Context mContext;
@@ -91,14 +96,9 @@ public class GeoOrientation implements SensorEventListener {
 
     /**
      * Sensor timestamp expiration,
-     * 5 seconds in milliseconds (5 * 1000).
+     * 5 seconds in nanoseconds (5 * 10^9).
      */
-    private static final long TIMESTAMP_EXPIRE = 5000;
-
-    /**
-     * Microsecond to nanosecond conversion rate.
-     */
-    private static final long MICRO_IN_NANO = 1000;
+    private static final long TIMESTAMP_EXPIRE = 5000 * Tools.MILLI_IN_NANO;
 
     /**
      * Sensor update rate in microseconds.
@@ -140,6 +140,8 @@ public class GeoOrientation implements SensorEventListener {
                     Sensor.TYPE_ACCELEROMETER);
             mMagneticFieldSensor = mSensorManager.getDefaultSensor(
                     Sensor.TYPE_MAGNETIC_FIELD);
+            mOrientationSensor = mSensorManager.getDefaultSensor(
+                    Sensor.TYPE_ORIENTATION);
         }
     }
 
@@ -152,7 +154,7 @@ public class GeoOrientation implements SensorEventListener {
         if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER
             // reject values that arrive sooner than the update rate
             || (event.timestamp - mAccelerometerTimestamp)
-                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
+                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
             return;
         }
         mAccelerometerValues
@@ -173,7 +175,7 @@ public class GeoOrientation implements SensorEventListener {
         if (event.sensor.getType() != Sensor.TYPE_MAGNETIC_FIELD
             // reject values that arrive sooner than the update rate
             || (event.timestamp - mMagneticFieldTimestamp)
-                < SENSOR_UPDATE_RATE * MICRO_IN_NANO) {
+                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
             return;
         }
         mMagneticFieldValues
@@ -182,6 +184,24 @@ public class GeoOrientation implements SensorEventListener {
         mMagneticFieldTimestamp = event.timestamp;
 
         calculateOrientation();
+        onOrientationChange();
+    }
+
+    /**
+     * Set orientation by an event from a TYPE_ORIENTATION sensor.
+     *
+     * @param event Sensor event from TYPE_ACCELEROMETER sensor
+     */
+    public final void setOrientation(final SensorEvent event) {
+        if (event.sensor.getType() != Sensor.TYPE_ORIENTATION
+                // reject values that arrive sooner than the update rate
+                || (event.timestamp - mOrientationTimestamp)
+                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
+            return;
+        }
+        mOrientation = event.values[0];
+        mOrientationTimestamp = event.timestamp;
+
         onOrientationChange();
     }
 
@@ -197,7 +217,8 @@ public class GeoOrientation implements SensorEventListener {
                 && mAccelerometer != null && mMagneticFieldSensor != null
                 && isTimestampRecent(mAccelerometerTimestamp)
                 && isTimestampRecent(mMagneticFieldTimestamp)
-                && isTimestampRecent(mOrientationTimestamp);
+                || (mOrientationSensor != null
+                && isTimestampRecent(mOrientationTimestamp));
     }
 
     /**
@@ -218,10 +239,12 @@ public class GeoOrientation implements SensorEventListener {
      */
     public final boolean hasSensors() {
         return mSensorManager != null
-            && mSensorManager.getSensorList(
+            && (mSensorManager.getSensorList(
                 Sensor.TYPE_MAGNETIC_FIELD).size() > 0
             && mSensorManager.getSensorList(
-                Sensor.TYPE_ACCELEROMETER).size() > 0;
+                Sensor.TYPE_ACCELEROMETER).size() > 0
+            || mSensorManager.getSensorList(
+                Sensor.TYPE_ORIENTATION).size() > 0);
     }
 
     /**
@@ -245,8 +268,22 @@ public class GeoOrientation implements SensorEventListener {
      * @param listener SensorEventListener
      */
     public final void registerEvents(final SensorEventListener listener) {
-        if (isSensorsEnabled()
-                && mAccelerometer != null && mMagneticFieldSensor != null) {
+        if (!isSensorsEnabled()) {
+            return;
+        }
+
+        int sensor = Integer.parseInt(
+                PreferenceManager.getDefaultSharedPreferences(mContext)
+                .getString(
+                        SettingsActivity.KEY_PREF_GEO_ORIENTATION_SENSOR,
+                        SettingsActivity.DEFAULT_PREF_GEO_ORIENTATION_SENSOR));
+
+        if (sensor == SettingsActivity.GEO_ORIENTATION_SENSOR_CALCULATED
+            && mOrientationSensor != null) {
+            // orientation sensor is deprecated
+            mSensorManager.registerListener(
+                    listener, mOrientationSensor, SENSOR_UPDATE_RATE);
+        } else if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.registerListener(
                     listener, mAccelerometer, SENSOR_UPDATE_RATE);
             mSensorManager.registerListener(
@@ -264,6 +301,9 @@ public class GeoOrientation implements SensorEventListener {
         if (mAccelerometer != null && mMagneticFieldSensor != null) {
             mSensorManager.unregisterListener(listener, mAccelerometer);
             mSensorManager.unregisterListener(listener, mMagneticFieldSensor);
+        }
+        if (mOrientationSensor != null) {
+            mSensorManager.unregisterListener(listener, mOrientationSensor);
         }
     }
 
@@ -386,6 +426,9 @@ public class GeoOrientation implements SensorEventListener {
                 break;
             case Sensor.TYPE_MAGNETIC_FIELD:
                 setMagneticField(event);
+                break;
+            case Sensor.TYPE_ORIENTATION:
+                setOrientation(event);
                 break;
             default:
                 break;

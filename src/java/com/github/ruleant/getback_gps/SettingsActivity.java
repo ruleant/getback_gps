@@ -87,7 +87,18 @@ public class SettingsActivity extends PreferenceActivity {
             = "geo_orientation_sensor";
 
     /**
-     * Default value of preference Default geo orientation sensor.
+     * Geo orientation sensor value : raw sensors.
+     */
+    public static final int GEO_ORIENTATION_SENSOR_RAW = 1;
+
+    /**
+     * Geo orientation sensor value : calculated value.
+     */
+    public static final int GEO_ORIENTATION_SENSOR_CALCULATED = 2;
+
+    /**
+     * Default value of preference Default geo orientation sensor :
+     * raw sensors.
      */
     public static final String DEFAULT_PREF_GEO_ORIENTATION_SENSOR = "1";
 

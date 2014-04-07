@@ -18,6 +18,8 @@
  - issue #41 : use sensors (gyroscope, acceleration, compass) to get more accurate bearing
  - move isTimestampRecent() to Tools class, using it in GeoOrientation and AriadneLocation classes
  - issue #131 : add Preference to enable sensor based updates of current bearing
+ - add preference to select prefered orientation sensor
+ - issue #148 : current bearing is not updated when using sensors
 
  v0.1.1 (released on 04Dec2013)
  - updated license info about third party material
