@@ -93,6 +93,11 @@ public class NavigatorTest {
     private static final double BEARING_2 = 80.0;
 
     /**
+     * Bearing variation (+ 10°).
+     */
+    private static final double BEARING_VARIATION = 10.0;
+
+    /**
      * Timestamp 1.
      */
     private static final long TIMESTAMP_1 = 5000;
@@ -613,11 +618,12 @@ public class NavigatorTest {
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
-        when(geoOrientation.getOrientation()).thenReturn(BEARING_1 + 10);
+        when(geoOrientation.getOrientation())
+                .thenReturn(BEARING_1 + BEARING_VARIATION);
 
         // get corrected bearing
         assertEquals(
-                BEARING_1 + 10,
+                BEARING_1 + BEARING_VARIATION,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
@@ -631,11 +637,12 @@ public class NavigatorTest {
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
-        when(geoOrientation.getOrientation()).thenReturn(BEARING_1 + 10);
+        when(geoOrientation.getOrientation())
+                .thenReturn(BEARING_1 + BEARING_VARIATION);
 
         // get corrected bearing (offset to last location based bearing)
         assertEquals(
-                BEARING_2 + 10,
+                BEARING_2 + BEARING_VARIATION,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
     }
