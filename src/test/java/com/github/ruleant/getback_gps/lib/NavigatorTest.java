@@ -627,6 +627,7 @@ public class NavigatorTest {
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
+        // set location with different bearing
         when(geoOrientation.getOrientation()).thenReturn(BEARING_1);
         when(loc1.getBearing()).thenReturn((float) BEARING_2);
         navigator.setLocation(loc1);
@@ -643,6 +644,16 @@ public class NavigatorTest {
         // get corrected bearing (offset to last location based bearing)
         assertEquals(
                 BEARING_2 + BEARING_VARIATION,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+
+        // location doesn't have a bearing
+        when(loc1.hasBearing()).thenReturn(false);
+        navigator.setLocation(loc1);
+
+        // get uncorrected bearing
+        assertEquals(
+                BEARING_1 + BEARING_VARIATION,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
     }
