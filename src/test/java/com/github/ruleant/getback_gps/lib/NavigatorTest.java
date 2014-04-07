@@ -88,6 +88,11 @@ public class NavigatorTest {
     private static final double BEARING_1 = 60.0;
 
     /**
+     * Bearing 2 (80°).
+     */
+    private static final double BEARING_2 = 80.0;
+
+    /**
      * Timestamp 1.
      */
     private static final long TIMESTAMP_1 = 5000;
@@ -581,6 +586,56 @@ public class NavigatorTest {
         // get current bearing
         assertEquals(
                 BEARING_1,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+    }
+
+    /**
+     * Tests getCurrentBearing,
+     * using offset between location and sensor based bearing.
+     */
+    @Test
+    public final void testGetBearingWithOrientationOffset() {
+        navigator = new Navigator(geoOrientation);
+
+        // mock : define orientation of sensor based orientation
+        when(geoOrientation.hasOrientation()).thenReturn(true);
+        when(geoOrientation.getOrientation()).thenReturn(BEARING_1);
+
+        // mock : define bearing of location
+        when(loc1.hasBearing()).thenReturn(true);
+        when(loc1.getBearing()).thenReturn((float) BEARING_1);
+        navigator.setLocation(loc1);
+
+        // get current bearing
+        assertEquals(
+                BEARING_1,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+
+        when(geoOrientation.getOrientation()).thenReturn(BEARING_1 + 10);
+
+        // get corrected bearing
+        assertEquals(
+                BEARING_1 + 10,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+
+        when(geoOrientation.getOrientation()).thenReturn(BEARING_1);
+        when(loc1.getBearing()).thenReturn((float) BEARING_2);
+        navigator.setLocation(loc1);
+
+        // get current bearing
+        assertEquals(
+                BEARING_2,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+
+        when(geoOrientation.getOrientation()).thenReturn(BEARING_1 + 10);
+
+        // get corrected bearing (offset to last location based bearing)
+        assertEquals(
+                BEARING_2 + 10,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
     }

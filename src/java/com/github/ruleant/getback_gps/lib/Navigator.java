@@ -73,6 +73,13 @@ public class Navigator {
     private GeoOrientation mGeoOrientation;
 
     /**
+     * Offset between bearing provided by sensors
+     * and bearing provided by geolocation,
+     * used to calibrate current bearing.
+     */
+    private double mSensorBearingOffset = 0;
+
+    /**
      * Constructor.
      */
     public Navigator() {
@@ -100,6 +107,8 @@ public class Navigator {
     public final void setLocation(final AriadneLocation location) {
         mPreviousLocation = mCurrentLocation;
         mCurrentLocation = location;
+
+        calculateSensorBearingOffset();
     }
 
     /**
@@ -259,7 +268,8 @@ public class Navigator {
     public final double getCurrentBearing() {
         double currentBearing = DIR_ZERO;
         if (mGeoOrientation != null && mGeoOrientation.hasOrientation()) {
-            currentBearing = mGeoOrientation.getOrientation();
+            currentBearing = mGeoOrientation.getOrientation()
+                    - mSensorBearingOffset;
         } else if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {
@@ -306,5 +316,19 @@ public class Navigator {
                 && !mPreviousLocation.equals(mCurrentLocation)
                 && mPreviousLocation.distanceTo(mCurrentLocation)
                 > mCurrentLocation.getAccuracy();
+    }
+
+    /**
+     * Calculate offset between bearing provided by sensors
+     * and bearing provided by geolocation.
+     */
+    public final void calculateSensorBearingOffset() {
+        if (mGeoOrientation != null && mGeoOrientation.hasOrientation()
+            && mCurrentLocation != null && mCurrentLocation.hasBearing()) {
+
+            // Calculate offset
+            mSensorBearingOffset = mGeoOrientation.getOrientation()
+                    - mCurrentLocation.getBearing();
+        }
     }
 }
