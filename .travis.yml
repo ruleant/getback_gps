@@ -2,7 +2,7 @@
 language: java
 env:
   global:
-    secure: 1K5DKXfDf/oAONWdwWL+7ZT6x3Z/xvWrFIGm9RnR9kMMjfcQ3HO0QazMwjI07f9TORQaQpCiTrQld377+Bgw91P5WOkT+Jfp+G0RPqt/h9OBAJVCc4uvhbeqk6udpBfAuhCykoZASZK8nJ75RCZRybsl6SpmvdUR4jGnNszcaJs=
+    secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
