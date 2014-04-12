@@ -267,7 +267,7 @@ public class Navigator {
      */
     public final double getCurrentBearing() {
         double currentBearing = DIR_ZERO;
-        if (mGeoOrientation != null && mGeoOrientation.hasOrientation()) {
+        if (isSensorBearingAccurate()) {
             currentBearing = mGeoOrientation.getOrientation()
                     - mSensorBearingOffset;
         } else if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
@@ -309,13 +309,22 @@ public class Navigator {
      * @return true if bearing is accurate
      */
     public final boolean isBearingAccurate() {
-        return  mGeoOrientation != null && mGeoOrientation.hasOrientation()
+        return  isSensorBearingAccurate()
                 || isLocationAccurate()
                 && mPreviousLocation != null
                 && mPreviousLocation.isRecent()
                 && !mPreviousLocation.equals(mCurrentLocation)
                 && mPreviousLocation.distanceTo(mCurrentLocation)
                 > mCurrentLocation.getAccuracy();
+    }
+
+    /**
+     * Determines if sensor based bearing is accurate.
+     *
+     * @return true if sensor based bearing is accurate
+     */
+    public final boolean isSensorBearingAccurate() {
+        return  mGeoOrientation != null && mGeoOrientation.hasOrientation();
     }
 
     /**

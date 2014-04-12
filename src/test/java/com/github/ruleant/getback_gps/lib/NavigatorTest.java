@@ -798,20 +798,23 @@ public class NavigatorTest {
     }
 
     /**
-     * Tests bearing accuracy when geoOrientation class is used.
+     * Tests sensor based bearing accuracy.
      */
     @Test
-    public final void testIsBearingAccurateWithOrientation() {
+    public final void testIsSensorBearingAccurate() {
         navigator = new Navigator(geoOrientation);
 
+        assertFalse(navigator.isSensorBearingAccurate());
         assertFalse(navigator.isBearingAccurate());
 
         // GeoOrientation class has no geoOrientation value
         when(geoOrientation.hasOrientation()).thenReturn(false);
+        assertFalse(navigator.isSensorBearingAccurate());
         assertFalse(navigator.isBearingAccurate());
 
         // GeoOrientation class has an geoOrientation value
         when(geoOrientation.hasOrientation()).thenReturn(true);
+        assertTrue(navigator.isSensorBearingAccurate());
         assertTrue(navigator.isBearingAccurate());
     }
 }
