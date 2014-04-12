@@ -33,11 +33,6 @@ public class Navigator {
     private static final double ACCURACY_LIMIT = 50;
 
     /**
-     * Conversion from seconds to milliseconds.
-     */
-    private static final float SECOND_IN_MILLIS = 1000;
-
-    /**
      * Zero distance.
      */
     public static final float DIST_ZERO = 0;
@@ -251,7 +246,7 @@ public class Navigator {
                         && distance > mPreviousLocation.getAccuracy()) {
                     // calculate speed from distance travelled and time spent
                     // time is in milliseconds, convert to seconds.
-                    currentSpeed = distance / (time / SECOND_IN_MILLIS);
+                    currentSpeed = distance / (time / Tools.SECOND_IN_MILLIS);
                 }
             }
         }

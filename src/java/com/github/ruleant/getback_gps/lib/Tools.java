@@ -42,6 +42,11 @@ public class Tools {
     public static final long MICRO_IN_NANO = 1000;
 
     /**
+     * Seconds to milliseconds conversion rate.
+     */
+    public static final long SECOND_IN_MILLIS = 1000;
+
+    /**
      * Hidden constructor, to prevent instantiating.
      */
     protected Tools() {
