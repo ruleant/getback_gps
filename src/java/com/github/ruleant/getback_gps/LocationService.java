@@ -40,8 +40,8 @@ import android.widget.Toast;
 
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
 import com.github.ruleant.getback_gps.lib.DebugLevel;
-import com.github.ruleant.getback_gps.lib.GeoOrientation;
 import com.github.ruleant.getback_gps.lib.Navigator;
+import com.github.ruleant.getback_gps.lib.SensorOrientation;
 import com.github.ruleant.getback_gps.lib.StoredDestination;
 import com.github.ruleant.getback_gps.lib.StoredLocation;
 
@@ -54,7 +54,7 @@ import com.github.ruleant.getback_gps.lib.StoredLocation;
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class LocationService extends Service
-        implements GeoOrientation.OrientationEventListener {
+        implements SensorOrientation.OrientationEventListener {
     /**
      * SharedPreferences location for StoredDestination.
      */
@@ -104,9 +104,9 @@ public class LocationService extends Service
      */
     private Navigator mNavigator = null;
     /**
-     * GeoOrientation class.
+     * SensorOrientation class.
      */
-    private GeoOrientation mGeoOrientation = null;
+    private SensorOrientation mSensorOrientation = null;
     /**
      * Last known good location.
      */
@@ -133,8 +133,8 @@ public class LocationService extends Service
                 = (LocationManager)
                 this.getSystemService(Context.LOCATION_SERVICE);
 
-        mGeoOrientation = new GeoOrientation(this);
-        mNavigator = new Navigator(mGeoOrientation);
+        mSensorOrientation = new SensorOrientation(this);
+        mNavigator = new Navigator(mSensorOrientation);
 
         // retrieve last known good location
         mLastLocation = new StoredLocation(
@@ -157,9 +157,9 @@ public class LocationService extends Service
         }
 
         // Subscribe to sensor events
-        if (mGeoOrientation.hasSensors()
-                && mGeoOrientation.isSensorsEnabled()) {
-            mGeoOrientation.addEventListener(this);
+        if (mSensorOrientation.hasSensors()
+                && mSensorOrientation.isSensorsEnabled()) {
+            mSensorOrientation.addEventListener(this);
         }
     }
 
@@ -173,8 +173,8 @@ public class LocationService extends Service
         // unsubscribe from LocationManager updates
         mLocationManager.removeUpdates(mListener);
 
-        // unsubscribe from GeoOrientation sensor events
-        mGeoOrientation.removeEventListener(this);
+        // unsubscribe from SensorOrientation sensor events
+        mSensorOrientation.removeEventListener(this);
 
         // save stored locations
         mLastLocation.save();
@@ -187,7 +187,7 @@ public class LocationService extends Service
         mLocationManager = null;
         mLastLocation = null;
         mStoredDestination = null;
-        mGeoOrientation = null;
+        mSensorOrientation = null;
         mNavigator = null;
 
         // display message announcing end of service

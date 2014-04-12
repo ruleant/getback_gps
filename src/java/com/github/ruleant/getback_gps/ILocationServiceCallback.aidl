@@ -33,7 +33,7 @@ oneway interface ILocationServiceCallback {
     void locationUpdated();
 
     /**
-     * Called when the service has an updated geoOrientation.
+     * Called when the service has an updated sensorOrientation.
      */
     void orientationUpdated();
 

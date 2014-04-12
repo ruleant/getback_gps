@@ -70,7 +70,7 @@ public class Navigator {
     /**
      * Current orientation based on sensors.
      */
-    private GeoOrientation mSensorOrientation;
+    private SensorOrientation mSensorOrientation;
 
     /**
      * Offset between bearing provided by sensors
@@ -88,15 +88,15 @@ public class Navigator {
     /**
      * Constructor.
      *
-     * @param geoOrientation GeoOrientation instance
+     * @param sensorOrientation SensorOrientation instance
      */
-    public Navigator(final GeoOrientation geoOrientation) {
-        if (geoOrientation == null) {
+    public Navigator(final SensorOrientation sensorOrientation) {
+        if (sensorOrientation == null) {
             throw new IllegalArgumentException(
-                    "Parameter geoOrientation should not be null");
+                    "Parameter sensorOrientation should not be null");
         }
 
-        mSensorOrientation = geoOrientation;
+        mSensorOrientation = sensorOrientation;
     }
 
     /**
