@@ -770,30 +770,35 @@ public class NavigatorTest {
 
         // isLocationAccurate is true,
         // but previous location is not set so bearing is not accurate
+        assertFalse(navigator.isLocationBearingAccurate());
         assertFalse(navigator.isBearingAccurate());
 
         // set previous location (= same as current location)
         navigator.setPreviousLocation(loc1);
         // current and previous location are the same,
         // so bearing is not accurate
+        assertFalse(navigator.isLocationBearingAccurate());
         assertFalse(navigator.isBearingAccurate());
 
         // set previous location (= different as current location)
         navigator.setPreviousLocation(loc2);
         // previous location is not recent
         when(loc2.isRecent()).thenReturn(false);
+        assertFalse(navigator.isLocationBearingAccurate());
         assertFalse(navigator.isBearingAccurate());
 
         // previous location is recent, but distance between
         // previous and current location is smaller than current accuracy
         when(loc2.isRecent()).thenReturn(true);
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_40);
+        assertFalse(navigator.isLocationBearingAccurate());
         assertFalse(navigator.isBearingAccurate());
 
         // distance between previous and current location
         // is larger than current accuracy
         when(loc2.isRecent()).thenReturn(true);
         when(loc1.getAccuracy()).thenReturn(ACCURACY_OK_10);
+        assertTrue(navigator.isLocationBearingAccurate());
         assertTrue(navigator.isBearingAccurate());
     }
 

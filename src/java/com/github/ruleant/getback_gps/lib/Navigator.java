@@ -276,7 +276,7 @@ public class Navigator {
             // don't calculate current bearing if previous location is not set
             // or if bearing is not accurate
             // (both are checked in isBearingAccurate)
-            if (isBearingAccurate()) {
+            if (isLocationBearingAccurate()) {
                 currentBearing = mPreviousLocation.bearingTo(mCurrentLocation);
             }
         }
@@ -299,23 +299,14 @@ public class Navigator {
 
     /**
      * Determines if current bearing is accurate,
-     * If GeoOrientation is accurate
+     * if sensor based bearing is accurate
      * OR
-     * if the current location is accurate, if previous location is set,
-     * if the previous location is recent, if the current location is
-     * not equal to the previous location
-     * and if the distance between the two is larger than the accuracy.
+     * if location (GPS) based bearing is accurate.
      *
      * @return true if bearing is accurate
      */
     public final boolean isBearingAccurate() {
-        return  isSensorBearingAccurate()
-                || isLocationAccurate()
-                && mPreviousLocation != null
-                && mPreviousLocation.isRecent()
-                && !mPreviousLocation.equals(mCurrentLocation)
-                && mPreviousLocation.distanceTo(mCurrentLocation)
-                > mCurrentLocation.getAccuracy();
+        return isSensorBearingAccurate() || isLocationBearingAccurate();
     }
 
     /**
@@ -325,6 +316,24 @@ public class Navigator {
      */
     public final boolean isSensorBearingAccurate() {
         return  mGeoOrientation != null && mGeoOrientation.hasOrientation();
+    }
+
+    /**
+     * Determines if location (GPS signal) based bearing is accurate,
+     * if the current location is accurate, if previous location is set,
+     * if the previous location is recent, if the current location is
+     * not equal to the previous location
+     * and if the distance between the two is larger than the accuracy.
+     *
+     * @return true if location based bearing is accurate
+     */
+    public final boolean isLocationBearingAccurate() {
+        return  isLocationAccurate()
+                && mPreviousLocation != null
+                && mPreviousLocation.isRecent()
+                && !mPreviousLocation.equals(mCurrentLocation)
+                && mPreviousLocation.distanceTo(mCurrentLocation)
+                > mCurrentLocation.getAccuracy();
     }
 
     /**
