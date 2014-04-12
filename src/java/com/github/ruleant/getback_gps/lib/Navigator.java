@@ -70,7 +70,7 @@ public class Navigator {
     /**
      * Current orientation based on sensors.
      */
-    private GeoOrientation mGeoOrientation;
+    private GeoOrientation mSensorOrientation;
 
     /**
      * Offset between bearing provided by sensors
@@ -96,7 +96,7 @@ public class Navigator {
                     "Parameter geoOrientation should not be null");
         }
 
-        mGeoOrientation = geoOrientation;
+        mSensorOrientation = geoOrientation;
     }
 
     /**
@@ -268,7 +268,7 @@ public class Navigator {
     public final double getCurrentBearing() {
         double currentBearing = DIR_ZERO;
         if (isSensorBearingAccurate()) {
-            currentBearing = mGeoOrientation.getOrientation()
+            currentBearing = mSensorOrientation.getOrientation()
                     - mSensorBearingOffset;
         } else if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
@@ -315,7 +315,7 @@ public class Navigator {
      * @return true if sensor based bearing is accurate
      */
     public final boolean isSensorBearingAccurate() {
-        return  mGeoOrientation != null && mGeoOrientation.hasOrientation();
+        return  mSensorOrientation != null && mSensorOrientation.hasOrientation();
     }
 
     /**
@@ -341,11 +341,11 @@ public class Navigator {
      * and bearing provided by geolocation.
      */
     public final void calculateSensorBearingOffset() {
-        if (mGeoOrientation != null && mGeoOrientation.hasOrientation()
+        if (mSensorOrientation != null && mSensorOrientation.hasOrientation()
             && mCurrentLocation != null && mCurrentLocation.hasBearing()) {
 
             // Calculate offset
-            mSensorBearingOffset = mGeoOrientation.getOrientation()
+            mSensorBearingOffset = mSensorOrientation.getOrientation()
                     - mCurrentLocation.getBearing();
         } else {
             // Reset offset
