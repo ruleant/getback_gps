@@ -310,7 +310,8 @@ public class Navigator {
      * @return true if sensor based bearing is accurate
      */
     public final boolean isSensorBearingAccurate() {
-        return  mSensorOrientation != null && mSensorOrientation.hasOrientation();
+        return  mSensorOrientation != null
+                && mSensorOrientation.hasOrientation();
     }
 
     /**
