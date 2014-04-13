@@ -669,6 +669,10 @@ public class NavigatorTest {
         // get current bearing
         assertEquals(
                 Navigator.DIR_ZERO,
+                navigator.getLocationBearing(),
+                ASSERT_ACCURACY);
+        assertEquals(
+                Navigator.DIR_ZERO,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
@@ -678,6 +682,10 @@ public class NavigatorTest {
         // get current bearing
         assertEquals(
                 Navigator.DIR_ZERO,
+                navigator.getLocationBearing(),
+                ASSERT_ACCURACY);
+        assertEquals(
+                Navigator.DIR_ZERO,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
@@ -685,6 +693,10 @@ public class NavigatorTest {
         when(loc1.getBearing()).thenReturn((float) BEARING_1);
 
         // get current bearing
+        assertEquals(
+                BEARING_1,
+                navigator.getLocationBearing(),
+                ASSERT_ACCURACY);
         assertEquals(
                 BEARING_1,
                 navigator.getCurrentBearing(),
@@ -702,12 +714,20 @@ public class NavigatorTest {
         // Bearing is zero if there is no previous location
         assertEquals(
                 Navigator.DIR_ZERO,
+                navigator.getLocationBearing(),
+                ASSERT_ACCURACY);
+        assertEquals(
+                Navigator.DIR_ZERO,
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
         navigator.setLocation(loc2);
 
         // Bearing is zero if the current bearing is not accurate
+        assertEquals(
+                Navigator.DIR_ZERO,
+                navigator.getLocationBearing(),
+                ASSERT_ACCURACY);
         assertEquals(
                 Navigator.DIR_ZERO,
                 navigator.getCurrentBearing(),
@@ -717,6 +737,10 @@ public class NavigatorTest {
         initMockIsBearingAccurate(loc2, loc1);
 
         // get current bearing
+        assertEquals(
+                DIR_LOC1_2,
+                navigator.getLocationBearing(),
+                ASSERT_ACCURACY);
         assertEquals(
                 DIR_LOC1_2,
                 navigator.getCurrentBearing(),

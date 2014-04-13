@@ -261,11 +261,25 @@ public class Navigator {
      * @return current bearing in ° relative to the North
      */
     public final double getCurrentBearing() {
-        double currentBearing = DIR_ZERO;
+        double currentBearing;
         if (isSensorBearingAccurate()) {
             currentBearing = mSensorOrientation.getOrientation()
                     - mSensorBearingOffset;
-        } else if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
+        } else {
+            currentBearing = getLocationBearing();
+        }
+
+        return currentBearing;
+    }
+
+    /**
+     * Get location based bearing,
+     *
+     * @return bearing in ° relative to the North
+     */
+    public final double getLocationBearing() {
+        double currentBearing = DIR_ZERO;
+        if (mCurrentLocation != null && mCurrentLocation.hasBearing()) {
             currentBearing = mCurrentLocation.getBearing();
         } else {
             // don't calculate current bearing if previous location is not set
