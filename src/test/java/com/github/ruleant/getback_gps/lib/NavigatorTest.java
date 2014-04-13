@@ -189,12 +189,12 @@ public class NavigatorTest {
 
     /**
      * Create mock setting right conditions for
-     * isBearingAccurate() to return true.
+     * isLocationBearingAccurate() to return true.
      *
      * @param currentLocation Mock object for currentLocation
      * @param previousLocation Mock object for PreviousLocation
      */
-    private void initMockIsBearingAccurate(
+    private void initMockIsLocationBearingAccurate(
             final AriadneLocation currentLocation,
             final AriadneLocation previousLocation) {
         // set location
@@ -396,7 +396,7 @@ public class NavigatorTest {
     public final void testGetRelativeDirection() {
         // initialise mock setting with right conditions for isBearingAccurate
         // (currentLocation = loc2, previousLocation = loc1)
-        initMockIsBearingAccurate(loc2, loc1);
+        initMockIsLocationBearingAccurate(loc2, loc1);
 
         // set destination
         navigator.setDestination(loc3);
@@ -416,7 +416,7 @@ public class NavigatorTest {
 
         // reverse bearing of mock
         // (currentLocation = loc1, previousLocation = loc2)
-        initMockIsBearingAccurate(loc1, loc2);
+        initMockIsLocationBearingAccurate(loc1, loc2);
 
         // get current bearing
         assertEquals(
@@ -733,8 +733,9 @@ public class NavigatorTest {
                 navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
 
-        // initialise mock setting right conditions for isBearingAccurate
-        initMockIsBearingAccurate(loc2, loc1);
+        // initialise mock setting right conditions
+        // for isLocationBearingAccurate
+        initMockIsLocationBearingAccurate(loc2, loc1);
 
         // get current bearing
         assertEquals(
