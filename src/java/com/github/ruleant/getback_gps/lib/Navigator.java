@@ -273,7 +273,7 @@ public class Navigator {
     }
 
     /**
-     * Get location based bearing,
+     * Get location based bearing.
      *
      * @return bearing in ° relative to the North
      */
