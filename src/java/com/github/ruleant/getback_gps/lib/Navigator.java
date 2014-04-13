@@ -352,11 +352,11 @@ public class Navigator {
      */
     public final void calculateSensorBearingOffset() {
         if (mSensorOrientation != null && mSensorOrientation.hasOrientation()
-            && mCurrentLocation != null && mCurrentLocation.hasBearing()) {
-
+            && (mCurrentLocation != null && mCurrentLocation.hasBearing()
+            || isLocationBearingAccurate())) {
             // Calculate offset
             mSensorBearingOffset = mSensorOrientation.getOrientation()
-                    - mCurrentLocation.getBearing();
+                    - getLocationBearing();
         } else {
             // Reset offset
             mSensorBearingOffset = 0;

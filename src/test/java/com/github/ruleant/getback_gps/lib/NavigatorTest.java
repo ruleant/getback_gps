@@ -659,6 +659,49 @@ public class NavigatorTest {
     }
 
     /**
+     * Tests getCurrentBearing,
+     * using offset between calculated location based bearing
+     * and sensor based bearing.
+     */
+    @Test
+    public final void testGetCalculatedBearingWithOrientationOffset() {
+        navigator = new Navigator(sensorOrientation);
+
+        // mock : define orientation of sensor based orientation
+        when(sensorOrientation.hasOrientation()).thenReturn(true);
+        when(sensorOrientation.getOrientation()).thenReturn(BEARING_1);
+
+        // mock : define bearing of location
+        initMockIsLocationBearingAccurate(loc2, loc1);
+        navigator.calculateSensorBearingOffset();
+
+        // get current bearing
+        assertEquals(
+                DIR_LOC1_2,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+
+        when(sensorOrientation.getOrientation())
+                .thenReturn(BEARING_1 + BEARING_VARIATION);
+
+        // get corrected bearing
+        assertEquals(
+                DIR_LOC1_2 + BEARING_VARIATION,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+
+        // location doesn't have a bearing
+        when(loc2.isRecent()).thenReturn(false);
+        navigator.calculateSensorBearingOffset();
+
+        // get uncorrected bearing
+        assertEquals(
+                BEARING_1 + BEARING_VARIATION,
+                navigator.getCurrentBearing(),
+                ASSERT_ACCURACY);
+    }
+
+    /**
      * Tests getCurrentBearing of current location.
      */
     @Test
