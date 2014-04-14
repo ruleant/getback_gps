@@ -351,7 +351,7 @@ public class Navigator {
      * and bearing provided by geolocation.
      */
     public final void calculateSensorBearingOffset() {
-        if (mSensorOrientation != null && mSensorOrientation.hasOrientation()
+        if (isSensorBearingAccurate()
             && (mCurrentLocation != null && mCurrentLocation.hasBearing()
             || isLocationBearingAccurate())) {
             // Calculate offset
