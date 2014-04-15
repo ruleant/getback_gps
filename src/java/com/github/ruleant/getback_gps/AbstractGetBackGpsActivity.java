@@ -338,13 +338,13 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         String currentBearingText = res.getString(R.string.inaccurate);
 
         // Update current speed
-        if (!displayInaccurate || navigator.isLocationAccurate()) {
+        if (displayInaccurate || navigator.isLocationAccurate()) {
             currentSpeedText = FormatUtils.formatSpeed(
                     navigator.getCurrentSpeed(), this);
         }
 
         // Update current bearing
-        if (!displayInaccurate || navigator.isBearingAccurate()) {
+        if (displayInaccurate || navigator.isBearingAccurate()) {
             CardinalDirection cd = new CardinalDirection(
                     this,
                     FormatUtils.normalizeAngle(

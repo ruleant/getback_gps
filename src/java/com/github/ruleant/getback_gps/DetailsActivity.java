@@ -49,7 +49,8 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         super.refreshDisplay();
 
         // refresh views with "current" info
-        refreshCurrentViews(false);
+        // display value even if it is inaccurate
+        refreshCurrentViews(true);
 
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
