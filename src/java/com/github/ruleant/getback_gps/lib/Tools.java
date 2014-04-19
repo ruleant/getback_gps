@@ -78,7 +78,7 @@ public class Tools {
      */
     public static boolean isTimestampRecent(final long timestamp,
                                       final long validity) {
-        // TODO test with intrumentation test
+        // TODO test with instrumentation test
         return timestamp > 0
                 && validity > 0
                 && (SystemClock.elapsedRealtime() - timestamp) < validity;
@@ -94,7 +94,7 @@ public class Tools {
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
     public static boolean isTimestampNanoRecent(final long timestamp,
                                           final long validity) {
-        // TODO test with intrumentation test
+        // TODO test with instrumentation test
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
             return isTimestampRecent(timestamp / MILLI_IN_NANO,
                     validity / MILLI_IN_NANO);
