@@ -42,11 +42,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         setContentView(R.layout.activity_details);
     }
 
-    /**
-     * Refresh display : refresh the values of Location Provider, Location, ...
-     *
-     * @return true if refresh was successful
-     */
+    @Override
     protected final boolean refreshDisplay() {
         if (!super.refreshDisplay()) {
             return false;

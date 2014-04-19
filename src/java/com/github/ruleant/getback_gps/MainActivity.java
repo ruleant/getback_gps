@@ -101,11 +101,7 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         startActivity(intent);
     }
 
-    /**
-     * Refresh display : refresh the values of Location Provider, Location, ...
-     *
-     * @return true if refresh was successful
-     */
+    @Override
     protected final boolean refreshDisplay() {
         if (! super.refreshDisplay()) {
             return false;
