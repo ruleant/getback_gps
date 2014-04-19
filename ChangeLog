@@ -22,6 +22,7 @@
  - issue #148 : current bearing is not updated when using sensors
  - issue #137 : combine sensor and location based bearing to get quicker and more accurate updates
  - invert value of boolean parameter displayInaccurate of refreshCurrentViews()
+ - issue #151 : use realtime timestamp for sensor events
 
  v0.1.1 (released on 04Dec2013)
  - updated license info about third party material

@@ -60,6 +60,11 @@ public class SensorOrientation implements SensorEventListener {
     private long mOrientationTimestamp = 0;
 
     /**
+     * Realtime timestamp in nanoseconds when current orientation was updated.
+     */
+    private long mOrientationRTTimestamp = 0;
+
+    /**
      * Sensor manager.
      */
     private SensorManager mSensorManager;
@@ -80,6 +85,11 @@ public class SensorOrientation implements SensorEventListener {
     private long mAccelerometerTimestamp;
 
     /**
+     * Realtime timestamp in nanoseconds when accelerometer sensor was updated.
+     */
+    private long mAccelerometerRTTimestamp = 0;
+
+    /**
      * Magnetic field sensor.
      */
     private Sensor mMagneticFieldSensor;
@@ -93,6 +103,11 @@ public class SensorOrientation implements SensorEventListener {
      * Magnetic field sensor values timestamp.
      */
     private long mMagneticFieldTimestamp;
+
+    /**
+     * Realtime timestamp in nanoseconds when magnetic field sensor was updated.
+     */
+    private long mMagneticFieldRTTimestamp = 0;
 
     /**
      * Sensor timestamp expiration,
@@ -161,6 +176,7 @@ public class SensorOrientation implements SensorEventListener {
             = LowPassFilter.filterValueSet(mAccelerometerValues,
                 event.values, LOW_PASS_ALPHA);
         mAccelerometerTimestamp = event.timestamp;
+        mAccelerometerRTTimestamp = Tools.getTimestampNano();
 
         calculateOrientation();
         onOrientationChange();
@@ -182,6 +198,7 @@ public class SensorOrientation implements SensorEventListener {
             = LowPassFilter.filterValueSet(mMagneticFieldValues,
                 event.values, LOW_PASS_ALPHA);
         mMagneticFieldTimestamp = event.timestamp;
+        mMagneticFieldRTTimestamp = Tools.getTimestampNano();
 
         calculateOrientation();
         onOrientationChange();
@@ -201,6 +218,7 @@ public class SensorOrientation implements SensorEventListener {
         }
         mOrientation = event.values[0];
         mOrientationTimestamp = event.timestamp;
+        mOrientationRTTimestamp = Tools.getTimestampNano();
 
         onOrientationChange();
     }
@@ -215,10 +233,10 @@ public class SensorOrientation implements SensorEventListener {
     public boolean hasOrientation() {
         return isSensorsEnabled()
                 && mAccelerometer != null && mMagneticFieldSensor != null
-                && isTimestampRecent(mAccelerometerTimestamp)
-                && isTimestampRecent(mMagneticFieldTimestamp)
+                && isTimestampRecent(mAccelerometerRTTimestamp)
+                && isTimestampRecent(mMagneticFieldRTTimestamp)
                 || (mOrientationSensor != null
-                && isTimestampRecent(mOrientationTimestamp));
+                && isTimestampRecent(mOrientationRTTimestamp));
     }
 
     /**

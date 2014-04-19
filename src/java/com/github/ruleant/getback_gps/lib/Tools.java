@@ -70,6 +70,22 @@ public class Tools {
     }
 
     /**
+     * Returns current timestamp.
+     *
+     * @return realtime timestamp in nanoseconds
+     */
+    @TargetApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
+    public static long getTimestampNano() {
+        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.JELLY_BEAN_MR1) {
+            // use elapsedRealtime when using API 16 or lower
+            return SystemClock.elapsedRealtime() * MILLI_IN_NANO;
+        } else {
+            // use elapsedRealtimeNanos when using API 17 or higher
+            return SystemClock.elapsedRealtimeNanos();
+        }
+    }
+
+    /**
      * Checks if timestamp (in milliseconds) is recent.
      *
      * @param timestamp timestamp in milliseconds
