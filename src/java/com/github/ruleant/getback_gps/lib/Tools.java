@@ -95,9 +95,8 @@ public class Tools {
     public static boolean isTimestampRecent(final long timestamp,
                                       final long validity) {
         // TODO test with instrumentation test
-        return timestamp > 0
-                && validity > 0
-                && (SystemClock.elapsedRealtime() - timestamp) < validity;
+        return isTimestampRecent(SystemClock.elapsedRealtime(),
+                timestamp, validity);
     }
 
     /**
@@ -116,10 +115,8 @@ public class Tools {
                     validity / MILLI_IN_NANO);
         } else {
             // use elapsedRealtimeNanos when using API 17 or higher
-            return timestamp > 0
-                    && validity > 0
-                    && (SystemClock.elapsedRealtimeNanos() - timestamp)
-                    < validity;
+            return isTimestampRecent(SystemClock.elapsedRealtimeNanos(),
+                    timestamp, validity);
         }
     }
 
