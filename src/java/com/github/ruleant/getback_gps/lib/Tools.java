@@ -106,4 +106,37 @@ public class Tools {
                     < validity;
         }
     }
+
+    /**
+     * Checks if timestamp is recent.
+     *
+     * @param currentTimestamp current timestamp
+     * @param previousTimestamp previous timestamp
+     * @param validity timestamp validity (maximum difference)
+     * @return true if timestamp is recent.
+     */
+    public static boolean isTimestampRecent(final long currentTimestamp,
+                                           final long previousTimestamp,
+                                            final long validity) {
+        // check parameter ranges
+        if (currentTimestamp < 0) {
+            throw new IllegalArgumentException(
+                "currentTimestamp can't be a negative value");
+        }
+
+        if (previousTimestamp < 0) {
+            throw new IllegalArgumentException(
+                "previousTimestamp can't be a negative value");
+        }
+
+        if (validity <= 0) {
+            throw new IllegalArgumentException(
+                "validity should be a non-zero positive value");
+        }
+
+        // is currentTimestamp more recent than previousTimestamp
+        // and within a valid range
+        return currentTimestamp >= previousTimestamp
+                && (currentTimestamp - previousTimestamp) <= validity;
+    }
 }

@@ -22,11 +22,15 @@
 package com.github.ruleant.getback_gps.lib;
 
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * Unit tests for FormatUtils class.
@@ -35,6 +39,12 @@ import static org.junit.Assert.assertEquals;
  */
 @RunWith(RobolectricTestRunner.class)
 public class ToolsTest {
+    /**
+     * Expected Exception.
+     */
+    @Rule
+    public final ExpectedException thrown = ExpectedException.none();
+
     /**
      * Test value 1.
      */
@@ -97,5 +107,78 @@ public class ToolsTest {
                 Tools.getMax(-1 * SMALL_VALUE, Long.MIN_VALUE));
         assertEquals(-1 * BIG_VALUE,
                 Tools.getMax(-1 * BIG_VALUE, Long.MIN_VALUE));
+    }
+
+    /**
+     * Tests range of currentTimestamp parameter of method isTimestampRecent.
+     */
+    @Test
+    public final void testIsTimestampRecentRangeCurrent() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("currentTimestamp can't be a negative value");
+
+        Tools.isTimestampRecent(-1, 1, 1);
+    }
+
+    /**
+     * Tests range of previousTimestamp parameter of method isTimestampRecent.
+     */
+    @Test
+    public final void testIsTimestampRecentRangePrevious() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("previousTimestamp can't be a negative value");
+
+        Tools.isTimestampRecent(1, -1, 1);
+    }
+
+    /**
+     * Tests range of validity parameter of method isTimestampRecent,
+     * shouldn't be zero.
+     */
+    @Test
+    public final void testIsTimestampRecentRangeValidityZero() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("validity should be a non-zero positive value");
+
+        Tools.isTimestampRecent(1, 1, 0);
+    }
+
+    /**
+     * Tests range of validity parameter of method isTimestampRecent,
+     * shouldn't be negative.
+     */
+    @Test
+    public final void testIsTimestampRecentRangeValidityNegative() {
+        thrown.expect(IllegalArgumentException.class);
+        thrown.expectMessage("validity should be a non-zero positive value");
+
+        Tools.isTimestampRecent(1, 1, -1);
+    }
+
+    /**
+     * Tests isTimestampRecent.
+     */
+    @Test
+    public final void testIsTimestampRecent() {
+        // timestamps are equal and within range
+        assertTrue(Tools.isTimestampRecent(0, 0, 1));
+
+        // timestamp is more recent and within range
+        assertTrue(Tools.isTimestampRecent(1, 0, 1));
+        assertTrue(Tools.isTimestampRecent(2, 1, 1));
+        assertTrue(Tools.isTimestampRecent(2, 1, 2));
+        assertTrue(Tools.isTimestampRecent(2, 0, 2));
+
+        // timestamp is more recent and not within range
+        assertFalse(Tools.isTimestampRecent(2, 0, 1));
+
+        // timestamp is not more recent and not within range
+        assertFalse(Tools.isTimestampRecent(0, 2, 1));
+
+        // timestamp is not more recent but within range
+        assertFalse(Tools.isTimestampRecent(0, 1, 1));
+        assertFalse(Tools.isTimestampRecent(1, 2, 1));
+        assertFalse(Tools.isTimestampRecent(1, 2, 2));
+        assertFalse(Tools.isTimestampRecent(0, 2, 2));
     }
 }
