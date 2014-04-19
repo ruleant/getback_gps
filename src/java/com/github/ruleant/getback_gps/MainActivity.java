@@ -103,7 +103,7 @@ public class MainActivity extends AbstractGetBackGpsActivity {
 
     @Override
     protected final boolean refreshDisplay() {
-        if (! super.refreshDisplay()) {
+        if (!super.refreshDisplay()) {
             return false;
         }
 
