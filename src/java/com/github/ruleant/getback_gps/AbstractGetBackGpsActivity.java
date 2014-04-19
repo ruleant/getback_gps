@@ -260,14 +260,18 @@ abstract class AbstractGetBackGpsActivity extends Activity {
 
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
+     *
+     * @return true if refresh was successful
      */
-    void refreshDisplay() {
+    protected boolean refreshDisplay() {
         // only refresh items if activity is bound to service
         if (!isBound()) {
-            return;
+            return false;
         }
 
         refreshCrouton();
+
+        return true;
     }
 
     /**

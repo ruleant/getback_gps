@@ -44,9 +44,13 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
 
     /**
      * Refresh display : refresh the values of Location Provider, Location, ...
+     *
+     * @return true if refresh was successful
      */
-    protected final void refreshDisplay() {
-        super.refreshDisplay();
+    protected final boolean refreshDisplay() {
+        if (!super.refreshDisplay()) {
+            return false;
+        }
 
         // refresh views with "current" info
         // display value even if it is inaccurate
@@ -58,7 +62,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         Navigator navigator = getNavigator();
 
         if (service == null || navigator == null) {
-            return;
+            return false;
         }
 
         Resources res = getResources();
@@ -147,5 +151,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
             }
         }
         tvToDestination.setText(toDestinationText);
+
+        return true;
     }
 }
