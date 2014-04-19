@@ -168,8 +168,9 @@ public class SensorOrientation implements SensorEventListener {
     public final void setAcceleration(final SensorEvent event) {
         if (event.sensor.getType() != Sensor.TYPE_ACCELEROMETER
             // reject values that arrive sooner than the update rate
-            || (event.timestamp - mAccelerometerTimestamp)
-                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
+            || Tools.isTimestampRecent(event.timestamp,
+                mAccelerometerTimestamp,
+                SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO)) {
             return;
         }
         mAccelerometerValues
@@ -190,8 +191,9 @@ public class SensorOrientation implements SensorEventListener {
     public final void setMagneticField(final SensorEvent event) {
         if (event.sensor.getType() != Sensor.TYPE_MAGNETIC_FIELD
             // reject values that arrive sooner than the update rate
-            || (event.timestamp - mMagneticFieldTimestamp)
-                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
+            || Tools.isTimestampRecent(event.timestamp,
+                mMagneticFieldTimestamp,
+                SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO)) {
             return;
         }
         mMagneticFieldValues
@@ -212,8 +214,9 @@ public class SensorOrientation implements SensorEventListener {
     public final void setOrientation(final SensorEvent event) {
         if (event.sensor.getType() != Sensor.TYPE_ORIENTATION
                 // reject values that arrive sooner than the update rate
-                || (event.timestamp - mOrientationTimestamp)
-                < SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO) {
+                || Tools.isTimestampRecent(event.timestamp,
+                    mOrientationTimestamp,
+                    SENSOR_UPDATE_RATE * Tools.MICRO_IN_NANO)) {
             return;
         }
         mOrientation = event.values[0];
