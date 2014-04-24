@@ -40,6 +40,7 @@ import com.github.ruleant.getback_gps.LocationService.LocationBinder;
 import com.github.ruleant.getback_gps.lib.CardinalDirection;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
 import com.github.ruleant.getback_gps.lib.Navigator;
+import com.github.ruleant.getback_gps.lib.Tools;
 
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
@@ -61,6 +62,16 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * Connection state with LocationService.
      */
     private boolean mBound = false;
+
+    /**
+     * Realtime timestamp in nanoseconds when activity was updated.
+     */
+    private long mUpdatedTimestamp = 0;
+
+    /**
+     * Activity update rate in nanoseconds (500ms).
+     */
+    private static final int ACTIVITY_UPDATE_RATE = 500000000;
 
     /**
      * Inaccurate location crouton.
@@ -265,9 +276,13 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      */
     protected boolean refreshDisplay() {
         // only refresh items if activity is bound to service
-        if (!isBound()) {
+        if (!isBound()
+            || Tools.isTimestampNanoRecent(
+                mUpdatedTimestamp, ACTIVITY_UPDATE_RATE)) {
             return false;
         }
+
+        mUpdatedTimestamp = Tools.getTimestampNano();
 
         refreshCrouton();
 
