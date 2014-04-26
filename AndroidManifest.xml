@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.ruleant.getback_gps"
     android:versionCode="20"
-    android:versionName="0.2-dev" >
+    android:versionName="0.2" >
 
     <uses-sdk
         android:minSdkVersion="8"
