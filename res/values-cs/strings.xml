@@ -39,7 +39,6 @@ Tento program je rozšiřován v naději, že bude užitečný, avšak BEZ JAKÉ
 Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem. Pokud se tak nestalo, najdete ji zde: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses/</a>.</string>
     <string name="loc_provider_network">síť (mobilní/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
-    <string name="descr_dest_pointer">Ukazatel cíle</string>
     <string name="pref_header_general">Obecné</string>
     <string name="copyright">Copyright</string>
     <string name="app_website">Pro více informací navštivte <a href="%1$s">webové stránky</a>.</string>
@@ -64,5 +63,16 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="direction_relative">relativně k současnému směru</string>
     <string name="inaccurate">nepřesné</string>
     <string name="inaccurate_location">Vaše současné umístění není přesné</string>
-    <string name="build">Používá:</string>
+    <string name="build_time">Zkompilováno %s.</string>
+    <string name="notice_destination_reached">Jste u vašeho cíle</string>
+    <string name="northeast_unit">SV</string>
+    <string name="southeast_unit">JV</string>
+    <string name="southwest_unit">JZ</string>
+    <string name="northwest_unit">SZ</string>
+    <string name="destination_reached">Na cíl</string>
+    <string name="no_destination">Nebyl nastaven cíl</string>
+    <string name="pref_enable_sensors">Povolit čidla (pokud možno)</string>
+    <string name="pref_geo_orientation_sensor">Výchozí čidlo orientace</string>
+    <string name="sensors_enabled">Povoleno: přesnější a rychlejší změny azimutu</string>
+    <string name="sensors_disabled">Vypnuto: šetří energii</string>
     </resources>

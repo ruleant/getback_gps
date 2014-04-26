@@ -32,11 +32,10 @@
                 android:padding="2dp"
                 android:text="@string/curr_location" />
 
-            <TextView
-                android:id="@+id/textView_Current"
+            <include
+                layout="@layout/section_current"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="2dp" />
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <LinearLayout

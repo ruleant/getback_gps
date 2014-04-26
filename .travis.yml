@@ -1,15 +1,49 @@
 #based on https://raw.github.com/leviwilson/android-travis-ci-example/master/.travis.yml
 language: java
+jdk:
+  - openjdk7
+env:
+  global:
+    secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
 before_install:
-  # install ia32-libs, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
+  - cd $HOME
+  # install and initialise build-trend scripts
+  - git clone https://github.com/ruleant/buildtime-trend.git
+  - source buildtime-trend/init.sh
+  - mvn -v
+  # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
+  - timestamp.sh install_libs
   - sudo apt-get update -qq
-  - if [ `uname -m` = x86_64 ]; then sudo apt-get install -qq --force-yes libgd2-xpm ia32-libs ia32-libs-multiarch; fi
+  - sudo apt-get install -qq libstdc++6:i386 lib32z1 python-pip
+  # install buildtime-trend dependencies using pip
+  - timestamp.sh install_python_libs
+  - sudo CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
   # download the latest android sdk and unzip
-  - wget http://dl.google.com/android/android-sdk_r22.3-linux.tgz
-  - tar -zxf android-sdk_r22.3-linux.tgz
+  - timestamp.sh install_android_sdk
+  - wget http://dl.google.com/android/android-sdk_r22.6-linux.tgz
+  - tar -zxf android-sdk_r22.6-linux.tgz
   - export ANDROID_HOME=`pwd`/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-  # only update the sdk for the tools and platform-tools (1,2) and whatever api level
-  # you are building for android (run "android list sdk" to get the full list.  4 = 4.4 or API level 19
-  - echo "y" | android update sdk --filter 1,2,4 --no-ui --force
-script: mvn test cobertura:cobertura coveralls:cobertura -B
+  # only update the sdk for the tools and platform-tools and required api level
+  # (run "android list sdk --extended" to get the full list)
+  - echo "y" | android update sdk --filter tools,platform-tools,build-tools-19.0.3,android-19 --no-ui --force
+  # deploy android SDK jar to local maven repository
+  - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
+  # return to directory where the repository being built has been copied on the worker.
+  - cd $TRAVIS_BUILD_DIR
+  - timestamp.sh build
+script:
+  - timestamp.sh test
+  - mvn test -B
+after_success:
+  # send code coverage results to coveralls.io
+  - timestamp.sh coverage
+  - mvn clean test cobertura:cobertura coveralls:cobertura -B
+  # update javadoc on Github Pages (gh-pages)
+  - timestamp.sh update_javadoc
+  - mvn clean install javadoc:javadoc -DskipTests=true
+  - .utility/copy-javadoc-to-gh-pages.sh
+after_script:
+  # analyse build timestamps
+  - timestamp.sh end
+  - sync-buildtime-trend-with-gh-pages.sh
