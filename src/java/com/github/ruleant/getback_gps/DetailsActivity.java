@@ -112,6 +112,12 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
         }
         tvDestination.setText(destinationText);
 
+        // Refresh Bearing offset
+        TextView tvBearingOffset
+                = (TextView) findViewById(R.id.textView_BearingOffset);
+        tvBearingOffset.setText(res.getString(R.string.sensor_bearing_offset) + " : "
+                + FormatUtils.formatAngle(navigator.getSensorBearingOffset(), 0));
+
         // Refresh Directions to destination
         TextView tvToDestination
                 = (TextView) findViewById(R.id.textView_ToDestination);
