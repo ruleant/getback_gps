@@ -186,6 +186,17 @@ public class Navigator {
     }
 
     /**
+     * Offset between bearing provided by sensors
+     * and bearing provided by geolocation,
+     * used to calibrate current bearing.
+     *
+     * @return offset of sensor based bearing
+     */
+    public final double getSensorBearingOffset() {
+        return mSensorBearingOffset;
+    }
+
+    /**
      * Calculate direction to current destination,
      * relative to current bearing.
      *
