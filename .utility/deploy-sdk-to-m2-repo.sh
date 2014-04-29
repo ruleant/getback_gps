@@ -26,3 +26,6 @@ cd platforms
 mvn clean install -N
 cd android-19
 mvn clean install
+
+# return to initial path
+cd ../../..
