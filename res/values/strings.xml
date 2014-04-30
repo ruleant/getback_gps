@@ -48,7 +48,7 @@
     <string name="altitude">Altitude</string>
     <string name="speed">Speed</string>
     <string name="bearing">Bearing</string>
-    <string name="sensor_bearing_offset">Sensor bearing offset</string>
+    <string name="sensor_bearing_offset">Sensor based bearing offset</string>
     <string name="accuracy">Accuracy</string>
     <string name="timestamp">Timestamp</string>
     <string name="destination">Destination</string>
