@@ -87,4 +87,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="sensors_enabled">Ingeschakeld : sneller bijgewerkte en nauwkeurigere richting</string>
     <string name="sensors_disabled">Uitgeschakeld : bespaart energie</string>
     <string name="pref_geo_orientation_sensor">Standaard richtingsensor</string>
+    <string name="sensor_bearing_offset">Correctie richting door sensors</string>
     </resources>
