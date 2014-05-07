@@ -7,6 +7,7 @@ target
 out
 /.idea
 *.iml
+*.swp
 .gradle/
 local.properties
 build/
