@@ -128,10 +128,10 @@ public class CircularAverageTest {
     }
 
     /**
-     * Tests getAverageValue() method.
+     * Tests getAverageValue() method, with a positive step.
      */
     @Test
-    public final void testAverageValue() {
+    public final void testAverageValuePositiveStep() {
         // check initial state.
         assertEquals(
                 10.0f,
@@ -141,6 +141,22 @@ public class CircularAverageTest {
 	// initial value = 10
 	// applied step = 50
 	testAverageValueAfterStep(10, 50);
+    }
+
+    /**
+     * Tests getAverageValue() method, with a negative step.
+     */
+    @Test
+    public final void testAverageValueNegativeStep() {
+        // check initial state.
+        assertEquals(
+                100.0f,
+                CircularAverage.getAverageValue(100, 100, ALPHA_VALUE),
+                ACCURACY);
+
+	// initial value = 100
+	// applied step = -50
+	testAverageValueAfterStep(100, -50);
     }
 
     /**
