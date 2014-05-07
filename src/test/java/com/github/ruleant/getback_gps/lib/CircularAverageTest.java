@@ -44,12 +44,37 @@ public class CircularAverageTest {
     /**
      * Value for alpha parameter.
      */
-    private static final float ALPHA_VALUE = 0.6f;
+    private static final float ALPHA_VALUE = 0.5f;
 
     /**
      * Accuracy.
      */
     private static final double ACCURACY = 0.0001;
+
+    /**
+     * Value reached after 1 cycle with alpha = 0.5 : 50 %.
+     */
+    private static final float CYCLE1 = 0.5f;
+
+    /**
+     * Value reached after 2 cycles with alpha = 0.5 : 75 %.
+     */
+    private static final float CYCLE2 = 0.75f;
+
+    /**
+     * Value reached after 3 cycles with alpha = 0.5 : 87.5 %.
+     */
+    private static final float CYCLE3 = 0.875f;
+
+     /**
+     * Value reached after 4 cycles with alpha = 0.5 : 93.75 %.
+     */
+    private static final float CYCLE4 = 0.9375f;
+
+    /**
+     * Value reached after 5 cycles with alpha = 0.5 : 96.875 %.
+     */
+    private static final float CYCLE5 = 0.96875f;
 
     /**
      * Exception message when value is out of range.
@@ -102,4 +127,63 @@ public class CircularAverageTest {
         CircularAverage.getAverageValue(0, 0, 2);
     }
 
+    /**
+     * Tests getAverageValue() method.
+     */
+    @Test
+    public final void testAverageValue() {
+        // check initial state.
+        assertEquals(
+                10.0f,
+                CircularAverage.getAverageValue(10, 10, ALPHA_VALUE),
+                ACCURACY);
+
+	// initial value = 10
+	// applied step = 50
+	testAverageValueAfterStep(10, 50);
+    }
+
+    /**
+     * Tests getAverageValue() in 5 cycles after a step is applied.
+     */
+    private final void testAverageValueAfterStep(final float initial_value,
+            final float step_value) {
+
+        // with an alpha value of .5, the new value should be >95%
+        // of the initial value after 5 cycles.
+        // cycle 1 : 50%
+        assertEquals(
+                initial_value + CYCLE1 * step_value,
+                CircularAverage.getAverageValue(initial_value,
+                        initial_value + step_value, ALPHA_VALUE),
+                ACCURACY);
+	// cycle 2 : 75%
+        assertEquals(
+                initial_value + CYCLE2 * step_value,
+                CircularAverage.getAverageValue(
+                        initial_value + CYCLE1 * step_value,
+                        initial_value + step_value, ALPHA_VALUE),
+                ACCURACY);
+	// cycle 3 : 87.5%
+        assertEquals(
+                initial_value + CYCLE3 * step_value,
+                CircularAverage.getAverageValue(
+                        initial_value + CYCLE2 * step_value,
+                        initial_value + step_value, ALPHA_VALUE),
+                ACCURACY);
+	// cycle 4 : 93.75%
+        assertEquals(
+                initial_value + CYCLE4 * step_value,
+                CircularAverage.getAverageValue(
+                        initial_value + CYCLE3 * step_value,
+                        initial_value + step_value, ALPHA_VALUE),
+                ACCURACY);
+	// cycle 5 : 96.875%
+        assertEquals(
+                initial_value + CYCLE5 * step_value,
+                CircularAverage.getAverageValue(
+                        initial_value + CYCLE4 * step_value,
+                        initial_value + step_value, ALPHA_VALUE),
+                ACCURACY);
+    }
 }
