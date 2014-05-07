@@ -132,12 +132,6 @@ public class CircularAverageTest {
      */
     @Test
     public final void testAverageValuePositiveStep() {
-        // check initial state.
-        assertEquals(
-                10.0f,
-                CircularAverage.getAverageValue(10, 10, ALPHA_VALUE),
-                ACCURACY);
-
 	// initial value = 10
 	// applied step = 50
 	testAverageValueAfterStep(10, 50);
@@ -148,12 +142,6 @@ public class CircularAverageTest {
      */
     @Test
     public final void testAverageValueNegativeStep() {
-        // check initial state.
-        assertEquals(
-                100.0f,
-                CircularAverage.getAverageValue(100, 100, ALPHA_VALUE),
-                ACCURACY);
-
 	// initial value = 100
 	// applied step = -50
 	testAverageValueAfterStep(100, -50);
@@ -164,6 +152,12 @@ public class CircularAverageTest {
      */
     private final void testAverageValueAfterStep(final float initial_value,
             final float step_value) {
+        // check initial state.
+        assertEquals(
+                initial_value,
+                CircularAverage.getAverageValue(initial_value, initial_value,
+                      ALPHA_VALUE),
+                ACCURACY);
 
         // with an alpha value of .5, the new value should be >95%
         // of the initial value after 5 cycles.
