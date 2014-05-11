@@ -140,6 +140,17 @@ public class CircularAverageTest {
     }
 
     /**
+     * Tests getAverageValue() method, with a positive step,
+     * crossing maximum value, 340°-> 30°.
+     */
+    @Test
+    public final void testAverageValuePositiveStepCrossMax() {
+	// initial value = 340
+	// applied step = 50
+	testAverageValueAfterStep(340, 50);
+    }
+
+    /**
      * Tests getAverageValue() method, with a negative step.
      */
     @Test
@@ -147,6 +158,17 @@ public class CircularAverageTest {
 	// initial value = 100
 	// applied step = -50
 	testAverageValueAfterStep(100, -50);
+    }
+
+    /**
+     * Tests getAverageValue() method, with a positive step,
+     * crossing maximum value, 30°-> 340°.
+     */
+    @Test
+    public final void testAverageValueNegativeStepCrossMax() {
+	// initial value = 30
+	// applied step = -50
+	testAverageValueAfterStep(30, -50);
     }
 
     /**

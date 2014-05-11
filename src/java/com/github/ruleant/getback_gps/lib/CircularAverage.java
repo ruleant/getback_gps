@@ -25,6 +25,7 @@
 package com.github.ruleant.getback_gps.lib;
 
 import com.github.ruleant.getback_gps.lib.LowPassFilter;
+import com.github.ruleant.getback_gps.lib.FormatUtils;
 
 /**
  * Method to calculate the average value of a circular range.
@@ -53,6 +54,20 @@ public class CircularAverage {
             final float alpha) {
         // alpha value range is checked in LowPassFilter
 
-        return LowPassFilter.filterValue(previousValue, newValue, alpha);
+	float _previousValue = previousValue;
+	float _newValue = newValue;
+
+	// increase new value with 360° in case maximum is crossed.
+        if (newValue > 0 && newValue < 90
+            && previousValue > 270 && previousValue < 360) {
+	    _newValue += 360;
+	// increase previous value with 360° in case minimum is crossed.
+        } else if (newValue > 270 && newValue < 360
+            && previousValue > 0 && previousValue < 90) {
+	    _previousValue += 360;
+        }
+
+        return (float) FormatUtils.normalizeAngle(
+            LowPassFilter.filterValue(_previousValue, _newValue, alpha));
     }
 }
