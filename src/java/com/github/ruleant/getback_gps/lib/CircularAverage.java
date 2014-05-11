@@ -58,13 +58,13 @@ public class CircularAverage {
 	float _newValue = newValue;
 
 	// increase new value with 360° in case maximum is crossed.
-        if (newValue > 0 && newValue < 90
-            && previousValue > 270 && previousValue < 360) {
-	    _newValue += 360;
+        if (newValue > FormatUtils.MIN_ANGLE && newValue < 90
+            && previousValue > 270 && previousValue < FormatUtils.MAX_ANGLE) {
+	    _newValue += FormatUtils.MAX_ANGLE;
 	// increase previous value with 360° in case minimum is crossed.
-        } else if (newValue > 270 && newValue < 360
-            && previousValue > 0 && previousValue < 90) {
-	    _previousValue += 360;
+        } else if (newValue > 270 && newValue < FormatUtils.MAX_ANGLE
+            && previousValue > FormatUtils.MIN_ANGLE && previousValue < 90) {
+	    _previousValue += FormatUtils.MAX_ANGLE;
         }
 
         return (float) FormatUtils.normalizeAngle(
