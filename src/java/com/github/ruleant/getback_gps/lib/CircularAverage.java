@@ -34,6 +34,11 @@ import com.github.ruleant.getback_gps.lib.FormatUtils;
  */
 public class CircularAverage {
     /**
+     * Minimal angle value = 0°.
+     */
+    private static final float CROSS_WINDOW = 90;
+
+    /**
      * Hidden constructor, to prevent instantiating.
      */
     protected CircularAverage() {
@@ -58,12 +63,14 @@ public class CircularAverage {
 	float _newValue = newValue;
 
 	// increase new value with 360° in case maximum is crossed.
-        if (newValue > FormatUtils.MIN_ANGLE && newValue < 90
-            && previousValue > 270 && previousValue < FormatUtils.MAX_ANGLE) {
+        if (newValue > FormatUtils.MIN_ANGLE && newValue < CROSS_WINDOW
+            && previousValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
+            && previousValue < FormatUtils.MAX_ANGLE) {
 	    _newValue += FormatUtils.MAX_ANGLE;
 	// increase previous value with 360° in case minimum is crossed.
-        } else if (newValue > 270 && newValue < FormatUtils.MAX_ANGLE
-            && previousValue > FormatUtils.MIN_ANGLE && previousValue < 90) {
+        } else if (newValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
+            && newValue < FormatUtils.MAX_ANGLE
+            && previousValue > FormatUtils.MIN_ANGLE && previousValue < CROSS_WINDOW) {
 	    _previousValue += FormatUtils.MAX_ANGLE;
         }
 
