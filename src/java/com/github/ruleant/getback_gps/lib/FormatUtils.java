@@ -65,12 +65,12 @@ public class FormatUtils {
     /**
      * Minimal angle value = 0°.
      */
-    private static final float MIN_ANGLE = 0;
+    public static final float MIN_ANGLE = 0;
 
     /**
      * Maximal angle value = 360°.
      */
-    private static final float MAX_ANGLE = 360;
+    public static final float MAX_ANGLE = 360;
 
     /**
      * Halfway angle value = PI = 180°.
