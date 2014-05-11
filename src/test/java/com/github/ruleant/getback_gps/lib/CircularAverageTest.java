@@ -162,14 +162,16 @@ public class CircularAverageTest {
                 ACCURACY);
 
         // with an alpha value of .5, the new value should be >95%
-        // of the initial value after 5 cycles.
+        // of the set point value after 5 cycles.
+        float setPoint = (float) FormatUtils.normalizeAngle(
+		initial_value + step_value);
         // cycle 1 : 50%
         float expectedCycle1 = (float) FormatUtils.normalizeAngle(
 		initial_value + CYCLE1 * step_value);
         assertEquals(
                 expectedCycle1,
                 CircularAverage.getAverageValue(initial_value,
-                        initial_value + step_value, ALPHA_VALUE),
+                        setPoint, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 2 : 75%
         float expectedCycle2 = (float) FormatUtils.normalizeAngle(
@@ -177,7 +179,7 @@ public class CircularAverageTest {
         assertEquals(
                 expectedCycle2,
                 CircularAverage.getAverageValue(expectedCycle1,
-                        initial_value + step_value, ALPHA_VALUE),
+                        setPoint, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 3 : 87.5%
         float expectedCycle3 = (float) FormatUtils.normalizeAngle(
@@ -185,7 +187,7 @@ public class CircularAverageTest {
         assertEquals(
                 expectedCycle3,
                 CircularAverage.getAverageValue(expectedCycle2,
-                        initial_value + step_value, ALPHA_VALUE),
+                        setPoint, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 4 : 93.75%
         float expectedCycle4 = (float) FormatUtils.normalizeAngle(
@@ -193,7 +195,7 @@ public class CircularAverageTest {
         assertEquals(
                 expectedCycle4,
                 CircularAverage.getAverageValue(expectedCycle3,
-                        initial_value + step_value, ALPHA_VALUE),
+                        setPoint, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 5 : 96.875%
         float expectedCycle5 = (float) FormatUtils.normalizeAngle(
@@ -201,7 +203,7 @@ public class CircularAverageTest {
         assertEquals(
                 expectedCycle5,
                 CircularAverage.getAverageValue(expectedCycle4,
-                        initial_value + step_value, ALPHA_VALUE),
+                        setPoint, ALPHA_VALUE),
                 ACCURACY);
     }
 }
