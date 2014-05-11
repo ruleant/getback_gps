@@ -21,6 +21,8 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
+import com.github.ruleant.getback_gps.lib.FormatUtils;
+
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -154,7 +156,7 @@ public class CircularAverageTest {
             final float step_value) {
         // check initial state.
         assertEquals(
-                initial_value,
+                FormatUtils.normalizeAngle(initial_value),
                 CircularAverage.getAverageValue(initial_value, initial_value,
                       ALPHA_VALUE),
                 ACCURACY);
@@ -163,34 +165,34 @@ public class CircularAverageTest {
         // of the initial value after 5 cycles.
         // cycle 1 : 50%
         assertEquals(
-                initial_value + CYCLE1 * step_value,
+                FormatUtils.normalizeAngle(initial_value + CYCLE1 * step_value),
                 CircularAverage.getAverageValue(initial_value,
                         initial_value + step_value, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 2 : 75%
         assertEquals(
-                initial_value + CYCLE2 * step_value,
+                FormatUtils.normalizeAngle(initial_value + CYCLE2 * step_value),
                 CircularAverage.getAverageValue(
                         initial_value + CYCLE1 * step_value,
                         initial_value + step_value, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 3 : 87.5%
         assertEquals(
-                initial_value + CYCLE3 * step_value,
+                FormatUtils.normalizeAngle(initial_value + CYCLE3 * step_value),
                 CircularAverage.getAverageValue(
                         initial_value + CYCLE2 * step_value,
                         initial_value + step_value, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 4 : 93.75%
         assertEquals(
-                initial_value + CYCLE4 * step_value,
+                FormatUtils.normalizeAngle(initial_value + CYCLE4 * step_value),
                 CircularAverage.getAverageValue(
                         initial_value + CYCLE3 * step_value,
                         initial_value + step_value, ALPHA_VALUE),
                 ACCURACY);
 	// cycle 5 : 96.875%
         assertEquals(
-                initial_value + CYCLE5 * step_value,
+                FormatUtils.normalizeAngle(initial_value + CYCLE5 * step_value),
                 CircularAverage.getAverageValue(
                         initial_value + CYCLE4 * step_value,
                         initial_value + step_value, ALPHA_VALUE),
