@@ -67,7 +67,8 @@ public class CircularAverage {
             // increase previous value with 360° in case minimum is crossed.
         } else if (newValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
                 && newValue < FormatUtils.MAX_ANGLE
-                && previousValue > FormatUtils.MIN_ANGLE && previousValue < CROSS_WINDOW) {
+                && previousValue > FormatUtils.MIN_ANGLE
+                && previousValue < CROSS_WINDOW) {
             lPreviousValue += FormatUtils.MAX_ANGLE;
         }
 
