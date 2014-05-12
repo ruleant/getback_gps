@@ -56,22 +56,22 @@ public class CircularAverage {
             final float alpha) {
         // alpha value range is checked in LowPassFilter
 
-        float _previousValue = previousValue;
-        float _newValue = newValue;
+        float lPreviousValue = previousValue;
+        float lNewValue = newValue;
 
         // increase new value with 360° in case maximum is crossed.
         if (newValue > FormatUtils.MIN_ANGLE && newValue < CROSS_WINDOW
                 && previousValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
                 && previousValue < FormatUtils.MAX_ANGLE) {
-            _newValue += FormatUtils.MAX_ANGLE;
+            lNewValue += FormatUtils.MAX_ANGLE;
             // increase previous value with 360° in case minimum is crossed.
         } else if (newValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
                 && newValue < FormatUtils.MAX_ANGLE
                 && previousValue > FormatUtils.MIN_ANGLE && previousValue < CROSS_WINDOW) {
-            _previousValue += FormatUtils.MAX_ANGLE;
+            lPreviousValue += FormatUtils.MAX_ANGLE;
         }
 
         return (float) FormatUtils.normalizeAngle(
-                LowPassFilter.filterValue(_previousValue, _newValue, alpha));
+                LowPassFilter.filterValue(lPreviousValue, lNewValue, alpha));
     }
 }
