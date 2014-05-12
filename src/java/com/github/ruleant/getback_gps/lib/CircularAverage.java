@@ -24,9 +24,6 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.LowPassFilter;
-import com.github.ruleant.getback_gps.lib.FormatUtils;
-
 /**
  * Method to calculate the average value of a circular range.
  *
