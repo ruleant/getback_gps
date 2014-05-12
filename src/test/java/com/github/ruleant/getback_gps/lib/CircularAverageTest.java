@@ -21,8 +21,6 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import com.github.ruleant.getback_gps.lib.FormatUtils;
-
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -170,7 +168,7 @@ public class CircularAverageTest {
      * @param initialValue Initial value
      * @param stepValue    Step to apply to initial value
      */
-    private final void testAverageValueAfterStep(final float initialValue,
+    private void testAverageValueAfterStep(final float initialValue,
                                                  final float stepValue) {
         // check initial state.
         assertEquals(
