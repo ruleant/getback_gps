@@ -20,14 +20,14 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
  * @package com.github.ruleant.getback_gps.lib
- * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 package com.github.ruleant.getback_gps.lib;
 
 /**
  * Method to calculate the average value of a circular range.
  *
- * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class CircularAverage {
     /**
@@ -47,8 +47,8 @@ public class CircularAverage {
      * Calculates the average value of a circular range.
      *
      * @param previousValue previous value
-     * @param newValue new value
-     * @param alpha Alpha value of low pass filter (valid range : 0-1)
+     * @param newValue      new value
+     * @param alpha         Alpha value of low pass filter (valid range : 0-1)
      * @return average value
      */
     public static float getAverageValue(
@@ -56,22 +56,22 @@ public class CircularAverage {
             final float alpha) {
         // alpha value range is checked in LowPassFilter
 
-	float _previousValue = previousValue;
-	float _newValue = newValue;
+        float _previousValue = previousValue;
+        float _newValue = newValue;
 
-	// increase new value with 360° in case maximum is crossed.
+        // increase new value with 360° in case maximum is crossed.
         if (newValue > FormatUtils.MIN_ANGLE && newValue < CROSS_WINDOW
-            && previousValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
-            && previousValue < FormatUtils.MAX_ANGLE) {
-	    _newValue += FormatUtils.MAX_ANGLE;
-	// increase previous value with 360° in case minimum is crossed.
+                && previousValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
+                && previousValue < FormatUtils.MAX_ANGLE) {
+            _newValue += FormatUtils.MAX_ANGLE;
+            // increase previous value with 360° in case minimum is crossed.
         } else if (newValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
-            && newValue < FormatUtils.MAX_ANGLE
-            && previousValue > FormatUtils.MIN_ANGLE && previousValue < CROSS_WINDOW) {
-	    _previousValue += FormatUtils.MAX_ANGLE;
+                && newValue < FormatUtils.MAX_ANGLE
+                && previousValue > FormatUtils.MIN_ANGLE && previousValue < CROSS_WINDOW) {
+            _previousValue += FormatUtils.MAX_ANGLE;
         }
 
         return (float) FormatUtils.normalizeAngle(
-            LowPassFilter.filterValue(_previousValue, _newValue, alpha));
+                LowPassFilter.filterValue(_previousValue, _newValue, alpha));
     }
 }
