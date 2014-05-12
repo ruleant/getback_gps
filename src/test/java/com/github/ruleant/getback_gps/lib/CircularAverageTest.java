@@ -166,6 +166,9 @@ public class CircularAverageTest {
 
     /**
      * Tests getAverageValue() in 5 cycles after a step is applied.
+     *
+     * @param initialValue Initial value
+     * @param stepValue    Step to apply to initial value
      */
     private final void testAverageValueAfterStep(final float initialValue,
                                                  final float stepValue) {
