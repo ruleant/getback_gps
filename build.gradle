@@ -66,7 +66,7 @@ sourceSets {
 dependencies {
     unitTestCompile files("$project.buildDir/classes/debug")
     unitTestCompile 'org.robolectric:robolectric:2.2'
-    unitTestCompile 'junit:junit:4.8.2', 'org.mockito:mockito-core:1.9.5'
+    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
     unitTestCompile 'com.google.android:android:4.1.1.4'
 }
 
