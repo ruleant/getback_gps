@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+<string name="app_desc">Găsiți drumul către o locație vizitată anterior, folosind coordonatele GPS.</string>
+    <string name="inaccurate_location">Locația dumneavoastră curentă este inexactă</string>
+    <string name="notice_no_dest">Salvați locația dumneavoastră pentru a seta o destinație</string>
+    <string name="inaccurate_direction">Începeți să vă mișcați pentru a obține o direcție exactă către destinație</string>
+    <string name="notice_destination_reached">Ați ajuns la destinație</string>
+    <string name="current_speed">Viteza curentă</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">Orientarea curentă</string>
+    <string name="distance">Distanță</string>
+    <string name="direction">Direcție</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Locație actualizată</string>
+    <string name="inaccurate">Inexact</string>
+    <string name="destination_reached">La destinație</string>
+    <string name="no_destination">Nicio destinație setată</string>
+    <string name="unknown">Necunoscut</string>
+    <string name="refresh">Reîncarcă</string>
+    <string name="dialog_store_location">Doriți să salvați locația dumneavoastră curentă?</string>
+    <string name="no">Nu</string>
+    <string name="store_location">Salvați locația</string>
+    <string name="store_location_disabled">Locația nu poate fi salvată deoarece locația curentă nu poate fi determinată</string>
+    <string name="location_stored">Locație salvată</string>
+    <string name="menu_details">Detalii locație</string>
+    <string name="activity_details">Detalii</string>
+    <string name="location_provider">Furnizor de Locație</string>
+    <string name="provider">Furnizor</string>
+    <string name="loc_provider_network">rețea (telefonie mobilă/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Furnizorul nu este compatibil.</string>
+    <string name="location">Locație</string>
+    <string name="stored_location">Locație salvată</string>
+    <string name="curr_location">Locație curentă (ultima disponibilă)</string>
+    <string name="latitude">Latitudine</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Longitudine</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">W</string>
+    <string name="altitude">Altitudine</string>
+    <string name="speed">Viteză</string>
+    <string name="bearing">Orientare</string>
+    <string name="accuracy">Acuratețe</string>
+    <string name="timestamp">Timpul înregistrării</string>
+    <string name="destination">Destinație</string>
+    <string name="to_dest">Către destinație</string>
+    <string name="direction_relative">relativ la direcția curentă</string>
+    <string name="raw">Neformatat</string>
+    <string name="none">Niciunul</string>
+    <string name="notset">Nu este setat</string>
+    <string name="loc_updated_recent">Locația a fost recent actualizată.</string>
+    <string name="loc_updated_not_recent">Locația NU a fost recent actualizată.</string>
+    <string name="settings">Setări</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_loc_update">Actualizări locație</string>
+    <string name="pref_loc_update_dist">Actualizări pe bază de locație</string>
+    <string name="pref_loc_update_time">Actualizări pe baza de timp</string>
+    <string name="disabled">Dezactivat</string>
+    <string name="about">Despre</string>
+    <string name="version">Versiune</string>
+    <string name="build_time">Data compilării %s.</string>
+    <string name="app_website">Vizitați &lt;a href=%1$s&gt;website-ul&lt;/a&gt; pentru mai multe informații.</string>
+    <string name="copyright">Copyright</string>
+    <string name="license">Acest program este software liber: poate fi redistribuit și/sau modificat în conformitate cu GNU General Public License publicată de către Free Software Foundation, fie versiunea 3 a Licenței, fie oricare altă versiune ulterioare.
+ 
+ Acest program este distribuit în speranța că va fi util, dar FĂRĂ NICIO GARANȚIE; fără nici măcar garanția implicită de COMERCIALIZARE sau POTRIVIRE PENTRU UN ANUMIT SCOP. A se vedea GNU General Public License pentru mai multe detalii.
+ 
+ Ar trebui să fi primit o copie a GNU General Public License, împreună cu acest program. Dacă nu, vedeți <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>

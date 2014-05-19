@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.ruleant.getback_gps"
-    android:versionCode="20"
-    android:versionName="0.2-dev" >
+    android:versionCode="30"
+    android:versionName="0.3-dev" >
 
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
+
+    <uses-feature android:name="android.hardware.location" android:required="true"/>
+    <uses-feature android:name="android.hardware.location.network" android:required="true"/>
+    <uses-feature android:name="android.hardware.location.gps" android:required="true"/>
+    <uses-feature android:name="android.hardware.sensor.compass" android:required="false"/>
+    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="false"/>
 
     <application
         android:allowBackup="true"
@@ -21,14 +26,13 @@
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name="com.github.ruleant.getback_gps.DetailsActivity"
             android:label="@string/activity_details"
-            android:parentActivityName="com.github.ruleant.getback_gps.DetailsActivity" >
+            android:parentActivityName="com.github.ruleant.getback_gps.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.ruleant.getback_gps.MainActivity" />
@@ -41,17 +45,19 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.github.ruleant.getback_gps.MainActivity" />
         </activity>
+        <activity
+            android:name="com.github.ruleant.getback_gps.SettingsActivity"
+            android:label="@string/settings"
+            android:parentActivityName="com.github.ruleant.getback_gps.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.github.ruleant.getback_gps.MainActivity" />
+        </activity>
 
         <service
             android:name="com.github.ruleant.getback_gps.LocationService"
             android:enabled="true"
             android:exported="false" >
         </service>
-
-        <activity
-            android:name="com.github.ruleant.getback_gps.SettingsActivity"
-            android:label="@string/settings" >
-        </activity>
     </application>
-
 </manifest>

@@ -1,19 +1,38 @@
- v0.2 (not released)
+ v0.3 (not released yet)
+
+ v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
  - issue #111 : add xxhdpi and xxxhdpi version of all images
- - optimize size of all PNG images
- - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in
- AriadneLocation.isRecent()
- - convert switch with android resources to if-else, see
- http://tools.android.com/tips/non-constant-fields
+ - optimize size of PNG images
+ - use SystemClock.elapsedRealtime() to get elapsed time in milliseconds in AriadneLocation.isRecent()
+ - issue #78 : add classes to convert (rotate) sets of coordinates
+ - redesign arrow pointing to destination, using RotationConverter and Coordinates classes
+ - issue #125 : add property to Coordinates class to close a line 
+ - issue #130 : remove unnecessary AriadneLocation conversion and try-catch in DetailsActivity and MainActivity
+ - issue #132 : remove Android permission INTERNET, it is not needed to get WiFi/cell phone based location updates
+ - issue #133 : add list of used sensors to AndroidManifest
+ - issue #103 : don't calculate speed if distance between current and previous location is smaller than the current accuracy
+ - issue #135 : update JavaDoc on website (gh-pages) after a successful Travis CI build.
+ - translated to German (thanks to Christian Orj and Kilian Köppchen)
+ - translated to Romanian (thanks to Eduard Moraru)
+ - issue #143 : compile against latest Android SDK using maven-android-sdk-deployer plugin
+ - issue #144 : use Robolectric for unit tests
+ - issue #41 : use sensors (gyroscope, acceleration, compass) to get more accurate bearing
+ - move isTimestampRecent() to Tools class, using it in GeoOrientation and AriadneLocation classes
+ - issue #131 : add Preference to enable sensor based updates of current bearing
+ - add preference to select prefered orientation sensor
+ - issue #148 : current bearing is not updated when using sensors
+ - issue #137 : combine sensor and location based bearing to get quicker and more accurate updates
+ - invert value of boolean parameter displayInaccurate of refreshCurrentViews()
+ - issue #151 : use realtime timestamp for sensor events
+ - issue #138 : limit UI updates based on timestamp
 
- v0.1.1 (released 04Dec2013)
- 
+ v0.1.1 (released on 04Dec2013)
  - updated license info about third party material
  - updated ic_action_refresh.png icon
  - added feature list to README.md
 
- v0.1 (released 03Dec2013)
+ v0.1 (released on 03Dec2013)
 features :
  - determine location based on GPS signal, WiFi or cell phone network :
      - use best/most accurate location provider

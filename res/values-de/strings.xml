@@ -46,7 +46,6 @@
     <string name="timestamp">Zeitstempel</string>
     <string name="destination">Ziel</string>
     <string name="to_dest">Zum Ziel</string>
-    <string name="descr_dest_pointer">Zeiger weist auf Ziel</string>
     <string name="direction_relative">relativ zu laufender Richtung</string>
     <string name="raw">Unformatiert</string>
     <string name="none">None</string>
@@ -71,4 +70,6 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="build_time">Erstellt am %s.</string>
     <string name="app_website">Besuche die &lt;a href=%1$s&gt;Internetseite&lt;/a&gt; für mehr Informationen.</string>
     <string name="copyright">Urheberrecht</string>
+    <string name="pref_enable_sensors">Sensoren einschalten (falls verfügbar)</string>
+    <string name="sensors_disabled">Inaktiv : Stromsparend</string>
     </resources>
