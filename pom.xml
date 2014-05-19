@@ -32,7 +32,7 @@
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.8.2</version>
+            <version>4.11</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -68,7 +68,7 @@
                 <plugin>
                     <groupId>com.jayway.maven.plugins.android.generation2</groupId>
                     <artifactId>android-maven-plugin</artifactId>
-                    <version>3.8.0</version>
+                    <version>3.8.2</version>
                     <extensions>true</extensions>
                 </plugin>
             </plugins>
@@ -93,7 +93,7 @@
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>cobertura-maven-plugin</artifactId>
-                <version>2.5.2</version>
+                <version>2.6</version>
                 <configuration>
                     <aggregate>true</aggregate>
                     <format>xml</format>
