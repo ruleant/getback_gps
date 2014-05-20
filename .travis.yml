@@ -5,6 +5,7 @@ jdk:
 env:
   global:
     secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
+    secure: "bbT3Swvy1P0vFgXE5E5Iv9+JU8GG4LZlbwLez2B7s0aOuxEFCnj19M+GAldVAeHCc/z/0Oz+N1p4eRU5OCJY71lZqv5F8ph8ahti7uUylbfoNHM7g1mcmVSNFZ5bgVhnz/RQjEK/o5msqv3UZPRPS023Q5vAbCrftuHOiOiBbCo="
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
@@ -47,3 +48,12 @@ after_script:
   # analyse build timestamps
   - timestamp.sh end
   - sync-buildtime-trend-with-gh-pages.sh
+addons:
+  coverity_scan:
+    project:
+      name: "ruleant/getback_gps"
+      description: "Open Source Android app for finding your way back to a previously visited location using GPS coordinates."
+    notification_email: ruleant@users.sourceforge.net
+    #build_command_prepend:
+    build_command: mvn clean install -DskipTests=true
+    branch_pattern: coverity_scan
