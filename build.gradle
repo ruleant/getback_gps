@@ -1,3 +1,5 @@
+// Example : http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Goals-of-the-new-Build-System
+
 buildscript {
     repositories {
         mavenCentral()
