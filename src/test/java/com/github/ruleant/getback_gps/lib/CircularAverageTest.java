@@ -161,10 +161,10 @@ public class CircularAverageTest {
 
     /**
      * Tests getAverageValue() method, with a positive step,
-     * crossing maximum value, 30°-> 340°.
+     * crossing minimum value, 30°-> 340/300/220°.
      */
     @Test
-    public final void testAverageValueNegativeStepCrossMax() {
+    public final void testAverageValueNegativeStepCrossMin() {
         // initial value = 30, applied step = -50
         testAverageValueAfterStep(30, -50);
         // initial value = 30, applied step = -90
