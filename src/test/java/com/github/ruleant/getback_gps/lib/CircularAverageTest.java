@@ -215,9 +215,37 @@ public class CircularAverageTest {
      */
     @Test
     public final void testAverageValueNegativeStep() {
-        // initial value = 100
-        // applied step = -50
-        testAverageValueAfterStep(100, -50);
+        // initial value in fourth quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_170);
+        // step to inverse angle
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_180);
+
+        // initial value in third quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_170);
+        // step to inverse angle
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_180);
+
+        // initial value in second quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q2, -1 * STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q2, -1 * STEP_100);
+        // bigger steps in testAverageValueNegativeStepCrossMin()
+
+        // initial value in first quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q1, -1 * STEP_30);
+        // bigger steps in testAverageValueNegativeStepCrossMin()
     }
 
     /**
