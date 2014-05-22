@@ -153,7 +153,10 @@ public class LocationService extends Service
         updateLocationProvider();
         // and used in requestUpdatesFromProvider
         if (isSetLocationProvider()) {
-            setLocation(requestUpdatesFromProvider());
+            Location location = requestUpdatesFromProvider();
+            if (location != null) {
+                setLocation(location);
+            }
         }
 
         // Subscribe to sensor events
