@@ -201,13 +201,20 @@ public class CircularAverageTest {
 
     /**
      * Tests getAverageValue() method, with a positive step,
-     * crossing maximum value, 340°-> 30°.
+     * crossing maximum value, < 360° -> > 0°.
      */
     @Test
     public final void testAverageValuePositiveStepCrossMax() {
-        // initial value = 340
-        // applied step = 50
-        testAverageValueAfterStep(340, 50);
+        // initial value in third quadrant
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q3, STEP_170);
+        // bigger steps in testAverageValuePositiveStepCrossMax()
+        
+        // initial value in fourth quadrant
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q4, STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q4, STEP_170);
     }
 
     /**
