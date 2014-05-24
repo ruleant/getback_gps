@@ -257,16 +257,19 @@ public class CircularAverageTest {
 
     /**
      * Tests getAverageValue() method, with a positive step,
-     * crossing minimum value, 30°-> 340/300/220°.
+     * crossing minimum value, > 0° -> < 360°.
      */
     @Test
     public final void testAverageValueNegativeStepCrossMin() {
-        // initial value = 30, applied step = -50
-        testAverageValueAfterStep(30, -50);
-        // initial value = 30, applied step = -90
-        testAverageValueAfterStep(30, -90);
-        // initial value = 30, applied step = -170
-        testAverageValueAfterStep(30, -170);
+        // initial value in first quadrant
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q1, -1 * STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q1, -1 * STEP_170);
+
+        // initial value in second quadrant
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q2, -1 * STEP_170);
     }
 
     /**
