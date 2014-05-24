@@ -151,13 +151,8 @@ public class LocationService extends Service
 
         // mProviderName is set by updateLocationProvider
         updateLocationProvider();
-        // and used in requestUpdatesFromProvider
-        if (isSetLocationProvider()) {
-            Location location = requestUpdatesFromProvider();
-            if (location != null) {
-                setLocation(location);
-            }
-        }
+        // and used in requestUpdatesFromProvider, which sets location
+        requestUpdatesFromProvider();
 
         // Subscribe to sensor events
         if (mSensorOrientation.hasSensors()
@@ -473,6 +468,10 @@ public class LocationService extends Service
                     Integer.parseInt(prefLocationUpdateDistance),
                     mListener);
             location = mLocationManager.getLastKnownLocation(mProviderName);
+
+            if (location != null) {
+                setLocation(location);
+            }
         } else {
             Toast.makeText(
                     this,
