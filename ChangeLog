@@ -1,5 +1,6 @@
  v0.3 (not released yet)
  - CID 60865 : fix Coverity issue : dereference null return value
+ - CID 60867 : fix Coverity issue : EC: Comparing incompatible types for equality
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
