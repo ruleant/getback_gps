@@ -430,11 +430,9 @@ public class LocationService extends Service
      * If the requested provider is not available on the device,
      * the app displays a Toast with a message referenced by a resource id.
      *
-     * @return A previously returned {@link android.location.Location}
-     *         from the requested provider, if exists.
+     * @return true if a location was retrieved
      */
-    private Location requestUpdatesFromProvider() {
-        Location location = null;
+    private boolean requestUpdatesFromProvider() {
         if (isSetLocationProvider()
                 && mLastLocation != null
                 && mLocationManager.isProviderEnabled(mProviderName)) {
@@ -467,10 +465,11 @@ public class LocationService extends Service
                     Integer.parseInt(prefLocationUpdateTime),
                     Integer.parseInt(prefLocationUpdateDistance),
                     mListener);
-            location = mLocationManager.getLastKnownLocation(mProviderName);
+            Location location = mLocationManager.getLastKnownLocation(mProviderName);
 
             if (location != null) {
                 setLocation(location);
+                return true;
             }
         } else {
             Toast.makeText(
@@ -479,7 +478,8 @@ public class LocationService extends Service
                     Toast.LENGTH_LONG
             ).show();
         }
-        return location;
+
+        return false;
     }
 
     /**
