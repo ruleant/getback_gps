@@ -5,9 +5,11 @@
 Este programa se distribuye con la esperanza de que sea útil pero SIN NINGUNA GARANTÍA; incluso sin la garantía implícita de MERCANTIBILIDAD o CALIFICADA PARA UN PROPÓSITO EN PARTICULAR. Vea la Licencia General Pública de GNU para más detalles.\n
 \n
 Usted ha debido de recibir una copia de la Licencia General Pública de GNU junto con este programa. Si no, vea <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="app_desc">Encuentra el camino de vuelta utilizando coordenadas GPS.</string>
+<string name="app_desc">Encuentra el camino de vuelta a un sitio previamente visitado utilizando coordenadas GPS.</string>
     <string name="inaccurate_location">Tu ubicación actual es inexacta</string>
     <string name="notice_no_dest">Guarda tu ubicación para elegir un destino</string>
     <string name="inaccurate_direction">Comienza a moverte para obtener una dirección precisa hacia tu destino</string>
     <string name="notice_destination_reached">Has llegado a tu destino</string>
+    <string name="current_speed">Velocidad actual</string>
+    <string name="speed_kph">km/h</string>
     </resources>
