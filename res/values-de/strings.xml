@@ -72,4 +72,6 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="copyright">Urheberrecht</string>
     <string name="pref_enable_sensors">Sensoren einschalten (falls verfügbar)</string>
     <string name="sensors_disabled">Inaktiv : Stromsparend</string>
+    <string name="pref_geo_orientation_sensor">Standard Orientierungssensor</string>
+    <string name="sensors_enabled">Aktiv: Schneller aktualisierte und genauere Position</string>
     </resources>
