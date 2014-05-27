@@ -273,6 +273,19 @@ public class CircularAverageTest {
     }
 
     /**
+     * Tests apply 180° degree step.
+     */
+    @Test
+    public final void testAverageValue180Step() {
+        // value will move clockwise
+        testAverageValueAfterStep(0, STEP_180);
+        testAverageValueAfterStep(90, STEP_180);
+        // value will move counter-clockwise
+        testAverageValueAfterStep(180, -1 * STEP_180);
+        testAverageValueAfterStep(270, -1 * STEP_180);
+    }
+
+    /**
      * Tests getAverageValue() in 5 cycles after a step is applied.
      *
      * @param initialValue Initial value
