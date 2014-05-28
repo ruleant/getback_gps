@@ -351,7 +351,10 @@ public class SensorOrientation implements SensorEventListener {
                     orientationValues);
 
             if (orientationValues.length == SENSOR_VALUES_SIZE) {
-                mOrientation = Math.toDegrees(orientationValues[0]);
+                mOrientation = CircularAverage.getAverageValue(
+                        (float) mOrientation,
+                        (float) Math.toDegrees(orientationValues[0]),
+                        0.05f);
                 mOrientationTimestamp = Tools.getMax(mMagneticFieldTimestamp,
                         mAccelerometerTimestamp);
 
