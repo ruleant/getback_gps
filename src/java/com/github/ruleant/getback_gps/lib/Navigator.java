@@ -257,7 +257,8 @@ public class Navigator {
                         && distance > mPreviousLocation.getAccuracy()) {
                     // calculate speed from distance travelled and time spent
                     // time is in milliseconds, convert to seconds.
-                    currentSpeed = distance / (time / Tools.SECOND_IN_MILLIS);
+                    currentSpeed = distance /
+                            (float) (time / Tools.SECOND_IN_MILLIS);
                 }
             }
         }

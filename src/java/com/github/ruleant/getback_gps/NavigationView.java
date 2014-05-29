@@ -286,7 +286,7 @@ public class NavigationView extends ImageView {
         // Set up rotation converter
         mRotationCenter.setCartesianCoordinate(getWidth() / 2, getHeight() / 2);
         mRotationConverter.setRotationAngle(getDirection());
-        mRotationConverter.setScaleRadius(getHeight() / 2);
+        mRotationConverter.setScaleRadius((double) getHeight() / 2);
         // no need to reassign mRotationCenter to mRotationConverter,
         // and mRotationConverter to mArrowLines and mArrowBody,
         // the instances were assigned in init().
