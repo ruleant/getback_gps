@@ -209,7 +209,7 @@ public class CircularAverageTest {
         // step to opposite quadrant
         testAverageValueAfterStep(ANGLE_Q3, STEP_170);
         // bigger steps in testAverageValuePositiveStepCrossMax()
-        
+
         // initial value in fourth quadrant
         // step to next quadrant
         testAverageValueAfterStep(ANGLE_Q4, STEP_100);
