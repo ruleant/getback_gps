@@ -435,6 +435,7 @@ public class LocationService extends Service
     private boolean requestUpdatesFromProvider() {
         if (isSetLocationProvider()
                 && mLastLocation != null
+                && mLocationManager != null
                 && mLocationManager.isProviderEnabled(mProviderName)) {
 
             // Get debug level from SharedPreferences
