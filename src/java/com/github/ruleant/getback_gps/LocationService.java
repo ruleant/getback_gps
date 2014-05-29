@@ -465,7 +465,8 @@ public class LocationService extends Service
                     Integer.parseInt(prefLocationUpdateTime),
                     Integer.parseInt(prefLocationUpdateDistance),
                     mListener);
-            Location location = mLocationManager.getLastKnownLocation(mProviderName);
+            Location location
+                    = mLocationManager.getLastKnownLocation(mProviderName);
 
             if (location != null) {
                 setLocation(location);
