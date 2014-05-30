@@ -258,7 +258,7 @@ public class Navigator {
                     // calculate speed from distance travelled and time spent
                     // time is in milliseconds, convert to seconds.
                     currentSpeed = distance /
-                            (float) (time / Tools.SECOND_IN_MILLIS);
+                        ((float) time / (float) Tools.SECOND_IN_MILLIS);
                 }
             }
         }
