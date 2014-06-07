@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript">
+    var Keen=Keen||{configure:function(e){this._cf=e},addEvent:function(e,t,n,i){this._eq=this._eq||[],this._eq.push([e,t,n,i])},setGlobalProperties:function(e){this._gp=e},onChartsReady:function(e){this._ocrq=this._ocrq||[],this._ocrq.push(e)}};(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://":"http://")+"dc8na2hxrj29i.cloudfront.net/code/keen-2.1.2-min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+
+// configure Keen.io API client, keenConfig is defined in config.js
+Keen.configure(keenConfig);
+
+// visualization code goes here
+Keen.onChartsReady(function() {
+  var series_week = new Keen.Series("build_stages", {
+    analysisType: "average",
+    timeframe: "this_7_days",
+    interval: "daily",
+    targetProperty: "stage.duration",
+    groupBy: "stage.name",
+    filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
+  });
+  series_week.draw(document.getElementById("stage_duration_week"),
+    { lineWidth: 2, title: "Average build stage duration", yAxisLabel: "duration [s]" });
+
+  var series_builds = new Keen.Series("build_stages", {
+    analysisType: "count_unique",
+    timeframe: "this_7_days",
+    interval: "daily",
+    targetProperty: "build.build",
+    groupBy: "build.branch"
+  });
+  series_builds.draw(document.getElementById("builds_week"),
+    { lineWidth: 2, title: "Number of builds per branch", yAxisLabel: "build count" });
+
+  var series_month = new Keen.Series("build_stages", {
+    analysisType: "average",
+    timeframe: "this_month",
+    interval: "daily",
+    targetProperty: "stage.duration",
+    groupBy: "stage.name",
+    filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
+  });
+  series_month.draw(document.getElementById("stage_duration_month"),
+    { lineWidth: 2, title: "Average build stage duration", yAxisLabel: "duration [s]" });
+});
+</script>
+</head>
+<body>
+<h1>Project buildtime trend</h1>
+<h2>Last week's builds</h2>
+<div id="stage_duration_week" ></div><div id="builds_week" /></div>
+<h2>This month's builds</h2>
+<div id="stage_duration_month" ></div>
+</body>
+</html>
