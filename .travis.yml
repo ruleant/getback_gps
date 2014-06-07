@@ -8,6 +8,7 @@ env:
     - secure: "bbT3Swvy1P0vFgXE5E5Iv9+JU8GG4LZlbwLez2B7s0aOuxEFCnj19M+GAldVAeHCc/z/0Oz+N1p4eRU5OCJY71lZqv5F8ph8ahti7uUylbfoNHM7g1mcmVSNFZ5bgVhnz/RQjEK/o5msqv3UZPRPS023Q5vAbCrftuHOiOiBbCo="
     - secure: "XWFKXfdJAAScNMQxg6jmJKKfuWIkKBHD8GpLfFoOjghHS6GS7dnc22rHdxeU3wmDMW4sZsFtmDXk5ZjJ3XdbGLFiz5dJ4HKqSmPBG1SMnFco2fDAEyZRN3dh1f2iANX9azyP8fA8mQGITa1uqP20JUFbAcaPcuhNYfiWfqxwzIs="
     - secure: "SJuhq8rTzyJ/947QZZwsIIKtZ9ridf48SvpraK770CCz0hOaqBD3SFLgb2qj9vQDIzHMHST6v0RQ8gP5WaCBC73GFDuH/cY5ltq6KG8kE/5t01dbFWG7o6ItG4FVF2YDo69J+msrB/RP27HK3gGwCqj+6xz+7y1z9VIBBQQEg0k="
+    - secure: "Cq3lvXwHxmjuJH6Q+NkfGqtJL8pwN8NH5wQdPIAQuglLI5mh8mZDKbdBYpKlDvKF5NQOKqUneqFpLD/NWG/3Jwx2DzG619x0yXuCju/Gtxn4tLGO8vjbYH/WnE+uSYwibbOrm/4BGNU+nHTFU6Q/gVBeB5rV58GJohKcs+yPY/M="
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
