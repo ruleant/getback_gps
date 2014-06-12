@@ -44,6 +44,47 @@ public class CircularAverageTest {
      * Accuracy.
      */
     private static final double ACCURACY = 0.0001;
+
+    /**
+     * Angle first quadrant.
+     */
+    private static final float ANGLE_Q1 = 40;
+
+    /**
+     * Angle second quadrant.
+     */
+    private static final float ANGLE_Q2 = 130;
+
+    /**
+     * Angle third quadrant.
+     */
+    private static final float ANGLE_Q3 = 220;
+
+    /**
+     * Angle fourth quadrant.
+     */
+    private static final float ANGLE_Q4 = 310;
+
+    /**
+     * Add step value 30.
+     */
+    private static final float STEP_30 = 30;
+
+    /**
+     * Add step value 100.
+     */
+    private static final float STEP_100 = 100;
+
+    /**
+     * Add step value 170.
+     */
+    private static final float STEP_170 = 170;
+
+    /**
+     * Add step value 180.
+     */
+    private static final float STEP_180 = 180;
+
     /**
      * Value reached after 1 cycle with alpha = 0.5 : 50 %.
      */
@@ -125,20 +166,55 @@ public class CircularAverageTest {
      */
     @Test
     public final void testAverageValuePositiveStep() {
-        // initial value = 10
-        // applied step = 50
-        testAverageValueAfterStep(10, 50);
+        // initial value in first quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q1, STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q1, STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q1, STEP_170);
+        // step to inverse angle
+        testAverageValueAfterStep(ANGLE_Q1, STEP_180);
+
+        // initial value in second quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q2, STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q2, STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q2, STEP_170);
+        // step to inverse angle
+        testAverageValueAfterStep(ANGLE_Q2, STEP_180);
+
+        // initial value in third quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q3, STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q3, STEP_100);
+        // bigger steps in testAverageValuePositiveStepCrossMax()
+
+        // initial value in fourth quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q4, STEP_30);
+        // bigger steps in testAverageValuePositiveStepCrossMax()
     }
 
     /**
      * Tests getAverageValue() method, with a positive step,
-     * crossing maximum value, 340°-> 30°.
+     * crossing maximum value, < 360° -> > 0°.
      */
     @Test
     public final void testAverageValuePositiveStepCrossMax() {
-        // initial value = 340
-        // applied step = 50
-        testAverageValueAfterStep(340, 50);
+        // initial value in third quadrant
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q3, STEP_170);
+        // bigger steps in testAverageValuePositiveStepCrossMax()
+
+        // initial value in fourth quadrant
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q4, STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q4, STEP_170);
     }
 
     /**
@@ -146,20 +222,67 @@ public class CircularAverageTest {
      */
     @Test
     public final void testAverageValueNegativeStep() {
-        // initial value = 100
-        // applied step = -50
-        testAverageValueAfterStep(100, -50);
+        // initial value in fourth quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_170);
+        // step to inverse angle
+        testAverageValueAfterStep(ANGLE_Q4, -1 * STEP_180);
+
+        // initial value in third quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_170);
+        // step to inverse angle
+        testAverageValueAfterStep(ANGLE_Q3, -1 * STEP_180);
+
+        // initial value in second quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q2, -1 * STEP_30);
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q2, -1 * STEP_100);
+        // bigger steps in testAverageValueNegativeStepCrossMin()
+
+        // initial value in first quadrant
+        // step to same quadrant
+        testAverageValueAfterStep(ANGLE_Q1, -1 * STEP_30);
+        // bigger steps in testAverageValueNegativeStepCrossMin()
     }
 
     /**
      * Tests getAverageValue() method, with a positive step,
-     * crossing maximum value, 30°-> 340°.
+     * crossing minimum value, > 0° -> < 360°.
      */
     @Test
-    public final void testAverageValueNegativeStepCrossMax() {
-        // initial value = 30
-        // applied step = -50
-        testAverageValueAfterStep(30, -50);
+    public final void testAverageValueNegativeStepCrossMin() {
+        // initial value in first quadrant
+        // step to next quadrant
+        testAverageValueAfterStep(ANGLE_Q1, -1 * STEP_100);
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q1, -1 * STEP_170);
+
+        // initial value in second quadrant
+        // step to opposite quadrant
+        testAverageValueAfterStep(ANGLE_Q2, -1 * STEP_170);
+    }
+
+    /**
+     * Tests apply 180° degree step.
+     */
+    @Test
+    public final void testAverageValue180Step() {
+        // value will move clockwise
+        testAverageValueAfterStep(0, STEP_180);
+        testAverageValueAfterStep(90, STEP_180);
+        // value will move counter-clockwise
+        testAverageValueAfterStep(180, -1 * STEP_180);
+        testAverageValueAfterStep(270, -1 * STEP_180);
     }
 
     /**

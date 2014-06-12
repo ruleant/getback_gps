@@ -1,4 +1,8 @@
  v0.3 (not released yet)
+ - CID 60865 : fix Coverity issue : dereference null return value
+ - CID 60867 : fix Coverity issue : EC: Comparing incompatible types for equality
+ - CID 60866, 60868 : fix Coverity issue : Casting from integer values
+ - issue #147 : introduce CircularAverage class to make sensor based orientation value less jumpy
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon

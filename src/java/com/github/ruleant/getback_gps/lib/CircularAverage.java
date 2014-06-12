@@ -33,7 +33,7 @@ public class CircularAverage {
     /**
      * Minimal angle value = 0°.
      */
-    private static final float CROSS_WINDOW = 90;
+    private static final float CROSS_WINDOW = 180;
 
     /**
      * Hidden constructor, to prevent instantiating.
@@ -62,13 +62,17 @@ public class CircularAverage {
         // increase new value with 360° in case maximum is crossed.
         if (newValue > FormatUtils.MIN_ANGLE && newValue < CROSS_WINDOW
                 && previousValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
-                && previousValue < FormatUtils.MAX_ANGLE) {
+                && previousValue < FormatUtils.MAX_ANGLE
+                && Math.abs(newValue + FormatUtils.MAX_ANGLE - previousValue)
+                    < CROSS_WINDOW) {
             lNewValue += FormatUtils.MAX_ANGLE;
             // increase previous value with 360° in case minimum is crossed.
         } else if (newValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
                 && newValue < FormatUtils.MAX_ANGLE
                 && previousValue > FormatUtils.MIN_ANGLE
-                && previousValue < CROSS_WINDOW) {
+                && previousValue < CROSS_WINDOW
+                && Math.abs(previousValue + FormatUtils.MAX_ANGLE - newValue)
+                    < CROSS_WINDOW) {
             lPreviousValue += FormatUtils.MAX_ANGLE;
         }
 

@@ -214,11 +214,11 @@ public class LowPassFilterTest {
                 "parameter previousArray (length = 2) should have the "
                 + "same size as parameter newArray (length = 1)");
 
-        // empty previousArray
-        float[] newArray = new float[1];
-
-        assertEquals(newArray,
-                LowPassFilter.filterValueSet(null, newArray, 0f));
+        // empty previousArray, result should be new array
+        float[] newArray = {1};
+        float[] testArray = LowPassFilter.filterValueSet(null, newArray, 0f);
+        assertEquals(1, testArray.length);
+        assertEquals(1, testArray[0], ACCURACY);
 
         // size of newArray and previousArray is not equal, throws exception
         float[] previousArray = new float[2];
