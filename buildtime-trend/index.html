@@ -2,54 +2,137 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
+<title>Build trends</title>
 <script type="text/javascript" src="config.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
     var Keen=Keen||{configure:function(e){this._cf=e},addEvent:function(e,t,n,i){this._eq=this._eq||[],this._eq.push([e,t,n,i])},setGlobalProperties:function(e){this._gp=e},onChartsReady:function(e){this._ocrq=this._ocrq||[],this._ocrq.push(e)}};(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://":"http://")+"dc8na2hxrj29i.cloudfront.net/code/keen-2.1.2-min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
 
 // configure Keen.io API client, keenConfig is defined in config.js
 Keen.configure(keenConfig);
 
-// visualization code goes here
-Keen.onChartsReady(function() {
-  var series_week = new Keen.Series("build_stages", {
-    analysisType: "average",
-    timeframe: "this_7_days",
-    interval: "daily",
-    targetProperty: "stage.duration",
-    groupBy: "stage.name",
-    filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
-  });
-  series_week.draw(document.getElementById("stage_duration_week"),
-    { lineWidth: 2, title: "Average build stage duration", yAxisLabel: "duration [s]" });
+function updateCharts(period) {
+  switch (period) {
+    case "day":
+      var keenTimeframe = "today";
+      var keenInterval = "hourly";
+      break;
+    default:
+	  period = "week";
+    case "week":
+      var keenTimeframe = "this_7_days";
+      var keenInterval = "daily";
+      break;
+    case "month":
+      var keenTimeframe = "this_30_days";
+      var keenInterval = "daily";
+      break;
+    case "year":
+      var keenTimeframe = "this_52_weeks";
+      var keenInterval = "weekly";
+      break;
+  }
+  
+  // update interval selection box
+  $('#intervals').val(period);
 
-  var series_builds = new Keen.Series("build_stages", {
-    analysisType: "count_unique",
-    timeframe: "this_7_days",
-    interval: "daily",
-    targetProperty: "build.build",
-    groupBy: "build.branch"
-  });
-  series_builds.draw(document.getElementById("builds_week"),
-    { lineWidth: 2, title: "Number of builds per branch", yAxisLabel: "build count" });
+  // hide title
+ document.getElementById("timeframe_title").style.display = "none";
 
-  var series_month = new Keen.Series("build_stages", {
-    analysisType: "average",
-    timeframe: "this_month",
-    interval: "daily",
-    targetProperty: "stage.duration",
-    groupBy: "stage.name",
-    filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
+  // visualization code goes here
+  Keen.onChartsReady(function() {
+    var seriesStageDuration = new Keen.Series("build_stages", {
+      analysisType: "average",
+      timeframe: keenTimeframe,
+      interval: keenInterval,
+      targetProperty: "stage.duration",
+      groupBy: "stage.name",
+      filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
+    });
+    seriesStageDuration.draw(document.getElementById("chart_stage_duration"),
+      { lineWidth: 2, title: "Average build stage duration", yAxisLabel: "duration [s]" });
+	// display div inline (show it next to the next chart)
+    document.getElementById("chart_stage_duration").style["display"]= "inline-block";
+	  
+	var metricStageFraction = new Keen.Metric("build_stages", {
+      analysisType: "average",
+      timeframe: keenTimeframe,
+      targetProperty: "stage.duration",
+      groupBy: "stage.name",
+      filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
+    });
+    metricStageFraction.draw(document.getElementById("chart_stage_fraction"),
+      { title: "Build stage fraction" });
+	// display div inline (show it next to the previous chart)
+    document.getElementById("chart_stage_fraction").style["display"]= "inline-block";
+    
+    var seriesBuilds = new Keen.Series("build_stages", {
+      analysisType: "count_unique",
+      timeframe: keenTimeframe,
+      interval: keenInterval,
+      targetProperty: "build.build",
+      groupBy: "build.branch"
+    });
+    seriesBuilds.draw(document.getElementById("builds_chart"),
+      { lineWidth: 2, title: "Number of builds per branch", yAxisLabel: "build count" });
+    // display div inline (show it next to the next chart)
+    document.getElementById("builds_chart").style["display"]= "inline-block";
+
+    var totalBuilds = new Keen.Metric("build_stages", {
+      analysisType: "count_unique",
+      timeframe: keenTimeframe,
+      targetProperty: "build.build"
+    });
+    totalBuilds.draw(document.getElementById("metric_total_builds"),
+      { label: "Total builds" });
+
+    var totalBuildsBranch = new Keen.Metric("build_stages", {
+      analysisType: "count_unique",
+      timeframe: keenTimeframe,
+      targetProperty: "build.build",
+      groupBy: "build.branch"
+    });
+    totalBuildsBranch.draw(document.getElementById("chart_total_builds_branch"),
+      { title: "Builds per branch" });
+    // display div inline (show it next to the previous chart)
+    document.getElementById("chart_total_builds_branch").style["display"]= "inline-block";
   });
-  series_month.draw(document.getElementById("stage_duration_month"),
-    { lineWidth: 2, title: "Average build stage duration", yAxisLabel: "duration [s]" });
-});
+}
+
+// add project name to title
+function updateTitle() {
+  // check if config.projectName is set
+  if (config.projectName != null || config.projectName == 'project_name') {
+      var title = 'Build trends of project ' + htmlEntities(config.projectName);
+      document.getElementById("title").innerHTML = title;
+      document.getElementsByTagName("title")[0].innerHTML = title;
+  }
+}
+
+// escape html characters
+// inspired by http://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
+function htmlEntities(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
 </script>
 </head>
-<body>
-<h1>Project buildtime trend</h1>
-<h2>Last week's builds</h2>
-<div id="stage_duration_week" ></div><div id="builds_week" /></div>
-<h2>This month's builds</h2>
-<div id="stage_duration_month" ></div>
+<body onload='updateTitle(); updateCharts();'>
+<h1 id="title">Build trends</h1>
+<p>Timeframe : 
+  <select id="intervals" onchange="updateCharts(this.value)">
+    <option value="day">Today</option>
+    <option value="week" selected="selected">Last 7 days</option>
+    <option value="month">Last 30 days</option>
+    <option value="year">Last 12 months</option>
+  </select>
+</p>
+<h2 id="timeframe_title">Last week's builds</h2>
+<div id="metric_total_builds"></div>
+<div id="chart_stage_duration"></div>
+<div id="chart_stage_fraction"></div>
+<div id="builds_chart"></div>
+<div id="chart_total_builds_branch"></div>
+<p>Powered by <a href="http://ruleant.github.io/buildtime-trend/">Buildtime trend</a> (0.1-dev).<br />
+Using the <a href="https://keen.io/">Keen.io</a> API for data analysis and visualisation.</p>
 </body>
 </html>
