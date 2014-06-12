@@ -68,14 +68,26 @@ public class FormatUtils {
     public static final float CIRCLE_ZERO = 0;
 
     /**
-     * Maximal angle value = 360°.
+     * First quarter angle value = 1/2 PI = 90°.
      */
-    public static final float CIRCLE_FULL = 360;
+    public static final float CIRCLE_1Q = 90;
 
     /**
      * Halfway angle value = PI = 180°.
      */
-    private static final float CIRCLE_HALF = 180;
+    public static final float CIRCLE_HALF = 180;
+
+    /**
+     * Third quarter angle value = 3/2 PI = 270°.
+     */
+    public static final float CIRCLE_3Q = 270;
+
+    /**
+     * Maximal angle value = 360°.
+     */
+    public static final float CIRCLE_FULL = 360;
+
+
 
     /**
      * Hidden constructor, to prevent instantiating.
