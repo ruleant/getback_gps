@@ -37,7 +37,7 @@ function updateCharts(period) {
   $('#intervals').val(period);
 
   // hide title
- document.getElementById("timeframe_title").style.display = "none";
+  document.getElementById("timeframe_title").style.display = "none";
 
   // visualization code goes here
   Keen.onChartsReady(function() {
@@ -50,11 +50,17 @@ function updateCharts(period) {
       filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
     });
     seriesStageDuration.draw(document.getElementById("chart_stage_duration"),
-      { lineWidth: 2, title: "Average build stage duration", yAxisLabel: "duration [s]" });
-	// display div inline (show it next to the next chart)
+      {
+        lineWidth: 2,
+        title: "Average build stage duration",
+        chartAreaLeft: 75,
+        yAxisLabel: "duration [s]"
+      }
+    );
+    // display div inline (show it next to the next chart)
     document.getElementById("chart_stage_duration").style["display"]= "inline-block";
 	  
-	var metricStageFraction = new Keen.Metric("build_stages", {
+    var metricStageFraction = new Keen.Metric("build_stages", {
       analysisType: "average",
       timeframe: keenTimeframe,
       targetProperty: "stage.duration",
@@ -63,7 +69,7 @@ function updateCharts(period) {
     });
     metricStageFraction.draw(document.getElementById("chart_stage_fraction"),
       { title: "Build stage fraction" });
-	// display div inline (show it next to the previous chart)
+    // display div inline (show it next to the previous chart)
     document.getElementById("chart_stage_fraction").style["display"]= "inline-block";
     
     var seriesBuilds = new Keen.Series("build_stages", {
@@ -74,7 +80,13 @@ function updateCharts(period) {
       groupBy: "build.branch"
     });
     seriesBuilds.draw(document.getElementById("builds_chart"),
-      { lineWidth: 2, title: "Number of builds per branch", yAxisLabel: "build count" });
+      {
+        lineWidth: 2,
+        title: "Number of builds per branch",
+        chartAreaLeft: 75,
+        yAxisLabel: "build count"
+      }
+    );
     // display div inline (show it next to the next chart)
     document.getElementById("builds_chart").style["display"]= "inline-block";
 
