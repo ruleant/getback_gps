@@ -1,2 +1,77 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_desc">Find vej tilbage til en tidligere besøgt placering ved hjælp af GPS-koordinater.</string>
+    <string name="inaccurate_location">Din aktuelle placering er unøjagtig</string>
+    <string name="notice_no_dest">Gem din placering for at angive en destination</string>
+    <string name="inaccurate_direction">Begynd at bevæge sig for at få en præcis retning til din destination</string>
+    <string name="notice_destination_reached">Du befinder dig destinationen</string>
+    <string name="current_speed">Nuværende hastighed</string>
+    <string name="speed_kph">km/t</string>
+    <string name="current_bearing">Aktuelle kurs</string>
+    <string name="distance">Afstand</string>
+    <string name="direction">Retning</string>
+    <string name="northeast_unit">NØ</string>
+    <string name="southeast_unit">SØ</string>
+    <string name="southwest_unit">SV</string>
+    <string name="northwest_unit">NV</string>
+    <string name="location_updated">Placering opdateret</string>
+    <string name="inaccurate">Unøjagtig</string>
+    <string name="destination_reached">Ankommet til destinationen</string>
+    <string name="no_destination">Ingen destination valgt</string>
+    <string name="unknown">Ukendt</string>
+    <string name="refresh">Opdater</string>
+    <string name="dialog_store_location">Vil du gemme din nuværende position?</string>
+    <string name="no">Nej</string>
+    <string name="store_location">Gem placering</string>
+    <string name="store_location_disabled">Kan ikke gemme placeringen, hvis der ikke er en aktuell placering</string>
+    <string name="location_stored">Placering gemt</string>
+    <string name="menu_details">Placeringsdetaljer</string>
+    <string name="activity_details">Detaljer</string>
+    <string name="location_provider">Placeringsudbyder</string>
+    <string name="provider">Udbyder</string>
+    <string name="loc_provider_network">Netværk (GSM/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Udbyderen understøttes ikke.</string>
+    <string name="location">Placering</string>
+    <string name="stored_location">Gemt placering</string>
+    <string name="curr_location">Nuværende (sidst kendte) placering</string>
+    <string name="latitude">Breddegrad</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Længdegrad</string>
+    <string name="longitude_east_unit">Ø</string>
+    <string name="longitude_west_unit">V</string>
+    <string name="altitude">Højde</string>
+    <string name="speed">hastighed</string>
+    <string name="bearing">Kurs</string>
+    <string name="accuracy">Nøjagtighed</string>
+    <string name="timestamp">Tidsstempel</string>
+    <string name="destination">Destination</string>
+    <string name="about">Om</string>
+    <string name="version">Version</string>
+    <string name="settings">Indstillinger</string>
+    <string name="to_dest">Til destinationen</string>
+    <string name="direction_relative">i forhold til aktuel retning</string>
+    <string name="raw">Ikke formateret</string>
+    <string name="none">Ingen</string>
+    <string name="notset">Ikke angivet</string>
+    <string name="loc_updated_recent">Placering opdateret.</string>
+    <string name="loc_updated_not_recent">Placering blev IKKE opdateret for nylig.</string>
+    <string name="pref_header_general">Generelt</string>
+    <string name="pref_header_loc_update">Placeringsopdatering</string>
+    <string name="pref_loc_update_dist">Distance baseret opdateringer</string>
+    <string name="pref_loc_update_time">Tidsbaseret opdateringer</string>
+    <string name="pref_enable_sensors">Aktiver sensorer (hvis tilgængelig)</string>
+    <string name="pref_geo_orientation_sensor">Standard orienteringssensor</string>
+    <string name="sensors_enabled">Aktiveret: hurtigere opdateret og mere præcis kurs</string>
+    <string name="sensors_disabled">Inaktiv: sparer strøm</string>
+    <string name="disabled">Inaktiv</string>
+    <string name="build_time">Bygget på %s.</string>
+    <string name="app_website">Besøg &lt;a href=%1$s&gt;hjemmesiden&lt;/a&gt; for mere information.</string>
+    <string name="copyright">Copyright</string>
+    <string name="license">Dette program er gratis software: du kan redistribuere det og/eller modificere det under betingelserne i GNU General Public License som publiceret af Free Software Foundation, enten version 3 af licensen, eller enhver nyere version.
+ 
+ Dette program er distribueret i håb om at det vil være nyttigt, men uden nogen garanti; uden engang den stiltiende garanti for salgbarhed eller egnethed til et bestemt formål. Se GNU General Public License for flere detaljer.
+ 
+ Du skulle have modtaget en kopi af GNU General Public License sammen med dette program. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+<string name="sensor_bearing_offset">Sensor baseret retningsforskydning</string>
+    </resources>
