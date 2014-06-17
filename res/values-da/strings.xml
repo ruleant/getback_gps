@@ -68,10 +68,10 @@
     <string name="build_time">Bygget på %s.</string>
     <string name="app_website">Besøg &lt;a href=%1$s&gt;hjemmesiden&lt;/a&gt; for mere information.</string>
     <string name="copyright">Copyright</string>
-    <string name="license">Dette program er gratis software: du kan redistribuere det og/eller modificere det under betingelserne i GNU General Public License som publiceret af Free Software Foundation, enten version 3 af licensen, eller enhver nyere version.
- 
- Dette program er distribueret i håb om at det vil være nyttigt, men uden nogen garanti; uden engang den stiltiende garanti for salgbarhed eller egnethed til et bestemt formål. Se GNU General Public License for flere detaljer.
- 
+    <string name="license">Dette program er gratis software: du kan redistribuere det og/eller modificere det under betingelserne i GNU General Public License som publiceret af Free Software Foundation, enten version 3 af licensen, eller enhver nyere version.\n
+\n
+ Dette program er distribueret i håb om at det vil være nyttigt, men uden nogen garanti; uden engang den stiltiende garanti for salgbarhed eller egnethed til et bestemt formål. Se GNU General Public License for flere detaljer.\n
+\n
  Du skulle have modtaget en kopi af GNU General Public License sammen med dette program. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="sensor_bearing_offset">Sensor baseret retningsforskydning</string>
     </resources>
