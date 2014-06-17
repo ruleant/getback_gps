@@ -46,7 +46,7 @@ function updateCharts(period) {
       timeframe: keenTimeframe,
     });
     totalBuilds.draw(document.getElementById("metric_total_builds"),
-      { label: "Total builds" });
+      { label: "Total builds", width: "200px" });
     // display div inline (show it next to the next chart)
     document.getElementById("metric_total_builds").style["display"]= "inline-block";
 
@@ -56,7 +56,7 @@ function updateCharts(period) {
       filters: [{"property_name":"build.result","operator":"eq","property_value":"passed"}]
     });
     totalBuildsPassed.draw(document.getElementById("metric_total_builds_passed"),
-      { label: "Total builds passed" });
+      { label: "Builds passed", width: "200px" });
     // display div inline (show it next to the next chart)
     document.getElementById("metric_total_builds_passed").style["display"]= "inline-block";
 
@@ -66,7 +66,7 @@ function updateCharts(period) {
       filters: [{"property_name":"build.result","operator":"in","property_value":["failed","errored"]}]
     });
     totalBuildsFailed.draw(document.getElementById("metric_total_builds_failed"),
-      { label: "Total builds failed" });
+      { label: "Builds failed", width: "200px" });
     // display div inline (show it next to the previous chart)
     document.getElementById("metric_total_builds_failed").style["display"]= "inline-block";
 
@@ -112,7 +112,7 @@ function updateCharts(period) {
     seriesBuilds.draw(document.getElementById("builds_chart"),
       {
         lineWidth: 2,
-        title: "Number of builds per branch",
+        title: "Builds per branch (nominal)",
         chartAreaLeft: 75,
         chartAreaWidth: 350,
         yAxisLabel: "build count"
@@ -128,7 +128,7 @@ function updateCharts(period) {
       groupBy: "build.branch"
     });
     totalBuildsBranch.draw(document.getElementById("chart_total_builds_branch"),
-      { title: "Builds per branch" });
+      { title: "Builds per branch (relative)" });
     // display div inline (show it next to the previous chart)
     document.getElementById("chart_total_builds_branch").style["display"]= "inline-block";
   });
