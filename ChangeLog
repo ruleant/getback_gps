@@ -5,6 +5,7 @@
  - issue #147 : introduce CircularAverage class to make sensor based orientation value less jumpy
  - rename FormatUtils.CIRCLE_* constants
  - translated to Danish (thanks to Jan Madsen)
+ - translated to Portuguese (Brazil) (thanks to Zoé Junior)
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
