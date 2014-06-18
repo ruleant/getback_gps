@@ -63,9 +63,9 @@
     <string name="version">Versão</string>
     <string name="build_time">Desenvolvida em %s.</string>
     <string name="app_website">Visite &lt;a href=%1$s&gt;website&lt;/a&gt; para mais informações.</string>
-    <string name="license">Este programa é um software livre: pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral da GNU por Free Software Foundation, seja pela versão 4 da Licença, ou qualquer versão posterior.\n
-\n
-Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.\n
-\n
-Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="license">Este programa é um software livre: pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral da GNU por Free Software Foundation, seja pela versão 3 da licença, ou qualquer versão posterior.
+ 
+ Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.
+ 
+ Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 </resources>
