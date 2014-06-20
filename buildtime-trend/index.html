@@ -6,10 +6,10 @@
 <script type="text/javascript" src="config.js"></script>
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
-    var Keen=Keen||{configure:function(e){this._cf=e},addEvent:function(e,t,n,i){this._eq=this._eq||[],this._eq.push([e,t,n,i])},setGlobalProperties:function(e){this._gp=e},onChartsReady:function(e){this._ocrq=this._ocrq||[],this._ocrq.push(e)}};(function(){var e=document.createElement("script");e.type="text/javascript",e.async=!0,e.src=("https:"==document.location.protocol?"https://":"http://")+"dc8na2hxrj29i.cloudfront.net/code/keen-2.1.2-min.js";var t=document.getElementsByTagName("script")[0];t.parentNode.insertBefore(e,t)})();
+  !function(a,b){if(void 0===b[a]){b["_"+a]={},b[a]=function(c){b["_"+a].clients=b["_"+a].clients||{},b["_"+a].clients[c.projectId]=this,this._config=c},b[a].ready=function(c){b["_"+a].ready=b["_"+a].ready||[],b["_"+a].ready.push(c)};for(var c=["addEvent","setGlobalProperties","trackExternalLink","on"],d=0;d<c.length;d++){var e=c[d],f=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};b[a].prototype[e]=f(e)}var g=document.createElement("script");g.type="text/javascript",g.async=!0,g.src="https://d26b395fwzu5fz.cloudfront.net/3.0.0/keen.min.js?v0";var h=document.getElementsByTagName("script")[0];h.parentNode.insertBefore(g,h)}}("Keen",this);
 
 // configure Keen.io API client, keenConfig is defined in config.js
-Keen.configure(keenConfig);
+var client = new Keen(keenConfig);
 
 function updateCharts(period) {
   switch (period) {
@@ -40,94 +40,97 @@ function updateCharts(period) {
   document.getElementById("timeframe_title").style.display = "none";
 
   // visualization code goes here
-  Keen.onChartsReady(function() {
-    var totalBuilds = new Keen.Metric("builds", {
-      analysisType: "count",
+  Keen.ready(function() {
+    var totalBuilds = new Keen.Query("count", {
+      eventCollection: "builds",
       timeframe: keenTimeframe,
     });
-    totalBuilds.draw(document.getElementById("metric_total_builds"),
-      { label: "Total builds", width: "200px" });
+    client.draw(totalBuilds, document.getElementById("metric_total_builds"),
+      { title: "Total builds", width: "200px" });
     // display div inline (show it next to the next chart)
     document.getElementById("metric_total_builds").style["display"]= "inline-block";
 
-    var totalBuildsPassed = new Keen.Metric("builds", {
-      analysisType: "count",
+    var totalBuildsPassed = new Keen.Query("count", {
+      eventCollection: "builds",
       timeframe: keenTimeframe,
       filters: [{"property_name":"build.result","operator":"eq","property_value":"passed"}]
     });
-    totalBuildsPassed.draw(document.getElementById("metric_total_builds_passed"),
-      { label: "Builds passed", width: "200px" });
+    client.draw(totalBuildsPassed, document.getElementById("metric_total_builds_passed"),
+      { title: "Builds passed", width: "200px" });
     // display div inline (show it next to the next chart)
     document.getElementById("metric_total_builds_passed").style["display"]= "inline-block";
 
-    var totalBuildsFailed = new Keen.Metric("builds", {
-      analysisType: "count",
+    var totalBuildsFailed = new Keen.Query("count", {
+      eventCollection: "builds",
       timeframe: keenTimeframe,
       filters: [{"property_name":"build.result","operator":"in","property_value":["failed","errored"]}]
     });
-    totalBuildsFailed.draw(document.getElementById("metric_total_builds_failed"),
-      { label: "Builds failed", width: "200px" });
+    client.draw(totalBuildsFailed, document.getElementById("metric_total_builds_failed"),
+      { title: "Builds failed", width: "200px" });
     // display div inline (show it next to the previous chart)
     document.getElementById("metric_total_builds_failed").style["display"]= "inline-block";
 
-    var seriesStageDuration = new Keen.Series("build_stages", {
-      analysisType: "average",
+    var seriesStageDuration = new Keen.Query("average", {
+      eventCollection: "build_stages",
       timeframe: keenTimeframe,
       interval: keenInterval,
       targetProperty: "stage.duration",
       groupBy: "stage.name",
       filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
     });
-    seriesStageDuration.draw(document.getElementById("chart_stage_duration"),
+    client.draw(seriesStageDuration, document.getElementById("chart_stage_duration"),
       {
-        lineWidth: 2,
+        chartType: "columnchart",
         title: "Average build stage duration",
-        chartAreaLeft: 75,
-        chartAreaWidth: 350,
-        yAxisLabel: "duration [s]"
+        chartOptions: {
+          isStacked: true,
+          chartArea: {left: 75, width: 350},
+          vAxis: {title: "duration [s]"}
+        }
       }
     );
     // display div inline (show it next to the next chart)
     document.getElementById("chart_stage_duration").style["display"]= "inline-block";
 	  
-    var metricStageFraction = new Keen.Metric("build_stages", {
-      analysisType: "average",
+    var metricStageFraction = new Keen.Query("average", {
+      eventCollection: "build_stages",
       timeframe: keenTimeframe,
       targetProperty: "stage.duration",
       groupBy: "stage.name",
       filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
     });
-    metricStageFraction.draw(document.getElementById("chart_stage_fraction"),
+    client.draw(metricStageFraction, document.getElementById("chart_stage_fraction"),
       { title: "Build stage fraction" });
     // display div inline (show it next to the previous chart)
     document.getElementById("chart_stage_fraction").style["display"]= "inline-block";
     
-    var seriesBuilds = new Keen.Series("build_stages", {
-      analysisType: "count_unique",
+    var seriesBuilds = new Keen.Query("count_unique", {
+      eventCollection: "build_stages",
       timeframe: keenTimeframe,
       interval: keenInterval,
       targetProperty: "build.build",
       groupBy: "build.branch"
     });
-    seriesBuilds.draw(document.getElementById("builds_chart"),
+    client.draw(seriesBuilds, document.getElementById("builds_chart"),
       {
-        lineWidth: 2,
+        chartType: "columnchart",
         title: "Builds per branch (nominal)",
-        chartAreaLeft: 75,
-        chartAreaWidth: 350,
-        yAxisLabel: "build count"
+        chartOptions: {
+          chartArea: {left: 75, width: 350},
+          vAxis: {title: "build count"}
+        }
       }
     );
     // display div inline (show it next to the next chart)
     document.getElementById("builds_chart").style["display"]= "inline-block";
 
-    var totalBuildsBranch = new Keen.Metric("build_stages", {
-      analysisType: "count_unique",
+    var totalBuildsBranch = new Keen.Query("count_unique", {
+      eventCollection: "build_stages",
       timeframe: keenTimeframe,
       targetProperty: "build.build",
       groupBy: "build.branch"
     });
-    totalBuildsBranch.draw(document.getElementById("chart_total_builds_branch"),
+    client.draw(totalBuildsBranch, document.getElementById("chart_total_builds_branch"),
       { title: "Builds per branch (relative)" });
     // display div inline (show it next to the previous chart)
     document.getElementById("chart_total_builds_branch").style["display"]= "inline-block";
