@@ -366,9 +366,17 @@ public class Navigator {
         if (isSensorBearingAccurate()
             && (mCurrentLocation != null && mCurrentLocation.hasBearing()
             || isLocationBearingAccurate())) {
+
+            double bearing = mSensorOrientation.getOrientation();
+
             // Calculate offset
-            mSensorBearingOffset = mSensorOrientation.getOrientation()
-                    - getLocationBearing();
+            mSensorBearingOffset = bearing - getLocationBearing();
+
+            // detect moving backwards
+            double absBearingOffset = Math.abs(mSensorBearingOffset);
+            if (absBearingOffset < (180 + 30) && absBearingOffset > (180 - 30)) {
+		mSensorBearingOffset -= 180;
+            }
         } else {
             // Reset offset
             mSensorBearingOffset = 0;
