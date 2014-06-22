@@ -114,8 +114,9 @@ function updateCharts(period) {
     client.draw(seriesBuilds, document.getElementById("builds_chart"),
       {
         chartType: "columnchart",
-        title: "Builds per branch (nominal)",
+        title: "Builds per branch",
         chartOptions: {
+          isStacked: true,
           chartArea: {left: 75, width: 350},
           vAxis: {title: "build count"}
         }
@@ -131,7 +132,7 @@ function updateCharts(period) {
       groupBy: "build.branch"
     });
     client.draw(totalBuildsBranch, document.getElementById("chart_total_builds_branch"),
-      { title: "Builds per branch (relative)" });
+      { title: "Builds per branch (%)" });
     // display div inline (show it next to the previous chart)
     document.getElementById("chart_total_builds_branch").style["display"]= "inline-block";
   });
