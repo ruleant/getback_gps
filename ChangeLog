@@ -6,6 +6,7 @@
  - rename FormatUtils.CIRCLE_* constants
  - translated to Danish (thanks to Jan Madsen)
  - translated to Portuguese (Brazil) (thanks to Zoé Junior)
+ - issue #152 : detect Travel Direction and adjust relative direction to destionation accordingly
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
