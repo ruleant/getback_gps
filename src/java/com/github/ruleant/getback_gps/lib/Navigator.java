@@ -28,6 +28,15 @@ package com.github.ruleant.getback_gps.lib;
  */
 public class Navigator {
     /**
+     * Traveldirection enumerator.
+     */
+    public enum TravelDirection {
+        Unknown,
+	Forward,
+	Backwards
+    }
+
+    /**
      * Required location accuracy in meter.
      */
     private static final double ACCURACY_LIMIT = 50;
@@ -73,6 +82,11 @@ public class Navigator {
      * used to calibrate current bearing.
      */
     private double mSensorBearingOffset = 0;
+
+    /**
+     * Detected traveldirection.
+     */
+    private TravelDirection mTravelDirection;
 
     /**
      * Constructor.
@@ -194,6 +208,15 @@ public class Navigator {
      */
     public final double getSensorBearingOffset() {
         return mSensorBearingOffset;
+    }
+
+    /**
+     * Current detected travel direction.
+     *
+     * @return travel direction
+     */
+    public final TravelDirection getTravelDirection() {
+        return mTravelDirection;
     }
 
     /**
@@ -376,11 +399,15 @@ public class Navigator {
             double absBearingOffset = Math.abs(mSensorBearingOffset);
             if (absBearingOffset < (FormatUtils.CIRCLE_HALF + 30.0)
 		&& absBearingOffset > (FormatUtils.CIRCLE_HALF - 30)) {
-		mSensorBearingOffset -= FormatUtils.CIRCLE_HALF;
+                mSensorBearingOffset -= FormatUtils.CIRCLE_HALF;
+                mTravelDirection = TravelDirection.Backwards;
+            } else {
+                mTravelDirection = TravelDirection.Forward;
             }
         } else {
             // Reset offset
             mSensorBearingOffset = 0;
+            mTravelDirection = TravelDirection.Unknown;
         }
     }
 }
