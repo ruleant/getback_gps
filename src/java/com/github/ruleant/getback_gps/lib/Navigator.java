@@ -42,6 +42,11 @@ public class Navigator {
     private static final double ACCURACY_LIMIT = 50;
 
     /**
+     * Angle range for travel direction detection in degrees.
+     */
+    private static final double DIRECTION_ANGLE_RANGE = 45;
+
+    /**
      * Zero distance.
      */
     public static final float DIST_ZERO = 0;
@@ -397,8 +402,8 @@ public class Navigator {
 
             // detect moving backwards
             double absBearingOffset = Math.abs(mSensorBearingOffset);
-            if (absBearingOffset < (FormatUtils.CIRCLE_HALF + 30.0)
-		&& absBearingOffset > (FormatUtils.CIRCLE_HALF - 30)) {
+            if (absBearingOffset < (FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE)
+		&& absBearingOffset > (FormatUtils.CIRCLE_HALF - DIRECTION_ANGLE_RANGE)) {
                 mSensorBearingOffset -= FormatUtils.CIRCLE_HALF;
                 mTravelDirection = TravelDirection.Backwards;
             } else {
