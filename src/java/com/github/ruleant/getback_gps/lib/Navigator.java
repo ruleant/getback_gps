@@ -374,8 +374,9 @@ public class Navigator {
 
             // detect moving backwards
             double absBearingOffset = Math.abs(mSensorBearingOffset);
-            if (absBearingOffset < (180 + 30) && absBearingOffset > (180 - 30)) {
-		mSensorBearingOffset -= 180;
+            if (absBearingOffset < (FormatUtils.CIRCLE_HALF + 30.0)
+		&& absBearingOffset > (FormatUtils.CIRCLE_HALF - 30)) {
+		mSensorBearingOffset -= FormatUtils.CIRCLE_HALF;
             }
         } else {
             // Reset offset
