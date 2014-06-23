@@ -402,8 +402,10 @@ public class Navigator {
 
             // detect moving backwards
             double absBearingOffset = Math.abs(mSensorBearingOffset);
-            if (absBearingOffset < (FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE)
-		&& absBearingOffset > (FormatUtils.CIRCLE_HALF - DIRECTION_ANGLE_RANGE)) {
+            double upperRange = FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE;
+            double lowerRange = FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE;
+            if (absBearingOffset < upperRange
+                    && absBearingOffset > lowerRange) {
                 mSensorBearingOffset -= FormatUtils.CIRCLE_HALF;
                 mTravelDirection = TravelDirection.Backwards;
             } else {
