@@ -32,8 +32,8 @@ public class Navigator {
      */
     public enum TravelDirection {
         Unknown,
-	Forward,
-	Backwards
+        Forward,
+        Backwards
     }
 
     /**
