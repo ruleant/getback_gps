@@ -119,7 +119,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                 + " : " + FormatUtils.formatAngle(
                     navigator.getSensorBearingOffset(), 0));
 
-        // Refresh traveldirection
+        // Refresh travel direction
         TextView tvTravelDirection
                 = (TextView) findViewById(R.id.textView_TravelDirection);
         String travelDirectionText = res.getString(R.string.travel_direction)
@@ -130,10 +130,12 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
             travelDirectionText += res.getString(R.string.unknown);
             break;
         case Forward :
-            travelDirectionText += res.getString(R.string.travel_direction_forward);
+            travelDirectionText
+                    += res.getString(R.string.travel_direction_forward);
             break;
         case Backwards :
-            travelDirectionText += res.getString(R.string.travel_direction_backwards);
+            travelDirectionText
+                    += res.getString(R.string.travel_direction_backwards);
             break;
         }
         tvTravelDirection.setText(travelDirectionText);
