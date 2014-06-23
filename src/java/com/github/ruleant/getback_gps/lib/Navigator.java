@@ -28,7 +28,7 @@ package com.github.ruleant.getback_gps.lib;
  */
 public class Navigator {
     /**
-     * Traveldirection enumerator.
+     * Travel direction enumerator.
      */
     public enum TravelDirection {
         Unknown,
@@ -89,7 +89,7 @@ public class Navigator {
     private double mSensorBearingOffset = 0;
 
     /**
-     * Detected traveldirection.
+     * Detected travel direction.
      */
     private TravelDirection mTravelDirection;
 
