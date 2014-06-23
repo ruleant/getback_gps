@@ -44,7 +44,7 @@ public class Navigator {
     /**
      * Angle range for travel direction detection in degrees.
      */
-    private static final double DIRECTION_ANGLE_RANGE = 45;
+    private static final double DIRECTION_ANGLE_RANGE = 60;
 
     /**
      * Zero distance.
