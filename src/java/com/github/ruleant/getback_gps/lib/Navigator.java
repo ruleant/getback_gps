@@ -28,12 +28,12 @@ package com.github.ruleant.getback_gps.lib;
  */
 public class Navigator {
     /**
-     * Traveldirection enumerator.
+     * Travel direction enumerator.
      */
     public enum TravelDirection {
         Unknown,
-	Forward,
-	Backwards
+        Forward,
+        Backwards
     }
 
     /**
@@ -44,7 +44,7 @@ public class Navigator {
     /**
      * Angle range for travel direction detection in degrees.
      */
-    private static final double DIRECTION_ANGLE_RANGE = 45;
+    private static final double DIRECTION_ANGLE_RANGE = 60;
 
     /**
      * Zero distance.
@@ -89,7 +89,7 @@ public class Navigator {
     private double mSensorBearingOffset = 0;
 
     /**
-     * Detected traveldirection.
+     * Detected travel direction.
      */
     private TravelDirection mTravelDirection;
 
@@ -402,8 +402,10 @@ public class Navigator {
 
             // detect moving backwards
             double absBearingOffset = Math.abs(mSensorBearingOffset);
-            if (absBearingOffset < (FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE)
-		&& absBearingOffset > (FormatUtils.CIRCLE_HALF - DIRECTION_ANGLE_RANGE)) {
+            double upperRange = FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE;
+            double lowerRange = FormatUtils.CIRCLE_HALF + DIRECTION_ANGLE_RANGE;
+            if (absBearingOffset < upperRange
+                    && absBearingOffset > lowerRange) {
                 mSensorBearingOffset -= FormatUtils.CIRCLE_HALF;
                 mTravelDirection = TravelDirection.Backwards;
             } else {
