@@ -74,4 +74,7 @@
 \n
  Du skulle have modtaget en kopi af GNU General Public License sammen med dette program. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="sensor_bearing_offset">Sensor baseret retningsforskydning</string>
+    <string name="travel_direction">Køreretning</string>
+    <string name="travel_direction_forward">Fremad</string>
+    <string name="travel_direction_backwards">Baglæns</string>
     </resources>
