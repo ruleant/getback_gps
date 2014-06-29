@@ -31,8 +31,19 @@ public class Navigator {
      * Travel direction enumerator.
      */
     public enum TravelDirection {
+        /**
+         * Travel direction is unknown.
+         */
         Unknown,
+        /**
+         * Device is moving forward,
+         * user is facing the direction of travel.
+         */
         Forward,
+        /**
+         * Device is moving backward,
+         * user is facing the opposite direction of travel.
+         */
         Backwards
     }
 
