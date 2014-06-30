@@ -225,7 +225,7 @@ public class NavigationView extends ImageView {
      * @param direction Direction to destination (0-360°).
      */
     public final void setDirection(final double direction) {
-        this.mDirection =  FormatUtils.normalizeAngle(direction);
+        this.mDirection = FormatUtils.normalizeAngle(direction);
     }
 
     /**
