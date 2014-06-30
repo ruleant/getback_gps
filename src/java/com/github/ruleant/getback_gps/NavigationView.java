@@ -47,6 +47,16 @@ import de.keyboardsurfer.android.widget.crouton.Style;
  */
 public class NavigationView extends ImageView {
     /**
+     * Paint used for drawing compass rose lines.
+     */
+    private final Paint mPaintRoseLines = new Paint();
+
+    /**
+     * Paint used for drawing compass rose solids.
+     */
+    private final Paint mPaintRoseSolids = new Paint();
+
+    /**
      * Paint used for drawing lines.
      */
     private final Paint mPaintLines = new Paint();
@@ -65,6 +75,16 @@ public class NavigationView extends ImageView {
      * Arrow indicating direction.
      */
     private final Coordinates mArrowBody = new Coordinates();
+
+    /**
+     * Compass rose.
+     */
+    private final Coordinates mCompassRose = new Coordinates();
+
+    /**
+     * Compass rose rotation converter.
+     */
+    private CoordinateRotation mRoseRotationConverter;
 
     /**
      * Arrow indicating direction.
@@ -145,6 +165,11 @@ public class NavigationView extends ImageView {
      * arrow side angle.
      */
     private static final double ARROW_ANGLE = 35.0;
+
+    /**
+     * Compass rose intersection angle.
+     */
+    private static final double INTERSECTION_ANGLE = 45.0;
 
     /**
      * Constructor.
@@ -285,11 +310,24 @@ public class NavigationView extends ImageView {
 
         // Set up rotation converter
         mRotationCenter.setCartesianCoordinate(getWidth() / 2, getHeight() / 2);
+        double mRoseRotation = 30;
+        mRoseRotationConverter.setScaleRadius((double) getHeight() / 2);
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setScaleRadius((double) getHeight() / 2);
         // no need to reassign mRotationCenter to mRotationConverter,
         // and mRotationConverter to mArrowLines and mArrowBody,
         // the instances were assigned in init().
+
+        // draw compass rose
+        //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
+        mRoseRotationConverter.setRotationAngle(mRoseRotation);
+        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+        mRoseRotationConverter.setRotationAngle(90 + mRoseRotation);
+        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+        mRoseRotationConverter.setRotationAngle(180 + mRoseRotation);
+        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+        mRoseRotationConverter.setRotationAngle(270 + mRoseRotation);
+        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
 
         // draw arrow to destination
         canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
@@ -309,9 +347,13 @@ public class NavigationView extends ImageView {
         // Get the screen's density scale
         final float scale = res.getDisplayMetrics().density;
 
-        // initialise paint
         // Convert the line thickness to pixels, based on density scale
+        mPaintRoseLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
         mPaintLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
+
+        // initialise paint color
+        mPaintRoseLines.setColor(Color.GRAY);
+        mPaintRoseSolids.setColor(Color.LTGRAY);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             mPaintLines.setColor(
                     res.getColor(android.R.color.holo_red_dark));
@@ -325,14 +367,31 @@ public class NavigationView extends ImageView {
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
         mRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
+        mRoseRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
+        mCompassRose.setCoordinateConverter(mRoseRotationConverter);
         mArrowLines.setCoordinateConverter(mRotationConverter);
         mArrowBody.setCoordinateConverter(mRotationConverter);
+
+        // draw rose
+
+        double roseLength = 1;
+        double roseInterLength = D_40PCT;
+
+        // left side/outline in lines
+        mCompassRose.addCoordinate(roseLength, 0);
+        mCompassRose.addCoordinate(0, 0);
+        mCompassRose.addCoordinate(roseInterLength, INTERSECTION_ANGLE);
+        mCompassRose.addCoordinate(roseLength, 0);
+        mCompassRose.addCoordinate(roseInterLength, -1 * INTERSECTION_ANGLE);
+        // don't close line
+        mCompassRose.setCloseLine(false);
+
+        // draw arrow
 
         double arrowLength = D_80PCT;
         double arrowLengthDivide = -1 * D_10PCT;
         double arrowLengthTail = -1 * D_40PCT;
 
-        // draw arrow
         // left side/outline in lines
         mArrowLines.addCoordinate(arrowLength, 0);
         mArrowLines.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
