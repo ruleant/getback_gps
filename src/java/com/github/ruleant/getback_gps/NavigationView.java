@@ -346,15 +346,17 @@ public class NavigationView extends ImageView {
         // the instances were assigned in init().
 
         // draw compass rose
-        //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
-        mRoseRotationConverter.setRotationAngle(mRoseRotation);
-        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-        mRoseRotationConverter.setRotationAngle(90 + mRoseRotation);
-        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-        mRoseRotationConverter.setRotationAngle(180 + mRoseRotation);
-        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-        mRoseRotationConverter.setRotationAngle(270 + mRoseRotation);
-        canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+        if (getMode() == ACCURATE) {
+            //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
+            mRoseRotationConverter.setRotationAngle(mRoseRotation);
+            canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+            mRoseRotationConverter.setRotationAngle(90 + mRoseRotation);
+            canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+            mRoseRotationConverter.setRotationAngle(180 + mRoseRotation);
+            canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+            mRoseRotationConverter.setRotationAngle(270 + mRoseRotation);
+            canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+        }
 
         // draw arrow to destination
         canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
