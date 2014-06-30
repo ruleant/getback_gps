@@ -102,6 +102,11 @@ public class NavigationView extends ImageView {
     private double mDirection = 0;
 
     /**
+     * Direction to azimuth.
+     */
+    private double mAzimuth = 0;
+
+    /**
      * Navigation mode.
      */
     private int mMode = 0;
@@ -237,6 +242,28 @@ public class NavigationView extends ImageView {
     }
 
     /**
+     * Sets Azimuth.
+     *
+     * @param azimuth Angle to azimuth (0-360°).
+     */
+    public final void setAzimuth(final double azimuth) {
+        this.mAzimuth = FormatUtils.normalizeAngle(-1 * azimuth);
+    }
+
+    /**
+     * Get azimuth, return nothing if mode is DISABLED.
+     *
+     * @return Angle to azimuth (0-360°)
+     */
+    public final double getAzimuth() {
+        if (getMode() == DISABLED) {
+            return 0;
+        } else {
+            return mAzimuth;
+        }
+    }
+
+    /**
      * Sets navigation mode.
      *
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
@@ -310,7 +337,7 @@ public class NavigationView extends ImageView {
 
         // Set up rotation converter
         mRotationCenter.setCartesianCoordinate(getWidth() / 2, getHeight() / 2);
-        double mRoseRotation = 30;
+        double mRoseRotation = getAzimuth();
         mRoseRotationConverter.setScaleRadius((double) getHeight() / 2);
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setScaleRadius((double) getHeight() / 2);
