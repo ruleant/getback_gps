@@ -169,6 +169,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                 if (navigator.isBearingAccurate()) {
                     nvToDestination.setDirection(
                             navigator.getRelativeDirection());
+                    nvToDestination.setAzimuth(
+                            navigator.getCurrentBearing());
                     nvMode = NavigationView.ACCURATE;
                 } else {
                     nvToDestination.setDirection(
