@@ -350,11 +350,14 @@ public class NavigationView extends ImageView {
             //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-            mRoseRotationConverter.setRotationAngle(90 + mRoseRotation);
+            mRoseRotationConverter.setRotationAngle(
+                    FormatUtils.CIRCLE_1Q + mRoseRotation);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-            mRoseRotationConverter.setRotationAngle(180 + mRoseRotation);
+            mRoseRotationConverter.setRotationAngle(
+                    FormatUtils.CIRCLE_HALF + mRoseRotation);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-            mRoseRotationConverter.setRotationAngle(270 + mRoseRotation);
+            mRoseRotationConverter.setRotationAngle(
+                    FormatUtils.CIRCLE_3Q + mRoseRotation);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
         }
 
