@@ -421,7 +421,8 @@ public class NavigationView extends ImageView {
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
         mRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
-        mRoseRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
+        mRoseRotationConverter
+                = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
         mCompassRose.setCoordinateConverter(mRoseRotationConverter);
         mCompassRoseBody.setCoordinateConverter(mRoseRotationConverter);
         mArrowLines.setCoordinateConverter(mRotationConverter);
@@ -441,7 +442,8 @@ public class NavigationView extends ImageView {
         // right side filled body
         mCompassRoseBody.addCoordinate(0, 0);
         mCompassRoseBody.addCoordinate(ROSE_LENGTH, 0);
-        mCompassRoseBody.addCoordinate(ROSE_INTER_LENGTH, -1 * INTERSECTION_ANGLE);
+        mCompassRoseBody.addCoordinate(ROSE_INTER_LENGTH,
+                -1 * INTERSECTION_ANGLE);
 
         // draw arrow
 
