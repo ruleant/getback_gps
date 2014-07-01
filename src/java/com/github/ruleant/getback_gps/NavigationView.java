@@ -82,6 +82,11 @@ public class NavigationView extends ImageView {
     private final Coordinates mCompassRose = new Coordinates();
 
     /**
+     * Compass rose solid body.
+     */
+    private final Coordinates mCompassRoseBody = new Coordinates();
+
+    /**
      * Compass rose rotation converter.
      */
     private CoordinateRotation mRoseRotationConverter;
@@ -350,17 +355,23 @@ public class NavigationView extends ImageView {
 
         // draw compass rose
         if (getMode() == NavigationMode.Accurate) {
-            //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+
             mRoseRotationConverter.setRotationAngle(
                     FormatUtils.CIRCLE_1Q + mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+
             mRoseRotationConverter.setRotationAngle(
                     FormatUtils.CIRCLE_HALF + mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
+
             mRoseRotationConverter.setRotationAngle(
                     FormatUtils.CIRCLE_3Q + mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
         }
 
@@ -406,6 +417,7 @@ public class NavigationView extends ImageView {
         mRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
         mRoseRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
         mCompassRose.setCoordinateConverter(mRoseRotationConverter);
+        mCompassRoseBody.setCoordinateConverter(mRoseRotationConverter);
         mArrowLines.setCoordinateConverter(mRotationConverter);
         mArrowBody.setCoordinateConverter(mRotationConverter);
 
@@ -419,6 +431,11 @@ public class NavigationView extends ImageView {
         mCompassRose.addCoordinate(ROSE_INTER_LENGTH, -1 * INTERSECTION_ANGLE);
         // don't close line
         mCompassRose.setCloseLine(false);
+
+        // right side filled body
+        mCompassRoseBody.addCoordinate(0, 0);
+        mCompassRoseBody.addCoordinate(ROSE_LENGTH, 0);
+        mCompassRoseBody.addCoordinate(ROSE_INTER_LENGTH, -1 * INTERSECTION_ANGLE);
 
         // draw arrow
 
