@@ -57,6 +57,11 @@ public class NavigationView extends ImageView {
     private final Paint mPaintRoseSolids = new Paint();
 
     /**
+     * Paint used for drawing compass rose North solid.
+     */
+    private final Paint mPaintRoseSolidNorth = new Paint();
+
+    /**
      * Paint used for drawing lines.
      */
     private final Paint mPaintLines = new Paint();
@@ -356,7 +361,7 @@ public class NavigationView extends ImageView {
         // draw compass rose
         if (getMode() == NavigationMode.Accurate) {
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
-            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolidNorth);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
 
             mRoseRotationConverter.setRotationAngle(
@@ -402,6 +407,7 @@ public class NavigationView extends ImageView {
         // initialise paint color
         mPaintRoseLines.setColor(Color.GRAY);
         mPaintRoseSolids.setColor(Color.LTGRAY);
+        mPaintRoseSolidNorth.setColor(Color.GRAY);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             mPaintLines.setColor(
                     res.getColor(android.R.color.holo_red_dark));
