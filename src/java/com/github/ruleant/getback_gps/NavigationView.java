@@ -122,16 +122,6 @@ public class NavigationView extends ImageView {
     private int mAttributeLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
 
     /**
-     * X coordinate.
-     */
-    public static final int X = 0;
-
-    /**
-     * Y coordinate.
-     */
-    public static final int Y = 1;
-
-    /**
      * Mode disabled.
      */
     public static final int DISABLED = 0;
