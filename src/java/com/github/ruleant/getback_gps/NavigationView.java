@@ -405,7 +405,7 @@ public class NavigationView extends ImageView {
         mPaintLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
 
         // initialise paint color
-        mPaintRoseLines.setColor(Color.GRAY);
+        mPaintRoseLines.setColor(Color.DKGRAY);
         mPaintRoseSolids.setColor(Color.LTGRAY);
         mPaintRoseSolidNorth.setColor(Color.GRAY);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
