@@ -107,9 +107,27 @@ public class NavigationView extends ImageView {
     private double mAzimuth = 0;
 
     /**
+     * Navigation mode enum.
+     */
+    public enum NavigationMode {
+        /**
+         * Mode disabled.
+         */
+        Disabled,
+        /**
+         * Mode inaccurate.
+         */
+        Inaccurate,
+        /**
+         * Mode accurate.
+         */
+        Accurate
+    }
+
+    /**
      * Navigation mode.
      */
-    private int mMode = 0;
+    private NavigationMode mMode;
 
     /**
      * Attribute layout_width.
@@ -120,21 +138,6 @@ public class NavigationView extends ImageView {
      * Attribute layout_height.
      */
     private int mAttributeLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
-
-    /**
-     * Mode disabled.
-     */
-    public static final int DISABLED = 0;
-
-    /**
-     * Mode inaccurate.
-     */
-    public static final int INACCURATE = 1;
-
-    /**
-     * Mode accurate.
-     */
-    public static final int ACCURATE = 2;
 
     /**
      * Line thickness.
@@ -234,7 +237,7 @@ public class NavigationView extends ImageView {
      * @return Direction to destination (0-360°)
      */
     public final double getDirection() {
-        if (getMode() == DISABLED) {
+        if (getMode() == NavigationMode.Disabled) {
             return 0;
         } else {
             return mDirection;
@@ -256,7 +259,7 @@ public class NavigationView extends ImageView {
      * @return Angle to azimuth (0-360°)
      */
     public final double getAzimuth() {
-        if (getMode() == DISABLED) {
+        if (getMode() == NavigationMode.Disabled) {
             return 0;
         } else {
             return mAzimuth;
@@ -269,18 +272,18 @@ public class NavigationView extends ImageView {
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    public final void setMode(final int mode) {
+    public final void setMode(final NavigationMode mode) {
         Resources res = getResources();
 
         switch (mode) {
             default:
-            case DISABLED:
-                this.mMode = DISABLED;
+            case Disabled:
+                this.mMode = NavigationMode.Disabled;
                 mPaintLines.setColor(Color.GRAY);
                 mPaintSolids.setColor(Color.LTGRAY);
                 break;
-            case INACCURATE:
-                this.mMode = INACCURATE;
+            case Inaccurate:
+                this.mMode = mode;
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -292,8 +295,8 @@ public class NavigationView extends ImageView {
                     mPaintSolids.setColor(Style.holoBlueLight);
                 }
                 break;
-            case ACCURATE:
-                this.mMode = ACCURATE;
+            case Accurate:
+                this.mMode = mode;
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -313,7 +316,7 @@ public class NavigationView extends ImageView {
      *
      * @return Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
-    public final int getMode() {
+    public final NavigationMode getMode() {
         return mMode;
     }
 
@@ -346,7 +349,7 @@ public class NavigationView extends ImageView {
         // the instances were assigned in init().
 
         // draw compass rose
-        if (getMode() == ACCURATE) {
+        if (getMode() == NavigationMode.Accurate) {
             //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
@@ -371,6 +374,8 @@ public class NavigationView extends ImageView {
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void init() {
+        mMode = NavigationMode.Disabled;
+
         Resources res = getResources();
 
         // set Background

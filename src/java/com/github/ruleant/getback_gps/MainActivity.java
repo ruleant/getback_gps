@@ -140,7 +140,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
-        Integer nvMode = NavigationView.DISABLED;
+        NavigationView.NavigationMode nvMode
+                = NavigationView.NavigationMode.Disabled;
         Boolean displayToDest = false;
 
         if (destination == null) {
@@ -171,11 +172,11 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                             navigator.getRelativeDirection());
                     nvToDestination.setAzimuth(
                             navigator.getCurrentBearing());
-                    nvMode = NavigationView.ACCURATE;
+                    nvMode = NavigationView.NavigationMode.Accurate;
                 } else {
                     nvToDestination.setDirection(
                             navigator.getAbsoluteDirection());
-                    nvMode = NavigationView.INACCURATE;
+                    nvMode = NavigationView.NavigationMode.Inaccurate;
                 }
             }
         }
