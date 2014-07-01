@@ -57,6 +57,11 @@ public class NavigationView extends ImageView {
     private final Paint mPaintRoseSolids = new Paint();
 
     /**
+     * Paint used for drawing compass rose North solid.
+     */
+    private final Paint mPaintRoseSolidNorth = new Paint();
+
+    /**
      * Paint used for drawing lines.
      */
     private final Paint mPaintLines = new Paint();
@@ -80,6 +85,11 @@ public class NavigationView extends ImageView {
      * Compass rose.
      */
     private final Coordinates mCompassRose = new Coordinates();
+
+    /**
+     * Compass rose solid body.
+     */
+    private final Coordinates mCompassRoseBody = new Coordinates();
 
     /**
      * Compass rose rotation converter.
@@ -107,9 +117,27 @@ public class NavigationView extends ImageView {
     private double mAzimuth = 0;
 
     /**
+     * Navigation mode enum.
+     */
+    public enum NavigationMode {
+        /**
+         * Mode disabled.
+         */
+        Disabled,
+        /**
+         * Mode inaccurate.
+         */
+        Inaccurate,
+        /**
+         * Mode accurate.
+         */
+        Accurate
+    }
+
+    /**
      * Navigation mode.
      */
-    private int mMode = 0;
+    private NavigationMode mMode;
 
     /**
      * Attribute layout_width.
@@ -120,31 +148,6 @@ public class NavigationView extends ImageView {
      * Attribute layout_height.
      */
     private int mAttributeLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
-
-    /**
-     * X coordinate.
-     */
-    public static final int X = 0;
-
-    /**
-     * Y coordinate.
-     */
-    public static final int Y = 1;
-
-    /**
-     * Mode disabled.
-     */
-    public static final int DISABLED = 0;
-
-    /**
-     * Mode inaccurate.
-     */
-    public static final int INACCURATE = 1;
-
-    /**
-     * Mode accurate.
-     */
-    public static final int ACCURATE = 2;
 
     /**
      * Line thickness.
@@ -165,6 +168,16 @@ public class NavigationView extends ImageView {
      * 80 %.
      */
     private static final double D_80PCT = 0.8;
+
+    /**
+     * Compass rose arm length.
+     */
+    private static final double ROSE_LENGTH = 0.95;
+
+    /**
+     * Compass rose intersection length.
+     */
+    private static final double ROSE_INTER_LENGTH = 0.25;
 
     /**
      * arrow side angle.
@@ -234,7 +247,7 @@ public class NavigationView extends ImageView {
      * @return Direction to destination (0-360°)
      */
     public final double getDirection() {
-        if (getMode() == DISABLED) {
+        if (getMode() == NavigationMode.Disabled) {
             return 0;
         } else {
             return mDirection;
@@ -256,7 +269,7 @@ public class NavigationView extends ImageView {
      * @return Angle to azimuth (0-360°)
      */
     public final double getAzimuth() {
-        if (getMode() == DISABLED) {
+        if (getMode() == NavigationMode.Disabled) {
             return 0;
         } else {
             return mAzimuth;
@@ -269,18 +282,18 @@ public class NavigationView extends ImageView {
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    public final void setMode(final int mode) {
+    public final void setMode(final NavigationMode mode) {
         Resources res = getResources();
 
         switch (mode) {
             default:
-            case DISABLED:
-                this.mMode = DISABLED;
+            case Disabled:
+                this.mMode = NavigationMode.Disabled;
                 mPaintLines.setColor(Color.GRAY);
                 mPaintSolids.setColor(Color.LTGRAY);
                 break;
-            case INACCURATE:
-                this.mMode = INACCURATE;
+            case Inaccurate:
+                this.mMode = mode;
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -292,8 +305,8 @@ public class NavigationView extends ImageView {
                     mPaintSolids.setColor(Style.holoBlueLight);
                 }
                 break;
-            case ACCURATE:
-                this.mMode = ACCURATE;
+            case Accurate:
+                this.mMode = mode;
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -313,7 +326,7 @@ public class NavigationView extends ImageView {
      *
      * @return Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
-    public final int getMode() {
+    public final NavigationMode getMode() {
         return mMode;
     }
 
@@ -346,15 +359,24 @@ public class NavigationView extends ImageView {
         // the instances were assigned in init().
 
         // draw compass rose
-        if (getMode() == ACCURATE) {
-            //canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
+        if (getMode() == NavigationMode.Accurate) {
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolidNorth);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-            mRoseRotationConverter.setRotationAngle(90 + mRoseRotation);
+
+            mRoseRotationConverter.setRotationAngle(
+                    FormatUtils.CIRCLE_1Q + mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-            mRoseRotationConverter.setRotationAngle(180 + mRoseRotation);
+
+            mRoseRotationConverter.setRotationAngle(
+                    FormatUtils.CIRCLE_HALF + mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
-            mRoseRotationConverter.setRotationAngle(270 + mRoseRotation);
+
+            mRoseRotationConverter.setRotationAngle(
+                    FormatUtils.CIRCLE_3Q + mRoseRotation);
+            canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolids);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
         }
 
@@ -368,6 +390,8 @@ public class NavigationView extends ImageView {
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void init() {
+        mMode = NavigationMode.Disabled;
+
         Resources res = getResources();
 
         // set Background
@@ -381,8 +405,9 @@ public class NavigationView extends ImageView {
         mPaintLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
 
         // initialise paint color
-        mPaintRoseLines.setColor(Color.GRAY);
+        mPaintRoseLines.setColor(Color.DKGRAY);
         mPaintRoseSolids.setColor(Color.LTGRAY);
+        mPaintRoseSolidNorth.setColor(Color.GRAY);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             mPaintLines.setColor(
                     res.getColor(android.R.color.holo_red_dark));
@@ -396,24 +421,29 @@ public class NavigationView extends ImageView {
         // initialise rotationConverter
         mRotationCenter = new Coordinate(0, 0);
         mRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
-        mRoseRotationConverter = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
+        mRoseRotationConverter
+                = new CoordinateRotation(mRotationCenter, 0.0, 1.0);
         mCompassRose.setCoordinateConverter(mRoseRotationConverter);
+        mCompassRoseBody.setCoordinateConverter(mRoseRotationConverter);
         mArrowLines.setCoordinateConverter(mRotationConverter);
         mArrowBody.setCoordinateConverter(mRotationConverter);
 
-        // draw rose
-
-        double roseLength = 1;
-        double roseInterLength = D_40PCT;
+        // draw compass rose
 
         // left side/outline in lines
-        mCompassRose.addCoordinate(roseLength, 0);
+        mCompassRose.addCoordinate(ROSE_LENGTH, 0);
         mCompassRose.addCoordinate(0, 0);
-        mCompassRose.addCoordinate(roseInterLength, INTERSECTION_ANGLE);
-        mCompassRose.addCoordinate(roseLength, 0);
-        mCompassRose.addCoordinate(roseInterLength, -1 * INTERSECTION_ANGLE);
+        mCompassRose.addCoordinate(ROSE_INTER_LENGTH, INTERSECTION_ANGLE);
+        mCompassRose.addCoordinate(ROSE_LENGTH, 0);
+        mCompassRose.addCoordinate(ROSE_INTER_LENGTH, -1 * INTERSECTION_ANGLE);
         // don't close line
         mCompassRose.setCloseLine(false);
+
+        // right side filled body
+        mCompassRoseBody.addCoordinate(0, 0);
+        mCompassRoseBody.addCoordinate(ROSE_LENGTH, 0);
+        mCompassRoseBody.addCoordinate(ROSE_INTER_LENGTH,
+                -1 * INTERSECTION_ANGLE);
 
         // draw arrow
 
