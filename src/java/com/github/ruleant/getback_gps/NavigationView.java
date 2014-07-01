@@ -167,6 +167,16 @@ public class NavigationView extends ImageView {
     private static final double D_80PCT = 0.8;
 
     /**
+     * Compass rose arm length.
+     */
+    private static final double ROSE_LENGTH = 0.95;
+
+    /**
+     * Compass rose intersection length.
+     */
+    private static final double ROSE_INTER_LENGTH = 0.25;
+
+    /**
      * arrow side angle.
      */
     private static final double ARROW_ANGLE = 35.0;
@@ -404,17 +414,14 @@ public class NavigationView extends ImageView {
         mArrowLines.setCoordinateConverter(mRotationConverter);
         mArrowBody.setCoordinateConverter(mRotationConverter);
 
-        // draw rose
-
-        double roseLength = 1;
-        double roseInterLength = D_40PCT;
+        // draw compass rose
 
         // left side/outline in lines
-        mCompassRose.addCoordinate(roseLength, 0);
+        mCompassRose.addCoordinate(ROSE_LENGTH, 0);
         mCompassRose.addCoordinate(0, 0);
-        mCompassRose.addCoordinate(roseInterLength, INTERSECTION_ANGLE);
-        mCompassRose.addCoordinate(roseLength, 0);
-        mCompassRose.addCoordinate(roseInterLength, -1 * INTERSECTION_ANGLE);
+        mCompassRose.addCoordinate(ROSE_INTER_LENGTH, INTERSECTION_ANGLE);
+        mCompassRose.addCoordinate(ROSE_LENGTH, 0);
+        mCompassRose.addCoordinate(ROSE_INTER_LENGTH, -1 * INTERSECTION_ANGLE);
         // don't close line
         mCompassRose.setCloseLine(false);
 
