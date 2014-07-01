@@ -1,2 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="inaccurate_location">您目前的位置並不正確</string>
+    <string name="notice_no_dest">存儲您的位置以便設定為目的地</string>
+    <string name="notice_destination_reached">您已在您的目的地</string>
+    <string name="current_speed">目前速度</string>
+    <string name="speed_kph">公里/小時</string>
+    <string name="distance">距離</string>
+    <string name="direction">方向</string>
+    <string name="northeast_unit">東北</string>
+    <string name="southeast_unit">東南</string>
+    <string name="southwest_unit">西南</string>
+    <string name="northwest_unit">西北</string>
+    <string name="location_updated">位置更新</string>
+    <string name="inaccurate">不正確</string>
+    <string name="destination_reached">已在目的地</string>
+    <string name="no_destination">沒有設定目的地</string>
+    <string name="unknown">未知的</string>
+    <string name="refresh">重整</string>
+    <string name="dialog_store_location">您想要存儲您目前的位置嗎？</string>
+    <string name="no">否</string>
+    <string name="store_location">儲存位置</string>
+    </resources>
