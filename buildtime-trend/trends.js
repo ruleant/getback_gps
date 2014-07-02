@@ -95,7 +95,7 @@ function updateCharts(period) {
       var totalBuilds = result[0].result;
       var totalBuildsFailed = result[1].result;
 
-      if (totalBuildsFailed == 0) {
+      if (totalBuildsFailed === 0) {
         chartColor = ["green"];
       } else if (totalBuilds > 0) {
         if ((totalBuildsFailed / totalBuilds) < 0.25) {
