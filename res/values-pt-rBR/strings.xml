@@ -1,0 +1,71 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_desc">Encontre o caminho de volta a um lugar que visitou através de coordenadas GPS.</string>
+    <string name="inaccurate_location">Sua localização atual é inexata</string>
+    <string name="notice_no_dest">Salve sua localização para definir um destino</string>
+    <string name="inaccurate_direction">Mova-se para obter uma orientação precisa para seu destino</string>
+    <string name="notice_destination_reached">Chegou ao seu destino</string>
+    <string name="current_speed">Velocidade Atual</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">Deslocamento atual</string>
+    <string name="distance">Distância</string>
+    <string name="direction">Direção</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Localização atualizada</string>
+    <string name="inaccurate">Impreciso</string>
+    <string name="destination_reached">No destino</string>
+    <string name="no_destination">Sem destino definido</string>
+    <string name="unknown">Desconhecido</string>
+    <string name="refresh">Atualizar</string>
+    <string name="dialog_store_location">Deseja salvar localização atual?</string>
+    <string name="no">Não</string>
+    <string name="store_location">Salvar localização</string>
+    <string name="store_location_disabled">Impossível salvar localização se não houver localização atual</string>
+    <string name="location_stored">Localização salva</string>
+    <string name="menu_details">Detalhes do local</string>
+    <string name="activity_details">Detalhes</string>
+    <string name="location_provider">Provedor de local</string>
+    <string name="provider">Provedor</string>
+    <string name="loc_provider_network">rede (celular/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Provedor não suportado.</string>
+    <string name="location">Local</string>
+    <string name="stored_location">Local salvo</string>
+    <string name="curr_location">Última localização</string>
+    <string name="latitude">Latitide</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Longitide</string>
+    <string name="longitude_east_unit">L</string>
+    <string name="longitude_west_unit">O</string>
+    <string name="altitude">Altitude</string>
+    <string name="speed">Velocidade</string>
+    <string name="bearing">Deslocamento</string>
+    <string name="accuracy">Precisão</string>
+    <string name="destination">Destino</string>
+    <string name="to_dest">Para o destino</string>
+    <string name="raw">Sem formatação</string>
+    <string name="none">Nenhum</string>
+    <string name="notset">Não ajustado</string>
+    <string name="loc_updated_recent">Localização atualizada recentemente.</string>
+    <string name="loc_updated_not_recent">Localização NÃO atualizada recentemente.</string>
+    <string name="settings">Configurações</string>
+    <string name="pref_header_general">Geral</string>
+    <string name="pref_header_loc_update">Atualização de localização</string>
+    <string name="pref_enable_sensors">Ativar sensores (se disponíveis)</string>
+    <string name="pref_geo_orientation_sensor">Sensor na orientação padrão</string>
+    <string name="sensors_enabled">Ativado : atualização mais rápida e maior precisão de deslocamento</string>
+    <string name="sensors_disabled">Desativado : economiza energia</string>
+    <string name="disabled">Desativado</string>
+    <string name="about">Sobre</string>
+    <string name="version">Versão</string>
+    <string name="build_time">Desenvolvida em %s.</string>
+    <string name="app_website">Visite &lt;a href=%1$s&gt;website&lt;/a&gt; para mais informações.</string>
+    <string name="license">Este programa é um software livre: pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral da GNU por Free Software Foundation, seja pela versão 3 da licença, ou qualquer versão posterior.
+ 
+ Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.
+ 
+ Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>

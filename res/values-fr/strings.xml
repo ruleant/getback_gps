@@ -5,4 +5,11 @@
 Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.\n
 \n
 Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-</resources>
+<string name="app_desc">Revenir à un endroit déjà visité par ces coordonnées GPS.</string>
+    <string name="inaccurate_location">Votre localisation actuelle est imprécise</string>
+    <string name="notice_no_dest">Enregistrer votre localisation pour programmer une destination</string>
+    <string name="inaccurate_direction">Commencer à bouger pour trouver un trajet plus précis jusqu\'à votre destination</string>
+    <string name="notice_destination_reached">Vous êtes arrivé à destination</string>
+    <string name="current_speed">Vitesse actuelle</string>
+    <string name="speed_kph">km/h</string>
+    </resources>

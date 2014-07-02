@@ -60,20 +60,20 @@ public class CircularAverage {
         float lNewValue = newValue;
 
         // increase new value with 360° in case maximum is crossed.
-        if (newValue > FormatUtils.MIN_ANGLE && newValue < CROSS_WINDOW
-                && previousValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
-                && previousValue < FormatUtils.MAX_ANGLE
-                && Math.abs(newValue + FormatUtils.MAX_ANGLE - previousValue)
+        if (newValue > FormatUtils.CIRCLE_ZERO && newValue < CROSS_WINDOW
+                && previousValue > (FormatUtils.CIRCLE_FULL - CROSS_WINDOW)
+                && previousValue < FormatUtils.CIRCLE_FULL
+                && Math.abs(newValue + FormatUtils.CIRCLE_FULL - previousValue)
                     < CROSS_WINDOW) {
-            lNewValue += FormatUtils.MAX_ANGLE;
+            lNewValue += FormatUtils.CIRCLE_FULL;
             // increase previous value with 360° in case minimum is crossed.
-        } else if (newValue > (FormatUtils.MAX_ANGLE - CROSS_WINDOW)
-                && newValue < FormatUtils.MAX_ANGLE
-                && previousValue > FormatUtils.MIN_ANGLE
+        } else if (newValue > (FormatUtils.CIRCLE_FULL - CROSS_WINDOW)
+                && newValue < FormatUtils.CIRCLE_FULL
+                && previousValue > FormatUtils.CIRCLE_ZERO
                 && previousValue < CROSS_WINDOW
-                && Math.abs(previousValue + FormatUtils.MAX_ANGLE - newValue)
+                && Math.abs(previousValue + FormatUtils.CIRCLE_FULL - newValue)
                     < CROSS_WINDOW) {
-            lPreviousValue += FormatUtils.MAX_ANGLE;
+            lPreviousValue += FormatUtils.CIRCLE_FULL;
         }
 
         return (float) FormatUtils.normalizeAngle(

@@ -65,17 +65,29 @@ public class FormatUtils {
     /**
      * Minimal angle value = 0°.
      */
-    public static final float MIN_ANGLE = 0;
+    public static final float CIRCLE_ZERO = 0;
 
     /**
-     * Maximal angle value = 360°.
+     * First quarter angle value = 1/2 PI = 90°.
      */
-    public static final float MAX_ANGLE = 360;
+    public static final float CIRCLE_1Q = 90;
 
     /**
      * Halfway angle value = PI = 180°.
      */
-    private static final float HALF_ANGLE = 180;
+    public static final float CIRCLE_HALF = 180;
+
+    /**
+     * Third quarter angle value = 3/2 PI = 270°.
+     */
+    public static final float CIRCLE_3Q = 270;
+
+    /**
+     * Maximal angle value = 360°.
+     */
+    public static final float CIRCLE_FULL = 360;
+
+
 
     /**
      * Hidden constructor, to prevent instantiating.
@@ -204,13 +216,13 @@ public class FormatUtils {
      */
     public static double normalizeAngle(final double angle) {
         // TODO low refactor to also work if range would be -180°-180°
-        float range = MAX_ANGLE - MIN_ANGLE;
+        float range = CIRCLE_FULL - CIRCLE_ZERO;
         double convertedAngle = angle;
 
         // returned value should be between 0° and 360°
-        if (angle < MIN_ANGLE) {
+        if (angle < CIRCLE_ZERO) {
             convertedAngle += range * Math.ceil(Math.abs(angle / range));
-        } else if (angle >= MAX_ANGLE) {
+        } else if (angle >= CIRCLE_FULL) {
             convertedAngle -= range * Math.floor(angle / range);
         }
 
@@ -224,7 +236,7 @@ public class FormatUtils {
      * @return angle in opposite direction (0°-360°)
      */
     public static double inverseAngle(final double angle) {
-        return normalizeAngle(angle - HALF_ANGLE);
+        return normalizeAngle(angle - CIRCLE_HALF);
     }
 
     /**

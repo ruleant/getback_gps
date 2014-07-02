@@ -39,8 +39,12 @@ before_install:
 script:
   - timestamp.sh test
   - ./gradlew check
-after_script:
+after_success:
   # analyse build timestamps
+  - timestamp.sh end
+  - sync-buildtime-trend-with-gh-pages.sh
+after_failure:
+    # analyse build timestamps
   - timestamp.sh end
   - sync-buildtime-trend-with-gh-pages.sh
 addons:

@@ -49,6 +49,9 @@
     <string name="speed">Speed</string>
     <string name="bearing">Bearing</string>
     <string name="sensor_bearing_offset">Sensor based bearing offset</string>
+    <string name="travel_direction">Travel direction</string>
+    <string name="travel_direction_forward">Forward</string>
+    <string name="travel_direction_backwards">Backwards</string>
     <string name="accuracy">Accuracy</string>
     <string name="timestamp">Timestamp</string>
     <string name="destination">Destination</string>

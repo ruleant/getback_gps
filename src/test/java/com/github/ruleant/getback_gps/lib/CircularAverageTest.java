@@ -278,11 +278,11 @@ public class CircularAverageTest {
     @Test
     public final void testAverageValue180Step() {
         // value will move clockwise
-        testAverageValueAfterStep(0, STEP_180);
-        testAverageValueAfterStep(90, STEP_180);
+        testAverageValueAfterStep(FormatUtils.CIRCLE_ZERO, STEP_180);
+        testAverageValueAfterStep(FormatUtils.CIRCLE_1Q, STEP_180);
         // value will move counter-clockwise
-        testAverageValueAfterStep(180, -1 * STEP_180);
-        testAverageValueAfterStep(270, -1 * STEP_180);
+        testAverageValueAfterStep(FormatUtils.CIRCLE_HALF, -1 * STEP_180);
+        testAverageValueAfterStep(FormatUtils.CIRCLE_3Q, -1 * STEP_180);
     }
 
     /**
