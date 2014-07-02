@@ -9,6 +9,7 @@
  - issue #152 : detect Travel Direction and adjust relative direction to destionation accordingly
  - issue #155 : add script to remove incomplete translations
  - use enum NavigationMode for NavigationView.mMode
+ - translated to Chinese (Traditional) (thanks to Ezjerry Liao)
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
