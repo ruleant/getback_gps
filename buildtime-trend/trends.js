@@ -52,9 +52,31 @@ function updateCharts(period) {
       filters: [{"property_name":"build.result","operator":"eq","property_value":"passed"}]
     });
 
-    // draw chart
-    client.draw(queryTotalBuildsPassed, document.getElementById("metric_total_builds_passed"),
-      { title: "Builds passed", width: "200px" });
+    // combine queries for conditional coloring of TotalBuildspassed
+    var colorBuildsPassed = client.run([queryTotalBuilds, queryTotalBuildsPassed], function(result){
+      var chartColor = ["green"];
+      var totalBuilds = result[0].result;
+      var totalBuildsPassed = result[1].result;
+
+      if (totalBuilds === totalBuildsPassed) {
+        chartColor = ["green"];
+      } else if (totalBuilds > 0) {
+        if ((totalBuildsPassed / totalBuilds) >= 0.75) {
+          chartColor = ["orange"];
+        } else {
+          chartColor = ["red"];
+        }
+      }
+
+      // draw chart
+      client.draw(queryTotalBuildsPassed, document.getElementById("metric_total_builds_passed"),
+        {
+          title: "Builds passed",
+          colors: chartColor,
+          width: "200px"
+        }
+      );
+    });
 
     // display div inline (show it next to the next chart)
     document.getElementById("metric_total_builds_passed").style.display = "inline-block";
@@ -67,9 +89,31 @@ function updateCharts(period) {
       filters: [{"property_name":"build.result","operator":"in","property_value":["failed","errored"]}]
     });
 
-    // draw chart
-    client.draw(queryTotalBuildsFailed, document.getElementById("metric_total_builds_failed"),
-      { title: "Builds failed", width: "200px" });
+    // combine queries for conditional coloring of TotalBuildsfailed
+    var colorBuildsFailed = client.run([queryTotalBuilds, queryTotalBuildsFailed], function(result){
+      var chartColor = ["green"];
+      var totalBuilds = result[0].result;
+      var totalBuildsFailed = result[1].result;
+
+      if (totalBuildsFailed == 0) {
+        chartColor = ["green"];
+      } else if (totalBuilds > 0) {
+        if ((totalBuildsFailed / totalBuilds) < 0.25) {
+          chartColor = ["orange"];
+        } else {
+          chartColor = ["red"];
+        }
+      }
+
+      // draw chart
+      client.draw(queryTotalBuildsFailed, document.getElementById("metric_total_builds_failed"),
+        {
+          title: "Builds failed",
+          colors: chartColor,
+          width: "200px"
+        }
+      );
+    });
 
     // display div inline (show it next to the previous chart)
     document.getElementById("metric_total_builds_failed").style.display = "inline-block";
