@@ -72,14 +72,24 @@ public class NavigationView extends ImageView {
     private final Paint mPaintSolids = new Paint();
 
     /**
-     * Arrow indicating direction.
+     * Paint used for drawing white part of the arrow solid.
+     */
+    private final Paint mPaintArrowSolidWhite = new Paint();
+
+    /**
+     * Arrow indicating direction (lines).
      */
     private final Coordinates mArrowLines = new Coordinates();
 
     /**
-     * Arrow indicating direction.
+     * Arrow indicating direction (solid right part).
      */
     private final Coordinates mArrowBodyRight = new Coordinates();
+
+    /**
+     * Arrow indicating direction (solid left part).
+     */
+    private final Coordinates mArrowBodyLeft = new Coordinates();
 
     /**
      * Compass rose.
@@ -355,7 +365,7 @@ public class NavigationView extends ImageView {
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setScaleRadius((double) getHeight() / 2);
         // no need to reassign mRotationCenter to mRotationConverter,
-        // and mRotationConverter to mArrowLines and mArrowBodyRight,
+        // and mRotationConverter to mArrowLines, mArrowBodyLeft/Right,
         // the instances were assigned in init().
 
         // draw compass rose
@@ -382,6 +392,7 @@ public class NavigationView extends ImageView {
 
         // draw arrow to destination
         canvas.drawPath(mArrowBodyRight.toPath(), mPaintSolids);
+        canvas.drawPath(mArrowBodyLeft.toPath(), mPaintArrowSolidWhite);
         canvas.drawLines(mArrowLines.toLinesArray(), mPaintLines);
     }
 
@@ -408,6 +419,7 @@ public class NavigationView extends ImageView {
         mPaintRoseLines.setColor(Color.DKGRAY);
         mPaintRoseSolids.setColor(Color.LTGRAY);
         mPaintRoseSolidNorth.setColor(Color.GRAY);
+        mPaintArrowSolidWhite.setColor(Color.WHITE);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
             mPaintLines.setColor(
                     res.getColor(android.R.color.holo_red_dark));
@@ -427,6 +439,7 @@ public class NavigationView extends ImageView {
         mCompassRoseBody.setCoordinateConverter(mRoseRotationConverter);
         mArrowLines.setCoordinateConverter(mRotationConverter);
         mArrowBodyRight.setCoordinateConverter(mRotationConverter);
+        mArrowBodyLeft.setCoordinateConverter(mRotationConverter);
 
         // draw compass rose
 
@@ -465,5 +478,10 @@ public class NavigationView extends ImageView {
         mArrowBodyRight.addCoordinate(arrowLength, 0);
         mArrowBodyRight.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
         mArrowBodyRight.addCoordinate(arrowLengthDivide, 0);
+
+        // left side of the filled arrow body
+        mArrowBodyLeft.addCoordinate(arrowLength, 0);
+        mArrowBodyLeft.addCoordinate(arrowLengthTail, ARROW_ANGLE);
+        mArrowBodyLeft.addCoordinate(arrowLengthDivide, 0);
     }
 }
