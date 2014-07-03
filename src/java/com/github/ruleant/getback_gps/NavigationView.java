@@ -79,7 +79,7 @@ public class NavigationView extends ImageView {
     /**
      * Arrow indicating direction.
      */
-    private final Coordinates mArrowBody = new Coordinates();
+    private final Coordinates mArrowBodyRight = new Coordinates();
 
     /**
      * Compass rose.
@@ -355,7 +355,7 @@ public class NavigationView extends ImageView {
         mRotationConverter.setRotationAngle(getDirection());
         mRotationConverter.setScaleRadius((double) getHeight() / 2);
         // no need to reassign mRotationCenter to mRotationConverter,
-        // and mRotationConverter to mArrowLines and mArrowBody,
+        // and mRotationConverter to mArrowLines and mArrowBodyRight,
         // the instances were assigned in init().
 
         // draw compass rose
@@ -381,7 +381,7 @@ public class NavigationView extends ImageView {
         }
 
         // draw arrow to destination
-        canvas.drawPath(mArrowBody.toPath(), mPaintSolids);
+        canvas.drawPath(mArrowBodyRight.toPath(), mPaintSolids);
         canvas.drawLines(mArrowLines.toLinesArray(), mPaintLines);
     }
 
@@ -426,7 +426,7 @@ public class NavigationView extends ImageView {
         mCompassRose.setCoordinateConverter(mRoseRotationConverter);
         mCompassRoseBody.setCoordinateConverter(mRoseRotationConverter);
         mArrowLines.setCoordinateConverter(mRotationConverter);
-        mArrowBody.setCoordinateConverter(mRotationConverter);
+        mArrowBodyRight.setCoordinateConverter(mRotationConverter);
 
         // draw compass rose
 
@@ -461,9 +461,9 @@ public class NavigationView extends ImageView {
         // don't close line
         mArrowLines.setCloseLine(false);
 
-        // right side filled body
-        mArrowBody.addCoordinate(arrowLength, 0);
-        mArrowBody.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
-        mArrowBody.addCoordinate(arrowLengthDivide, 0);
+        // right side of the filled arrow body
+        mArrowBodyRight.addCoordinate(arrowLength, 0);
+        mArrowBodyRight.addCoordinate(arrowLengthTail, -1 * ARROW_ANGLE);
+        mArrowBodyRight.addCoordinate(arrowLengthDivide, 0);
     }
 }
