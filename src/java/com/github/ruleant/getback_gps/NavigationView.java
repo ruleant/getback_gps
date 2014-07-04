@@ -412,9 +412,6 @@ public class NavigationView extends ImageView {
 
         Resources res = getResources();
 
-        // set Background
-        setBackgroundResource(R.drawable.custom_grid);
-
         // Get the screen's density scale
         final float scale = res.getDisplayMetrics().density;
 
