@@ -10,6 +10,7 @@
  - issue #155 : add script to remove incomplete translations
  - use enum NavigationMode for NavigationView.mMode
  - translated to Chinese (Traditional) (thanks to Ezjerry Liao)
+ - issue #128 : Draw a compass rose pointing North
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
