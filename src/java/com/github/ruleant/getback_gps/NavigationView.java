@@ -368,6 +368,13 @@ public class NavigationView extends ImageView {
         // and mRotationConverter to mArrowLines, mArrowBodyLeft/Right,
         // the instances were assigned in init().
 
+        // draw circle
+        canvas.drawCircle(
+                mRotationCenter.getCartesianX(),
+                mRotationCenter.getCartesianY(),
+                (getHeight() / 2) * (float) ROSE_LENGTH,
+                mPaintRoseLines);
+
         // draw compass rose
         if (getMode() == NavigationMode.Accurate) {
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
@@ -413,6 +420,7 @@ public class NavigationView extends ImageView {
 
         // Convert the line thickness to pixels, based on density scale
         mPaintRoseLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
+        mPaintRoseLines.setStyle(Paint.Style.STROKE);
         mPaintLines.setStrokeWidth(Math.round(LINE_THICKNESS * scale));
 
         // initialise paint color
