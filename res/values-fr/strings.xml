@@ -26,7 +26,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="no">Non</string>
     <string name="store_location">Enregistrer ma localisation</string>
     <string name="store_location_disabled">Impossible d\'enregistrer la localisation s\'il n\'y a pas de localisation actuelle</string>
-    <string name="location_stored"/>
+    <string name="location_stored">Localisation enregistrée</string>
     <string name="menu_details">Détails de la localisation</string>
     <string name="activity_details">Détails</string>
     <string name="location_provider">Fournisseur de localisation</string>
@@ -45,4 +45,5 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="longitude_west_unit">O</string>
     <string name="altitude">Altitude</string>
     <string name="speed">Vitesse</string>
+    <string name="accuracy">Précision</string>
     </resources>
