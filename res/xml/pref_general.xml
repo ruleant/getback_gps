@@ -24,7 +24,7 @@
             android:key="enable_sensors"
             android:title="@string/pref_enable_sensors" />
         <ListPreference
-            android:defaultValue="1"
+            android:defaultValue="0"
             android:entries="@array/pref_geo_orientation_sensor_titles"
             android:entryValues="@array/pref_geo_orientation_sensor_values"
             android:key="geo_orientation_sensor"
