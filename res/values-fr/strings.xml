@@ -12,7 +12,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="notice_destination_reached">Vous êtes arrivé à destination</string>
     <string name="current_speed">Vitesse actuelle</string>
     <string name="speed_kph">km/h</string>
-    <string name="distance"/>
+    <string name="distance">Distance</string>
     <string name="direction">Direction</string>
     <string name="northeast_unit">NE</string>
     <string name="southeast_unit">SE</string>
@@ -46,4 +46,26 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="altitude">Altitude</string>
     <string name="speed">Vitesse</string>
     <string name="accuracy">Précision</string>
+    <string name="location_updated">Localisation mise à jour</string>
+    <string name="destination">Destination</string>
+    <string name="to_dest">À destination</string>
+    <string name="direction_relative">Relatif à la direction actuelle</string>
+    <string name="raw">Non formaté(e)</string>
+    <string name="none">Aucun(e)</string>
+    <string name="loc_updated_recent">Localisation récemment mise à jour.</string>
+    <string name="loc_updated_not_recent">Localisation non mise à jour récemment.</string>
+    <string name="settings">Paramètres</string>
+    <string name="pref_header_general">Général</string>
+    <string name="pref_header_loc_update">Mises à jour des localisations</string>
+    <string name="pref_loc_update_dist">Mises à jour en fonction de la distance</string>
+    <string name="pref_loc_update_time">Mises à jour en fonction du temps</string>
+    <string name="pref_enable_sensors">Activer les capteurs (si disponibles)</string>
+    <string name="pref_geo_orientation_sensor">Capteur d\'orientation par défaut</string>
+    <string name="sensors_disabled">Désactivé : économise l\'énergie</string>
+    <string name="disabled">Désactivé</string>
+    <string name="about">À propos</string>
+    <string name="version">Version</string>
+    <string name="build_time">Construit sur %s.</string>
+    <string name="app_website">Visiter le &lt;a href=%1$s&gt;site web&lt;/a&gt; pour plus d'informations.</string>
+    <string name="copyright">Droit d\'auteur</string>
     </resources>
