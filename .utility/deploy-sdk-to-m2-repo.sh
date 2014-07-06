@@ -21,11 +21,7 @@
 git clone https://github.com/mosabua/maven-android-sdk-deployer.git
 cd maven-android-sdk-deployer
 # only deploy SDK 4.4 (API 19)
-mvn clean install -N
-cd platforms
-mvn clean install -N
-cd android-19
-mvn clean install
+mvn clean install -pl platforms/android-19
 
 # return to initial path
-cd ../../..
+cd ..

@@ -31,6 +31,20 @@
             android:layout_height="wrap_content" />
 
         <TextView
+            android:id="@+id/textView_BearingOffset"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="@string/sensor_bearing_offset" />
+
+        <TextView
+            android:id="@+id/textView_TravelDirection"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="@string/travel_direction" />
+
+        <TextView
             android:id="@+id/textView_Destination"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

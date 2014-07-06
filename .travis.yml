@@ -4,11 +4,15 @@ jdk:
   - openjdk7
 env:
   global:
-    secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
+    - secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
+    - secure: "bbT3Swvy1P0vFgXE5E5Iv9+JU8GG4LZlbwLez2B7s0aOuxEFCnj19M+GAldVAeHCc/z/0Oz+N1p4eRU5OCJY71lZqv5F8ph8ahti7uUylbfoNHM7g1mcmVSNFZ5bgVhnz/RQjEK/o5msqv3UZPRPS023Q5vAbCrftuHOiOiBbCo="
+    - secure: "XWFKXfdJAAScNMQxg6jmJKKfuWIkKBHD8GpLfFoOjghHS6GS7dnc22rHdxeU3wmDMW4sZsFtmDXk5ZjJ3XdbGLFiz5dJ4HKqSmPBG1SMnFco2fDAEyZRN3dh1f2iANX9azyP8fA8mQGITa1uqP20JUFbAcaPcuhNYfiWfqxwzIs="
+    - secure: "SJuhq8rTzyJ/947QZZwsIIKtZ9ridf48SvpraK770CCz0hOaqBD3SFLgb2qj9vQDIzHMHST6v0RQ8gP5WaCBC73GFDuH/cY5ltq6KG8kE/5t01dbFWG7o6ItG4FVF2YDo69J+msrB/RP27HK3gGwCqj+6xz+7y1z9VIBBQQEg0k="
+    - secure: "Cq3lvXwHxmjuJH6Q+NkfGqtJL8pwN8NH5wQdPIAQuglLI5mh8mZDKbdBYpKlDvKF5NQOKqUneqFpLD/NWG/3Jwx2DzG619x0yXuCju/Gtxn4tLGO8vjbYH/WnE+uSYwibbOrm/4BGNU+nHTFU6Q/gVBeB5rV58GJohKcs+yPY/M="
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
-  - git clone https://github.com/ruleant/buildtime-trend.git
+  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone https://github.com/ruleant/buildtime-trend.git; fi
   - source buildtime-trend/init.sh
   - mvn -v
   # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
@@ -20,13 +24,13 @@ before_install:
   - sudo CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
   # download the latest android sdk and unzip
   - timestamp.sh install_android_sdk
-  - wget http://dl.google.com/android/android-sdk_r22.6-linux.tgz
-  - tar -zxf android-sdk_r22.6-linux.tgz
+  - wget http://dl.google.com/android/android-sdk_r22.6.2-linux.tgz
+  - tar -zxf android-sdk_r22.6.2-linux.tgz
   - export ANDROID_HOME=`pwd`/android-sdk-linux
   - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
   # only update the sdk for the tools and platform-tools and required api level
   # (run "android list sdk --extended" to get the full list)
-  - echo "y" | android update sdk --filter tools,platform-tools,build-tools-19.0.3,android-19 --no-ui --force
+  - echo "y" | android update sdk -a --filter tools,platform-tools,build-tools-19.1.0,android-19 --no-ui --force
   # deploy android SDK jar to local maven repository
   - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
@@ -43,7 +47,19 @@ after_success:
   - timestamp.sh update_javadoc
   - mvn clean install javadoc:javadoc -DskipTests=true
   - .utility/copy-javadoc-to-gh-pages.sh
-after_script:
   # analyse build timestamps
   - timestamp.sh end
   - sync-buildtime-trend-with-gh-pages.sh
+after_failure:
+    # analyse build timestamps
+  - timestamp.sh end
+  - sync-buildtime-trend-with-gh-pages.sh
+addons:
+  coverity_scan:
+    project:
+      name: "ruleant/getback_gps"
+      description: "Open Source Android app for finding your way back to a previously visited location using GPS coordinates."
+    notification_email: ruleant@users.sourceforge.net
+    #build_command_prepend:
+    build_command: mvn clean install -DskipTests=true
+    branch_pattern: coverity_scan

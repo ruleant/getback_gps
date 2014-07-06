@@ -136,6 +136,12 @@ public class SensorOrientation implements SensorEventListener {
     private static final float LOW_PASS_ALPHA = 0.6f;
 
     /**
+     * Alpha value of circular average
+     * of orientation value calculated from sensors.
+     */
+    private static final float ALPHA_ORIENTATION_SENSORS = 0.05f;
+
+    /**
      * Constructor.
      *
      * @param context Context of the Android app
@@ -351,7 +357,10 @@ public class SensorOrientation implements SensorEventListener {
                     orientationValues);
 
             if (orientationValues.length == SENSOR_VALUES_SIZE) {
-                mOrientation = Math.toDegrees(orientationValues[0]);
+                mOrientation = CircularAverage.getAverageValue(
+                        (float) mOrientation,
+                        (float) Math.toDegrees(orientationValues[0]),
+                        ALPHA_ORIENTATION_SENSORS);
                 mOrientationTimestamp = Tools.getMax(mMagneticFieldTimestamp,
                         mAccelerometerTimestamp);
 
