@@ -38,7 +38,15 @@ before_install:
   - timestamp.sh build
 script:
   - timestamp.sh test
-  - ./gradlew check
+  - mvn test -B
+after_success:
+  # send code coverage results to coveralls.io
+  - timestamp.sh coverage
+  - mvn clean test cobertura:cobertura coveralls:cobertura -B
+  # update javadoc on Github Pages (gh-pages)
+  - timestamp.sh update_javadoc
+  - mvn clean install javadoc:javadoc -DskipTests=true
+  - .utility/copy-javadoc-to-gh-pages.sh
 after_success:
   # analyse build timestamps
   - timestamp.sh end
