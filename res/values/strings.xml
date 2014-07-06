@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingTranslation">
     <string name="app_desc">Find your way back to a previously visited location using GPS coordinates.</string>
     <!-- Crouton messages -->
     <string name="inaccurate_location">Your current location is inaccurate</string>
