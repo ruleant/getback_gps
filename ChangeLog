@@ -4,14 +4,14 @@
  - CID 60866, 60868 : fix Coverity issue : Casting from integer values
  - issue #147 : introduce CircularAverage class to make sensor based orientation value less jumpy
  - rename FormatUtils.CIRCLE_* constants
- - translated to Danish (thanks to Jan Madsen)
- - translated to Portuguese (Brazil) (thanks to Zoé Junior)
+ - translated to Danish,thanks to Jan Madsen
+ - translated to Portuguese (Brazil),thanks to Zoé Junior
  - issue #152 : detect Travel Direction and adjust relative direction to destionation accordingly
  - issue #155 : add script to remove incomplete translations
  - use enum NavigationMode for NavigationView.mMode
- - translated to Chinese (Traditional) (thanks to Ezjerry Liao)
+ - translated to Chinese (Traditional), thanks to Ezjerry Liao
  - issue #128 : Draw a compass rose pointing North
- - translated to French (thanks to Pierre Barre)
+ - translated to French, thanks to Pierre Barre
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
@@ -26,8 +26,8 @@
  - issue #133 : add list of used sensors to AndroidManifest
  - issue #103 : don't calculate speed if distance between current and previous location is smaller than the current accuracy
  - issue #135 : update JavaDoc on website (gh-pages) after a successful Travis CI build.
- - translated to German (thanks to Christian Orj and Kilian Köppchen)
- - translated to Romanian (thanks to Eduard Moraru)
+ - translated to German, thanks to Christian Orj and Kilian Köppchen
+ - translated to Romanian, thanks to Eduard Moraru
  - issue #143 : compile against latest Android SDK using maven-android-sdk-deployer plugin
  - issue #144 : use Robolectric for unit tests
  - issue #41 : use sensors (gyroscope, acceleration, compass) to get more accurate bearing
