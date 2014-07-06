@@ -240,21 +240,21 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // One of the group items (using the onClick attribute) was clicked
         // The item parameter passed here indicates which item it is
         // All other menu item clicks are handled by onOptionsItemSelected()
-        switch (item.getItemId()) {
-            case R.id.menu_settings:
-                displaySettings(item);
-                return true;
-            case R.id.menu_about:
-                displayAbout(item);
-                return true;
-            case R.id.menu_storelocation:
-                storeLocation(item);
-                return true;
-            case R.id.menu_refresh:
-                refresh(item);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        int itemId = item.getItemId();
+        if (itemId == R.id.menu_settings) {
+            displaySettings(item);
+            return true;
+        } else if (itemId == R.id.menu_about) {
+            displayAbout(item);
+            return true;
+        } else if (itemId == R.id.menu_storelocation) {
+            storeLocation(item);
+            return true;
+        } else if (itemId == R.id.menu_refresh) {
+            refresh(item);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 

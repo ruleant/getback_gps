@@ -1,0 +1,86 @@
+// Example : http://tools.android.com/tech-docs/new-build-system/user-guide#TOC-Goals-of-the-new-Build-System
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.9.0'
+    }
+}
+
+apply plugin: 'android'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "19.1.0"
+}
+
+android {
+    sourceSets {
+        main {
+            manifest.srcFile 'AndroidManifest.xml'
+            java.srcDirs = ['src/java']
+
+            resources.srcDirs = ['src/java']
+            aidl.srcDirs = ['src/java']
+
+            renderscript.srcDirs = ['src/java']
+
+            res.srcDirs = ['res']
+            assets.srcDirs = ['assets']
+        }
+
+        instrumentTest.setRoot('test')
+    }
+    lintOptions {
+            // if true, stop the gradle build if errors are found
+            abortOnError false
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('de.keyboardsurfer.android.widget:crouton:1.8.1') {
+        // exclusion is not neccessary, but generally a good idea.
+        exclude group: 'com.google.android', module: 'support-v4'
+    }
+}
+
+// Unit tests
+
+sourceSets {
+    unitTest {
+        java.srcDir file('src/test')
+        resources.srcDir file('src/test/resources')
+    }
+}
+
+dependencies {
+    unitTestCompile files("$project.buildDir/classes/debug")
+    unitTestCompile 'org.robolectric:robolectric:2.2'
+    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
+    unitTestCompile 'com.google.android:android:4.1.1.4'
+}
+
+configurations {
+    unitTestCompile.extendsFrom runtime
+    unitTestRuntime.extendsFrom unitTestCompile
+}
+
+task unitTest(type:Test, dependsOn: assemble) {
+    description = "run unit tests"
+    testClassesDir = project.sourceSets.unitTest.output.classesDir
+    classpath = project.sourceSets.unitTest.runtimeClasspath
+}
+
+check.dependsOn unitTest
