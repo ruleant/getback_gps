@@ -47,6 +47,7 @@ after_success:
   - timestamp.sh update_javadoc
   - mvn clean install javadoc:javadoc -DskipTests=true
   - .utility/copy-javadoc-to-gh-pages.sh
+after_success:
   # analyse build timestamps
   - timestamp.sh end
   - sync-buildtime-trend-with-gh-pages.sh

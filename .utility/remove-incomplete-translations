@@ -9,7 +9,7 @@ set -e
 #
 # How many percent needs to be translated
 #
-THRESHOLD=60
+THRESHOLD=75
 
 BASE_FILE="res/values/strings.xml"
 
