@@ -150,11 +150,6 @@ public class NavigationView extends ImageView {
     private NavigationMode mMode;
 
     /**
-     * Attribute layout_width.
-     */
-    private int mAttributeLayoutWidth = ViewGroup.LayoutParams.MATCH_PARENT;
-
-    /**
      * Attribute layout_height.
      */
     private int mAttributeLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -220,8 +215,9 @@ public class NavigationView extends ImageView {
                           final AttributeSet attributes) {
         super(context, attributes);
 
-        int[] lookForAttributes = new int[] {android.R.attr.layout_width,
-                android.R.attr.layout_height};
+        // Retrieving the values of a few parameters as defined
+        // in the xml configuration.
+        int[] lookForAttributes = new int[] {android.R.attr.layout_height};
 
         TypedArray foundAttributes = context.getTheme().obtainStyledAttributes(
                 attributes,
@@ -229,10 +225,8 @@ public class NavigationView extends ImageView {
                 0, 0);
 
         try {
-            mAttributeLayoutWidth = foundAttributes.getInteger(
-                    0, ViewGroup.LayoutParams.MATCH_PARENT);
             mAttributeLayoutHeight = foundAttributes.getInteger(
-                    1, ViewGroup.LayoutParams.WRAP_CONTENT);
+                    0, ViewGroup.LayoutParams.WRAP_CONTENT);
         } catch (ArrayIndexOutOfBoundsException e) {
             e.printStackTrace();
         } finally {
