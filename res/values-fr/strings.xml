@@ -66,6 +66,6 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="about">À propos</string>
     <string name="version">Version</string>
     <string name="build_time">Construit sur %s.</string>
-    <string name="app_website">Visiter le &lt;a href=%1$s&gt;site web&lt;/a&gt; pour plus d'informations.</string>
+    <string name="app_website">Visiter le &lt;a href=%1$s&gt;site web&lt;/a&gt; pour plus d\'informations.</string>
     <string name="copyright">Droit d\'auteur</string>
     </resources>
