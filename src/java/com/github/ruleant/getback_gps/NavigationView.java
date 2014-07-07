@@ -147,7 +147,7 @@ public class NavigationView extends ImageView {
     /**
      * Navigation mode.
      */
-    private NavigationMode mMode;
+    private NavigationMode mMode = NavigationMode.Disabled;
 
     /**
      * Attribute layout_height.
@@ -401,8 +401,6 @@ public class NavigationView extends ImageView {
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     private void init() {
-        mMode = NavigationMode.Disabled;
-
         Resources res = getResources();
 
         // Get the screen's density scale
