@@ -361,11 +361,11 @@ public class NavigationView extends ImageView {
         // and mRotationConverter to mArrowLines, mArrowBodyLeft/Right,
         // the instances were assigned in init().
 
-        // draw circle
+        // draw circle with diameter scaled to length of compass rose arrow
         canvas.drawCircle(
                 mRotationCenter.getCartesianX(),
                 mRotationCenter.getCartesianY(),
-                (getHeight() / 2) * (float) ROSE_LENGTH,
+                ((float) getHeight() / 2) * (float) ROSE_LENGTH,
                 mPaintRoseLines);
 
         // draw compass rose
