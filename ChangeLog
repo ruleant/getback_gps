@@ -1,4 +1,4 @@
- v0.3 (not released yet)
+ v0.3 (released on 07Jul2014)
  - CID 60865 : fix Coverity issue : dereference null return value
  - CID 60867 : fix Coverity issue : EC: Comparing incompatible types for equality
  - CID 60866, 60868 : fix Coverity issue : Casting from integer values
@@ -12,6 +12,7 @@
  - translated to Chinese (Traditional), thanks to Ezjerry Liao
  - issue #128 : Draw a compass rose pointing North
  - translated to French, thanks to Pierre Barre and an anonymous contributor
+ - CID 68697 : fix Coverity issue : dereference null return value, when getting package info
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon

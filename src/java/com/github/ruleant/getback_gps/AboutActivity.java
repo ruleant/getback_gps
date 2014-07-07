@@ -24,6 +24,7 @@ package com.github.ruleant.getback_gps;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.Resources;
 import android.os.Build;
@@ -58,19 +59,15 @@ public class AboutActivity extends Activity {
         DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
         String versionInfo = res.getString(R.string.app_name);
         String buildTime = "";
-        PackageInfo packageInfo;
 
-        try {
-            packageInfo
-                    = getPackageManager().getPackageInfo(getPackageName(), 0);
+        PackageInfo packageInfo = getPackageInfo();
+        if (packageInfo != null) {
             versionInfo += " v" + packageInfo.versionName;
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
                 Date date = new Date(packageInfo.lastUpdateTime);
                 buildTime = String.format(res.getString(R.string.build_time),
                         formatter.format(date));
             }
-        } catch (NameNotFoundException e) {
-            e.printStackTrace();
         }
 
         // Version text view
@@ -116,5 +113,24 @@ public class AboutActivity extends Activity {
         TextView tvLicense = (TextView) findViewById(R.id.textview_license);
         // enable HTML links
         tvLicense.setMovementMethod(LinkMovementMethod.getInstance());
+    }
+
+    /**
+     * Retrieve Package info (build timestamp, version, ...).
+     *
+     * @return Package info
+     */
+    private PackageInfo getPackageInfo() {
+        PackageManager pm = getPackageManager();
+        if (pm == null) {
+            return null;
+        }
+
+        try {
+            return pm.getPackageInfo(getPackageName(), 0);
+        } catch (NameNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

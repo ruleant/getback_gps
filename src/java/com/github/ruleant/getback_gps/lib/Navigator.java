@@ -102,7 +102,7 @@ public class Navigator {
     /**
      * Detected travel direction.
      */
-    private TravelDirection mTravelDirection;
+    private TravelDirection mTravelDirection = TravelDirection.Unknown;
 
     /**
      * Constructor.
