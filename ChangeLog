@@ -12,6 +12,7 @@
  - translated to Chinese (Traditional), thanks to Ezjerry Liao
  - issue #128 : Draw a compass rose pointing North
  - translated to French, thanks to Pierre Barre and an anonymous contributor
+ - CID 68697 : fix Coverity issue : dereference null return value, when getting package info
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
