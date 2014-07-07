@@ -68,4 +68,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="build_time">Construit sur %s.</string>
     <string name="app_website">Visiter le &lt;a href=%1$s&gt;site web&lt;/a&gt; pour plus d\'informations.</string>
     <string name="copyright">Droit d\'auteur</string>
+    <string name="current_bearing">Relèvement actuel</string>
+    <string name="bearing">Relèvement</string>
+    <string name="sensors_enabled">Activé : relèvement plus précis et mise à jour plus vite</string>
     </resources>
