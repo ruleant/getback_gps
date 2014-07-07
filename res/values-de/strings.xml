@@ -63,7 +63,7 @@ Die Veröffentlichung dieses Programms erfolgt in der Hoffnung, daß es Ihnen vo
 \n
 Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Programm erhalten haben. Falls nicht, siehe <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="altitude">Höhe</string>
-    <string name="current_bearing">Aktueller Kurs</string>
+    <string name="current_bearing">Aktueller Peilung</string>
     <string name="pref_header_loc_update">Standort Aktualisierungen</string>
     <string name="pref_loc_update_dist">Entfernungsbasierte Aktualisierung</string>
     <string name="pref_loc_update_time">Zeitbasierte Aktualisierung</string>
@@ -73,5 +73,5 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="pref_enable_sensors">Sensoren einschalten (falls verfügbar)</string>
     <string name="sensors_disabled">Inaktiv : Stromsparend</string>
     <string name="pref_geo_orientation_sensor">Standard Orientierungssensor</string>
-    <string name="sensors_enabled">Aktiv: Schneller aktualisierte und genauere Position</string>
+    <string name="sensors_enabled">Aktiv: Schneller aktualisierte und genauere Peilung</string>
     </resources>
