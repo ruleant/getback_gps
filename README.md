@@ -68,6 +68,11 @@ Third party material
       See script file for more details.
     - license : Apache 2.0
 
+- .utility/remove-incomplete-translations
+    - Based on scripts/remove-incomplete-mo of the phpMyAdmin project
+    - origin : https://github.com/phpmyadmin/phpmyadmin/blob/master/scripts/remove-incomplete-mo
+    - license : GPLv2
+
 - Crouton library
     - version : v1.8.1
     - website : https://github.com/keyboardsurfer/Crouton
