@@ -98,7 +98,7 @@ function updateCharts(period) {
       if (totalBuildsFailed === 0) {
         chartColor = ["green"];
       } else if (totalBuilds > 0) {
-        if ((totalBuildsFailed / totalBuilds) < 0.25) {
+        if ((totalBuildsFailed / totalBuilds) <= 0.25) {
           chartColor = ["orange"];
         } else {
           chartColor = ["red"];
