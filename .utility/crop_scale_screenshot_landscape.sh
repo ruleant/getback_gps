@@ -21,4 +21,6 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-convert -size 1920x1080 -extract 1792x1005+0+75 $1 -resize 713x400 $1
+imageFile=$1
+
+convert -size 1920x1080 -extract 1792x1005+0+75 $imageFile -resize 713x400 $imageFile
