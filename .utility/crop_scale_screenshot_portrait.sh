@@ -23,4 +23,10 @@
 
 imageFile=$1
 
+imageProperties=(`identify $imageFile`)
+
+imageSize=${imageProperties[2]}
+
+echo $imageSize
+
 convert -size 1080x1920 -extract 1080x1700+0+75 $imageFile -resize 400x631 $imageFile
