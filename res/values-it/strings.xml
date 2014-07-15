@@ -45,7 +45,7 @@
     <string name="settings">Impostazioni</string>
     <string name="pref_header_general">Generali</string>
     <string name="pref_enable_sensors">Attiva sensori (se disponibili)</string>
-    <string name="current_bearing">Posizionamento corrente</string>
+    <string name="current_bearing">Rilevamento corrente</string>
     <string name="inaccurate_direction">Muovendoti otterrai una direzione più precisa</string>
     <string name="location_updated">Posizione aggiornata</string>
     <string name="store_location_disabled">Posizione corrente non identificata, impossibile salvarla</string>
@@ -58,8 +58,8 @@
     <string name="to_dest">Verso destinazione</string>
     <string name="direction_relative">rispetto alla direzione attuale</string>
     <string name="raw">Senza formato</string>
-    <string name="loc_updated_recent">Posizione aggiornata recentemente</string>
-    <string name="loc_updated_not_recent">Posizione non aggiornata</string>
+    <string name="loc_updated_recent">Posizione aggiornata recentemente.</string>
+    <string name="loc_updated_not_recent">Posizione non aggiornata.</string>
     <string name="pref_header_loc_update">Aggiornamenti posizione</string>
     <string name="pref_loc_update_dist">Aggiornamenti basati su distanza</string>
     <string name="pref_loc_update_time">Aggiornamenti basati su tempo</string>
