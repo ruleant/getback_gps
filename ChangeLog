@@ -1,4 +1,5 @@
  v0.4 (not released yet)
+ - translated to Italian, thanks to Matteo Regazzi
 
  v0.3 (released on 07Jul2014)
  - CID 60865 : fix Coverity issue : dereference null return value
