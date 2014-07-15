@@ -72,10 +72,10 @@
     <string name="build_time">Costruito su %s.</string>
     <string name="app_website">Visita il &lt;a href=%1$s&gt;sito web&lt;/a&gt; per maggiori informazioni.</string>
     <string name="copyright">Copyright</string>
-    <string name="license">Questo è software libero: puoi ridistribuirlo e/o modificarlo secondo i termini della GNU General Public License pubblicata dalla Free Software Foundation, versione 3 o successiva.
- 
- Questo software è distribuito nella speranza che sia utile, ma SENZA ALCUNA GARANZIA; senza neppure la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Vedi la GNU General Public License per i dettagli.
- 
- Se non avessi ricevuto una copia della GNU General Public License insieme a questo software la trovi all'indirizzo <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="license">Questo è software libero: puoi ridistribuirlo e/o modificarlo secondo i termini della GNU General Public License pubblicata dalla Free Software Foundation, versione 3 o successiva.\n
+ \n
+ Questo software è distribuito nella speranza che sia utile, ma SENZA ALCUNA GARANZIA; senza neppure la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Vedi la GNU General Public License per i dettagli.\n
+ \n
+ Se non avessi ricevuto una copia della GNU General Public License insieme a questo software la trovi all\'indirizzo <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="bearing">Rilevamento</string>
     </resources>
