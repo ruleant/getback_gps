@@ -23,8 +23,10 @@
 
 imageFile=$1
 
+# get image properties and save as array (identify returns spaces seperated result)
 imageProperties=(`identify $imageFile`)
 
+# image size is 3rd element of the array
 imageSize=${imageProperties[2]}
 
 echo $imageSize
