@@ -12,4 +12,12 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="notice_destination_reached">Has llegado a tu destino</string>
     <string name="current_speed">Velocidad actual</string>
     <string name="speed_kph">km/h</string>
+    <string name="distance">Distancia</string>
+    <string name="direction">Dirección</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SO</string>
+    <string name="northwest_unit">NO</string>
+    <string name="location_updated">Ubicación actualizada</string>
+    <string name="inaccurate">Inpreciso</string>
     </resources>
