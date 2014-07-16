@@ -29,6 +29,22 @@ imageProperties=(`identify $imageFile`)
 # image size is 3rd element of the array
 imageSize=${imageProperties[2]}
 
-echo $imageSize
+case "$imageSize" in
+"1080x1920")	extract="1080x1700+0+75"
+		resize="400x631"
+		;;
+"1920x1080")	extract="1792x1005+0+75"
+		resize="713x400"
+		;;
+*)		echo $imageSize
+		echo "Unknown format, image was not changed."
+		exit 0
+		;;
+esac
 
-convert -size 1080x1920 -extract 1080x1700+0+75 $imageFile -resize 400x631 $imageFile
+echo "original size : $imageSize"
+echo "extraction parameters : $extract"
+echo "resize parameters : $resize"
+
+# remove bars and resize image
+convert -size $imageSize -extract $extract $imageFile -resize $resize $imageFile
