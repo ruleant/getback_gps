@@ -1,8 +1,8 @@
 #!/bin/bash
 #
-# Script to remove top and bottom bar from an Android screenshot in portrait orientation.
+# Script to remove top and bottom bar from an Android screenshot.
 #
-# usage : ./crop_scale_screenshot_portraiti.sh image.png
+# usage : ./crop_scale_screenshot.sh image.png
 #
 # Dependency : ImageMagick
 #
