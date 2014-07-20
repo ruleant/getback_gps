@@ -30,12 +30,15 @@ imageProperties=(`identify $imageFile`)
 imageSize=${imageProperties[2]}
 
 case "$imageSize" in
+# xhdpi on Android 19, portrait
 "1080x1920")	extract="1080x1700+0+75"
 		resize="400x631"
 		;;
+# xhdpi on Android 19, landscape
 "1920x1080")	extract="1792x1005+0+75"
 		resize="713x400"
 		;;
+# default, unknown format : don't crop/resize image
 *)		echo $imageSize
 		echo "Unknown format, image was not changed."
 		exit 0
