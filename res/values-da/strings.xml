@@ -60,7 +60,7 @@
     <string name="pref_header_loc_update">Placeringsopdatering</string>
     <string name="pref_loc_update_dist">Distance baseret opdateringer</string>
     <string name="pref_loc_update_time">Tidsbaseret opdateringer</string>
-    <string name="pref_enable_sensors">Aktiver sensorer (hvis tilgængelig)</string>
+    <string name="pref_enable_sensors">Brug tilgængelige sensorer</string>
     <string name="pref_geo_orientation_sensor">Standard orienteringssensor</string>
     <string name="sensors_enabled">Aktiveret: hurtigere opdateret og mere præcis kurs</string>
     <string name="sensors_disabled">Inaktiv: sparer strøm</string>
