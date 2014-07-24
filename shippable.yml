@@ -23,17 +23,9 @@ before_install:
   # (run "android list sdk --extended" to get the full list)
   - echo "y" | android update sdk -a --filter tools,platform-tools,build-tools-20.0.0,android-19 --no-ui --force
   # deploy android SDK jar to local maven repository
-  - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
-  # return to directory where the repository being built has been copied on the worker.
-  - cd $TRAVIS_BUILD_DIR
+  - .utility/deploy-sdk-to-m2-repo.sh
 script:
   - mvn test -B
 after_success:
   # send code coverage results to coveralls.io
   - mvn clean test cobertura:cobertura coveralls:cobertura -B
-after_success:
-  # analyse build timestamps
-  - sync-buildtime-trend-with-gh-pages.sh
-after_failure:
-    # analyse build timestamps
-  - sync-buildtime-trend-with-gh-pages.sh
