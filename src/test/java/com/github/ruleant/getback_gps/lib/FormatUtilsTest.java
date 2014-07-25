@@ -30,6 +30,7 @@ import org.junit.rules.ExpectedException;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
+import java.nio.charset.Charset;
 import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
@@ -295,6 +296,15 @@ public class FormatUtilsTest {
     public final void tearDown() {
         // set default locale back to original
         Locale.setDefault(originalLocale);
+    }
+
+    /**
+     * Tests default charset.
+     * Default charset should be UTF-8.
+     */
+    @Test
+    public final void testDefaultCharset() {
+        assertEquals("UTF-8", Charset.defaultCharset().name());
     }
 
     /**
