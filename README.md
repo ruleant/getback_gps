@@ -1,5 +1,5 @@
-GetBack GPS
-===========
+GetBack GPS for Android
+=======================
 
 [![GetBack GPS](http://img.shields.io/badge/version-0.3-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
