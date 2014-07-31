@@ -23,6 +23,8 @@ before_install:
   - echo "y" | android update sdk -a --filter tools,platform-tools,build-tools-20.0.0,android-19 --no-ui --force
   # deploy android SDK jar to local maven repository
   - .utility/deploy-sdk-to-m2-repo.sh
+install:
+  - mvn clean install -DskipTests=true
 script:
   - mvn test -B
 after_success:
