@@ -24,9 +24,6 @@ before_install:
   # deploy android SDK jar to local maven repository
   - .utility/deploy-sdk-to-m2-repo.sh
 install:
-  - mvn clean install -DskipTests=true
+  - ./gradlew clean assemble
 script:
-  - mvn test -B
-after_success:
-  # send code coverage results to coveralls.io
-  - mvn clean test cobertura:cobertura coveralls:cobertura -B
+  - ./gradlew clean check
