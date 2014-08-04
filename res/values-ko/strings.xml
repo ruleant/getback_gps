@@ -1,2 +1,80 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_desc">GPS 좌표를 사용하여 이전에 방문한 위치로 당신을 위치를 찾습니다.</string>
+    <string name="inaccurate_location">현재 위치는 정확하지 않습니다</string>
+    <string name="notice_no_dest">목적지를 설정하여 현재 위치를 저장합니다</string>
+    <string name="inaccurate_direction">당신의 목적지에 정확한 방향(길안내)을 얻도록 이동 시작</string>
+    <string name="notice_destination_reached">목적지에 도착하였습니다</string>
+    <string name="current_speed">현재 속도</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">현재 방위각</string>
+    <string name="distance">거리</string>
+    <string name="direction">방향(길안내)</string>
+    <string name="northeast_unit">북동 방향</string>
+    <string name="southeast_unit">남동 방향</string>
+    <string name="southwest_unit">남서 방향</string>
+    <string name="northwest_unit">북서 방향</string>
+    <string name="location_updated">위치 업데이트</string>
+    <string name="inaccurate">부정확한</string>
+    <string name="destination_reached">목적지에 도착하였습니다</string>
+    <string name="no_destination">목적지 설정 없음</string>
+    <string name="unknown">알수 없음</string>
+    <string name="refresh">새로고침</string>
+    <string name="dialog_store_location">현재 위치를 저장 하시겠습니까?</string>
+    <string name="no">아니오</string>
+    <string name="store_location">위치를 저장합니다</string>
+    <string name="store_location_disabled">현재 위치에 없다면 위치를 저장할 수 없습니다</string>
+    <string name="location_stored">저장된 위치</string>
+    <string name="menu_details">위치 세부 정보</string>
+    <string name="activity_details">세부 정보</string>
+    <string name="location_provider">위치 공급자</string>
+    <string name="provider">공급자</string>
+    <string name="loc_provider_network">네트워크 (휴대 전화/와이파이)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">공급자를 지원하지 않습니다.</string>
+    <string name="location">위치</string>
+    <string name="stored_location">저장된 위치</string>
+    <string name="curr_location">(마지막으로 성공한) 현재 위치</string>
+    <string name="latitude">위도</string>
+    <string name="latitude_north_unit">북쪽 방향</string>
+    <string name="latitude_south_unit">남쪽 방향</string>
+    <string name="longitude">경도</string>
+    <string name="longitude_east_unit">동쪽 방향</string>
+    <string name="longitude_west_unit">서쪽 방향</string>
+    <string name="altitude">고도</string>
+    <string name="speed">속도</string>
+    <string name="bearing">방위각</string>
+    <string name="sensor_bearing_offset">센서 기반 베어링 오프셋</string>
+    <string name="travel_direction">여행 방향</string>
+    <string name="travel_direction_forward">앞으로</string>
+    <string name="travel_direction_backwards">뒤로</string>
+    <string name="accuracy">정확도</string>
+    <string name="timestamp">타임스탬프</string>
+    <string name="destination">목적지</string>
+    <string name="to_dest">목적지에</string>
+    <string name="direction_relative">현재 진행방향과 관련</string>
+    <string name="raw">포맷 되지 않은</string>
+    <string name="none">없음</string>
+    <string name="notset">설정 하지 않음</string>
+    <string name="loc_updated_recent">위치는 최근에 업데이트 되었습니다.</string>
+    <string name="loc_updated_not_recent">위치는 최근에 업데이트 되지 않았습니다.</string>
+    <string name="settings">설정</string>
+    <string name="pref_header_general">일반 설정</string>
+    <string name="pref_header_loc_update">위치 업데이트</string>
+    <string name="pref_loc_update_dist">거리 기반의 업데이트</string>
+    <string name="pref_loc_update_time">시간 기반의 업데이트</string>
+    <string name="pref_enable_sensors">사용 가능한 센서를 사용</string>
+    <string name="pref_geo_orientation_sensor">기본 방향 센서</string>
+    <string name="sensors_enabled">활성화: 빨리 업데이트 하고 더 정확한 방위각</string>
+    <string name="sensors_disabled">비활성화: 전력 절감</string>
+    <string name="disabled">비활성화됨</string>
+    <string name="about">프로그램 정보</string>
+    <string name="version">버전</string>
+    <string name="build_time">%s 내장 되어있습니다.</string>
+    <string name="app_website">더 많은 정보에 대하여 &lt;a href=%1$s&gt;웹 사이트&lt;/a&gt;를 방문 하십시오.</string>
+    <string name="copyright">저작권</string>
+    <string name="license">이 프로그램은 무료 소프트웨어: 재배포 하거나 버전의 라이센스, 3 또는 이후 버전, 자유 소프트웨어 재단에 의해 출판 GNU 일반 공중 사용 허가서의 조건에 따라 수정할 수 있습니다.
+ 
+ 이 프로그램은 유용할 것 이라는 희망 하지만. 배포 됩니다. 도 상품성 또는 특정 목적에 대 한 적합성의 묵시적 보증. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조 하십시오.
+ 
+ 이 프로그램과 함께 GNU 일반 공중 사용 허가서의 사본을 받으 셨. 그렇지 않은 경우에 <a href="http://www.gnu.org/licenses/"> www.gnu.org/ 라이센스</a>를 참조 하십시오.</string>
+</resources>
