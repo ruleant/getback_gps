@@ -39,7 +39,7 @@ function updateCharts(period) {
 
     // draw chart
     client.draw(queryTotalBuilds, document.getElementById("metric_total_builds"),
-      { title: "Total builds", width: "200px" });
+      { title: "Total build jobs", width: "200px" });
 
     // display div inline (show it next to the next chart)
     document.getElementById("metric_total_builds").style.display = "inline-block";
@@ -71,7 +71,7 @@ function updateCharts(period) {
       // draw chart
       client.draw(queryTotalBuildsPassed, document.getElementById("metric_total_builds_passed"),
         {
-          title: "Builds passed",
+          title: "Build jobs passed",
           colors: chartColor,
           width: "200px"
         }
@@ -108,7 +108,7 @@ function updateCharts(period) {
       // draw chart
       client.draw(queryTotalBuildsFailed, document.getElementById("metric_total_builds_failed"),
         {
-          title: "Builds failed",
+          title: "Build jobs failed",
           colors: chartColor,
           width: "200px"
         }
@@ -129,7 +129,7 @@ function updateCharts(period) {
     // draw chart
     client.draw(queryAverageBuildTime, document.getElementById("metric_average_build_time"),
       {
-        title: "Average build time",
+        title: "Average job duration",
         width: "250px",
         chartOptions: {
           suffix: "s"
@@ -179,7 +179,7 @@ function updateCharts(period) {
 
     // draw chart
     client.draw(queryStageFraction, document.getElementById("chart_stage_fraction"),
-      { title: "Build stage fraction" });
+      { title: "Build stage fraction of total build duration" });
 
     // display div inline (show it next to the previous chart)
     document.getElementById("chart_stage_fraction").style.display = "inline-block";
