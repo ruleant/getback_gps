@@ -65,7 +65,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="pref_header_loc_update">Actualizaciones de la ubicación</string>
     <string name="pref_loc_update_dist">Actualizaciones basadas en distancia</string>
     <string name="pref_loc_update_time">Actualizaciones basadas en tiempo</string>
-    <string name="pref_enable_sensors">Habilitar sensores (si están disponibles)</string>
+    <string name="pref_enable_sensors">Habilitar sensores disponibles</string>
     <string name="pref_geo_orientation_sensor">Sensor de orientación predeterminado</string>
     <string name="sensors_disabled">Deshabilitado: ahorra energía</string>
     <string name="disabled">Deshabilitado</string>
