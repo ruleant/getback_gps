@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources><string name="app_desc">GPS 좌표를 사용하여 이전에 방문한 위치로 당신을 위치를 찾습니다.</string>
+<resources><string name="app_desc">GPS 좌표를 사용하여 이전에 방문한 위치로 당신의 위치를 찾습니다.</string>
     <string name="inaccurate_location">현재 위치는 정확하지 않습니다</string>
-    <string name="notice_no_dest">목적지를 설정하여 현재 위치를 저장합니다</string>
-    <string name="inaccurate_direction">당신의 목적지에 정확한 방향(길안내)을 얻도록 이동 시작</string>
+    <string name="notice_no_dest">목적지를 설정하기 위해 현재 위치를 저장합니다</string>
+    <string name="inaccurate_direction">목적지로 정확한 방향(길안내)을 얻도록 이동 시작</string>
     <string name="notice_destination_reached">목적지에 도착하였습니다</string>
     <string name="current_speed">현재 속도</string>
     <string name="speed_kph">km/h</string>
