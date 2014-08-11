@@ -1,4 +1,4 @@
-function updateCharts(period) {
+function getUpdatePeriod(period) {
   var keenTimeframe, keenInterval;
 
   switch (period) {
@@ -21,9 +21,23 @@ function updateCharts(period) {
       keenInterval = "weekly";
       break;
   }
+
+  return {
+    name: period,
+    keenTimeframe: keenTimeframe,
+    keenInterval: keenInterval
+  };
+}
   
+function updateCharts(periodName) {
+  // get Update Period settings
+  var updatePeriod = getUpdatePeriod(periodName);
+
+  var keenTimeframe = updatePeriod.keenTimeframe;
+  var keenInterval = updatePeriod.keenInterval;
+
   // update interval selection box
-  $('#intervals').val(period);
+  $('#intervals').val(updatePeriod.name);
 
   // hide title
   document.getElementById("timeframe_title").style.display = "none";
