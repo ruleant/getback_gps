@@ -56,7 +56,13 @@ public class AboutActivity extends Activity {
         Resources res = getResources();
         DebugLevel debug = new DebugLevel(this);
 
-        DateFormat formatter = SimpleDateFormat.getDateTimeInstance();
+        DateFormat formatter;
+        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
+            formatter = SimpleDateFormat.getDateTimeInstance();
+        } else {
+            formatter = SimpleDateFormat.getDateInstance();
+        }
+
         String versionInfo = res.getString(R.string.app_name);
         String buildTime = "";
 
@@ -76,11 +82,7 @@ public class AboutActivity extends Activity {
 
         // Build time text view
         TextView tvBuildTime = (TextView) findViewById(R.id.textview_buildtime);
-        if (debug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_LOW)) {
-            tvBuildTime.setText(buildTime);
-        } else {
-            tvBuildTime.setVisibility(View.INVISIBLE);
-        }
+        tvBuildTime.setText(buildTime);
 
         // Version text view
         TextView tvWebsite = (TextView) findViewById(R.id.textview_website);
