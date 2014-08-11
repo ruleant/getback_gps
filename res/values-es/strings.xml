@@ -72,4 +72,5 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="version">Versión</string>
     <string name="app_website">Visite el &lt;a href=%1$s&gt;website&lt;/a&gt; para más información.</string>
     <string name="copyright">Derechos de autor</string>
+    <string name="current_bearing">Rumbo actual</string>
     </resources>
