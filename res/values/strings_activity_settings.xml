@@ -40,11 +40,8 @@
         <item>1000</item>
     </string-array>
 
-    <string-array name="pref_geo_orientation_sensor_titles">
-        <item>Automatic</item>
-        <item>Raw sensors (experimental)</item>
-        <item>Calculated orientation sensor</item>
-    </string-array>
+    <!-- string-array name="pref_geo_orientation_sensor_titles"
+    was moved to res/values/strings.xml to be translatable in Weblate -->
     <string-array name="pref_geo_orientation_sensor_values">
         <item>0</item>
         <item>1</item>

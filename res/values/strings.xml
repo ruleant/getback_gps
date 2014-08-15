@@ -86,6 +86,11 @@
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
+    <string-array name="pref_geo_orientation_sensor_titles">
+        <item>Automatic</item>
+        <item>Raw sensors (experimental)</item>
+        <item>Calculated orientation sensor</item>
+    </string-array>
     <!-- Strings related to About activity -->
     <string name="about">About</string>
     <string name="version">Version</string>
