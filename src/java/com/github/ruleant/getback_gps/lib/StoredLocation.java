@@ -247,11 +247,11 @@ public class StoredLocation {
     public final void restore() {
         Location location = new Location("");
 
-        // check if a location stored. the saved parameter is set to true
-        // when storing a location, so if this it does not exist
-        // (default value is false), then the value is false
-        // and there is no location data.
-        // return null when not set or exception is thrown
+        // Check if a location is stored.
+        // The SAVED parameter is set to true when a location is saved,
+        // so if it does not exist (its default value is false),
+        // then its value is false and there is no saved location data.
+        // return (exit method) when not set or exception is thrown
         try {
             mHasLocation
                     = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
