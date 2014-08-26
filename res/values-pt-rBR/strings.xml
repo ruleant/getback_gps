@@ -68,4 +68,5 @@
  Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.
  
  Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-</resources>
+<string name="name">Nome</string>
+    </resources>
