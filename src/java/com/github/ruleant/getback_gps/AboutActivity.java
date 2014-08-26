@@ -31,7 +31,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
-import android.view.View;
 import android.widget.TextView;
 
 import com.github.ruleant.getback_gps.lib.DebugLevel;
