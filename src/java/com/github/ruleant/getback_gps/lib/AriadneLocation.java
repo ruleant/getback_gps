@@ -126,6 +126,13 @@ public class AriadneLocation extends Location {
 
         String locationText = "";
 
+        // Location name
+        String locationName = getName();
+        if (locationName != null && locationName.length() > 0) {
+            locationText += " " + res.getString(R.string.name)
+                    + ": " + locationName + "\n";
+        }
+
         // Format location
         Latitude latitude = new Latitude(context, getLatitude());
         locationText += " "

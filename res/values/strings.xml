@@ -32,6 +32,7 @@
     <string name="menu_details">Location details</string>
     <string name="activity_details">Details</string>
     <string name="location_provider">Location Provider</string>
+    <string name="name">Name</string>
     <string name="provider">Provider</string>
     <string name="loc_provider_network">network (Cell phone/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
