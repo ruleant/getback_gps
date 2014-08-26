@@ -102,6 +102,10 @@ public class StoredLocation {
      * Name of Location provider object in SharedPreferences.
      */
     private static final String LOC_PROVIDER = "loc_provider";
+    /**
+     * Location Name object in SharedPreferences.
+     */
+    private static final String LOC_NAME = "loc_name";
 
     /**
      * Constructor.
@@ -231,6 +235,7 @@ public class StoredLocation {
 
             editor.putLong(TIMESTAMP, mLocation.getTime());
             editor.putString(LOC_PROVIDER, mLocation.getProvider());
+            editor.putString(LOC_NAME, mLocation.getName());
         }
         editor.putString(
                 SAVED, Boolean.toString(mLocation != null && mHasLocation));
@@ -332,6 +337,13 @@ public class StoredLocation {
         } catch (Exception e) {
             e.printStackTrace();
             location.setProvider("");
+        }
+
+        // retrieve location name
+        try {
+            location.setProvider(mPrefs.getString(LOC_NAME, null));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         // set retrieved location
