@@ -26,4 +26,56 @@
     <string name="location_stored">Posició desada</string>
     <string name="menu_details">Detalls de la posició</string>
     <string name="activity_details">Detalls</string>
-    </resources>
+    <string name="location_provider">Proveïdor de posició</string>
+    <string name="name">Nom</string>
+    <string name="provider">Proveïdor</string>
+    <string name="loc_provider_network">xarxa (telèfon mòbil/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Aquest proveïdor no té suport.</string>
+    <string name="location">Posició</string>
+    <string name="stored_location">Posició desada</string>
+    <string name="curr_location">Posició actual (darrera coneguda)</string>
+    <string name="latitude">Latitud</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Longitud</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">O</string>
+    <string name="altitude">Alçada</string>
+    <string name="speed">Velocitat</string>
+    <string name="bearing">Trajectòria</string>
+    <string name="sensor_bearing_offset">Orientació de trajectòria segons sensor</string>
+    <string name="travel_direction">Direcció de marxa</string>
+    <string name="travel_direction_forward">Endavant</string>
+    <string name="travel_direction_backwards">Endarrere</string>
+    <string name="accuracy">Precisió</string>
+    <string name="timestamp">Marca horària</string>
+    <string name="destination">Destí</string>
+    <string name="to_dest">Fins destí</string>
+    <string name="direction_relative">Relatiu al rumb actual</string>
+    <string name="raw">No formatat</string>
+    <string name="none">Cap</string>
+    <string name="notset">No definit</string>
+    <string name="loc_updated_recent">Posició actualitzada fa poc.</string>
+    <string name="loc_updated_not_recent">Posició NO actualitzada fa poc.</string>
+    <string name="settings">Paràmetres</string>
+    <string name="pref_header_general">General</string>
+    <string name="pref_header_loc_update">Actualitzacions de la posició</string>
+    <string name="pref_loc_update_dist">Actualitzacions segons la distància</string>
+    <string name="pref_loc_update_time">Actualitzacions segons el temps</string>
+    <string name="pref_enable_sensors">Utilitza els sensor disponibles</string>
+    <string name="pref_geo_orientation_sensor">Sensor d\'orientació predefinit</string>
+    <string name="sensors_enabled">Activat: orientació més precisa i refresc més ràpid</string>
+    <string name="sensors_disabled">Desactivat: estalvi d\'energia</string>
+    <string name="disabled">Desactivat</string>
+    <string name="about">Pel que fa a</string>
+    <string name="version">Versió</string>
+    <string name="build_time">Compilat en %s.</string>
+    <string name="app_website">Visiteu la &lt;a href=%1$s&gt;website&lt;/a&gt; per més informació.</string>
+    <string name="copyright">Drets d\'autor</string>
+    <string name="license">Aquest programari es de domini públic: el podeu redistribuir  i/o modificar sota els termes de la GNU (General Public License) tal com es publica per la FSF (Free Software Foundation), sigui segons la  versió 3 d'aquesta llicència, com de qualsevol versió posterior.
+ 
+Aquest programari es distribueix amb la voluntat que sigui d'utilitat, però SENSE CAP GARANTIA; fins i tot sense la garantia implícita MERCANTILISTA o DEFINIDA PER UN PROPÒSIT DETERMINAT. Veieu la llicència pública general GNU per més detalls.
+ 
+Haurieu de rebre una còpia de la  llicència pública general GNU junt amb aquest programari. Si no és així, veieu <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>
