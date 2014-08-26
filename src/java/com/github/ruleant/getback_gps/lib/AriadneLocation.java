@@ -47,6 +47,11 @@ public class AriadneLocation extends Location {
     private static final long LOC_EXPIRE = 300000;
 
     /**
+     * Location name
+     */
+    private String mName = null;
+
+    /**
      * Constructor.
      *
      * @param provider Provider name
@@ -73,6 +78,24 @@ public class AriadneLocation extends Location {
      */
     public final boolean isNewer(final Location location) {
         return location.getTime() > super.getTime();
+    }
+
+    /**
+     * Sets location Name.
+     *
+     * @param name Location name
+     */
+    public final void setName(final String name) {
+        mName = name;
+    }
+
+    /**
+     * Gets location Name.
+     *
+     * @return Location name
+     */
+    public final String getName() {
+        return mName;
     }
 
     /**
