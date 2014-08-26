@@ -47,7 +47,7 @@ public class AriadneLocation extends Location {
     private static final long LOC_EXPIRE = 300000;
 
     /**
-     * Location name
+     * Location name.
      */
     private String mName = null;
 
