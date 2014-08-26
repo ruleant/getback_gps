@@ -1,2 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_desc">Найдите свой путь назад к ранее посещённому месту с помощью координат GPS.</string>
+    <string name="inaccurate_location">Ваше текущее местонахождение является неточным</string>
+    <string name="notice_no_dest">Сохраните своё местонахождение, чтобы установить пункт назначения</string>
+    <string name="inaccurate_direction">Начните движение, чтобы получить точное направление к вашему пункту назначения</string>
+    <string name="notice_destination_reached">Вы находитесь в вашем пункте назначения</string>
+    <string name="current_speed">Скорость</string>
+    <string name="speed_kph">км/ч</string>
+    <string name="current_bearing">Азимут</string>
+    <string name="distance">Расстояние</string>
+    <string name="direction">Направление</string>
+    <string name="northeast_unit">СВ</string>
+    <string name="southeast_unit">ЮВ</string>
+    <string name="southwest_unit">ЮЗ</string>
+    <string name="northwest_unit">СЗ</string>
+    <string name="location_updated">Местонахождение обновлено</string>
+    <string name="inaccurate">Неточный</string>
+    <string name="destination_reached">В пункте назначения</string>
+    <string name="no_destination">Не задан пункт назначения</string>
+    <string name="unknown">Неизвестно</string>
+    <string name="refresh">Обновить</string>
+    <string name="dialog_store_location">Вы хотите сохранить своё текущее местонахождение?</string>
+    <string name="no">Нет</string>
+    <string name="store_location">Сохранить местонахождение</string>
+    <string name="store_location_disabled">Не удаётся сохранить местонахождение, если нет текущего местонахождения</string>
+    <string name="location_stored">Местонахождение сохранено</string>
+    <string name="menu_details">Подробнее о местонахождении</string>
+    <string name="activity_details">Подробнее</string>
+    <string name="location_provider">Провайдер местонахождения</string>
+    <string name="provider">Провайдер</string>
+    <string name="loc_provider_network">Сеть (Сотовый телефон/Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Провайдер не поддерживается.</string>
+    <string name="location">Местонахождение</string>
+    <string name="stored_location">Сохранённое местонахождение</string>
+    <string name="curr_location">Текущее (последнее известное) местонахождение</string>
+    <string name="latitude">Широта</string>
+    <string name="latitude_north_unit">С</string>
+    <string name="latitude_south_unit">Ю</string>
+    <string name="longitude">Долгота</string>
+    <string name="longitude_east_unit">В</string>
+    <string name="longitude_west_unit">З</string>
+    <string name="altitude">Высота</string>
+    <string name="speed">Скорость</string>
+    <string name="bearing">Азимут</string>
+    </resources>
