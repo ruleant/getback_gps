@@ -77,4 +77,5 @@
     <string name="travel_direction">Køreretning</string>
     <string name="travel_direction_forward">Fremad</string>
     <string name="travel_direction_backwards">Baglæns</string>
+    <string name="name">Navn</string>
     </resources>
