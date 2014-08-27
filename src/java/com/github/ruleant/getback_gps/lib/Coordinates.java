@@ -243,12 +243,22 @@ public class Coordinates {
         float[] array = new float[arrayLength];
 
         long[] firstPoint = getFirstCoordinateCartesian();
+        // skip point if it is null
+        while (firstPoint == null) {
+            firstPoint = getNextCoordinateCartesian();
+        }
+
         long[] previousPoint = firstPoint;
         long[] currentPoint;
         int arrayPosition = 0;
 
         while (mCoordinateIterator.hasNext()) {
             currentPoint = getNextCoordinateCartesian();
+
+            // skip point if it is null
+            if (currentPoint == null) {
+                continue;
+            }
 
             // prevent overfilling array in case the
             // coordinates collection changes
