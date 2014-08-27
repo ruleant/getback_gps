@@ -77,4 +77,17 @@
     <string name="pref_loc_update_dist">以距離為基礎的更新</string>
     <string name="pref_loc_update_time">以時間為基礎的更新</string>
     <string name="app_desc">使用 GPS 座標的方式，找回您以前造訪過的位置。</string>
+    <string name="name">名稱</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d 公尺</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d 秒</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d 分</item>
+	<item quantity="other"></item>
+</plurals>
     </resources>
