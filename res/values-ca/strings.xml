@@ -78,4 +78,16 @@
 Aquest programari es distribueix amb la voluntat que sigui d\'utilitat, però SENSE CAP GARANTIA; fins i tot sense la garantia implícita MERCANTILISTA o DEFINIDA PER UN PROPÒSIT DETERMINAT. Veieu la llicència pública general GNU per més detalls.\n
 \n
 Haurieu de rebre una còpia de la llicència pública general GNU junt amb aquest programari. Si no és així, veieu <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-</resources>
+<plurals name="distance_meter">
+	<item quantity="one">%d metre</item>
+	<item quantity="other">%d metres</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d segon</item>
+	<item quantity="other">%d segons</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minut</item>
+	<item quantity="other">%d minuts</item>
+</plurals>
+    </resources>
