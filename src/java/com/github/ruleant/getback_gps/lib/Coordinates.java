@@ -187,6 +187,11 @@ public class Coordinates {
         }
 
         long[] firstPoint = getFirstCoordinateCartesian();
+        // skip point if it is null
+        while (firstPoint == null) {
+            firstPoint = getNextCoordinateCartesian();
+        }
+
         path.moveTo(firstPoint[Coordinate.X], firstPoint[Coordinate.Y]);
 
         long[] currentPoint;
