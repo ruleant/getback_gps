@@ -12,8 +12,8 @@
  - CID 60866, 60868 : fix Coverity issue : Casting from integer values
  - issue #147 : introduce CircularAverage class to make sensor based orientation value less jumpy
  - rename FormatUtils.CIRCLE_* constants
- - translated to Danish,thanks to Jan Madsen
- - translated to Portuguese (Brazil),thanks to Zoé Junior
+ - translated to Danish, thanks to Jan Madsen
+ - translated to Portuguese (Brazil), thanks to Zoé Junior
  - issue #152 : detect Travel Direction and adjust relative direction to destionation accordingly
  - issue #155 : add script to remove incomplete translations
  - use enum NavigationMode for NavigationView.mMode
