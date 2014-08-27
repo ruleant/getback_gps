@@ -198,7 +198,10 @@ public class Coordinates {
         while (mCoordinateIterator.hasNext()) {
             currentPoint = getNextCoordinateCartesian();
 
-            path.lineTo(currentPoint[Coordinate.X], currentPoint[Coordinate.Y]);
+            // skip point if it is null
+            if (currentPoint != null) {
+                path.lineTo(currentPoint[Coordinate.X], currentPoint[Coordinate.Y]);
+            }
         }
 
         if (mCloseLine) {
