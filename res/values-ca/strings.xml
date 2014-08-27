@@ -73,9 +73,9 @@
     <string name="build_time">Compilat en %s.</string>
     <string name="app_website">Visiteu la &lt;a href=%1$s&gt;website&lt;/a&gt; per més informació.</string>
     <string name="copyright">Drets d\'autor</string>
-    <string name="license">Aquest programari es de domini públic: el podeu redistribuir  i/o modificar sota els termes de la GNU (General Public License) tal com es publica per la FSF (Free Software Foundation), sigui segons la  versió 3 d'aquesta llicència, com de qualsevol versió posterior.
- 
-Aquest programari es distribueix amb la voluntat que sigui d'utilitat, però SENSE CAP GARANTIA; fins i tot sense la garantia implícita MERCANTILISTA o DEFINIDA PER UN PROPÒSIT DETERMINAT. Veieu la llicència pública general GNU per més detalls.
- 
-Haurieu de rebre una còpia de la  llicència pública general GNU junt amb aquest programari. Si no és així, veieu <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="license">Aquest programari es de domini públic: el podeu redistribuir i/o modificar sota els termes de la GNU (General Public License) tal com es publica per la FSF (Free Software Foundation), sigui segons la  versió 3 d\'aquesta llicència, com de qualsevol versió posterior.\n
+\n
+Aquest programari es distribueix amb la voluntat que sigui d\'utilitat, però SENSE CAP GARANTIA; fins i tot sense la garantia implícita MERCANTILISTA o DEFINIDA PER UN PROPÒSIT DETERMINAT. Veieu la llicència pública general GNU per més detalls.\n
+\n
+Haurieu de rebre una còpia de la llicència pública general GNU junt amb aquest programari. Si no és així, veieu <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 </resources>
