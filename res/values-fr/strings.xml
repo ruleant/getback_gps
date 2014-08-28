@@ -5,11 +5,11 @@
 Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.\n
 \n
 Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="app_desc">Revenir à un endroit déjà visité par ces coordonnées GPS.</string>
-    <string name="inaccurate_location">Votre localisation actuelle est imprécise</string>
-    <string name="notice_no_dest">Enregistrer votre localisation pour programmer une destination</string>
-    <string name="inaccurate_direction">Commencer à bouger pour trouver un trajet plus précis jusqu\'à votre destination</string>
-    <string name="notice_destination_reached">Vous êtes arrivé à destination</string>
+<string name="app_desc">Retourner sur un lieu déjà visité en utilisant sa position GPS.</string>
+    <string name="inaccurate_location">Votre position actuelle est imprécise</string>
+    <string name="notice_no_dest">Enregistrez votre position pour définir une destination</string>
+    <string name="inaccurate_direction">Déplacez-vous pour afficher une direction plus précise jusqu\'à votre destination</string>
+    <string name="notice_destination_reached">Vous êtes arrivés à destination</string>
     <string name="current_speed">Vitesse actuelle</string>
     <string name="speed_kph">km/h</string>
     <string name="distance">Distance</string>
@@ -19,15 +19,15 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="southwest_unit">SO</string>
     <string name="northwest_unit">NO</string>
     <string name="inaccurate">Imprécis(e)</string>
-    <string name="destination_reached">À destination</string>
+    <string name="destination_reached">Destination atteinte</string>
     <string name="unknown">Inconnu(e)</string>
     <string name="refresh">Actualiser</string>
-    <string name="dialog_store_location">Voulez-vous enregistrer votre localisation actuelle?</string>
+    <string name="dialog_store_location">Souhaitez-vous enregistrer votre position actuelle ?</string>
     <string name="no">Non</string>
-    <string name="store_location">Enregistrer ma localisation</string>
-    <string name="store_location_disabled">Impossible d\'enregistrer la localisation s\'il n\'y a pas de localisation actuelle</string>
-    <string name="location_stored">Localisation enregistrée</string>
-    <string name="menu_details">Détails de la localisation</string>
+    <string name="store_location">Enregistrer la position</string>
+    <string name="store_location_disabled">Impossible d\'enregistrer la position car il n\'y a pas de localisation précise</string>
+    <string name="location_stored">Position enregistrée</string>
+    <string name="menu_details">Détails de la position</string>
     <string name="activity_details">Détails</string>
     <string name="location_provider">Fournisseur de localisation</string>
     <string name="provider">Fournisseur</string>
@@ -35,8 +35,8 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Fournisseur non supporté.</string>
     <string name="location">Localisation</string>
-    <string name="stored_location">Localisation enregistrée</string>
-    <string name="curr_location">Localisation actuelle (dernière connue)</string>
+    <string name="stored_location">Position enregistrée</string>
+    <string name="curr_location">Position actuelle (dernière connue)</string>
     <string name="latitude">Latitude</string>
     <string name="latitude_north_unit">N</string>
     <string name="latitude_south_unit">S</string>
@@ -46,7 +46,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="altitude">Altitude</string>
     <string name="speed">Vitesse</string>
     <string name="accuracy">Précision</string>
-    <string name="location_updated">Localisation mise à jour</string>
+    <string name="location_updated">Position mise à jour</string>
     <string name="destination">Destination</string>
     <string name="to_dest">À destination</string>
     <string name="direction_relative">Relatif à la direction actuelle</string>
@@ -59,7 +59,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="pref_header_loc_update">Mises à jour des localisations</string>
     <string name="pref_loc_update_dist">Mises à jour en fonction de la distance</string>
     <string name="pref_loc_update_time">Mises à jour en fonction du temps</string>
-    <string name="pref_enable_sensors">Activer les capteurs (si disponibles)</string>
+    <string name="pref_enable_sensors">Activer les capteurs</string>
     <string name="pref_geo_orientation_sensor">Capteur d\'orientation par défaut</string>
     <string name="sensors_disabled">Désactivé : économise l\'énergie</string>
     <string name="disabled">Désactivé</string>
@@ -71,10 +71,24 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="current_bearing">Relèvement actuel</string>
     <string name="bearing">Relèvement</string>
     <string name="sensors_enabled">Activé : relèvement plus précis et mise à jour plus vite</string>
-    <string name="no_destination">Pas de destination définie</string>
+    <string name="no_destination">Aucune destination définie</string>
     <string name="travel_direction">Direction de marche</string>
     <string name="travel_direction_forward">En avant</string>
     <string name="travel_direction_backwards">En arrière</string>
     <string name="timestamp">Horodatage</string>
-    <string name="notset">Non défini</string>
+    <string name="notset">Non renseigné(e)</string>
+    <string name="name">Nom</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d mètre</item>
+	<item quantity="other">%d mètres</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d seconde</item>
+	<item quantity="other">%d secondes</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minute</item>
+	<item quantity="other">%d minutes</item>
+</plurals>
+    <string name="sensor_bearing_offset">Correction du rélèvement</string>
     </resources>
