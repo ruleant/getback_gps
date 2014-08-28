@@ -2,7 +2,7 @@
 <resources><string name="app_desc">GPS 좌표를 사용하여 이전에 방문한 위치로 당신의 위치를 찾습니다.</string>
     <string name="inaccurate_location">현재 위치는 정확하지 않습니다</string>
     <string name="notice_no_dest">목적지를 설정하기 위해 현재 위치를 저장합니다</string>
-    <string name="inaccurate_direction">목적지로 정확한 방향(길안내)을 얻도록 이동 시작</string>
+    <string name="inaccurate_direction">목적지로 정확한 방향(길안내)을 얻도록 이동을 시작합니다</string>
     <string name="notice_destination_reached">목적지에 도착하였습니다</string>
     <string name="current_speed">현재 속도</string>
     <string name="speed_kph">km/h</string>
@@ -77,4 +77,17 @@
  이 프로그램은 유용할 것 이라는 희망 하지만. 배포 됩니다. 도 상품성 또는 특정 목적에 대 한 적합성의 묵시적 보증. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조 하십시오.\n
  \n
  이 프로그램과 함께 GNU 일반 공중 사용 허가서의 사본을 받으 셨. 그렇지 않은 경우에 <a href="http://www.gnu.org/licenses/"> www.gnu.org/ 라이센스</a>를 참조 하십시오.</string>
-</resources>
+<string name="name">이름</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d 미터</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d 초</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d 분</item>
+	<item quantity="other"></item>
+</plurals>
+    </resources>
