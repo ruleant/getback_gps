@@ -79,15 +79,12 @@
  이 프로그램과 함께 GNU 일반 공중 사용 허가서의 사본을 받으 셨. 그렇지 않은 경우에 <a href="http://www.gnu.org/licenses/"> www.gnu.org/ 라이센스</a>를 참조 하십시오.</string>
 <string name="name">이름</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d 미터</item>
-	<item quantity="other"/>
-</plurals>
+	    <item quantity="other">%d 미터</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d 초</item>
-	<item quantity="other"/>
-</plurals>
+	    <item quantity="other">%d 초</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d 분</item>
-	<item quantity="other"></item>
-</plurals>
+	    <item quantity="other">%d 분</item>
+    </plurals>
     </resources>
