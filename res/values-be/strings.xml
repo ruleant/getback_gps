@@ -78,4 +78,18 @@
 Пашыраючы гэную пра­ґра­му спа­дзя­ем­ся, што яна бу­дзе ка­рыс­наю, але <STRONG>ні­чо­га не га­ран­ту­ем</STRONG> — нават не ча­кай­це га­ран­тый <STRONG>іспраў­на­га ста­ну</STRONG> ці <STRONG>пры­год­нась­ці да пэў­най мэ­ты</STRONG>. Падрабязнасьці гля­дзе­це ў <EM>Агуль­най гра­мадз­кай лі­цэн­зыї «GNU»</EM>.
 
 Вы павінны былі атры­маць ко­пію <EM>гэ­тай лі­цэн­зыї</EM> ра­зам з гэ­наю пра­ґра­маю. Калі ж не, то гляньце <A href="http://www.GNU.org/licenses/">www.GNU.org/licenses</A>.</string>
-</resources>
+<plurals name="distance_meter">
+	<item quantity="one">%d метар</item>
+	<item quantity="other">%d метры</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d сякунда</item>
+	<item quantity="few">%d сякунды</item>
+	<item quantity="many">%d сякундаў</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d хвіліна</item>
+	<item quantity="other">%d хвіліны</item>
+</plurals>
+    </resources>
