@@ -80,8 +80,8 @@
                 <artifactId>android-maven-plugin</artifactId>
                 <configuration>
                     <sdk>
-                        <!-- platform or api level (api level 19 = platform 4.4) -->
-                        <platform>19</platform>
+                        <!-- platform or api level (api level 20 = platform 4.4W) -->
+                        <platform>20</platform>
                     </sdk>
                     <lint>
                         <skip>false</skip>
