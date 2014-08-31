@@ -20,8 +20,8 @@
 # deploy android SDK jar to local maven repository
 git clone https://github.com/mosabua/maven-android-sdk-deployer.git
 cd maven-android-sdk-deployer
-# only deploy SDK 4.4 (API 19)
-mvn clean install -pl platforms/android-19
+# only deploy SDK 4.4W (API 20)
+mvn clean install -pl platforms/android-20
 
 # return to initial path
 cd ..
