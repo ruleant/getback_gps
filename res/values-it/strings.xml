@@ -78,4 +78,17 @@
  \n
  Se non avessi ricevuto una copia della GNU General Public License insieme a questo software la trovi all\'indirizzo <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="bearing">Rilevamento</string>
+    <string name="name">Nome</string>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minuto</item>
+	<item quantity="other">%d minuti</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d secondo</item>
+	<item quantity="other">%d secondi</item>
+</plurals>
+    <plurals name="distance_meter">
+	<item quantity="one">%d metro</item>
+	<item quantity="other">%d metri</item>
+</plurals>
     </resources>
