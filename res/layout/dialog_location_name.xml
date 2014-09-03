@@ -17,7 +17,7 @@
         android:textSize="20sp"
         android:text="@string/dialog_store_location_name"/>
     <EditText
-        android:id="@+id/name"
+        android:id="@+id/location_name"
         android:inputType="text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
