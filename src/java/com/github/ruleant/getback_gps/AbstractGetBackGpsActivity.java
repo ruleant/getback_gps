@@ -31,6 +31,7 @@ import android.content.ServiceConnection;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -178,7 +179,12 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.dialog_store_location)
+        // Get the layout inflater
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        // Inflate and set the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        builder.setView(inflater.inflate(R.layout.dialog_location_name, null))
                 .setPositiveButton(R.string.store_location,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
@@ -190,7 +196,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
                                 refreshDisplay();
                             }
                         })
-                .setNegativeButton(R.string.no,
+                .setNegativeButton(R.string.cancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {

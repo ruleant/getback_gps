@@ -23,8 +23,9 @@
     <string name="unknown">Unknown</string>
     <string name="refresh">Refresh</string>
     <!-- Strings related to Storing a location -->
-    <string name="dialog_store_location">Do you want to store your current location?</string>
-    <string name="no">No</string>
+    <string name="dialog_store_location_name">Choose a name for your current location:</string>
+    <string name="location_name">Location name</string>
+    <string name="cancel">Cancel</string>
     <string name="store_location">Store Location</string>
     <string name="store_location_disabled">Unable to store location if there is no current location</string>
     <string name="location_stored">Location stored</string>
