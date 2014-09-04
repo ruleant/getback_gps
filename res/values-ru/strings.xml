@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources><string name="app_desc">Найдите свой путь назад к ранее посещённому месту с помощью координат GPS.</string>
+<resources><string name="app_desc">Найдите свой путь к ранее посещённому месту с помощью координат GPS.</string>
     <string name="inaccurate_location">Ваше текущее местонахождение является неточным</string>
     <string name="notice_no_dest">Сохраните своё местонахождение, чтобы установить пункт назначения</string>
     <string name="inaccurate_direction">Начните движение, чтобы получить точное направление к вашему пункту назначения</string>
@@ -22,7 +22,7 @@
     <string name="dialog_store_location">Вы хотите сохранить своё текущее местонахождение?</string>
     <string name="no">Нет</string>
     <string name="store_location">Сохранить местонахождение</string>
-    <string name="store_location_disabled">Не удаётся сохранить местонахождение, если нет текущего местонахождения</string>
+    <string name="store_location_disabled">Невозможно сохранить местонахождение, если нет текущего местонахождения</string>
     <string name="location_stored">Местонахождение сохранено</string>
     <string name="menu_details">Подробнее о местонахождении</string>
     <string name="activity_details">Подробнее</string>
@@ -43,4 +43,53 @@
     <string name="altitude">Высота</string>
     <string name="speed">Скорость</string>
     <string name="bearing">Азимут</string>
-    </resources>
+    <string name="name">Имя</string>
+    <string name="sensor_bearing_offset">Смещение азимута на основе датчика</string>
+    <string name="travel_direction">Направление движения</string>
+    <string name="travel_direction_forward">Вперёд</string>
+    <string name="travel_direction_backwards">Назад</string>
+    <string name="accuracy">Точность</string>
+    <string name="timestamp">Время</string>
+    <string name="destination">Пункт назначения</string>
+    <string name="to_dest">К пункту назначения</string>
+    <string name="direction_relative">относительно текущего направления</string>
+    <string name="raw">Неформатированный</string>
+    <string name="none">Ничего</string>
+    <string name="notset">Не установлено</string>
+    <string name="loc_updated_recent">Местонахождение недавно обновлено.</string>
+    <string name="loc_updated_not_recent">Местонахождение давно не обновлялось.</string>
+    <string name="settings">Настройки</string>
+    <string name="pref_header_general">Общие</string>
+    <string name="pref_header_loc_update">Обновление местонахождения</string>
+    <string name="pref_loc_update_dist">Обновление на основе расстояния</string>
+    <string name="pref_loc_update_time">Обновление на основе времени</string>
+    <string name="pref_enable_sensors">Использовать имеющиеся датчики</string>
+    <string name="pref_geo_orientation_sensor">Датчик ориентации по умолчанию</string>
+    <string name="sensors_enabled">Включено: более быстрое обновление и более точный азимут</string>
+    <string name="sensors_disabled">Выключено: экономия энергии</string>
+    <string name="disabled">Выключено</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d метр</item>
+	<item quantity="few">%d метров</item>
+	<item quantity="many">%d метров</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d секунда</item>
+	<item quantity="other">%d секунд</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d минута</item>
+	<item quantity="other">%d минут</item>
+</plurals>
+    <string name="about">О программе</string>
+    <string name="version">Версия</string>
+    <string name="build_time">Скомпилировано %s.</string>
+    <string name="app_website">Посетите &lt;a href=%1$s&gt;сайт&lt;/a&gt; для получения дополнительной информации.</string>
+    <string name="copyright">Авторское право</string>
+    <string name="license">Эта программа является свободным программным обеспечением: вы можете распространять и/или изменять его в соответствии с условиями GNU General Public License, опубликованной Free Software Foundation, либо версии 3 лицензии, или любой более поздней версии.
+
+Эта программа распространяется в надежде, что она будет полезной, но БЕЗ КАКИХ ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНЫХ ЦЕЛЕЙ. Смотрите GNU General Public License для более подробной информации.
+
+Вы должны были получить копию GNU General Public License вместе с этой программой. Если нет, смотрите <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>
