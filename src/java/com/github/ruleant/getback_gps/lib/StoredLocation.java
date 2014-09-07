@@ -155,9 +155,9 @@ public class StoredLocation {
      *
      * @param location New location
      */
-    public void setLocation(final Location location) {
+    public void setLocation(final AriadneLocation location) {
         if (location != null) {
-            mLocation.set(location);
+            mLocation = location;
             mHasLocation = true;
         }
     }
@@ -167,7 +167,7 @@ public class StoredLocation {
      *
      * @param location New location
      */
-    public final void save(final Location location) {
+    public final void save(final AriadneLocation location) {
         setLocation(location);
         save();
     }
@@ -250,7 +250,7 @@ public class StoredLocation {
      * Restore stored location from Shared Preferences.
      */
     public final void restore() {
-        Location location = new Location("");
+        AriadneLocation location = new AriadneLocation("");
 
         // Check if a location is stored.
         // The SAVED parameter is set to true when a location is saved,
@@ -341,7 +341,7 @@ public class StoredLocation {
 
         // retrieve location name
         try {
-            location.setProvider(mPrefs.getString(LOC_NAME, null));
+            location.setName(mPrefs.getString(LOC_NAME, null));
         } catch (Exception e) {
             e.printStackTrace();
         }
