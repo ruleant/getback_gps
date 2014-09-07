@@ -366,6 +366,7 @@ public class LocationService extends Service
      */
     public final void storeCurrentLocation(final String locationName) {
         AriadneLocation currentLocation = getLocation();
+        String locationStoredMessage = "";
 
         // check if a location name was entered
         if (locationName == null || locationName.trim().length() == 0) {
@@ -375,8 +376,18 @@ public class LocationService extends Service
                     R.string.no_location_name,
                     Toast.LENGTH_SHORT
             ).show();
+
+            // set message to show when location is stored
+            locationStoredMessage
+                    = getResources().getString(R.string.location_stored);
         } else {
             currentLocation.setName(locationName);
+
+            // set message to show when location is stored
+            locationStoredMessage = String.format(
+                    getResources().getString(R.string.location_name_stored),
+                    locationName
+            );
         }
 
         // don't store current location if it is not set
@@ -385,7 +396,7 @@ public class LocationService extends Service
             setDestination(mStoredDestination.getLocation());
             Toast.makeText(
                     this,
-                    R.string.location_stored,
+                    locationStoredMessage,
                     Toast.LENGTH_SHORT
             ).show();
         } else {
