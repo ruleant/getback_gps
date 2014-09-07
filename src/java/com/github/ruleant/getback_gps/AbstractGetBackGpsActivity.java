@@ -31,8 +31,11 @@ import android.content.ServiceConnection;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -178,19 +181,36 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage(R.string.dialog_store_location)
+        // Get the layout inflater
+        LayoutInflater inflater = this.getLayoutInflater();
+
+
+        // Inflate the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        final View dialogView
+                = inflater.inflate(R.layout.dialog_location_name, null);
+
+        // Get the EditText object containing the location name
+        final EditText etLocationName
+                = (EditText) dialogView.findViewById(R.id.location_name);
+
+        // Set the layout for the dialog
+        builder.setView(dialogView)
                 .setPositiveButton(R.string.store_location,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
-                                // store current location and refresh display
+                                String locationName
+                                        = etLocationName.getText().toString();
+
+                                 // store current location and refresh display
                                 if (mBound) {
-                                    mService.storeCurrentLocation();
+                                    mService.storeCurrentLocation(locationName);
                                 }
                                 refreshDisplay();
                             }
                         })
-                .setNegativeButton(R.string.no,
+                .setNegativeButton(R.string.cancel,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
