@@ -90,4 +90,9 @@
 	<item quantity="one">%d minut</item>
 	<item quantity="other">%d minutter</item>
 </plurals>
+    <string name="cancel">Annuller</string>
+    <string name="location_name_stored">Placering \'%s\' gemt</string>
+    <string name="dialog_store_location_name">Angiv et navn til din nuværende placering:</string>
+    <string name="location_name">Placeringens navn</string>
+    <string name="no_location_name">Placeringens navn blev ikke angivet</string>
     </resources>
