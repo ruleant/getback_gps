@@ -18,8 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 # deploy android SDK jar to local maven repository
-git clone https://github.com/mosabua/maven-android-sdk-deployer.git
-cd maven-android-sdk-deployer
+if [[ -d maven-android-sdk-deployer/.git ]]; then cd maven-android-sdk-deployer; git pull; else git clone https://github.com/mosabua/maven-android-sdk-deployer.git; cd maven-android-sdk-deployer; fi
 # only deploy SDK 4.4W (API 20)
 mvn clean install -pl platforms/android-20
 
