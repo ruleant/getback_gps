@@ -364,8 +364,20 @@ public class LocationService extends Service
     /**
      * Store current location.
      */
-    public final void storeCurrentLocation() {
+    public final void storeCurrentLocation(final String locationName) {
         AriadneLocation currentLocation = getLocation();
+
+        // check if a location name was entered
+        if (locationName == null || locationName.trim().length() == 0) {
+            // display a message if location name is not entered
+            Toast.makeText(
+                    this,
+                    R.string.no_location_name,
+                    Toast.LENGTH_SHORT
+            ).show();
+        } else {
+            currentLocation.setName(locationName);
+        }
 
         // don't store current location if it is not set
         if (currentLocation != null && mStoredDestination != null) {

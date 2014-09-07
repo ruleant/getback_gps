@@ -34,6 +34,8 @@ import android.os.IBinder;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -182,16 +184,28 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
 
-        // Inflate and set the layout for the dialog
+
+        // Inflate the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
-        builder.setView(inflater.inflate(R.layout.dialog_location_name, null))
+        final View dialogView
+                = inflater.inflate(R.layout.dialog_location_name, null);
+
+        // Get the EditText object containing the location name
+        final EditText etLocationName
+                = (EditText) dialogView.findViewById(R.id.location_name);
+
+        // Set the layout for the dialog
+        builder.setView(dialogView)
                 .setPositiveButton(R.string.store_location,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
-                                // store current location and refresh display
+                                String locationName
+                                        = etLocationName.getText().toString();
+
+                                 // store current location and refresh display
                                 if (mBound) {
-                                    mService.storeCurrentLocation();
+                                    mService.storeCurrentLocation(locationName);
                                 }
                                 refreshDisplay();
                             }
