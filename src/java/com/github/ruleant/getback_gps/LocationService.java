@@ -363,6 +363,8 @@ public class LocationService extends Service
 
     /**
      * Store current location.
+     *
+     * @param locationName Descriptive name of the location to store
      */
     public final void storeCurrentLocation(final String locationName) {
         AriadneLocation currentLocation = getLocation();
