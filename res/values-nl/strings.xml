@@ -92,4 +92,9 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="travel_direction_forward">Voorwaarts</string>
     <string name="travel_direction_backwards">Achterwaarts</string>
     <string name="name">Naam</string>
+    <string name="dialog_store_location_name">Geef een naam aan je huidige locatie:</string>
+    <string name="location_name">Locatienaam</string>
+    <string name="cancel">Annuleren</string>
+    <string name="location_name_stored">Locatie \'%s\' bewaard</string>
+    <string name="no_location_name">Geen locatienaam ingegeven</string>
     </resources>
