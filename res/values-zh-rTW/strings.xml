@@ -87,4 +87,9 @@
     <plurals name="time_minutes">
 	    <item quantity="other">%d 分</item>
 	</plurals>
+    <string name="dialog_store_location_name">為您目前的位置請輸入名稱：</string>
+    <string name="location_name">位置名稱</string>
+    <string name="cancel">取消</string>
+    <string name="location_name_stored">儲存\'%s\'位置</string>
+    <string name="no_location_name">未指定位置名稱</string>
     </resources>
