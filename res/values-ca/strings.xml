@@ -90,4 +90,9 @@ Haurieu de rebre una còpia de la llicència pública general GNU junt amb aques
 	<item quantity="one">%d minut</item>
 	<item quantity="other">%d minuts</item>
 </plurals>
+    <string name="dialog_store_location_name">Introduïu un nom per la posició actual:</string>
+    <string name="location_name">Nom de la posició</string>
+    <string name="cancel">Cancel·la</string>
+    <string name="location_name_stored">S\'ha desat la posició \'%s\'</string>
+    <string name="no_location_name">No s\'ha indicat cap nom de posició</string>
     </resources>
