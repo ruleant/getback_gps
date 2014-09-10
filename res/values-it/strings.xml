@@ -92,8 +92,8 @@
 	<item quantity="other">%d metri</item>
 </plurals>
     <string name="cancel">Annulla</string>
-    <string name="dialog_store_location_name">Inserire un nome per la posizione attuale</string>
+    <string name="dialog_store_location_name">Inserire un nome per la posizione attuale:</string>
     <string name="location_name">Nome posizione</string>
     <string name="no_location_name">Nome posizione non specificato</string>
-    <string name="location_name_stored">Posizione \'%s\' memorizzata</string>
+    <string name="location_name_stored">Posizione \'%s\' salvata</string>
     </resources>
