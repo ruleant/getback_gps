@@ -80,7 +80,9 @@
 Вы павінны былі атры­маць ко­пію <EM>гэ­тай лі­цэн­зыї</EM> ра­зам з гэ­наю пра­ґра­маю. Калі ж не, то гляньце <A href="http://www.GNU.org/licenses/">www.GNU.org/licenses</A>.</string>
 <plurals name="distance_meter">
 	<item quantity="one">%d метар</item>
-	<item quantity="other">%d метры</item>
+	<item quantity="few">%d метры</item>
+	<item quantity="many">%d метры</item>
+	<item quantity="other"/>
 </plurals>
     <plurals name="time_seconds">
 	<item quantity="one">%d сякунда</item>
@@ -90,6 +92,8 @@
 </plurals>
     <plurals name="time_minutes">
 	<item quantity="one">%d хвіліна</item>
-	<item quantity="other">%d хвіліны</item>
+	<item quantity="few">%d хвіліны</item>
+	<item quantity="many">%d хвіліны</item>
+	<item quantity="other"></item>
 </plurals>
     </resources>
