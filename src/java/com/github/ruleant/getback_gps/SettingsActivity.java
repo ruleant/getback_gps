@@ -463,8 +463,9 @@ public class SettingsActivity extends PreferenceActivity {
     }
 
     @Override
-    protected boolean isValidFragment(String fragmentName) {
-        return (GeneralPreferenceFragment.class.getName().equals(fragmentName)
-                || DebugPreferenceFragment.class.getName().equals(fragmentName));
+    protected final boolean isValidFragment(final String fragmentName) {
+        // check if an allowed fragment is used
+        return GeneralPreferenceFragment.class.getName().equals(fragmentName)
+                || DebugPreferenceFragment.class.getName().equals(fragmentName);
     }
 }
