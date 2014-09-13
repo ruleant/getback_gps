@@ -159,7 +159,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
             toDestinationNameText = navigator.getDestination().getName();
 
             // if name is not set, use 'location name'
-            if (toDestinationNameText.isEmpty()) {
+            if (toDestinationNameText == null
+                    || toDestinationDirectionText.length() == 0) {
                 toDestinationNameText = res.getString(R.string.location_name);
             }
 
