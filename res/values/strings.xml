@@ -80,7 +80,7 @@
     <string name="disabled">Disabled</string>
     <plurals name="distance_meter">
         <item quantity="one">%d meter</item>
-        <item quantity="other">%d meter</item>
+        <item quantity="other">%d meters</item>
     </plurals>
     <plurals name="time_seconds">
         <item quantity="one">%d second</item>
