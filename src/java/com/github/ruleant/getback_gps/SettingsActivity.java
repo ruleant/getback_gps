@@ -461,4 +461,10 @@ public class SettingsActivity extends PreferenceActivity {
                     findPreference(DebugLevel.PREF_DEBUG_LEVEL));
         }
     }
+
+    @Override
+    protected boolean isValidFragment(String fragmentName) {
+        return (GeneralPreferenceFragment.class.getName().equals(fragmentName)
+                || DebugPreferenceFragment.class.getName().equals(fragmentName));
+    }
 }
