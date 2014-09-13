@@ -155,16 +155,15 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         } else {
             displayToDest = true;
 
+            // Set destination name
+            toDestinationNameText = navigator.getDestination().getName();
+
+            // if name is not set, use 'location name'
+            if (toDestinationNameText.isEmpty()) {
+                toDestinationNameText = res.getString(R.string.location_name);
+            }
+
             if (navigator.isLocationAccurate()) {
-                // Set destination name
-                toDestinationNameText
-                        = navigator.getDestination().getName();
-
-                // if name is not set, use 'location name'
-                if (toDestinationNameText.isEmpty()) {
-                    toDestinationNameText = res.getString(R.string.location_name);
-                }
-
                 // Set distance to destination
                 toDestinationDistanceText
                         = FormatUtils.formatDist(navigator.getDistance());
