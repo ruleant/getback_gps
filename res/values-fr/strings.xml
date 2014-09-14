@@ -48,7 +48,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="accuracy">Précision</string>
     <string name="location_updated">Position mise à jour</string>
     <string name="destination">Destination</string>
-    <string name="to_dest">Destination à</string>
+    <string name="to_dest">À destination</string>
     <string name="direction_relative">Relatif à la direction actuelle</string>
     <string name="raw">Non formaté(e)</string>
     <string name="none">Aucun(e)</string>
@@ -91,4 +91,9 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
 	<item quantity="other">%d minutes</item>
 </plurals>
     <string name="sensor_bearing_offset">Correction du relèvement</string>
+    <string name="dialog_store_location_name">Entrez un nom pour votre position actuelle:</string>
+    <string name="cancel">Annuler</string>
+    <string name="location_name_stored">Position \"%s\" enregistrée</string>
+    <string name="no_location_name">Nom de la position n\'a pas été précisé</string>
+    <string name="location_name">Nom de la position</string>
     </resources>
