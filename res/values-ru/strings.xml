@@ -43,7 +43,7 @@
     <string name="altitude">Высота</string>
     <string name="speed">Скорость</string>
     <string name="bearing">Азимут</string>
-    <string name="name">Имя</string>
+    <string name="name">Название</string>
     <string name="sensor_bearing_offset">Смещение азимута на основе датчика</string>
     <string name="travel_direction">Направление движения</string>
     <string name="travel_direction_forward">Вперёд</string>
@@ -53,8 +53,8 @@
     <string name="destination">Пункт назначения</string>
     <string name="to_dest">К пункту назначения</string>
     <string name="direction_relative">относительно текущего направления</string>
-    <string name="raw">Неформатированный</string>
-    <string name="none">Ничего</string>
+    <string name="raw">Необработанный</string>
+    <string name="none">Нет</string>
     <string name="notset">Не установлено</string>
     <string name="loc_updated_recent">Местонахождение недавно обновлено.</string>
     <string name="loc_updated_not_recent">Местонахождение давно не обновлялось.</string>
@@ -88,13 +88,13 @@
 </plurals>
     <string name="about">О программе</string>
     <string name="version">Версия</string>
-    <string name="build_time">Скомпилировано %s.</string>
+    <string name="build_time">Скомпилировано %s</string>
     <string name="app_website">Посетите &lt;a href=%1$s&gt;сайт&lt;/a&gt; для получения дополнительной информации.</string>
     <string name="copyright">Авторское право</string>
-    <string name="license">Эта программа является свободным программным обеспечением: вы можете распространять и/или изменять его в соответствии с условиями GNU General Public License, опубликованной Free Software Foundation, либо версии 3 лицензии, или любой более поздней версии.\n
-\n
-Эта программа распространяется в надежде, что она будет полезной, но БЕЗ КАКИХ ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНЫХ ЦЕЛЕЙ. Смотрите GNU General Public License для более подробной информации.\n
-\n
+    <string name="license">Эта программа является свободным программным обеспечением: вы можете распространять и/или изменять его в соответствии с условиями GNU General Public License, опубликованной Free Software Foundation, либо версии 3 лицензии, или любой более поздней версии.
+ 
+Эта программа распространяется в надежде, что она будет полезной, но БЕЗ КАКИХ ЛИБО ГАРАНТИЙ; даже без подразумеваемых гарантий КОММЕРЧЕСКОЙ ЦЕННОСТИ или ПРИГОДНОСТИ ДЛЯ КОНКРЕТНЫХ ЦЕЛЕЙ. Смотрите GNU General Public License для более подробной информации.
+ 
 Вы должны были получить копию GNU General Public License вместе с этой программой. Если нет, смотрите <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="dialog_store_location_name">Введите название для вашего текущего местонахождения:</string>
     <string name="location_name">Название местонахождения</string>
