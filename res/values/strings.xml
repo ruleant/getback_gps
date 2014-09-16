@@ -79,8 +79,8 @@
     <string name="sensors_disabled">Disabled : saves power</string>
     <string name="disabled">Disabled</string>
     <plurals name="distance_meter">
-        <item quantity="one">%d meter</item>
-        <item quantity="other">%d meters</item>
+        <item quantity="one">%d metre</item>
+        <item quantity="other">%d metres</item>
     </plurals>
     <plurals name="time_seconds">
         <item quantity="one">%d second</item>
