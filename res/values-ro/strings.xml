@@ -70,4 +70,10 @@
  Acest program este distribuit în speranța că va fi util, dar FĂRĂ NICIO GARANȚIE; fără nici măcar garanția implicită de COMERCIALIZARE sau POTRIVIRE PENTRU UN ANUMIT SCOP. A se vedea GNU General Public License pentru mai multe detalii.
  
  Ar trebui să fi primit o copie a GNU General Public License, împreună cu acest program. Dacă nu, vedeți <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-</resources>
+<string name="dialog_store_location_name">Adăugați un nume pentru locația curentă:</string>
+    <string name="location_name">Numele locației</string>
+    <string name="cancel">Anulare</string>
+    <string name="location_name_stored">Locație \'%s\' salvată</string>
+    <string name="no_location_name">Numele locației nu a fost specificat</string>
+    <string name="name">Nume</string>
+    </resources>
