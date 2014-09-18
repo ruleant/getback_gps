@@ -370,30 +370,30 @@ public class LocationService extends Service
         AriadneLocation currentLocation = getLocation();
         String locationStoredMessage = "";
 
-        // check if a location name was entered
-        if (locationName == null || locationName.trim().length() == 0) {
-            // display a message if location name is not entered
-            Toast.makeText(
-                    this,
-                    R.string.no_location_name,
-                    Toast.LENGTH_SHORT
-            ).show();
-
-            // set message to show when location is stored
-            locationStoredMessage
-                    = getResources().getString(R.string.location_stored);
-        } else {
-            currentLocation.setName(locationName);
-
-            // set message to show when location is stored
-            locationStoredMessage = String.format(
-                    getResources().getString(R.string.location_name_stored),
-                    locationName
-            );
-        }
-
         // don't store current location if it is not set
         if (currentLocation != null && mStoredDestination != null) {
+            // check if a location name was entered
+            if (locationName == null || locationName.trim().length() == 0) {
+                // display a message if location name is not entered
+                Toast.makeText(
+                        this,
+                        R.string.no_location_name,
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                // set message to show when location is stored
+                locationStoredMessage
+                        = getResources().getString(R.string.location_stored);
+            } else {
+                currentLocation.setName(locationName);
+
+                // set message to show when location is stored
+                locationStoredMessage = String.format(
+                        getResources().getString(R.string.location_name_stored),
+                        locationName
+                );
+            }
+
             mStoredDestination.save(currentLocation);
             setDestination(mStoredDestination.getLocation());
             Toast.makeText(

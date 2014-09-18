@@ -200,7 +200,8 @@ public class Coordinates {
 
             // skip point if it is null
             if (currentPoint != null) {
-                path.lineTo(currentPoint[Coordinate.X], currentPoint[Coordinate.Y]);
+                path.lineTo(currentPoint[Coordinate.X],
+                        currentPoint[Coordinate.Y]);
             }
         }
 
