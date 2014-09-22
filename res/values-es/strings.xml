@@ -9,7 +9,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="inaccurate_location">Tu ubicación actual es inexacta</string>
     <string name="notice_no_dest">Guarda tu ubicación para elegir un destino</string>
     <string name="inaccurate_direction">Comienza a moverte para obtener una dirección precisa hacia tu destino</string>
-    <string name="notice_destination_reached">Has llegado a tu destino</string>
+    <string name="notice_destination_reached">Ha llegado a su destino</string>
     <string name="current_speed">Velocidad actual</string>
     <string name="speed_kph">km/h</string>
     <string name="distance">Distancia</string>
@@ -26,7 +26,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="dialog_store_location">¿Desea guardar su ubicación actual?</string>
     <string name="no">No</string>
     <string name="store_location">Guardar ubicación</string>
-    <string name="store_location_disabled">No se puede guardar ubicación si no hay una ubicación actual</string>
+    <string name="store_location_disabled">No se puede guardar la ubicación sin una ubicación actual</string>
     <string name="location_stored">Ubicación guardada</string>
     <string name="menu_details">Detalles de la ubicación</string>
     <string name="activity_details">Detalles</string>
@@ -47,8 +47,8 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="altitude">Altitud</string>
     <string name="speed">Velocidad</string>
     <string name="travel_direction">Dirección de ruta</string>
-    <string name="travel_direction_forward">Adelante</string>
-    <string name="travel_direction_backwards">atrás</string>
+    <string name="travel_direction_forward">Hacia adelante</string>
+    <string name="travel_direction_backwards">Hacia atrás</string>
     <string name="accuracy">Exactitud</string>
     <string name="destination">Destino</string>
     <string name="direction_relative">relativo a la dirección actual</string>
@@ -60,7 +60,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="timestamp">Marcador de tiempo</string>
     <string name="notset">Sin configurar</string>
     <string name="loc_updated_not_recent">Ubicación NO actualizada recientemente.</string>
-    <string name="settings">Configuraciones</string>
+    <string name="settings">Configuración</string>
     <string name="pref_header_general">General</string>
     <string name="pref_header_loc_update">Actualizaciones de la ubicación</string>
     <string name="pref_loc_update_dist">Actualizaciones basadas en distancia</string>
@@ -78,4 +78,21 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="sensors_enabled">Habilitado: actualizaciones más rápidas y giros más precisos; Habilitado: actualizaciones más rápidas y movimientos más precisos</string>
     <string name="about">Acerca de</string>
     <string name="build_time">Compilado en %s.</string>
+    <string name="dialog_store_location_name">Poner un nombre a la ubicación actual:</string>
+    <string name="cancel">Cancelar</string>
+    <string name="location_name_stored">Ubicación \'%s\' guardada</string>
+    <string name="name">Nombre</string>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minuto</item>
+	<item quantity="other">%d minutos</item>
+</plurals>
+    <plurals name="distance_meter">
+	<item quantity="one">%d metro</item>
+	<item quantity="other">%d metros</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d segundo</item>
+	<item quantity="other">%d segundos</item>
+</plurals>
+    <string name="location_name">Nombre de la ubicación</string>
     </resources>
