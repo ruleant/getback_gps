@@ -1,2 +1,24 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="direction">方向</string>
+    <string name="copyright">著作権</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d メートル</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d 秒</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d 分</item>
+	<item quantity="other"/>
+</plurals>
+    <string name="speed">速度</string>
+    <string name="latitude">緯度</string>
+    <string name="longitude">経度</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="location_name">地名</string>
+    <string name="settings">設定</string>
+    <string name="pref_header_general">全般</string>
+    <string name="pref_header_loc_update">場所の更新</string>
+    </resources>
