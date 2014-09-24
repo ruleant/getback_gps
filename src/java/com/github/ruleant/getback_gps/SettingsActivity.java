@@ -103,7 +103,7 @@ public class SettingsActivity extends PreferenceActivity {
 
     /**
      * Default value of preference Default geo orientation sensor :
-     * raw sensors.
+     * automatic.
      */
     public static final String DEFAULT_PREF_GEO_ORIENTATION_SENSOR = "0";
 
@@ -460,5 +460,12 @@ public class SettingsActivity extends PreferenceActivity {
             bindPreferenceSummaryToValue(
                     findPreference(DebugLevel.PREF_DEBUG_LEVEL));
         }
+    }
+
+    @Override
+    protected final boolean isValidFragment(final String fragmentName) {
+        // check if an allowed fragment is used
+        return GeneralPreferenceFragment.class.getName().equals(fragmentName)
+                || DebugPreferenceFragment.class.getName().equals(fragmentName);
     }
 }

@@ -23,15 +23,19 @@
     <string name="unknown">Unknown</string>
     <string name="refresh">Refresh</string>
     <!-- Strings related to Storing a location -->
-    <string name="dialog_store_location">Do you want to store your current location?</string>
-    <string name="no">No</string>
+    <string name="dialog_store_location_name">Enter a name for your current location:</string>
+    <string name="location_name">Location name</string>
+    <string name="cancel">Cancel</string>
     <string name="store_location">Store Location</string>
     <string name="store_location_disabled">Unable to store location if there is no current location</string>
     <string name="location_stored">Location stored</string>
+    <string name="location_name_stored">Location \'%s\' stored</string>
+    <string name="no_location_name">Location name was not specified</string>
     <!-- Strings related to Details activity -->
     <string name="menu_details">Location details</string>
     <string name="activity_details">Details</string>
     <string name="location_provider">Location Provider</string>
+    <string name="name">Name</string>
     <string name="provider">Provider</string>
     <string name="loc_provider_network">network (Cell phone/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
@@ -49,6 +53,9 @@
     <string name="speed">Speed</string>
     <string name="bearing">Bearing</string>
     <string name="sensor_bearing_offset">Sensor based bearing offset</string>
+    <string name="travel_direction">Travel direction</string>
+    <string name="travel_direction_forward">Forward</string>
+    <string name="travel_direction_backwards">Backwards</string>
     <string name="accuracy">Accuracy</string>
     <string name="timestamp">Timestamp</string>
     <string name="destination">Destination</string>
@@ -66,14 +73,14 @@
     <string name="pref_header_loc_update">Location Updates</string>
     <string name="pref_loc_update_dist">Distance based updates</string>
     <string name="pref_loc_update_time">Time based updates</string>
-    <string name="pref_enable_sensors">Enable sensors (if available)</string>
+    <string name="pref_enable_sensors">Use available sensors</string>
     <string name="pref_geo_orientation_sensor">Default orientation sensor</string>
     <string name="sensors_enabled">Enabled : quicker updated and more accurate bearing</string>
     <string name="sensors_disabled">Disabled : saves power</string>
     <string name="disabled">Disabled</string>
     <plurals name="distance_meter">
-        <item quantity="one">%d meter</item>
-        <item quantity="other">%d meter</item>
+        <item quantity="one">%d metre</item>
+        <item quantity="other">%d metres</item>
     </plurals>
     <plurals name="time_seconds">
         <item quantity="one">%d second</item>
@@ -83,6 +90,11 @@
         <item quantity="one">%d minute</item>
         <item quantity="other">%d minutes</item>
     </plurals>
+    <string-array name="pref_geo_orientation_sensor_titles">
+        <item>Automatic</item>
+        <item>Raw sensors (experimental)</item>
+        <item>Calculated orientation sensor</item>
+    </string-array>
     <!-- Strings related to About activity -->
     <string name="about">About</string>
     <string name="version">Version</string>

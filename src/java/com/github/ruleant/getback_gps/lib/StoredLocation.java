@@ -102,6 +102,10 @@ public class StoredLocation {
      * Name of Location provider object in SharedPreferences.
      */
     private static final String LOC_PROVIDER = "loc_provider";
+    /**
+     * Location Name object in SharedPreferences.
+     */
+    private static final String LOC_NAME = "loc_name";
 
     /**
      * Constructor.
@@ -151,9 +155,9 @@ public class StoredLocation {
      *
      * @param location New location
      */
-    public void setLocation(final Location location) {
+    public void setLocation(final AriadneLocation location) {
         if (location != null) {
-            mLocation.set(location);
+            mLocation = location;
             mHasLocation = true;
         }
     }
@@ -163,7 +167,7 @@ public class StoredLocation {
      *
      * @param location New location
      */
-    public final void save(final Location location) {
+    public final void save(final AriadneLocation location) {
         setLocation(location);
         save();
     }
@@ -231,6 +235,7 @@ public class StoredLocation {
 
             editor.putLong(TIMESTAMP, mLocation.getTime());
             editor.putString(LOC_PROVIDER, mLocation.getProvider());
+            editor.putString(LOC_NAME, mLocation.getName());
         }
         editor.putString(
                 SAVED, Boolean.toString(mLocation != null && mHasLocation));
@@ -245,13 +250,13 @@ public class StoredLocation {
      * Restore stored location from Shared Preferences.
      */
     public final void restore() {
-        Location location = new Location("");
+        AriadneLocation location = new AriadneLocation("");
 
-        // check if a location stored. the saved parameter is set to true
-        // when storing a location, so if this it does not exist
-        // (default value is false), then the value is false
-        // and there is no location data.
-        // return null when not set or exception is thrown
+        // Check if a location is stored.
+        // The SAVED parameter is set to true when a location is saved,
+        // so if it does not exist (its default value is false),
+        // then its value is false and there is no saved location data.
+        // return (exit method) when not set or exception is thrown
         try {
             mHasLocation
                     = Boolean.parseBoolean(mPrefs.getString(SAVED, "false"));
@@ -332,6 +337,13 @@ public class StoredLocation {
         } catch (Exception e) {
             e.printStackTrace();
             location.setProvider("");
+        }
+
+        // retrieve location name
+        try {
+            location.setName(mPrefs.getString(LOC_NAME, null));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
 
         // set retrieved location

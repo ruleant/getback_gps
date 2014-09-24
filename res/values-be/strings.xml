@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="current_speed">Хуткасьць</string>
+    <string name="speed_kph">км/г</string>
+    <string name="current_bearing">Азімут</string>
+    <string name="distance">Адлегласьць</string>
+    <string name="direction">Кірунак</string>
+    <string name="northeast_unit">Пн-Ў</string>
+    <string name="southeast_unit">Пд-Ў</string>
+    <string name="southwest_unit">Пд-З</string>
+    <string name="northwest_unit">Пн-З</string>
+    <string name="location_updated">Месцазнаходжанне абноўлена</string>
+    <string name="unknown">Невядома</string>
+    <string name="refresh">Абнавіць</string>
+    <string name="dialog_store_location">Ці хочаш зьберагчы сваё месцазнаходжанне?</string>
+    <string name="no">Не</string>
+    <string name="store_location">Захаваць месца</string>
+    <string name="store_location_disabled">Немагчыма зьберагчы месцазнаходжанне, бо яно невызначана</string>
+    <string name="location_stored">Месца захавана</string>
+    <string name="menu_details">Аб месцы</string>
+    <string name="activity_details">Падрабязнасьці</string>
+    <string name="location_provider">Лякатар</string>
+    <string name="provider">Правайдар</string>
+    <string name="loc_provider_network">cетка (сотавая альбо WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Лякатар не падтрымліваецца.</string>
+    <string name="copyright">Права на копію</string>
+    <string name="location">Месца</string>
+    <string name="stored_location">Захаванае месца</string>
+    <string name="curr_location">Цяперашняе месца (апошняе вядомае)</string>
+    <string name="latitude">Шырата</string>
+    <string name="latitude_north_unit">Поўнач</string>
+    <string name="latitude_south_unit">Поўдзень</string>
+    <string name="longitude">Даўгата</string>
+    <string name="longitude_east_unit">Ўсход</string>
+    <string name="longitude_west_unit">Заход</string>
+    <string name="altitude">Высата</string>
+    <string name="speed">Хуткасьць</string>
+    <string name="bearing">Азімут</string>
+    <string name="sensor_bearing_offset">Зрух азімута паводле сэнсара</string>
+    <string name="travel_direction">Напрамак руху</string>
+    <string name="travel_direction_forward">Наперад</string>
+    <string name="travel_direction_backwards">Назад</string>
+    <string name="accuracy">Дакладнасьць</string>
+    <string name="timestamp">Час</string>
+    <string name="destination">Мэта</string>
+    <string name="to_dest">Да мэты</string>
+    <string name="raw">Нефарматавана</string>
+    <string name="none">Ніякі</string>
+    <string name="notset">Неўстаноўлена</string>
+    <string name="loc_updated_recent">Месца абноўлена нядаўна.</string>
+    <string name="loc_updated_not_recent">Месца даўно не абнаўлялась.</string>
+    <string name="settings">Налады</string>
+    <string name="pref_header_general">Агульныя</string>
+    <string name="pref_header_loc_update">Абнаўленне месцазнаходжання</string>
+    <string name="pref_loc_update_dist">Абнаўляць праз адлегласьць</string>
+    <string name="pref_loc_update_time">Абнаўляць праз такі час</string>
+    <string name="pref_enable_sensors">Ужыць сэнсары, калі даступныя</string>
+    <string name="pref_geo_orientation_sensor">Пераважны сэнсар арыянтацыї</string>
+    <string name="sensors_enabled">Увамкнёна: хутчэйшае абнаўленьне й дакладнейшы азімут</string>
+    <string name="sensors_disabled">Вымкнена: ашчаджвае энергію</string>
+    <string name="disabled">Вымкнена</string>
+    <string name="about">Пра праґраму</string>
+    <string name="version">Вэрсыя</string>
+    <string name="build_time">Скампілявана %s.</string>
+    <string name="app_website">Наведайцесь на &lt;a href=%1$s&gt;вэбсайт&lt;/a&gt; па інфармацыю.</string>
+    <string name="app_desc">Знаходзьце па каардынатах шлях туды, дзе ўжо пабывалі.</string>
+    <string name="inaccurate_location">Тваё месцазнаходжанне недакладнае</string>
+    <string name="notice_no_dest">Зьберажы сваё месцазнаходжанне як цэль, да якой хочаш вярнуцца</string>
+    <string name="inaccurate_direction">Пачні рух, каб высьветліць дакладны накірунак на цэль</string>
+    <string name="notice_destination_reached">Ты вярнуўся на сваё месца</string>
+    <string name="inaccurate">Недакладна</string>
+    <string name="destination_reached">На месцы!</string>
+    <string name="no_destination">Мэты ня задана</string>
+    <string name="name">Імя</string>
+    <string name="direction_relative">адносна цяперашнага напрамку</string>
+    <string name="license">Гэна — бяс­плат­ная пра­ґра­ма: яе льга раз­да­ваць ці зьмя­няць па­вод­ле <EM>Агуль­нае гра­мадз­кае лі­цэн­зыї «GNU»</EM>, якую апуб­лі­ка­ваў Фонд бяс­плат­на­га пра­ґрам­на­га за­бесь­пя­чэння <SMALL>(Free Soft­ware Foun­dation)</SMALL>. Паводле альбо трэ­цяе вэр­сыї <EM>гэ­тай лі­цэн­зыї</EM>, альбо лю­бой пазь­ней­шай.
+
+Пашыраючы гэную пра­ґра­му спа­дзя­ем­ся, што яна бу­дзе ка­рыс­наю, але <STRONG>ні­чо­га не га­ран­ту­ем</STRONG> — нават не ча­кай­це га­ран­тый <STRONG>іспраў­на­га ста­ну</STRONG> ці <STRONG>пры­год­нась­ці да пэў­най мэ­ты</STRONG>. Падрабязнасьці гля­дзе­це ў <EM>Агуль­най гра­мадз­кай лі­цэн­зыї «GNU»</EM>.
+
+Вы павінны былі атры­маць ко­пію <EM>гэ­тай лі­цэн­зыї</EM> ра­зам з гэ­наю пра­ґра­маю. Калі ж не, то гляньце <A href="http://www.GNU.org/licenses/">www.GNU.org/licenses</A>.</string>
+<plurals name="distance_meter">
+	<item quantity="one">%d метар</item>
+	<item quantity="few">%d метры</item>
+	<item quantity="many">%d метры</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d сякунда</item>
+	<item quantity="few">%d сякунды</item>
+	<item quantity="many">%d сякундаў</item>
+	<item quantity="other"/>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d хвіліна</item>
+	<item quantity="few">%d хвіліны</item>
+	<item quantity="many">%d хвіліны</item>
+	<item quantity="other"></item>
+</plurals>
+    </resources>

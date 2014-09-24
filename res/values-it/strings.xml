@@ -1,3 +1,99 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-</resources>
+<string name="app_desc">Ritorna a una posizione visitata precedentemente usando le coordinate GPS.</string>
+    <string name="inaccurate_location">La posizione rilevata non è accurata</string>
+    <string name="notice_no_dest">Salva la tua posizione per impostare una destinazione</string>
+    <string name="notice_destination_reached">Sei a destinazione</string>
+    <string name="current_speed">Velocità corrente</string>
+    <string name="speed_kph">km/h</string>
+    <string name="distance">Distanza</string>
+    <string name="direction">Direzione</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="inaccurate">Imprecisa</string>
+    <string name="destination_reached">A destinazione</string>
+    <string name="no_destination">Nessuna destinazione impostata</string>
+    <string name="unknown">Sconosciuto</string>
+    <string name="refresh">Aggiorna</string>
+    <string name="dialog_store_location">Vuoi memorizzare la tua posizione corrente?</string>
+    <string name="no">No</string>
+    <string name="store_location">Aggiungi posizione</string>
+    <string name="location_stored">Posizione salvata</string>
+    <string name="menu_details">Dettagli</string>
+    <string name="activity_details">Dettagli</string>
+    <string name="location_provider">Sorgente posizione</string>
+    <string name="provider">Sorgente</string>
+    <string name="loc_provider_network">Rete (Cellulare/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">La sorgente non è supportata.</string>
+    <string name="location">Posizione</string>
+    <string name="stored_location">Posizioni memorizzate</string>
+    <string name="curr_location">Posizione(ultima conosciuta) corrente</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Longitudine</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">W</string>
+    <string name="altitude">Altitudine</string>
+    <string name="speed">Velocità</string>
+    <string name="accuracy">Precisione</string>
+    <string name="destination">Destinazione</string>
+    <string name="none">Nessuno</string>
+    <string name="notset">Non impostato</string>
+    <string name="settings">Impostazioni</string>
+    <string name="pref_header_general">Generali</string>
+    <string name="pref_enable_sensors">Attiva sensori (se disponibili)</string>
+    <string name="current_bearing">Rilevamento corrente</string>
+    <string name="inaccurate_direction">Muovendoti otterrai una direzione più precisa</string>
+    <string name="location_updated">Posizione aggiornata</string>
+    <string name="store_location_disabled">Posizione corrente non identificata, impossibile salvarla</string>
+    <string name="latitude">Latitudine</string>
+    <string name="sensor_bearing_offset">Compensazione rilevamento basata su sensore</string>
+    <string name="travel_direction">Direzione di viaggio</string>
+    <string name="travel_direction_forward">Avanti</string>
+    <string name="travel_direction_backwards">Indietro</string>
+    <string name="timestamp">Marca temporale</string>
+    <string name="to_dest">Verso destinazione</string>
+    <string name="direction_relative">rispetto alla direzione attuale</string>
+    <string name="raw">Senza formato</string>
+    <string name="loc_updated_recent">Posizione aggiornata recentemente.</string>
+    <string name="loc_updated_not_recent">Posizione non aggiornata.</string>
+    <string name="pref_header_loc_update">Aggiornamenti posizione</string>
+    <string name="pref_loc_update_dist">Aggiornamenti basati su distanza</string>
+    <string name="pref_loc_update_time">Aggiornamenti basati su tempo</string>
+    <string name="pref_geo_orientation_sensor">Sensore orientamento predefinito</string>
+    <string name="sensors_disabled">Disattivato: risparmio energia</string>
+    <string name="sensors_enabled">Attivato: aggiornamenti veloci e posizionamento accurato</string>
+    <string name="disabled">Disattivato</string>
+    <string name="about">Informazioni su</string>
+    <string name="version">Versione</string>
+    <string name="build_time">Costruito su %s.</string>
+    <string name="app_website">Visita il &lt;a href=%1$s&gt;sito web&lt;/a&gt; per maggiori informazioni.</string>
+    <string name="copyright">Copyright</string>
+    <string name="license">Questo è software libero: puoi ridistribuirlo e/o modificarlo secondo i termini della GNU General Public License pubblicata dalla Free Software Foundation, versione 3 o successiva.\n
+ \n
+ Questo software è distribuito nella speranza che sia utile, ma SENZA ALCUNA GARANZIA; senza neppure la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Vedi la GNU General Public License per i dettagli.\n
+ \n
+ Se non avessi ricevuto una copia della GNU General Public License insieme a questo software la trovi all\'indirizzo <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+<string name="bearing">Rilevamento</string>
+    <string name="name">Nome</string>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minuto</item>
+	<item quantity="other">%d minuti</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d secondo</item>
+	<item quantity="other">%d secondi</item>
+</plurals>
+    <plurals name="distance_meter">
+	<item quantity="one">%d metro</item>
+	<item quantity="other">%d metri</item>
+</plurals>
+    <string name="cancel">Annulla</string>
+    <string name="dialog_store_location_name">Inserire un nome per la posizione attuale:</string>
+    <string name="location_name">Nome posizione</string>
+    <string name="no_location_name">Nome posizione non specificato</string>
+    <string name="location_name_stored">Posizione \'%s\' salvata</string>
+    </resources>

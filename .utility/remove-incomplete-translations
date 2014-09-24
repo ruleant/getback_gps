@@ -1,0 +1,46 @@
+#!/bin/sh
+#
+# Removes res\values-*\strings.xml files with incomplete translations
+#
+# Based on scripts/remove-incomplete-mo of phpMyAdmin project
+
+set -e
+
+#
+# How many percent needs to be translated
+#
+THRESHOLD=75
+
+BASE_FILE="res/values/strings.xml"
+
+if [ ! -z "$1" ] ; then
+    THRESHOLD=$1
+fi
+
+check() {
+    local stringsFile=$1
+    local lang=`echo $1 | sed 's@res/values-\(.*\)/strings.xml@\1@'`
+    local totalStrings=$2
+
+    local translatedStrings=$(count_strings $stringsFile)
+
+    local percent=`expr 100 \* $translatedStrings / $totalStrings || true`
+    echo "$lang : $percent%"
+
+    if [ $percent -lt $THRESHOLD ] ; then
+        echo "Removing $stringsFile, only $percent% translated"
+        rm -f $stringsFile
+        rmdir res/values-$lang
+    fi
+}
+
+count_strings() {
+    local stringsFile=$1
+    echo `grep "<string name=" $stringsFile | wc -l`
+}
+
+totalStrings=$(count_strings $BASE_FILE)
+
+for x in res/values-*/strings.xml ; do
+    check $x $totalStrings
+done

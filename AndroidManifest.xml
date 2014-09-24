@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.github.ruleant.getback_gps"
-    android:versionCode="30"
-    android:versionName="0.3-dev" >
+    android:versionCode="40"
+    android:versionName="0.4-dev" >
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="19" />
+        android:targetSdkVersion="20" />
 
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 

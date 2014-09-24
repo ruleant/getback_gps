@@ -43,6 +43,13 @@
                 android:layout_height="wrap_content"
                 android:padding="2dp"
                 android:text="@string/sensor_bearing_offset" />
+
+            <TextView
+                android:id="@+id/textView_TravelDirection"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="2dp"
+                android:text="@string/travel_direction" />
         </LinearLayout>
 
         <LinearLayout

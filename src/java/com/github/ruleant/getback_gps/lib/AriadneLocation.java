@@ -47,6 +47,11 @@ public class AriadneLocation extends Location {
     private static final long LOC_EXPIRE = 300000;
 
     /**
+     * Location name.
+     */
+    private String mName = null;
+
+    /**
      * Constructor.
      *
      * @param provider Provider name
@@ -76,6 +81,24 @@ public class AriadneLocation extends Location {
     }
 
     /**
+     * Sets location Name.
+     *
+     * @param name Location name
+     */
+    public final void setName(final String name) {
+        mName = name;
+    }
+
+    /**
+     * Gets location Name.
+     *
+     * @return Location name
+     */
+    public final String getName() {
+        return mName;
+    }
+
+    /**
      * Checks if location timestamp is recent.
      *
      * @return true if location is recent.
@@ -102,6 +125,13 @@ public class AriadneLocation extends Location {
         DebugLevel debug = new DebugLevel(context);
 
         String locationText = "";
+
+        // Location name
+        String locationName = getName();
+        if (locationName != null && locationName.length() > 0) {
+            locationText += " " + res.getString(R.string.name)
+                    + ": " + locationName + "\n";
+        }
 
         // Format location
         Latitude latitude = new Latitude(context, getLatitude());

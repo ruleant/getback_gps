@@ -1,0 +1,29 @@
+language: java
+jdk:
+  - openjdk7
+env:
+  global:
+    - secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
+    - secure: "bbT3Swvy1P0vFgXE5E5Iv9+JU8GG4LZlbwLez2B7s0aOuxEFCnj19M+GAldVAeHCc/z/0Oz+N1p4eRU5OCJY71lZqv5F8ph8ahti7uUylbfoNHM7g1mcmVSNFZ5bgVhnz/RQjEK/o5msqv3UZPRPS023Q5vAbCrftuHOiOiBbCo="
+    - secure: "XWFKXfdJAAScNMQxg6jmJKKfuWIkKBHD8GpLfFoOjghHS6GS7dnc22rHdxeU3wmDMW4sZsFtmDXk5ZjJ3XdbGLFiz5dJ4HKqSmPBG1SMnFco2fDAEyZRN3dh1f2iANX9azyP8fA8mQGITa1uqP20JUFbAcaPcuhNYfiWfqxwzIs="
+    - secure: "SJuhq8rTzyJ/947QZZwsIIKtZ9ridf48SvpraK770CCz0hOaqBD3SFLgb2qj9vQDIzHMHST6v0RQ8gP5WaCBC73GFDuH/cY5ltq6KG8kE/5t01dbFWG7o6ItG4FVF2YDo69J+msrB/RP27HK3gGwCqj+6xz+7y1z9VIBBQQEg0k="
+    - secure: "Cq3lvXwHxmjuJH6Q+NkfGqtJL8pwN8NH5wQdPIAQuglLI5mh8mZDKbdBYpKlDvKF5NQOKqUneqFpLD/NWG/3Jwx2DzG619x0yXuCju/Gtxn4tLGO8vjbYH/WnE+uSYwibbOrm/4BGNU+nHTFU6Q/gVBeB5rV58GJohKcs+yPY/M="
+before_install:
+  - mvn -v
+  # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libstdc++6:i386 lib32z1
+  # download the latest android sdk and unzip
+  - wget http://dl.google.com/android/android-sdk_r23.0.2-linux.tgz
+  - tar -zxf android-sdk_r23.0.2-linux.tgz
+  - export ANDROID_HOME=`pwd`/android-sdk-linux
+  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
+  # only update the sdk for the tools and platform-tools and required api level
+  # (run "android list sdk --extended" to get the full list)
+  - echo "y" | android update sdk -a --filter tools,platform-tools,build-tools-20.0.0,android-19 --no-ui --force
+  # deploy android SDK jar to local maven repository
+  - .utility/deploy-sdk-to-m2-repo.sh
+install:
+  - ./gradlew clean assemble
+script:
+  - ./gradlew clean check

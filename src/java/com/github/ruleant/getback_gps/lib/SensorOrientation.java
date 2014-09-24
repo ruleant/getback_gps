@@ -136,6 +136,12 @@ public class SensorOrientation implements SensorEventListener {
     private static final float LOW_PASS_ALPHA = 0.6f;
 
     /**
+     * Alpha value of circular average
+     * of orientation value calculated from sensors.
+     */
+    private static final float ALPHA_ORIENTATION_SENSORS = 0.05f;
+
+    /**
      * Constructor.
      *
      * @param context Context of the Android app
@@ -299,7 +305,10 @@ public class SensorOrientation implements SensorEventListener {
                         SettingsActivity.KEY_PREF_GEO_ORIENTATION_SENSOR,
                         SettingsActivity.DEFAULT_PREF_GEO_ORIENTATION_SENSOR));
 
+        // use calculated orientation by default
+        // (until raw sensor value is stable)
         if (sensor == SettingsActivity.GEO_ORIENTATION_SENSOR_CALCULATED
+            || sensor == SettingsActivity.GEO_ORIENTATION_SENSOR_AUTO
             && mOrientationSensor != null) {
             // orientation sensor is deprecated
             mSensorManager.registerListener(
@@ -351,7 +360,10 @@ public class SensorOrientation implements SensorEventListener {
                     orientationValues);
 
             if (orientationValues.length == SENSOR_VALUES_SIZE) {
-                mOrientation = Math.toDegrees(orientationValues[0]);
+                mOrientation = CircularAverage.getAverageValue(
+                        (float) mOrientation,
+                        (float) Math.toDegrees(orientationValues[0]),
+                        ALPHA_ORIENTATION_SENSORS);
                 mOrientationTimestamp = Tools.getMax(mMagneticFieldTimestamp,
                         mAccelerometerTimestamp);
 

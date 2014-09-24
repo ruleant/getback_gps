@@ -22,7 +22,6 @@ package com.github.ruleant.getback_gps.lib;
  */
 
 import android.content.Context;
-import android.location.Location;
 
 /**
  * StoredDestination saves a location, it will store a location for future use,
@@ -55,9 +54,10 @@ public class StoredDestination extends StoredLocation {
      *
      * @param location New location
      */
-    public final void setLocation(final Location location) {
-        Location tempLocation = new Location("");
+    public final void setLocation(final AriadneLocation location) {
+        AriadneLocation tempLocation = new AriadneLocation("");
 
+        tempLocation.setName(location.getName());
         tempLocation.setLongitude(location.getLongitude());
         tempLocation.setLatitude(location.getLatitude());
 

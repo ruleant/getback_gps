@@ -68,12 +68,11 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         // One of the group items (using the onClick attribute) was clicked
         // The item parameter passed here indicates which item it is
         // All other menu item clicks are handled by onOptionsItemSelected()
-        switch (item.getItemId()) {
-            case R.id.menu_details:
-                displayDetails(item);
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.menu_details) {
+            displayDetails(item);
+            return true;
+        } else {
+            return super.onOptionsItemSelected(item);
         }
     }
 
@@ -127,6 +126,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         // Refresh Directions to destination
         NavigationView nvToDestination
                 = (NavigationView) findViewById(R.id.navigationView_ToDest);
+        TextView tvToDestinationName
+                = (TextView) findViewById(R.id.textView_toDestName);
         TextView tvToDestinationDistance
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
@@ -137,10 +138,12 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         TextView tvToDestinationMessage
                 = (TextView) findViewById(R.id.textView_toDest_Message);
 
+        String toDestinationNameText = res.getString(R.string.notset);
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
-        Integer nvMode = NavigationView.DISABLED;
+        NavigationView.NavigationMode nvMode
+                = NavigationView.NavigationMode.Disabled;
         Boolean displayToDest = false;
 
         if (destination == null) {
@@ -151,6 +154,15 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                     = res.getString(R.string.destination_reached);
         } else {
             displayToDest = true;
+
+            // Set destination name
+            toDestinationNameText = navigator.getDestination().getName();
+
+            // if name is not set, use 'location name'
+            if (toDestinationNameText == null
+                    || toDestinationDirectionText.length() == 0) {
+                toDestinationNameText = res.getString(R.string.location_name);
+            }
 
             if (navigator.isLocationAccurate()) {
                 // Set distance to destination
@@ -169,11 +181,13 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                 if (navigator.isBearingAccurate()) {
                     nvToDestination.setDirection(
                             navigator.getRelativeDirection());
-                    nvMode = NavigationView.ACCURATE;
+                    nvToDestination.setAzimuth(
+                            navigator.getCurrentBearing());
+                    nvMode = NavigationView.NavigationMode.Accurate;
                 } else {
                     nvToDestination.setDirection(
                             navigator.getAbsoluteDirection());
-                    nvMode = NavigationView.INACCURATE;
+                    nvMode = NavigationView.NavigationMode.Inaccurate;
                 }
             }
         }
@@ -184,6 +198,7 @@ public class MainActivity extends AbstractGetBackGpsActivity {
             tvToDestinationMessage.setVisibility(LinearLayout.INVISIBLE);
 
             // update views
+            tvToDestinationName.setText(toDestinationNameText);
             tvToDestinationDistance.setText(toDestinationDistanceText);
             tvToDestinationDirection.setText(toDestinationDirectionText);
         } else {

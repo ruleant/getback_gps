@@ -151,10 +151,8 @@ public class LocationService extends Service
 
         // mProviderName is set by updateLocationProvider
         updateLocationProvider();
-        // and used in requestUpdatesFromProvider
-        if (isSetLocationProvider()) {
-            setLocation(requestUpdatesFromProvider());
-        }
+        // and used in requestUpdatesFromProvider, which sets location
+        requestUpdatesFromProvider();
 
         // Subscribe to sensor events
         if (mSensorOrientation.hasSensors()
@@ -365,17 +363,42 @@ public class LocationService extends Service
 
     /**
      * Store current location.
+     *
+     * @param locationName Descriptive name of the location to store
      */
-    public final void storeCurrentLocation() {
+    public final void storeCurrentLocation(final String locationName) {
         AriadneLocation currentLocation = getLocation();
+        String locationStoredMessage = "";
 
         // don't store current location if it is not set
         if (currentLocation != null && mStoredDestination != null) {
+            // check if a location name was entered
+            if (locationName == null || locationName.trim().length() == 0) {
+                // display a message if location name is not entered
+                Toast.makeText(
+                        this,
+                        R.string.no_location_name,
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                // set message to show when location is stored
+                locationStoredMessage
+                        = getResources().getString(R.string.location_stored);
+            } else {
+                currentLocation.setName(locationName);
+
+                // set message to show when location is stored
+                locationStoredMessage = String.format(
+                        getResources().getString(R.string.location_name_stored),
+                        locationName
+                );
+            }
+
             mStoredDestination.save(currentLocation);
             setDestination(mStoredDestination.getLocation());
             Toast.makeText(
                     this,
-                    R.string.location_stored,
+                    locationStoredMessage,
                     Toast.LENGTH_SHORT
             ).show();
         } else {
@@ -432,13 +455,12 @@ public class LocationService extends Service
      * If the requested provider is not available on the device,
      * the app displays a Toast with a message referenced by a resource id.
      *
-     * @return A previously returned {@link android.location.Location}
-     *         from the requested provider, if exists.
+     * @return true if a location was retrieved
      */
-    private Location requestUpdatesFromProvider() {
-        Location location = null;
+    private boolean requestUpdatesFromProvider() {
         if (isSetLocationProvider()
                 && mLastLocation != null
+                && mLocationManager != null
                 && mLocationManager.isProviderEnabled(mProviderName)) {
 
             // Get debug level from SharedPreferences
@@ -469,7 +491,13 @@ public class LocationService extends Service
                     Integer.parseInt(prefLocationUpdateTime),
                     Integer.parseInt(prefLocationUpdateDistance),
                     mListener);
-            location = mLocationManager.getLastKnownLocation(mProviderName);
+            Location location
+                    = mLocationManager.getLastKnownLocation(mProviderName);
+
+            if (location != null) {
+                setLocation(location);
+                return true;
+            }
         } else {
             Toast.makeText(
                     this,
@@ -477,7 +505,8 @@ public class LocationService extends Service
                     Toast.LENGTH_LONG
             ).show();
         }
-        return location;
+
+        return false;
     }
 
     /**
