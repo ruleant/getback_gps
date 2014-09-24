@@ -27,6 +27,9 @@ before_install:
   - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
   - cd $TRAVIS_BUILD_DIR
+install:
+  - timestamp.sh build
+  - ./gradlew assemble
 script:
   - timestamp.sh test
   - mvn test -B
