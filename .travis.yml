@@ -1,8 +1,5 @@
 #based on https://raw.github.com/leviwilson/android-travis-ci-example/master/.travis.yml
 language: android
-jdk:
-  - openjdk7
-  - oraclejdk8
 android:
   components:
     - android-20
