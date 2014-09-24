@@ -22,9 +22,6 @@ before_install:
   # install buildtime-trend dependencies using pip
   - timestamp.sh install_python_libs
   - sudo CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
-  # deploy android SDK jar to local maven repository
-  - timestamp.sh deploy_android_sdk
-  - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
   - cd $TRAVIS_BUILD_DIR
   - timestamp.sh build
