@@ -71,7 +71,7 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="northwest_unit">SZ</string>
     <string name="destination_reached">Na cíl</string>
     <string name="no_destination">Nebyl nastaven cíl</string>
-    <string name="pref_enable_sensors">Povolit čidla (pokud možno)</string>
+    <string name="pref_enable_sensors">Použít čidla</string>
     <string name="pref_geo_orientation_sensor">Výchozí čidlo orientace</string>
     <string name="sensors_enabled">Povoleno: přesnější a rychlejší změny azimutu</string>
     <string name="sensors_disabled">Vypnuto: šetří energii</string>
