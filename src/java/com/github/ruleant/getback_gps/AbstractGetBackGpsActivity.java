@@ -196,6 +196,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
 
         // Set the layout for the dialog
         builder.setView(dialogView)
+                .setTitle(R.string.store_location)
                 .setPositiveButton(R.string.store_location,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
