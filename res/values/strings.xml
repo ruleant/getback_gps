@@ -24,10 +24,13 @@
     <string name="refresh">Refresh</string>
     <!-- Strings related to Storing a location -->
     <string name="dialog_store_location_name">Enter a name for your current location:</string>
+    <string name="dialog_rename_destination">Enter a new name for your destination:</string>
     <string name="location_name">Location name</string>
     <string name="cancel">Cancel</string>
     <string name="store_location">Store Location</string>
+    <string name="rename_destination">Rename destination</string>
     <string name="store_location_disabled">Unable to store location if there is no current location</string>
+    <string name="rename_destination_disabled">Unable to rename destination, store a location first</string>
     <string name="location_stored">Location stored</string>
     <string name="location_name_stored">Location \'%s\' stored</string>
     <string name="no_location_name">Location name was not specified</string>
