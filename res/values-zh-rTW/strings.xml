@@ -92,4 +92,7 @@
     <string name="cancel">取消</string>
     <string name="location_name_stored">儲存\'%s\'位置</string>
     <string name="no_location_name">未指定位置名稱</string>
+    <string name="dialog_rename_destination">輸入您目的地的新名稱：</string>
+    <string name="rename_destination">目的地重新命名</string>
+    <string name="rename_destination_disabled">無法重新命名目的地，先儲存位置</string>
     </resources>
