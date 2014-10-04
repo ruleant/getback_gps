@@ -95,4 +95,7 @@
     <string name="dialog_store_location_name">Angiv et navn til din nuværende placering:</string>
     <string name="location_name">Placeringens navn</string>
     <string name="no_location_name">Placeringens navn blev ikke angivet</string>
+    <string name="dialog_rename_destination">Indtast et nyt navn for destinationen:</string>
+    <string name="rename_destination">Omdøb destinationen</string>
+    <string name="rename_destination_disabled">Kan ikke omdøbe destinationen, gem en placering først</string>
     </resources>
