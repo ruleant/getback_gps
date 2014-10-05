@@ -97,4 +97,7 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="cancel">Annuleren</string>
     <string name="location_name_stored">Locatie \'%s\' bewaard</string>
     <string name="no_location_name">Geen locatienaam ingegeven</string>
+    <string name="dialog_rename_destination">Geef je bestemming een nieuwe naam :</string>
+    <string name="rename_destination">Hernoem bestemming</string>
+    <string name="rename_destination_disabled">Niet mogelijk om bestemming te hernoemen, sla eerst een locatie op</string>
     </resources>
