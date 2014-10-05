@@ -97,4 +97,7 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
 	<item quantity="one">%d minuta</item>
 	<item quantity="other">%d minuty</item>
 </plurals>
+    <string name="dialog_rename_destination">Zadejte nový název pro cíl:</string>
+    <string name="rename_destination">Přejmenovat cíl</string>
+    <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
     </resources>
