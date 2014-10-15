@@ -95,4 +95,7 @@ Haurieu de rebre una còpia de la llicència pública general GNU junt amb aques
     <string name="cancel">Cancel·la</string>
     <string name="location_name_stored">S\'ha desat la posició \'%s\'</string>
     <string name="no_location_name">No s\'ha indicat cap nom de posició</string>
+    <string name="dialog_rename_destination">Introduïu un nou nom pel vostre destí:</string>
+    <string name="rename_destination">Canvia el nom del destí</string>
+    <string name="rename_destination_disabled">No es pot canviar el nom del destí, primer cal desar una posició</string>
     </resources>
