@@ -30,4 +30,8 @@
     <string name="speed_kph">km/h</string>
     <string name="current_bearing">現在の方角</string>
     <string name="distance">距離</string>
+    <string name="northeast_unit">北東</string>
+    <string name="southeast_unit">南東</string>
+    <string name="southwest_unit">南西</string>
+    <string name="northwest_unit">北西</string>
     </resources>
