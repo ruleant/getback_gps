@@ -21,4 +21,13 @@
     <string name="settings">設定</string>
     <string name="pref_header_general">全般</string>
     <string name="pref_header_loc_update">場所の更新</string>
+    <string name="app_desc">GPS座標を使用して、以前に訪れた場所へ戻る方法を探す。</string>
+    <string name="inaccurate_location">現在の場所に間違いがあります</string>
+    <string name="notice_no_dest">目的地を設定するためにあなたの場所を保存してください</string>
+    <string name="inaccurate_direction">目的地までの正確な方向を取得するために移動を開始してください</string>
+    <string name="notice_destination_reached">目的地に到着しました</string>
+    <string name="current_speed">現在のスピード</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">現在の方角</string>
+    <string name="distance">距離</string>
     </resources>
