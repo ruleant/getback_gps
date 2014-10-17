@@ -224,6 +224,69 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     }
 
     /**
+     * Called when the user clicks the Rename Destination menu item.
+     * It displays a dialog, where the user can enter a new name
+     * for the current destination.
+     *
+     * @param item MenuItem object that was clicked
+     */
+    final void renameDestination(final MenuItem item) {
+        if (mBound && mService.getDestination() == null) {
+            Toast.makeText(
+                    this,
+                    R.string.rename_destination_disabled,
+                    Toast.LENGTH_LONG
+            ).show();
+            return;
+        }
+
+        // Use the Builder class for convenient dialog construction,
+        // based on the example on
+        // https://developer.android.com/guide/topics/ui/dialogs.html
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Get the layout inflater
+        LayoutInflater inflater = this.getLayoutInflater();
+
+
+        // Inflate the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        final View dialogView
+                = inflater.inflate(R.layout.dialog_location_name, null);
+
+        // Get the EditText object containing the location name
+        final EditText etLocationName
+                = (EditText) dialogView.findViewById(R.id.location_name);
+
+        // Set the layout for the dialog
+        builder.setView(dialogView)
+                .setTitle(R.string.rename_destination)
+                .setPositiveButton(R.string.rename_destination,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                String locationName
+                                        = etLocationName.getText().toString();
+
+                                // store current location and refresh display
+                                if (mBound) {
+                                    mService.renameDestination(locationName);
+                                }
+                                refreshDisplay();
+                            }
+                        })
+                .setNegativeButton(R.string.cancel,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                // User cancelled the dialog
+                            }
+                        });
+
+        // Create the AlertDialog object and display it
+        builder.create().show();
+    }
+
+    /**
      * Called when the user clicks the refresh menu item.
      *
      * @param item MenuItem object that was clicked
@@ -270,6 +333,9 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             return true;
         } else if (itemId == R.id.menu_storelocation) {
             storeLocation(item);
+            return true;
+        } else if (itemId == R.id.menu_renamedestination) {
+            renameDestination(item);
             return true;
         } else if (itemId == R.id.menu_refresh) {
             refresh(item);
