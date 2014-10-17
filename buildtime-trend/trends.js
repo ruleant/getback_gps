@@ -113,7 +113,7 @@ function initCharts() {
         // draw chart
         var requestTotalBuilds = client.run(queryTotalBuilds, function() {
             this.draw(document.getElementById("metric_total_builds"), {
-                title: "Total build jobs", width: "200px"
+                title: "Total build jobs", width: "200"
             });
         });
         queryRequests.push(requestTotalBuilds);
@@ -151,7 +151,7 @@ function initCharts() {
                 {
                     title: "Build jobs passed",
                     colors: chartColor,
-                    width: "200px"
+                    width: "200"
                 }
             );
         });
@@ -190,7 +190,7 @@ function initCharts() {
                 {
                     title: "Build jobs failed",
                     colors: chartColor,
-                    width: "200px"
+                    width: "200"
                 }
             );
         });
@@ -212,7 +212,7 @@ function initCharts() {
         var requestAverageBuildTime = client.run(queryAverageBuildTime, function() {
             this.draw(document.getElementById("metric_average_build_time"), {
                 title: "Average job duration",
-                width: "250px",
+                width: "250",
                 chartOptions: {
                     suffix: "s"
                 }
