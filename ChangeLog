@@ -11,6 +11,7 @@
  - issue #161 : implement isValidFragment to fix Android bug fixed in Android
  API 19 (Kitkat), thanks to Олег Нощенко for reporting
  - CID 72849 : fix Coverity issue : dereference null return value
+ - translated to Japanese, thanks to naofum and J.S.Sebastian
 
  v0.3 (released on 07Jul2014)
  - CID 60865 : fix Coverity issue : dereference null return value
