@@ -69,4 +69,34 @@
  
  Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="name">Nome</string>
+    <string name="dialog_store_location_name">Escolha um nome para a localização:</string>
+    <string name="dialog_rename_destination">Insira um novo nome para o destino:</string>
+    <string name="location_name">Nome do local</string>
+    <string name="cancel">Cancelar</string>
+    <string name="rename_destination">Renomear destino</string>
+    <string name="rename_destination_disabled">Incapaz de renomear, armazene um local primeiro</string>
+    <string name="location_name_stored">Local \'%s\' armazenado</string>
+    <string name="destination_renamed">Destino renomeado</string>
+    <string name="no_location_name">Nome do local não especificado</string>
+    <string name="travel_direction">Direção de viagem</string>
+    <string name="travel_direction_forward">Siga em frente</string>
+    <string name="travel_direction_backwards">Para trás</string>
+    <string name="timestamp">Marcador de tempo</string>
+    <string name="direction_relative">Relativo ao trajeto atual</string>
+    <string name="pref_loc_update_dist">Atualizações baseadas na distância</string>
+    <string name="pref_loc_update_time">Atualizações baseadas no tempo</string>
+    <plurals name="distance_meter">
+	<item quantity="one">Um\n%d metro</item>
+	<item quantity="other">Outro\n%d metros</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">Um\n%d minuto</item>
+	<item quantity="other">Outro\n%d minutos</item>
+</plurals>
+    <string name="copyright">Copyright</string>
+    <string name="sensor_bearing_offset">Sensor baseado na bússola</string>
+    <plurals name="time_seconds">
+	<item quantity="one">Um\n%d segundo</item>
+	<item quantity="other">Outro\n%d segundos</item>
+</plurals>
     </resources>
