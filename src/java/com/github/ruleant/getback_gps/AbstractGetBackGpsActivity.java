@@ -252,7 +252,8 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         LayoutInflater inflater = this.getLayoutInflater();
 
         // Inflate the layout for the dialog
-        // Pass null as the parent view because it's going into the dialog layout
+        // Pass null as the parent view because it's going
+        // into the dialog layout
         final View dialogView
                 = inflater.inflate(R.layout.dialog_location_name, null);
 
