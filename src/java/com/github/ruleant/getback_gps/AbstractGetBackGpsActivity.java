@@ -252,6 +252,12 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         final View dialogView
                 = inflater.inflate(R.layout.dialog_location_name, null);
 
+        // Get the TextView object containing the location question
+        final TextView tvLocationMessage
+                = (TextView) dialogView.findViewById(R.id.location_message);
+        // set message for renaming destination
+        tvLocationMessage.setText(R.string.dialog_rename_destination);
+
         // Get the EditText object containing the location name
         final EditText etLocationName
                 = (EditText) dialogView.findViewById(R.id.location_name);
