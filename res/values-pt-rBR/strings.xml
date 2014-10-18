@@ -63,10 +63,10 @@
     <string name="version">Versão</string>
     <string name="build_time">Desenvolvida em %s.</string>
     <string name="app_website">Visite &lt;a href=%1$s&gt;website&lt;/a&gt; para mais informações.</string>
-    <string name="license">Este programa é um software livre: pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral da GNU por Free Software Foundation, seja pela versão 3 da licença, ou qualquer versão posterior.
- 
- Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.
- 
+    <string name="license">Este programa é um software livre: pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral da GNU por Free Software Foundation, seja pela versão 3 da licença, ou qualquer versão posterior.\n
+ \n
+ Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.\n
+ \n
  Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="name">Nome</string>
     <string name="dialog_store_location_name">Escolha um nome para a localização:</string>
@@ -86,17 +86,17 @@
     <string name="pref_loc_update_dist">Atualizações baseadas na distância</string>
     <string name="pref_loc_update_time">Atualizações baseadas no tempo</string>
     <plurals name="distance_meter">
-	<item quantity="one">Um\n%d metro</item>
-	<item quantity="other">Outro\n%d metros</item>
+	<item quantity="one">%d metro</item>
+	<item quantity="other">%d metros</item>
 </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">Um\n%d minuto</item>
-	<item quantity="other">Outro\n%d minutos</item>
+	<item quantity="one">%d minuto</item>
+	<item quantity="other">%d minutos</item>
 </plurals>
     <string name="copyright">Copyright</string>
     <string name="sensor_bearing_offset">Sensor baseado na bússola</string>
     <plurals name="time_seconds">
-	<item quantity="one">Um\n%d segundo</item>
-	<item quantity="other">Outro\n%d segundos</item>
+	<item quantity="one">%d segundo</item>
+	<item quantity="other">%d segundos</item>
 </plurals>
     </resources>
