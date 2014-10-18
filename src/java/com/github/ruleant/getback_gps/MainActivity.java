@@ -22,6 +22,7 @@
 package com.github.ruleant.getback_gps;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
@@ -42,14 +43,19 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  */
 public class MainActivity extends AbstractGetBackGpsActivity {
     /**
-     * Maximum length when displaying destination name.
+     * Maximum length when displaying destination name (Portrait orientation).
      */
-    private static final int DESTINATION_NAME_LENGTH = 21;
+    private static final int DESTINATION_NAME_LENGTH_PORTRAIT = 22;
+
+    /**
+     * Maximum length when displaying destination name (Landscape orientation).
+     */
+    private static final int DESTINATION_NAME_LENGTH_LANDSCAPE = 75;
 
     /**
      * String to append to shortened string, to indicate it was shortened.
      */
-    private static final String SHORTENER = "[..]";
+    private static final String SHORTENER = "(...)";
 
 
     @Override
@@ -175,10 +181,18 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                 toDestinationNameText = res.getString(R.string.location_name);
             }
 
+            // set maxLength depending on screen orientation
+            int maxLength;
+            if (res.getConfiguration().orientation ==
+                    Configuration.ORIENTATION_PORTRAIT) {
+                maxLength = DESTINATION_NAME_LENGTH_PORTRAIT;
+            } else {
+                maxLength = DESTINATION_NAME_LENGTH_LANDSCAPE;
+            }
+
             // shorten long names
-            if (toDestinationNameText.length() > DESTINATION_NAME_LENGTH) {
-                int lastCharPosition
-                        = DESTINATION_NAME_LENGTH - SHORTENER.length();
+            if (toDestinationNameText.length() > maxLength) {
+                int lastCharPosition = maxLength - SHORTENER.length();
                 toDestinationNameText
                         = toDestinationNameText.subSequence(0, lastCharPosition)
                         + SHORTENER;
