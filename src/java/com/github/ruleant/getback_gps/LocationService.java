@@ -411,7 +411,7 @@ public class LocationService extends Service
     }
 
     /**
-     * Rename Destination
+     * Rename Destination.
      *
      * @param locationName Descriptive name of the location to store
      */
@@ -434,8 +434,8 @@ public class LocationService extends Service
                     location.setName(locationName);
 
                     // set message to show when location is stored
-                    locationStoredMessage
-                            = getResources().getString(R.string.destination_renamed);
+                    locationStoredMessage = getResources().getString(
+                            R.string.destination_renamed);
 
                     mStoredDestination.save(location);
                     setDestination(mStoredDestination.getLocation());
@@ -456,7 +456,7 @@ public class LocationService extends Service
     }
 
     /**
-     * Get destination
+     * Get destination.
      *
      * @return Location
      */
