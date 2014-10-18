@@ -183,8 +183,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
 
             // set maxLength depending on screen orientation
             int maxLength;
-            if (res.getConfiguration().orientation ==
-                    Configuration.ORIENTATION_PORTRAIT) {
+            if (res.getConfiguration().orientation
+                    == Configuration.ORIENTATION_PORTRAIT) {
                 maxLength = DESTINATION_NAME_LENGTH_PORTRAIT;
             } else {
                 maxLength = DESTINATION_NAME_LENGTH_LANDSCAPE;
