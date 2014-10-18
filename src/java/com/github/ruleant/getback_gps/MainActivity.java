@@ -195,7 +195,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                 int lastCharPosition = maxLength - SHORTENER.length();
                 toDestinationNameText
                         = toDestinationNameText.subSequence(0, lastCharPosition)
-                        + SHORTENER;
+                            .toString().trim()
+                            + SHORTENER;
             }
 
             if (navigator.isLocationAccurate()) {
