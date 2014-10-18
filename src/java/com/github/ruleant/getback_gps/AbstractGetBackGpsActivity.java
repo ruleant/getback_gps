@@ -164,10 +164,8 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * Called when the user clicks the Store Location menu item.
      * It displays a dialog, where the user confirm or cancel storing
      * the current location.
-     *
-     * @param item MenuItem object that was clicked
      */
-    final void storeLocation(final MenuItem item) {
+    final void storeLocation() {
         if (mBound && mService.getLocation() == null) {
             Toast.makeText(
                     this,
@@ -231,10 +229,8 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * Called when the user clicks the Rename Destination menu item.
      * It displays a dialog, where the user can enter a new name
      * for the current destination.
-     *
-     * @param item MenuItem object that was clicked
      */
-    final void renameDestination(final MenuItem item) {
+    final void renameDestination() {
         if (mBound && mService.getDestination() == null) {
             Toast.makeText(
                     this,
@@ -352,10 +348,10 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             displayAbout(item);
             return true;
         } else if (itemId == R.id.menu_storelocation) {
-            storeLocation(item);
+            storeLocation();
             return true;
         } else if (itemId == R.id.menu_renamedestination) {
-            renameDestination(item);
+            renameDestination();
             return true;
         } else if (itemId == R.id.menu_refresh) {
             refresh(item);
