@@ -41,6 +41,17 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
 public class MainActivity extends AbstractGetBackGpsActivity {
+    /**
+     * Maximum length when displaying destination name.
+     */
+    private static final int DESTINATION_NAME_LENGTH = 21;
+
+    /**
+     * String to append to shortened string, to indicate it was shortened.
+     */
+    private static final String SHORTENER = "[..]";
+
+
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -162,6 +173,15 @@ public class MainActivity extends AbstractGetBackGpsActivity {
             if (toDestinationNameText == null
                     || toDestinationDirectionText.length() == 0) {
                 toDestinationNameText = res.getString(R.string.location_name);
+            }
+
+            // shorten long names
+            if (toDestinationNameText.length() > DESTINATION_NAME_LENGTH) {
+                int lastCharPosition
+                        = DESTINATION_NAME_LENGTH - SHORTENER.length();
+                toDestinationNameText
+                        = toDestinationNameText.subSequence(0, lastCharPosition)
+                        + SHORTENER;
             }
 
             if (navigator.isLocationAccurate()) {
