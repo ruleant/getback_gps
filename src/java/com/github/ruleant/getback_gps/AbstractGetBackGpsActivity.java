@@ -247,7 +247,6 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
 
-
         // Inflate the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         final View dialogView
@@ -256,6 +255,8 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // Get the EditText object containing the location name
         final EditText etLocationName
                 = (EditText) dialogView.findViewById(R.id.location_name);
+        // set current destination name as default
+        etLocationName.setText(mService.getDestination().getName());
 
         // Set the layout for the dialog
         builder.setView(dialogView)
