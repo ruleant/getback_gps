@@ -27,6 +27,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -41,7 +42,8 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class MainActivity extends AbstractGetBackGpsActivity {
+public class MainActivity extends AbstractGetBackGpsActivity
+        implements View.OnClickListener {
     /**
      * Maximum length when displaying destination name (Portrait orientation).
      */
@@ -62,6 +64,11 @@ public class MainActivity extends AbstractGetBackGpsActivity {
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // add onClicklistener to Destination name text view
+        TextView tvDestinationName
+                = (TextView) findViewById(R.id.textView_toDestName);
+        tvDestinationName.setOnClickListener(this);
     }
 
     @Override
@@ -250,5 +257,16 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         nvToDestination.invalidate();
 
         return true;
+    }
+
+    /**
+     * Implement the OnClickListener callback for destination name textView.
+     *
+     * @param view View object that was clicked
+     */
+    public final void onClick(final View view) {
+        if (view.getId() == R.id.textView_toDestName) {
+            renameDestination();
+        }
     }
 }
