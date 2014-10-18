@@ -95,4 +95,5 @@
     <string name="dialog_rename_destination">목적지의 새 이름을 입력 합니다:</string>
     <string name="rename_destination">목적지 이름변경</string>
     <string name="rename_destination_disabled">목적지 이름을 바꿀수 없습니다, 먼저 위치를 저장하세요.</string>
+    <string name="destination_renamed">대상 변경</string>
     </resources>
