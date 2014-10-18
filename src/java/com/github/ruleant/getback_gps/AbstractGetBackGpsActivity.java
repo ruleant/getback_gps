@@ -201,14 +201,18 @@ abstract class AbstractGetBackGpsActivity extends Activity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
-                                String locationName
+                                if (etLocationName != null) {
+                                    String locationName
                                         = etLocationName.getText().toString();
 
-                                 // store current location and refresh display
-                                if (mBound) {
-                                    mService.storeCurrentLocation(locationName);
+                                    // store current location
+                                    // and refresh display
+                                    if (mBound) {
+                                        mService.storeCurrentLocation(
+                                                locationName);
+                                    }
+                                    refreshDisplay();
                                 }
-                                refreshDisplay();
                             }
                         })
                 .setNegativeButton(R.string.cancel,
@@ -255,14 +259,18 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         // Get the TextView object containing the location question
         final TextView tvLocationMessage
                 = (TextView) dialogView.findViewById(R.id.location_message);
-        // set message for renaming destination
-        tvLocationMessage.setText(R.string.dialog_rename_destination);
+        if (tvLocationMessage != null) {
+            // set message for renaming destination
+            tvLocationMessage.setText(R.string.dialog_rename_destination);
+        }
 
         // Get the EditText object containing the location name
         final EditText etLocationName
                 = (EditText) dialogView.findViewById(R.id.location_name);
-        // set current destination name as default
-        etLocationName.setText(mService.getDestination().getName());
+        if (etLocationName != null) {
+            // set current destination name as default
+            etLocationName.setText(mService.getDestination().getName());
+        }
 
         // Set the layout for the dialog
         builder.setView(dialogView)
@@ -271,14 +279,18 @@ abstract class AbstractGetBackGpsActivity extends Activity {
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
-                                String locationName
+                                if (etLocationName != null) {
+                                    String locationName
                                         = etLocationName.getText().toString();
 
-                                // store current location and refresh display
-                                if (mBound) {
-                                    mService.renameDestination(locationName);
+                                    // store current location
+                                    // and refresh display
+                                    if (mBound) {
+                                        mService.renameDestination(
+                                                locationName);
+                                    }
+                                    refreshDisplay();
                                 }
-                                refreshDisplay();
                             }
                         })
                 .setNegativeButton(R.string.cancel,
