@@ -45,7 +45,7 @@ public class MainActivity extends AbstractGetBackGpsActivity {
     /**
      * Maximum length when displaying destination name (Portrait orientation).
      */
-    private static final int DESTINATION_NAME_LENGTH_PORTRAIT = 22;
+    private static final int DESTINATION_NAME_LENGTH_PORTRAIT = 19;
 
     /**
      * Maximum length when displaying destination name (Landscape orientation).
