@@ -366,10 +366,13 @@ abstract class AbstractGetBackGpsActivity extends Activity {
 
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
-        MenuItem mi = menu.findItem(R.id.menu_storelocation);
-        if (mBound) {
+        MenuItem miStoreLocation = menu.findItem(R.id.menu_storelocation);
+        MenuItem miRenameDest = menu.findItem(R.id.menu_renamedestination);
+        if (isBound()) {
             // enable store location button if a location is set
-            mi.setEnabled(mService.getLocation() != null);
+            miStoreLocation.setEnabled(mService.getLocation() != null);
+            // enable store location button if a location is set
+            miRenameDest.setEnabled(mService.getDestination() != null);
         }
 
         return super.onPrepareOptionsMenu(menu);
