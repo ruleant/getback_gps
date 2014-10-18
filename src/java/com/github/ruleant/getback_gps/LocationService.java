@@ -456,11 +456,11 @@ public class LocationService extends Service
     }
 
     /**
-     * Get stored location.
+     * Get destination
      *
      * @return Location
      */
-    public final Location getDestination() {
+    public final AriadneLocation getDestination() {
         if (mNavigator == null) {
             return null;
         }
