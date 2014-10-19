@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:paddingLeft="5dp"
         android:paddingRight="5dp"
         android:paddingTop="50dp" >
@@ -19,26 +20,20 @@
             android:id="@+id/navigationView_ToDest" />
 
         <LinearLayout
-            android:id="@+id/centerBelowGrid"
-            android:layout_width="wrap_content"
+            android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_below="@+id/navigationView_ToDest"
-            android:layout_centerHorizontal="true" />
+            android:orientation="horizontal"
+            android:padding="10dp" >
 
-        <include
-            layout="@layout/section_current"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/centerBelowGrid"
-            android:layout_toLeftOf="@+id/centerBelowGrid" />
+            <include
+                layout="@layout/section_current"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-        <include
-            layout="@layout/section_to_destination"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/centerBelowGrid"
-            android:layout_toRightOf="@+id/centerBelowGrid" />
-
-    </RelativeLayout>
+            <include
+                layout="@layout/section_to_destination"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
 </ScrollView>

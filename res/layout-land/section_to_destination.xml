@@ -42,49 +42,42 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:paddingTop="2dp"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
-            <LinearLayout
+            <TextView
+                android:id="@+id/textView_toDestDist"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingRight="5dp"
-                android:orientation="vertical" >
+                android:text="@string/unknown"
+                style="@style/captionValue" />
 
-                <TextView
-                    android:id="@+id/textView_toDestDist"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/distance"
-                    style="@style/captionDescription" />
-
-            </LinearLayout>
-
-            <LinearLayout
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="5dp"
-                android:orientation="vertical" >
+                android:text="@string/distance"
+                style="@style/captionDescription" />
 
-                <TextView
-                    android:id="@+id/textView_toDestDir"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+        </LinearLayout>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/direction"
-                    style="@style/captionDescription" />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:orientation="vertical" >
 
-            </LinearLayout>
+            <TextView
+                android:id="@+id/textView_toDestDir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                style="@style/captionValue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/direction"
+                style="@style/captionDescription" />
+
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>
