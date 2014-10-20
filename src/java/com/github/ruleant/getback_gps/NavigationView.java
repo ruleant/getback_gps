@@ -150,6 +150,11 @@ public class NavigationView extends ImageView {
     private Mode mNavigationMode = Mode.Disabled;
 
     /**
+     * Orientation mode.
+     */
+    private Mode mOrientationMode = Mode.Disabled;
+
+    /**
      * Attribute layout_height.
      */
     private int mAttributeLayoutHeight = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -332,6 +337,60 @@ public class NavigationView extends ImageView {
      */
     public final Mode getNavigationMode() {
         return mNavigationMode;
+    }
+
+    /**
+     * Sets orientation mode.
+     *
+     * @param mode Orientation mode : DISABLED, INACCURATE, ACCURATE
+     */
+    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
+    public final void setOrientationMode(final Mode mode) {
+        Resources res = getResources();
+
+        switch (mode) {
+            default:
+            case Disabled:
+                this.mNavigationMode = Mode.Disabled;
+                /*mPaintLines.setColor(Color.GRAY);
+                mPaintSolids.setColor(Color.LTGRAY);*/
+                break;
+            case Inaccurate:
+                this.mNavigationMode = mode;
+                /*if (Build.VERSION.SDK_INT
+                        >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                    mPaintLines.setColor(
+                            res.getColor(android.R.color.holo_blue_dark));
+                    mPaintSolids.setColor(
+                            res.getColor(android.R.color.holo_blue_light));
+                } else {
+                    mPaintLines.setColor(Style.holoBlueLight);
+                    mPaintSolids.setColor(Style.holoBlueLight);
+                }*/
+                break;
+            case Accurate:
+                this.mNavigationMode = mode;
+                /*if (Build.VERSION.SDK_INT
+                        >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
+                    mPaintLines.setColor(
+                            res.getColor(android.R.color.holo_green_dark));
+                    mPaintSolids.setColor(
+                            res.getColor(android.R.color.holo_green_light));
+                } else {
+                    mPaintLines.setColor(Style.holoGreenLight);
+                    mPaintSolids.setColor(Style.holoGreenLight);
+                }*/
+                break;
+        }
+    }
+
+    /**
+     * Get orientation mode.
+     *
+     * @return Orientation mode : DISABLED, INACCURATE, ACCURATE
+     */
+    public final Mode getOrientationMode() {
+        return mOrientationMode;
     }
 
     @Override
