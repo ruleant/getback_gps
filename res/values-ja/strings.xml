@@ -2,17 +2,14 @@
 <resources><string name="direction">方向</string>
     <string name="copyright">著作権</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d メートル</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="other">%d メートル</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d 秒</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="other">%d 秒</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d 分</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="other">%d 分</item>
+    </plurals>
     <string name="speed">速度</string>
     <string name="latitude">緯度</string>
     <string name="longitude">経度</string>
@@ -90,10 +87,10 @@
     <string name="version">バージョン</string>
     <string name="build_time">%s にビルド。</string>
     <string name="app_website">詳細は &lt;a href=%1$s&gt;webサイト&lt;/a&gt; を参照してください。</string>
-    <string name="license">This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.
- 
- This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
- 
+    <string name="license">This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.\n
+ \n
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n
+ \n
  You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="bearing">方角</string>
     <string name="destination_renamed">場所の名前を変更しました</string>
