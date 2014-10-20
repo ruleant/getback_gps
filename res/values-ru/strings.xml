@@ -70,19 +70,16 @@
     <string name="disabled">Выключено</string>
     <plurals name="distance_meter">
 	<item quantity="one">%d метр</item>
-	<item quantity="few">%d метров</item>
 	<item quantity="many">%d метров</item>
 	<item quantity="other"/>
 </plurals>
     <plurals name="time_seconds">
 	<item quantity="one">%d секунда</item>
-	<item quantity="few">%d секунд</item>
 	<item quantity="many">%d секунд</item>
 	<item quantity="other"/>
 </plurals>
     <plurals name="time_minutes">
 	<item quantity="one">%d минута</item>
-	<item quantity="few">%d минут</item>
 	<item quantity="many">%d минут</item>
 	<item quantity="other"/>
 </plurals>
