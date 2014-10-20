@@ -166,8 +166,8 @@ public class MainActivity extends AbstractGetBackGpsActivity
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
-        NavigationView.NavigationMode nvMode
-                = NavigationView.NavigationMode.Disabled;
+        NavigationView.Mode nvMode
+                = NavigationView.Mode.Disabled;
         Boolean displayToDest = false;
 
         if (destination == null) {
@@ -225,11 +225,11 @@ public class MainActivity extends AbstractGetBackGpsActivity
                             navigator.getRelativeDirection());
                     nvToDestination.setAzimuth(
                             navigator.getCurrentBearing());
-                    nvMode = NavigationView.NavigationMode.Accurate;
+                    nvMode = NavigationView.Mode.Accurate;
                 } else {
                     nvToDestination.setDirection(
                             navigator.getAbsoluteDirection());
-                    nvMode = NavigationView.NavigationMode.Inaccurate;
+                    nvMode = NavigationView.Mode.Inaccurate;
                 }
             }
         }
@@ -253,7 +253,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
         }
 
         // update views
-        nvToDestination.setMode(nvMode);
+        nvToDestination.setNavigationMode(nvMode);
         nvToDestination.invalidate();
 
         return true;
