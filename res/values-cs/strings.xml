@@ -87,15 +87,18 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="travel_direction_backwards">Zpět</string>
     <plurals name="distance_meter">
 	<item quantity="one">%d metr</item>
-	<item quantity="other">%d metry</item>
+	<item quantity="few">%d metry</item>
+	<item quantity="other">%d metrů</item>
 </plurals>
     <plurals name="time_seconds">
 	<item quantity="one">%d sekunda</item>
-	<item quantity="other">%d sekundy</item>
+	<item quantity="few">%d sekundy</item>
+	<item quantity="other">%d sekund</item>
 </plurals>
     <plurals name="time_minutes">
 	<item quantity="one">%d minuta</item>
-	<item quantity="other">%d minuty</item>
+	<item quantity="few">%d minuty</item>
+	<item quantity="other">%d minut</item>
 </plurals>
     <string name="dialog_rename_destination">Zadejte nový název pro cíl:</string>
     <string name="rename_destination">Přejmenovat cíl</string>
