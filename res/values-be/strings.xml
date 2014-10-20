@@ -94,6 +94,11 @@
 	<item quantity="one">%d хвіліна</item>
 	<item quantity="few">%d хвіліны</item>
 	<item quantity="many">%d хвіліны</item>
-	<item quantity="other"></item>
+	<item quantity="other"/>
 </plurals>
+    <string name="dialog_store_location_name">Калі ласка, увядзіце назву для вашага бягучага месцазнаходжання:</string>
+    <string name="location_name">Назва месцазнаходжання</string>
+    <string name="cancel">Скасаваць</string>
+    <string name="location_name_stored">Месцазнаходжанне \"%s\" захавана</string>
+    <string name="no_location_name">Назва месцазнаходжання не пазначана</string>
     </resources>
