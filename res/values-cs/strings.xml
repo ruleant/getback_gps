@@ -100,4 +100,5 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="dialog_rename_destination">Zadejte nový název pro cíl:</string>
     <string name="rename_destination">Přejmenovat cíl</string>
     <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
+    <string name="destination_renamed">Cíl byl přejmenován</string>
     </resources>
