@@ -344,42 +344,17 @@ public class NavigationView extends ImageView {
      *
      * @param mode Orientation mode : DISABLED, INACCURATE, ACCURATE
      */
-    @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
     public final void setOrientationMode(final Mode mode) {
-        Resources res = getResources();
-
         switch (mode) {
             default:
             case Disabled:
                 this.mOrientationMode = Mode.Disabled;
-                /*mPaintLines.setColor(Color.GRAY);
-                mPaintSolids.setColor(Color.LTGRAY);*/
                 break;
             case Inaccurate:
                 this.mOrientationMode = mode;
-                /*if (Build.VERSION.SDK_INT
-                        >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                    mPaintLines.setColor(
-                            res.getColor(android.R.color.holo_blue_dark));
-                    mPaintSolids.setColor(
-                            res.getColor(android.R.color.holo_blue_light));
-                } else {
-                    mPaintLines.setColor(Style.holoBlueLight);
-                    mPaintSolids.setColor(Style.holoBlueLight);
-                }*/
                 break;
             case Accurate:
                 this.mOrientationMode = mode;
-                /*if (Build.VERSION.SDK_INT
-                        >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
-                    mPaintLines.setColor(
-                            res.getColor(android.R.color.holo_green_dark));
-                    mPaintSolids.setColor(
-                            res.getColor(android.R.color.holo_green_light));
-                } else {
-                    mPaintLines.setColor(Style.holoGreenLight);
-                    mPaintSolids.setColor(Style.holoGreenLight);
-                }*/
                 break;
         }
     }
