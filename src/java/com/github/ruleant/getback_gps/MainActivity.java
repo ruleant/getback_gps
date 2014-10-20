@@ -166,8 +166,8 @@ public class MainActivity extends AbstractGetBackGpsActivity
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
-        NavigationView.NavigationMode nvMode
-                = NavigationView.NavigationMode.Disabled;
+        NavigationView.Mode nvNavigationMode = NavigationView.Mode.Disabled;
+        NavigationView.Mode nvOrientationMode = NavigationView.Mode.Disabled;
         Boolean displayToDest = false;
 
         if (destination == null) {
@@ -223,15 +223,20 @@ public class MainActivity extends AbstractGetBackGpsActivity
                 if (navigator.isBearingAccurate()) {
                     nvToDestination.setDirection(
                             navigator.getRelativeDirection());
-                    nvToDestination.setAzimuth(
-                            navigator.getCurrentBearing());
-                    nvMode = NavigationView.NavigationMode.Accurate;
+                    nvNavigationMode = NavigationView.Mode.Accurate;
                 } else {
                     nvToDestination.setDirection(
                             navigator.getAbsoluteDirection());
-                    nvMode = NavigationView.NavigationMode.Inaccurate;
+                    nvNavigationMode = NavigationView.Mode.Inaccurate;
                 }
             }
+        }
+
+        // if orientation is accurate, display compass rose
+        if (navigator.isBearingAccurate()) {
+            nvToDestination.setAzimuth(
+                    navigator.getCurrentBearing());
+            nvOrientationMode = NavigationView.Mode.Accurate;
         }
 
         if (displayToDest) {
@@ -253,7 +258,8 @@ public class MainActivity extends AbstractGetBackGpsActivity
         }
 
         // update views
-        nvToDestination.setMode(nvMode);
+        nvToDestination.setNavigationMode(nvNavigationMode);
+        nvToDestination.setOrientationMode(nvOrientationMode);
         nvToDestination.invalidate();
 
         return true;

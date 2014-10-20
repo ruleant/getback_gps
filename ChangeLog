@@ -12,6 +12,8 @@
  API 19 (Kitkat), thanks to Олег Нощенко for reporting
  - CID 72849 : fix Coverity issue : dereference null return value
  - translated to Japanese, thanks to naofum and J.S.Sebastian
+ - issue #16, #162 : add a name to a destination
+ - issue #157 : display compass rose when orientation is accurate
 
  v0.3 (released on 07Jul2014)
  - CID 60865 : fix Coverity issue : dereference null return value
@@ -28,7 +30,6 @@
  - issue #128 : Draw a compass rose pointing North
  - translated to French, thanks to Pierre Barre and an anonymous contributor
  - CID 68697 : fix Coverity issue : dereference null return value, when getting package info
- - issue #16, #162 : add a name to a destination
 
  v0.2 (released on 26Apr2014)
  - issue #112 : update ic_launcher-web.png icon
