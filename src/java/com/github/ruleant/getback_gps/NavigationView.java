@@ -278,7 +278,7 @@ public class NavigationView extends ImageView {
      * @return Angle to azimuth (0-360°)
      */
     public final double getAzimuth() {
-        if (getNavigationMode() == Mode.Disabled) {
+        if (getOrientationMode() == Mode.Disabled) {
             return 0;
         } else {
             return mAzimuth;
@@ -351,12 +351,12 @@ public class NavigationView extends ImageView {
         switch (mode) {
             default:
             case Disabled:
-                this.mNavigationMode = Mode.Disabled;
+                this.mOrientationMode = Mode.Disabled;
                 /*mPaintLines.setColor(Color.GRAY);
                 mPaintSolids.setColor(Color.LTGRAY);*/
                 break;
             case Inaccurate:
-                this.mNavigationMode = mode;
+                this.mOrientationMode = mode;
                 /*if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -369,7 +369,7 @@ public class NavigationView extends ImageView {
                 }*/
                 break;
             case Accurate:
-                this.mNavigationMode = mode;
+                this.mOrientationMode = mode;
                 /*if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -428,7 +428,7 @@ public class NavigationView extends ImageView {
                 mPaintRoseLines);
 
         // draw compass rose
-        if (getNavigationMode() == Mode.Accurate) {
+        if (getOrientationMode() == Mode.Accurate) {
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
             canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolidNorth);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
