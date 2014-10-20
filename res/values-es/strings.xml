@@ -75,7 +75,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="current_bearing">Rumbo actual</string>
     <string name="destination_reached">En destino</string>
     <string name="to_dest">En camino</string>
-    <string name="sensors_enabled">Habilitado: actualizaciones más rápidas y giros más precisos; Habilitado: actualizaciones más rápidas y movimientos más precisos</string>
+    <string name="sensors_enabled">Habilitado: actualizaciones más rápidas y giros más precisos</string>
     <string name="about">Acerca de</string>
     <string name="build_time">Compilado en %s.</string>
     <string name="dialog_store_location_name">Poner un nombre a la ubicación actual:</string>
