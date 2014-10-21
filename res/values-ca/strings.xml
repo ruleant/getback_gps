@@ -98,4 +98,5 @@ Haurieu de rebre una còpia de la llicència pública general GNU junt amb aques
     <string name="dialog_rename_destination">Introduïu un nou nom pel vostre destí:</string>
     <string name="rename_destination">Canvia el nom del destí</string>
     <string name="rename_destination_disabled">No es pot canviar el nom del destí, primer cal desar una posició</string>
+    <string name="destination_renamed">Canviat el nom de la destinació</string>
     </resources>
