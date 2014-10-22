@@ -84,7 +84,7 @@
 	<item quantity="one">%d минута</item>
 	<item quantity="few">%d минут</item>
 	<item quantity="many">%d минут</item>
-	<item quantity="other"></item>
+	<item quantity="other"/>
 </plurals>
     <string name="about">О программе</string>
     <string name="version">Версия</string>
@@ -101,4 +101,8 @@
     <string name="cancel">Отмена</string>
     <string name="location_name_stored">Местонахождение \"%s\" сохранено</string>
     <string name="no_location_name">Название местонахождения не указано</string>
+    <string name="dialog_rename_destination">Введите новое название для вашего пункта назначения:</string>
+    <string name="rename_destination">Переименовать пункт назначения</string>
+    <string name="rename_destination_disabled">Невозможно переименовать пункт назначения, сначала сохраните местонахождение</string>
+    <string name="destination_renamed">Пункт назначения переименован</string>
     </resources>
