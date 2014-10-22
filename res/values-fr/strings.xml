@@ -96,4 +96,8 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="location_name_stored">Position \"%s\" enregistrée</string>
     <string name="no_location_name">Nom de la position n\'a pas été précisé</string>
     <string name="location_name">Nom de la position</string>
+    <string name="dialog_rename_destination">Entrez un nouveau nom pour votre destination:</string>
+    <string name="rename_destination">Renommer la destination</string>
+    <string name="rename_destination_disabled">Impossible de renommer la destination, veuillez sauver la position</string>
+    <string name="destination_renamed">Destination renommée</string>
     </resources>
