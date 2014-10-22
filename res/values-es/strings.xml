@@ -20,7 +20,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="northwest_unit">NO</string>
     <string name="location_updated">Ubicación actualizada</string>
     <string name="inaccurate">Inpreciso</string>
-    <string name="no_destination">Destino no especificado</string>
+    <string name="no_destination">No se especificó destino</string>
     <string name="unknown">Desconocido</string>
     <string name="refresh">Actualizar</string>
     <string name="dialog_store_location">¿Desea guardar su ubicación actual?</string>
@@ -32,9 +32,9 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="activity_details">Detalles</string>
     <string name="location_provider">Proveedor de ubicación</string>
     <string name="provider">Proveedor</string>
-    <string name="loc_provider_network">red (teléfono móvil/WiFi)</string>
-    <string name="loc_provider_gps">GNSS</string>
-    <string name="provider_no_support">No hay soporte para ese proveedor.</string>
+    <string name="loc_provider_network">Red (Teléfono celular/Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">El proveedor no está soportado.</string>
     <string name="location">Ubicación</string>
     <string name="stored_location">Ubicación guardada</string>
     <string name="curr_location">Ubicación actual (última conocida)</string>
@@ -70,11 +70,11 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="sensors_disabled">Deshabilitado: ahorra energía</string>
     <string name="disabled">Deshabilitado</string>
     <string name="version">Versión</string>
-    <string name="app_website">Visite el &lt;a href=%1$s&gt;website&lt;/a&gt; para más información.</string>
-    <string name="copyright">Derechos de autor</string>
-    <string name="current_bearing">Rumbo actual</string>
+    <string name="app_website">Visite el &lt;a href=%1$s&gt;sitio web&lt;/a&gt; para más información.</string>
+    <string name="copyright">Derechos de Autor</string>
+    <string name="current_bearing">Giro actual</string>
     <string name="destination_reached">En destino</string>
-    <string name="to_dest">En camino</string>
+    <string name="to_dest">Hacia el destino</string>
     <string name="sensors_enabled">Habilitado: actualizaciones más rápidas y giros más precisos</string>
     <string name="about">Acerca de</string>
     <string name="build_time">Compilado en %s.</string>
