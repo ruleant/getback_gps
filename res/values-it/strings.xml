@@ -96,4 +96,8 @@
     <string name="location_name">Nome posizione</string>
     <string name="no_location_name">Nome posizione non specificato</string>
     <string name="location_name_stored">Posizione \'%s\' salvata</string>
+    <string name="dialog_rename_destination">Inserire un nome per la destinazione:</string>
+    <string name="rename_destination">Rinomina destinazione</string>
+    <string name="destination_renamed">Destinazione rinominata</string>
+    <string name="rename_destination_disabled">Impossibile rinominare destinazione, prima salvare una posizione</string>
     </resources>
