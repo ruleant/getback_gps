@@ -54,7 +54,7 @@
     <string name="settings">Configurações</string>
     <string name="pref_header_general">Geral</string>
     <string name="pref_header_loc_update">Atualização de localização</string>
-    <string name="pref_enable_sensors">Ativar sensores (se disponíveis)</string>
+    <string name="pref_enable_sensors">A utilização de sensores já existentes</string>
     <string name="pref_geo_orientation_sensor">Sensor na orientação padrão</string>
     <string name="sensors_enabled">Ativado : atualização mais rápida e maior precisão de deslocamento</string>
     <string name="sensors_disabled">Desativado : economiza energia</string>
@@ -94,7 +94,7 @@
 	<item quantity="other">%d minutos</item>
 </plurals>
     <string name="copyright">Copyright</string>
-    <string name="sensor_bearing_offset">Sensor baseado na bússola</string>
+    <string name="sensor_bearing_offset">Azimuth sensor baseado compensar</string>
     <plurals name="time_seconds">
 	<item quantity="one">%d segundo</item>
 	<item quantity="other">%d segundos</item>
