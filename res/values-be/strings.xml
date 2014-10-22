@@ -13,18 +13,18 @@
     <string name="refresh">Абнавіць</string>
     <string name="dialog_store_location">Ці хочаш зьберагчы сваё месцазнаходжанне?</string>
     <string name="no">Не</string>
-    <string name="store_location">Захаваць месца</string>
+    <string name="store_location">Захаваць месцазнаходжанне</string>
     <string name="store_location_disabled">Немагчыма зьберагчы месцазнаходжанне, бо яно невызначана</string>
-    <string name="location_stored">Месца захавана</string>
+    <string name="location_stored">Месцазнаходжанне захавана</string>
     <string name="menu_details">Аб месцы</string>
     <string name="activity_details">Падрабязнасьці</string>
     <string name="location_provider">Лякатар</string>
-    <string name="provider">Правайдар</string>
+    <string name="provider">Правайдэр</string>
     <string name="loc_provider_network">cетка (сотавая альбо WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Лякатар не падтрымліваецца.</string>
     <string name="copyright">Права на копію</string>
-    <string name="location">Месца</string>
+    <string name="location">Месцазнаходжанне</string>
     <string name="stored_location">Захаванае месца</string>
     <string name="curr_location">Цяперашняе месца (апошняе вядомае)</string>
     <string name="latitude">Шырата</string>
@@ -69,7 +69,7 @@
     <string name="inaccurate_direction">Пачні рух, каб высьветліць дакладны накірунак на цэль</string>
     <string name="notice_destination_reached">Ты вярнуўся на сваё месца</string>
     <string name="inaccurate">Недакладна</string>
-    <string name="destination_reached">На месцы!</string>
+    <string name="destination_reached">На месцы</string>
     <string name="no_destination">Мэты ня задана</string>
     <string name="name">Імя</string>
     <string name="direction_relative">адносна цяперашнага напрамку</string>
@@ -101,4 +101,8 @@
     <string name="cancel">Скасаваць</string>
     <string name="location_name_stored">Месцазнаходжанне \"%s\" захавана</string>
     <string name="no_location_name">Назва месцазнаходжання не пазначана</string>
+    <string name="dialog_rename_destination">Калі ласка, увядзіце новую назву для вашага месцы:</string>
+    <string name="rename_destination">Перайменаваць месца</string>
+    <string name="rename_destination_disabled">Немагчыма перайменаваць месца, спачатку захавайце месцазнаходжанне</string>
+    <string name="destination_renamed">Месца перайменавана</string>
     </resources>
