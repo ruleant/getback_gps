@@ -74,4 +74,16 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="sensors_disabled">Inaktiv : Stromsparend</string>
     <string name="pref_geo_orientation_sensor">Standard Orientierungssensor</string>
     <string name="sensors_enabled">Aktiv: Schneller aktualisierte und genauere Peilung</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d Meter</item>
+	<item quantity="other">%d Meter</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d Sekunde</item>
+	<item quantity="other">%d Sekunden</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d Minute</item>
+	<item quantity="other">%d Minuten</item>
+</plurals>
     </resources>

@@ -22,7 +22,7 @@
     <string name="to_dest">Naar bestemming</string>
     <string name="distance">Afstand</string>
     <string name="direction">Richting</string>
-    <string name="raw">Niet opgemaakt</string>
+    <string name="raw">Zonder opmaak</string>
     <string name="refresh">Vernieuwen</string>
     <string name="provider_no_support">Aanbieder wordt niet ondersteund.</string>
     <string name="version">Versie</string>
@@ -83,7 +83,7 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="northwest_unit">NW</string>
     <string name="destination_reached">Op bestemming</string>
     <string name="no_destination">Geen bestemming ingesteld</string>
-    <string name="pref_enable_sensors">Sensors gebruiken (indien aanwezig)</string>
+    <string name="pref_enable_sensors">Beschikbare sensoren gebruiken</string>
     <string name="sensors_enabled">Ingeschakeld : sneller bijgewerkte en nauwkeurigere richting</string>
     <string name="sensors_disabled">Uitgeschakeld : bespaart energie</string>
     <string name="pref_geo_orientation_sensor">Standaard richtingsensor</string>
@@ -91,4 +91,14 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="travel_direction">Bewegingsrichting</string>
     <string name="travel_direction_forward">Voorwaarts</string>
     <string name="travel_direction_backwards">Achterwaarts</string>
+    <string name="name">Naam</string>
+    <string name="dialog_store_location_name">Geef een naam aan je huidige locatie:</string>
+    <string name="location_name">Locatienaam</string>
+    <string name="cancel">Annuleren</string>
+    <string name="location_name_stored">Locatie \'%s\' bewaard</string>
+    <string name="no_location_name">Geen locatienaam ingegeven</string>
+    <string name="dialog_rename_destination">Geef je bestemming een nieuwe naam :</string>
+    <string name="rename_destination">Hernoem bestemming</string>
+    <string name="rename_destination_disabled">Niet mogelijk om bestemming te hernoemen, sla eerst een locatie op</string>
+    <string name="destination_renamed">Bestemming werd hernoemd</string>
     </resources>

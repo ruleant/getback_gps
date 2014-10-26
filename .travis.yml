@@ -1,7 +1,8 @@
 #based on https://raw.github.com/leviwilson/android-travis-ci-example/master/.travis.yml
-language: java
-jdk:
-  - openjdk7
+language: android
+android:
+  components:
+    - android-20
 env:
   global:
     - secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
@@ -15,30 +16,20 @@ before_install:
   - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone https://github.com/ruleant/buildtime-trend.git; fi
   - source buildtime-trend/init.sh
   - mvn -v
-  # install necessary x32-libs for Android SDK, see http://rkistner.github.io/android/2013/02/05/android-builds-on-travis-ci/
   - timestamp.sh install_libs
   - sudo apt-get update -qq
-  - sudo apt-get install -qq libstdc++6:i386 lib32z1 python-pip
+  - sudo apt-get install -qq python-pip
   # install buildtime-trend dependencies using pip
   - timestamp.sh install_python_libs
   - sudo CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
-  # download the latest android sdk and unzip
-  - timestamp.sh install_android_sdk
-  - wget http://dl.google.com/android/android-sdk_r22.6.2-linux.tgz
-  - tar -zxf android-sdk_r22.6.2-linux.tgz
-  - export ANDROID_HOME=`pwd`/android-sdk-linux
-  - export PATH=${PATH}:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools
-  # only update the sdk for the tools and platform-tools and required api level
-  # (run "android list sdk --extended" to get the full list)
-  - echo "y" | android update sdk -a --filter tools,platform-tools,build-tools-19.1.0,android-19 --no-ui --force
   # deploy android SDK jar to local maven repository
+  - timestamp.sh deploy_android_sdk
   - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
   - cd $TRAVIS_BUILD_DIR
-  - timestamp.sh build
 script:
   - timestamp.sh test
-  - mvn test -B
+  - ./gradlew clean check
 after_success:
   # send code coverage results to coveralls.io
   - timestamp.sh coverage
@@ -47,11 +38,7 @@ after_success:
   - timestamp.sh update_javadoc
   - mvn clean install javadoc:javadoc -DskipTests=true
   - .utility/copy-javadoc-to-gh-pages.sh
-after_success:
-  # analyse build timestamps
-  - timestamp.sh end
-  - sync-buildtime-trend-with-gh-pages.sh
-after_failure:
+after_script:
     # analyse build timestamps
   - timestamp.sh end
   - sync-buildtime-trend-with-gh-pages.sh

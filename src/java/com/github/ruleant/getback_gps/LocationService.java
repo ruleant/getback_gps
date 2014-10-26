@@ -363,17 +363,42 @@ public class LocationService extends Service
 
     /**
      * Store current location.
+     *
+     * @param locationName Descriptive name of the location to store
      */
-    public final void storeCurrentLocation() {
+    public final void storeCurrentLocation(final String locationName) {
         AriadneLocation currentLocation = getLocation();
+        String locationStoredMessage = "";
 
         // don't store current location if it is not set
         if (currentLocation != null && mStoredDestination != null) {
+            // check if a location name was entered
+            if (locationName == null || locationName.trim().length() == 0) {
+                // display a message if location name is not entered
+                Toast.makeText(
+                        this,
+                        R.string.no_location_name,
+                        Toast.LENGTH_SHORT
+                ).show();
+
+                // set message to show when location is stored
+                locationStoredMessage
+                        = getResources().getString(R.string.location_stored);
+            } else {
+                currentLocation.setName(locationName);
+
+                // set message to show when location is stored
+                locationStoredMessage = String.format(
+                        getResources().getString(R.string.location_name_stored),
+                        locationName
+                );
+            }
+
             mStoredDestination.save(currentLocation);
             setDestination(mStoredDestination.getLocation());
             Toast.makeText(
                     this,
-                    R.string.location_stored,
+                    locationStoredMessage,
                     Toast.LENGTH_SHORT
             ).show();
         } else {
@@ -386,11 +411,56 @@ public class LocationService extends Service
     }
 
     /**
-     * Get stored location.
+     * Rename Destination.
+     *
+     * @param locationName Descriptive name of the location to store
+     */
+    public final void renameDestination(final String locationName) {
+        String locationStoredMessage = "";
+
+        // don't store current location if it is not set
+        if (mStoredDestination != null) {
+            // check if a location name was entered
+            if (locationName == null || locationName.trim().length() == 0) {
+                // display a message if location name is not entered
+                Toast.makeText(
+                        this,
+                        R.string.no_location_name,
+                        Toast.LENGTH_SHORT
+                ).show();
+            } else {
+                AriadneLocation location = mStoredDestination.getLocation();
+                if (location != null) {
+                    location.setName(locationName);
+
+                    // set message to show when location is stored
+                    locationStoredMessage = getResources().getString(
+                            R.string.destination_renamed);
+
+                    mStoredDestination.save(location);
+                    setDestination(mStoredDestination.getLocation());
+                    Toast.makeText(
+                            this,
+                            locationStoredMessage,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
+        } else {
+            Toast.makeText(
+                    this,
+                    R.string.rename_destination_disabled,
+                    Toast.LENGTH_LONG
+            ).show();
+        }
+    }
+
+    /**
+     * Get destination.
      *
      * @return Location
      */
-    public final Location getDestination() {
+    public final AriadneLocation getDestination() {
         if (mNavigator == null) {
             return null;
         }

@@ -22,10 +22,12 @@
 package com.github.ruleant.getback_gps;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -40,11 +42,33 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-public class MainActivity extends AbstractGetBackGpsActivity {
+public class MainActivity extends AbstractGetBackGpsActivity
+        implements View.OnClickListener {
+    /**
+     * Maximum length when displaying destination name (Portrait orientation).
+     */
+    private static final int DESTINATION_NAME_LENGTH_PORTRAIT = 23;
+
+    /**
+     * Maximum length when displaying destination name (Landscape orientation).
+     */
+    private static final int DESTINATION_NAME_LENGTH_LANDSCAPE = 75;
+
+    /**
+     * String to append to shortened string, to indicate it was shortened.
+     */
+    private static final String SHORTENER = "(...)";
+
+
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        // add onClicklistener to Destination name text view
+        TextView tvDestinationName
+                = (TextView) findViewById(R.id.textView_toDestName);
+        tvDestinationName.setOnClickListener(this);
     }
 
     @Override
@@ -126,6 +150,8 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         // Refresh Directions to destination
         NavigationView nvToDestination
                 = (NavigationView) findViewById(R.id.navigationView_ToDest);
+        TextView tvToDestinationName
+                = (TextView) findViewById(R.id.textView_toDestName);
         TextView tvToDestinationDistance
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
@@ -136,11 +162,12 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         TextView tvToDestinationMessage
                 = (TextView) findViewById(R.id.textView_toDest_Message);
 
+        String toDestinationNameText = res.getString(R.string.notset);
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
-        NavigationView.NavigationMode nvMode
-                = NavigationView.NavigationMode.Disabled;
+        NavigationView.Mode nvNavigationMode = NavigationView.Mode.Disabled;
+        NavigationView.Mode nvOrientationMode = NavigationView.Mode.Disabled;
         Boolean displayToDest = false;
 
         if (destination == null) {
@@ -151,6 +178,33 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                     = res.getString(R.string.destination_reached);
         } else {
             displayToDest = true;
+
+            // Set destination name
+            toDestinationNameText = navigator.getDestination().getName();
+
+            // if name is not set, use 'location name'
+            if (toDestinationNameText == null
+                    || toDestinationDirectionText.length() == 0) {
+                toDestinationNameText = res.getString(R.string.location_name);
+            }
+
+            // set maxLength depending on screen orientation
+            int maxLength;
+            if (res.getConfiguration().orientation
+                    == Configuration.ORIENTATION_PORTRAIT) {
+                maxLength = DESTINATION_NAME_LENGTH_PORTRAIT;
+            } else {
+                maxLength = DESTINATION_NAME_LENGTH_LANDSCAPE;
+            }
+
+            // shorten long names
+            if (toDestinationNameText.length() > maxLength) {
+                int lastCharPosition = maxLength - SHORTENER.length();
+                toDestinationNameText
+                        = toDestinationNameText.subSequence(0, lastCharPosition)
+                            .toString().trim()
+                            + SHORTENER;
+            }
 
             if (navigator.isLocationAccurate()) {
                 // Set distance to destination
@@ -169,15 +223,20 @@ public class MainActivity extends AbstractGetBackGpsActivity {
                 if (navigator.isBearingAccurate()) {
                     nvToDestination.setDirection(
                             navigator.getRelativeDirection());
-                    nvToDestination.setAzimuth(
-                            navigator.getCurrentBearing());
-                    nvMode = NavigationView.NavigationMode.Accurate;
+                    nvNavigationMode = NavigationView.Mode.Accurate;
                 } else {
                     nvToDestination.setDirection(
                             navigator.getAbsoluteDirection());
-                    nvMode = NavigationView.NavigationMode.Inaccurate;
+                    nvNavigationMode = NavigationView.Mode.Inaccurate;
                 }
             }
+        }
+
+        // if orientation is accurate, display compass rose
+        if (navigator.isBearingAccurate()) {
+            nvToDestination.setAzimuth(
+                    navigator.getCurrentBearing());
+            nvOrientationMode = NavigationView.Mode.Accurate;
         }
 
         if (displayToDest) {
@@ -186,6 +245,7 @@ public class MainActivity extends AbstractGetBackGpsActivity {
             tvToDestinationMessage.setVisibility(LinearLayout.INVISIBLE);
 
             // update views
+            tvToDestinationName.setText(toDestinationNameText);
             tvToDestinationDistance.setText(toDestinationDistanceText);
             tvToDestinationDirection.setText(toDestinationDirectionText);
         } else {
@@ -198,9 +258,21 @@ public class MainActivity extends AbstractGetBackGpsActivity {
         }
 
         // update views
-        nvToDestination.setMode(nvMode);
+        nvToDestination.setNavigationMode(nvNavigationMode);
+        nvToDestination.setOrientationMode(nvOrientationMode);
         nvToDestination.invalidate();
 
         return true;
+    }
+
+    /**
+     * Implement the OnClickListener callback for destination name textView.
+     *
+     * @param view View object that was clicked
+     */
+    public final void onClick(final View view) {
+        if (view.getId() == R.id.textView_toDestName) {
+            renameDestination();
+        }
     }
 }

@@ -3,11 +3,12 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.ruleant.getback_gps</groupId>
     <artifactId>getback_gps</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
     <packaging>apk</packaging>
     <name>GetBack GPS</name>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     </properties>
     <pluginRepositories>
         <pluginRepository>
@@ -26,7 +27,7 @@
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>4.4.2_r3</version>
+            <version>4.4W_r1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -80,8 +81,8 @@
                 <configuration>
                     <release>true</release>
                     <sdk>
-                        <!-- platform or api level (api level 19 = platform 4.4) -->
-                        <platform>19</platform>
+                        <!-- platform or api level (api level 20 = platform 4.4W) -->
+                        <platform>20</platform>
                     </sdk>
                     <lint>
                         <skip>false</skip>

@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="direction">方向</string>
+    <string name="copyright">著作権</string>
+    <plurals name="distance_meter">
+        <item quantity="other">%d メートル</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="other">%d 秒</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="other">%d 分</item>
+    </plurals>
+    <string name="speed">速度</string>
+    <string name="latitude">緯度</string>
+    <string name="longitude">経度</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="location_name">地名</string>
+    <string name="settings">設定</string>
+    <string name="pref_header_general">全般</string>
+    <string name="pref_header_loc_update">場所の更新</string>
+    <string name="app_desc">GPS座標を使用して、以前に訪れた場所へ戻る方法を探す。</string>
+    <string name="inaccurate_location">現在の場所に間違いがあります</string>
+    <string name="notice_no_dest">目的地を設定するためにあなたの場所を保存してください</string>
+    <string name="inaccurate_direction">目的地までの正確な方向を取得するために移動を開始してください</string>
+    <string name="notice_destination_reached">目的地に到着しました</string>
+    <string name="current_speed">現在のスピード</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">現在の方角</string>
+    <string name="distance">距離</string>
+    <string name="northeast_unit">北東</string>
+    <string name="southeast_unit">南東</string>
+    <string name="southwest_unit">南西</string>
+    <string name="northwest_unit">北西</string>
+    <string name="location_updated">場所を更新しました</string>
+    <string name="inaccurate">不正確</string>
+    <string name="destination_reached">目的地です</string>
+    <string name="no_destination">目的地がセットされていません</string>
+    <string name="unknown">不明</string>
+    <string name="refresh">更新</string>
+    <string name="dialog_store_location_name">現在の場所の名前を入力してください:</string>
+    <string name="dialog_rename_destination">目的地の新しい名前を入力してください:</string>
+    <string name="cancel">キャンセル</string>
+    <string name="store_location">場所を保存</string>
+    <string name="rename_destination">場所の名前を変更</string>
+    <string name="store_location_disabled">現在の場所が存在しない場合、場所を保存することができません</string>
+    <string name="rename_destination_disabled">目的地の名前を変更できません。先に場所を保存してください</string>
+    <string name="location_stored">場所を保存しました</string>
+    <string name="location_name_stored">場所 \'%s\' を保存しました</string>
+    <string name="no_location_name">場所の名前が指定されていません</string>
+    <string name="menu_details">場所の詳細</string>
+    <string name="activity_details">詳細</string>
+    <string name="location_provider">場所プロバイダー</string>
+    <string name="name">名前</string>
+    <string name="provider">プロバイダー</string>
+    <string name="loc_provider_network">ネットワーク (携帯電話/WiFi)</string>
+    <string name="provider_no_support">プロバイダーはサポートされていません。</string>
+    <string name="location">場所</string>
+    <string name="stored_location">保存済の場所</string>
+    <string name="curr_location">現在の (最新の) 場所</string>
+    <string name="latitude_north_unit">北</string>
+    <string name="latitude_south_unit">南</string>
+    <string name="longitude_east_unit">東</string>
+    <string name="longitude_west_unit">西</string>
+    <string name="altitude">高度</string>
+    <string name="sensor_bearing_offset">センサーの方角オフセット</string>
+    <string name="travel_direction">進行方向</string>
+    <string name="travel_direction_forward">前方</string>
+    <string name="travel_direction_backwards">後方</string>
+    <string name="accuracy">精度</string>
+    <string name="timestamp">タイムスタンプ</string>
+    <string name="destination">目的地</string>
+    <string name="to_dest">目的地へ</string>
+    <string name="direction_relative">現在の向きを基準に</string>
+    <string name="raw">未フォーマット</string>
+    <string name="none">なし</string>
+    <string name="notset">未セット</string>
+    <string name="loc_updated_recent">場所は最近更新されました。</string>
+    <string name="loc_updated_not_recent">場所は最近更新されていません。</string>
+    <string name="pref_loc_update_dist">距離に基づく更新</string>
+    <string name="pref_loc_update_time">時間に基づく更新</string>
+    <string name="pref_enable_sensors">利用可能なセンサーを使用</string>
+    <string name="pref_geo_orientation_sensor">デフォルトの方位センサー</string>
+    <string name="sensors_enabled">有効 : より迅速な更新、より正確な方角</string>
+    <string name="sensors_disabled">無効 : 電力を節約</string>
+    <string name="disabled">無効</string>
+    <string name="about">アプリについて</string>
+    <string name="version">バージョン</string>
+    <string name="build_time">%s にビルド。</string>
+    <string name="app_website">詳細は &lt;a href=%1$s&gt;webサイト&lt;/a&gt; を参照してください。</string>
+    <string name="license">This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or any later version.\n
+ \n
+ This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n
+ \n
+ You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+<string name="bearing">方角</string>
+    <string name="destination_renamed">場所の名前を変更しました</string>
+    </resources>

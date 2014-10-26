@@ -71,8 +71,37 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="northwest_unit">SZ</string>
     <string name="destination_reached">Na cíl</string>
     <string name="no_destination">Nebyl nastaven cíl</string>
-    <string name="pref_enable_sensors">Povolit čidla (pokud možno)</string>
+    <string name="pref_enable_sensors">Použít čidla</string>
     <string name="pref_geo_orientation_sensor">Výchozí čidlo orientace</string>
     <string name="sensors_enabled">Povoleno: přesnější a rychlejší změny azimutu</string>
     <string name="sensors_disabled">Vypnuto: šetří energii</string>
+    <string name="dialog_store_location_name">Zadejte název tohoto místa:</string>
+    <string name="location_name">Název místa</string>
+    <string name="cancel">Zrušit</string>
+    <string name="location_name_stored">Uloženo místo „%s“</string>
+    <string name="no_location_name">Nebyl zadán název místa</string>
+    <string name="name">Název</string>
+    <string name="sensor_bearing_offset">Posun azimutu založený na čidlech</string>
+    <string name="travel_direction">Směr cesty</string>
+    <string name="travel_direction_forward">Dopředu</string>
+    <string name="travel_direction_backwards">Zpět</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d metr</item>
+	<item quantity="few">%d metry</item>
+	<item quantity="other">%d metrů</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d sekunda</item>
+	<item quantity="few">%d sekundy</item>
+	<item quantity="other">%d sekund</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minuta</item>
+	<item quantity="few">%d minuty</item>
+	<item quantity="other">%d minut</item>
+</plurals>
+    <string name="dialog_rename_destination">Zadejte nový název pro cíl:</string>
+    <string name="rename_destination">Přejmenovat cíl</string>
+    <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
+    <string name="destination_renamed">Cíl byl přejmenován</string>
     </resources>

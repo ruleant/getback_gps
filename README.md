@@ -1,6 +1,7 @@
-GetBack GPS
-===========
+GetBack GPS for Android
+=======================
 
+[![GetBack GPS](http://img.shields.io/badge/release-v0.3-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
@@ -25,6 +26,15 @@ Features
 - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
 - indicate current speed and current bearing
 - use built-in sensors to get more accurate and quicker updated bearing
+- compass rose indicating North
+- detect travel direction and adjust relative direction to destination accordingly
+
+How to get it?
+--------------
+
+The [latest version](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps) is available on [F-Droid](https://f-droid.org/). Install the apk directly from the F-Droid website, or use the [F-Droid app](https://f-droid.org/FDroid.apk) to keep automaticaly up to date with future releases.
+
+If you want to try out the latest development version, you can get the code from the [git repository](https://f-droid.org/FDroid.apk) and [build the current development version](https://github.com/ruleant/getback_gps/wiki/Development) yourself.
 
 
 Bugs and feature requests
@@ -65,6 +75,11 @@ Third party material
     - This script was originally written by Xiaohao Ma in the aws-mock project and modified by Ben Limmer.
       See script file for more details.
     - license : Apache 2.0
+
+- .utility/remove-incomplete-translations
+    - Based on scripts/remove-incomplete-mo of the phpMyAdmin project
+    - origin : https://github.com/phpmyadmin/phpmyadmin/blob/master/scripts/remove-incomplete-mo
+    - license : GPLv2
 
 - Crouton library
     - version : v1.8.1

@@ -129,7 +129,7 @@ public class NavigationView extends ImageView {
     /**
      * Navigation mode enum.
      */
-    public enum NavigationMode {
+    public enum Mode {
         /**
          * Mode disabled.
          */
@@ -147,7 +147,12 @@ public class NavigationView extends ImageView {
     /**
      * Navigation mode.
      */
-    private NavigationMode mMode = NavigationMode.Disabled;
+    private Mode mNavigationMode = Mode.Disabled;
+
+    /**
+     * Orientation mode.
+     */
+    private Mode mOrientationMode = Mode.Disabled;
 
     /**
      * Attribute layout_height.
@@ -251,7 +256,7 @@ public class NavigationView extends ImageView {
      * @return Direction to destination (0-360°)
      */
     public final double getDirection() {
-        if (getMode() == NavigationMode.Disabled) {
+        if (getNavigationMode() == Mode.Disabled) {
             return 0;
         } else {
             return mDirection;
@@ -273,7 +278,7 @@ public class NavigationView extends ImageView {
      * @return Angle to azimuth (0-360°)
      */
     public final double getAzimuth() {
-        if (getMode() == NavigationMode.Disabled) {
+        if (getOrientationMode() == Mode.Disabled) {
             return 0;
         } else {
             return mAzimuth;
@@ -286,18 +291,18 @@ public class NavigationView extends ImageView {
      * @param mode Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
     @TargetApi(Build.VERSION_CODES.ICE_CREAM_SANDWICH)
-    public final void setMode(final NavigationMode mode) {
+    public final void setNavigationMode(final Mode mode) {
         Resources res = getResources();
 
         switch (mode) {
             default:
             case Disabled:
-                this.mMode = NavigationMode.Disabled;
+                this.mNavigationMode = Mode.Disabled;
                 mPaintLines.setColor(Color.GRAY);
                 mPaintSolids.setColor(Color.LTGRAY);
                 break;
             case Inaccurate:
-                this.mMode = mode;
+                this.mNavigationMode = mode;
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -310,7 +315,7 @@ public class NavigationView extends ImageView {
                 }
                 break;
             case Accurate:
-                this.mMode = mode;
+                this.mNavigationMode = mode;
                 if (Build.VERSION.SDK_INT
                         >= Build.VERSION_CODES.ICE_CREAM_SANDWICH) {
                     mPaintLines.setColor(
@@ -330,8 +335,37 @@ public class NavigationView extends ImageView {
      *
      * @return Navigation mode : DISABLED, INACCURATE, ACCURATE
      */
-    public final NavigationMode getMode() {
-        return mMode;
+    public final Mode getNavigationMode() {
+        return mNavigationMode;
+    }
+
+    /**
+     * Sets orientation mode.
+     *
+     * @param mode Orientation mode : DISABLED, INACCURATE, ACCURATE
+     */
+    public final void setOrientationMode(final Mode mode) {
+        switch (mode) {
+            default:
+            case Disabled:
+                this.mOrientationMode = Mode.Disabled;
+                break;
+            case Inaccurate:
+                this.mOrientationMode = mode;
+                break;
+            case Accurate:
+                this.mOrientationMode = mode;
+                break;
+        }
+    }
+
+    /**
+     * Get orientation mode.
+     *
+     * @return Orientation mode : DISABLED, INACCURATE, ACCURATE
+     */
+    public final Mode getOrientationMode() {
+        return mOrientationMode;
     }
 
     @Override
@@ -369,7 +403,7 @@ public class NavigationView extends ImageView {
                 mPaintRoseLines);
 
         // draw compass rose
-        if (getMode() == NavigationMode.Accurate) {
+        if (getOrientationMode() == Mode.Accurate) {
             mRoseRotationConverter.setRotationAngle(mRoseRotation);
             canvas.drawPath(mCompassRoseBody.toPath(), mPaintRoseSolidNorth);
             canvas.drawLines(mCompassRose.toLinesArray(), mPaintRoseLines);
