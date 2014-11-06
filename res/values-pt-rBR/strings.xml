@@ -29,7 +29,6 @@
     <string name="loc_provider_network">rede (celular/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provedor não suportado.</string>
-    <string name="stored_location">Local salvo</string>
     <string name="curr_location">Última localização</string>
     <string name="latitude">Latitide</string>
     <string name="latitude_north_unit">N</string>

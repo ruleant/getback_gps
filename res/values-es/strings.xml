@@ -33,7 +33,6 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="loc_provider_network">Red (Teléfono celular/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">El proveedor no está soportado.</string>
-    <string name="stored_location">Ubicación guardada</string>
     <string name="curr_location">Ubicación actual (última conocida)</string>
     <string name="latitude">Latitud</string>
     <string name="latitude_north_unit">N</string>

@@ -29,7 +29,6 @@
     <string name="loc_provider_network">Netværk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Udbyderen understøttes ikke.</string>
-    <string name="stored_location">Gemt placering</string>
     <string name="curr_location">Nuværende (sidst kendte) placering</string>
     <string name="latitude">Breddegrad</string>
     <string name="latitude_north_unit">N</string>

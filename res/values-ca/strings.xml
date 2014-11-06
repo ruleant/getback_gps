@@ -30,7 +30,6 @@
     <string name="loc_provider_network">xarxa (telèfon mòbil/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Aquest proveïdor no té suport.</string>
-    <string name="stored_location">Posició desada</string>
     <string name="curr_location">Posició actual (darrera coneguda)</string>
     <string name="latitude">Latitud</string>
     <string name="latitude_north_unit">N</string>

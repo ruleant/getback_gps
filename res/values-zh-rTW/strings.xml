@@ -26,7 +26,6 @@
     <string name="loc_provider_network">網路 (手機/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">提供者並不支援。</string>
-    <string name="stored_location">儲存位置</string>
     <string name="curr_location">現在（最後已知）的位置</string>
     <string name="latitude">緯度</string>
     <string name="latitude_north_unit">北</string>

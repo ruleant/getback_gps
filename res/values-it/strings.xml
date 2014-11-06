@@ -26,7 +26,6 @@
     <string name="loc_provider_network">Rete (Cellulare/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">La sorgente non è supportata.</string>
-    <string name="stored_location">Posizioni memorizzate</string>
     <string name="curr_location">Posizione(ultima conosciuta) corrente</string>
     <string name="latitude_north_unit">N</string>
     <string name="latitude_south_unit">S</string>

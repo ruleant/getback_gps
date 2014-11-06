@@ -8,7 +8,6 @@
     <string name="location_provider">Poskytovatel polohy</string>
     <string name="provider">Poskytovatel</string>
     <string name="curr_location">Současné (poslední známé) umístění</string>
-    <string name="stored_location">Uložené umístění</string>
     <string name="store_location">Uložit umístění</string>
     <string name="latitude">Zeměpisná šířka</string>
     <string name="longitude">Zeměpisná délka</string>
