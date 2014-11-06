@@ -22,7 +22,6 @@
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Лякатар не падтрымліваецца.</string>
     <string name="copyright">Аўтарскае права</string>
-    <string name="location">Месцазнаходжанне</string>
     <string name="stored_location">Захаванае месцазнаходжанне</string>
     <string name="curr_location">Цяперашняе месцазнаходжанне (апошняе вядомае)</string>
     <string name="latitude">Шырата</string>

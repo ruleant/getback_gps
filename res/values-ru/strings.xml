@@ -29,7 +29,6 @@
     <string name="loc_provider_network">Сеть (Сотовый телефон/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Провайдер не поддерживается.</string>
-    <string name="location">Местонахождение</string>
     <string name="stored_location">Сохранённое местонахождение</string>
     <string name="curr_location">Текущее (последнее известное) местонахождение</string>
     <string name="latitude">Широта</string>

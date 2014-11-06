@@ -32,7 +32,6 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="loc_provider_network">Réseau (Data/Wifi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Fournisseur non supporté.</string>
-    <string name="location">Localisation</string>
     <string name="stored_location">Position enregistrée</string>
     <string name="curr_location">Position actuelle (dernière connue)</string>
     <string name="latitude">Latitude</string>

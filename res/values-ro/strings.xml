@@ -30,7 +30,6 @@
     <string name="loc_provider_network">rețea (telefonie mobilă/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Furnizorul nu este compatibil.</string>
-    <string name="location">Locație</string>
     <string name="stored_location">Locație salvată</string>
     <string name="curr_location">Locație curentă (ultima disponibilă)</string>
     <string name="latitude">Latitudine</string>

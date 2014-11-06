@@ -7,7 +7,6 @@
     <string name="notset">Niet ingesteld</string>
     <string name="location_provider">Locatieaanbieder</string>
     <string name="provider">Aanbieder</string>
-    <string name="location">Locatie</string>
     <string name="curr_location">Huidige (laatst gekende) locatie</string>
     <string name="stored_location">Bewaarde locatie</string>
     <string name="store_location">Bewaar locatie</string>

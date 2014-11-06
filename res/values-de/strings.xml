@@ -29,7 +29,6 @@
     <string name="loc_provider_network">Netzwerk (Telefon/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provider wird nicht unterstützt.</string>
-    <string name="location">Ort</string>
     <string name="stored_location">Gespeicherter Ort</string>
     <string name="curr_location">Aktueller (letzter bekannter) Ort</string>
     <string name="latitude">Breitengrad</string>

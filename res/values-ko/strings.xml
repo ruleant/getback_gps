@@ -29,7 +29,6 @@
     <string name="loc_provider_network">네트워크 (휴대 전화/와이파이)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">공급자를 지원하지 않습니다.</string>
-    <string name="location">위치</string>
     <string name="stored_location">저장된 위치</string>
     <string name="curr_location">(마지막으로 성공한) 현재 위치</string>
     <string name="latitude">위도</string>
