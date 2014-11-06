@@ -16,7 +16,6 @@
     <string name="no_destination">沒有設定目的地</string>
     <string name="unknown">未知的</string>
     <string name="refresh">重整</string>
-    <string name="no">否</string>
     <string name="store_location">儲存位置</string>
     <string name="store_location_disabled">如果沒有目前的位置，無法存儲位置</string>
     <string name="location_stored">位置儲存</string>

@@ -11,7 +11,6 @@
     <string name="location_updated">Месцазнаходжанне абноўлена</string>
     <string name="unknown">Невядома</string>
     <string name="refresh">Абнавіць</string>
-    <string name="no">Не</string>
     <string name="store_location">Захаваць месцазнаходжанне</string>
     <string name="store_location_disabled">Немагчыма зьберагчы месцазнаходжанне, бо яно невызначана</string>
     <string name="location_stored">Месцазнаходжанне захавана</string>

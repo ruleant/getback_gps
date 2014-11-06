@@ -20,7 +20,6 @@
     <string name="no_destination">Nicio destinație setată</string>
     <string name="unknown">Necunoscut</string>
     <string name="refresh">Reîncarcă</string>
-    <string name="no">Nu</string>
     <string name="store_location">Salvați locația</string>
     <string name="store_location_disabled">Locația nu poate fi salvată deoarece locația curentă nu poate fi determinată</string>
     <string name="location_stored">Locație salvată</string>

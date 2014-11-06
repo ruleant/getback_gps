@@ -19,7 +19,6 @@
     <string name="no_destination">목적지 설정 없음</string>
     <string name="unknown">알수 없음</string>
     <string name="refresh">새로고침</string>
-    <string name="no">아니오</string>
     <string name="store_location">위치를 저장합니다</string>
     <string name="store_location_disabled">현재 위치에 없다면 위치를 저장할 수 없습니다</string>
     <string name="location_stored">저장된 위치</string>

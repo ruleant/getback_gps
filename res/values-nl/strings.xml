@@ -45,7 +45,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="copyright">Auteursrecht</string>
     <string name="inaccurate_direction">Start met bewegen voor een nauwkeurige richting naar je bestemming</string>
     <string name="app_website">Bezoek de &lt;a href=\"%1$s\"&gt;website&lt;/a&gt; voor meer info.</string>
-    <string name="no">Nee</string>
     <string name="location_updated">Locatie bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
     <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen</string>

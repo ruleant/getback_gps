@@ -45,7 +45,6 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="loc_updated_recent">Pozice byla obnovena nedávno.</string>
     <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena.</string>
     <string name="inaccurate_direction">Začněte se pohybovat aby byl směr k cíli přesný</string>
-    <string name="no">Ne</string>
     <string name="location_updated">Umístění obnoveno</string>
     <string name="location_stored">Umístění uloženo</string>
     <string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
