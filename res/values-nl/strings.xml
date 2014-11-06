@@ -48,7 +48,6 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="no">Nee</string>
     <string name="location_updated">Locatie bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
-    <string name="dialog_store_location">Wil je je huidige locatie bewaren?</string>
     <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen</string>
     <string name="store_location_disabled">Locatie kon niet bewaard worden omdat er geen huidige locatie is</string>
     <plurals name="distance_meter">

@@ -19,7 +19,6 @@
     <string name="no_destination">Ingen destination valgt</string>
     <string name="unknown">Ukendt</string>
     <string name="refresh">Opdater</string>
-    <string name="dialog_store_location">Vil du gemme din nuværende position?</string>
     <string name="no">Nej</string>
     <string name="store_location">Gem placering</string>
     <string name="store_location_disabled">Kan ikke gemme placeringen, hvis der ikke er en aktuell placering</string>

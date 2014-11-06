@@ -19,7 +19,6 @@
     <string name="no_destination">Kein Ziel angegeben</string>
     <string name="unknown">Unbekannt</string>
     <string name="refresh">Aktualisieren</string>
-    <string name="dialog_store_location">Willst du den aktuellen Ort speichern?</string>
     <string name="no">Nein</string>
     <string name="store_location">Ort speichern</string>
     <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen</string>

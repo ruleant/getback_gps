@@ -22,7 +22,6 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="destination_reached">Destination atteinte</string>
     <string name="unknown">Inconnu(e)</string>
     <string name="refresh">Actualiser</string>
-    <string name="dialog_store_location">Souhaitez-vous enregistrer votre position actuelle ?</string>
     <string name="no">Non</string>
     <string name="store_location">Enregistrer la position</string>
     <string name="store_location_disabled">Impossible d\'enregistrer la position car il n\'y a pas de localisation précise</string>

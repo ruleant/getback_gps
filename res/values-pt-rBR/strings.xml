@@ -19,7 +19,6 @@
     <string name="no_destination">Sem destino definido</string>
     <string name="unknown">Desconhecido</string>
     <string name="refresh">Atualizar</string>
-    <string name="dialog_store_location">Deseja salvar localização atual?</string>
     <string name="no">Não</string>
     <string name="store_location">Salvar localização</string>
     <string name="store_location_disabled">Impossível salvar localização se não houver localização atual</string>

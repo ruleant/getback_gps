@@ -23,7 +23,6 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="no_destination">No se especificó destino</string>
     <string name="unknown">Desconocido</string>
     <string name="refresh">Actualizar</string>
-    <string name="dialog_store_location">¿Desea guardar su ubicación actual?</string>
     <string name="no">No</string>
     <string name="store_location">Guardar ubicación</string>
     <string name="store_location_disabled">No se puede guardar la ubicación sin una ubicación actual</string>
