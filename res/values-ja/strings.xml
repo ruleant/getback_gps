@@ -54,8 +54,6 @@
     <string name="provider">プロバイダー</string>
     <string name="loc_provider_network">ネットワーク (携帯電話/WiFi)</string>
     <string name="provider_no_support">プロバイダーはサポートされていません。</string>
-    <string name="location">場所</string>
-    <string name="stored_location">保存済の場所</string>
     <string name="curr_location">現在の (最新の) 場所</string>
     <string name="latitude_north_unit">北</string>
     <string name="latitude_south_unit">南</string>

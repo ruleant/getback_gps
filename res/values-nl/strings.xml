@@ -7,9 +7,7 @@
     <string name="notset">Niet ingesteld</string>
     <string name="location_provider">Locatieaanbieder</string>
     <string name="provider">Aanbieder</string>
-    <string name="location">Locatie</string>
     <string name="curr_location">Huidige (laatst gekende) locatie</string>
-    <string name="stored_location">Bewaarde locatie</string>
     <string name="store_location">Bewaar locatie</string>
     <string name="latitude">Breedtegraad</string>
     <string name="longitude">Lengtegraad</string>
@@ -45,10 +43,8 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="copyright">Auteursrecht</string>
     <string name="inaccurate_direction">Start met bewegen voor een nauwkeurige richting naar je bestemming</string>
     <string name="app_website">Bezoek de &lt;a href=\"%1$s\"&gt;website&lt;/a&gt; voor meer info.</string>
-    <string name="no">Nee</string>
     <string name="location_updated">Locatie bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
-    <string name="dialog_store_location">Wil je je huidige locatie bewaren?</string>
     <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen</string>
     <string name="store_location_disabled">Locatie kon niet bewaard worden omdat er geen huidige locatie is</string>
     <plurals name="distance_meter">

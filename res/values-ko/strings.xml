@@ -19,8 +19,6 @@
     <string name="no_destination">목적지 설정 없음</string>
     <string name="unknown">알수 없음</string>
     <string name="refresh">새로고침</string>
-    <string name="dialog_store_location">현재 위치를 저장 하시겠습니까?</string>
-    <string name="no">아니오</string>
     <string name="store_location">위치를 저장합니다</string>
     <string name="store_location_disabled">현재 위치에 없다면 위치를 저장할 수 없습니다</string>
     <string name="location_stored">저장된 위치</string>
@@ -31,8 +29,6 @@
     <string name="loc_provider_network">네트워크 (휴대 전화/와이파이)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">공급자를 지원하지 않습니다.</string>
-    <string name="location">위치</string>
-    <string name="stored_location">저장된 위치</string>
     <string name="curr_location">(마지막으로 성공한) 현재 위치</string>
     <string name="latitude">위도</string>
     <string name="latitude_north_unit">북쪽 방향</string>

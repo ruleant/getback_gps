@@ -19,8 +19,6 @@
     <string name="no_destination">Ingen destination valgt</string>
     <string name="unknown">Ukendt</string>
     <string name="refresh">Opdater</string>
-    <string name="dialog_store_location">Vil du gemme din nuværende position?</string>
-    <string name="no">Nej</string>
     <string name="store_location">Gem placering</string>
     <string name="store_location_disabled">Kan ikke gemme placeringen, hvis der ikke er en aktuell placering</string>
     <string name="location_stored">Placering gemt</string>
@@ -31,8 +29,6 @@
     <string name="loc_provider_network">Netværk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Udbyderen understøttes ikke.</string>
-    <string name="location">Placering</string>
-    <string name="stored_location">Gemt placering</string>
     <string name="curr_location">Nuværende (sidst kendte) placering</string>
     <string name="latitude">Breddegrad</string>
     <string name="latitude_north_unit">N</string>

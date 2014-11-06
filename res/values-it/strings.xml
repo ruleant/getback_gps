@@ -17,8 +17,6 @@
     <string name="no_destination">Nessuna destinazione impostata</string>
     <string name="unknown">Sconosciuto</string>
     <string name="refresh">Aggiorna</string>
-    <string name="dialog_store_location">Vuoi memorizzare la tua posizione corrente?</string>
-    <string name="no">No</string>
     <string name="store_location">Aggiungi posizione</string>
     <string name="location_stored">Posizione salvata</string>
     <string name="menu_details">Dettagli</string>
@@ -28,8 +26,6 @@
     <string name="loc_provider_network">Rete (Cellulare/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">La sorgente non è supportata.</string>
-    <string name="location">Posizione</string>
-    <string name="stored_location">Posizioni memorizzate</string>
     <string name="curr_location">Posizione(ultima conosciuta) corrente</string>
     <string name="latitude_north_unit">N</string>
     <string name="latitude_south_unit">S</string>

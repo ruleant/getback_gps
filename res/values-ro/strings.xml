@@ -20,8 +20,6 @@
     <string name="no_destination">Nicio destinație setată</string>
     <string name="unknown">Necunoscut</string>
     <string name="refresh">Reîncarcă</string>
-    <string name="dialog_store_location">Doriți să salvați locația dumneavoastră curentă?</string>
-    <string name="no">Nu</string>
     <string name="store_location">Salvați locația</string>
     <string name="store_location_disabled">Locația nu poate fi salvată deoarece locația curentă nu poate fi determinată</string>
     <string name="location_stored">Locație salvată</string>
@@ -32,8 +30,6 @@
     <string name="loc_provider_network">rețea (telefonie mobilă/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Furnizorul nu este compatibil.</string>
-    <string name="location">Locație</string>
-    <string name="stored_location">Locație salvată</string>
     <string name="curr_location">Locație curentă (ultima disponibilă)</string>
     <string name="latitude">Latitudine</string>
     <string name="latitude_north_unit">N</string>

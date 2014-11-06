@@ -19,8 +19,6 @@
     <string name="no_destination">Kein Ziel angegeben</string>
     <string name="unknown">Unbekannt</string>
     <string name="refresh">Aktualisieren</string>
-    <string name="dialog_store_location">Willst du den aktuellen Ort speichern?</string>
-    <string name="no">Nein</string>
     <string name="store_location">Ort speichern</string>
     <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen</string>
     <string name="location_stored">Ort gespeichert</string>
@@ -31,8 +29,6 @@
     <string name="loc_provider_network">Netzwerk (Telefon/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provider wird nicht unterstützt.</string>
-    <string name="location">Ort</string>
-    <string name="stored_location">Gespeicherter Ort</string>
     <string name="curr_location">Aktueller (letzter bekannter) Ort</string>
     <string name="latitude">Breitengrad</string>
     <string name="latitude_north_unit">N</string>
