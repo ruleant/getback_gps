@@ -90,9 +90,9 @@
     <string name="build_time">Costruidu in %s.</string>
     <string name="app_website">Bìsita su &lt;a href=%1$s&gt;giassu/situ web&lt;/a&gt; pro àteras informatziones.</string>
     <string name="copyright">Deretu de autore</string>
-    <string name="license">Cust'aplicu est unu programma lìberu: lu podes distribuire e/o modificare sighinde sos tèrmines de sa litzèntzia GNU General Public License comente est istada publicada dae sa Free Software Foundation, versione 3 o imbeniente.
- 
- Custu programma est distribuidu isperande chi siat ùtile, ma SENA GARANTZIA PERUNA; sena fintzas sa garantzia implìcita de CUMMERTZIALIDADE o IDONEIDADE PRO UN'ISCOPU PARTICULARE. Abbàida sa GNU General Public License pro àteras informatziones.
- 
+    <string name="license">Cust\'aplicu est unu programma lìberu: lu podes distribuire e/o modificare sighinde sos tèrmines de sa litzèntzia GNU General Public License comente est istada publicada dae sa Free Software Foundation, versione 3 o imbeniente.\n
+ \n
+ Custu programma est distribuidu isperande chi siat ùtile, ma SENA GARANTZIA PERUNA; sena fintzas sa garantzia implìcita de CUMMERTZIALIDADE o IDONEIDADE PRO UN\'ISCOPU PARTICULARE. Abbàida sa GNU General Public License pro àteras informatziones.\n
+ \n
  Si no as retzidu una copia de sa GNU General Public License paris cun custu programma, la podes agatare a custu inoghe: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 </resources>
