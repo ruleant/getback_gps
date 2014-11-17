@@ -42,4 +42,59 @@
     <string name="destination">गंतव्य</string>
     <string name="notset">सेट नहीं है</string>
     <string name="loc_updated_recent">हाल ही में स्थान अपडेट किया गया है।</string>
+    <string name="inaccurate_direction">अपने गंतव्य के लिए एक सटीक दिशा प्राप्त करने के लिए चलना प्रारंभ करें</string>
+    <string name="current_bearing">वर्तमान गंतव्य की दिशा</string>
+    <string name="license">यह प्रोग्राम मुफ्त सॉफ्टवेयर है: आप इसे, फ्री सॉफ्टवेयर फाउंडेशन के जीपीएल लाइसेंस के ३ संस्करणों के तहत, इस या किसी और रूप में पुनर्वितरित कर सकते हैं↵
+↵
+यह सॉफ्टवेयर किसी वारंटी के बिना इस आशा से वितरित किया जा रहा है की यह आपके लिए उपयोगी होगा; सॉफ्टवेयर की किसी भी व्यापारिकता या किसी विशेष प्रयोजन के लिए उपयुक्तता की कोई वारंटी नहीं होगी। अधिक जानकारी के लिए जीपीएल देखें।↵
+↵
+इस सॉफ्टवेयर के साथ आपको जनरल पब्लिक लाइसेंस की एक प्रतिलिपि प्राप्त करना चाहिए, यदि नहीं, तो <a href="http://www.gnu.org/licenses/"> www.gnu.org/licences</a> देखें।</string>
+<string name="copyright">कॉपीराइट</string>
+    <string name="location_updated">हाल ही में स्थान अपडेट किया गया है</string>
+    <string name="inaccurate">सही नहीं है</string>
+    <string name="destination_reached">गंतव्य पर</string>
+    <string name="refresh">सूचि ताजा (Refresh) करे</string>
+    <string name="dialog_rename_destination">अपने गंतव्य के लिए कोई नया नाम दर्ज करें:</string>
+    <string name="store_location">स्थान स्टोर करें</string>
+    <string name="store_location_disabled">कोई वर्तमान स्थान न होने के कारण, स्थान स्टोर नहीं किया जा सकता</string>
+    <string name="rename_destination_disabled">गंतव्य का नाम बदलने के लिए पहले कोई स्थान स्टोर करें</string>
+    <string name="location_stored">स्थान स्टोर किया जा चुका है</string>
+    <string name="location_name_stored">\'%S\' स्थान स्टोर किया जा चुका है</string>
+    <string name="destination_renamed">गंतव्य का नाम बदला जा चुका है</string>
+    <string name="location_provider">स्थान प्रदाता</string>
+    <string name="loc_provider_network">नेटवर्क (सेल फोन/वाईफ़ाई)</string>
+    <string name="provider_no_support">प्रदाता समर्थित नहीं है।</string>
+    <string name="bearing">गंतव्य की दिशा</string>
+    <string name="sensor_bearing_offset">सेंसर आधारित ऑफसेट</string>
+    <string name="to_dest">गंतव्य की ओर</string>
+    <string name="direction_relative">वर्तमान दिशा से संबंधित</string>
+    <string name="raw">अस्वरूपित (Unformatted)</string>
+    <string name="none">कोई नहीं</string>
+    <string name="loc_updated_not_recent">स्थान हाल ही में अपडेट नहीं किया। गया।।</string>
+    <string name="settings">सेटिंग्स</string>
+    <string name="pref_header_general">जनरल</string>
+    <string name="pref_header_loc_update">स्थान के अपडेट्स</string>
+    <string name="pref_loc_update_dist">दूरी आधारित अपडेट्स</string>
+    <string name="pref_loc_update_time">समय आधारित अपडेट्स</string>
+    <string name="pref_enable_sensors">उपलब्ध सेंसर का उपयोग करें</string>
+    <string name="pref_geo_orientation_sensor">डिफ़ॉल्ट ओरिएंटेशन सेंसर</string>
+    <string name="sensors_enabled">जल्दी अपडेट्स और अधिक सटीक bearing लागू कर दिया गया है</string>
+    <string name="sensors_disabled">ऊर्जा की बचत बंद कर दी गयी है</string>
+    <string name="disabled">बंद</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d मीटर</item>
+	<item quantity="other">%d मीटर्स</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d सेकंड</item>
+	<item quantity="other">%d सेकण्ड्स</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d मिनट</item>
+	<item quantity="other">%d मिनट्स</item>
+</plurals>
+    <string name="about">बारे में</string>
+    <string name="version">संस्करण (वर्शन)</string>
+    <string name="build_time">%S पर बनाया गया।</string>
+    <string name="app_website">अधिक जानकारी के लिए &lt;a href=%1$s&gt;वेबसाइट&lt;/a&gt; पर जाएँ।</string>
     </resources>
