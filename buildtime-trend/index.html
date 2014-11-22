@@ -2,136 +2,39 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <meta charset='utf-8' />
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no' />
+<title>Build trends</title>
+<script type="text/javascript" src="config.js"></script>
+<script type="text/javascript" src="trends.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script type="text/javascript">
+  !function(a,b){if(void 0===b[a]){b["_"+a]={},b[a]=function(c){b["_"+a].clients=b["_"+a].clients||{},b["_"+a].clients[c.projectId]=this,this._config=c},b[a].ready=function(c){b["_"+a].ready=b["_"+a].ready||[],b["_"+a].ready.push(c)};for(var c=["addEvent","setGlobalProperties","trackExternalLink","on"],d=0;d<c.length;d++){var e=c[d],f=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};b[a].prototype[e]=f(e)}var g=document.createElement("script");g.type="text/javascript",g.async=!0,g.src="https://d26b395fwzu5fz.cloudfront.net/3.0.3/keen.min.js";var h=document.getElementsByTagName("script")[0];h.parentNode.insertBefore(g,h)}}("Keen",this);
 
-  <title>Build trends</title>
-  <script type="text/javascript" src="config.js"></script>
-  <script type="text/javascript" src="assets/js/trends.js"></script>
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-//<![CDATA[
-    !function(a,b){if(void 0===b[a]){b["_"+a]={},b[a]=function(c){b["_"+a].clients=b["_"+a].clients||{},b["_"+a].clients[c.projectId]=this,this._config=c},b[a].ready=function(c){b["_"+a].ready=b["_"+a].ready||[],b["_"+a].ready.push(c)};for(var c=["addEvent","setGlobalProperties","trackExternalLink","on"],d=0;d<c.length;d++){var e=c[d],f=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};b[a].prototype[e]=f(e)}var g=document.createElement("script");g.type="text/javascript",g.async=!0,g.src="https://d26b395fwzu5fz.cloudfront.net/3.0.3/keen.min.js";var h=document.getElementsByTagName("script")[0];h.parentNode.insertBefore(g,h)}}("Keen",this);
-
-    // configure Keen.io API client, keenConfig is defined in config.js
-    var client = new Keen(keenConfig);
-  //]]>
-  </script>
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
-  <link type="text/css" rel="stylesheet" href="assets/css/keen-dashboards.css" />
-  <link type="text/css" rel="stylesheet" href="assets/css/trends.css" />
+// configure Keen.io API client, keenConfig is defined in config.js
+var client = new Keen(keenConfig);
+</script>
 </head>
-
-<body onload='initPage();' class="application">
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-		</button>
-        <a class="navbar-brand" href="../">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a>
-		<a id="title" class="navbar-brand" href="./">Build trends</a>
-      </div>
-
-      <div class="navbar-collapse collapse">
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="https://ruleant.github.io/buildtime-trend/">Home</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-
-  <p>Timeframe : <select id="intervals" onchange="updateCharts(this.value)">
+<body onload='initPage();'>
+<h1 id="title">Build trends</h1>
+<p>Timeframe : 
+  <select id="intervals" onchange="updateCharts(this.value)">
     <option value="day">Today</option>
     <option value="week" selected="selected">Last 7 days</option>
     <option value="month">Last 30 days</option>
     <option value="year">Last 12 months</option>
-  </select></p>
-
-  <h2 id="timeframe_title">Last week's builds</h2><!--div class="btn-group-xs">Timeframe
-              <button type="button" id="7days" class="btn btn-default">7 Days</button>
-              <button type="button" id="14days" class="btn btn-default">14 Days</button>
-              <button type="button" id="28days" class="btn btn-default">28 Days</button>
-            </div-->
-
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-4 col-md-2">
-        <div id="metric_total_builds"></div>
-      </div>
-      <div class="col-sm-4 col-md-2">
-        <div id="metric_total_builds_passed"></div>
-      </div>
-      <div class="col-sm-4 col-md-2">
-        <div id="metric_total_builds_failed"></div>
-      </div>
-      <div class="col-sm-6 col-md-3">
-        <div id="metric_average_build_time"></div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart_stage_duration"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart_stage_fraction"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart_builds"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart_total_builds_branch"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart_avg_buildtime_hour"></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-sm-6">
-        <div class="chart-wrapper">
-          <div class="chart-stage">
-            <div id="chart_avg_buildtime_weekday"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <p>
-    Powered by <a href="http://ruleant.github.io/buildtime-trend/">Buildtime trend</a> (0.2-dev).<br />
-    Using the <a href="https://keen.io/">Keen.io</a> API for data analysis and visualisation.
-  </p>
+  </select>
+</p>
+<h2 id="timeframe_title">Last week's builds</h2>
+<div>
+  <div id="metric_total_builds"></div>
+  <div id="metric_total_builds_passed"></div>
+  <div id="metric_total_builds_failed"></div>
+  <div id="metric_average_build_time"></div>
+</div>
+<div id="chart_stage_duration"></div>
+<div id="chart_stage_fraction"></div>
+<div id="chart_builds"></div>
+<div id="chart_total_builds_branch"></div>
+<p>Powered by <a href="http://ruleant.github.io/buildtime-trend/">Buildtime trend</a> (0.1.2).<br />
+Using the <a href="https://keen.io/">Keen.io</a> API for data analysis and visualisation.</p>
 </body>
 </html>
