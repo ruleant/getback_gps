@@ -488,7 +488,7 @@ function mergeSeries(data, index_captions, value_fieldname, series_captions) {
 }
 
 // initialize page
-function initPage() {
+$(document).ready(function() {
     updateTitle();
     initCharts();
-}
+});
