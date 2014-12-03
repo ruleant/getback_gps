@@ -51,3 +51,7 @@ addons:
     #build_command_prepend:
     build_command: mvn clean install -DskipTests=true
     branch_pattern: coverity_scan
+notifications:
+  webhooks:
+    # parse Travis CI log and send result to Keen.io, using Builtime Trend Service
+    - http://buildtimetrend-service.herokuapp.com/travis
