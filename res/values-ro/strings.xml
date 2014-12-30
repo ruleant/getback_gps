@@ -72,4 +72,28 @@
     <string name="location_name_stored">Locație \'%s\' salvată</string>
     <string name="no_location_name">Numele locației nu a fost specificat</string>
     <string name="name">Nume</string>
+    <string name="dialog_rename_destination">Introduceţi un nume nou pentru destinaţie:</string>
+    <string name="rename_destination">Redenumiţi destinaţia</string>
+    <string name="rename_destination_disabled">Nu s-a putut redenumi destinaţia, salvaţi o locaţie mai întâi</string>
+    <string name="destination_renamed">Destinaţie redenumită</string>
+    <string name="sensor_bearing_offset">Decalaj de orientare pe bază de senzor</string>
+    <string name="travel_direction">Direcţie de călătorie</string>
+    <string name="travel_direction_forward">Înainte</string>
+    <string name="travel_direction_backwards">Înapoi</string>
+    <string name="pref_enable_sensors">Folosiţi senzorii disponibili</string>
+    <string name="pref_geo_orientation_sensor">Senzor de orientare implicit</string>
+    <string name="sensors_enabled">Activat : orientare mai rapid actualizată si mai precisă</string>
+    <string name="sensors_disabled">Dezactivat : economisire consum</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d metru</item>
+	<item quantity="other">%d metri</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d secundă</item>
+	<item quantity="other">%d secunde</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minut</item>
+	<item quantity="other">%d minute</item>
+</plurals>
     </resources>
