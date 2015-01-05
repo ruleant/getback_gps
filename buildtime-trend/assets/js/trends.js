@@ -69,6 +69,8 @@ function updateCharts(periodName) {
     // get Update Period settings
     var updatePeriod = getUpdatePeriod(periodName);
 
+    updateBadgeUrl(updatePeriod.name);
+
     var i;
 
     // update all interval based queries
@@ -448,6 +450,34 @@ function updateTitle() {
     }
 }
 
+// Initialize badge url
+function updateBadgeUrl(periodName) {
+    // check if config.serviceUrl is set by something else than the default value
+    if (config.serviceUrl == null || config.serviceUrl == 'service_url') {
+        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/'
+    }
+
+    var badgeUrl = config.serviceUrl + '/badge/';
+
+    // add repo
+    if (config.repoName != null && config.repoName != 'repo_name') {
+        badgeUrl += config.repoName;
+
+        var updatePeriod = getUpdatePeriod(periodName);
+        var interval = updatePeriod.name;
+
+        // add interval
+        if (interval == null || interval == 'day') {
+            badgeUrl += '/latest';
+        } else {
+            badgeUrl += '/avg/' + interval;
+        }
+    }
+
+    // change badge url
+    $("#badge-url").attr('src', htmlEntities(badgeUrl));
+}
+
 // escape html characters
 // inspired by http://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
 function htmlEntities(str) {
@@ -490,5 +520,6 @@ function mergeSeries(data, index_captions, value_fieldname, series_captions) {
 // initialize page
 $(document).ready(function() {
     updateTitle();
+    updateBadgeUrl();
     initCharts();
 });
