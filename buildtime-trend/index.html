@@ -28,38 +28,41 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-			<span class="sr-only">Toggle navigation</span>
-			<span class="icon-bar"></span>
-		</button>
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+        </button>
         <a class="navbar-brand" href="../">
-			<span class="glyphicon glyphicon-chevron-left"></span>
-		</a>
-		<a id="title" class="navbar-brand" href="./">Build trends</a>
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a id="title" class="navbar-brand" href="./">Build trends</a>
+        <a id="repo-url" class="navbar-brand" href="./">
+          <img width="21" height="21" src="assets/images/github.svg" />
+        </a>
       </div>
 
       <div class="navbar-collapse collapse">
         <ul class="nav navbar-nav navbar-left">
-          <li><a href="http://buildtimetrend.github.io/python-client/">Home</a></li>
+          <li><a href="https://buildtimetrend.github.io/python-client/">About Buildtime Trend</a></li>
         </ul>
       </div>
     </div>
   </div>
 
-  <p>Timeframe : <select id="intervals" onchange="updateCharts(this.value)">
-    <option value="day">Today</option>
-    <option value="week" selected="selected">Last 7 days</option>
-    <option value="month">Last 30 days</option>
-    <option value="year">Last 12 months</option>
-  </select>
+  <p>
+    Timeframe :
+    <select id="intervals" onchange="updateCharts(this.value)">
+      <option value="day">Today</option>
+      <option value="week" selected="selected">Last 7 days</option>
+      <option value="month">Last 30 days</option>
+      <option value="year">Last 12 months</option>
+    </select>
 
-    <a id="badge" class="pull-right flip" href="#"><img id="badge-url" src="https://buildtimetrend-service.herokuapp.com/badge" alt="Buildtime Trend badge" /></a>
+    <a id="badge" class="pull-right flip" href="#">
+      <img id="badge-url" src="https://buildtimetrend-service.herokuapp.com/badge" alt="Buildtime Trend badge" />
+    </a>
   </p>
 
-  <h2 id="timeframe_title">Last week's builds</h2><!--div class="btn-group-xs">Timeframe
-              <button type="button" id="7days" class="btn btn-default">7 Days</button>
-              <button type="button" id="14days" class="btn btn-default">14 Days</button>
-              <button type="button" id="28days" class="btn btn-default">28 Days</button>
-            </div-->
+  <h2 id="timeframe_title">Last week's builds</h2>
 
   <div class="container-fluid">
     <div class="row">

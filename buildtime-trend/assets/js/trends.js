@@ -2,7 +2,7 @@
 /**
  * Analyse and visualise trend data using the Keen.io API.
  *
- * Copyright (C) 2014 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+ * Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
  *
  * This file is part of buildtimetrend/python-client
  * <https://github.com/buildtimetrend/python-client/>
@@ -108,7 +108,7 @@ function initCharts() {
         // create query
         var queryTotalBuilds = new Keen.Query("count", {
             eventCollection: "builds",
-            timeframe: keenTimeframe,
+            timeframe: keenTimeframe
         });
         queriesTimeframe.push(queryTotalBuilds);
 
@@ -442,19 +442,24 @@ function initCharts() {
 
 // add project name to title
 function updateTitle() {
+    var title = 'Buildtime Trends';
+
     // check if config.projectName is set
-    if (config.projectName !== null || config.projectName == 'project_name') {
-        var title = 'Build trends of project ' + htmlEntities(config.projectName);
-        document.getElementById("title").innerHTML = title;
-        document.getElementsByTagName("title")[0].innerHTML = title;
+    if (config.projectName != null && config.projectName != 'project_name') {
+        title = htmlEntities(config.projectName);
+    } else if (config.repoName != null && config.repoName != 'repo_name') {
+        title = htmlEntities(config.repoName);
     }
+
+    document.getElementById("title").innerHTML = title;
+    document.getElementsByTagName("title")[0].innerHTML = title;
 }
 
 // Initialize badge url
 function updateBadgeUrl(periodName) {
     // check if config.serviceUrl is set by something else than the default value
     if (config.serviceUrl == null || config.serviceUrl == 'service_url') {
-        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/'
+        config.serviceUrl = 'https://buildtimetrend-service.herokuapp.com/';
     }
 
     var badgeUrl = config.serviceUrl + '/badge/';
@@ -476,6 +481,24 @@ function updateBadgeUrl(periodName) {
 
     // change badge url
     $("#badge-url").attr('src', htmlEntities(badgeUrl));
+}
+
+// Initialize link urls
+function initLinks() {
+    // check if config.serviceUrl is set by something else than the default value
+    if (config.websiteUrl != null && config.websiteUrl != 'website_url') {
+        $("#title").attr('href', htmlEntities(config.websiteUrl));
+    }
+
+    // link to project repo and display icon
+    if (config.repoName != null && config.repoName != 'repo_name') {
+        repoUrl = "https://github.com/" + config.repoName;
+        $("#repo-url").attr('href', htmlEntities(repoUrl));
+        $("#repo-url").show();
+    } else {
+        // hide repo icon
+        $("#repo-url").hide();
+    }
 }
 
 // escape html characters
@@ -509,8 +532,8 @@ function mergeSeries(data, index_captions, value_fieldname, series_captions) {
         timeframe_caption = series_captions[j];
         // copy query data into the populated array
         for (i = 0; i < timeframe_result.length; i++) {
-            index = parseInt(timeframe_result[i][value_fieldname])
-            chart_data[index][timeframe_caption] = timeframe_result[i]["result"];
+            index = parseInt(timeframe_result[i][value_fieldname], 10);
+            chart_data[index][timeframe_caption] = timeframe_result[i].result;
         }
     }
 
@@ -520,6 +543,7 @@ function mergeSeries(data, index_captions, value_fieldname, series_captions) {
 // initialize page
 $(document).ready(function() {
     updateTitle();
+    initLinks();
     updateBadgeUrl();
     initCharts();
 });
