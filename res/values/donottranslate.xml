@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name">GetBack GPS</string>
     <string name="url_website">http://ruleant.github.io/getback_gps</string>
-    <string name="copyright_ruleant">&#169; 2012&#8211;2014 &lt;a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens&lt;/a></string>
+    <string name="copyright_ruleant">&#169; 2012&#8211;2015 &lt;a href="mailto:ruleant@users.sourceforge.net">Dieter Adriaenssens&lt;/a></string>
     <!-- Debug settings -->
     <string name="pref_header_debug">Debug</string>
     <string name="pref_debug_level">Debugging</string>
