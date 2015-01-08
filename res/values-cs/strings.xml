@@ -7,9 +7,7 @@
     <string name="notset">Nenastavený</string>
     <string name="location_provider">Poskytovatel polohy</string>
     <string name="provider">Poskytovatel</string>
-    <string name="location">Poloha</string>
     <string name="curr_location">Současné (poslední známé) umístění</string>
-    <string name="stored_location">Uložené umístění</string>
     <string name="store_location">Uložit umístění</string>
     <string name="latitude">Zeměpisná šířka</string>
     <string name="longitude">Zeměpisná délka</string>
@@ -45,10 +43,8 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="loc_updated_recent">Pozice byla obnovena nedávno.</string>
     <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena.</string>
     <string name="inaccurate_direction">Začněte se pohybovat aby byl směr k cíli přesný</string>
-    <string name="no">Ne</string>
     <string name="location_updated">Umístění obnoveno</string>
     <string name="location_stored">Umístění uloženo</string>
-    <string name="dialog_store_location">Chcete uložit současné umístění?</string>
     <string name="notice_no_dest">Uložte si svoji pozici pro nastavení cíle</string>
     <string name="menu_details">Podrobnosti polohy</string>
     <string name="activity_details">Podrobnosti</string>

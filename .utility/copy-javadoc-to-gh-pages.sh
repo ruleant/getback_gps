@@ -9,9 +9,9 @@
 # see : https://github.com/ReadyTalk/swt-bling/commit/c1ab076ea07b97c19c43e509fe387fc4d1fdcab5
 # Updated by Dieter Adriaenssens : see git history for changes.
 #
-# Copyright 2013 Xiaohao Ma
-# Copyright 2013 Ben Limmer
-# Copyright 2014 Dieter Adriaenssens
+# Copyright (C) 2013 Xiaohao Ma
+# Copyright (C) 2013 Ben Limmer
+# Copyright (C) 2014-2015 Dieter Adriaenssens
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.

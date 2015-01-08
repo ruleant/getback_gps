@@ -19,8 +19,6 @@
     <string name="no_destination">Kein Ziel angegeben</string>
     <string name="unknown">Unbekannt</string>
     <string name="refresh">Aktualisieren</string>
-    <string name="dialog_store_location">Willst du den aktuellen Ort speichern?</string>
-    <string name="no">Nein</string>
     <string name="store_location">Ort speichern</string>
     <string name="store_location_disabled">Position kann nicht gespeichert werden, wenn keine aktuellen Positionsdaten vorliegen</string>
     <string name="location_stored">Ort gespeichert</string>
@@ -31,8 +29,6 @@
     <string name="loc_provider_network">Netzwerk (Telefon/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provider wird nicht unterstützt.</string>
-    <string name="location">Ort</string>
-    <string name="stored_location">Gespeicherter Ort</string>
     <string name="curr_location">Aktueller (letzter bekannter) Ort</string>
     <string name="latitude">Breitengrad</string>
     <string name="latitude_north_unit">N</string>
@@ -86,4 +82,18 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
 	<item quantity="one">%d Minute</item>
 	<item quantity="other">%d Minuten</item>
 </plurals>
+    <string name="dialog_store_location_name">Geben Sie einen Namen für Ihren momentanen Ort ein:</string>
+    <string name="dialog_rename_destination">Geben Sie einen neuen Namen für ihr Ziel ein:</string>
+    <string name="location_name">Ortsname</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="rename_destination">Ziel umbenennen</string>
+    <string name="rename_destination_disabled">Ziel kann nicht umbenannt werden, speichern Sie zuerst den Ort</string>
+    <string name="location_name_stored">Ort \'%s\' gespeichert</string>
+    <string name="destination_renamed">Ziel umbenannt</string>
+    <string name="no_location_name">Ortsname wurde nicht festgelegt</string>
+    <string name="name">Name</string>
+    <string name="sensor_bearing_offset">Sensorbasierte Kurskorrektur</string>
+    <string name="travel_direction">Bewegungsrichtung</string>
+    <string name="travel_direction_forward">Vorwärts</string>
+    <string name="travel_direction_backwards">Rückwärts</string>
     </resources>

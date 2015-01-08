@@ -19,8 +19,6 @@
     <string name="no_destination">목적지 설정 없음</string>
     <string name="unknown">알수 없음</string>
     <string name="refresh">새로고침</string>
-    <string name="dialog_store_location">현재 위치를 저장 하시겠습니까?</string>
-    <string name="no">아니오</string>
     <string name="store_location">위치를 저장합니다</string>
     <string name="store_location_disabled">현재 위치에 없다면 위치를 저장할 수 없습니다</string>
     <string name="location_stored">저장된 위치</string>
@@ -31,8 +29,6 @@
     <string name="loc_provider_network">네트워크 (휴대 전화/와이파이)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">공급자를 지원하지 않습니다.</string>
-    <string name="location">위치</string>
-    <string name="stored_location">저장된 위치</string>
     <string name="curr_location">(마지막으로 성공한) 현재 위치</string>
     <string name="latitude">위도</string>
     <string name="latitude_north_unit">북쪽 방향</string>
@@ -65,18 +61,18 @@
     <string name="pref_enable_sensors">사용 가능한 센서를 사용</string>
     <string name="pref_geo_orientation_sensor">기본 방향 센서</string>
     <string name="sensors_enabled">활성화: 빨리 업데이트 하고 더 정확한 방위각</string>
-    <string name="sensors_disabled">비활성화: 전력 절감</string>
+    <string name="sensors_disabled">비활성화: 배터리 절감</string>
     <string name="disabled">비활성화됨</string>
     <string name="about">프로그램 정보</string>
     <string name="version">버전</string>
     <string name="build_time">%s 내장 되어있습니다.</string>
     <string name="app_website">더 많은 정보에 대하여 &lt;a href=%1$s&gt;웹 사이트&lt;/a&gt;를 방문 하십시오.</string>
     <string name="copyright">저작권</string>
-    <string name="license">이 프로그램은 무료 소프트웨어: 재배포 하거나 버전의 라이센스, 3 또는 이후 버전, 자유 소프트웨어 재단에 의해 출판 GNU 일반 공중 사용 허가서의 조건에 따라 수정할 수 있습니다.\n
+    <string name="license">이 프로그램은 무료 소프트웨어입니다: 재배포 하거나  라이센스 버전 3, 또는 이후 버전에서, 자유 소프트웨어 재단에 의해 출판된 GNU 일반 공중 사용 허가서의 조건에 따라 수정할 수 있습니다.\n
  \n
- 이 프로그램은 유용할 것 이라는 희망 하지만. 배포 됩니다. 도 상품성 또는 특정 목적에 대 한 적합성의 묵시적 보증. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조 하십시오.\n
+ 이 프로그램은 유용할 것 이라는 희망으로 배포 됩니다. 하지만 "어떤 보증도 하지 않습니다" 심지어 "상품성" 또는 "특정 목적에 대한 적합성"의 묵시적 보증도 업습니다. 자세한 내용은 GNU 일반 공중 사용 허가서를 참조 하십시오.\n
  \n
- 이 프로그램과 함께 GNU 일반 공중 사용 허가서의 사본을 받으 셨. 그렇지 않은 경우에 <a href="http://www.gnu.org/licenses/"> www.gnu.org/ 라이센스</a>를 참조 하십시오.</string>
+ 이 프로그램과 함께 GNU 일반 공중 사용 허가서의 사본을 받아야 합니다. 그렇지 않은 경우에 <a href="http://www.gnu.org/licenses/"> www.gnu.org/ 라이센스</a>를 참조 하십시오.</string>
 <string name="name">이름</string>
     <plurals name="distance_meter">
 	    <item quantity="other">%d 미터</item>

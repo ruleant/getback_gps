@@ -11,8 +11,6 @@
     <string name="location_updated">Месцазнаходжанне абноўлена</string>
     <string name="unknown">Невядома</string>
     <string name="refresh">Абнавіць</string>
-    <string name="dialog_store_location">Ці хочаш зьберагчы сваё месцазнаходжанне?</string>
-    <string name="no">Не</string>
     <string name="store_location">Захаваць месцазнаходжанне</string>
     <string name="store_location_disabled">Немагчыма зьберагчы месцазнаходжанне, бо яно невызначана</string>
     <string name="location_stored">Месцазнаходжанне захавана</string>
@@ -24,8 +22,6 @@
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Лякатар не падтрымліваецца.</string>
     <string name="copyright">Аўтарскае права</string>
-    <string name="location">Месцазнаходжанне</string>
-    <string name="stored_location">Захаванае месцазнаходжанне</string>
     <string name="curr_location">Цяперашняе месцазнаходжанне (апошняе вядомае)</string>
     <string name="latitude">Шырата</string>
     <string name="latitude_north_unit">Поўнач</string>

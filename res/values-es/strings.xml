@@ -23,8 +23,6 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="no_destination">No se especificó destino</string>
     <string name="unknown">Desconocido</string>
     <string name="refresh">Actualizar</string>
-    <string name="dialog_store_location">¿Desea guardar su ubicación actual?</string>
-    <string name="no">No</string>
     <string name="store_location">Guardar ubicación</string>
     <string name="store_location_disabled">No se puede guardar la ubicación sin una ubicación actual</string>
     <string name="location_stored">Ubicación guardada</string>
@@ -35,8 +33,6 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="loc_provider_network">Red (Teléfono celular/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">El proveedor no está soportado.</string>
-    <string name="location">Ubicación</string>
-    <string name="stored_location">Ubicación guardada</string>
     <string name="curr_location">Ubicación actual (última conocida)</string>
     <string name="latitude">Latitud</string>
     <string name="latitude_north_unit">N</string>

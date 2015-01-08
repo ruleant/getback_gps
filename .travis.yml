@@ -3,6 +3,7 @@ language: android
 android:
   components:
     - android-20
+    - build-tools-21.1.2
 env:
   global:
     - secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
@@ -13,7 +14,7 @@ env:
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
-  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone https://github.com/ruleant/buildtime-trend.git; fi
+  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone https://github.com/buildtimetrend/python-client.git buildtime-trend; fi
   - source buildtime-trend/init.sh
   - mvn -v
   - timestamp.sh install_libs
@@ -51,3 +52,7 @@ addons:
     #build_command_prepend:
     build_command: mvn clean install -DskipTests=true
     branch_pattern: coverity_scan
+notifications:
+  webhooks:
+    # parse Travis CI log and send result to Keen.io, using Builtime Trend Service
+    - http://buildtimetrend-service.herokuapp.com/travis

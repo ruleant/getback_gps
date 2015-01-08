@@ -19,8 +19,6 @@
     <string name="no_destination">Cap destí fixat</string>
     <string name="unknown">Desconegut</string>
     <string name="refresh">Actualitzar</string>
-    <string name="dialog_store_location">Voleu desar la vostra posició actual?</string>
-    <string name="no">No</string>
     <string name="store_location">Desa posició</string>
     <string name="store_location_disabled">No es pot desar una posició si aquesta no és la actual</string>
     <string name="location_stored">Posició desada</string>
@@ -32,8 +30,6 @@
     <string name="loc_provider_network">xarxa (telèfon mòbil/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Aquest proveïdor no té suport.</string>
-    <string name="location">Posició</string>
-    <string name="stored_location">Posició desada</string>
     <string name="curr_location">Posició actual (darrera coneguda)</string>
     <string name="latitude">Latitud</string>
     <string name="latitude_north_unit">N</string>

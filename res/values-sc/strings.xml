@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="app_desc">Torra ad una positzione bisitada pretzedentemente impreande sas coordinatas GPS.</string>
+    <string name="inaccurate_location">Sa positzione relevada tua no est accurada</string>
+    <string name="notice_no_dest">Sarba sa positzione tua pro impostare una destinatzione</string>
+    <string name="inaccurate_direction">Moende•ti as a otènnere una diretzione prus pretzisa</string>
+    <string name="notice_destination_reached">Ses arribbau a sa destinatzione tua</string>
+    <string name="current_speed">Lestresa</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">Relevamentu currente</string>
+    <string name="distance">Distàntzia</string>
+    <string name="direction">Diretzione</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Positzione agiornada</string>
+    <string name="inaccurate">Impretzisa</string>
+    <string name="destination_reached">A destinatzione</string>
+    <string name="no_destination">Peruna destinatzione impostada</string>
+    <string name="unknown">Disconnotu</string>
+    <string name="refresh">Agiorna</string>
+    <string name="dialog_store_location_name">Inserta unu nùmene pro sa positzione atuale:</string>
+    <string name="dialog_rename_destination">Inserta unu nùmene pro sa destinatzione:</string>
+    <string name="location_name">Nùmene positzione</string>
+    <string name="cancel">Annudda</string>
+    <string name="store_location">Annanghe positzione</string>
+    <string name="rename_destination">Torra a numenare sa destinatzione</string>
+    <string name="store_location_disabled">Positzione de como no identificada, est impossìbile a la sarbare</string>
+    <string name="rename_destination_disabled">Impossìbile torrare a numenare sa destinatzione, in antis bolet sarbada una positzione</string>
+    <string name="location_stored">Positzione sarbada</string>
+    <string name="location_name_stored">Positzione \'%s\' sarbada</string>
+    <string name="destination_renamed">Destinatzione torrada a numenare</string>
+    <string name="no_location_name">Nùmene positzione non dislindadu</string>
+    <string name="menu_details">Minujas</string>
+    <string name="activity_details">Minujas</string>
+    <string name="location_provider">Mitza de sa positzione</string>
+    <string name="name">Nùmene</string>
+    <string name="provider">Mitza</string>
+    <string name="loc_provider_network">Retza (Cellulare/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Custa mitza no est suportada.</string>
+    <string name="curr_location">Positzione de como (ùrtima connota)</string>
+    <string name="latitude">Latitùdine</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Longitùdine</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">W</string>
+    <string name="altitude">Artària</string>
+    <string name="speed">Lestresa</string>
+    <string name="bearing">Relevamentu</string>
+    <string name="sensor_bearing_offset">Cumpensatzione relevamentu basada in supra de su sensore</string>
+    <string name="travel_direction">Diretzione de biàgiu</string>
+    <string name="travel_direction_forward">In antis</string>
+    <string name="travel_direction_backwards">In dae segus</string>
+    <string name="accuracy">Pretzisione</string>
+    <string name="timestamp">Marca temporale</string>
+    <string name="destination">Destinatzione</string>
+    <string name="to_dest">Pro sa destinatzione</string>
+    <string name="direction_relative">cunforma a sa diretzione atuale</string>
+    <string name="raw">Sena formatu</string>
+    <string name="none">Perunu</string>
+    <string name="notset">No impostadu</string>
+    <string name="loc_updated_recent">Positzione agiornada dae pagu.</string>
+    <string name="loc_updated_not_recent">Positzione no agiornada.</string>
+    <string name="settings">Impostaduras</string>
+    <string name="pref_header_general">Generales</string>
+    <string name="pref_header_loc_update">Agiornamentos positzione</string>
+    <string name="pref_loc_update_dist">Agiornamentos basados in supra de sa distàntzia</string>
+    <string name="pref_loc_update_time">Agiornamentos basados in supra de su tempus</string>
+    <string name="pref_enable_sensors">Ativa sos sensores disponìbiles</string>
+    <string name="pref_geo_orientation_sensor">Sensore orientamentu predefinidu</string>
+    <string name="sensors_enabled">Ativadu: agiornamentos lestros e positzionamentu pretzisu</string>
+    <string name="sensors_disabled">Disativadu: risparmiu energia</string>
+    <string name="disabled">Disativadu</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d metru</item>
+	<item quantity="other">%d metros</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d segundu</item>
+	<item quantity="other">%d segundos</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minutu</item>
+	<item quantity="other">%d minutos</item>
+</plurals>
+    <string name="about">Informatziones</string>
+    <string name="version">Versione</string>
+    <string name="build_time">Costruidu in %s.</string>
+    <string name="app_website">Bìsita su &lt;a href=%1$s&gt;giassu/situ web&lt;/a&gt; pro àteras informatziones.</string>
+    <string name="copyright">Deretu de autore</string>
+    <string name="license">Cust\'aplicu est unu programma lìberu: lu podes distribuire e/o modificare sighinde sos tèrmines de sa litzèntzia GNU General Public License comente est istada publicada dae sa Free Software Foundation, versione 3 o imbeniente.\n
+ \n
+ Custu programma est distribuidu isperande chi siat ùtile, ma SENA GARANTZIA PERUNA; sena fintzas sa garantzia implìcita de CUMMERTZIALIDADE o IDONEIDADE PRO UN\'ISCOPU PARTICULARE. Abbàida sa GNU General Public License pro àteras informatziones.\n
+ \n
+ Si no as retzidu una copia de sa GNU General Public License paris cun custu programma, la podes agatare a custu inoghe: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>

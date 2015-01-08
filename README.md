@@ -1,12 +1,16 @@
 GetBack GPS for Android
 =======================
 
-[![GetBack GPS](http://img.shields.io/badge/release-v0.3-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
+[![GetBack GPS](http://img.shields.io/badge/release-v0.4.1-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
 [![Translation status](http://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
-[![Buildtime trend](http://img.shields.io/badge/buildtime-trend-blue.svg)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/ruleant/getback-gps)
+
+[![Buildtime trend](https://buildtimetrend-service.herokuapp.com/badge/ruleant/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Total builds](https://buildtimetrend-service.herokuapp.com/badge/ruleant/getback_gps/builds/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Passed build jobs](https://buildtimetrend-service.herokuapp.com/badge/ruleant/getback_gps/passed/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
 
 Open Source Android app for finding your way back to a previously visited location using GPS coordinates.
 
@@ -22,7 +26,7 @@ Features
     - use best/most accurate location provider
     - get location updates automatically (based on a time interval or change of location) or
     - get location on demand (by manually refreshing)
-- save a location
+- save a location and give it a name
 - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
 - indicate current speed and current bearing
 - use built-in sensors to get more accurate and quicker updated bearing
@@ -102,7 +106,7 @@ Third party material
 License
 -------
 
-Copyright (C) 2012-2014 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2012-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

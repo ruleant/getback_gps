@@ -46,8 +46,6 @@
     <string name="loc_provider_network">network (Cell phone/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provider is not supported.</string>
-    <string name="location">Location</string>
-    <string name="stored_location">Stored Location</string>
     <string name="curr_location">Current (last known) location</string>
     <string name="latitude">Latitude</string>
     <string name="latitude_north_unit">N</string>
