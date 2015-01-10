@@ -29,6 +29,8 @@ var CAPTION_LAST_WEEK = "Last week";
 var CAPTION_LAST_MONTH = "Last month";
 var CAPTION_LAST_YEAR = "Last year";
 
+var TIMEZONE_SECS = "UTC"; // named timezone or offset in seconds, fe. GMT+1 = 3600
+
 function getUpdatePeriod(period) {
     var keenTimeframe, keenInterval;
 
@@ -108,6 +110,7 @@ function initCharts() {
         // create query
         var queryTotalBuilds = new Keen.Query("count", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe
         });
         queriesTimeframe.push(queryTotalBuilds);
@@ -124,6 +127,7 @@ function initCharts() {
         // create query
         var queryTotalBuildsPassed = new Keen.Query("count", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             filters: [{"property_name":"build.result","operator":"eq","property_value":"passed"}]
         });
@@ -160,6 +164,7 @@ function initCharts() {
         // create query
         var queryTotalBuildsFailed = new Keen.Query("count", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             filters: [{"property_name":"build.result","operator":"in","property_value":["failed","errored"]}]
         });
@@ -196,6 +201,7 @@ function initCharts() {
         // create query
         var queryAverageBuildTime = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             targetProperty: "build.duration"
         });
@@ -217,6 +223,7 @@ function initCharts() {
         // create query
         var queryStageDuration = new Keen.Query("average", {
             eventCollection: "build_stages",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             interval: keenInterval,
             targetProperty: "stage.duration",
@@ -243,6 +250,7 @@ function initCharts() {
         // create query
         var queryStageFraction = new Keen.Query("average", {
             eventCollection: "build_stages",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             targetProperty: "stage.duration",
             groupBy: "stage.name",
@@ -262,6 +270,7 @@ function initCharts() {
         // create query
         var queryBuilds = new Keen.Query("count_unique", {
             eventCollection: "build_stages",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             interval: keenInterval,
             targetProperty: "build.build",
@@ -287,6 +296,7 @@ function initCharts() {
         // create query
         var queryTotalBuildsBranch = new Keen.Query("count_unique", {
             eventCollection: "build_stages",
+            timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             targetProperty: "build.build",
             groupBy: "build.branch"
@@ -305,6 +315,7 @@ function initCharts() {
         // create query
         var queryAvgBuildtimeHourLastWeek = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_WEEK,
             targetProperty: "build.duration",
             groupBy: "build.started_at.hour_24",
@@ -312,6 +323,7 @@ function initCharts() {
         });
         var queryAvgBuildtimeHourLastMonth = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_MONTH,
             targetProperty: "build.duration",
             groupBy: "build.started_at.hour_24",
@@ -319,6 +331,7 @@ function initCharts() {
         });
         var queryAvgBuildtimeHourLastYear = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_YEAR,
             targetProperty: "build.duration",
             groupBy: "build.started_at.hour_24",
@@ -369,6 +382,7 @@ function initCharts() {
         // create query
         var queryAvgBuildtimeWeekDayLastWeek = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_WEEK,
             targetProperty: "build.duration",
             groupBy: "build.started_at.day_of_week",
@@ -382,6 +396,7 @@ function initCharts() {
         });
         var queryAvgBuildtimeWeekDayLastMonth = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_MONTH,
             targetProperty: "build.duration",
             groupBy: "build.started_at.day_of_week",
@@ -395,6 +410,7 @@ function initCharts() {
         });
         var queryAvgBuildtimeWeekDayLastYear = new Keen.Query("average", {
             eventCollection: "builds",
+            timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_YEAR,
             targetProperty: "build.duration",
             groupBy: "build.started_at.day_of_week",
@@ -452,7 +468,7 @@ function updateTitle() {
     }
 
     document.getElementById("title").innerHTML = title;
-    document.getElementsByTagName("title")[0].innerHTML = title;
+    document.getElementsByTagName("title")[0].innerHTML = "Buildtime Trend - " + title;
 }
 
 // Initialize badge url
