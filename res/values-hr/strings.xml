@@ -53,7 +53,7 @@
     <string name="travel_direction_forward">Naprijed</string>
     <string name="travel_direction_backwards">Nazad</string>
     <string name="accuracy">Točnost</string>
-    <string name="timestamp">Vrijeme</string>
+    <string name="timestamp">Vremenska oznaka</string>
     <string name="destination">Odredište</string>
     <string name="to_dest">Prema odredištu</string>
     <string name="direction_relative">relativno trenutnom smjeru</string>
