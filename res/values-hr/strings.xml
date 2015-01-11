@@ -90,10 +90,10 @@
     <string name="version">Verzija</string>
     <string name="app_website">Posjetite &lt;a href=%1$s&gt;website&lt;/a&gt; za više informacija.</string>
     <string name="copyright">Autorska prava</string>
-    <string name="license">Ovaj program je slobodan; možete ga distribuirati i/ili mijenjati pod uvjetima GNU Opće javne licence kako ju je objavio Free Software Foundation; ili verzije 3 Licence, ili (po vašem izboru) bilo koje novije verzije.
-
-Ovaj program se distribuira u nadi da će biti koristan, ali BEZ IKAKVOG JAMSTVA; čak i bez podrazumijevanog jamstva TRGOVINSKE PRIKLADNOSTI ili ODGOVARANJA ODREĐENOJ SVRSI. Za detalje pročitajte GNU Opću javnu licencu.
-
+    <string name="license">Ovaj program je slobodan; možete ga distribuirati i/ili mijenjati pod uvjetima GNU Opće javne licence kako ju je objavio Free Software Foundation; ili verzije 3 Licence, ili (po vašem izboru) bilo koje novije verzije.\n
+\n
+Ovaj program se distribuira u nadi da će biti koristan, ali BEZ IKAKVOG JAMSTVA; čak i bez podrazumijevanog jamstva TRGOVINSKE PRIKLADNOSTI ili ODGOVARANJA ODREĐENOJ SVRSI. Za detalje pročitajte GNU Opću javnu licencu.\n
+\n
 Trebali ste dobiti primjerak GNU Opće javne licence uz ovaj program; ako niste, posjetite <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="cancel">Odustani</string>
     <string name="location_provider">Lokacijski davalac usluge</string>
