@@ -4,8 +4,8 @@
  *
  * Copyright (C) 2014-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
  *
- * This file is part of buildtimetrend/python-client
- * <https://github.com/buildtimetrend/python-client/>
+ * This file is part of buildtimetrend/dashboard
+ * <https://github.com/buildtimetrend/dashboard/>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU Affero General Public License as published by
