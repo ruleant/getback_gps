@@ -1,11 +1,2 @@
-var keenConfig = {
-    projectId: "53416589ce5e433082000002",
-    readKey: "a750875f38f0d4aa80f3b88220e6b894af3d92ec57cb223aa6262d5d5eb2551a0d76223a013be98df93b6c1281094c7e0a4efb3e7d1f40e51505895a6c7a4cc30d5c5185b9e59060ef153c2c55d11f3eca25384209efe35360ca6704b653aade48d42b9e47e7191d70f11313ec7163787175b82d4ab9f50c094d74e24204b5b91363398e93083fe52b5849137b511903dc6a160b4f09bb21d15031e81ef3292eafe1782d88369fb56bdd2bc20613138e"
-};
-
-var config = {
-    projectName: "ruleant/getback_gps", // descriptive project name (used in the title)
-    repoName: "ruleant/getback_gps", // repo name, fe. "buildtimetrend/python-client"
-    serviceUrl: "service_url", // url to Buildtime Trend as a Service, fe. https://buildtimetrend-service.herokuapp.com/
-    websiteUrl: "website_url" // url to project website
-};
+var config = {'projectName': 'ruleant/getback_gps', 'repoName': 'ruleant/getback_gps'};
+var keenConfig = {'projectId': '53416589ce5e433082000002', 'readKey': '1cf8b886baf23f74f21da1804693b1d1bab8a87a46a72a11f93b538fcee35898940cd48f0d8d54c87bc184f6c712c4cbf927c1ffdc822d2cf7721ad5bc8ce984e21fd278012b41539c35a858fb72935f6845041ca395aa55a7f7e783094889bde91228b7c399951189cb537c8521a6ea5bfad46dfb50878f9b337d082a8171f357077450ef517cfee1e74d3af065ddc7dcba3b605ccaa24105bb9c5f13663ea02f13dd061496abf2b297407d10bef501'};
