@@ -14,7 +14,7 @@ env:
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
-  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone https://github.com/buildtimetrend/python-client.git buildtime-trend; fi
+  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone --recursive https://github.com/buildtimetrend/python-client.git buildtime-trend; fi
   - source buildtime-trend/init.sh
   - mvn -v
   - timestamp.sh install_libs
