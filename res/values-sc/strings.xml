@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources><string name="app_desc">Torra ad una positzione bisitada pretzedentemente impreande sas coordinatas GPS.</string>
-    <string name="inaccurate_location">Sa positzione relevada tua no est accurada</string>
+    <string name="inaccurate_location">Sa positzione relevada tua no est pretzisa</string>
     <string name="notice_no_dest">Sarba sa positzione tua pro impostare una destinatzione</string>
     <string name="inaccurate_direction">Moende•ti as a otènnere una diretzione prus pretzisa</string>
     <string name="notice_destination_reached">Ses arribbau a sa destinatzione tua</string>
