@@ -9,10 +9,9 @@
   <script type="text/javascript" src="config.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/3.2.4/keen.min.js"></script>
   <script type="text/javascript">
 //<![CDATA[
-    !function(a,b){if(void 0===b[a]){b["_"+a]={},b[a]=function(c){b["_"+a].clients=b["_"+a].clients||{},b["_"+a].clients[c.projectId]=this,this._config=c},b[a].ready=function(c){b["_"+a].ready=b["_"+a].ready||[],b["_"+a].ready.push(c)};for(var c=["addEvent","setGlobalProperties","trackExternalLink","on"],d=0;d<c.length;d++){var e=c[d],f=function(a){return function(){return this["_"+a]=this["_"+a]||[],this["_"+a].push(arguments),this}};b[a].prototype[e]=f(e)}var g=document.createElement("script");g.type="text/javascript",g.async=!0,g.src="https://d26b395fwzu5fz.cloudfront.net/3.0.3/keen.min.js";var h=document.getElementsByTagName("script")[0];h.parentNode.insertBefore(g,h)}}("Keen",this);
-
     // configure Keen.io API client, keenConfig is defined in config.js
     var client = new Keen(keenConfig);
   //]]>
@@ -129,6 +128,31 @@
       <div class="col-sm-6">
         <div class="chart-wrapper">
           <div class="chart-stage">
+            <div id="chart_jobs_result"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            <div class="btn-group-xs">Build job result
+              <button type="button" id="result_passed" class="btn btn-default">Passed</button>
+              <button type="button" id="result_failed" class="btn btn-default">Failed</button>
+              <button type="button" id="result_errored" class="btn btn-default">Errored</button>
+            </div>
+          </div>
+          <div class="chart-stage">
+            <div id="chart_jobs_result_branch"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-stage">
             <div id="chart_avg_buildtime_hour"></div>
           </div>
         </div>
@@ -145,7 +169,7 @@
   </div>
 
   <p>
-    Powered by <a href="https://buildtimetrend.github.io/">Buildtime Trend</a> (v0.2).<br />
+    Powered by <a href="https://buildtimetrend.github.io/">Buildtime Trend</a> (v0.3-dev).<br />
     Using the <a href="https://keen.io/">Keen.io</a> API for data analysis and visualisation.
   </p>
 </body>
