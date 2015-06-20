@@ -38,10 +38,29 @@ var CLASS_BUTTON_ACTIVE = "btn btn-success";
 var BUTTON_RESULT_PREFIX = "result_";
 var BUTTON_RESULT_DEFAULT = "failed";
 var BUTTONS_RESULT = {
-    "passed": CLASS_BUTTON_NORMAL,
-    "failed": CLASS_BUTTON_NORMAL,
-    "errored": CLASS_BUTTON_NORMAL
+    "passed": {},
+    "failed": {},
+    "errored": {}
 };
+// Groupby button constants
+var BUTTON_GROUPBY_PREFIX = "groupby_";
+var BUTTON_GROUPBY_DEFAULT = "matrix";
+var BUTTONS_GROUPBY = {
+    "branch": {
+        "queryField": "job.branch",
+        "caption": "branch name",
+    },
+    "matrix": {
+        "queryField": "job.build_matrix.summary",
+        "caption": "build env parameters",
+    }
+};
+
+// use Keen JS API default colors :
+// https://github.com/keen/keen-js/blob/master/src/dataviz/dataviz.js#L48
+var GREEN = '#73d483';
+var RED = '#fe6672';
+var YELLOW = '#eeb058';
 
 // arrays with queries and query request to update
 var queriesInterval = [];
@@ -61,6 +80,13 @@ function isEmpty(varName) {
  */
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
+}
+
+/**
+ * Capitalize first character of a string
+ */
+function firstCharUpperCase(str) {
+    return str.substring(0,1).toUpperCase() + str.substring(1);
 }
 
 /**
@@ -128,53 +154,90 @@ function getUpdatePeriod(period) {
     };
 }
 
-// Get Build job result filter
-function getBuildJobResultFilter(result) {
-    if (isEmpty(result)) {
-        result = BUTTON_RESULT_DEFAULT;
+// Build Job result class
+var BuildJobResultClass = {
+    currentResult: BUTTON_RESULT_DEFAULT,
+    allowedResults: BUTTONS_RESULT,
+    currentGroupBy: BUTTON_GROUPBY_DEFAULT,
+    allowedGroupBy: BUTTONS_GROUPBY,
+    setResult: function (result) {
+        // check if button is defined or exists in list of buttons
+        // use default button, if not
+        if (!isEmpty(result) && (result in this.allowedResults)) {
+            this.currentResult = result;
+        }
+    },
+    setGroupBy: function (groupBy) {
+        // check if button is defined or exists in list of buttons
+        // use default button, if not
+        if (!isEmpty(groupBy) && (groupBy in this.allowedGroupBy)) {
+            this.currentGroupBy = groupBy;
+        }
+    },
+    // Get Build job result filter
+    getFilters: function () {
+        var filters = [];
+        filters.push({
+            "property_name": "job.result",
+            "operator": "eq",
+            "property_value": this.currentResult
+        });
+
+        // only group records that have the build_matrix field
+        if (this.currentGroupBy === "matrix") {
+            filters.push({
+                "property_name": this.getQueryGroupByField(),
+                "operator":"exists",
+                "property_value":true
+            });
+        }
+
+        return filters;
+    },
+    // Get Build job result query GroupBy parameter
+    getQueryGroupByField: function () {
+        return this.allowedGroupBy[this.currentGroupBy].queryField;
+    },
+    // Get Build job result title
+    getTitle: function () {
+        return firstCharUpperCase(this.currentResult) +
+            " build jobs grouped by " +
+            BUTTONS_GROUPBY[this.currentGroupBy].caption;
+    },
+    // Set option buttons for Build job result filter
+    setResultButton: function () {
+        this.setButton(
+            this.allowedResults,
+            this.currentResult,
+            BUTTON_RESULT_PREFIX
+        );
+    },
+    // Set option buttons for Build job group by filter
+    setGroupByButton: function () {
+        this.setButton(
+            this.allowedGroupBy,
+            this.currentGroupBy,
+            BUTTON_GROUPBY_PREFIX
+        );
+    },
+    // Set option buttons classes
+    setButton: function (buttons, activeButton, buttonPrefix) {
+        // loop over all allowed buttons and set button class
+        $.each(buttons, function(key, value) {
+            var buttonClass;
+
+            // set active button
+            if (key === activeButton) {
+                buttonClass = CLASS_BUTTON_ACTIVE;
+            } else {
+                buttonClass = CLASS_BUTTON_NORMAL;
+            }
+
+            // apply classes to button divs
+            $("#" + buttonPrefix + key).attr('class', buttonClass);
+        });
     }
-
-    return {
-        "property_name": "job.result",
-        "operator": "eq",
-        "property_value": result
-    };
-}
-
-// Get Build job result title
-function getBuildJobResultTitle(result) {
-    if (isEmpty(result)) {
-        result = BUTTON_RESULT_DEFAULT;
-    }
-
-    // Capitalize first character
-    result = result.substring(0,1).toUpperCase() + result.substring(1);
-
-    return result + " build jobs per branch";
-}
-
-// Set option buttons for Build job result filter
-function setBuildJobResultButton(button) {
-    var buttonPrefix = BUTTON_RESULT_PREFIX;
-    var buttonDefault = BUTTON_RESULT_DEFAULT;
-
-    // shallow copy list of allowed buttons and default values
-    var buttons = JSON.parse(JSON.stringify(BUTTONS_RESULT));
-
-    // check if button is defined or exists in list of buttons
-    // use default button, if not
-    if (isEmpty(button) || !(button in buttons)) {
-        button = buttonDefault;
-    }
-
-    // set active button
-    buttons[button] = CLASS_BUTTON_ACTIVE;
-
-    // apply classes to button divs
-    $.each(buttons, function(key, value) {
-        $("#" + buttonPrefix + key).attr('class', value);
-    });
-}
+};
 
 // Get badge url
 function getBadgeUrl() {
@@ -299,17 +362,17 @@ function initCharts() {
                 // Display the API error
                 chartTotalBuildsPassed.error(err.message);
             } else {
-                var chartColor = ["green"];
+                var chartColor = [GREEN];
                 var totalBuilds = res[0].result;
                 var totalBuildsPassed = res[1].result;
 
                 if (totalBuilds === totalBuildsPassed) {
-                    chartColor = ["green"];
+                    chartColor = [GREEN];
                 } else if (totalBuilds > 0) {
                     if ((totalBuildsPassed / totalBuilds) >= 0.75) {
-                        chartColor = ["orange"];
+                        chartColor = [YELLOW];
                     } else {
-                        chartColor = ["red"];
+                        chartColor = [RED];
                     }
                 }
 
@@ -345,17 +408,17 @@ function initCharts() {
                 // Display the API error
                 chartTotalBuildsPassed.error(err.message);
             } else {
-                var chartColor = ["green"];
+                var chartColor = [GREEN];
                 var totalBuilds = res[0].result;
                 var totalBuildsFailed = res[1].result;
 
                 if (totalBuildsFailed === 0) {
-                    chartColor = ["green"];
+                    chartColor = [GREEN];
                 } else if (totalBuilds > 0) {
                     if ((totalBuildsFailed / totalBuilds) <= 0.25) {
-                        chartColor = ["orange"];
+                        chartColor = [YELLOW];
                     } else {
-                        chartColor = ["red"];
+                        chartColor = [RED];
                     }
                 }
 
@@ -566,9 +629,9 @@ function initCharts() {
                     vAxis: {title: "build job count"}
                 },
                 colorMapping: {
-                    "passed": "green",
-                    "failed": "red",
-                    "errored": "yellow"
+                    "passed": GREEN,
+                    "failed": RED,
+                    "errored": YELLOW
                 }
             })
             .prepare();
@@ -589,7 +652,8 @@ function initCharts() {
         /* Build job result per branch */
 
         // set default button
-        setBuildJobResultButton(BUTTON_RESULT_DEFAULT);
+        BuildJobResultClass.setResultButton();
+        BuildJobResultClass.setGroupByButton();
 
         // create query
         var queryJobResultBranch = new Keen.Query("count_unique", {
@@ -597,8 +661,8 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             targetProperty: "job.job",
-            groupBy: "job.branch",
-            filters: [getBuildJobResultFilter(BUTTON_RESULT_DEFAULT)]
+            groupBy: BuildJobResultClass.getQueryGroupByField(),
+            filters: BuildJobResultClass.getFilters()
         });
         queriesTimeframe.push(queryJobResultBranch);
 
@@ -606,7 +670,7 @@ function initCharts() {
         var chartJobResultBranch = new Keen.Dataviz()
             .el(document.getElementById("chart_jobs_result_branch"))
             .height("400")
-            .title(getBuildJobResultTitle(BUTTON_RESULT_DEFAULT))
+            .title(BuildJobResultClass.getTitle())
             .prepare();
 
         var requestJobResultBranch = client.run(queryJobResultBranch, function(err, res) {
@@ -630,9 +694,13 @@ function initCharts() {
             }
 
             document.getElementById(buttonPrefix + button).addEventListener("click", function() {
-                setBuildJobResultButton(button);
-                queryJobResultBranch.set({filters: [getBuildJobResultFilter(button)]});
-                chartJobResultBranch.title(getBuildJobResultTitle(button));
+                BuildJobResultClass.setResult(button);
+                BuildJobResultClass.setResultButton();
+                queryJobResultBranch.set({
+                    groupBy: BuildJobResultClass.getQueryGroupByField(),
+                    filters: BuildJobResultClass.getFilters()
+                });
+                chartJobResultBranch.title(BuildJobResultClass.getTitle());
                 requestJobResultBranch.refresh();
             });
         }
@@ -640,6 +708,31 @@ function initCharts() {
         // loop over list of buttons to attach click events
         $.each(BUTTONS_RESULT, function(key, value) {
             attachEventResultButton(key);
+        });
+
+        // Attach events to toggle buttons
+        function attachEventGroupByButton(button) {
+            var buttonPrefix = BUTTON_GROUPBY_PREFIX;
+
+            if (isEmpty(button)) {
+                button = BUTTON_GROUPBY_DEFAULT;
+            }
+
+            document.getElementById(buttonPrefix + button).addEventListener("click", function() {
+                BuildJobResultClass.setGroupBy(button);
+                BuildJobResultClass.setGroupByButton();
+                queryJobResultBranch.set({
+                    groupBy: BuildJobResultClass.getQueryGroupByField(),
+                    filters: BuildJobResultClass.getFilters()
+                });
+                chartJobResultBranch.title(BuildJobResultClass.getTitle());
+                requestJobResultBranch.refresh();
+            });
+        }
+
+        // loop over list of buttons to attach click events
+        $.each(BUTTONS_GROUPBY, function(key, value) {
+            attachEventGroupByButton(key);
         });
 
         /* Average buildtime per time of day */
