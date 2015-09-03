@@ -21,73 +21,70 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  */
 
-var TIMEFRAME_LAST_WEEK = "this_7_days";
-var TIMEFRAME_LAST_MONTH = "this_30_days";
-var TIMEFRAME_LAST_YEAR = "this_52_weeks";
-
-var CAPTION_LAST_WEEK = "Last week";
-var CAPTION_LAST_MONTH = "Last month";
-var CAPTION_LAST_YEAR = "Last year";
-
-var TIMEZONE_SECS = "UTC"; // named timezone or offset in seconds, fe. GMT+1 = 3600
-
-var CLASS_BUTTON_NORMAL = "btn btn-primary";
-var CLASS_BUTTON_ACTIVE = "btn btn-success";
+// define the general onClick event for timeframeButtons instance
+timeframeButtons.onClick = function() {
+    updateCharts();
+    updateBadgeUrl();
+};
 
 // Build result button constants
 var BUTTON_RESULT_PREFIX = "result_";
 var BUTTON_RESULT_DEFAULT = "failed";
 var BUTTONS_RESULT = {
-    "passed": {},
-    "failed": {},
-    "errored": {}
+    "passed": {
+        "caption": "Passed",
+    },
+    "failed": {
+        "caption": "Failed",
+    },
+    "errored": {
+        "caption": "Errored",
+    }
 };
 // Groupby button constants
 var BUTTON_GROUPBY_PREFIX = "groupby_";
 var BUTTON_GROUPBY_DEFAULT = "matrix";
 var BUTTONS_GROUPBY = {
     "branch": {
+        "caption": "Branch",
         "queryField": "job.branch",
-        "caption": "branch name",
+        "titleCaption": "branch name"
     },
     "matrix": {
+        "caption": "Build matrix",
         "queryField": "job.build_matrix.summary",
-        "caption": "build env parameters",
+        "titleCaption": "build env parameters"
     }
 };
+
+filterOptions = [
+    {
+        "selectId": "filter_build_matrix",
+        "queryField": "job.build_matrix.summary",
+        "caption": "Build matrix"
+    },
+    {
+        "selectId": "filter_result",
+        "queryField": "job.result",
+        "caption": "Build results"
+    },
+    {
+        "selectId": "filter_build_trigger",
+        "queryField": "job.build_trigger",
+        "caption": "Build triggers"
+    },
+    {
+        "selectId": "filter_branch",
+        "queryField": "job.branch",
+        "caption": "Branch"
+    }
+];
 
 // use Keen JS API default colors :
 // https://github.com/keen/keen-js/blob/master/src/dataviz/dataviz.js#L48
 var GREEN = '#73d483';
 var RED = '#fe6672';
 var YELLOW = '#eeb058';
-
-// arrays with queries and query request to update
-var queriesInterval = [];
-var queriesTimeframe = [];
-var queryRequests = [];
-
-/**
- * Checks if a variable is defined and not null.
- */
-function isEmpty(varName) {
-   return (varName === undefined || varName === null);
-}
-
-/**
- * Escape html characters
- * inspired by http://css-tricks.com/snippets/javascript/htmlentities-for-javascript/
- */
-function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
-}
-
-/**
- * Capitalize first character of a string
- */
-function firstCharUpperCase(str) {
-    return str.substring(0,1).toUpperCase() + str.substring(1);
-}
 
 /**
  * Merge data from several series, with identical X-axis labels
@@ -123,56 +120,56 @@ function mergeSeries(data, indexCaptions, valueFieldname, seriesCaptions) {
     return chartData;
 }
 
-function getUpdatePeriod(period) {
-    var keenTimeframe, keenInterval;
-
-    switch (period) {
-    case "day":
-        keenTimeframe = "today";
-        keenInterval = "hourly";
-        break;
-    default:
-        period = "week";
-    case "week":
-        keenTimeframe = TIMEFRAME_LAST_WEEK;
-        keenInterval = "daily";
-        break;
-    case "month":
-        keenTimeframe = TIMEFRAME_LAST_MONTH;
-        keenInterval = "daily";
-        break;
-    case "year":
-        keenTimeframe = TIMEFRAME_LAST_YEAR;
-        keenInterval = "weekly";
-        break;
+/**
+ * Format duration from seconds to hours, minutes and seconds.
+ *
+ * Parameters:
+ *  - duration : duration in seconds
+ */
+function formatDuration(duration) {
+    if (isNaN(duration) || duration < 0) {
+        return "unknown";
     }
 
-    return {
-        name: period,
-        keenTimeframe: keenTimeframe,
-        keenInterval: keenInterval
-    };
+    // round duration
+    duration = Math.round(duration);
+
+    var seconds = duration % 60;
+    duration = duration / 60;
+    var formattedString = seconds.toFixed(0) + "s";
+
+    if (duration >= 1) {
+        var minutes = Math.floor(duration % 60);
+        duration = duration / 60;
+        formattedString = minutes + "m " + formattedString;
+
+        if (duration >= 1) {
+            var hours = Math.floor(duration % 60);
+            formattedString = hours + "h " + formattedString;
+        }
+    }
+
+    return formattedString;
 }
 
 // Build Job result class
-var BuildJobResultClass = {
-    currentResult: BUTTON_RESULT_DEFAULT,
-    allowedResults: BUTTONS_RESULT,
-    currentGroupBy: BUTTON_GROUPBY_DEFAULT,
-    allowedGroupBy: BUTTONS_GROUPBY,
-    setResult: function (result) {
-        // check if button is defined or exists in list of buttons
-        // use default button, if not
-        if (!isEmpty(result) && (result in this.allowedResults)) {
-            this.currentResult = result;
-        }
-    },
-    setGroupBy: function (groupBy) {
-        // check if button is defined or exists in list of buttons
-        // use default button, if not
-        if (!isEmpty(groupBy) && (groupBy in this.allowedGroupBy)) {
-            this.currentGroupBy = groupBy;
-        }
+var buildJobResultButtons = {
+    resultButtons: new ButtonClass(
+        BUTTONS_RESULT,
+        BUTTON_RESULT_DEFAULT,
+        BUTTON_RESULT_PREFIX
+    ),
+    groupByButtons: new ButtonClass(
+        BUTTONS_GROUPBY,
+        BUTTON_GROUPBY_DEFAULT,
+        BUTTON_GROUPBY_PREFIX
+    ),
+    // initialize class instance
+    init: function() {
+        this.resultButtons.onClick = function() { onClickResultButton(); };
+        this.resultButtons.initButtons();
+        this.groupByButtons.onClick = function() { onClickResultButton(); };
+        this.groupByButtons.initButtons();
     },
     // Get Build job result filter
     getFilters: function () {
@@ -180,11 +177,11 @@ var BuildJobResultClass = {
         filters.push({
             "property_name": "job.result",
             "operator": "eq",
-            "property_value": this.currentResult
+            "property_value": this.resultButtons.currentButton
         });
 
         // only group records that have the build_matrix field
-        if (this.currentGroupBy === "matrix") {
+        if (this.groupByButtons.currentButton === "matrix") {
             filters.push({
                 "property_name": this.getQueryGroupByField(),
                 "operator":"exists",
@@ -196,68 +193,96 @@ var BuildJobResultClass = {
     },
     // Get Build job result query GroupBy parameter
     getQueryGroupByField: function () {
-        return this.allowedGroupBy[this.currentGroupBy].queryField;
+        return this.groupByButtons.getCurrentButton().queryField;
     },
     // Get Build job result title
     getTitle: function () {
-        return firstCharUpperCase(this.currentResult) +
+        return firstCharUpperCase(this.resultButtons.currentButton) +
             " build jobs grouped by " +
-            BUTTONS_GROUPBY[this.currentGroupBy].caption;
-    },
-    // Set option buttons for Build job result filter
-    setResultButton: function () {
-        this.setButton(
-            this.allowedResults,
-            this.currentResult,
-            BUTTON_RESULT_PREFIX
-        );
-    },
-    // Set option buttons for Build job group by filter
-    setGroupByButton: function () {
-        this.setButton(
-            this.allowedGroupBy,
-            this.currentGroupBy,
-            BUTTON_GROUPBY_PREFIX
-        );
-    },
-    // Set option buttons classes
-    setButton: function (buttons, activeButton, buttonPrefix) {
-        // loop over all allowed buttons and set button class
-        $.each(buttons, function(key, value) {
-            var buttonClass;
-
-            // set active button
-            if (key === activeButton) {
-                buttonClass = CLASS_BUTTON_ACTIVE;
-            } else {
-                buttonClass = CLASS_BUTTON_NORMAL;
-            }
-
-            // apply classes to button divs
-            $("#" + buttonPrefix + key).attr('class', buttonClass);
-        });
+            this.groupByButtons.getCurrentButton().titleCaption;
     }
 };
 
-// Get badge url
-function getBadgeUrl() {
-    // check if config.serviceUrl is set by something else than the default value
-    if (isEmpty(config.serviceUrl) || config.serviceUrl === 'service_url') {
-        config.serviceUrl = 'https://buildtimetrend.herokuapp.com/';
-    }
+var queryJobResultBranch, chartJobResultBranch, requestJobResultBranch;
+function onClickResultButton() {
+    queryJobResultBranch.set({
+        groupBy: buildJobResultButtons.getQueryGroupByField(),
+        filters: buildJobResultButtons.getFilters()
+    });
+    chartJobResultBranch.title(buildJobResultButtons.getTitle());
+    requestJobResultBranch.refresh();
+}
 
-    return config.serviceUrl + '/badge/';
+var queryStageDurationBuildJob, requestStageDurationBuildJob;
+var filterValues = {};
+function updateFilter(parameter, value) {
+    filterValues[parameter] = value;
+
+    var filterList = [];
+
+    $.each(filterValues, function(index, value) {
+        if (!isEmpty(value)) {
+            filterList.push({"property_name": index,"operator":"eq","property_value": value});
+        }
+    });
+
+    queryStageDurationBuildJob.set({
+        filters: filterList
+    });
+
+    requestStageDurationBuildJob.refresh();
+}
+
+function initFilterOptions(dropDownName, parameter, caption) {
+    $('#' + dropDownName).change(function() {
+        updateFilter(parameter, this.value);
+    });
+
+    populateFilterOptions(dropDownName, parameter, caption);
+}
+
+function populateFilterOptions(dropDownName, parameter, caption) {
+    // get Update Period settings
+    var updatePeriod = getUpdatePeriod();
+
+    // empty options and add placeholder
+    $('#' + dropDownName)
+        .empty()
+        .append($('<option>', {
+            value : '',
+            text : caption
+        }))
+    ;
+
+    var querySelectUnique = new Keen.Query("select_unique", {
+      eventCollection: "build_jobs",
+      targetProperty: parameter,
+      timeframe: updatePeriod.keenTimeframe
+    });
+
+    // Send query
+    client.run(querySelectUnique, function(err, response){
+        if (!err) {
+            $.each(response.result, function (i, item) {
+                if (item !== null) {
+                    $('#' + dropDownName).append($('<option>', {
+                        text : item
+                    }));
+                }
+            });
+        }
+    });
 }
 
 // Initialize badge url
-function updateBadgeUrl(periodName) {
+function updateBadgeUrl() {
     var badgeUrl = getBadgeUrl();
 
     // add repo
     if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
         badgeUrl += config.repoName;
 
-        var updatePeriod = getUpdatePeriod(periodName);
+        var updatePeriod = getUpdatePeriod();
         var interval = updatePeriod.name;
 
         // add interval
@@ -272,39 +297,16 @@ function updateBadgeUrl(periodName) {
     $("#badge-url").attr('src', htmlEntities(badgeUrl));
 }
 
-function updateCharts(periodName) {
-    // get Update Period settings
-    var updatePeriod = getUpdatePeriod(periodName);
-
-    updateBadgeUrl(updatePeriod.name);
-
-    var i;
-
-    // update all interval based queries
-    for (i = 0; i < queriesInterval.length; i++) {
-        queriesInterval[i].set({interval: updatePeriod.keenInterval});
-    }
-
-    // update all timeframe based queries
-    for (i = 0; i < queriesTimeframe.length; i++) {
-        queriesTimeframe[i].set({timeframe: updatePeriod.keenTimeframe});
-    }
-
-    // refresh all updated query requests
-    for (i = 0; i < queryRequests.length; i++) {
-        queryRequests[i].refresh();
-    }
-}
-
 function initCharts() {
     // get Update Period settings
     var updatePeriod = getUpdatePeriod();
 
+    // initialize timeframe buttons
+    timeframeButtons.initButtons();
+
+    var keenMaxAge = updatePeriod.keenMaxAge;
     var keenTimeframe = updatePeriod.keenTimeframe;
     var keenInterval = updatePeriod.keenInterval;
-
-    // update interval selection box
-    $('#intervals').val(updatePeriod.name);
 
     // display charts
     $('#charts').show();
@@ -316,13 +318,17 @@ function initCharts() {
         var queryTotalBuilds = new Keen.Query("count", {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
-            timeframe: keenTimeframe
+            timeframe: keenTimeframe,
+            maxAge: keenMaxAge
         });
         queriesTimeframe.push(queryTotalBuilds);
 
         // draw chart
         var chartTotalBuilds = new Keen.Dataviz()
             .el(document.getElementById("metric_total_builds"))
+            .attributes({
+                chartOptions: {prettyNumber: false}
+            })
             .prepare();
 
         var requestTotalBuilds = client.run(queryTotalBuilds, function(err, res){
@@ -333,7 +339,7 @@ function initCharts() {
                 chartTotalBuilds
                     .parseRequest(this)
                     .title("Total build jobs")
-                    .width("200")
+                    .width(200)
                     .render();
             }
         });
@@ -345,6 +351,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
             filters: [{"property_name":"job.result","operator":"eq","property_value":"passed"}]
         });
         queriesTimeframe.push(queryTotalBuildsPassed);
@@ -353,7 +360,10 @@ function initCharts() {
         var chartTotalBuildsPassed = new Keen.Dataviz()
             .el(document.getElementById("metric_total_builds_passed"))
             .title("Build jobs passed")
-            .width("200")
+            .attributes({
+                chartOptions: {prettyNumber: false}
+            })
+            .width(200)
             .prepare();
 
         // combine queries for conditional coloring of TotalBuildspassed
@@ -391,6 +401,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
             filters: [{"property_name":"job.result","operator":"in","property_value":["failed","errored"]}]
         });
         queriesTimeframe.push(queryTotalBuildsFailed);
@@ -399,7 +410,10 @@ function initCharts() {
         var chartTotalBuildsFailed = new Keen.Dataviz()
             .el(document.getElementById("metric_total_builds_failed"))
             .title("Build jobs failed")
-            .width("200")
+            .attributes({
+                chartOptions: {prettyNumber: false}
+            })
+            .width(200)
             .prepare();
 
         // combine queries for conditional coloring of TotalBuildsfailed
@@ -437,6 +451,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration"
         });
         queriesTimeframe.push(queryAverageBuildTime);
@@ -444,22 +459,23 @@ function initCharts() {
         // draw chart
         var chartAverageBuildTime = new Keen.Dataviz()
             .el(document.getElementById("metric_average_build_time"))
-            .width("250")
+            .title("Average job duration")
+            .width(300)
             .attributes({
                 chartOptions: {
-                    suffix: "s"
+                    suffix: " min"
                 }
             })
-           .prepare();
+            .prepare();
 
         var requestAverageBuildTime = client.run(queryAverageBuildTime, function(err, res) {
             if (err) {
                 // Display the API error
                 chartAverageBuildTime.error(err.message);
             } else {
+                res.result = Math.round(res.result / 60);
                 chartAverageBuildTime
-                    .parseRequest(this)
-                    .title("Average job duration")
+                    .parseRawData(res)
                     .render();
             }
         });
@@ -472,6 +488,7 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             interval: keenInterval,
+            maxAge: keenMaxAge,
             targetProperty: "stage.duration",
             groupBy: "stage.name",
             filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
@@ -483,7 +500,7 @@ function initCharts() {
         var chartStageDuration = new Keen.Dataviz()
             .el(document.getElementById("chart_stage_duration"))
             .chartType("columnchart")
-            .height("400")
+            .height(400)
             .attributes({
                 chartOptions: {
                     isStacked: true,
@@ -511,6 +528,7 @@ function initCharts() {
             eventCollection: "build_stages",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
             targetProperty: "stage.duration",
             groupBy: "stage.name",
             filters: [{"property_name":"stage.name","operator":"exists","property_value":true}]
@@ -520,7 +538,7 @@ function initCharts() {
         // draw chart
         var chartStageFraction = new Keen.Dataviz()
             .el(document.getElementById("chart_stage_fraction"))
-            .height("400")
+            .height(400)
             .prepare();
 
         var requestStageFraction = client.run(queryStageFraction, function(err, res) {
@@ -536,6 +554,93 @@ function initCharts() {
         });
         queryRequests.push(requestStageFraction);
 
+        /* Total build duration grouped by build ID */
+        // create query
+        var queryStageDurationBuild = new Keen.Query("sum", {
+            eventCollection: "build_jobs",
+            timezone: TIMEZONE_SECS,
+            timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
+            targetProperty: "job.duration",
+            groupBy: "job.build"
+        });
+        queriesTimeframe.push(queryStageDurationBuild);
+
+        // draw chart
+        var chartStageDurationBuild = new Keen.Dataviz()
+            .el(document.getElementById("chart_stage_duration_build"))
+            .chartType("columnchart")
+            .title("Total build duration grouped by build ID")
+            .height(400)
+            .attributes({
+                chartOptions: {
+                    legend: {position: "none"},
+                    vAxis: {title: "duration [s]"},
+                    hAxis: {title: "build ID"}
+                }
+            })
+            .prepare();
+
+        var requestStageDurationBuild = client.run(queryStageDurationBuild, function(err, res) {
+            if (err) {
+                // Display the API error
+                chartStageDurationBuild.error(err.message);
+            } else {
+                chartStageDurationBuild
+                    .parseRequest(this)
+                    .render();
+            }
+        });
+        queryRequests.push(requestStageDurationBuild);
+
+        /* Total build job duration grouped by build job ID */
+        // initialize options buttons
+        $.each(filterOptions, function () {
+            initFilterOptions(
+                this.selectId,
+                this.queryField,
+                this.caption
+            );
+        });
+
+        // create query
+        queryStageDurationBuildJob = new Keen.Query("sum", {
+            eventCollection: "build_jobs",
+            timezone: TIMEZONE_SECS,
+            timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
+            targetProperty: "job.duration",
+            groupBy: "job.job"
+        });
+        queriesTimeframe.push(queryStageDurationBuildJob);
+
+        // draw chart
+        var chartStageDurationBuildJob = new Keen.Dataviz()
+            .el(document.getElementById("chart_stage_duration_buildjob"))
+            .chartType("columnchart")
+            .title("Total build job duration grouped by build job ID")
+            .height(400)
+            .attributes({
+                chartOptions: {
+                    legend: {position: "none"},
+                    vAxis: {title: "duration [s]"},
+                    hAxis: {title: "build job ID"}
+                }
+            })
+            .prepare();
+
+        requestStageDurationBuildJob = client.run(queryStageDurationBuildJob, function(err, res) {
+            if (err) {
+                // Display the API error
+                chartStageDurationBuildJob.error(err.message);
+            } else {
+                chartStageDurationBuildJob
+                    .parseRequest(this)
+                    .render();
+            }
+        });
+        queryRequests.push(requestStageDurationBuildJob);
+
         /* Builds */
         // create query
         var queryBuilds = new Keen.Query("count_unique", {
@@ -543,6 +648,7 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             interval: keenInterval,
+            maxAge: keenMaxAge,
             targetProperty: "job.build",
             groupBy: "job.branch"
         });
@@ -553,7 +659,7 @@ function initCharts() {
         var chartBuilds = new Keen.Dataviz()
             .el(document.getElementById("chart_builds"))
             .chartType("columnchart")
-            .height("400")
+            .height(400)
             .attributes({
                 chartOptions: {
                     isStacked: true,
@@ -581,6 +687,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
             targetProperty: "job.build",
             groupBy: "job.branch"
         });
@@ -612,6 +719,7 @@ function initCharts() {
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
             interval: keenInterval,
+            maxAge: keenMaxAge,
             targetProperty: "job.job",
             groupBy: "job.result"
         });
@@ -622,7 +730,7 @@ function initCharts() {
         var chartJobResult = new Keen.Dataviz()
             .el(document.getElementById("chart_jobs_result"))
             .chartType("columnchart")
-            .height("400")
+            .height(400)
             .attributes({
                 chartOptions: {
                     isStacked: true,
@@ -651,29 +759,29 @@ function initCharts() {
 
         /* Build job result per branch */
 
-        // set default button
-        BuildJobResultClass.setResultButton();
-        BuildJobResultClass.setGroupByButton();
+        // initialize buildjob result buttons
+        buildJobResultButtons.init();
 
         // create query
-        var queryJobResultBranch = new Keen.Query("count_unique", {
+        queryJobResultBranch = new Keen.Query("count_unique", {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: keenTimeframe,
+            maxAge: keenMaxAge,
             targetProperty: "job.job",
-            groupBy: BuildJobResultClass.getQueryGroupByField(),
-            filters: BuildJobResultClass.getFilters()
+            groupBy: buildJobResultButtons.getQueryGroupByField(),
+            filters: buildJobResultButtons.getFilters()
         });
         queriesTimeframe.push(queryJobResultBranch);
 
         // draw chart
-        var chartJobResultBranch = new Keen.Dataviz()
+        chartJobResultBranch = new Keen.Dataviz()
             .el(document.getElementById("chart_jobs_result_branch"))
-            .height("400")
-            .title(BuildJobResultClass.getTitle())
+            .height(400)
+            .title(buildJobResultButtons.getTitle())
             .prepare();
 
-        var requestJobResultBranch = client.run(queryJobResultBranch, function(err, res) {
+        requestJobResultBranch = client.run(queryJobResultBranch, function(err, res) {
             if (err) {
                 // Display the API error
                 chartJobResultBranch.error(err.message);
@@ -685,62 +793,13 @@ function initCharts() {
         });
         queryRequests.push(requestJobResultBranch);
 
-        // Attach events to toggle buttons
-        function attachEventResultButton(button) {
-            var buttonPrefix = BUTTON_RESULT_PREFIX;
-
-            if (isEmpty(button)) {
-                button = BUTTON_RESULT_DEFAULT;
-            }
-
-            document.getElementById(buttonPrefix + button).addEventListener("click", function() {
-                BuildJobResultClass.setResult(button);
-                BuildJobResultClass.setResultButton();
-                queryJobResultBranch.set({
-                    groupBy: BuildJobResultClass.getQueryGroupByField(),
-                    filters: BuildJobResultClass.getFilters()
-                });
-                chartJobResultBranch.title(BuildJobResultClass.getTitle());
-                requestJobResultBranch.refresh();
-            });
-        }
-
-        // loop over list of buttons to attach click events
-        $.each(BUTTONS_RESULT, function(key, value) {
-            attachEventResultButton(key);
-        });
-
-        // Attach events to toggle buttons
-        function attachEventGroupByButton(button) {
-            var buttonPrefix = BUTTON_GROUPBY_PREFIX;
-
-            if (isEmpty(button)) {
-                button = BUTTON_GROUPBY_DEFAULT;
-            }
-
-            document.getElementById(buttonPrefix + button).addEventListener("click", function() {
-                BuildJobResultClass.setGroupBy(button);
-                BuildJobResultClass.setGroupByButton();
-                queryJobResultBranch.set({
-                    groupBy: BuildJobResultClass.getQueryGroupByField(),
-                    filters: BuildJobResultClass.getFilters()
-                });
-                chartJobResultBranch.title(BuildJobResultClass.getTitle());
-                requestJobResultBranch.refresh();
-            });
-        }
-
-        // loop over list of buttons to attach click events
-        $.each(BUTTONS_GROUPBY, function(key, value) {
-            attachEventGroupByButton(key);
-        });
-
         /* Average buildtime per time of day */
         // create query
         var queryAvgBuildtimeHourLastWeek = new Keen.Query("average", {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_WEEK,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.hour_24",
             filters: [{"property_name":"job.started_at.hour_24","operator":"exists","property_value":true}]
@@ -749,6 +808,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_MONTH,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.hour_24",
             filters: [{"property_name":"job.started_at.hour_24","operator":"exists","property_value":true}]
@@ -757,6 +817,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_YEAR,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.hour_24",
             filters: [{"property_name":"job.started_at.hour_24","operator":"exists","property_value":true}]
@@ -767,7 +828,7 @@ function initCharts() {
             .el(document.getElementById("chart_avg_buildtime_hour"))
             .chartType("columnchart")
             .title("Average buildtime per time of day")
-            .height("400")
+            .height(400)
             .attributes({
                 chartOptions: {
                     vAxis: { title: "duration [s]" },
@@ -820,6 +881,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_WEEK,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.day_of_week",
             filters: [
@@ -834,6 +896,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_MONTH,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.day_of_week",
             filters: [
@@ -848,6 +911,7 @@ function initCharts() {
             eventCollection: "build_jobs",
             timezone: TIMEZONE_SECS,
             timeframe: TIMEFRAME_LAST_YEAR,
+            maxAge: keenMaxAge,
             targetProperty: "job.duration",
             groupBy: "job.started_at.day_of_week",
             filters: [
@@ -864,7 +928,7 @@ function initCharts() {
             .el(document.getElementById("chart_avg_buildtime_weekday"))
             .chartType("columnchart")
             .title("Average buildtime per day of week")
-            .height("400")
+            .height(400)
             .attributes({
                 chartOptions: {
                     vAxis: { title: "duration [s]" },
@@ -903,92 +967,6 @@ function initCharts() {
     });
 }
 
-// add project name to title
-function updateTitle() {
-    var title = 'Buildtime Trend as a Service';
-
-    // check if config.projectName is set
-    if (!isEmpty(config.projectName) && config.projectName !== 'project_name') {
-        title = htmlEntities(config.projectName);
-    } else if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
-        title = htmlEntities(config.repoName);
-    }
-
-    document.getElementById("title").innerHTML = title;
-    document.getElementsByTagName("title")[0].innerHTML = "Buildtime Trend - " + title;
-}
-
-// Initialize link urls
-function initLinks() {
-    // check if config.serviceUrl is set by something else than the default value
-    if (!isEmpty(config.websiteUrl) && config.websiteUrl !== 'website_url') {
-        $("#title").attr('href', htmlEntities(config.websiteUrl));
-    }
-
-    // link to project repo and display icon
-    if (!isEmpty(config.repoName) && config.repoName !== 'repo_name') {
-        var repoUrl = "https://github.com/" + config.repoName;
-        $("#repo-url").attr('href', htmlEntities(repoUrl));
-        $("#repo-url").show();
-    } else {
-        // hide repo icon
-        $("#repo-url").hide();
-    }
-}
-
-// Display message
-function initMessage() {
-    // add message and display it
-    if (!isEmpty(config.message)) {
-        $("#message").append(htmlEntities(config.message));
-        $("#message").show();
-    } else {
-        // hide message
-        $("#message").hide();
-    }
-}
-
-// Populate project menu
-function populateProjects() {
-    // check if config.projectList is defined
-    if (!isEmpty(config.projectList) &&
-      $.isArray(config.projectList) && config.projectList.length > 0) {
-        var i;
-        var projectRepo, projectUrl, badgeUrl, projectLinkDropdown, projectLinkOverview;
-
-        for (i = 0; i < config.projectList.length; i++) {
-            projectRepo = htmlEntities(config.projectList[i]);
-            projectUrl = "/dashboard/" + projectRepo;
-            badgeUrl = getBadgeUrl() + projectRepo;
-
-            // add project link to dropdown menu
-            projectLinkDropdown = '<li><a href="' + projectUrl + '">' +
-                projectRepo + '</a></li>';
-            $("#projects.dropdown ul").append(projectLinkDropdown);
-
-            // add project link to project overview
-            projectLinkOverview = '<li class="list-group-item">' +
-                '<h4 class="list-group-item-heading">' + projectRepo + '</h4>' +
-                '<a role="button" class="btn btn-primary" href="' +
-                projectUrl + '">Dashboard</a>' +
-                ' <a href="' + projectUrl + '"><img id="badge-url" src="' +
-                    badgeUrl + '/latest" alt="Latest Buildtime" /></a>' +
-                ' <a href="' + projectUrl + '"><img id="badge-url" src="' +
-                    badgeUrl + '/builds" alt="Total Builds" /></a>' +
-                ' <a href="' + projectUrl + '"><img id="badge-url" src="' +
-                    badgeUrl + '/passed" alt="Successful builds" /></a>' +
-                '</li>';
-            $("#project-overview").append(projectLinkOverview);
-        }
-
-        // show projects dropdown menu
-        $("#projects.dropdown").show();
-    } else {
-        // hide projects dropdown menu
-        $("#projects.dropdown").hide();
-    }
-}
-
 // initialize page
 $(document).ready(function() {
     updateTitle();
@@ -999,5 +977,6 @@ $(document).ready(function() {
     if (!isEmpty(config.repoName) &&
       !isEmpty(keenConfig.projectId) && !isEmpty(keenConfig.readKey)) {
         initCharts();
+        setAutoRefresh();
     }
 });

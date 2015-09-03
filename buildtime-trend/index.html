@@ -8,7 +8,7 @@
   <title>Build trends</title>
   <script type="text/javascript" src="config.js"></script>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/3.2.4/keen.min.js"></script>
   <script type="text/javascript">
 //<![CDATA[
@@ -16,8 +16,11 @@
     var client = new Keen(keenConfig);
   //]]>
   </script>
+  <script type="text/javascript" src="assets/js/common.js"></script>
+  <script type="text/javascript" src="assets/js/ButtonClass.js"></script>
+  <script type="text/javascript" src="assets/js/dashboard_common.js"></script>
   <script type="text/javascript" src="assets/js/trends.js"></script>
-  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css" />
+  <link type="text/css" rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" />
   <link type="text/css" rel="stylesheet" href="assets/css/keen-dashboards.css" />
   <link type="text/css" rel="stylesheet" href="assets/css/trends.css" />
 </head>
@@ -55,13 +58,12 @@
   </div>
 
   <p>
-    Timeframe :
-    <select id="intervals" onchange="updateCharts(this.value)">
-      <option value="day">Day</option>
-      <option value="week" selected="selected">Week</option>
-      <option value="month">Month</option>
-      <option value="year">Year</option>
-    </select>
+    <div class="btn-group-xs">Timeframe :
+      <button type="button" id="timeframe_day" class="btn btn-default">Day</button>
+      <button type="button" id="timeframe_week" class="btn btn-default">Week</button>
+      <button type="button" id="timeframe_month" class="btn btn-default">Month</button>
+      <button type="button" id="timeframe_year" class="btn btn-default">Year</button>
+    </div>
 
     <a id="badge" class="pull-right flip" href="#">
       <img id="badge-url" src="https://buildtimetrend.herokuapp.com/badge" alt="Buildtime Trend badge" />
@@ -101,6 +103,31 @@
         <div class="chart-wrapper">
           <div class="chart-stage">
             <div id="chart_stage_fraction"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-stage">
+            <div id="chart_stage_duration_build"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-sm-6">
+        <div class="chart-wrapper">
+          <div class="chart-title">
+            Filter on :
+            <select id="filter_build_matrix"></select>
+            <select id="filter_result"></select>
+            <select id="filter_build_trigger"></select>
+            <select id="filter_branch"></select>
+          </div>
+          <div class="chart-stage">
+            <div id="chart_stage_duration_buildjob"></div>
           </div>
         </div>
       </div>
