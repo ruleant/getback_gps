@@ -101,4 +101,5 @@
     <string name="rename_destination">Перайменаваць месца</string>
     <string name="rename_destination_disabled">Немагчыма перайменаваць месца, спачатку захавайце месцазнаходжанне</string>
     <string name="destination_renamed">Месца перайменавана</string>
+    <string name="height_difference">Розніца вышынь</string>
     </resources>
