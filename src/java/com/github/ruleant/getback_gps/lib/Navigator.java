@@ -201,6 +201,21 @@ public class Navigator {
     }
 
     /**
+     * Calculate height difference to current destination.
+     *
+     * @return distance in meters
+     */
+    public final double getHeightDifference() {
+        AriadneLocation destination = getDestination();
+
+        // don't calculate difference if current location is not set
+        if (mCurrentLocation == null || destination == null) {
+            return DIST_ZERO;
+        }
+        return destination.getAltitude() - mCurrentLocation.getAltitude();
+    }
+
+    /**
      * Calculate absolute direction to current destination.
      *
      * @return direction in ° relative to the North
