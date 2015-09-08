@@ -154,6 +154,16 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                     + res.getString(R.string.distance) + ": "
                     + FormatUtils.formatDist(navigator.getDistance()) + "\n";
 
+            toDestinationText += " "
+                    + res.getString(R.string.height_difference) + ": ";
+            if (destination.hasAltitude() && currentLocation.hasAltitude()) {
+                toDestinationText +=
+                        FormatUtils.formatDist(navigator.getHeightDifference())
+                                + "\n";
+            } else {
+                toDestinationText += res.getString(R.string.unknown) + "\n";
+            }
+
             CardinalDirection cd = new CardinalDirection(
                     this,
                     FormatUtils.normalizeAngle(

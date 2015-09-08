@@ -11,6 +11,7 @@
     <string name="speed_kph">km/h</string>
     <string name="current_bearing">Current bearing</string>
     <string name="distance">Distance</string>
+    <string name="height_difference">Height difference</string>
     <string name="direction">Direction</string>
     <string name="northeast_unit">NE</string>
     <string name="southeast_unit">SE</string>
