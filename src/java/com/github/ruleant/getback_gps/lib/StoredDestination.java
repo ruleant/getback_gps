@@ -60,6 +60,7 @@ public class StoredDestination extends StoredLocation {
         tempLocation.setName(location.getName());
         tempLocation.setLongitude(location.getLongitude());
         tempLocation.setLatitude(location.getLatitude());
+        tempLocation.setAltitude(location.getAltitude());
 
         super.setLocation(tempLocation);
     }
