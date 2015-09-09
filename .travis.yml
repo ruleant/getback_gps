@@ -30,7 +30,7 @@ script:
 after_success:
   # send code coverage results to coveralls.io
   - timestamp.sh coverage
-  - mvn clean test cobertura:cobertura coveralls:cobertura -B
+  - mvn clean test cobertura:cobertura coveralls:report -B
   # update javadoc on Github Pages (gh-pages)
   - timestamp.sh update_javadoc
   - mvn clean install javadoc:javadoc -DskipTests=true
