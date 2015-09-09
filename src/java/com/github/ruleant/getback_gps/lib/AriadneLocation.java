@@ -145,7 +145,7 @@ public class AriadneLocation extends Location {
         if (hasAltitude()) {
             locationText += "\n "
                     + res.getString(R.string.altitude) + ": "
-                    + FormatUtils.formatDist(getAltitude());
+                    + FormatUtils.formatHeight(getAltitude());
         }
         if (hasBearing()) {
             CardinalDirection cd = new CardinalDirection(context, getBearing());
