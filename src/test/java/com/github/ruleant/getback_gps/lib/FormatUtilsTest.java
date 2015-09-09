@@ -365,6 +365,62 @@ public class FormatUtilsTest {
     }
 
     /**
+     * Tests main functionality of method FormatHeight.
+     * Locale en_US is assumed, several distances are passed as an argument
+     * to test the different cases : in meter, more than 1,000 m.
+     */
+    @Test
+    public final void testFormatHeightMain() {
+        assertEquals("9m", FormatUtils.formatHeight(M_9M));
+        assertEquals("10m", FormatUtils.formatHeight(M_10M));
+        assertEquals("9,000m", FormatUtils.formatHeight(M_9KM));
+        assertEquals("9,900m", FormatUtils.formatHeight(M_9P9KM));
+        assertEquals("11,000m", FormatUtils.formatHeight(M_11KM));
+        assertEquals("12,345,000m", FormatUtils.formatHeight(M_12345KM));
+    }
+
+    /**
+     * Tests the formatting when a European locale is used, in this case nl_BE.
+     */
+    @Test
+    public final void testFormatHeightBelgianFormat() {
+        // Set Dutch (Belgium) locale
+        Locale localeDutchBelgian = new Locale("nl", "BE");
+        Locale.setDefault(localeDutchBelgian);
+
+        assertEquals("9.000m", FormatUtils.formatHeight(M_9KM));
+        assertEquals("9.900m", FormatUtils.formatHeight(M_9P9KM));
+        assertEquals("12.345.000m", FormatUtils.formatHeight(M_12345KM));
+    }
+
+    /**
+     * Test if the height is correctly rounded.
+     */
+    @Test
+    public final void testFormatHeightRoundUp() {
+        assertEquals("10m", FormatUtils.formatHeight(M_9P9M));
+        assertEquals("999m", FormatUtils.formatHeight(M_999P3M));
+        assertEquals("1,000m", FormatUtils.formatHeight(M_999P9M));
+        assertEquals("1,330m", FormatUtils.formatHeight(M_1P33KM));
+        assertEquals("1,370m", FormatUtils.formatHeight(M_1P37KM));
+        assertEquals("9,930m", FormatUtils.formatHeight(M_9P93KM));
+        assertEquals("9,980m", FormatUtils.formatHeight(M_9P98KM));
+        assertEquals("11,400m", FormatUtils.formatHeight(M_11P4KM));
+        assertEquals("11,700m", FormatUtils.formatHeight(M_11P7KM));
+    }
+
+    /**
+     * Tests if returned formatted height is negative,
+     * if the distance argument is negative.
+     */
+    @Test
+    public final void testFormatHeightNeg() {
+        assertEquals("-1m", FormatUtils.formatHeight(-1.0));
+        assertEquals("-9,000m", FormatUtils.formatHeight(-1.0 * M_9KM));
+        assertEquals("-11,000m", FormatUtils.formatHeight(-1.0 * M_11KM));
+    }
+
+    /**
      * Tests conversion of the speed from m/s to km/h
      * and formatting of the speed :
      * 1 decimal when speed is smaller than 10km/h

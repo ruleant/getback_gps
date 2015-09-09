@@ -137,6 +137,20 @@ public class FormatUtils {
     }
 
     /**
+     * Formats a height (in meter) to a string, in meter.
+     * The number format is localized.
+     *
+     * @param height height in m
+     * @return formatted height with unit (m)
+     */
+    public static String formatHeight(final double height) {
+        String unit = "m";
+        return String.format(
+                Locale.getDefault(), "%1$,d%2$s",
+                Math.round(height), unit);
+    }
+
+    /**
      * Formats a distance (in meter per second (m/s)) to a string,
      * in kilometer per hour (km/h).
      * The number format is localized.
