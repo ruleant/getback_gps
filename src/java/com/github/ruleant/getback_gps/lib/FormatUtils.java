@@ -151,7 +151,7 @@ public class FormatUtils {
     }
 
     /**
-     * Formats a distance (in meter per second (m/s)) to a string,
+     * Formats a speed (in meter per second (m/s)) to a string,
      * in kilometer per hour (km/h).
      * The number format is localized.
      *
