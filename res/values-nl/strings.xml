@@ -97,4 +97,5 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="rename_destination">Hernoem bestemming</string>
     <string name="rename_destination_disabled">Niet mogelijk om bestemming te hernoemen, sla eerst een locatie op</string>
     <string name="destination_renamed">Bestemming werd hernoemd</string>
+    <string name="height_difference">Hoogteverschil</string>
     </resources>
