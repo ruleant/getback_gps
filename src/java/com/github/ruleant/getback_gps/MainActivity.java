@@ -156,6 +156,8 @@ public class MainActivity extends AbstractGetBackGpsActivity
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
                 = (TextView) findViewById(R.id.textView_toDestDir);
+        TextView tvHeightDifference
+                = (TextView) findViewById(R.id.textView_heightDifference);
 
         LinearLayout sectionToDestination
                 = (LinearLayout) findViewById(R.id.section_toDestination);
@@ -166,6 +168,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
+        String heightDifferenceText = res.getString(R.string.unknown);
         NavigationView.Mode nvNavigationMode = NavigationView.Mode.Disabled;
         NavigationView.Mode nvOrientationMode = NavigationView.Mode.Disabled;
         Boolean displayToDest = false;
@@ -211,6 +214,15 @@ public class MainActivity extends AbstractGetBackGpsActivity
                 toDestinationDistanceText
                         = FormatUtils.formatDist(navigator.getDistance());
 
+                // Set height difference
+                if (destination.hasAltitude() &&
+                        getService().getLocation().hasAltitude()
+                ) {
+                    heightDifferenceText = FormatUtils.formatHeight(
+                            navigator.getHeightDifference()
+                    );
+                }
+
                 // Set direction to destination
                 CardinalDirection cd = new CardinalDirection(
                         this,
@@ -248,6 +260,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
             tvToDestinationName.setText(toDestinationNameText);
             tvToDestinationDistance.setText(toDestinationDistanceText);
             tvToDestinationDirection.setText(toDestinationDirectionText);
+            tvHeightDifference.setText(heightDifferenceText);
         } else {
             // hide 'to Destination' info, show message
             sectionToDestination.setVisibility(LinearLayout.INVISIBLE);
