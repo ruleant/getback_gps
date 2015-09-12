@@ -162,7 +162,7 @@ public class AriadneLocation extends Location {
         if (hasAccuracy()) {
             locationText += "\n "
                     + res.getString(R.string.accuracy) + ": "
-                    + FormatUtils.formatDist(getAccuracy());
+                    + FormatUtils.formatDist(getAccuracy(), context);
         }
 
         // Location provider

@@ -212,7 +212,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
             if (navigator.isLocationAccurate()) {
                 // Set distance to destination
                 toDestinationDistanceText
-                        = FormatUtils.formatDist(navigator.getDistance());
+                        = FormatUtils.formatDist(navigator.getDistance(), this);
 
                 // Set height difference
                 if (destination.hasAltitude() &&

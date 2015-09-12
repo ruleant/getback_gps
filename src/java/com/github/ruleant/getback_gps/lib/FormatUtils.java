@@ -106,9 +106,28 @@ public class FormatUtils {
      * @return formatted distance with unit (m or km)
      */
     public static String formatDist(final double distance) {
+        return formatDist(distance, null);
+    }
+
+    /**
+     * Formats a distance (in meter) to a string,
+     * in meter or kilometer, depending on the size.
+     * The number format is localized.
+     *
+     * @param distance distance in m
+     * @param context App context
+     * @return formatted distance with unit (m or km)
+     */
+    public static String formatDist(final double distance, final Context context) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = CONV_KM_M;
+
+        // if context is defined, use android string
+        if (context != null) {
+            shortUnit = context.getResources().getString(R.string.distance_m);
+            longUnit = context.getResources().getString(R.string.distance_km);
+        }
 
         // distance shouldn't be negative
         double distanceAbs = Math.abs(distance);

@@ -152,7 +152,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
             // Print distance and bearing
             toDestinationText += " "
                     + res.getString(R.string.distance) + ": "
-                    + FormatUtils.formatDist(navigator.getDistance()) + "\n";
+                    + FormatUtils.formatDist(navigator.getDistance(), this) + "\n";
 
             toDestinationText += " "
                     + res.getString(R.string.height_difference) + ": ";
