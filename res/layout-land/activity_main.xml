@@ -12,7 +12,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toLeftOf="@+id/navigationView_ToDest" />
+        android:layout_toLeftOf="@+id/navigationView_ToDest"
+        android:layout_toStartOf="@+id/navigationView_ToDest" />
 
     <com.github.ruleant.getback_gps.NavigationView
         android:id="@+id/navigationView_ToDest"
@@ -25,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
-        android:layout_toRightOf="@+id/navigationView_ToDest" />
+        android:layout_toRightOf="@+id/navigationView_ToDest"
+        android:layout_toEndOf="@+id/navigationView_ToDest"/>
 
 </RelativeLayout>
