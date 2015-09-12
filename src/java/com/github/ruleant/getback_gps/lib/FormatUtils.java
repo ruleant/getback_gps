@@ -214,7 +214,7 @@ public class FormatUtils {
 
         // generate format string
         // format number with variable precision (%s.xf), with x = precision
-        String formatString = "%1$." + String.format("%d", precision) + "f";
+        String formatString = "%1$." + String.format(Locale.US, "%d", precision) + "f";
         // add unit
         formatString += "%2$s";
 
