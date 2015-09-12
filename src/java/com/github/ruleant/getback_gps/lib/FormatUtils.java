@@ -163,7 +163,24 @@ public class FormatUtils {
      * @return formatted height with unit (m)
      */
     public static String formatHeight(final double height) {
+        return formatHeight(height, null);
+    }
+
+    /**
+     * Formats a height (in meter) to a string, in meter.
+     * The number format is localized.
+     *
+     * @param height height in m
+     * @return formatted height with unit (m)
+     */
+    public static String formatHeight(final double height, final Context context) {
         String unit = "m";
+
+        // if context is defined, use android string
+        if (context != null) {
+            unit = context.getResources().getString(R.string.distance_m);
+        }
+
         return String.format(
                 Locale.getDefault(), "%1$,d%2$s",
                 Math.round(height), unit);

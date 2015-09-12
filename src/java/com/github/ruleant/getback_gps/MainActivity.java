@@ -219,7 +219,8 @@ public class MainActivity extends AbstractGetBackGpsActivity
                         getService().getLocation().hasAltitude()
                 ) {
                     heightDifferenceText = FormatUtils.formatHeight(
-                            navigator.getHeightDifference()
+                            navigator.getHeightDifference(),
+                            this
                     );
                 }
 

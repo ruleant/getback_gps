@@ -158,7 +158,7 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
                     + res.getString(R.string.height_difference) + ": ";
             if (destination.hasAltitude() && currentLocation.hasAltitude()) {
                 toDestinationText +=
-                        FormatUtils.formatHeight(navigator.getHeightDifference())
+                        FormatUtils.formatHeight(navigator.getHeightDifference(), this)
                                 + "\n";
             } else {
                 toDestinationText += res.getString(R.string.unknown) + "\n";
