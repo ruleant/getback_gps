@@ -2,6 +2,7 @@
  - translated to Croatian, thanks to Dag Velovic
  - build against Android SDK 5.1 (API 22)
  - issue #164 : display altitude/height in meters
+ - issue #31 : save altitude and calculate height difference to destination
 
  v0.4.1 (released on 08Jan2015)
  - translated to Sardinian, thanks to Lu Ca
