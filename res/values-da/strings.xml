@@ -96,4 +96,6 @@
     <string name="rename_destination_disabled">Kan ikke omdøbe destinationen, gem en placering først</string>
     <string name="destination_renamed">Destination omdøbt</string>
     <string name="height_difference">Højdeforskel</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
     </resources>
