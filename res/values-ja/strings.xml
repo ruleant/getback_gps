@@ -92,4 +92,7 @@
  You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="bearing">方角</string>
     <string name="destination_renamed">場所の名前を変更しました</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">高低差</string>
     </resources>
