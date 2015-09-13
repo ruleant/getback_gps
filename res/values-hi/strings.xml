@@ -97,4 +97,7 @@
     <string name="version">संस्करण (वर्शन)</string>
     <string name="build_time">%S पर बनाया गया।</string>
     <string name="app_website">अधिक जानकारी के लिए &lt;a href=%1$s&gt;वेबसाइट&lt;/a&gt; पर जाएँ।</string>
+    <string name="distance_m">मीटर</string>
+    <string name="distance_km">किलो मीटर</string>
+    <string name="height_difference">ऊंचाई में अंतर</string>
     </resources>
