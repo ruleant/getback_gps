@@ -10,4 +10,8 @@
     <string name="unknown">غير معروف</string>
     <string name="no_destination">لا يوجد وجهة محددة</string>
     <string name="northwest_unit">NW</string>
+    <string name="latitude_north_unit">شمال</string>
+    <string name="latitude_south_unit">جنوب</string>
+    <string name="longitude_east_unit">الشرق</string>
+    <string name="longitude_west_unit">الغرب</string>
     </resources>
