@@ -176,7 +176,14 @@ public class Latitude extends AbstractGeoCoordinate {
      * @return formatted value
      */
     protected final String formatValue() {
-        return Location.convert(getConvertedValue(), Location.FORMAT_SECONDS)
-                .replaceFirst(":", "° ").replace(":", "' ") + "\"";
+        String[] components = Location.convert(
+                    getConvertedValue(),
+                    Location.FORMAT_SECONDS
+            ).split(":");
+        return String.format("%1$d° %2$d' %3$s\"",
+                Integer.parseInt(components[0]),
+                Integer.parseInt(components[1]),
+                components[2]
+        );
     }
 }

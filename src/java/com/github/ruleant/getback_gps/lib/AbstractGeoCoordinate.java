@@ -23,6 +23,8 @@ package com.github.ruleant.getback_gps.lib;
 
 import android.content.Context;
 
+import com.github.ruleant.getback_gps.R;
+
 /**
  * Abstract class for formatting a geological coordinate.
  *
@@ -157,7 +159,11 @@ public abstract class AbstractGeoCoordinate {
      * @return String formatted string
      */
     public final String format() {
-        return formatValue() + " " + getSegmentUnit();
+        try {
+            return formatValue() + " " + getSegmentUnit();
+        } catch (Exception e) {
+            return getContext().getResources().getString(R.string.none);
+        }
     }
 
     /**
