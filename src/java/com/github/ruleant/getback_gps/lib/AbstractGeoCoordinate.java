@@ -160,7 +160,7 @@ public abstract class AbstractGeoCoordinate {
      */
     public final String format() {
         try {
-            return formatValue() + " " + getSegmentUnit();
+            return String.format("%1$s %2$s", formatValue(), getSegmentUnit());
         } catch (Exception e) {
             return getContext().getResources().getString(R.string.none);
         }
