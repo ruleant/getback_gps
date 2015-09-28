@@ -92,4 +92,7 @@
     <string name="rename_destination">目的地重新命名</string>
     <string name="rename_destination_disabled">無法重新命名目的地，先儲存位置</string>
     <string name="destination_renamed">目的地已重新命名</string>
+    <string name="distance_m">公尺</string>
+    <string name="distance_km">公里</string>
+    <string name="height_difference">高度差異</string>
     </resources>
