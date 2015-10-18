@@ -9,7 +9,7 @@ GetBack GPS for Android
 [![Translation status](http://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
 [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/ruleant/getback-gps)
 
-[![Buildtime trend](https://buildtimetrend.herokuapp.com/badge/ruleant/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Buildtime trend](https://buildtimetrend.herokuapp.com/badge/ruleanCrt/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
 [![Total builds](https://buildtimetrend.herokuapp.com/badge/ruleant/getback_gps/builds/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
 [![Passed build jobs](https://buildtimetrend.herokuapp.com/badge/ruleant/getback_gps/passed/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
 
@@ -90,6 +90,11 @@ Third party material
     - version : v1.8.1
     - website : https://github.com/keyboardsurfer/Crouton
     - license : Apache 2.0
+
+Credits
+-------
+
+Getback GPS for Android was made possible by many contributers and sponsors, see [Credits](https://github.com/ruleant/getback_gps/wiki/Credits).
 
 License
 -------
