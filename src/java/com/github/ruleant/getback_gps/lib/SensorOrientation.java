@@ -50,6 +50,12 @@ public class SensorOrientation implements SensorEventListener {
     private Context mContext;
 
     /**
+     * List with subscribed listeners.
+     */
+    private ArrayList<OrientationEventListener> eventListenerList
+            = new ArrayList<OrientationEventListener>();
+
+    /**
      * Current calculated orientation.
      */
     private double mOrientation = 0;
@@ -393,12 +399,6 @@ public class SensorOrientation implements SensorEventListener {
          */
         void onOrientationChanged();
     }
-
-    /**
-     * List with subscribed listeners.
-     */
-    private ArrayList<OrientationEventListener> eventListenerList
-            = new ArrayList<OrientationEventListener>();
 
     /**
      * Adds the listener to eventListenerList.
