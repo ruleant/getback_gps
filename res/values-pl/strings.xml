@@ -42,4 +42,21 @@
     <string name="store_location_disabled">Nie można zapisać lokalizacji, jeżeli nieznane jest obecne położenie</string>
     <string name="no_location_name">Nazwa lokalizacji nie została wybrana</string>
     <string name="app_website">"Aby uzyskać więcej informacji, odwiedź stronę  &lt;a href=%1$s&gt;website&lt;/a&gt;."</string>
-    </resources>
+    <string name="pref_loc_update_time">Częstotliwość według czasu</string>
+    <string name="pref_loc_update_dist">Częstotliwość według odległości</string>
+    <string name="inaccurate">Niedokładna</string>
+    <string name="unknown">Nieznany</string>
+    <string name="app_desc">Znajdź drogę powrotną do odwiedzonej lokalizacji z wykorzystaniem współrzędnych GPS</string>
+    <string name="pref_geo_orientation_sensor">Czujnik orientacji telefonu</string>
+    <string name="rename_destination_disabled">Nie można zmienić nazwy celu, najpierw zapisz lokalizację</string>
+    <string name="destination_reached">Jesteś u celu</string>
+    <string name="current_bearing">Obecny kierunek</string>
+    <string name="pref_header_loc_update">Odświeżanie lokalizacji</string>
+    <string name="sensors_enabled">Włączone: Twój kierunek jest dokładniejszy i szybciej odświeżany</string>
+    <string name="sensors_disabled">Wyłączone: oszczędzana jest energia</string>
+    <string name="copyright">Prawa autorskie</string>
+    <string name="latitude">Równoleżnik</string>
+    <string name="longitude">Południk</string>
+    <string name="build_time">Data kompilacji: %s.</string>
+    <string name="license">Ten program jest wolnym oprogramowaniem<a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>
