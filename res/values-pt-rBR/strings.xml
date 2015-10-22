@@ -95,4 +95,7 @@
 	<item quantity="one">%d segundo</item>
 	<item quantity="other">%d segundos</item>
 </plurals>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Diferença de altura</string>
     </resources>
