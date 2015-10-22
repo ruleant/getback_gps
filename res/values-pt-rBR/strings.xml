@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources><string name="app_desc">Encontre o caminho de volta a um lugar que visitou através de coordenadas GPS.</string>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="app_desc">Encontre o caminho de volta para um local visitado anteriormente utilizando as coordenadas do GPS.</string>
     <string name="inaccurate_location">Sua localização atual é inexata</string>
     <string name="notice_no_dest">Salve sua localização para definir um destino</string>
     <string name="inaccurate_direction">Mova-se para obter uma orientação precisa para seu destino</string>
