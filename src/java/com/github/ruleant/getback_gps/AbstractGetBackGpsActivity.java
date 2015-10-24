@@ -165,7 +165,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * It displays a dialog, where the user confirm or cancel storing
      * the current location.
      */
-    final void storeLocation() {
+    public final void storeLocation() {
         if (mBound && mService.getLocation() == null) {
             Toast.makeText(
                     this,
@@ -230,7 +230,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * It displays a dialog, where the user can enter a new name
      * for the current destination.
      */
-    final void renameDestination() {
+    public final void renameDestination() {
         if (mBound && mService.getDestination() == null) {
             Toast.makeText(
                     this,
@@ -307,7 +307,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    final void refresh(final MenuItem item) {
+    public final void refresh(final MenuItem item) {
         if (mBound) {
             mService.updateLocationProvider();
             mService.updateLocation();
@@ -320,7 +320,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    final void displayAbout(final MenuItem item) {
+    public final void displayAbout(final MenuItem item) {
         Intent intent = new Intent(this, AboutActivity.class);
         startActivity(intent);
     }
@@ -330,7 +330,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @param item MenuItem object that was clicked
      */
-    final void displaySettings(final MenuItem item) {
+    public final void displaySettings(final MenuItem item) {
         Intent intent = new Intent(this, SettingsActivity.class);
         startActivity(intent);
     }
@@ -398,7 +398,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     /**
      * Update which crouton should be displayed.
      */
-    final void refreshCrouton() {
+    protected final void refreshCrouton() {
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         Navigator navigator = getNavigator();
@@ -441,7 +441,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @param displayInaccurate display value when it is inaccurate
      */
-    final void refreshCurrentViews(final boolean displayInaccurate) {
+    public final void refreshCurrentViews(final boolean displayInaccurate) {
         // only refresh items if activity is bound to service
         // connection state is checked in getNavigator
         Navigator navigator = getNavigator();
@@ -488,7 +488,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @return boolean Bound State
      */
-    final boolean isBound() {
+    protected final boolean isBound() {
         return mBound;
     }
 
@@ -497,7 +497,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @return LocationService
      */
-    final LocationService getService() {
+    protected final LocationService getService() {
         if (isBound()) {
             return mService;
         } else {
@@ -510,7 +510,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      *
      * @return Navigator
      */
-    final Navigator getNavigator() {
+    protected final Navigator getNavigator() {
         LocationService service = getService();
 
         if (service == null) {
