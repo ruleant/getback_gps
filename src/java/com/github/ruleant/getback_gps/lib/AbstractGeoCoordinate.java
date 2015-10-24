@@ -121,7 +121,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @param context Current context
      */
-    final void setContext(final Context context) {
+    public final void setContext(final Context context) {
         if (context != null) {
             mContext = context;
         }
@@ -132,7 +132,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @return Current context
      */
-    final Context getContext() {
+    public final Context getContext() {
         return mContext;
     }
 
