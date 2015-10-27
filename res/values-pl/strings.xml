@@ -58,5 +58,5 @@
     <string name="latitude">Równoleżnik</string>
     <string name="longitude">Południk</string>
     <string name="build_time">Data kompilacji: %s.</string>
-    <string name="license">Ten program jest wolnym oprogramowaniem<a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="license">Ten program jest wolnym oprogramowaniem, może być dowolnie udostępniany i modyfikowany, o ile zostaną przestrzegane warunki GNU General Public License wydanej przez Free Software Foundation w wersji 3 lub nowszej.\n\nTa aplikacja została udostępniony w nadziei, że będzie ona użyteczna, ale nie NIE UDZIELA SIĘ NA NIĄ ŻADNEJ GWARANCJI, nie możemy zapewnić, że będzie ona działała poprawnie, spełni stawiane przed nią cele, jak i autor nie odpowiada, za wszelkie wyrządzone przez nią szkody. Aby dowiedzieć się więcej, przeczytaj postanowienia GNU General Public License.\n\nRazem z tym oprogramowaniem, powinieneś otrzymać kopię GNU General Public License, jeżeli nie została ona załączona, przeczytaj jej warunki na <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 </resources>
