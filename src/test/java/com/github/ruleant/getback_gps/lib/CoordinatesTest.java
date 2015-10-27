@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -190,6 +191,7 @@ public class CoordinatesTest {
         thrown.expectMessage("Parameter coordinate should not be null");
 
         coordinates.addCoordinate(null);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

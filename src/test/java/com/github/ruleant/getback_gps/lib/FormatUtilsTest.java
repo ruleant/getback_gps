@@ -34,6 +34,7 @@ import java.nio.charset.Charset;
 import java.util.Locale;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for FormatUtils class.
@@ -521,6 +522,7 @@ public class FormatUtilsTest {
         thrown.expectMessage("Precision can't be a negative value");
 
         FormatUtils.formatAngle(A_45, -1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for Coordinate class.
@@ -134,6 +135,7 @@ public class CoordinateRotationTest {
         thrown.expectMessage("Parameter center should not be null");
 
         converter.setRotationCenter(null);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

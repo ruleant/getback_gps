@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for CardinalDirection class.
@@ -108,6 +109,7 @@ public class CardinalDirectionTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         object.setValue(OUT_OF_RANGE);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -119,6 +121,7 @@ public class CardinalDirectionTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         object.setValue(-1 * OUT_OF_RANGE);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

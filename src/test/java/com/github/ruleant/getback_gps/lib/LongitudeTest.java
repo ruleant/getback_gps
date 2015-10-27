@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for Longitude class.
@@ -124,6 +125,7 @@ public class LongitudeTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         longitude.setValue(OUT_OF_RANGE);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -135,6 +137,7 @@ public class LongitudeTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         longitude.setValue(-1 * OUT_OF_RANGE);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

@@ -31,6 +31,7 @@ import org.robolectric.RobolectricTestRunner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for FormatUtils class.
@@ -118,6 +119,7 @@ public class ToolsTest {
         thrown.expectMessage("currentTimestamp can't be a negative value");
 
         Tools.isTimestampRecent(-1, 1, 1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -153,6 +155,7 @@ public class ToolsTest {
         thrown.expectMessage("validity should be a non-zero positive value");
 
         Tools.isTimestampRecent(1, 1, -1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

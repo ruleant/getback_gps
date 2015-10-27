@@ -28,6 +28,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for FormatUtils class.
@@ -100,6 +101,7 @@ public class LowPassFilterTest {
 
         // invalid range for parameter alpha
         LowPassFilter.filterValue(0, 0, -1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -112,6 +114,7 @@ public class LowPassFilterTest {
 
         // invalid range for parameter alpha
         LowPassFilter.filterValue(0, 0, -1 * 2);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -123,6 +126,7 @@ public class LowPassFilterTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         LowPassFilter.filterValue(0, 0, 2);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -187,7 +191,7 @@ public class LowPassFilterTest {
 
         // empty newArray
         LowPassFilter.filterValueSet(null, null, 0f);
-
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -202,6 +206,7 @@ public class LowPassFilterTest {
         float[] newArray = new float[0];
 
         LowPassFilter.filterValueSet(null, newArray, 0f);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
