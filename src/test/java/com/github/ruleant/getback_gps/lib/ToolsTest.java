@@ -131,6 +131,7 @@ public class ToolsTest {
         thrown.expectMessage("previousTimestamp can't be a negative value");
 
         Tools.isTimestampRecent(1, -1, 1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -143,6 +144,7 @@ public class ToolsTest {
         thrown.expectMessage("validity should be a non-zero positive value");
 
         Tools.isTimestampRecent(1, 1, 0);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

@@ -434,5 +434,6 @@ public class CoordinatesTest {
         thrown.expectMessage("Parameter converter should not be null");
 
         coordinates.setCoordinateConverter(null);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 }
