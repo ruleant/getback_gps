@@ -119,7 +119,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
      *
      * @param item MenuItem object that was clicked
      */
-    final void displayDetails(final MenuItem item) {
+    public final void displayDetails(final MenuItem item) {
         Intent intent = new Intent(this, DetailsActivity.class);
         startActivity(intent);
     }

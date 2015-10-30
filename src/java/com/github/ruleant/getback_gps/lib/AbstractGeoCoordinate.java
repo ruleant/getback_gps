@@ -84,7 +84,7 @@ public abstract class AbstractGeoCoordinate {
      * @param rangeLow Lower limit of allowed range
      * @param rangeHigh Higher limit of allowed range
      */
-    final void setRange(
+    public final void setRange(
             final double rangeLow,
             final double rangeHigh) {
         mRangeLow = rangeLow;
