@@ -303,9 +303,9 @@ public class FormatUtils {
         try {
             Resources res = context.getResources();
 
-            if (providerName.equals("network")) {
+            if ("network".equals(providerName)) {
                 l10nProviderName = res.getString(R.string.loc_provider_network);
-            } else if (providerName.equals("gps")) {
+            } else if ("gps".equals(providerName)) {
                 l10nProviderName = res.getString(R.string.loc_provider_gps);
             }
         } catch (NotFoundException e) {
