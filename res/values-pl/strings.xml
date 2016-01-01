@@ -59,4 +59,19 @@
     <string name="longitude">Południk</string>
     <string name="build_time">Data kompilacji: %s.</string>
     <string name="license">Ten program jest wolnym oprogramowaniem, może być dowolnie udostępniany i modyfikowany, o ile zostaną przestrzegane warunki GNU General Public License wydanej przez Free Software Foundation w wersji 3 lub nowszej.\n\nTa aplikacja została udostępniony w nadziei, że będzie ona użyteczna, ale nie NIE UDZIELA SIĘ NA NIĄ ŻADNEJ GWARANCJI, nie możemy zapewnić, że będzie ona działała poprawnie, spełni stawiane przed nią cele, jak i autor nie odpowiada, za wszelkie wyrządzone przez nią szkody. Aby dowiedzieć się więcej, przeczytaj postanowienia GNU General Public License.\n\nRazem z tym oprogramowaniem, powinieneś otrzymać kopię GNU General Public License, jeżeli nie została ona załączona, przeczytaj jej warunki na <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-</resources>
+<plurals name="time_minutes">
+	<item quantity="one">%d minuta</item>
+	<item quantity="few">%d minut</item>
+	<item quantity="many"/>
+	<item quantity="other"/>
+</plurals>
+    <string name="northeast_unit">płn. wsch.</string>
+    <string name="southeast_unit">płd. wsch.</string>
+    <string name="southwest_unit">płd. zach.</string>
+    <string name="northwest_unit">płn. zach.</string>
+    <string name="latitude_north_unit">płn.</string>
+    <string name="latitude_south_unit">płd.</string>
+    <string name="longitude_east_unit">wsch.</string>
+    <string name="longitude_west_unit">zach.</string>
+    <string name="altitude">Wysokość</string>
+    </resources>
