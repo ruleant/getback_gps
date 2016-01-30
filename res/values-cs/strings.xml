@@ -100,4 +100,7 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="rename_destination">Přejmenovat cíl</string>
     <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
     <string name="destination_renamed">Cíl byl přejmenován</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Výškový rozdíl</string>
     </resources>
