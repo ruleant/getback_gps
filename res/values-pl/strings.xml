@@ -46,7 +46,7 @@
     <string name="pref_loc_update_dist">Częstotliwość według odległości</string>
     <string name="inaccurate">Niedokładna</string>
     <string name="unknown">Nieznany</string>
-    <string name="app_desc">Znajdź drogę powrotną do odwiedzonej lokalizacji z wykorzystaniem współrzędnych GPS</string>
+    <string name="app_desc">Znajdź drogę powrotną do odwiedzonej lokalizacji z wykorzystaniem współrzędnych GPS.</string>
     <string name="pref_geo_orientation_sensor">Czujnik orientacji telefonu</string>
     <string name="rename_destination_disabled">Nie można zmienić nazwy celu, najpierw zapisz lokalizację</string>
     <string name="destination_reached">Jesteś u celu</string>
