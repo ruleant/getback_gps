@@ -14,6 +14,7 @@ GetBack GPS for Android
 [![Buildtime trend](https://buildtimetrend.herokuapp.com/badge/ruleanCrt/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
 [![Total builds](https://buildtimetrend.herokuapp.com/badge/ruleant/getback_gps/builds/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
 [![Passed build jobs](https://buildtimetrend.herokuapp.com/badge/ruleant/getback_gps/passed/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Days since last failed build job](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/last_fail)](https://buildtimetrend-dev.herokuapp.com/dashboard/ruleant/getback_gps/index.html)
 
 Open Source Android app for finding your way back to a previously visited location using GPS coordinates.
 
