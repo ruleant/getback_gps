@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <string name="unknown">Nepoznato</string>
@@ -100,4 +100,7 @@ Trebali ste dobiti primjerak GNU Opće javne licence uz ovaj program; ako niste,
     <string name="provider">Davalac usluge</string>
     <string name="provider_no_support">Davalac usluge nije podržan.</string>
     <string name="build_time">Napravljeno na %s.</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Visinska razlika</string>
     </resources>
