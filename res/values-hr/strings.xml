@@ -80,11 +80,15 @@
 </plurals>
     <plurals name="time_seconds">
 	<item quantity="one">%d sekunda</item>
-	<item quantity="other">%d sekunde</item>
+	<item quantity="few">%d sekunde</item>
+	<item quantity="many"/>
+	<item quantity="other"/>
 </plurals>
     <plurals name="time_minutes">
 	<item quantity="one">%d minuta</item>
-	<item quantity="other">%d minute</item>
+	<item quantity="few">%d minute</item>
+	<item quantity="many"></item>
+	<item quantity="other"></item>
 </plurals>
     <string name="about">O</string>
     <string name="version">Verzija</string>
