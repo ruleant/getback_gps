@@ -42,7 +42,7 @@ How to get it?
 
 The [latest version](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps) is available on [F-Droid](https://f-droid.org/). Install the apk directly from the F-Droid website, or use the [F-Droid app](https://f-droid.org/FDroid.apk) to keep automaticaly up to date with future releases.
 
-If you want to try out the latest development version, you can get the code from the [git repository](https://f-droid.org/FDroid.apk) and [build the current development version](https://github.com/ruleant/getback_gps/wiki/Development) yourself.
+If you want to try out the latest development version, you can get the code from the [git repository](https://github.com/ruleant/getback_gps) and [build the current development version](https://github.com/ruleant/getback_gps/wiki/Development) yourself.
 
 
 Bugs and feature requests
