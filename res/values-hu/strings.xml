@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="app_desc">Találjon vissza egy előzőleg meglátogatott helyre GPS koordináták alapján.</string>
     <string name="inaccurate_location">A jelenlegi helyzete nem pontos</string>
     <string name="notice_no_dest">A helyzet eltárolása egy cél beállításához</string>
@@ -18,4 +18,21 @@
     <string name="no_destination">Nincs cél beállítva</string>
     <string name="unknown">Ismeretlen</string>
     <string name="refresh">Frissítés</string>
+    <string name="inaccurate_direction">Induljon el a pontos célirány beállításhoz</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Magasságkülönbség</string>
+    <string name="dialog_store_location_name">Aktuális helyzetének neve</string>
+    <string name="dialog_rename_destination">Adja meg céljának új nevét</string>
+    <string name="location_name">Helyének neve</string>
+    <string name="cancel">Mégsem</string>
+    <string name="store_location">Hely rögzítése</string>
+    <string name="rename_destination">Cél átnevezése</string>
+    <string name="store_location_disabled">Nincs aktuális helyzet, így a hely nem tárolható</string>
+    <string name="rename_destination_disabled">Először tárolja helyzetét, utána nevezheti át célját</string>
+    <string name="location_stored">Helyzete tárolva</string>
+    <string name="location_name_stored">Helyzete \'%s\' tárolva</string>
+    <string name="destination_renamed">Cél átnevezve</string>
+    <string name="no_location_name">Helyzetének neve nincs megadva</string>
+    <string name="menu_details">Helyzetének részletei</string>
     </resources>
