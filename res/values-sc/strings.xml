@@ -1,10 +1,10 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="app_desc">Torra ad una positzione bisitada pretzedentemente impreande sas coordinatas GPS.</string>
     <string name="inaccurate_location">Sa positzione relevada tua no est pretzisa</string>
-    <string name="notice_no_dest">Sarba sa positzione tua pro impostare una destinatzione</string>
-    <string name="inaccurate_direction">Moende•ti as a otènnere una diretzione prus pretzisa</string>
-    <string name="notice_destination_reached">Ses arribbau a sa destinatzione tua</string>
-    <string name="current_speed">Lestresa</string>
+    <string name="notice_no_dest">Sarva sa positzione tua pro impostare una destinatzione</string>
+    <string name="inaccurate_direction">Moende·ti as a otènnere una diretzione prus pretzisa</string>
+    <string name="notice_destination_reached">Ses arribbadu a sa destinatzione tua</string>
+    <string name="current_speed">Lestresa de como</string>
     <string name="speed_kph">km/h</string>
     <string name="current_bearing">Relevamentu currente</string>
     <string name="distance">Distàntzia</string>
@@ -25,10 +25,10 @@
     <string name="cancel">Annudda</string>
     <string name="store_location">Annanghe positzione</string>
     <string name="rename_destination">Torra a numenare sa destinatzione</string>
-    <string name="store_location_disabled">Positzione de como no identificada, est impossìbile a la sarbare</string>
-    <string name="rename_destination_disabled">Impossìbile torrare a numenare sa destinatzione, in antis bolet sarbada una positzione</string>
-    <string name="location_stored">Positzione sarbada</string>
-    <string name="location_name_stored">Positzione \'%s\' sarbada</string>
+    <string name="store_location_disabled">Positzione de como no identificada, est impossìbile a la sarvare</string>
+    <string name="rename_destination_disabled">Impossìbile torrare a numenare sa destinatzione, in antis bolet sarvada una positzione</string>
+    <string name="location_stored">Positzione sarvada</string>
+    <string name="location_name_stored">Positzione \'%s\' sarvada</string>
     <string name="destination_renamed">Destinatzione torrada a numenare</string>
     <string name="no_location_name">Nùmene positzione non dislindadu</string>
     <string name="menu_details">Minujas</string>
