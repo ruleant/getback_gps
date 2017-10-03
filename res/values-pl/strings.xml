@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="direction">Kierunek</string>
@@ -17,9 +17,9 @@
     <string name="destination_renamed">Zmieniono nazwę celu</string>
     <string name="menu_details">Szczegóły lokalizacji</string>
     <string name="activity_details">Szczegóły</string>
-    <string name="location_provider">Dostawca lokalizacji</string>
+    <string name="location_provider">Źródło lokalizacji</string>
     <string name="name">Nazwa</string>
-    <string name="provider">Dostawca</string>
+    <string name="provider">Źródło</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="curr_location">Obecna (ostatnia znana) lokalizacja</string>
     <string name="speed">Prędkość</string>
@@ -28,7 +28,7 @@
     <string name="to_dest">Do celu</string>
     <string name="about">O aplikacji</string>
     <string name="accuracy">Dokładność</string>
-    <string name="provider_no_support">Dostawca nie jest obsługiwany.</string>
+    <string name="provider_no_support">Źródło nie jest obsługiwane.</string>
     <string name="loc_provider_network">sieć (komórkowa/WiFi)</string>
     <string name="location_stored">Zapisano lokalizację</string>
     <string name="dialog_store_location_name">Wybierz lokalizację dla swojego aktualnego położenia:</string>
@@ -46,7 +46,7 @@
     <string name="pref_loc_update_dist">Częstotliwość według odległości</string>
     <string name="inaccurate">Niedokładna</string>
     <string name="unknown">Nieznany</string>
-    <string name="app_desc">Znajdź drogę powrotną do odwiedzonej lokalizacji z wykorzystaniem współrzędnych GPS.</string>
+    <string name="app_desc">Znajdź drogę powrotną do odwiedzonej lokalizacji, wykorzystując współrzędne GPS.</string>
     <string name="pref_geo_orientation_sensor">Czujnik orientacji telefonu</string>
     <string name="rename_destination_disabled">Nie można zmienić nazwy celu, najpierw zapisz lokalizację</string>
     <string name="destination_reached">Jesteś u celu</string>
@@ -74,4 +74,11 @@
     <string name="longitude_east_unit">wsch.</string>
     <string name="longitude_west_unit">zach.</string>
     <string name="altitude">Wysokość</string>
+    <string name="location_updated">Zaktualizowano lokalizację</string>
+    <plurals name="distance_meter">
+	<item quantity="one">metr</item>
+	<item quantity="few">metrów</item>
+	<item quantity="many">metry</item>
+	<item quantity="other"></item>
+</plurals>
     </resources>
