@@ -1,2 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="app_desc">Leia GPS koordinaatide abil tagasitee eelnevalt külatatud kohta.</string>
+    <string name="inaccurate_location">Su praegune asukoht ei ole täpne</string>
+    <string name="notice_no_dest">Sihtkoha määramiseks salvesta oma asukoht</string>
+    </resources>
