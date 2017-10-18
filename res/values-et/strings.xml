@@ -2,4 +2,100 @@
 <resources><string name="app_desc">Leia GPS koordinaatide abil tagasitee eelnevalt külatatud kohta.</string>
     <string name="inaccurate_location">Su praegune asukoht ei ole täpne</string>
     <string name="notice_no_dest">Sihtkoha määramiseks salvesta oma asukoht</string>
-    </resources>
+    <string name="inaccurate_direction">Hakka liikuma, et leida täpne suund sihtkohta</string>
+    <string name="notice_destination_reached">Oled jõudnud sihtkohta</string>
+    <string name="current_speed">Praegune kiirus</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_bearing">Praegune kurss</string>
+    <string name="distance">Kaugus</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Kõrguste vahe</string>
+    <string name="direction">Suund</string>
+    <string name="northeast_unit">NE</string>
+    <string name="southeast_unit">SE</string>
+    <string name="southwest_unit">SW</string>
+    <string name="northwest_unit">NW</string>
+    <string name="location_updated">Asukoht uuendatud</string>
+    <string name="inaccurate">Ebatäpne</string>
+    <string name="destination_reached">Sihtkohas</string>
+    <string name="no_destination">Sihtkoht pole määratud</string>
+    <string name="unknown">Tundmatu</string>
+    <string name="refresh">Värskenda</string>
+    <string name="dialog_store_location_name">Sisesta praeguse asukoha nimi:</string>
+    <string name="dialog_rename_destination">Sisesta sihtkoha uus nimi:</string>
+    <string name="location_name">Asukoha nimi</string>
+    <string name="cancel">Loobu</string>
+    <string name="store_location">Salvesta asukoht</string>
+    <string name="rename_destination">Nimeta sihtkoht</string>
+    <string name="store_location_disabled">Asukohta ei saa salvestada, kui puudub praegune asukoht</string>
+    <string name="rename_destination_disabled">Sihtkohta ei saa ümber nimetada, salvesta esmalt asukoht</string>
+    <string name="location_stored">Asukoht salvestatud</string>
+    <string name="location_name_stored">Asukoht \"%s\" salvestatud</string>
+    <string name="destination_renamed">Sihtkoht on ümbernimetatud</string>
+    <string name="no_location_name">Asukoha nime pole määratud</string>
+    <string name="menu_details">Asukoha detailid</string>
+    <string name="activity_details">Detailid</string>
+    <string name="location_provider">Asukoha pakkuja</string>
+    <string name="name">Nimi</string>
+    <string name="provider">Pakkuja</string>
+    <string name="loc_provider_network">võrgupõhine (mobiiltelefon/WiFi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Pakkuja ei ole toetatud.</string>
+    <string name="curr_location">Praegune (viimane teadaolev) asukoht</string>
+    <string name="latitude">Laiuskraad</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Pikkuskraad</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude_west_unit">W</string>
+    <string name="altitude">Kõrgus merepinnast</string>
+    <string name="speed">Kiirus</string>
+    <string name="bearing">Kurss</string>
+    <string name="sensor_bearing_offset">Sensoril põhinev kursi nihe</string>
+    <string name="travel_direction">Reisi suund</string>
+    <string name="travel_direction_forward">Edasi</string>
+    <string name="travel_direction_backwards">Tööjõukulu</string>
+    <string name="accuracy">Täpsus</string>
+    <string name="timestamp">Ajatempel</string>
+    <string name="destination">Sihtkoht</string>
+    <string name="to_dest">Sihtkohta</string>
+    <string name="direction_relative">praeguse suuna suhtes</string>
+    <string name="raw">Vormindamata</string>
+    <string name="none">Puudub</string>
+    <string name="notset">Määramata</string>
+    <string name="loc_updated_recent">Asukohta on hiljuti uuendatud.</string>
+    <string name="loc_updated_not_recent">Asukohta EI OLE hiljuti uuendatud.</string>
+    <string name="settings">Seaded</string>
+    <string name="pref_header_general">Üldine</string>
+    <string name="pref_header_loc_update">Asukoha uuendused</string>
+    <string name="pref_loc_update_dist">Uuendused vahemaa alusel</string>
+    <string name="pref_loc_update_time">Uuendused aja alusel</string>
+    <string name="pref_enable_sensors">Kasuta saadaval olevaid andureid</string>
+    <string name="pref_geo_orientation_sensor">Vaikimisi suuna andur</string>
+    <string name="sensors_enabled">Lubatud: uuendatud kiiremini ja täpsemam kurss</string>
+    <string name="sensors_disabled">Keelatud: säästab energiat</string>
+    <string name="disabled">Keelatud</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d meeter</item>
+	<item quantity="other">%d meetrit</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d sekund</item>
+	<item quantity="other">%d sekundit</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minut</item>
+	<item quantity="other">%d minutit</item>
+</plurals>
+    <string name="about">Teave</string>
+    <string name="version">Versioon</string>
+    <string name="build_time">Ehitatud %s.</string>
+    <string name="app_website">Lisainfot leiad &lt;a href=%1$s&gt;veebilehelt&lt;/a&gt;.</string>
+    <string name="copyright">Autoriõigus</string>
+    <string name="license">See programm on tasuta tarkvara: saate seda levitada ja / või seda muuta vastavalt GNU Üldise Avaliku Litsentsi tingimustele, mille on avaldanud Free Software Foundation, kas Litsentsi 3. versioon või mõni hilisem versioon.
+\n
+\nSeda programm levitatakse lootuses, et see on kasulik, kuid ilma igasuguse garantiita; isegi ilma vaikimisi garantiita sobimaks KAUBANDUSLIKUKS või MÕNEKS MUUKS EESMÄRGIKS. Üksikasjalikuma teabe saamiseks vaadake GNU Üldist Avalikku Litsentsi.
+\n
+\nGNU Üldise Avaliku Litsentsi oleksid pidanud saama selle programmiga. Kui ei, siis vaadake <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>
