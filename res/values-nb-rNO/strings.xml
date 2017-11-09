@@ -1,2 +1,101 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="app_desc">Finn veien tilbake til en tidligere besøkt plassering ved bruk av GPS-koordinater.</string>
+    <string name="inaccurate_location">Din gjeldende plassering er unøyaktig</string>
+    <string name="notice_no_dest">Lagre din plassering for å angi et mål</string>
+    <string name="inaccurate_direction">Begynn å bevege deg for å få en presis retningsanvisning til ditt mål</string>
+    <string name="notice_destination_reached">Du har nådd ditt mål</string>
+    <string name="current_speed">Nåværende hastighet</string>
+    <string name="speed_kph">km/t</string>
+    <string name="current_bearing">Aktuell kurs</string>
+    <string name="distance">Avstand</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Høydeforskjell</string>
+    <string name="direction">Retning</string>
+    <string name="northeast_unit">NØ</string>
+    <string name="southeast_unit">SØ</string>
+    <string name="southwest_unit">SV</string>
+    <string name="northwest_unit">NV</string>
+    <string name="location_updated">Plassering oppdatert</string>
+    <string name="inaccurate">Unøyaktig</string>
+    <string name="destination_reached">Ved målet</string>
+    <string name="no_destination">Inget mål satt</string>
+    <string name="unknown">Ukjent</string>
+    <string name="refresh">Oppdater</string>
+    <string name="dialog_store_location_name">Skriv inn et navn for ditt gjeldende mål:</string>
+    <string name="dialog_rename_destination">Skriv inn ett nytt navn for ditt mål:</string>
+    <string name="location_name">Plasseringsnavn</string>
+    <string name="cancel">Avbryt</string>
+    <string name="store_location">Lagre plassering</string>
+    <string name="rename_destination">Gi plassering nytt navn</string>
+    <string name="store_location_disabled">Kan ikke lagre plassering hvis det ikke forefinnes en aktuell plassering</string>
+    <string name="rename_destination_disabled">Kan ikke gi mål nytt navn, lagre en plassering først</string>
+    <string name="location_stored">Plassering lagret</string>
+    <string name="location_name_stored">Plasseringen \"%s\" ble lagret</string>
+    <string name="destination_renamed">Mål har fått nytt navn</string>
+    <string name="no_location_name">Plasseringsnavn ble ikke angitt</string>
+    <string name="menu_details">Plasseringsdetaljer</string>
+    <string name="activity_details">Detaljer</string>
+    <string name="location_provider">Plasseringstilbyder</string>
+    <string name="name">Navn</string>
+    <string name="provider">Tilbyder</string>
+    <string name="loc_provider_network">nettverk (telefon/Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Tilbyderen støttes ikke.</string>
+    <string name="curr_location">Nåværende (siste kjente) plassering</string>
+    <string name="latitude">Breddegrad</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="longitude">Lengdegrad</string>
+    <string name="longitude_east_unit">Ø</string>
+    <string name="longitude_west_unit">V</string>
+    <string name="altitude">Høyde</string>
+    <string name="speed">Hastighet</string>
+    <string name="bearing">Kurs</string>
+    <string name="sensor_bearing_offset">Sensorbasert retningsforskyvning</string>
+    <string name="travel_direction">Bevegelsesretning</string>
+    <string name="travel_direction_forward">Framover</string>
+    <string name="travel_direction_backwards">Bakover</string>
+    <string name="accuracy">Nøyaktighet</string>
+    <string name="timestamp">Tidsstempel</string>
+    <string name="destination">Mål</string>
+    <string name="to_dest">Til målet</string>
+    <string name="direction_relative">i forhold til aktuell retning</string>
+    <string name="raw">Uformatert</string>
+    <string name="none">Ingen</string>
+    <string name="notset">Ikke angitt</string>
+    <string name="loc_updated_recent">Plassering oppdatert nylig.</string>
+    <string name="loc_updated_not_recent">Plassering IKKE oppdatert nylig.</string>
+    <string name="settings">Innstillinger</string>
+    <string name="pref_header_general">Hovedinnstillinger</string>
+    <string name="pref_header_loc_update">Plasseringsoppdateringer</string>
+    <string name="pref_loc_update_dist">Avstandsbaserte oppdateringer</string>
+    <string name="pref_loc_update_time">Tidsbaserte oppdateringer</string>
+    <string name="pref_enable_sensors">Bruk tilgjengelige sensorer</string>
+    <string name="pref_geo_orientation_sensor">Forvalgt orienteringssensor</string>
+    <string name="sensors_enabled">Påskrudd: Raskere oppdatert og mer nøyaktig kurs</string>
+    <string name="sensors_disabled">Avskrudd: Sparer strøm</string>
+    <string name="disabled">Avskrudd</string>
+    <plurals name="distance_meter">
+	<item quantity="one">%d meter</item>
+	<item quantity="other">%d meter</item>
+</plurals>
+    <plurals name="time_seconds">
+	<item quantity="one">%d sekund</item>
+	<item quantity="other">%d sekunder</item>
+</plurals>
+    <plurals name="time_minutes">
+	<item quantity="one">%d minutt</item>
+	<item quantity="other">%d minutter</item>
+</plurals>
+    <string name="about">Om</string>
+    <string name="version">Versjon</string>
+    <string name="build_time">Bygd på %s.</string>
+    <string name="app_website">Besøk &lt;a href=%1$s&gt;nettsiden&lt;/a&gt; for mer info.</string>
+    <string name="copyright">Kopirett</string>
+    <string name="license">Dette program er fri programvare: Du kan redistribuere det og/eller modifisere det under betingelsene i GNU General Public Lisens, som utgitt av Free Software Foundation, enten versjon 3 av lisensen, eller enhver nyere versjon.
+\n 
+\n Dette program er distribuert i håp om at det vil være nyttig, men udet nogen garanti; selv uten implisitt garanti for SALGBARHET eller FORMÅLSTJENLIGHET for noe formål. Se GNU General Public Lisensen for flere detaljer.
+\n 
+\n Du skulle have mottatt en kopi av GNU General Public Lisensen sammen med dette programmet. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+</resources>
