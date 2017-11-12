@@ -36,7 +36,7 @@
 Dit programma wordt gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garanties die GEBRUIKELIJK ZIJN IN DE HANDEL of voor BRUIKBAARHEID VOOR EEN SPECIFIEK DOEL. Zie de GNU Algemene Publieke Licentie voor meer details.\n
 \n
 Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen samen met dit programma. Als dat niet het geval is, zie <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-    <string name="loc_provider_network">netwerk (GSM/WiFi)</string>
+    <string name="loc_provider_network">Netwerk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="loc_updated_recent">Locatie werd recent bijgewerkt.</string>
     <string name="loc_updated_not_recent">Locatie werd NIET recent bijgewerkt.</string>
@@ -80,8 +80,8 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="destination_reached">Op bestemming</string>
     <string name="no_destination">Geen bestemming ingesteld</string>
     <string name="pref_enable_sensors">Beschikbare sensoren gebruiken</string>
-    <string name="sensors_enabled">Ingeschakeld : sneller bijgewerkte en nauwkeurigere richting</string>
-    <string name="sensors_disabled">Uitgeschakeld : bespaart energie</string>
+    <string name="sensors_enabled">Ingeschakeld : Sneller bijgewerkte en nauwkeurigere richting</string>
+    <string name="sensors_disabled">Uitgeschakeld : Bespaart energie</string>
     <string name="pref_geo_orientation_sensor">Standaard richtingsensor</string>
     <string name="sensor_bearing_offset">Correctie richting door sensors</string>
     <string name="travel_direction">Bewegingsrichting</string>
