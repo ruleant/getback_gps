@@ -36,7 +36,7 @@
     <string name="location_provider">Mitza de sa positzione</string>
     <string name="name">Nùmene</string>
     <string name="provider">Mitza</string>
-    <string name="loc_provider_network">Retza (Cellulare/WiFi)</string>
+    <string name="loc_provider_network">Retza (Cellulare/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Custa mitza no est suportada.</string>
     <string name="curr_location">Positzione de como (ùrtima connota)</string>
@@ -70,8 +70,8 @@
     <string name="pref_loc_update_time">Agiornamentos basados in supra de su tempus</string>
     <string name="pref_enable_sensors">Ativa sos sensores disponìbiles</string>
     <string name="pref_geo_orientation_sensor">Sensore orientamentu predefinidu</string>
-    <string name="sensors_enabled">Ativadu: agiornamentos lestros e positzionamentu pretzisu</string>
-    <string name="sensors_disabled">Disativadu: risparmiu energia</string>
+    <string name="sensors_enabled">Allutu: Agiornamentos prus lestros e positzionamentu prus pretzisu</string>
+    <string name="sensors_disabled">Istudadu: Risparmiat energia</string>
     <string name="disabled">Disativadu</string>
     <plurals name="distance_meter">
 	<item quantity="one">%d metru</item>
