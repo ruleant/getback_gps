@@ -29,7 +29,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="activity_details">Détails</string>
     <string name="location_provider">Fournisseur de localisation</string>
     <string name="provider">Fournisseur</string>
-    <string name="loc_provider_network">Réseau (Data/Wifi)</string>
+    <string name="loc_provider_network">Réseau (Données mobiles / Wifi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Fournisseur non supporté.</string>
     <string name="curr_location">Position actuelle (dernière connue)</string>
@@ -57,7 +57,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="pref_loc_update_time">Actualiser en fonction du temps</string>
     <string name="pref_enable_sensors">Activer les capteurs</string>
     <string name="pref_geo_orientation_sensor">Capteur d\'orientation par défaut</string>
-    <string name="sensors_disabled">Désactivé : économise l\'énergie</string>
+    <string name="sensors_disabled">Désactivé : Économise la batterie</string>
     <string name="disabled">Désactivé</string>
     <string name="about">À propos</string>
     <string name="version">Version</string>
@@ -66,7 +66,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="copyright">Copyright</string>
     <string name="current_bearing">Relèvement actuel</string>
     <string name="bearing">Relèvement</string>
-    <string name="sensors_enabled">Activé : actualisation plus fréquente et relèvement plus précis</string>
+    <string name="sensors_enabled">Activé : Mises à jour plus fréquentes et relèvement plus précis</string>
     <string name="no_destination">Aucune destination définie</string>
     <string name="travel_direction">Direction de marche</string>
     <string name="travel_direction_forward">En avant</string>
