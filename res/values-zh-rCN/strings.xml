@@ -39,7 +39,7 @@
     <string name="location_provider">位置提供者</string>
     <string name="name">名称</string>
     <string name="provider">提供者</string>
-    <string name="loc_provider_network">网络（手机基站/WiFi）</string>
+    <string name="loc_provider_network">网络（手机基站/Wi-Fi）</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">不支持该提供者。</string>
     <string name="curr_location">当前（最后已知）位置</string>
