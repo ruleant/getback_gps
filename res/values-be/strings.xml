@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="current_speed">Хуткасьць</string>
     <string name="speed_kph">км/г</string>
     <string name="current_bearing">Азімут</string>
@@ -18,7 +18,7 @@
     <string name="activity_details">Падрабязнасьці</string>
     <string name="location_provider">Лякатар</string>
     <string name="provider">Правайдэр</string>
-    <string name="loc_provider_network">cетка (сотавая альбо WiFi)</string>
+    <string name="loc_provider_network">Сетка (сотавая альбо Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Лякатар не падтрымліваецца.</string>
     <string name="copyright">Аўтарскае права</string>
@@ -52,7 +52,7 @@
     <string name="pref_loc_update_time">Абнаўляць праз такі час</string>
     <string name="pref_enable_sensors">Выкарыстоўваць даступныя датчыкі</string>
     <string name="pref_geo_orientation_sensor">Датчык арыентацыі па змаўчанні</string>
-    <string name="sensors_enabled">Увамкнёна: хутчэйшае абнаўленьне й дакладнейшы азімут</string>
+    <string name="sensors_enabled">Увамкнёна: хутчэйшыя абнаўленьні й дакладнейшы азімут</string>
     <string name="sensors_disabled">Вымкнена: ашчаджвае энергію</string>
     <string name="disabled">Вымкнена</string>
     <string name="about">Аб праграме</string>
