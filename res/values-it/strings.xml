@@ -61,7 +61,7 @@
     <string name="pref_loc_update_time">Aggiornamenti basati su tempo</string>
     <string name="pref_geo_orientation_sensor">Sensore orientamento predefinito</string>
     <string name="sensors_disabled">Disattivato: risparmio energia</string>
-    <string name="sensors_enabled">Attivato: aggiornamenti veloci e posizionamento accurato</string>
+    <string name="sensors_enabled">Attivato: aggiornamenti più veloci e posizione più accurata</string>
     <string name="disabled">Disattivato</string>
     <string name="about">Informazioni su</string>
     <string name="version">Versione</string>
