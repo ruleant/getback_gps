@@ -39,7 +39,7 @@
     <string name="location_provider">Plasseringstilbyder</string>
     <string name="name">Navn</string>
     <string name="provider">Tilbyder</string>
-    <string name="loc_provider_network">nettverk (telefon/Wi-Fi)</string>
+    <string name="loc_provider_network">Nettverk (telefon/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Tilbyderen støttes ikke.</string>
     <string name="curr_location">Nåværende (siste kjente) plassering</string>
@@ -73,7 +73,7 @@
     <string name="pref_loc_update_time">Tidsbaserte oppdateringer</string>
     <string name="pref_enable_sensors">Bruk tilgjengelige sensorer</string>
     <string name="pref_geo_orientation_sensor">Forvalgt orienteringssensor</string>
-    <string name="sensors_enabled">Påskrudd: Raskere oppdatert og mer nøyaktig kurs</string>
+    <string name="sensors_enabled">Påskrudd: Raskere oppdateringer og mer nøyaktig kurs</string>
     <string name="sensors_disabled">Avskrudd: Sparer strøm</string>
     <string name="disabled">Avskrudd</string>
     <plurals name="distance_meter">
