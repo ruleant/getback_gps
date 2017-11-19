@@ -52,7 +52,7 @@
     <string name="location_provider">場所プロバイダー</string>
     <string name="name">名前</string>
     <string name="provider">プロバイダー</string>
-    <string name="loc_provider_network">ネットワーク (携帯電話/WiFi)</string>
+    <string name="loc_provider_network">ネットワーク (携帯電話/Wi-Fi)</string>
     <string name="provider_no_support">プロバイダーはサポートされていません。</string>
     <string name="curr_location">現在の (最新の) 場所</string>
     <string name="latitude_north_unit">北</string>
@@ -78,8 +78,8 @@
     <string name="pref_loc_update_time">時間に基づく更新</string>
     <string name="pref_enable_sensors">利用可能なセンサーを使用</string>
     <string name="pref_geo_orientation_sensor">デフォルトの方位センサー</string>
-    <string name="sensors_enabled">有効 : より迅速な更新、より正確な方角</string>
-    <string name="sensors_disabled">無効 : 電力を節約</string>
+    <string name="sensors_enabled">有効: より迅速な更新、より正確な方角</string>
+    <string name="sensors_disabled">無効: 電力を節約</string>
     <string name="disabled">無効</string>
     <string name="about">アプリについて</string>
     <string name="version">バージョン</string>
