@@ -39,7 +39,7 @@
     <string name="location_provider">Asukoha pakkuja</string>
     <string name="name">Nimi</string>
     <string name="provider">Pakkuja</string>
-    <string name="loc_provider_network">võrgupõhine (mobiiltelefon/WiFi)</string>
+    <string name="loc_provider_network">Võrgupõhine (mobiiltelefon/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Pakkuja ei ole toetatud.</string>
     <string name="curr_location">Praegune (viimane teadaolev) asukoht</string>
@@ -73,7 +73,7 @@
     <string name="pref_loc_update_time">Uuendused aja alusel</string>
     <string name="pref_enable_sensors">Kasuta saadaval olevaid andureid</string>
     <string name="pref_geo_orientation_sensor">Vaikimisi suuna andur</string>
-    <string name="sensors_enabled">Lubatud: uuendatud kiiremini ja täpsemam kurss</string>
+    <string name="sensors_enabled">Lubatud: kiiremad uuendused ja täpsemam kurss</string>
     <string name="sensors_disabled">Keelatud: säästab energiat</string>
     <string name="disabled">Keelatud</string>
     <plurals name="distance_meter">
