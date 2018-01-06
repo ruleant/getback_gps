@@ -15,6 +15,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # increase memory of virtualbox
   config.vm.provider "virtualbox" do |v|
     v.memory = 2048
+    v.customize ["modifyvm", :id, "--usb", "on"]
+    v.customize ["modifyvm", :id, "--usbehci", "on"]
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Google Inc. Nexus 4 (debug)', '--vendorid', '0x18d1', '--productid', '0x4ee2']
   end
 
   # Disable automatic box update checking. If you disable this, then
