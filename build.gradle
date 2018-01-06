@@ -83,4 +83,4 @@ task unitTest(type:Test, dependsOn: assemble) {
     classpath = project.sourceSets.unitTest.runtimeClasspath
 }
 
-check.dependsOn unitTest
+//check.dependsOn unitTest
