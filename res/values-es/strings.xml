@@ -63,7 +63,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="pref_loc_update_time">Actualizaciones basadas en tiempo</string>
     <string name="pref_enable_sensors">Habilitar sensores disponibles</string>
     <string name="pref_geo_orientation_sensor">Sensor de orientación predeterminado</string>
-    <string name="sensors_disabled">Deshabilitado: ahorra energía</string>
+    <string name="sensors_disabled">Deshabilitado: Ahorra energía</string>
     <string name="disabled">Deshabilitado</string>
     <string name="version">Versión</string>
     <string name="app_website">Visite el &lt;a href=%1$s&gt;sitio web&lt;/a&gt; para más información.</string>
@@ -71,7 +71,7 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="current_bearing">Giro actual</string>
     <string name="destination_reached">En destino</string>
     <string name="to_dest">Hacia el destino</string>
-    <string name="sensors_enabled">Habilitado: actualizaciones más rápidas y giros más precisos</string>
+    <string name="sensors_enabled">Habilitado: Actualizaciones más rápidas y giros más precisos</string>
     <string name="about">Acerca de</string>
     <string name="build_time">Compilado en %s.</string>
     <string name="dialog_store_location_name">Poner un nombre a la ubicación actual:</string>
