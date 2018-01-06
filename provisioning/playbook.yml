@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: "Install git"
+      apt: name=git state=latest
+
+    - name: "Install java JDK 8"
+      apt: name=openjdk-8-jdk state=latest
+  roles:
+    - { role: nickpack.android-sdk }
