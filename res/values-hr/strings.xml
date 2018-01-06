@@ -36,7 +36,7 @@
     <string name="menu_details">Detalji lokacije</string>
     <string name="activity_details">Detalji</string>
     <string name="name">Naziv</string>
-    <string name="loc_provider_network">mreža (mobitel / WiFi)</string>
+    <string name="loc_provider_network">Mreža (mobitel / Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="curr_location">Trenutna (zadnje poznata) lokacija</string>
     <string name="latitude">Geografska širina</string>
@@ -69,7 +69,7 @@
     <string name="pref_loc_update_time">Ažuriranje temeljem vremena</string>
     <string name="pref_enable_sensors">Koristi dostupne senzore</string>
     <string name="pref_geo_orientation_sensor">Zadani senzor orijentacije</string>
-    <string name="sensors_enabled">Uključeno: brže ažuriranje i točniji azimut</string>
+    <string name="sensors_enabled">Uključeno: Brže ažuriranje i točniji azimut</string>
     <string name="sensors_disabled">Isključeno: štedi energiju</string>
     <string name="disabled">Isključeno</string>
     <plurals name="distance_meter">
@@ -87,8 +87,8 @@
     <plurals name="time_minutes">
 	<item quantity="one">%d minuta</item>
 	<item quantity="few">%d minute</item>
-	<item quantity="many"></item>
-	<item quantity="other"></item>
+	<item quantity="many"/>
+	<item quantity="other"/>
 </plurals>
     <string name="about">O</string>
     <string name="version">Verzija</string>
