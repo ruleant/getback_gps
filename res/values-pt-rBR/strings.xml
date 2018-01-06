@@ -26,7 +26,7 @@
     <string name="activity_details">Detalhes</string>
     <string name="location_provider">Provedor de local</string>
     <string name="provider">Provedor</string>
-    <string name="loc_provider_network">rede (celular/WiFi)</string>
+    <string name="loc_provider_network">Rede (celular/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provedor não suportado.</string>
     <string name="curr_location">Última localização</string>
@@ -52,8 +52,8 @@
     <string name="pref_header_loc_update">Atualização de localização</string>
     <string name="pref_enable_sensors">A utilização de sensores já existentes</string>
     <string name="pref_geo_orientation_sensor">Sensor na orientação padrão</string>
-    <string name="sensors_enabled">Ativado : atualização mais rápida e maior precisão de deslocamento</string>
-    <string name="sensors_disabled">Desativado : economiza energia</string>
+    <string name="sensors_enabled">Ativado : Atualização mais rápida e maior precisão de deslocamento</string>
+    <string name="sensors_disabled">Desativado : Economiza energia</string>
     <string name="disabled">Desativado</string>
     <string name="about">Sobre</string>
     <string name="version">Versão</string>
