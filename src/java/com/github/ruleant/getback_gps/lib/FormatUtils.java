@@ -2,7 +2,7 @@
  * Class to format distances, speeds and numbers.
  *
  * Copyright (C) 2010 Peer internet solutions
- * Copyright (C) 2013-2015 Dieter Adriaenssens
+ * Copyright (C) 2013-2018 Dieter Adriaenssens
  *
  * Method formatDist() in this file is based on method formatDist
  * in class MixUtils that is part of mixare.

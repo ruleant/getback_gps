@@ -1,7 +1,7 @@
 /**
  * 2D coordinate class, for converting between polar and Cartesian.
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
