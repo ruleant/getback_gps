@@ -1,0 +1,2 @@
+SUBSYSTEM=="usb", ATTR{idVendor}=="18d1", MODE="4ee2", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="2e76", GROUP="plugdev", ENV{adb_adbfast}="yes"

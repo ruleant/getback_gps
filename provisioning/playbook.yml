@@ -9,3 +9,11 @@
 
     - name: "Install maven"
       apt: name=maven state=latest
+
+    - name: "Install udev config file"
+      copy:
+        src: files/51-android.rules
+        dest: /etc/udev/rules.d/51-android.rules
+        owner: root
+        group: root
+        mode: 0644
