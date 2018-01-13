@@ -9,5 +9,3 @@
 
     - name: "Install maven"
       apt: name=maven state=latest
-  roles:
-    - { role: nickpack.android-sdk }
