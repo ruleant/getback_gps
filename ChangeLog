@@ -1,3 +1,15 @@
+ v0.5 (released on 14Jan2018)
+ - translated to Croatian, thanks to Dag Velovic
+ - build against Android SDK 5.1 (API 22)
+ - issue #164 : display altitude/height in meters
+ - issue #31 : save altitude and calculate height difference to destination
+ - support RTL languages
+ - translated to Chinese (China), thanks to YFdyh000
+ - build against Android SDK 6.0 (API 23)
+ - translated to Estonian, thanks to Kristjan Räts
+ - translated to Norwegian Bokmål, thanks to Allan Nordhøy
+ - translated to Polish, thanks to Dominik Danelski
+ 
  v0.4.1 (released on 08Jan2015)
  - translated to Sardinian, thanks to Lu Ca
  - translated to Hindi, thanks to Atul Pratap Singh

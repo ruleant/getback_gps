@@ -1,16 +1,20 @@
 GetBack GPS for Android
 =======================
 
-[![GetBack GPS](http://img.shields.io/badge/release-v0.4.1-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
+[![GetBack GPS](http://img.shields.io/badge/release-v0.5-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
+[![Codacy Badge](https://api.codacy.com/project/badge/0040e146618e41ac9c39d04c7b1a3fef)](https://www.codacy.com/app/ruleant/getback_gps)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
+
 [![Translation status](http://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](http://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![todofy badge](https://todofy.org/b/ruleant/getback_gps)](https://todofy.org/r/ruleant/getback_gps)
 [![Stack Share](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](http://stackshare.io/ruleant/getback-gps)
 
-[![Buildtime trend](https://buildtimetrend-service.herokuapp.com/badge/ruleant/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
-[![Total builds](https://buildtimetrend-service.herokuapp.com/badge/ruleant/getback_gps/builds/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
-[![Passed build jobs](https://buildtimetrend-service.herokuapp.com/badge/ruleant/getback_gps/passed/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Buildtime trend](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Total builds](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/builds/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Passed build jobs](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/passed/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
+[![Days since last failed build job](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/last_fail)](https://buildtimetrend-dev.herokuapp.com/dashboard/ruleant/getback_gps/index.html)
 
 Open Source Android app for finding your way back to a previously visited location using GPS coordinates.
 
@@ -38,7 +42,7 @@ How to get it?
 
 The [latest version](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps) is available on [F-Droid](https://f-droid.org/). Install the apk directly from the F-Droid website, or use the [F-Droid app](https://f-droid.org/FDroid.apk) to keep automaticaly up to date with future releases.
 
-If you want to try out the latest development version, you can get the code from the [git repository](https://f-droid.org/FDroid.apk) and [build the current development version](https://github.com/ruleant/getback_gps/wiki/Development) yourself.
+If you want to try out the latest development version, you can get the code from the [git repository](https://github.com/ruleant/getback_gps) and [build the current development version](https://github.com/ruleant/getback_gps/wiki/Development) yourself.
 
 
 Bugs and feature requests
@@ -90,23 +94,15 @@ Third party material
     - website : https://github.com/keyboardsurfer/Crouton
     - license : Apache 2.0
 
-Third party material
---------------------
+Credits
+-------
 
-- res/drawable-*/ic_action_refresh.png
-    - From the Action Bar Icon Pack, see http://developer.android.com/design/style/iconography.html
-    - origin : http://developer.android.com/downloads/design/Android_Design_Icons_20131106.zip
-    - license : Apache 2.0
-
-- Crouton library
-    - version : v1.8.1
-    - website : https://github.com/keyboardsurfer/Crouton
-    - license : Apache 2.0
+Getback GPS for Android was made possible by many contributers and sponsors, see [Credits](https://github.com/ruleant/getback_gps/wiki/Credits).
 
 License
 -------
 
-Copyright (C) 2012-2015 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2012-2018 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

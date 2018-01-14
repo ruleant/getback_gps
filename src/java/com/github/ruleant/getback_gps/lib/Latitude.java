@@ -1,7 +1,7 @@
 /**
  * Class for formatting latitude.
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -176,7 +176,14 @@ public class Latitude extends AbstractGeoCoordinate {
      * @return formatted value
      */
     protected final String formatValue() {
-        return Location.convert(getConvertedValue(), Location.FORMAT_SECONDS)
-                .replaceFirst(":", "° ").replace(":", "' ") + "\"";
+        String[] components = Location.convert(
+                    getConvertedValue(),
+                    Location.FORMAT_SECONDS
+            ).split(":");
+        return String.format("%1$d° %2$d' %3$s\"",
+                Integer.parseInt(components[0]),
+                Integer.parseInt(components[1]),
+                components[2]
+        );
     }
 }

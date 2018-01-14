@@ -4,7 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:paddingLeft="10dp" >
+    android:paddingLeft="10dp"
+    android:paddingStart="10dp" >
 
     <TextView
         android:id="@+id/textView_toDest_Message"
@@ -76,6 +77,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/direction"
+                style="@style/captionDescription" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingTop="2dp"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView_heightDifference"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/unknown"
+                style="@style/captionValue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/height_difference"
                 style="@style/captionDescription" />
 
         </LinearLayout>

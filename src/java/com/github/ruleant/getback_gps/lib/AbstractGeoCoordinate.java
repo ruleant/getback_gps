@@ -1,7 +1,7 @@
 /**
  * Abstract class for formatting a geological coordinate.
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,8 @@
 package com.github.ruleant.getback_gps.lib;
 
 import android.content.Context;
+
+import com.github.ruleant.getback_gps.R;
 
 /**
  * Abstract class for formatting a geological coordinate.
@@ -82,7 +84,7 @@ public abstract class AbstractGeoCoordinate {
      * @param rangeLow Lower limit of allowed range
      * @param rangeHigh Higher limit of allowed range
      */
-    final void setRange(
+    public final void setRange(
             final double rangeLow,
             final double rangeHigh) {
         mRangeLow = rangeLow;
@@ -119,7 +121,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @param context Current context
      */
-    final void setContext(final Context context) {
+    public final void setContext(final Context context) {
         if (context != null) {
             mContext = context;
         }
@@ -130,7 +132,7 @@ public abstract class AbstractGeoCoordinate {
      *
      * @return Current context
      */
-    final Context getContext() {
+    public final Context getContext() {
         return mContext;
     }
 
@@ -157,7 +159,11 @@ public abstract class AbstractGeoCoordinate {
      * @return String formatted string
      */
     public final String format() {
-        return formatValue() + " " + getSegmentUnit();
+        try {
+            return String.format("%1$s %2$s", formatValue(), getSegmentUnit());
+        } catch (Exception e) {
+            return getContext().getResources().getString(R.string.none);
+        }
     }
 
     /**

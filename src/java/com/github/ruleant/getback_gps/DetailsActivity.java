@@ -1,7 +1,7 @@
 /**
  * Main Activity
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -152,7 +152,17 @@ public class DetailsActivity extends AbstractGetBackGpsActivity {
             // Print distance and bearing
             toDestinationText += " "
                     + res.getString(R.string.distance) + ": "
-                    + FormatUtils.formatDist(navigator.getDistance()) + "\n";
+                    + FormatUtils.formatDist(navigator.getDistance(), this) + "\n";
+
+            toDestinationText += " "
+                    + res.getString(R.string.height_difference) + ": ";
+            if (destination.hasAltitude() && currentLocation.hasAltitude()) {
+                toDestinationText +=
+                        FormatUtils.formatHeight(navigator.getHeightDifference(), this)
+                                + "\n";
+            } else {
+                toDestinationText += res.getString(R.string.unknown) + "\n";
+            }
 
             CardinalDirection cd = new CardinalDirection(
                     this,

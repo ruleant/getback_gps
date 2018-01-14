@@ -1,7 +1,7 @@
 /**
  * Unit tests for Tools class
  *
- * Copyright (C) 2014-2015 Dieter Adriaenssens
+ * Copyright (C) 2014-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -31,6 +31,7 @@ import org.robolectric.RobolectricTestRunner;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for FormatUtils class.
@@ -118,6 +119,7 @@ public class ToolsTest {
         thrown.expectMessage("currentTimestamp can't be a negative value");
 
         Tools.isTimestampRecent(-1, 1, 1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -129,6 +131,7 @@ public class ToolsTest {
         thrown.expectMessage("previousTimestamp can't be a negative value");
 
         Tools.isTimestampRecent(1, -1, 1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -141,6 +144,7 @@ public class ToolsTest {
         thrown.expectMessage("validity should be a non-zero positive value");
 
         Tools.isTimestampRecent(1, 1, 0);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -153,6 +157,7 @@ public class ToolsTest {
         thrown.expectMessage("validity should be a non-zero positive value");
 
         Tools.isTimestampRecent(1, 1, -1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

@@ -1,7 +1,7 @@
 /**
  * Unit tests for Latitude class
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for Latitude class.
@@ -124,6 +125,7 @@ public class LatitudeTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         latitude.setValue(OUT_OF_RANGE);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -135,6 +137,7 @@ public class LatitudeTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         latitude.setValue(-1 * OUT_OF_RANGE);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**

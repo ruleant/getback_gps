@@ -1,7 +1,7 @@
 /**
  * Unit tests for Navigator class
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -32,6 +32,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -92,6 +93,30 @@ public class NavigatorTest {
      */
     private static final double BEARING_2 = 80.0;
 
+    /**
+     * Altitude 1 (10m).
+     */
+    private static final double ALTITUDE_1 = 10.0;
+
+    /**
+     * Altitude 2 (75m).
+     */
+    private static final double ALTITUDE_2 = 75.0;
+
+    /**
+     * Altitude 3 (100m).
+     */
+    private static final double ALTITUDE_3 = 100.0;
+
+    /**
+     * Height difference between location 2 and 1.
+     */
+    private static final double HEIGHT_LOC2_1 = -65.0;
+
+    /**
+     * Height difference between location 2 and 3.
+     */
+    private static final double HEIGHT_LOC2_3 = 25.0;
     /**
      * Bearing variation (+ 10°).
      */
@@ -185,6 +210,10 @@ public class NavigatorTest {
         when(loc1.bearingTo(loc3)).thenReturn((float) DIR_LOC1_3);
         when(loc2.bearingTo(loc1)).thenReturn((float) DIR_LOC2_1);
         when(loc2.bearingTo(loc3)).thenReturn((float) DIR_LOC2_3);
+        // set altitudes
+        when(loc1.getAltitude()).thenReturn(ALTITUDE_1);
+        when(loc2.getAltitude()).thenReturn(ALTITUDE_2);
+        when(loc3.getAltitude()).thenReturn(ALTITUDE_3);
     }
 
     /**
@@ -216,6 +245,8 @@ public class NavigatorTest {
         assertNull(navigator.getDestination());
 
         assertEquals(Navigator.DIST_ZERO, navigator.getDistance(),
+                ASSERT_ACCURACY);
+        assertEquals(Navigator.DIST_ZERO, navigator.getHeightDifference(),
                 ASSERT_ACCURACY);
         assertEquals(Navigator.DIR_ZERO, navigator.getCurrentBearing(),
                 ASSERT_ACCURACY);
@@ -251,6 +282,7 @@ public class NavigatorTest {
         thrown.expectMessage("Parameter sensorOrientation should not be null");
 
         new Navigator(null);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -362,6 +394,33 @@ public class NavigatorTest {
         navigator.setDestination(loc2);
         // test Distance
         assertEquals(DIST_LOC1_2, navigator.getDistance(), ASSERT_ACCURACY);
+    }
+
+    /**
+     * Tests getHeightDifference.
+     */
+    @Test
+    public final void testGetHeightDifference() {
+        // set location
+        navigator.setLocation(loc2);
+        // set destination
+        navigator.setDestination(loc3);
+
+        // test HeightDifference
+        assertEquals(HEIGHT_LOC2_3, navigator.getHeightDifference(),
+                ASSERT_ACCURACY);
+
+        // set another destination
+        navigator.setDestination(loc1);
+        // test HeightDifference
+        assertEquals(HEIGHT_LOC2_1, navigator.getHeightDifference(),
+                ASSERT_ACCURACY);
+
+        // set final destination
+        navigator.setDestination(loc2);
+        // test HeightDifference
+        assertEquals(Navigator.DIST_ZERO, navigator.getHeightDifference(),
+                ASSERT_ACCURACY);
     }
 
     /**

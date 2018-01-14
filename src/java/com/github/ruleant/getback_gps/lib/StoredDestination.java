@@ -2,7 +2,7 @@ package com.github.ruleant.getback_gps.lib;
 /**
  * Stored Destination
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -60,6 +60,7 @@ public class StoredDestination extends StoredLocation {
         tempLocation.setName(location.getName());
         tempLocation.setLongitude(location.getLongitude());
         tempLocation.setLatitude(location.getLatitude());
+        tempLocation.setAltitude(location.getAltitude());
 
         super.setLocation(tempLocation);
     }

@@ -1,7 +1,7 @@
 /**
  * Main Activity
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -119,7 +119,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
      *
      * @param item MenuItem object that was clicked
      */
-    final void displayDetails(final MenuItem item) {
+    public final void displayDetails(final MenuItem item) {
         Intent intent = new Intent(this, DetailsActivity.class);
         startActivity(intent);
     }
@@ -156,6 +156,8 @@ public class MainActivity extends AbstractGetBackGpsActivity
                 = (TextView) findViewById(R.id.textView_toDestDist);
         TextView tvToDestinationDirection
                 = (TextView) findViewById(R.id.textView_toDestDir);
+        TextView tvHeightDifference
+                = (TextView) findViewById(R.id.textView_heightDifference);
 
         LinearLayout sectionToDestination
                 = (LinearLayout) findViewById(R.id.section_toDestination);
@@ -166,6 +168,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
         String toDestinationDistanceText = res.getString(R.string.unknown);
         String toDestinationDirectionText = res.getString(R.string.unknown);
         String toDestinationMessage = res.getString(R.string.unknown);
+        String heightDifferenceText = res.getString(R.string.unknown);
         NavigationView.Mode nvNavigationMode = NavigationView.Mode.Disabled;
         NavigationView.Mode nvOrientationMode = NavigationView.Mode.Disabled;
         Boolean displayToDest = false;
@@ -209,7 +212,17 @@ public class MainActivity extends AbstractGetBackGpsActivity
             if (navigator.isLocationAccurate()) {
                 // Set distance to destination
                 toDestinationDistanceText
-                        = FormatUtils.formatDist(navigator.getDistance());
+                        = FormatUtils.formatDist(navigator.getDistance(), this);
+
+                // Set height difference
+                if (destination.hasAltitude() &&
+                        getService().getLocation().hasAltitude()
+                ) {
+                    heightDifferenceText = FormatUtils.formatHeight(
+                            navigator.getHeightDifference(),
+                            this
+                    );
+                }
 
                 // Set direction to destination
                 CardinalDirection cd = new CardinalDirection(
@@ -248,6 +261,7 @@ public class MainActivity extends AbstractGetBackGpsActivity
             tvToDestinationName.setText(toDestinationNameText);
             tvToDestinationDistance.setText(toDestinationDistanceText);
             tvToDestinationDirection.setText(toDestinationDirectionText);
+            tvHeightDifference.setText(heightDifferenceText);
         } else {
             // hide 'to Destination' info, show message
             sectionToDestination.setVisibility(LinearLayout.INVISIBLE);

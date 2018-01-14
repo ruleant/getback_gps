@@ -1,7 +1,7 @@
 /**
  * Calculates current orientation from sensors.
  *
- * Copyright (C) 2014-2015 Dieter Adriaenssens
+ * Copyright (C) 2014-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -48,6 +48,12 @@ public class SensorOrientation implements SensorEventListener {
      * Context of the Android app.
      */
     private Context mContext;
+
+    /**
+     * List with subscribed listeners.
+     */
+    private ArrayList<OrientationEventListener> eventListenerList
+            = new ArrayList<OrientationEventListener>();
 
     /**
      * Current calculated orientation.
@@ -393,12 +399,6 @@ public class SensorOrientation implements SensorEventListener {
          */
         void onOrientationChanged();
     }
-
-    /**
-     * List with subscribed listeners.
-     */
-    private ArrayList<OrientationEventListener> eventListenerList
-            = new ArrayList<OrientationEventListener>();
 
     /**
      * Adds the listener to eventListenerList.

@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="inaccurate_location">您目前的位置並不正確</string>
     <string name="notice_no_dest">存儲您的位置以便設定為目的地</string>
     <string name="notice_destination_reached">您已在您的目的地</string>
@@ -55,7 +55,7 @@
     <string name="direction_relative">相對於現在的航向</string>
     <string name="pref_enable_sensors">使用可用的感測器</string>
     <string name="pref_geo_orientation_sensor">預設方位感測器</string>
-    <string name="sensors_enabled">啟用： 快速更新、更準確的方位</string>
+    <string name="sensors_enabled">啟用：快速更新、更準確的方位</string>
     <string name="sensors_disabled">停用：節約電力</string>
     <string name="disabled">停用</string>
     <string name="about">關於</string>
@@ -92,4 +92,7 @@
     <string name="rename_destination">目的地重新命名</string>
     <string name="rename_destination_disabled">無法重新命名目的地，先儲存位置</string>
     <string name="destination_renamed">目的地已重新命名</string>
+    <string name="distance_m">公尺</string>
+    <string name="distance_km">公里</string>
+    <string name="height_difference">高度差異</string>
     </resources>

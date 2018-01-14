@@ -1,7 +1,7 @@
 /**
  * Class with several methods useful for navigation.
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -198,6 +198,21 @@ public class Navigator {
             return DIST_ZERO;
         }
         return mCurrentLocation.distanceTo(destination);
+    }
+
+    /**
+     * Calculate height difference to current destination.
+     *
+     * @return distance in meters
+     */
+    public final double getHeightDifference() {
+        AriadneLocation destination = getDestination();
+
+        // don't calculate difference if current location is not set
+        if (mCurrentLocation == null || destination == null) {
+            return DIST_ZERO;
+        }
+        return destination.getAltitude() - mCurrentLocation.getAltitude();
     }
 
     /**

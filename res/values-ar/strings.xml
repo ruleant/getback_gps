@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources><string name="inaccurate_location">موقعك الحالي غير دقيق</string>
+    <string name="current_speed">السرعة الحالية</string>
+    <string name="speed_kph">كم/ساعة</string>
+    <string name="distance_km">كم</string>
+    <string name="distance_m">م</string>
+    <string name="distance">المسافة</string>
+    <string name="direction">الإتجاه</string>
+    <string name="inaccurate">غير دقيق</string>
+    <string name="unknown">غير معروف</string>
+    <string name="no_destination">لا يوجد وجهة محددة</string>
+    <string name="northwest_unit">NW</string>
+    <string name="latitude_north_unit">شمال</string>
+    <string name="latitude_south_unit">جنوب</string>
+    <string name="longitude_east_unit">الشرق</string>
+    <string name="longitude_west_unit">الغرب</string>
+    </resources>

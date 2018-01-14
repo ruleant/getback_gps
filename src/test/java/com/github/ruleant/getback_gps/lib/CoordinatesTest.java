@@ -1,7 +1,7 @@
 /**
  * Unit tests for Coordinates class
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -29,6 +29,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -190,6 +191,7 @@ public class CoordinatesTest {
         thrown.expectMessage("Parameter coordinate should not be null");
 
         coordinates.addCoordinate(null);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -432,5 +434,6 @@ public class CoordinatesTest {
         thrown.expectMessage("Parameter converter should not be null");
 
         coordinates.setCoordinateConverter(null);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 }

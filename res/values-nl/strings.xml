@@ -1,7 +1,7 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
-    <string name="app_desc">Vind je weg terug naar een eerder bezochte locatie met behulp van GPS-coördinaten.</string>
+    <string name="app_desc">Vind uw weg terug naar een eerder bezochte locatie met behulp van GPS-coördinaten.</string>
     <string name="none">Geen</string>
     <string name="unknown">Onbekend</string>
     <string name="notset">Niet ingesteld</string>
@@ -36,14 +36,14 @@
 Dit programma wordt gedistribueerd in de hoop dat het nuttig zal zijn maar ZONDER ENIGE GARANTIE; zelfs zonder de impliciete garanties die GEBRUIKELIJK ZIJN IN DE HANDEL of voor BRUIKBAARHEID VOOR EEN SPECIFIEK DOEL. Zie de GNU Algemene Publieke Licentie voor meer details.\n
 \n
 Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen samen met dit programma. Als dat niet het geval is, zie <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-    <string name="loc_provider_network">netwerk (GSM/WiFi)</string>
+    <string name="loc_provider_network">Netwerk (GSM/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="loc_updated_recent">Locatie werd recent bijgewerkt.</string>
     <string name="loc_updated_not_recent">Locatie werd NIET recent bijgewerkt.</string>
     <string name="copyright">Auteursrecht</string>
-    <string name="inaccurate_direction">Start met bewegen voor een nauwkeurige richting naar je bestemming</string>
+    <string name="inaccurate_direction">Start met bewegen voor een nauwkeurige aanwijzing naar uw bestemming</string>
     <string name="app_website">Bezoek de &lt;a href=\"%1$s\"&gt;website&lt;/a&gt; voor meer info.</string>
-    <string name="location_updated">Locatie bijgewerkt</string>
+    <string name="location_updated">De locatie is bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
     <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen</string>
     <string name="store_location_disabled">Locatie kon niet bewaard worden omdat er geen huidige locatie is</string>
@@ -65,14 +65,14 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="longitude_west_unit">WL</string>
     <string name="speed_kph">km/u</string>
     <string name="direction_relative">ten opzichte van huidige richting</string>
-    <string name="inaccurate_location">Je huidige locatie is onnauwkeurig</string>
+    <string name="inaccurate_location">Uw huidige locatie is onnauwkeurig</string>
     <string name="menu_details">Locatiedetails</string>
     <string name="activity_details">Details</string>
     <string name="inaccurate">Onnauwkeurig</string>
     <string name="current_speed">Huidige snelheid</string>
     <string name="current_bearing">Huidige koers</string>
     <string name="build_time">Gecompileerd op %s.</string>
-    <string name="notice_destination_reached">Je bent op je bestemming</string>
+    <string name="notice_destination_reached">U bent op uw bestemming</string>
     <string name="northeast_unit">NO</string>
     <string name="southeast_unit">ZO</string>
     <string name="southwest_unit">ZW</string>
@@ -80,8 +80,8 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="destination_reached">Op bestemming</string>
     <string name="no_destination">Geen bestemming ingesteld</string>
     <string name="pref_enable_sensors">Beschikbare sensoren gebruiken</string>
-    <string name="sensors_enabled">Ingeschakeld : sneller bijgewerkte en nauwkeurigere richting</string>
-    <string name="sensors_disabled">Uitgeschakeld : bespaart energie</string>
+    <string name="sensors_enabled">Ingeschakeld : Sneller bijgewerkte en nauwkeurigere richting</string>
+    <string name="sensors_disabled">Uitgeschakeld : Bespaart energie</string>
     <string name="pref_geo_orientation_sensor">Standaard richtingsensor</string>
     <string name="sensor_bearing_offset">Correctie richting door sensors</string>
     <string name="travel_direction">Bewegingsrichting</string>
@@ -97,4 +97,7 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="rename_destination">Hernoem bestemming</string>
     <string name="rename_destination_disabled">Niet mogelijk om bestemming te hernoemen, sla eerst een locatie op</string>
     <string name="destination_renamed">Bestemming werd hernoemd</string>
+    <string name="height_difference">Hoogteverschil</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
     </resources>

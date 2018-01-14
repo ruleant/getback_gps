@@ -2,7 +2,7 @@
  * Class to format distances, speeds and numbers.
  *
  * Copyright (C) 2010 Peer internet solutions
- * Copyright (C) 2013-2015 Dieter Adriaenssens
+ * Copyright (C) 2013-2018 Dieter Adriaenssens
  *
  * Method formatDist() in this file is based on method formatDist
  * in class MixUtils that is part of mixare.
@@ -106,9 +106,28 @@ public class FormatUtils {
      * @return formatted distance with unit (m or km)
      */
     public static String formatDist(final double distance) {
+        return formatDist(distance, null);
+    }
+
+    /**
+     * Formats a distance (in meter) to a string,
+     * in meter or kilometer, depending on the size.
+     * The number format is localized.
+     *
+     * @param distance distance in m
+     * @param context App context
+     * @return formatted distance with unit (m or km)
+     */
+    public static String formatDist(final double distance, final Context context) {
         String shortUnit = "m";
         String longUnit = "km";
         double scaleUnit = CONV_KM_M;
+
+        // if context is defined, use android string
+        if (context != null) {
+            shortUnit = context.getResources().getString(R.string.distance_m);
+            longUnit = context.getResources().getString(R.string.distance_km);
+        }
 
         // distance shouldn't be negative
         double distanceAbs = Math.abs(distance);
@@ -137,7 +156,38 @@ public class FormatUtils {
     }
 
     /**
-     * Formats a distance (in meter per second (m/s)) to a string,
+     * Formats a height (in meter) to a string, in meter.
+     * The number format is localized.
+     *
+     * @param height height in m
+     * @return formatted height with unit (m)
+     */
+    public static String formatHeight(final double height) {
+        return formatHeight(height, null);
+    }
+
+    /**
+     * Formats a height (in meter) to a string, in meter.
+     * The number format is localized.
+     *
+     * @param height height in m
+     * @return formatted height with unit (m)
+     */
+    public static String formatHeight(final double height, final Context context) {
+        String unit = "m";
+
+        // if context is defined, use android string
+        if (context != null) {
+            unit = context.getResources().getString(R.string.distance_m);
+        }
+
+        return String.format(
+                Locale.getDefault(), "%1$,d%2$s",
+                Math.round(height), unit);
+    }
+
+    /**
+     * Formats a speed (in meter per second (m/s)) to a string,
      * in kilometer per hour (km/h).
      * The number format is localized.
      *
@@ -200,7 +250,7 @@ public class FormatUtils {
 
         // generate format string
         // format number with variable precision (%s.xf), with x = precision
-        String formatString = "%1$." + String.format("%d", precision) + "f";
+        String formatString = "%1$." + String.format(Locale.US, "%d", precision) + "f";
         // add unit
         formatString += "%2$s";
 
@@ -253,9 +303,9 @@ public class FormatUtils {
         try {
             Resources res = context.getResources();
 
-            if (providerName.equals("network")) {
+            if ("network".equals(providerName)) {
                 l10nProviderName = res.getString(R.string.loc_provider_network);
-            } else if (providerName.equals("gps")) {
+            } else if ("gps".equals(providerName)) {
                 l10nProviderName = res.getString(R.string.loc_provider_gps);
             }
         } catch (NotFoundException e) {

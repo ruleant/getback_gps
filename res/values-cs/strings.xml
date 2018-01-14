@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources>
 
     <string name="app_desc">Najděte svoji cestu zpět k dříve navštíveným místům pomocí GPS souřadnic.</string>
@@ -69,7 +69,7 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="no_destination">Nebyl nastaven cíl</string>
     <string name="pref_enable_sensors">Použít čidla</string>
     <string name="pref_geo_orientation_sensor">Výchozí čidlo orientace</string>
-    <string name="sensors_enabled">Povoleno: přesnější a rychlejší změny azimutu</string>
+    <string name="sensors_enabled">Povoleno: Přesnější a rychlejší změny azimutu</string>
     <string name="sensors_disabled">Vypnuto: šetří energii</string>
     <string name="dialog_store_location_name">Zadejte název tohoto místa:</string>
     <string name="location_name">Název místa</string>
@@ -100,4 +100,7 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="rename_destination">Přejmenovat cíl</string>
     <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
     <string name="destination_renamed">Cíl byl přejmenován</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Výškový rozdíl</string>
     </resources>

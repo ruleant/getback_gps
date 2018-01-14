@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="direction">方向</string>
     <string name="copyright">著作権</string>
     <plurals name="distance_meter">
@@ -18,7 +18,7 @@
     <string name="settings">設定</string>
     <string name="pref_header_general">全般</string>
     <string name="pref_header_loc_update">場所の更新</string>
-    <string name="app_desc">GPS座標を使用して、以前に訪れた場所へ戻る方法を探す。</string>
+    <string name="app_desc">GPS座標を使用して、以前に訪れた場所へ戻る道を探します。</string>
     <string name="inaccurate_location">現在の場所に間違いがあります</string>
     <string name="notice_no_dest">目的地を設定するためにあなたの場所を保存してください</string>
     <string name="inaccurate_direction">目的地までの正確な方向を取得するために移動を開始してください</string>
@@ -52,7 +52,7 @@
     <string name="location_provider">場所プロバイダー</string>
     <string name="name">名前</string>
     <string name="provider">プロバイダー</string>
-    <string name="loc_provider_network">ネットワーク (携帯電話/WiFi)</string>
+    <string name="loc_provider_network">ネットワーク (携帯電話/Wi-Fi)</string>
     <string name="provider_no_support">プロバイダーはサポートされていません。</string>
     <string name="curr_location">現在の (最新の) 場所</string>
     <string name="latitude_north_unit">北</string>
@@ -78,8 +78,8 @@
     <string name="pref_loc_update_time">時間に基づく更新</string>
     <string name="pref_enable_sensors">利用可能なセンサーを使用</string>
     <string name="pref_geo_orientation_sensor">デフォルトの方位センサー</string>
-    <string name="sensors_enabled">有効 : より迅速な更新、より正確な方角</string>
-    <string name="sensors_disabled">無効 : 電力を節約</string>
+    <string name="sensors_enabled">有効: より迅速な更新、より正確な方角</string>
+    <string name="sensors_disabled">無効: 電力を節約</string>
     <string name="disabled">無効</string>
     <string name="about">アプリについて</string>
     <string name="version">バージョン</string>
@@ -92,4 +92,7 @@
  You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
 <string name="bearing">方角</string>
     <string name="destination_renamed">場所の名前を変更しました</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">高低差</string>
     </resources>

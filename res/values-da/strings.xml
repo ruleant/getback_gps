@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <resources><string name="app_desc">Find vej tilbage til en tidligere besøgt placering ved hjælp af GPS-koordinater.</string>
     <string name="inaccurate_location">Din aktuelle placering er unøjagtig</string>
     <string name="notice_no_dest">Gem din placering for at angive en destination</string>
@@ -26,7 +26,7 @@
     <string name="activity_details">Detaljer</string>
     <string name="location_provider">Placeringsudbyder</string>
     <string name="provider">Udbyder</string>
-    <string name="loc_provider_network">Netværk (GSM/WiFi)</string>
+    <string name="loc_provider_network">Netværk (Mobiltelefon/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Udbyderen understøttes ikke.</string>
     <string name="curr_location">Nuværende (sidst kendte) placering</string>
@@ -37,7 +37,7 @@
     <string name="longitude_east_unit">Ø</string>
     <string name="longitude_west_unit">V</string>
     <string name="altitude">Højde</string>
-    <string name="speed">hastighed</string>
+    <string name="speed">Hastighed</string>
     <string name="bearing">Kurs</string>
     <string name="accuracy">Nøjagtighed</string>
     <string name="timestamp">Tidsstempel</string>
@@ -58,18 +58,18 @@
     <string name="pref_loc_update_time">Tidsbaseret opdateringer</string>
     <string name="pref_enable_sensors">Brug tilgængelige sensorer</string>
     <string name="pref_geo_orientation_sensor">Standard orienteringssensor</string>
-    <string name="sensors_enabled">Aktiveret: hurtigere opdateret og mere præcis kurs</string>
-    <string name="sensors_disabled">Inaktiv: sparer strøm</string>
+    <string name="sensors_enabled">Aktiveret: Hurtigere opdateringer og mere præcis kurs</string>
+    <string name="sensors_disabled">Inaktiv: Sparer strøm</string>
     <string name="disabled">Inaktiv</string>
     <string name="build_time">Bygget på %s.</string>
     <string name="app_website">Besøg &lt;a href=%1$s&gt;hjemmesiden&lt;/a&gt; for mere information.</string>
     <string name="copyright">Copyright</string>
-    <string name="license">Dette program er gratis software: du kan redistribuere det og/eller modificere det under betingelserne i GNU General Public License som publiceret af Free Software Foundation, enten version 3 af licensen, eller enhver nyere version.\n
-\n
- Dette program er distribueret i håb om at det vil være nyttigt, men uden nogen garanti; uden engang den stiltiende garanti for salgbarhed eller egnethed til et bestemt formål. Se GNU General Public License for flere detaljer.\n
-\n
- Du skulle have modtaget en kopi af GNU General Public License sammen med dette program. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="sensor_bearing_offset">Sensor baseret retningsforskydning</string>
+    <string name="license">Dette program er fri software: du kan redistribuere det og/eller modificere det under betingelserne i GNU General Public License som publiceret af Free Software Foundation, enten version 3 af licensen, eller enhver nyere version.
+\n 
+\n Dette program er distribueret i håb om at det vil være nyttigt, men uden nogen garanti; uden engang den stiltiende garanti for salgbarhed eller egnethed til et bestemt formål. Se GNU General Public License for flere detaljer.
+\n 
+\n Du skulle have modtaget en kopi af GNU General Public License sammen med dette program. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+<string name="sensor_bearing_offset">Sensorbaseret retningsforskydning</string>
     <string name="travel_direction">Køreretning</string>
     <string name="travel_direction_forward">Fremad</string>
     <string name="travel_direction_backwards">Baglæns</string>
@@ -95,4 +95,7 @@
     <string name="rename_destination">Omdøb destinationen</string>
     <string name="rename_destination_disabled">Kan ikke omdøbe destinationen, gem en placering først</string>
     <string name="destination_renamed">Destination omdøbt</string>
+    <string name="height_difference">Højdeforskel</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
     </resources>

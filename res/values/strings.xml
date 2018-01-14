@@ -1,7 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources
-    xmlns:tools="http://schemas.android.com/tools"
-    tools:ignore="MissingTranslation">
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
     <string name="app_desc">Find your way back to a previously visited location using GPS coordinates.</string>
     <!-- Crouton messages -->
     <string name="inaccurate_location">Your current location is inaccurate</string>
@@ -13,6 +11,9 @@
     <string name="speed_kph">km/h</string>
     <string name="current_bearing">Current bearing</string>
     <string name="distance">Distance</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Height difference</string>
     <string name="direction">Direction</string>
     <string name="northeast_unit">NE</string>
     <string name="southeast_unit">SE</string>
@@ -43,7 +44,7 @@
     <string name="location_provider">Location Provider</string>
     <string name="name">Name</string>
     <string name="provider">Provider</string>
-    <string name="loc_provider_network">network (Cell phone/WiFi)</string>
+    <string name="loc_provider_network">Network (Cell phone/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provider is not supported.</string>
     <string name="curr_location">Current (last known) location</string>
@@ -79,8 +80,8 @@
     <string name="pref_loc_update_time">Time based updates</string>
     <string name="pref_enable_sensors">Use available sensors</string>
     <string name="pref_geo_orientation_sensor">Default orientation sensor</string>
-    <string name="sensors_enabled">Enabled : quicker updated and more accurate bearing</string>
-    <string name="sensors_disabled">Disabled : saves power</string>
+    <string name="sensors_enabled">Enabled: Quicker updates and more accurate bearing</string>
+    <string name="sensors_disabled">Disabled: Saves power</string>
     <string name="disabled">Disabled</string>
     <plurals name="distance_meter">
         <item quantity="one">%d metre</item>
@@ -103,7 +104,7 @@
     <string name="about">About</string>
     <string name="version">Version</string>
     <string name="build_time">Built on %s.</string>
-    <string name="app_website">Visit the &lt;a href="%1$s">website&lt;/a> for more info.</string>
+    <string name="app_website">Visit the &lt;a href="%1$s"&gt;website&lt;/a&gt; for more info.</string>
     <string name="copyright">Copyright</string>
     <string name="license">This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by

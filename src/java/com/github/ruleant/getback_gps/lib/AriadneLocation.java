@@ -1,7 +1,7 @@
 /**
  * Custom Ariadne Location object
  *
- * Copyright (C) 2012-2015 Dieter Adriaenssens
+ * Copyright (C) 2012-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -145,7 +145,7 @@ public class AriadneLocation extends Location {
         if (hasAltitude()) {
             locationText += "\n "
                     + res.getString(R.string.altitude) + ": "
-                    + FormatUtils.formatDist(getAltitude());
+                    + FormatUtils.formatHeight(getAltitude(), context);
         }
         if (hasBearing()) {
             CardinalDirection cd = new CardinalDirection(context, getBearing());
@@ -162,7 +162,7 @@ public class AriadneLocation extends Location {
         if (hasAccuracy()) {
             locationText += "\n "
                     + res.getString(R.string.accuracy) + ": "
-                    + FormatUtils.formatDist(getAccuracy());
+                    + FormatUtils.formatDist(getAccuracy(), context);
         }
 
         // Location provider

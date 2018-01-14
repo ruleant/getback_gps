@@ -2,8 +2,10 @@
 language: android
 android:
   components:
-    - android-20
-    - build-tools-21.1.2
+    - android-23
+    - build-tools-23.0.1
+# enable building on container-based infrastructure
+sudo: false
 env:
   global:
     - secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
@@ -14,15 +16,9 @@ env:
 before_install:
   - cd $HOME
   # install and initialise build-trend scripts
-  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone https://github.com/buildtimetrend/python-client.git buildtime-trend; fi
+  - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone --recursive https://github.com/buildtimetrend/python-client.git buildtime-trend; fi
   - source buildtime-trend/init.sh
   - mvn -v
-  - timestamp.sh install_libs
-  - sudo apt-get update -qq
-  - sudo apt-get install -qq python-pip
-  # install buildtime-trend dependencies using pip
-  - timestamp.sh install_python_libs
-  - sudo CFLAGS="-O0" pip install -r ${BUILD_TREND_HOME}/requirements.txt
   # deploy android SDK jar to local maven repository
   - timestamp.sh deploy_android_sdk
   - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
@@ -34,7 +30,7 @@ script:
 after_success:
   # send code coverage results to coveralls.io
   - timestamp.sh coverage
-  - mvn clean test cobertura:cobertura coveralls:cobertura -B
+  - mvn clean test cobertura:cobertura coveralls:report -B
   # update javadoc on Github Pages (gh-pages)
   - timestamp.sh update_javadoc
   - mvn clean install javadoc:javadoc -DskipTests=true
@@ -42,7 +38,6 @@ after_success:
 after_script:
     # analyse build timestamps
   - timestamp.sh end
-  - sync-buildtime-trend-with-gh-pages.sh
 addons:
   coverity_scan:
     project:
@@ -55,4 +50,5 @@ addons:
 notifications:
   webhooks:
     # parse Travis CI log and send result to Keen.io, using Builtime Trend Service
-    - http://buildtimetrend-service.herokuapp.com/travis
+    - https://buildtimetrend.herokuapp.com/travis
+    - https://buildtimetrend-dev.herokuapp.com/travis

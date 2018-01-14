@@ -1,5 +1,5 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources><string name="app_desc">Encontre o caminho de volta a um lugar que visitou através de coordenadas GPS.</string>
+<?xml version='1.0' encoding='UTF-8'?>
+<resources><string name="app_desc">Encontre o caminho de volta para um local visitado anteriormente utilizando as coordenadas do GPS.</string>
     <string name="inaccurate_location">Sua localização atual é inexata</string>
     <string name="notice_no_dest">Salve sua localização para definir um destino</string>
     <string name="inaccurate_direction">Mova-se para obter uma orientação precisa para seu destino</string>
@@ -26,7 +26,7 @@
     <string name="activity_details">Detalhes</string>
     <string name="location_provider">Provedor de local</string>
     <string name="provider">Provedor</string>
-    <string name="loc_provider_network">rede (celular/WiFi)</string>
+    <string name="loc_provider_network">Rede (celular/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Provedor não suportado.</string>
     <string name="curr_location">Última localização</string>
@@ -52,8 +52,8 @@
     <string name="pref_header_loc_update">Atualização de localização</string>
     <string name="pref_enable_sensors">A utilização de sensores já existentes</string>
     <string name="pref_geo_orientation_sensor">Sensor na orientação padrão</string>
-    <string name="sensors_enabled">Ativado : atualização mais rápida e maior precisão de deslocamento</string>
-    <string name="sensors_disabled">Desativado : economiza energia</string>
+    <string name="sensors_enabled">Ativado : Atualização mais rápida e maior precisão de deslocamento</string>
+    <string name="sensors_disabled">Desativado : Economiza energia</string>
     <string name="disabled">Desativado</string>
     <string name="about">Sobre</string>
     <string name="version">Versão</string>
@@ -95,4 +95,7 @@
 	<item quantity="one">%d segundo</item>
 	<item quantity="other">%d segundos</item>
 </plurals>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Diferença de altura</string>
     </resources>

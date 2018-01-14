@@ -1,7 +1,7 @@
 /**
  * Unit tests for CircularAverage class
  *
- * Copyright (C) 2014-2015 Dieter Adriaenssens
+ * Copyright (C) 2014-2018 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -28,6 +28,7 @@ import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 /**
  * Unit tests for CircularAverage class.
@@ -148,6 +149,7 @@ public class CircularAverageTest {
 
         // invalid range for parameter alpha
         CircularAverage.getAverageValue(0, 0, -1);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
@@ -159,6 +161,7 @@ public class CircularAverageTest {
         thrown.expectMessage(MESSAGE_VALUE_RANGE);
 
         CircularAverage.getAverageValue(0, 0, 2);
+        fail("Expected an IllegalArgumentException to be thrown");
     }
 
     /**
