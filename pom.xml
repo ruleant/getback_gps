@@ -27,7 +27,7 @@
         <dependency>
             <groupId>android</groupId>
             <artifactId>android</artifactId>
-            <version>5.1.1_r2</version>
+            <version>6.0_r1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -80,8 +80,8 @@
                 <artifactId>android-maven-plugin</artifactId>
                 <configuration>
                     <sdk>
-                        <!-- platform or api level (api level 22 = platform 5.1) -->
-                        <platform>22</platform>
+                        <!-- platform or api level (api level 23 = platform 6) -->
+                        <platform>23</platform>
                     </sdk>
                     <lint>
                         <skip>false</skip>

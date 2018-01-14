@@ -5,6 +5,7 @@
  - issue #31 : save altitude and calculate height difference to destination
  - support RTL languages
  - translated to Chinese (China), thanks to YFdyh000
+ - build against Android SDK 6.0 (API 23)
 
  v0.4.1 (released on 08Jan2015)
  - translated to Sardinian, thanks to Lu Ca
