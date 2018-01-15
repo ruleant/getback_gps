@@ -26,7 +26,7 @@ before_install:
   - cd $TRAVIS_BUILD_DIR
 script:
   - timestamp.sh test
-  - ./gradlew clean check
+  - ./gradlew clean assemble
 after_success:
   # send code coverage results to coveralls.io
   - timestamp.sh coverage
