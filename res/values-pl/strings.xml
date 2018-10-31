@@ -29,7 +29,7 @@
     <string name="about">O aplikacji</string>
     <string name="accuracy">Dokładność</string>
     <string name="provider_no_support">Źródło nie jest obsługiwane.</string>
-    <string name="loc_provider_network">sieć (komórkowa/WiFi)</string>
+    <string name="loc_provider_network">Sieć (komórkowa/WiFi)</string>
     <string name="location_stored">Zapisano lokalizację</string>
     <string name="dialog_store_location_name">Wybierz lokalizację dla swojego aktualnego położenia:</string>
     <string name="dialog_rename_destination">Wybierz nową nazwę dla swojego celu:</string>
@@ -42,8 +42,8 @@
     <string name="store_location_disabled">Nie można zapisać lokalizacji, jeżeli nieznane jest obecne położenie</string>
     <string name="no_location_name">Nazwa lokalizacji nie została wybrana</string>
     <string name="app_website">"Aby uzyskać więcej informacji, odwiedź stronę  &lt;a href=%1$s&gt;website&lt;/a&gt;."</string>
-    <string name="pref_loc_update_time">Częstotliwość według czasu</string>
-    <string name="pref_loc_update_dist">Częstotliwość według odległości</string>
+    <string name="pref_loc_update_time">Aktualizacje oparte na czasie</string>
+    <string name="pref_loc_update_dist">Aktualizacje oparte na kierunku</string>
     <string name="inaccurate">Niedokładna</string>
     <string name="unknown">Nieznany</string>
     <string name="app_desc">Znajdź drogę powrotną do odwiedzonej lokalizacji, wykorzystując współrzędne GPS.</string>
@@ -53,7 +53,7 @@
     <string name="current_bearing">Obecny kierunek</string>
     <string name="pref_header_loc_update">Odświeżanie lokalizacji</string>
     <string name="sensors_enabled">Włączone: Twój kierunek jest dokładniejszy i szybciej odświeżany</string>
-    <string name="sensors_disabled">Wyłączone: oszczędzana jest energia</string>
+    <string name="sensors_disabled">Wyłączone: oszczędza energię</string>
     <string name="copyright">Prawa autorskie</string>
     <string name="latitude">Równoleżnik</string>
     <string name="longitude">Południk</string>
@@ -62,8 +62,7 @@
 <plurals name="time_minutes">
 	<item quantity="one">%d minuta</item>
 	<item quantity="few">%d minut</item>
-	<item quantity="many"/>
-	<item quantity="other"/>
+	<item quantity="many">%d minuty</item>
 </plurals>
     <string name="northeast_unit">płn. wsch.</string>
     <string name="southeast_unit">płd. wsch.</string>
@@ -79,6 +78,24 @@
 	<item quantity="one">metr</item>
 	<item quantity="few">metrów</item>
 	<item quantity="many">metry</item>
-	<item quantity="other"></item>
+	<item quantity="other"/>
+</plurals>
+    <string name="bearing">Kierunek</string>
+    <string name="sensor_bearing_offset">Czujnik przesunięcia kierunku</string>
+    <string name="travel_direction_forward">Do przodu</string>
+    <string name="travel_direction_backwards">Do tyłu</string>
+    <string name="timestamp">Znak czasu</string>
+    <string name="direction_relative">względem bieżącego kursu</string>
+    <string name="raw">Niesformatowany</string>
+    <string name="none">Żadne</string>
+    <string name="notset">Nie ustawiony</string>
+    <string name="loc_updated_recent">Lokalizacja niedawno zaktualizowana.</string>
+    <string name="loc_updated_not_recent">Lokalizacja NIE została ostatnio zaktualizowana.</string>
+    <string name="pref_header_general">Ustawienia główne</string>
+    <string name="disabled">Wyłącz</string>
+    <plurals name="time_seconds">
+	<item quantity="one">%d sekunda</item>
+	<item quantity="few">%d sekund</item>
+	<item quantity="many">%d sekundy</item>
 </plurals>
     </resources>
