@@ -1,6 +1,10 @@
  v0.6 (not released yet)
  - build against Android SDK 8.0 (API 26)
 
+ v0.5.1 (released on 02Nov2018)
+ - improved Polish translation, thanks to WaldiS
+ - specify backup behaviour
+
  v0.5 (released on 14Jan2018)
  - translated to Croatian, thanks to Dag Velovic
  - build against Android SDK 5.1 (API 22)
