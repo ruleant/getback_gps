@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<full-backup-content>
+    <!-- Exclude specific shared preferences that contain GCM registration Id
+         More info in https://developer.android.com/guide/topics/data/autobackup#EnablingAutoBackup
+    -->
+</full-backup-content>
