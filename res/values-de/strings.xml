@@ -98,4 +98,5 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="travel_direction_backwards">Rückwärts</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
+    <string name="height_difference">Höhenunterschied</string>
     </resources>
