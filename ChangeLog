@@ -4,6 +4,7 @@
  - issue #176 : build with Gradle 4.6 and Gradle android plugin 3.2.1
  - issue #175 : build against Android SDK 9.0 (API 28)
  - issue #177 : increase minimum supported Android SDK 4.0 (API 14)
+ - issue #167 : check application location access permissions
 
  v0.5.1 (released on 02Nov2018)
  - improved Polish translation, thanks to WaldiS

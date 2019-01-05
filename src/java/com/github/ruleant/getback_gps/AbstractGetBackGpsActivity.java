@@ -21,6 +21,7 @@
  */
 package com.github.ruleant.getback_gps;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -45,6 +46,8 @@ import com.github.ruleant.getback_gps.lib.FormatUtils;
 import com.github.ruleant.getback_gps.lib.Navigator;
 import com.github.ruleant.getback_gps.lib.Tools;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -56,7 +59,8 @@ import de.keyboardsurfer.android.widget.crouton.Style;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-abstract class AbstractGetBackGpsActivity extends Activity {
+abstract class AbstractGetBackGpsActivity extends Activity
+        implements ActivityCompat.OnRequestPermissionsResultCallback {
     /**
      * Interface to LocationService instance.
      */
@@ -75,6 +79,21 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * Activity update rate in nanoseconds (500ms).
      */
     private static final int ACTIVITY_UPDATE_RATE = 500000000;
+
+    /**
+     * Id to identify a location permission request.
+     */
+    private static final int REQUEST_LOCATION = 0;
+
+    /**
+     * Permissions required to update location.
+     */
+    private static String[] PERMISSIONS_LOCATION = {Manifest.permission.ACCESS_FINE_LOCATION};
+
+    /**
+     * Location permission required crouton.
+     */
+    private Crouton crLocationPermissionRequired;
 
     /**
      * Inaccurate location crouton.
@@ -130,6 +149,11 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         Configuration croutonConfig = new Configuration.Builder()
                 .setDuration(Configuration.DURATION_INFINITE)
                 .build();
+
+        // create permission required crouton
+        crLocationPermissionRequired = Crouton.makeText(this,
+                R.string.notice_location_permission_required, Style.ALERT);
+        crLocationPermissionRequired.setConfiguration(croutonConfig);
 
         // create inaccurate location crouton
         crInaccurateLocation = Crouton.makeText(this,
@@ -390,6 +414,10 @@ abstract class AbstractGetBackGpsActivity extends Activity {
 
         mUpdatedTimestamp = Tools.getTimestampNano();
 
+        if (!mService.isLocationPermissionGranted()) {
+            requestLocationPermission();
+        }
+
         refreshCrouton();
 
         return true;
@@ -407,31 +435,65 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             return;
         }
 
-        // if location is inaccurate, display warning
-        if (!navigator.isLocationAccurate()) {
-            crInaccurateLocation.show();
+        if (mService == null) {
+            return;
+        }
+
+        // if Location Permission is not granted, display warning
+        if (!mService.isLocationPermissionGranted()) {
+            crLocationPermissionRequired.show();
         } else {
-            crInaccurateLocation.cancel();
+            crLocationPermissionRequired.cancel();
 
-            // if no destination is set, display message
-            if (navigator.getDestination() == null) {
-                crNoDestination.show();
+            // if location is inaccurate, display warning
+            if (!navigator.isLocationAccurate()) {
+                crInaccurateLocation.show();
             } else {
-                crNoDestination.cancel();
+                crInaccurateLocation.cancel();
 
-                // destination was reached
-                if (navigator.isDestinationReached()) {
-                    crDestinationReached.show();
+                // if no destination is set, display message
+                if (navigator.getDestination() == null) {
+                    crNoDestination.show();
                 } else {
-                    crDestinationReached.cancel();
+                    crNoDestination.cancel();
 
-                    // if bearing is inaccurate, display warning
-                    if (!navigator.isBearingAccurate()) {
-                        crInaccurateDirection.show();
+                    // destination was reached
+                    if (navigator.isDestinationReached()) {
+                        crDestinationReached.show();
                     } else {
-                        crInaccurateDirection.cancel();
+                        crDestinationReached.cancel();
+
+                        // if bearing is inaccurate, display warning
+                        if (!navigator.isBearingAccurate()) {
+                            crInaccurateDirection.show();
+                        } else {
+                            crInaccurateDirection.cancel();
+                        }
                     }
                 }
+            }
+        }
+    }
+
+    /**
+     * Requests location permission if necessary.
+     */
+    protected final void requestLocationPermission() {
+        if (mService == null) {
+            return;
+        }
+
+        // request permission if location permission is not granted
+        if (!mService.isLocationPermissionGranted()) {
+
+            // Permission is not granted
+            // Should we show an explanation?
+            if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        PERMISSIONS_LOCATION,
+                        REQUEST_LOCATION);
             }
         }
     }
@@ -577,4 +639,20 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             refreshDisplay();
         }
     };
+
+    /**
+     * Callback received when a permissions request has been completed.
+     */
+    @Override
+    public void onRequestPermissionsResult (
+            int requestCode,
+            @NonNull String[] permissions,
+            @NonNull int[] grantResults
+    ){
+        if (requestCode == REQUEST_LOCATION) {
+            refreshDisplay();
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 }

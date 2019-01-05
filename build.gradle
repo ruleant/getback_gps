@@ -61,6 +61,8 @@ dependencies {
         // exclusion is not neccessary, but generally a good idea.
         exclude group: 'com.google.android', module: 'support-v4'
     }
+    // android support libraries (android.support.*)
+    implementation "androidx.legacy:legacy-support-core-utils:1.0.0"
 }
 
 // Unit tests
