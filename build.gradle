@@ -65,29 +65,30 @@ dependencies {
 
 // Unit tests
 
-sourceSets {
-    unitTest {
-        java.srcDir file('src/test')
-        resources.srcDir file('src/test/resources')
-    }
-}
-
-dependencies {
-    unitTestCompile files("$project.buildDir/classes/debug")
-    unitTestCompile 'org.robolectric:robolectric:2.2'
-    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
-    unitTestCompile 'com.google.android:android:4.1.1.4'
-}
-
-configurations {
-    unitTestCompile.extendsFrom runtime
-    unitTestRuntime.extendsFrom unitTestCompile
-}
-
-task unitTest(type:Test, dependsOn: assemble) {
-    description = "run unit tests"
-    testClassesDir = project.sourceSets.unitTest.output.classesDir
-    classpath = project.sourceSets.unitTest.runtimeClasspath
-}
-
+// temporarily disable unit tests issue #172
+// sourceSets {
+//    unitTest {
+//        java.srcDir file('src/test')
+//        resources.srcDir file('src/test/resources')
+//    }
+//}
+//
+//dependencies {
+//    unitTestCompile files("$project.buildDir/classes/debug")
+//    unitTestCompile 'org.robolectric:robolectric:2.2'
+//    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
+//    unitTestCompile 'com.google.android:android:4.1.1.4'
+//}
+//
+//configurations {
+//    unitTestCompile.extendsFrom runtime
+//    unitTestRuntime.extendsFrom unitTestCompile
+//}
+//
+//task unitTest(type:Test, dependsOn: assemble) {
+//    description = "run unit tests"
+//    testClassesDir = project.sourceSets.unitTest.output.classesDir
+//    classpath = project.sourceSets.unitTest.runtimeClasspath
+//}
+//
 //check.dependsOn unitTest
