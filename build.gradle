@@ -8,18 +8,21 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.2.1'
     }
 }
 
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 28
     buildToolsVersion "28.0.3"
-}
 
-android {
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -34,7 +37,7 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        instrumentTest.setRoot('test')
+        // instrumentTest.setRoot('test')
     }
     lintOptions {
             // if true, stop the gradle build if errors are found
@@ -49,10 +52,12 @@ android {
 
 repositories {
     mavenCentral()
+    google()
+    jcenter()
 }
 
 dependencies {
-    compile('de.keyboardsurfer.android.widget:crouton:1.8.1') {
+    implementation('de.keyboardsurfer.android.widget:crouton:1.8.1') {
         // exclusion is not neccessary, but generally a good idea.
         exclude group: 'com.google.android', module: 'support-v4'
     }

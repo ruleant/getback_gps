@@ -4,10 +4,6 @@
     android:versionCode="60"
     android:versionName="0.6-dev" >
 
-    <uses-sdk
-        android:minSdkVersion="8"
-        android:targetSdkVersion="26" />
-
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <uses-feature android:name="android.hardware.location" android:required="true"/>
