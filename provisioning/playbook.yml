@@ -37,7 +37,7 @@
 
     - name: "Download Android SDK"
       get_url:
-        url: "{ android_sdk_download.url }}"
+        url: "{{ android_sdk_download.url }}"
         dest: "{{ android_sdk_download.local_dest }}"
         #checksum: "sha256:{{ android_sdk_download.sha256_checksum }}"
 

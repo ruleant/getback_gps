@@ -53,7 +53,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.synced_folder "../data", "/vagrant_data"
 
   # bootstrap VM with python2.7 before provisioning with ansible.
-  config.vm.provision "shell", inline: "command -v python2.7 || (apt-get update && apt-get install python2.7)"
+  config.vm.provision "shell", inline: "command -v python2.7 || (apt-get update && apt-get -y install python2.7)"
 
   # start Ansible provisioning
   config.vm.provision "ansible" do |ansible|
