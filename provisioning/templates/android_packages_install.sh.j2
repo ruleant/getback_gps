@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+SDK_MANAGER={{ android_sdk_home }}/tools/bin/sdkmanager
+
+# install and agree to licenses
+yes | $SDK_MANAGER --licenses;
+# install and update packages
+$SDK_MANAGER {% for item in android_packages %}"{{ item }}" {% endfor %}

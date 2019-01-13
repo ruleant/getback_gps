@@ -1,14 +1,31 @@
 ---
 - hosts: all
+  vars:
+    packages:
+      - python2.7
+      - openjdk-8-jdk
+      - unzip
+      - htop
+      - git
+    android_packages:
+      - "tools"
+      - "platform-tools"
+      - "build-tools;28.0.3"
+      - "platforms;android-28"
+    android_sdk_download:
+      url : "https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
+      sha256_checksum: '92ffee5a1d98d856634e8b71132e8a95d96c83a63fde1099be3d86df3106def9'
+      local_dest: '/tmp/sdk-tools.zip'
+    android_sdk_home: '/opt/android-sdk'
+    android_packages_file: '/tmp/android_packages'
+    android_packages_install_script: '/tmp/android_packages_install.sh'
   tasks:
-    - name: "Install git"
-      apt: name=git state=latest
-
-    - name: "Install java JDK 8"
-      apt: name=openjdk-8-jdk state=latest
-
-    - name: "Install maven"
-      apt: name=maven state=latest
+    - name: "Install packages"
+      apt:
+        name: "{{ item }}"
+        state: present
+      with_items:
+        - "{{ packages }}"
 
     - name: "Install udev config file"
       copy:
@@ -17,3 +34,55 @@
         owner: root
         group: root
         mode: 0644
+
+    - name: "Download Android SDK"
+      get_url:
+        url: "{ android_sdk_download.url }}"
+        dest: "{{ android_sdk_download.local_dest }}"
+        #checksum: "sha256:{{ android_sdk_download.sha256_checksum }}"
+
+    - name: "Get sha256 sum of script"
+      shell: "echo '{{ android_sdk_download.sha256_checksum }} *{{ android_sdk_download.local_dest }}' | sha256sum -c -"
+
+    - name: "Create Android SDK home folder"
+      file:
+        path: "{{ android_sdk_home }}"
+        state: directory
+        owner: vagrant
+        group: users
+        mode: 0755
+
+    - name: "Extract/install Android SDK"
+      unarchive:
+        src: "{{ android_sdk_download.local_dest }}"
+        dest: "{{ android_sdk_home }}"
+        copy: no #replaced by 'remote_src: yes' in 2.2
+        #remote_src: yes
+        creates: "{{ android_sdk_home }}/tools/bin/sdkmanager"
+
+    - name: "Set ANDROID_HOME and PATH in profile script"
+      template:
+        src: templates/profile_android_home.sh.j2
+        dest: /etc/profile.d/android_home.sh
+        owner: root
+        group: root
+        mode: 0755
+
+    - name: "write list of android packages to temporary file"
+      template:
+        src: templates/android_packages.j2
+        dest: "{{ android_packages_file }}"
+        owner: root
+        group: root
+        mode: 0644
+
+    - name: "create Android SDK update script"
+      template:
+        src: templates/android_packages_install.sh.j2
+        dest: "{{ android_packages_install_script }}"
+        owner: root
+        group: root
+        mode: 0750
+
+    - name: "Update Android SDK and build tools"
+      command: "{{ android_packages_install_script }}"

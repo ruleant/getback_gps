@@ -52,11 +52,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
+  # bootstrap VM with python2.7 before provisioning with ansible.
+  config.vm.provision "shell", inline: "command -v python2.7 || (apt-get update && apt-get install python2.7)"
+
   # start Ansible provisioning
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
     ansible.become = true
     ansible.playbook = "provisioning/playbook.yml"
     ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python2.7" }
+    ansible.compatibility_mode = "1.8"
   end
 end
