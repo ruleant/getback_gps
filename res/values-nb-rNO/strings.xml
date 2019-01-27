@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources><string name="app_desc">Finn veien tilbake til en tidligere besøkt plassering ved bruk av GPS-koordinater.</string>
     <string name="inaccurate_location">Din gjeldende plassering er unøyaktig</string>
     <string name="notice_no_dest">Lagre din plassering for å angi et mål</string>
@@ -98,4 +98,7 @@
 \n Dette program er distribuert i håp om at det vil være nyttig, men udet nogen garanti; selv uten implisitt garanti for SALGBARHET eller FORMÅLSTJENLIGHET for noe formål. Se GNU General Public Lisensen for flere detaljer.
 \n 
 \n Du skulle have mottatt en kopi av GNU General Public Lisensen sammen med dette programmet. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="notice_location_permission_required">Innvilg tilgang til denne enhetens plassering for å skru på plasseringsoppdateringer</string>
+    <string name="notice_location_no_permission">Plasseringsoppdateringer er avskrudd: Tilgang nektet</string>
+    <string name="notice_location_permission_granted">Tilgang innvilget for plasseringsoppdateringer</string>
 </resources>
