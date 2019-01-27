@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
 
     <string name="app_desc">Vind uw weg terug naar een eerder bezochte locatie met behulp van GPS-coördinaten.</string>
@@ -100,4 +100,7 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="height_difference">Hoogteverschil</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
-    </resources>
+    <string name="notice_location_permission_required">Sta de app toe om de locatie van dit apparaat te openen om locatie te kunen bijwerken</string>
+    <string name="notice_location_no_permission">Bijwerken van locatie is uitgeschakeld : Toegang werd geweigerd</string>
+    <string name="notice_location_permission_granted">Toegang verleend voor bijwerken van locatie</string>
+</resources>
