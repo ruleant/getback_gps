@@ -91,6 +91,41 @@ abstract class AbstractGetBackGpsActivity extends Activity
     private static String[] PERMISSIONS_LOCATION = {Manifest.permission.ACCESS_FINE_LOCATION};
 
     /**
+     * Crouton status.
+     */
+    private short mCroutonStatus = 0;
+
+    /**
+     * Crouton status 'None'.
+     */
+    private static final short CROUTON_STATUS_NONE = 0;
+
+    /**
+     * Crouton status 'Permission required'.
+     */
+    private static final short CROUTON_STATUS_PERMISSION_REQUIRED = 1;
+
+    /**
+     * Crouton status 'Inaccurate location'.
+     */
+    private static final short CROUTON_STATUS_INACCURATE_LOCATION = 2;
+
+    /**
+     * Crouton status 'No destination set'.
+     */
+    private static final short CROUTON_STATUS_NO_DESTINATION = 3;
+
+    /**
+     * Crouton status 'Inaccurate direction'.
+     */
+    private static final short CROUTON_STATUS_INACCURATE_DIRECTION = 4;
+
+    /**
+     * Crouton status 'Inaccurate direction'.
+     */
+    private static final short CROUTON_STATUS_DESTINATION_REACHED = 5;
+
+    /**
      * Location permission required crouton.
      */
     private Crouton crLocationPermissionRequired;
@@ -439,39 +474,61 @@ abstract class AbstractGetBackGpsActivity extends Activity
             return;
         }
 
+        short CroutonStatusNew = CROUTON_STATUS_NONE;
+
         // if Location Permission is not granted, display warning
         if (!mService.isLocationPermissionGranted()) {
-            crLocationPermissionRequired.show();
+            CroutonStatusNew = CROUTON_STATUS_PERMISSION_REQUIRED;
         } else {
-            crLocationPermissionRequired.cancel();
-
             // if location is inaccurate, display warning
             if (!navigator.isLocationAccurate()) {
-                crInaccurateLocation.show();
+                CroutonStatusNew = CROUTON_STATUS_INACCURATE_LOCATION;
             } else {
-                crInaccurateLocation.cancel();
-
                 // if no destination is set, display message
                 if (navigator.getDestination() == null) {
-                    crNoDestination.show();
+                    CroutonStatusNew = CROUTON_STATUS_NO_DESTINATION;
                 } else {
-                    crNoDestination.cancel();
-
                     // destination was reached
                     if (navigator.isDestinationReached()) {
-                        crDestinationReached.show();
+                        CroutonStatusNew = CROUTON_STATUS_DESTINATION_REACHED;
                     } else {
-                        crDestinationReached.cancel();
-
                         // if bearing is inaccurate, display warning
                         if (!navigator.isBearingAccurate()) {
-                            crInaccurateDirection.show();
-                        } else {
-                            crInaccurateDirection.cancel();
+                            CroutonStatusNew = CROUTON_STATUS_INACCURATE_DIRECTION;
                         }
                     }
                 }
             }
+        }
+
+        // Check if Crouton Status changes
+        if ( mCroutonStatus == CroutonStatusNew ) {
+            return;
+        }
+
+        mCroutonStatus = CroutonStatusNew;
+
+        // Cancel active croutons
+        Crouton.cancelAllCroutons();
+
+        switch (mCroutonStatus) {
+            case CROUTON_STATUS_PERMISSION_REQUIRED :
+                crLocationPermissionRequired.show();
+                break;
+            case CROUTON_STATUS_INACCURATE_LOCATION :
+                crInaccurateLocation.show();
+                break;
+            case CROUTON_STATUS_NO_DESTINATION :
+                crNoDestination.show();
+                break;
+            case CROUTON_STATUS_INACCURATE_DIRECTION :
+                crInaccurateDirection.show();
+                break;
+            case CROUTON_STATUS_DESTINATION_REACHED :
+                crDestinationReached.show();
+                break;
+            default:
+                break;
         }
     }
 
