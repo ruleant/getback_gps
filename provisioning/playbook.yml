@@ -20,6 +20,11 @@
     android_packages_file: '/tmp/android_packages'
     android_packages_install_script: '/tmp/android_packages_install.sh'
   tasks:
+    - name: Add vagrant user to group plugdev
+      user:
+        name: vagrant
+        groups: plugdev
+
     - name: "Install packages"
       apt:
         name: "{{ item }}"
