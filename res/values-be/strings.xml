@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources><string name="current_speed">Хуткасьць</string>
     <string name="speed_kph">км/г</string>
     <string name="current_bearing">Азімут</string>
@@ -104,4 +104,7 @@
     <string name="height_difference">Розніца вышынь</string>
     <string name="distance_m">м</string>
     <string name="distance_km">км</string>
-    </resources>
+    <string name="notice_location_permission_required">Дазволіць доступ да месцавызначэння гэтай прылады, каб уключыць абнаўлення месцазнаходжання</string>
+    <string name="notice_location_no_permission">Абнаўленне месцазнаходжання адключанае: у доступе адмоўлена</string>
+    <string name="notice_location_permission_granted">Дазвол атрыманы для абнаўлення месцазнаходжання</string>
+</resources>
