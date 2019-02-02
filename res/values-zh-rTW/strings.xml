@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources><string name="inaccurate_location">您目前的位置並不正確</string>
     <string name="notice_no_dest">存儲您的位置以便設定為目的地</string>
     <string name="notice_destination_reached">您已在您的目的地</string>
@@ -95,4 +95,7 @@
     <string name="distance_m">公尺</string>
     <string name="distance_km">公里</string>
     <string name="height_difference">高度差異</string>
-    </resources>
+    <string name="notice_location_permission_required">允許取得此裝置的位置以啟用位置更新</string>
+    <string name="notice_location_no_permission">位置更新已關閉：沒有權限</string>
+    <string name="notice_location_permission_granted">授予位置更新的權限</string>
+</resources>
