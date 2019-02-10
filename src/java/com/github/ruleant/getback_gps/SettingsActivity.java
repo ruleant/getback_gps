@@ -259,10 +259,8 @@ public class SettingsActivity extends PreferenceActivity {
      * @param context Context of the App
      * @return true if device has an extra-large screen
      */
-    @TargetApi(Build.VERSION_CODES.GINGERBREAD)
     private static boolean isXLargeTablet(final Context context) {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD
-                && (context.getResources().getConfiguration().screenLayout
+        return (context.getResources().getConfiguration().screenLayout
                 & Configuration.SCREENLAYOUT_SIZE_MASK)
                 >= Configuration.SCREENLAYOUT_SIZE_XLARGE;
     }
@@ -278,14 +276,11 @@ public class SettingsActivity extends PreferenceActivity {
      * @return true if simplified settings UI should be shown
      */
     private static boolean isSimplePreferences(final Context context) {
-        return ALWAYS_SIMPLE_PREFS
-                || Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB
-                || !isXLargeTablet(context);
+        return ALWAYS_SIMPLE_PREFS || !isXLargeTablet(context);
     }
 
     /** {@inheritDoc} */
     @Override
-    @TargetApi(Build.VERSION_CODES.HONEYCOMB)
     public final void onBuildHeaders(final List<Header> target) {
         if (!isSimplePreferences(this)) {
             loadHeadersFromResource(R.xml.pref_headers, target);
