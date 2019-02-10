@@ -16,7 +16,7 @@ Open Source Android app for finding your way back to a previously visited locati
 Imagine visiting a town, going to an event or doing some hiking. When finished, you have to find your car again, or the way to the station, or any other point where you started.
 Store a location when you start your trip, and at the end of the day, use the app to find your way back to where you started.
 
-More info on the [website](http://ruleant.github.io/getback_gps).
+More info on the [website](https://ruleant.github.io/getback_gps).
 
 Features
 --------
@@ -59,7 +59,7 @@ Is your language not listed? Follow the instructions on the [New translation](ht
 Code documentation
 ------------------
 
-Code documentation of all classes and their methods can be found [here](http://ruleant.github.io/getback_gps/javadoc/index.html).
+Code documentation of all classes and their methods can be found [here](https://ruleant.github.io/getback_gps/javadoc/index.html).
 
 Third party material
 --------------------
