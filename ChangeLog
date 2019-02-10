@@ -6,6 +6,7 @@
  - issue #177 : increase minimum supported Android SDK 4.0 (API 14)
  - issue #167 : check application location access permissions
  - issue #178 : stop using Maven build
+ - remove buildtime trend implementation
 
  v0.5.1 (released on 02Nov2018)
  - improved Polish translation, thanks to WaldiS
