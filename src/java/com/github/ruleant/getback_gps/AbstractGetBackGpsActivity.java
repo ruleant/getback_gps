@@ -541,17 +541,13 @@ abstract class AbstractGetBackGpsActivity extends Activity
         }
 
         // request permission if location permission is not granted
-        if (!mService.isLocationPermissionGranted()) {
-
-            // Permission is not granted
-            // Should we show an explanation?
-            if (!ActivityCompat.shouldShowRequestPermissionRationale(this,
+        if (!mService.isLocationPermissionGranted()
+                && !ActivityCompat.shouldShowRequestPermissionRationale(this,
                     Manifest.permission.ACCESS_FINE_LOCATION)) {
                 // No explanation needed, we can request the permission.
                 ActivityCompat.requestPermissions(this,
                         PERMISSIONS_LOCATION,
                         REQUEST_LOCATION);
-            }
         }
     }
 
