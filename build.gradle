@@ -10,9 +10,14 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
     }
+
+    dependencies {
+        classpath 'com.vanniktech:gradle-android-javadoc-plugin:0.3.0'
+    }
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'com.vanniktech.android.javadoc'
 
 android {
     compileSdkVersion 28

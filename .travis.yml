@@ -18,22 +18,15 @@ before_install:
   # install and initialise build-trend scripts
   - if [[ -d buildtime-trend/.git ]]; then cd buildtime-trend; git pull; cd ..; else git clone --recursive https://github.com/buildtimetrend/python-client.git buildtime-trend; fi
   - source buildtime-trend/init.sh
-  - mvn -v
-  # deploy android SDK jar to local maven repository
-  - timestamp.sh deploy_android_sdk
-  - $TRAVIS_BUILD_DIR/.utility/deploy-sdk-to-m2-repo.sh
   # return to directory where the repository being built has been copied on the worker.
   - cd $TRAVIS_BUILD_DIR
 script:
   - timestamp.sh test
   - ./gradlew clean assemble
 after_success:
-  # send code coverage results to coveralls.io
-  - timestamp.sh coverage
-  - mvn clean test cobertura:cobertura coveralls:report -B
   # update javadoc on Github Pages (gh-pages)
   - timestamp.sh update_javadoc
-  - mvn clean install javadoc:javadoc -DskipTests=true
+  - ./gradlew generateJavadoc
   - .utility/copy-javadoc-to-gh-pages.sh
 after_script:
     # analyse build timestamps
@@ -45,7 +38,7 @@ addons:
       description: "Open Source Android app for finding your way back to a previously visited location using GPS coordinates."
     notification_email: ruleant@users.sourceforge.net
     #build_command_prepend:
-    build_command: mvn clean install -DskipTests=true
+    build_command: ./gradlew clean assemble
     branch_pattern: coverity_scan
 notifications:
   webhooks:
