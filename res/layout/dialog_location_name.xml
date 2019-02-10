@@ -25,5 +25,6 @@
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
         android:layout_marginBottom="16dp"
+        android:importantForAutofill="no"
         android:hint="@string/location_name" />
 </LinearLayout>
