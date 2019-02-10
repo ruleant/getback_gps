@@ -240,7 +240,7 @@ public class StoredLocation {
         editor.putString(
                 SAVED, Boolean.toString(mLocation != null && mHasLocation));
         // Commit the edits!
-        editor.commit();
+        editor.apply();
 
         // set default locale back to original
         Locale.setDefault(originalLocale);
