@@ -26,6 +26,8 @@ import android.location.Location;
 
 import com.github.ruleant.getback_gps.R;
 
+import java.util.Locale;
+
 /**
  * Class for formatting latitude.
  *
@@ -180,7 +182,8 @@ public class Latitude extends AbstractGeoCoordinate {
                     getConvertedValue(),
                     Location.FORMAT_SECONDS
             ).split(":");
-        return String.format("%1$d° %2$d' %3$s\"",
+        return String.format(Locale.getDefault(),
+                "%1$d° %2$d' %3$s\"",
                 Integer.parseInt(components[0]),
                 Integer.parseInt(components[1]),
                 components[2]
