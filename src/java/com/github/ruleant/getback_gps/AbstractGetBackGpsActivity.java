@@ -71,7 +71,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
     private boolean mBound = false;
 
     /**
-     * Realtime timestamp in nanoseconds when activity was updated.
+     * Real-time timestamp in nanoseconds when activity was updated.
      */
     private long mUpdatedTimestamp = 0;
 
