@@ -11,11 +11,6 @@ GetBack GPS for Android
 [![todofy badge](https://todofy.org/b/ruleant/getback_gps)](https://todofy.org/r/ruleant/getback_gps)
 [![Stack Share](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ruleant/getback-gps)
 
-[![Buildtime trend](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/latest)](http://ruleant.github.io/getback_gps/buildtime-trend/)
-[![Total builds](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/builds/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
-[![Passed build jobs](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/passed/month)](http://ruleant.github.io/getback_gps/buildtime-trend/)
-[![Days since last failed build job](https://buildtimetrend-dev.herokuapp.com/badge/ruleant/getback_gps/last_fail)](https://buildtimetrend-dev.herokuapp.com/dashboard/ruleant/getback_gps/index.html)
-
 Open Source Android app for finding your way back to a previously visited location using GPS coordinates.
 
 Imagine visiting a town, going to an event or doing some hiking. When finished, you have to find your car again, or the way to the station, or any other point where you started.
