@@ -5,6 +5,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingLeft="10dp"
+    android:paddingRight="0dp"
+    android:paddingEnd="0dp"
     android:paddingStart="10dp">
 
     <TextView
@@ -49,6 +51,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="5dp"
+                android:paddingLeft="0dp"
+                android:paddingStart="0dp"
                 android:paddingEnd="5dp"
                 android:orientation="vertical" >
 
@@ -72,6 +76,8 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="5dp"
                 android:paddingLeft="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:orientation="vertical" >
 
                 <TextView
@@ -94,6 +100,8 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:paddingStart="5dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
                 android:orientation="vertical" >
 
                 <TextView
