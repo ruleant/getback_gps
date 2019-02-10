@@ -31,7 +31,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; th
 
 echo -e "Start to publish lastest Javadoc to gh-pages...\n"
 
-  cp -R build/docs/javadoc $HOME/javadoc-latest
+  cp -R build/docs/javadoc/release $HOME/javadoc-latest
 
   cd $HOME
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG} gh-pages > /dev/null
