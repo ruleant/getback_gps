@@ -647,8 +647,8 @@ public class LocationService extends Service
             }
 
             // Notify bound Activities of Location Update
-            final int noCallbacks = mCallbacks.beginBroadcast();
-            for (int i = 0; i < noCallbacks; i++) {
+            final int callbacksCount = mCallbacks.beginBroadcast();
+            for (int i = 0; i < callbacksCount; i++) {
                 try {
                     mCallbacks.getBroadcastItem(i).locationUpdated();
                 } catch (RemoteException e) {
@@ -662,15 +662,18 @@ public class LocationService extends Service
 
         @Override
         public void onProviderDisabled(final String provider) {
+            updateLocationProvider();
         }
 
         @Override
         public void onProviderEnabled(final String provider) {
+            updateLocationProvider();
         }
 
         @Override
         public void onStatusChanged(
                 final String provider, final int status, final Bundle extras) {
+            updateLocationProvider();
         }
     };
 
