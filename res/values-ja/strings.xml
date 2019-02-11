@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources><string name="direction">方向</string>
     <string name="copyright">著作権</string>
     <plurals name="distance_meter">
@@ -95,4 +95,7 @@
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">高低差</string>
-    </resources>
+    <string name="notice_location_permission_required">位置情報を更新するため、このデバイスの位置情報へのアクセスを許可します</string>
+    <string name="notice_location_no_permission">位置情報の更新がオフになっています: アクセスが拒否されました</string>
+    <string name="notice_location_permission_granted">位置情報の更新のアクセスが許可されました</string>
+</resources>
