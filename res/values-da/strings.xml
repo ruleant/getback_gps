@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="app_desc">Find vej tilbage til en tidligere besøgt placering ved hjælp af GPS-koordinater.</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Find vej tilbage til en tidligere besøgt placering ved hjælp af GPS-koordinater.</string>
     <string name="inaccurate_location">Din aktuelle placering er unøjagtig</string>
     <string name="notice_no_dest">Gem din placering for at angive en destination</string>
     <string name="inaccurate_direction">Begynd at bevæge sig for at få en præcis retning til din destination</string>
@@ -69,23 +70,23 @@
 \n Dette program er distribueret i håb om at det vil være nyttigt, men uden nogen garanti; uden engang den stiltiende garanti for salgbarhed eller egnethed til et bestemt formål. Se GNU General Public License for flere detaljer.
 \n 
 \n Du skulle have modtaget en kopi af GNU General Public License sammen med dette program. Hvis ikke, se <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="sensor_bearing_offset">Sensorbaseret retningsforskydning</string>
+    <string name="sensor_bearing_offset">Sensorbaseret retningsforskydning</string>
     <string name="travel_direction">Køreretning</string>
     <string name="travel_direction_forward">Fremad</string>
     <string name="travel_direction_backwards">Baglæns</string>
     <string name="name">Navn</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d meter</item>
-	<item quantity="other">%d meter</item>
-</plurals>
+        <item quantity="one">%d meter</item>
+        <item quantity="other">%d meter</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d sekund</item>
-	<item quantity="other">%d sekunder</item>
-</plurals>
+        <item quantity="one">%d sekund</item>
+        <item quantity="other">%d sekunder</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minut</item>
-	<item quantity="other">%d minutter</item>
-</plurals>
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minutter</item>
+    </plurals>
     <string name="cancel">Annuller</string>
     <string name="location_name_stored">Placering \'%s\' gemt</string>
     <string name="dialog_store_location_name">Angiv et navn til din nuværende placering:</string>
@@ -98,4 +99,7 @@
     <string name="height_difference">Højdeforskel</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
-    </resources>
+    <string name="notice_location_permission_required">Tillad adgang til enhedens placering for at aktivere placeringsopdateringer</string>
+    <string name="notice_location_no_permission">Placeringsopdateringer er slået fra: tilladelse nægtet</string>
+    <string name="notice_location_permission_granted">Tilladelse til placeringsopdateringer</string>
+</resources>
