@@ -445,6 +445,8 @@ public class SensorOrientation implements SensorEventListener {
      */
     public final void onAccuracyChanged(final Sensor sensor,
                                         final int accuracy) {
+        // not implemented, but the method should defined
+        // because it is defined by interface SensorEventListener
     }
 
     /**

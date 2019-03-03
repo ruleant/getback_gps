@@ -62,6 +62,7 @@ public class ToolsTest {
      */
     @Before
     public final void setUp() {
+        // nothing to set up
     }
 
     /**
