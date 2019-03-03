@@ -1,4 +1,4 @@
- v0.6 (not released yet)
+ v0.6 (released on 03Mar2019)
  - build against Android SDK 8.0 (API 26)
  - improved German translation, thanks to Silvério Santos
  - issue #176 : build with Gradle 4.6 and Gradle android plugin 3.2.1
