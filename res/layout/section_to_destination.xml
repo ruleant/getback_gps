@@ -2,6 +2,7 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingLeft="10dp"
@@ -58,10 +59,10 @@
 
                 <TextView
                     android:id="@+id/textView_toDestDist"
+                    style="@style/captionValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+                    android:text="@string/unknown_short" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -82,10 +83,10 @@
 
                 <TextView
                     android:id="@+id/textView_toDestDir"
+                    style="@style/captionValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+                    android:text="@string/unknown_short" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -106,10 +107,10 @@
 
                 <TextView
                     android:id="@+id/textView_heightDifference"
+                    style="@style/captionValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+                    android:text="@string/unknown_short" />
 
                 <TextView
                     android:layout_width="wrap_content"
