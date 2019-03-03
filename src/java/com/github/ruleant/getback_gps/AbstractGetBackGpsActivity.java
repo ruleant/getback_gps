@@ -30,8 +30,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -372,6 +374,17 @@ abstract class AbstractGetBackGpsActivity extends Activity
             mService.updateLocation();
         }
         refreshDisplay();
+    }
+
+    /**
+     *  Define screen orientation mode
+     */
+    protected boolean isOrientationLandscape() {
+        Point screenSize = new Point();
+        getWindowManager().getDefaultDisplay().getSize(screenSize);
+
+        // If x is larger than y, the display is on Landscape mode
+        return screenSize.x > screenSize.y;
     }
 
     /**
