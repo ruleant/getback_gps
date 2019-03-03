@@ -1,7 +1,7 @@
 /**
  * StoredLocation
  *
- * Copyright (C) 2012-2018 Dieter Adriaenssens
+ * Copyright (C) 2012-2019 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -240,7 +240,7 @@ public class StoredLocation {
         editor.putString(
                 SAVED, Boolean.toString(mLocation != null && mHasLocation));
         // Commit the edits!
-        editor.commit();
+        editor.apply();
 
         // set default locale back to original
         Locale.setDefault(originalLocale);

@@ -1,7 +1,7 @@
 /**
  * Class for formatting latitude.
  *
- * Copyright (C) 2012-2018 Dieter Adriaenssens
+ * Copyright (C) 2012-2019 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -25,6 +25,8 @@ import android.content.Context;
 import android.location.Location;
 
 import com.github.ruleant.getback_gps.R;
+
+import java.util.Locale;
 
 /**
  * Class for formatting latitude.
@@ -180,7 +182,8 @@ public class Latitude extends AbstractGeoCoordinate {
                     getConvertedValue(),
                     Location.FORMAT_SECONDS
             ).split(":");
-        return String.format("%1$d° %2$d' %3$s\"",
+        return String.format(Locale.getDefault(),
+                "%1$d° %2$d' %3$s\"",
                 Integer.parseInt(components[0]),
                 Integer.parseInt(components[1]),
                 components[2]

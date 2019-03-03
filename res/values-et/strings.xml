@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources><string name="app_desc">Leia GPS koordinaatide abil tagasitee eelnevalt külatatud kohta.</string>
     <string name="inaccurate_location">Su praegune asukoht ei ole täpne</string>
     <string name="notice_no_dest">Sihtkoha määramiseks salvesta oma asukoht</string>
@@ -98,4 +98,7 @@
 \nSeda programm levitatakse lootuses, et see on kasulik, kuid ilma igasuguse garantiita; isegi ilma vaikimisi garantiita sobimaks KAUBANDUSLIKUKS või MÕNEKS MUUKS EESMÄRGIKS. Üksikasjalikuma teabe saamiseks vaadake GNU Üldist Avalikku Litsentsi.
 \n
 \nGNU Üldise Avaliku Litsentsi oleksid pidanud saama selle programmiga. Kui ei, siis vaadake <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="notice_location_permission_required">Luba kasutada seadme asukohta, et võimaldada asukoha värskendamist</string>
+    <string name="notice_location_no_permission">Asukoha värskendamine on välja lülitatud: juurdepääs keelatud</string>
+    <string name="notice_location_permission_granted">Asukoha värskendamiseks on juurdepääs lubatud</string>
 </resources>

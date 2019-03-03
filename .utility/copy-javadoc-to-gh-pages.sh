@@ -11,7 +11,7 @@
 #
 # Copyright (C) 2013 Xiaohao Ma
 # Copyright (C) 2013 Ben Limmer
-# Copyright (C) 2014-2018 Dieter Adriaenssens
+# Copyright (C) 2014-2019 Dieter Adriaenssens
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -31,7 +31,7 @@ if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; th
 
 echo -e "Start to publish lastest Javadoc to gh-pages...\n"
 
-  cp -R build/docs/javadoc $HOME/javadoc-latest
+  cp -R build/docs/javadoc/release $HOME/javadoc-latest
 
   cd $HOME
   git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG} gh-pages > /dev/null

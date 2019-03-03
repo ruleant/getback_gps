@@ -2,9 +2,12 @@
 
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:paddingLeft="10dp"
+    android:paddingRight="0dp"
+    android:paddingEnd="0dp"
     android:paddingStart="10dp">
 
     <TextView
@@ -49,15 +52,17 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingRight="5dp"
+                android:paddingLeft="0dp"
+                android:paddingStart="0dp"
                 android:paddingEnd="5dp"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_toDestDist"
+                    style="@style/captionValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+                    android:text="@string/unknown_short" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -72,14 +77,16 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="5dp"
                 android:paddingLeft="5dp"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_toDestDir"
+                    style="@style/captionValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+                    android:text="@string/unknown_short" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -94,14 +101,16 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="5dp"
                 android:paddingStart="5dp"
+                android:paddingRight="0dp"
+                android:paddingEnd="0dp"
                 android:orientation="vertical" >
 
                 <TextView
                     android:id="@+id/textView_heightDifference"
+                    style="@style/captionValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/unknown"
-                    style="@style/captionValue" />
+                    android:text="@string/unknown_short" />
 
                 <TextView
                     android:layout_width="wrap_content"

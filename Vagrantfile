@@ -17,8 +17,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.memory = 2048
     v.customize ["modifyvm", :id, "--usb", "on"]
     v.customize ["modifyvm", :id, "--usbxhci", "on"]
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Google Inc. Nexus 4 (debug)', '--vendorid', '0x18d1', '--productid', '0x4ee1']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Google Inc. Nexus 4 (debug)', '--vendorid', '0x18d1', '--productid', '0x4ee2']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Google Inc. Nexus 4 (debug)', '--vendorid', '0x18d1', '--productid', '0x4ee6']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola Moto X4', '--vendorid', '0x22b8', '--productid', '0x2e76']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola PCS', '--vendorid', '0x22b8', '--productid', '0x2e81']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola PCS', '--vendorid', '0x22b8', '--productid', '0x2e84']
   end
 
   # Disable automatic box update checking. If you disable this, then
@@ -50,11 +54,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # argument is a set of non-required options.
   # config.vm.synced_folder "../data", "/vagrant_data"
 
+  # bootstrap VM with python2.7 before provisioning with ansible.
+  config.vm.provision "shell", inline: "command -v python2.7 || (apt-get update && apt-get -y install python2.7)"
+
   # start Ansible provisioning
   config.vm.provision "ansible" do |ansible|
     ansible.verbose = "v"
     ansible.become = true
     ansible.playbook = "provisioning/playbook.yml"
     ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python2.7" }
+    ansible.compatibility_mode = "1.8"
   end
 end

@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources><string name="inaccurate_location">موقعك الحالي غير دقيق</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="inaccurate_location">موقعك الحالي غير دقيق</string>
     <string name="current_speed">السرعة الحالية</string>
     <string name="speed_kph">كم/ساعة</string>
     <string name="distance_km">كم</string>
@@ -14,4 +15,10 @@
     <string name="latitude_south_unit">جنوب</string>
     <string name="longitude_east_unit">الشرق</string>
     <string name="longitude_west_unit">الغرب</string>
-    </resources>
+    <string name="notice_no_dest">قم بتخزين موقعك لتعيين وجهة</string>
+    <string name="inaccurate_direction">ابدأ في التحرك للحصول على اتجاه دقيق لوجهتك</string>
+    <string name="notice_destination_reached">أنت في وجهتك</string>
+    <string name="notice_location_permission_required">"المرجوا السماح بالوصول إلى موقعك على هذا الجهاز لتمكين تحديث
+\n الموقع "</string>
+    <string name="notice_location_no_permission">تم إيقاف تشغيل تحديثات الموقع: تم رفض الإذن</string>
+</resources>

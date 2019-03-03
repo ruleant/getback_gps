@@ -1,7 +1,7 @@
 /**
  * Location Service
  *
- * Copyright (C) 2012-2018 Dieter Adriaenssens
+ * Copyright (C) 2012-2019 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,10 +21,12 @@
  */
 package com.github.ruleant.getback_gps;
 
+import android.Manifest;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -37,6 +39,8 @@ import android.os.RemoteCallbackList;
 import android.os.RemoteException;
 import android.preference.PreferenceManager;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
 import com.github.ruleant.getback_gps.lib.DebugLevel;
@@ -236,7 +240,7 @@ public class LocationService extends Service
         criteria.setCostAllowed(false);
         criteria.setPowerRequirement(Criteria.POWER_LOW);
 
-        if (mLocationManager != null) {
+        if (mLocationManager != null && isLocationPermissionGranted()) {
             mProviderName = mLocationManager.getBestProvider(criteria, true);
         }
     }
@@ -348,17 +352,67 @@ public class LocationService extends Service
     }
 
     /**
+     * Checks if permission ACCESS_FINE_LOCATION is granted.
+     *
+     * @return boolean true if permission ACCESS_FINE_LOCATION is granted.
+     */
+    public final boolean isLocationPermissionGranted() {
+        if (ContextCompat.checkSelfPermission(mContext,
+                Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            if (mDebug != null
+                    && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)
+                    ) {
+                Toast.makeText(
+                        mContext,
+                        R.string.notice_location_no_permission,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+
+            return false;
+        } else {
+            // display message on update
+            if (mDebug != null
+                    && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)
+                    ) {
+                Toast.makeText(
+                        mContext,
+                        R.string.notice_location_permission_granted,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+
+            return true;
+        }
+    }
+
+    /**
      * Update Location.
      *
      * Force location update, using getLastKnownLocation()
      */
     public final void updateLocation() {
-        if (mLocationManager == null || !isSetLocationProvider()) {
+        if (mLocationManager == null || !isSetLocationProvider() || !isLocationPermissionGranted()) {
             return;
         }
+
         // update location using getLastKnownLocation,
         // don't wait for listener update
-        setLocation(mLocationManager.getLastKnownLocation(mProviderName));
+        try {
+            setLocation(mLocationManager.getLastKnownLocation(mProviderName));
+        } catch (SecurityException e) {
+            if (mDebug != null
+                    && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_HIGH)
+                    ) {
+                Toast.makeText(
+                        mContext,
+                        R.string.notice_location_no_permission,
+                        Toast.LENGTH_SHORT
+                ).show();
+            }
+        }
     }
 
     /**
@@ -503,6 +557,10 @@ public class LocationService extends Service
      * @return true if a location was retrieved
      */
     private boolean requestUpdatesFromProvider() {
+        if (! isLocationPermissionGranted()) {
+            return false;
+        }
+
         if (isSetLocationProvider()
                 && mLastLocation != null
                 && mLocationManager != null
@@ -531,13 +589,26 @@ public class LocationService extends Service
                         SettingsActivity.DEFAULT_PREF_LOC_UPDATE_DIST;
             }
 
-            mLocationManager.requestLocationUpdates(
-                    mProviderName,
-                    Integer.parseInt(prefLocationUpdateTime),
-                    Integer.parseInt(prefLocationUpdateDistance),
-                    mListener);
-            Location location
-                    = mLocationManager.getLastKnownLocation(mProviderName);
+            Location location = null;
+
+            try {
+                mLocationManager.requestLocationUpdates(
+                        mProviderName,
+                        Integer.parseInt(prefLocationUpdateTime),
+                        Integer.parseInt(prefLocationUpdateDistance),
+                        mListener);
+                location = mLocationManager.getLastKnownLocation(mProviderName);
+            } catch (SecurityException e) {
+                if (mDebug != null
+                        && mDebug.checkDebugLevel(DebugLevel.DEBUG_LEVEL_MEDIUM)
+                        ) {
+                    Toast.makeText(
+                            mContext,
+                            R.string.notice_location_no_permission,
+                            Toast.LENGTH_SHORT
+                    ).show();
+                }
+            }
 
             if (location != null) {
                 setLocation(location);
@@ -576,8 +647,8 @@ public class LocationService extends Service
             }
 
             // Notify bound Activities of Location Update
-            final int noCallbacks = mCallbacks.beginBroadcast();
-            for (int i = 0; i < noCallbacks; i++) {
+            final int callbacksCount = mCallbacks.beginBroadcast();
+            for (int i = 0; i < callbacksCount; i++) {
                 try {
                     mCallbacks.getBroadcastItem(i).locationUpdated();
                 } catch (RemoteException e) {
@@ -591,15 +662,18 @@ public class LocationService extends Service
 
         @Override
         public void onProviderDisabled(final String provider) {
+            updateLocationProvider();
         }
 
         @Override
         public void onProviderEnabled(final String provider) {
+            updateLocationProvider();
         }
 
         @Override
         public void onStatusChanged(
                 final String provider, final int status, final Bundle extras) {
+            updateLocationProvider();
         }
     };
 

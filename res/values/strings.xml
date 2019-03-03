@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_desc">Find your way back to a previously visited location using GPS coordinates.</string>
     <!-- Crouton messages -->
@@ -6,6 +6,9 @@
     <string name="notice_no_dest">Store your location to set a destination</string>
     <string name="inaccurate_direction">Start moving to get an accurate direction to your destination</string>
     <string name="notice_destination_reached">You are at your destination</string>
+    <string name="notice_location_permission_required">Allow access to this device\'s location to enable location updates</string>
+    <string name="notice_location_no_permission">Location updates are turned off: Permission denied</string>
+    <string name="notice_location_permission_granted">Permission granted for location updates</string>
     <!-- Strings related to Main activity -->
     <string name="current_speed">Current speed</string>
     <string name="speed_kph">km/h</string>

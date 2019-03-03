@@ -1,7 +1,7 @@
 /**
  * About activity, shows app information.
  *
- * Copyright (C) 2012-2018 Dieter Adriaenssens
+ * Copyright (C) 2012-2019 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -68,11 +68,10 @@ public class AboutActivity extends Activity {
         PackageInfo packageInfo = getPackageInfo();
         if (packageInfo != null) {
             versionInfo += " v" + packageInfo.versionName;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.GINGERBREAD) {
-                Date date = new Date(packageInfo.lastUpdateTime);
-                buildTime = String.format(res.getString(R.string.build_time),
-                        formatter.format(date));
-            }
+
+            Date date = new Date(packageInfo.lastUpdateTime);
+            buildTime = String.format(res.getString(R.string.build_time),
+                    formatter.format(date));
         }
 
         // Version text view

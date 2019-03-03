@@ -1,7 +1,7 @@
 /**
  * Main Activity
  *
- * Copyright (C) 2012-2018 Dieter Adriaenssens
+ * Copyright (C) 2012-2019 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -21,6 +21,7 @@
  */
 package com.github.ruleant.getback_gps;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.ComponentName;
@@ -29,8 +30,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.content.res.Resources;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -45,6 +48,8 @@ import com.github.ruleant.getback_gps.lib.FormatUtils;
 import com.github.ruleant.getback_gps.lib.Navigator;
 import com.github.ruleant.getback_gps.lib.Tools;
 
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -56,7 +61,8 @@ import de.keyboardsurfer.android.widget.crouton.Style;
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-abstract class AbstractGetBackGpsActivity extends Activity {
+abstract class AbstractGetBackGpsActivity extends Activity
+        implements ActivityCompat.OnRequestPermissionsResultCallback {
     /**
      * Interface to LocationService instance.
      */
@@ -67,7 +73,7 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     private boolean mBound = false;
 
     /**
-     * Realtime timestamp in nanoseconds when activity was updated.
+     * Real-time timestamp in nanoseconds when activity was updated.
      */
     private long mUpdatedTimestamp = 0;
 
@@ -75,6 +81,56 @@ abstract class AbstractGetBackGpsActivity extends Activity {
      * Activity update rate in nanoseconds (500ms).
      */
     private static final int ACTIVITY_UPDATE_RATE = 500000000;
+
+    /**
+     * Id to identify a location permission request.
+     */
+    private static final int REQUEST_LOCATION = 0;
+
+    /**
+     * Permissions required to update location.
+     */
+    private static String[] PERMISSIONS_LOCATION = {Manifest.permission.ACCESS_FINE_LOCATION};
+
+    /**
+     * Crouton status.
+     */
+    private short mCroutonStatus = 0;
+
+    /**
+     * Crouton status 'None'.
+     */
+    private static final short CROUTON_STATUS_NONE = 0;
+
+    /**
+     * Crouton status 'Permission required'.
+     */
+    private static final short CROUTON_STATUS_PERMISSION_REQUIRED = 1;
+
+    /**
+     * Crouton status 'Inaccurate location'.
+     */
+    private static final short CROUTON_STATUS_INACCURATE_LOCATION = 2;
+
+    /**
+     * Crouton status 'No destination set'.
+     */
+    private static final short CROUTON_STATUS_NO_DESTINATION = 3;
+
+    /**
+     * Crouton status 'Inaccurate direction'.
+     */
+    private static final short CROUTON_STATUS_INACCURATE_DIRECTION = 4;
+
+    /**
+     * Crouton status 'Inaccurate direction'.
+     */
+    private static final short CROUTON_STATUS_DESTINATION_REACHED = 5;
+
+    /**
+     * Location permission required crouton.
+     */
+    private Crouton crLocationPermissionRequired;
 
     /**
      * Inaccurate location crouton.
@@ -130,6 +186,11 @@ abstract class AbstractGetBackGpsActivity extends Activity {
         Configuration croutonConfig = new Configuration.Builder()
                 .setDuration(Configuration.DURATION_INFINITE)
                 .build();
+
+        // create permission required crouton
+        crLocationPermissionRequired = Crouton.makeText(this,
+                R.string.notice_location_permission_required, Style.ALERT);
+        crLocationPermissionRequired.setConfiguration(croutonConfig);
 
         // create inaccurate location crouton
         crInaccurateLocation = Crouton.makeText(this,
@@ -316,6 +377,17 @@ abstract class AbstractGetBackGpsActivity extends Activity {
     }
 
     /**
+     *  Define screen orientation mode
+     */
+    protected boolean isOrientationLandscape() {
+        Point screenSize = new Point();
+        getWindowManager().getDefaultDisplay().getSize(screenSize);
+
+        // If x is larger than y, the display is on Landscape mode
+        return screenSize.x > screenSize.y;
+    }
+
+    /**
      * Called when the user clicks the About menu item.
      *
      * @param item MenuItem object that was clicked
@@ -390,6 +462,10 @@ abstract class AbstractGetBackGpsActivity extends Activity {
 
         mUpdatedTimestamp = Tools.getTimestampNano();
 
+        if (!mService.isLocationPermissionGranted()) {
+            requestLocationPermission();
+        }
+
         refreshCrouton();
 
         return true;
@@ -407,32 +483,84 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             return;
         }
 
-        // if location is inaccurate, display warning
-        if (!navigator.isLocationAccurate()) {
-            crInaccurateLocation.show();
+        if (mService == null) {
+            return;
+        }
+
+        short CroutonStatusNew = CROUTON_STATUS_NONE;
+
+        // if Location Permission is not granted, display warning
+        if (!mService.isLocationPermissionGranted()) {
+            CroutonStatusNew = CROUTON_STATUS_PERMISSION_REQUIRED;
         } else {
-            crInaccurateLocation.cancel();
-
-            // if no destination is set, display message
-            if (navigator.getDestination() == null) {
-                crNoDestination.show();
+            // if location is inaccurate, display warning
+            if (!navigator.isLocationAccurate()) {
+                CroutonStatusNew = CROUTON_STATUS_INACCURATE_LOCATION;
             } else {
-                crNoDestination.cancel();
-
-                // destination was reached
-                if (navigator.isDestinationReached()) {
-                    crDestinationReached.show();
+                // if no destination is set, display message
+                if (navigator.getDestination() == null) {
+                    CroutonStatusNew = CROUTON_STATUS_NO_DESTINATION;
                 } else {
-                    crDestinationReached.cancel();
-
-                    // if bearing is inaccurate, display warning
-                    if (!navigator.isBearingAccurate()) {
-                        crInaccurateDirection.show();
+                    // destination was reached
+                    if (navigator.isDestinationReached()) {
+                        CroutonStatusNew = CROUTON_STATUS_DESTINATION_REACHED;
                     } else {
-                        crInaccurateDirection.cancel();
+                        // if bearing is inaccurate, display warning
+                        if (!navigator.isBearingAccurate()) {
+                            CroutonStatusNew = CROUTON_STATUS_INACCURATE_DIRECTION;
+                        }
                     }
                 }
             }
+        }
+
+        // Check if Crouton Status changes
+        if ( mCroutonStatus == CroutonStatusNew ) {
+            return;
+        }
+
+        mCroutonStatus = CroutonStatusNew;
+
+        // Cancel active croutons
+        Crouton.cancelAllCroutons();
+
+        switch (mCroutonStatus) {
+            case CROUTON_STATUS_PERMISSION_REQUIRED :
+                crLocationPermissionRequired.show();
+                break;
+            case CROUTON_STATUS_INACCURATE_LOCATION :
+                crInaccurateLocation.show();
+                break;
+            case CROUTON_STATUS_NO_DESTINATION :
+                crNoDestination.show();
+                break;
+            case CROUTON_STATUS_INACCURATE_DIRECTION :
+                crInaccurateDirection.show();
+                break;
+            case CROUTON_STATUS_DESTINATION_REACHED :
+                crDestinationReached.show();
+                break;
+            default:
+                break;
+        }
+    }
+
+    /**
+     * Requests location permission if necessary.
+     */
+    protected final void requestLocationPermission() {
+        if (mService == null) {
+            return;
+        }
+
+        // request permission if location permission is not granted
+        if (!mService.isLocationPermissionGranted()
+                && !ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    Manifest.permission.ACCESS_FINE_LOCATION)) {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        PERMISSIONS_LOCATION,
+                        REQUEST_LOCATION);
         }
     }
 
@@ -577,4 +705,20 @@ abstract class AbstractGetBackGpsActivity extends Activity {
             refreshDisplay();
         }
     };
+
+    /**
+     * Callback received when a permissions request has been completed.
+     */
+    @Override
+    public void onRequestPermissionsResult (
+            int requestCode,
+            @NonNull String[] permissions,
+            @NonNull int[] grantResults
+    ){
+        if (requestCode == REQUEST_LOCATION) {
+            refreshDisplay();
+        } else {
+            super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        }
+    }
 }

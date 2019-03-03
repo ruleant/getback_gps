@@ -3,21 +3,31 @@
 buildscript {
     repositories {
         mavenCentral()
+        google()
+        jcenter()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.9.0'
+        classpath 'com.android.tools.build:gradle:3.2.1'
+    }
+
+    dependencies {
+        classpath 'com.vanniktech:gradle-android-javadoc-plugin:0.3.0'
     }
 }
 
-apply plugin: 'android'
+apply plugin: 'com.android.application'
+apply plugin: 'com.vanniktech.android.javadoc'
 
 android {
-    compileSdkVersion 23
-    buildToolsVersion "23.0.1"
-}
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
-android {
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+    }
+
     sourceSets {
         main {
             manifest.srcFile 'AndroidManifest.xml'
@@ -32,7 +42,7 @@ android {
             assets.srcDirs = ['assets']
         }
 
-        instrumentTest.setRoot('test')
+        // instrumentTest.setRoot('test')
     }
     lintOptions {
             // if true, stop the gradle build if errors are found
@@ -40,47 +50,52 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
 repositories {
     mavenCentral()
+    google()
+    jcenter()
 }
 
 dependencies {
-    compile('de.keyboardsurfer.android.widget:crouton:1.8.1') {
-        // exclusion is not neccessary, but generally a good idea.
+    implementation('de.keyboardsurfer.android.widget:crouton:1.8.1') {
+        // exclusion is not necessary, but generally a good idea.
         exclude group: 'com.google.android', module: 'support-v4'
     }
+    // android support libraries (android.support.*)
+    implementation "androidx.legacy:legacy-support-core-utils:1.0.0"
 }
 
 // Unit tests
 
-sourceSets {
-    unitTest {
-        java.srcDir file('src/test')
-        resources.srcDir file('src/test/resources')
-    }
-}
-
-dependencies {
-    unitTestCompile files("$project.buildDir/classes/debug")
-    unitTestCompile 'org.robolectric:robolectric:2.2'
-    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
-    unitTestCompile 'com.google.android:android:4.1.1.4'
-}
-
-configurations {
-    unitTestCompile.extendsFrom runtime
-    unitTestRuntime.extendsFrom unitTestCompile
-}
-
-task unitTest(type:Test, dependsOn: assemble) {
-    description = "run unit tests"
-    testClassesDir = project.sourceSets.unitTest.output.classesDir
-    classpath = project.sourceSets.unitTest.runtimeClasspath
-}
-
+// temporarily disable unit tests issue #172
+// sourceSets {
+//    unitTest {
+//        java.srcDir file('src/test')
+//        resources.srcDir file('src/test/resources')
+//    }
+//}
+//
+//dependencies {
+//    unitTestCompile files("$project.buildDir/classes/debug")
+//    unitTestCompile 'org.robolectric:robolectric:2.2'
+//    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
+//    unitTestCompile 'com.google.android:android:4.1.1.4'
+//}
+//
+//configurations {
+//    unitTestCompile.extendsFrom runtime
+//    unitTestRuntime.extendsFrom unitTestCompile
+//}
+//
+//task unitTest(type:Test, dependsOn: assemble) {
+//    description = "run unit tests"
+//    testClassesDir = project.sourceSets.unitTest.output.classesDir
+//    classpath = project.sourceSets.unitTest.runtimeClasspath
+//}
+//
 //check.dependsOn unitTest

@@ -1,7 +1,7 @@
 /**
  * Main Activity
  *
- * Copyright (C) 2012-2018 Dieter Adriaenssens
+ * Copyright (C) 2012-2019 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -165,10 +165,19 @@ public class MainActivity extends AbstractGetBackGpsActivity
                 = (TextView) findViewById(R.id.textView_toDest_Message);
 
         String toDestinationNameText = res.getString(R.string.notset);
-        String toDestinationDistanceText = res.getString(R.string.unknown);
-        String toDestinationDirectionText = res.getString(R.string.unknown);
-        String toDestinationMessage = res.getString(R.string.unknown);
-        String heightDifferenceText = res.getString(R.string.unknown);
+        String toDestinationDistanceText = res.getString(R.string.unknown_short);
+        String toDestinationDirectionText = res.getString(R.string.unknown_short);
+        String toDestinationMessage = res.getString(R.string.unknown_short);
+        String heightDifferenceText = res.getString(R.string.unknown_short);
+
+        // in landscape mode, texts can be longer
+        if (isOrientationLandscape()) {
+            toDestinationDistanceText = res.getString(R.string.unknown);
+            toDestinationDirectionText = res.getString(R.string.unknown);
+            toDestinationMessage = res.getString(R.string.unknown);
+            heightDifferenceText = res.getString(R.string.unknown);
+        }
+
         NavigationView.Mode nvNavigationMode = NavigationView.Mode.Disabled;
         NavigationView.Mode nvOrientationMode = NavigationView.Mode.Disabled;
         Boolean displayToDest = false;

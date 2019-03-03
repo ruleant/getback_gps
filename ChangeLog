@@ -1,3 +1,24 @@
+ v0.6 (released on 03Mar2019)
+ - build against Android SDK 8.0 (API 26)
+ - improved German translation, thanks to Silvério Santos
+ - issue #176 : build with Gradle 4.6 and Gradle android plugin 3.2.1
+ - issue #175 : build against Android SDK 9.0 (API 28)
+ - issue #177 : increase minimum supported Android SDK 4.0 (API 14)
+ - issue #167 : check application location access permissions
+ - issue #178 : stop using Maven build
+ - remove buildtime trend implementation
+ - use isOrientationLandscape() to set shorter strings
+ - improved Danish translation, thanks to Jan Madsen
+ - improved Japanese translation, thanks to Naofum
+ - improved Belarusian translation, thanks to Viktar Vaŭčkievič
+ - improved Estonian translation, thanks to Kristjan Räts
+ - improved Dutch translation
+ - improved French translation, thanks to Nam
+ - improved Norwegian Bokmål translation, thanks to Allan Nordhøy
+ - improved Sardinian translation, thanks to asezere
+ - improved Chinese (Traditional) translation, thanks to ezjerry liao
+ - improved Arabic translation, thanks to TWINS DZ
+
  v0.5.1 (released on 02Nov2018)
  - improved Polish translation, thanks to WaldiS
  - specify backup behaviour

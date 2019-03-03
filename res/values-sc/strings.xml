@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources><string name="app_desc">Torra ad una positzione bisitada pretzedentemente impreande sas coordinatas GPS.</string>
     <string name="inaccurate_location">Sa positzione relevada tua no est pretzisa</string>
     <string name="notice_no_dest">Sarva sa positzione tua pro impostare una destinatzione</string>
@@ -98,4 +98,7 @@
 <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Diferèntzia de artària</string>
-    </resources>
+    <string name="notice_location_permission_required">Permiti s\'atzessu a sa positzione de custu dispositivu pro abilitare sos agiornamentos de positzione</string>
+    <string name="notice_location_no_permission">Sos agiornamentos de sa positzione sunt istudados: Permissu negadu</string>
+    <string name="notice_location_permission_granted">Permissu frunidu pro sos agiornamentos de sa positzione</string>
+</resources>
