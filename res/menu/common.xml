@@ -11,6 +11,11 @@
         android:showAsAction="ifRoom"
         android:title="@string/store_location"/>
     <item
+        android:id="@+id/menu_enterlocation"
+        android:orderInCategory="40"
+        android:showAsAction="ifRoom"
+        android:title="@string/enter_location"/>
+    <item
         android:id="@+id/menu_renamedestination"
         android:orderInCategory="41"
         android:showAsAction="never"
