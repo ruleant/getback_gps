@@ -1,2 +1,108 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="travel_direction">Напрямок подорожі</string>
+    <string name="southeast_unit">ПдС</string>
+    <string name="to_dest">До пункту призначення</string>
+    <string name="no_location_name">Назва розташування не визначена</string>
+    <string name="southwest_unit">ПдЗ</string>
+    <string name="dialog_rename_destination">Дайте нову назву пункту призначення:</string>
+    <string name="provider">Служба</string>
+    <string name="notice_location_permission_required">Дозвольте доступ до розташування цього пристрою щоб забезпечити оновлення координат</string>
+    <string name="distance">Відстань</string>
+    <string name="curr_location">Поточне (останнє відоме) розташування</string>
+    <string name="loc_updated_not_recent">Розташування щойно НЕ оновлено.</string>
+    <string name="accuracy">Точність</string>
+    <string name="notset">Не зазначено</string>
+    <string name="latitude_north_unit">Пн</string>
+    <string name="notice_destination_reached">Ви на місці призначення</string>
+    <plurals name="time_seconds">
+        <item quantity="one">%d секунда</item>
+        <item quantity="few">%d секунд</item>
+        <item quantity="many">%d секунд</item>
+    </plurals>
+    <string name="destination_reached">Ви на місці</string>
+    <string name="sensor_bearing_offset">Відхилення курсу обумовлене сенсором</string>
+    <string name="inaccurate_location">Ваше поточне розташування неточне</string>
+    <string name="location_provider">Служба геолокації</string>
+    <string name="pref_geo_orientation_sensor">Сенсор орієнтації за замовчуванням</string>
+    <string name="notice_location_no_permission">Оновлення координат вимкнено: дозвіл відхилений</string>
+    <string name="latitude_south_unit">Пд</string>
+    <string name="travel_direction_backwards">Назад</string>
+    <string name="loc_provider_network">Мережа (Стільникова /Wi-Fi)</string>
+    <string name="sensors_disabled">Вимкнено: Зберігає батарею</string>
+    <string name="northeast_unit">ПнС</string>
+    <string name="build_time">Побудовано за %с.</string>
+    <string name="notice_no_dest">Збережіть Ваше розташування щоб встановити напрямок</string>
+    <string name="unknown">Невідомий</string>
+    <string name="direction_relative">відносно поточного курсу</string>
+    <string name="store_location_disabled">Неможливо зберегти розташування якщо його координати невідомі</string>
+    <string name="dialog_store_location_name">Назвіть ваше поточне розташування:</string>
+    <string name="none">Нема</string>
+    <string name="app_website">Відвідайте &lt;a href=%1$s&gt;website&lt;/a&gt; щоб дізнатися більше.</string>
+    <string name="longitude">Довгота</string>
+    <string name="distance_km">км</string>
+    <string name="name">Назва</string>
+    <string name="pref_enable_sensors">Використовувати доступні сенсори</string>
+    <string name="inaccurate">Неточний</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d метр</item>
+        <item quantity="few">%d метрів</item>
+        <item quantity="many">%d метрів</item>
+    </plurals>
+    <string name="rename_destination">Перейменувати пункт призначення</string>
+    <string name="longitude_west_unit">З</string>
+    <string name="northwest_unit">ПнЗ</string>
+    <string name="version">Версія</string>
+    <string name="raw">Неформатована</string>
+    <string name="distance_m">м</string>
+    <string name="location_updated">Координати оновлені</string>
+    <string name="destination_renamed">Пункт призначення перейменовано</string>
+    <string name="timestamp">Відмітка часу</string>
+    <string name="provider_no_support">Служба не підтримується.</string>
+    <string name="current_speed">Поточна швидкість</string>
+    <string name="pref_header_loc_update">Оновлення Розташування</string>
+    <string name="inaccurate_direction">Почніть рух щоб отримати точний напрямок до Вашого пункту призначення</string>
+    <string name="license">Ця програма є вільним програмним забезпеченням: ви можете її розповсюджувати та / або змінювати на умовах Загальної публічної ліцензії GNU, опублікованої Фондом вільного програмного забезпечення, або 3-ї версії Ліцензії, або будь-якої пізнішої версії.
+\n 
+\n Ця програма поширюється із сподіванням, що вона буде корисною, але БЕЗ БУДЬ-ЯКОЇ ГАРАНТІЇ; навіть не маючи на увазі гарантії ЩОДО ПРОДАЖУ або ПРИДАТНОСТІ ДЛЯ ПЕВНОЇ ЦІЛІ. Детальнішу інформацію див. у Загальній публічній ліцензії GNU
+\n 
+\nВи мали отримати копію Генеральної публічної ліцензії GNU разом із цією програмою. Якщо ні, див. <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="about">Опис</string>
+    <plurals name="time_minutes">
+        <item quantity="one">%d хвилина</item>
+        <item quantity="few">%d хвилин</item>
+        <item quantity="many">%d хвилин</item>
+    </plurals>
+    <string name="store_location">Зберегти розташування</string>
+    <string name="location_stored">Розташування збережене</string>
+    <string name="pref_header_general">Загальні</string>
+    <string name="cancel">Відміна</string>
+    <string name="speed_kph">Км/год</string>
+    <string name="loc_updated_recent">Розташування щойно оновлено.</string>
+    <string name="refresh">Оновлення</string>
+    <string name="current_bearing">Поточний курс</string>
+    <string name="no_destination">Немає пункту призначення</string>
+    <string name="location_name_stored">Розташування \'%s\' збережене</string>
+    <string name="altitude">Висота</string>
+    <string name="direction">Напрямок</string>
+    <string name="location_name">Назва розташування</string>
+    <string name="disabled">Вимкнено</string>
+    <string name="height_difference">Перепад висоти</string>
+    <string name="menu_details">Детальніше про розташування</string>
+    <string name="latitude">Широта</string>
+    <string name="sensors_enabled">Доступно: Швидші оновлення та більш точний курс</string>
+    <string name="rename_destination_disabled">Неможливо перейменувати пункт призначення, спочатку збережіть розташування</string>
+    <string name="settings">Налаштування</string>
+    <string name="bearing">Курс</string>
+    <string name="app_desc">Знайдіть шлях назад до відвіданого місця завдяки координатам GPS.</string>
+    <string name="pref_loc_update_dist">Оновлювати, коли відстань перевищить:</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="activity_details">Деталі</string>
+    <string name="destination">Призначення</string>
+    <string name="copyright">Авторські права</string>
+    <string name="travel_direction_forward">Вперед</string>
+    <string name="speed">Швидкість</string>
+    <string name="pref_loc_update_time">Оновлювати, коли пройде:</string>
+    <string name="notice_location_permission_granted">Дозвіл до оновлення координат отримано</string>
+    <string name="longitude_east_unit">С</string>
+</resources>
