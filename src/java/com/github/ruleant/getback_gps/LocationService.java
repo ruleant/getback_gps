@@ -426,9 +426,11 @@ public class LocationService extends Service
     }
 
     /**
-     * Store current location.
+     * Store location.
      *
      * @param locationName Descriptive name of the location to store
+     * @param latitude GPS Location latitude
+     * @param longitude GPS Location longitude
      */
     public final void storeLocation(final String locationName, final double latitude, final double longitude) {
         AriadneLocation currentLocation = new AriadneLocation("");
@@ -438,9 +440,10 @@ public class LocationService extends Service
     }
 
     /**
-     * Store current location.
+     * Store location.
      *
      * @param locationName Descriptive name of the location to store
+     * @param location Location Details (AriadneLocation object)
      */
     public final void storeLocation(final String locationName, final AriadneLocation location) {
 

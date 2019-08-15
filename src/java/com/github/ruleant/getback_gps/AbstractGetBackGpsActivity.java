@@ -284,10 +284,10 @@ abstract class AbstractGetBackGpsActivity extends Activity
         builder.create().show();
     }
     public final void enterLocation() {
-        if (mBound && mService.getLocation() == null) {
+        if (mBound) {
             Toast.makeText(
                     this,
-                    R.string.store_location_disabled,
+                    R.string.enter_location_disabled,
                     Toast.LENGTH_LONG
             ).show();
             return;
