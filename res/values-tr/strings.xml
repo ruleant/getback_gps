@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_desc">GPS koordinatlarını kullanarak daha önce ziyaret ettiğiniz bir yere geri dönüş yolunu bulun.</string>
+    <string name="inaccurate_location">Geçerli konumunuz yanlış</string>
+    <string name="notice_no_dest">Hedef belirlemek için konumunuzu depola</string>
+    <string name="inaccurate_direction">Hedefinize doğru bir yön bulmak için hareket etmeye başlayın</string>
+    <string name="notice_destination_reached">Gideceğiniz yerdesiniz</string>
+    <string name="notice_location_permission_required">Konum güncellemelerini etkinleştirmek için bu cihazın konumuna erişime izin ver</string>
+    <string name="notice_location_no_permission">Konum güncellemeleri kapatıldı: İzin reddedildi</string>
+    <string name="notice_location_permission_granted">Konum güncellemeleri için izin verildi</string>
+    <string name="current_speed">Geçerli hız</string>
+    <string name="speed_kph">km/sa</string>
+    <string name="current_bearing">Geçerli yön</string>
+    <string name="distance">Mesafe</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Yükseklik farkı</string>
+    <string name="direction">Yön</string>
+    <string name="northeast_unit">KD</string>
+    <string name="southeast_unit">GD</string>
+    <string name="southwest_unit">GB</string>
+    <string name="northwest_unit">KB</string>
+    <string name="location_updated">Konum güncellendi</string>
+    <string name="inaccurate">Yanlış</string>
+    <string name="destination_reached">Hedefte</string>
+    <string name="no_destination">Hedef ayarlanmadı</string>
+    <string name="unknown">Bilinmeyen</string>
+    <string name="refresh">Yenile</string>
+    <string name="dialog_store_location_name">Geçerli konumunuz için bir ad girin:</string>
+    <string name="dialog_rename_destination">Hedefiniz için yeni bir ad girin:</string>
+    <string name="location_name">Konum adı</string>
+    <string name="cancel">İptal</string>
+    <string name="rename_destination">Hedefi yeniden adlandır</string>
+</resources>
