@@ -283,21 +283,20 @@ abstract class AbstractGetBackGpsActivity extends Activity
         // Create the AlertDialog object and display it
         builder.create().show();
     }
+
+    /**
+     * Called when the user clicks the Enter Location menu item.
+     * It displays a dialog, where the user enters a gps location.
+     */
     public final void enterLocation() {
-        if (mBound) {
-            Toast.makeText(
-                    this,
-                    R.string.enter_location_disabled,
-                    Toast.LENGTH_LONG
-            ).show();
-            return;
-        }
+
         // Use the Builder class for convenient dialog construction,
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
+
         // Inflate the layout for the dialog
         // Pass null as the parent view because its going in the dialog layout
         final View dialogView
@@ -319,20 +318,38 @@ abstract class AbstractGetBackGpsActivity extends Activity
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
                                 try {
-                                    if (etLocationName != null) {
-                                        String locationName
-                                                = etLocationName.getText().toString();
-                                        double locationLatitude
-                                                = Double.parseDouble(etLocationLatitude.getText().toString());
-                                        double locationLongitude
-                                                = Double.parseDouble(etLocationLongitude.getText().toString());
-                                        // store current location
-                                        // and refresh display
-                                        if (mBound) {
-                                            mService.storeLocation(locationName, locationLatitude, locationLongitude);
-                                        }
-                                        refreshDisplay();
+                                    String locationName
+                                            = etLocationName.getText().toString();
+                                    double locationLatitude
+                                            = Double.parseDouble(etLocationLatitude.getText().toString());
+                                    double locationLongitude
+                                            = Double.parseDouble(etLocationLongitude.getText().toString());
+
+                                    if (locationLatitude < -90 || locationLatitude > 90) {
+                                        Toast.makeText(
+                                                AbstractGetBackGpsActivity.this,
+                                                "Latitude is outside the valid range [-90°,90°]",
+                                                Toast.LENGTH_LONG
+                                        ).show();
+                                        return;
                                     }
+
+                                    if (locationLongitude < -180.0 || locationLongitude > 180.0) {
+                                        Toast.makeText(
+                                                AbstractGetBackGpsActivity.this,
+                                                "Longitude is outside the valid range [-180°,180°]",
+                                                Toast.LENGTH_LONG
+                                        ).show();
+                                        return;
+                                    }
+
+                                    // store current location
+                                    // and refresh display
+                                    if (mBound) {
+                                        mService.storeLocation(locationName, locationLatitude, locationLongitude);
+                                    }
+                                    refreshDisplay();
+
                                 } catch (Exception ex) {
                                     Toast.makeText(
                                             AbstractGetBackGpsActivity.this,
