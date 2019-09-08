@@ -328,7 +328,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                                     if (locationLatitude < -90 || locationLatitude > 90) {
                                         Toast.makeText(
                                                 AbstractGetBackGpsActivity.this,
-                                                "Latitude is outside the valid range [-90°,90°]",
+                                                R.string.enter_location_invalid_latitude,
                                                 Toast.LENGTH_LONG
                                         ).show();
                                         return;
@@ -337,7 +337,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                                     if (locationLongitude < -180.0 || locationLongitude > 180.0) {
                                         Toast.makeText(
                                                 AbstractGetBackGpsActivity.this,
-                                                "Longitude is outside the valid range [-180°,180°]",
+                                                R.string.enter_location_invalid_longitude,
                                                 Toast.LENGTH_LONG
                                         ).show();
                                         return;
