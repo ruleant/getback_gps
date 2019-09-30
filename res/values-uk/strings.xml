@@ -95,14 +95,14 @@
     <string name="settings">Налаштування</string>
     <string name="bearing">Курс</string>
     <string name="app_desc">Знайдіть шлях назад до відвіданого місця завдяки координатам GPS.</string>
-    <string name="pref_loc_update_dist">Оновлювати, коли відстань перевищить:</string>
+    <string name="pref_loc_update_dist">Оновлювати, коли відстань перевищить</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="activity_details">Деталі</string>
     <string name="destination">Призначення</string>
     <string name="copyright">Авторські права</string>
     <string name="travel_direction_forward">Вперед</string>
     <string name="speed">Швидкість</string>
-    <string name="pref_loc_update_time">Оновлювати, коли пройде:</string>
+    <string name="pref_loc_update_time">Оновлювати, коли пройде</string>
     <string name="notice_location_permission_granted">Дозвіл до оновлення координат отримано</string>
     <string name="longitude_east_unit">С</string>
 </resources>
