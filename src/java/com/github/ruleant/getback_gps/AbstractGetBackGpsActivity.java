@@ -2,6 +2,7 @@
  * Main Activity
  *
  * Copyright (C) 2012-2019 Dieter Adriaenssens
+ * Copyright (C) 2019 Timotheos Constambeys
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -312,7 +313,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                 = (EditText) dialogView.findViewById(R.id.location_longtitude);
         // Set the layout for the dialog
         builder.setView(dialogView)
-                .setTitle(R.string.store_location)
+                .setTitle(R.string.enter_location)
                 .setPositiveButton(R.string.store_location,
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
@@ -529,7 +530,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
         if (isBound()) {
             // enable store location button if a location is set
             miStoreLocation.setEnabled(mService.getLocation() != null);
-            miEnterLocation.setEnabled(mService.getLocation() != null);
+            miEnterLocation.setEnabled(true);
             // enable store location button if a location is set
             miRenameDest.setEnabled(mService.getDestination() != null);
         }
