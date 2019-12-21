@@ -97,9 +97,15 @@
     <string name="build_time">%s üzerine yapılandırıldı.</string>
     <string name="app_website">Daha fazla bilgi için &lt;a href=%1$s&gt;web sitesi&lt;/a&gt;ni ziyaret edin.</string>
     <string name="copyright">Telif hakkı</string>
-    <string name="license">"Bu program ücretsiz bir yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı koşulları altında, Lisansın 3. sürümü veya daha sonraki sürümlerinde yeniden dağıtabilir ve / veya değiştirebilirsiniz.
-\n 
-\n Bu program faydalı olacağı umuduyla dağıtılmıştır, ancak HİÇBİR GARANTİSİ YOKTUR; BELİRLİ BİR AMACA UYGUNLUK veya SATILABİLİRLİK zımni garantisi olmadan. Daha fazla bilgi için GNU Genel Kamu Lisansına bakınız.
-\n 
-\n Bu programla birlikte GNU Genel Kamu Lisansının bir kopyasını almış olmalısınız. Değilse,  "<a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a> adresine bakınız.</string>
+    <string name="license">Bu program ücretsiz bir yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı koşulları altında, Lisansın 3. sürümü veya daha sonraki sürümlerinde yeniden dağıtabilir ve / veya değiştirebilirsiniz. 
+\n
+\n Bu program faydalı olacağı umuduyla dağıtılmıştır, ancak HİÇBİR GARANTİSİ YOKTUR; BELİRLİ BİR AMACA UYGUNLUK veya SATILABİLİRLİK zımni garantisi olmadan. Daha fazla bilgi için GNU Genel Kamu Lisansına bakınız. 
+\n
+\n Bu programla birlikte GNU Genel Kamu Lisansının bir kopyasını almış olmalısınız. Değilse, <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a> adresine bakınız.</string>
+    <string name="dialog_enter_location">Konumunuz için bir ad ve GPS koordinatı girin:</string>
+    <string name="location_latitude">Konum enlemi</string>
+    <string name="location_longitude">Konum boylamı</string>
+    <string name="enter_location">Hedefi manuel olarak girin</string>
+    <string name="enter_location_invalid_latitude">Enlem geçerli aralığın dışında [-90°,90°]</string>
+    <string name="enter_location_invalid_longitude">Boylam geçerli aralığın dışında [-180°,180°]</string>
 </resources>
