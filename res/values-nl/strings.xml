@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_desc">Vind uw weg terug naar een eerder bezochte locatie met behulp van GPS-coördinaten.</string>
     <string name="none">Geen</string>
     <string name="unknown">Onbekend</string>
@@ -103,4 +102,10 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="notice_location_permission_required">Sta de app toe om de locatie van dit apparaat te openen om locatie te kunen bijwerken</string>
     <string name="notice_location_no_permission">Bijwerken van locatie is uitgeschakeld : Toegang werd geweigerd</string>
     <string name="notice_location_permission_granted">Toegang verleend voor bijwerken van locatie</string>
+    <string name="dialog_enter_location">Voer een naam en GPS coördinaten in voor je locatie :</string>
+    <string name="location_latitude">Breedtegraad locatie</string>
+    <string name="location_longitude">Lengtegraad locatie</string>
+    <string name="enter_location">Voer manueel een bestemming in</string>
+    <string name="enter_location_invalid_latitude">De breedtegraad ligt buiten de geldige grenzen [-90°,90°]</string>
+    <string name="enter_location_invalid_longitude">De lengtegraad ligt buiten de geldige grenzen [-180°,180°]</string>
 </resources>
