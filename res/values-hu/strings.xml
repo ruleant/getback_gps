@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="app_desc">Találjon vissza egy előzőleg meglátogatott helyre GPS koordináták alapján.</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Találjon vissza egy korábban meglátogatott helyre GPS koordináták használatával.</string>
     <string name="inaccurate_location">A jelenlegi helyzete nem pontos</string>
     <string name="notice_no_dest">A helyzet eltárolása egy cél beállításához</string>
     <string name="notice_destination_reached">Megérkezett a célhoz</string>
@@ -10,29 +11,101 @@
     <string name="direction">Irány</string>
     <string name="northeast_unit">ÉK</string>
     <string name="southeast_unit">DK</string>
-    <string name="southwest_unit">DNY</string>
-    <string name="northwest_unit">ÉNY</string>
-    <string name="location_updated">Hely frissítve</string>
+    <string name="southwest_unit">DNy</string>
+    <string name="northwest_unit">ÉNy</string>
+    <string name="location_updated">Helyzet frissítve</string>
     <string name="inaccurate">Pontatlan</string>
     <string name="destination_reached">A célnál</string>
     <string name="no_destination">Nincs cél beállítva</string>
     <string name="unknown">Ismeretlen</string>
     <string name="refresh">Frissítés</string>
-    <string name="inaccurate_direction">Induljon el a pontos célirány beállításhoz</string>
+    <string name="inaccurate_direction">Induljon el a pontos célirány megismeréséhez</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Magasságkülönbség</string>
-    <string name="dialog_store_location_name">Aktuális helyzetének neve</string>
-    <string name="dialog_rename_destination">Adja meg céljának új nevét</string>
-    <string name="location_name">Helyének neve</string>
-    <string name="cancel">Mégsem</string>
-    <string name="store_location">Hely rögzítése</string>
+    <string name="dialog_store_location_name">Név megadása a jelenlegi helyzethez:</string>
+    <string name="dialog_rename_destination">Új név megadása a célhoz:</string>
+    <string name="location_name">Hely neve</string>
+    <string name="cancel">Mégse</string>
+    <string name="store_location">Hely tárolása</string>
     <string name="rename_destination">Cél átnevezése</string>
-    <string name="store_location_disabled">Nincs aktuális helyzet, így a hely nem tárolható</string>
-    <string name="rename_destination_disabled">Először tárolja helyzetét, utána nevezheti át célját</string>
-    <string name="location_stored">Helyzete tárolva</string>
-    <string name="location_name_stored">Helyzete \'%s\' tárolva</string>
+    <string name="store_location_disabled">Nem lehet eltárolni a helyet, ha nincs jelenlegi helyzet</string>
+    <string name="rename_destination_disabled">Nem lehet átnevezni a célt, először tárolja el a helyet</string>
+    <string name="location_stored">Hely eltárolva</string>
+    <string name="location_name_stored">A(z) „%s” hely eltárolva</string>
     <string name="destination_renamed">Cél átnevezve</string>
-    <string name="no_location_name">Helyzetének neve nincs megadva</string>
-    <string name="menu_details">Helyzetének részletei</string>
-    </resources>
+    <string name="no_location_name">A hely neve nem lett megadva</string>
+    <string name="menu_details">Hely részletei</string>
+    <string name="activity_details">Részletek</string>
+    <string name="location_provider">Helyszolgáltató</string>
+    <string name="name">Név</string>
+    <string name="provider">Szolgáltató</string>
+    <string name="loc_provider_network">Hálózat (mobilnet vagy Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">A szolgáltató nem támogatott.</string>
+    <string name="curr_location">Jelenlegi (utoljára ismert) hely</string>
+    <string name="latitude">Szélesség</string>
+    <string name="latitude_north_unit">É</string>
+    <string name="latitude_south_unit">D</string>
+    <string name="longitude">Hosszúság</string>
+    <string name="longitude_east_unit">K</string>
+    <string name="longitude_west_unit">Ny</string>
+    <string name="altitude">Magasság</string>
+    <string name="speed">Sebesség</string>
+    <string name="bearing">Irány</string>
+    <string name="sensor_bearing_offset">Érzékelőalapú irányeltolás</string>
+    <string name="travel_direction">Menetirány</string>
+    <string name="travel_direction_forward">Előre</string>
+    <string name="travel_direction_backwards">Hátrafelé</string>
+    <string name="accuracy">Pontosság</string>
+    <string name="timestamp">Időbélyeg</string>
+    <string name="destination">Cél</string>
+    <string name="to_dest">A célhoz</string>
+    <string name="direction_relative">a jelenlegi haladási irányhoz képest</string>
+    <string name="raw">Formázatlan</string>
+    <string name="none">Nincs</string>
+    <string name="notset">Nincs beállítva</string>
+    <string name="loc_updated_recent">A hely nemrég frissült.</string>
+    <string name="loc_updated_not_recent">A hely NEM frissült nemrég.</string>
+    <string name="settings">Beállítások</string>
+    <string name="pref_header_general">Általános</string>
+    <string name="pref_header_loc_update">Helyfrissítések</string>
+    <string name="pref_loc_update_dist">Távolságalapú frissítések</string>
+    <string name="pref_loc_update_time">Időalapú frissítések</string>
+    <string name="pref_enable_sensors">Elérhető érzékelők használata</string>
+    <string name="pref_geo_orientation_sensor">Alapértelmezett tájolási érzékelő</string>
+    <string name="sensors_enabled">Engedélyezve: gyorsabb frissítések és pontosabb irány</string>
+    <string name="sensors_disabled">Letiltva: kíméli az akkumulátort</string>
+    <string name="disabled">Letiltva</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d méter</item>
+        <item quantity="other">%d méter</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d másodperc</item>
+        <item quantity="other">%d másodperc</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d perc</item>
+        <item quantity="other">%d perc</item>
+    </plurals>
+    <string name="about">Névjegy</string>
+    <string name="version">Verzió</string>
+    <string name="build_time">Összeállítva ekkor: %s.</string>
+    <string name="app_website">További információkért látogassa meg a &lt;a href=%1$s&gt;webhelyet&lt;/a&gt;.</string>
+    <string name="copyright">Szerzői jog</string>
+    <string name="license">Ez a program szabad szoftver; terjeszthető illetve módosítható a Free Software Foundation által kiadott GNU General Public License dokumentumában leírtak; akár a licenc 3-as, akár (tetszőleges) későbbi változata szerint.
+\n
+\nEz a program abban a reményben kerül közreadásra, hogy hasznos lesz, de minden egyéb GARANCIA NÉLKÜL, az ELADHATÓSÁGRA vagy VALAMELY CÉLRA VALÓ ALKALMAZHATÓSÁGRA való származtatott garanciát is beleértve. További részleteket a GNU General Public License tartalmaz.
+\n
+\nA felhasználónak a programmal együtt meg kell kapnia a GNU General Public License egy példányát; ha mégsem kapta meg, akkor tekintse meg a <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a> oldalon.</string>
+    <string name="notice_location_permission_required">Hozzáférés lehetővé tétele az eszköz helyzetéhez a helyzetfrissítések engedélyezéséhez</string>
+    <string name="notice_location_no_permission">A helyzetfrissítések ki vannak kapcsolva: hozzáférés megtagadva</string>
+    <string name="notice_location_permission_granted">Hozzáférés megadva a helyzetfrissítésekhez</string>
+    <string name="dialog_enter_location">Név és GPS koordináták megadása a helyzethez:</string>
+    <string name="location_latitude">Hely szélessége</string>
+    <string name="location_longitude">Hely hosszúsága</string>
+    <string name="enter_location">Cél megadása kézzel</string>
+    <string name="enter_location_invalid_latitude">A szélesség az érvényes tartományon kívül esik [-90°, 90°]</string>
+    <string name="enter_location_invalid_longitude">A hosszúság az érvényes tartományon kívül esik [-180°, 180°]</string>
+</resources>
