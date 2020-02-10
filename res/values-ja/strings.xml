@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><string name="direction">方向</string>
+<resources>
+    <string name="direction">方向</string>
     <string name="copyright">著作権</string>
     <plurals name="distance_meter">
         <item quantity="other">%d メートル</item>
@@ -90,7 +91,7 @@
  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n
  \n
  You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="bearing">方角</string>
+    <string name="bearing">方角</string>
     <string name="destination_renamed">場所の名前を変更しました</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
@@ -98,4 +99,10 @@
     <string name="notice_location_permission_required">位置情報を更新するため、このデバイスの位置情報へのアクセスを許可します</string>
     <string name="notice_location_no_permission">位置情報の更新がオフになっています: アクセスが拒否されました</string>
     <string name="notice_location_permission_granted">位置情報の更新のアクセスが許可されました</string>
+    <string name="dialog_enter_location">場所の名前とGPS座標を入力:</string>
+    <string name="location_latitude">場所の緯度</string>
+    <string name="location_longitude">場所の経度</string>
+    <string name="enter_location">目的地を手動で入力</string>
+    <string name="enter_location_invalid_latitude">緯度が有効範囲外 [-90°,90°]</string>
+    <string name="enter_location_invalid_longitude">経度が有効範囲外 [-180°,180°]</string>
 </resources>
