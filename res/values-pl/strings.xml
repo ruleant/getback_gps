@@ -102,4 +102,6 @@
     <string name="dialog_enter_location">Wpisz nazwę i współrzędne GPS dla twojej lokalizacji:</string>
     <string name="location_latitude">Szerokość lokalizacji</string>
     <string name="location_longitude">Długość lokalizacji</string>
+    <string name="notice_location_permission_granted">Udzielono pozwolenia na aktualizacje lokalizacji</string>
+    <string name="notice_location_permission_required">Zezwól na dostęp do lokalizacji tego urządzenia, aby umożliwić aktualizacje lokalizacji</string>
 </resources>
