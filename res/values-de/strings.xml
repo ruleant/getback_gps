@@ -88,7 +88,7 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="cancel">Abbrechen</string>
     <string name="rename_destination">Ziel umbenennen</string>
     <string name="rename_destination_disabled">Ziel kann nicht umbenannt werden, speichern Sie zuerst den Ort</string>
-    <string name="location_name_stored">Ort \'%s\' gespeichert</string>
+    <string name="location_name_stored">Ort „%s“ gespeichert</string>
     <string name="destination_renamed">Ziel umbenannt</string>
     <string name="no_location_name">Ortsname wurde nicht festgelegt</string>
     <string name="name">Name</string>
