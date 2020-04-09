@@ -89,7 +89,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="sensor_bearing_offset">Correction du capteur de cap</string>
     <string name="dialog_store_location_name">Saisissez un nom pour votre position :</string>
     <string name="cancel">Annuler</string>
-    <string name="location_name_stored">Position \"%s\" enregistrée</string>
+    <string name="location_name_stored">Position « %s » enregistrée</string>
     <string name="no_location_name">Le nom de la position n\'a pas été renseigné</string>
     <string name="location_name">Nom de la position</string>
     <string name="dialog_rename_destination">Saisissez un nouveau nom pour votre destination :</string>
