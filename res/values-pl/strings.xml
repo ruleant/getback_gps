@@ -104,4 +104,6 @@
     <string name="location_longitude">Długość lokalizacji</string>
     <string name="notice_location_permission_granted">Udzielono pozwolenia na aktualizacje lokalizacji</string>
     <string name="notice_location_permission_required">Zezwól na dostęp do lokalizacji tego urządzenia, aby umożliwić aktualizacje lokalizacji</string>
+    <string name="notice_location_no_permission">Aktualizacje lokalizacji są wyłączone: Odmowa dostępu</string>
+    <string name="enter_location">Wprowadź cel ręcznie</string>
 </resources>
