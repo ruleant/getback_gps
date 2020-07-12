@@ -36,13 +36,13 @@
     <string name="dialog_rename_destination">Wybierz nową nazwę dla swojego celu:</string>
     <string name="location_name">Nazwa lokalizacji</string>
     <string name="store_location">Zapisz lokalizację</string>
-    <string name="location_name_stored">"Lokalizacja  \'%s\' została zapisana"</string>
+    <string name="location_name_stored">Lokalizacja \'%s\' została zapisana</string>
     <string name="no_destination">Nie wybrano celu</string>
     <string name="inaccurate_direction">Zacznij się poruszać, aby uzyskać dokładny kierunek do swojego celu</string>
     <string name="notice_no_dest">Zapisz swoją pozycję, aby ustawić cel</string>
     <string name="store_location_disabled">Nie można zapisać lokalizacji, jeżeli nieznane jest obecne położenie</string>
     <string name="no_location_name">Nazwa lokalizacji nie została wybrana</string>
-    <string name="app_website">"Aby uzyskać więcej informacji, odwiedź stronę  &lt;a href=%1$s&gt;website&lt;/a&gt;."</string>
+    <string name="app_website">Aby uzyskać więcej informacji, odwiedź stronę &lt;a href=%1$s&gt;website&lt;/a&gt;.</string>
     <string name="pref_loc_update_time">Aktualizacje oparte na czasie</string>
     <string name="pref_loc_update_dist">Aktualizacje oparte na kierunku</string>
     <string name="inaccurate">Niedokładna</string>
