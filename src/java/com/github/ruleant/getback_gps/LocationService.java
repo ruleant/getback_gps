@@ -574,10 +574,7 @@ public class LocationService extends Service
         return mNavigator.getRelativeDirection();
     }
 
-    /*
-     * Refactor4Green: CACHE ENERGY PATTERN NOT APPLIED
-     * Something went wrong and the pattern could not be applied!
-     */ /**
+    /**
      * Method to register location updates with the current location provider.
      *
      * If the requested provider is not available on the device,
