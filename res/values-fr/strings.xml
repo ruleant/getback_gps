@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="license">Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation : soit la version 3 de cette licence, soit toute version ultérieure.\n
-\n
-Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.\n
-\n
-Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme; si ce n’est pas le cas, consultez : <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="license">Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation : soit la version 3 de cette licence, soit toute version ultérieure.
+\n 
+\n Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.
+\n 
+\n Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : <a href="http ://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
     <string name="app_desc">Retournez sur un lieu déjà visité grâce à sa position GPS.</string>
     <string name="inaccurate_location">Votre position actuelle est imprécise</string>
     <string name="notice_no_dest">Enregistrez votre position comme destination</string>
