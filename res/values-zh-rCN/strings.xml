@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="app_desc">使用 GPS 坐标找出您应该怎样回到以前曾造访的位置。</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">使用 GPS 坐标找出您应该怎样回到以前曾造访的位置。</string>
     <string name="inaccurate_location">您的当前位置不准确</string>
     <string name="notice_no_dest">存储您的位置以设置一个目的地</string>
     <string name="inaccurate_direction">开始移动以获取前往您的目的地的精确方向</string>
@@ -69,17 +70,17 @@
     <string name="sensors_disabled">停用：节约电量</string>
     <string name="disabled">已停用</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d 米</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d 米</item>
+        <item quantity="other"/>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d 秒</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d 秒</item>
+        <item quantity="other"/>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d 分</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d 分</item>
+        <item quantity="other"/>
+    </plurals>
     <string name="about">关于</string>
     <string name="version">版本</string>
     <string name="build_time">构建于 %s。</string>
@@ -96,4 +97,13 @@
     <string name="license">此程序是自由软件：您可以按照 GNU 通用公共许可证 第三版或更新版本的条款重新分发和或修改它。\n
 \n This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.\n
 \n You should have received a copy of the GNU General Public License along with this program. If not, see <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="enter_location">请手动输入目的地</string>
+    <string name="enter_location_invalid_longitude">经度超出合理范围 [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">纬度超出合理范围 [-90°,90°]</string>
+    <string name="location_longitude">位置的经度</string>
+    <string name="location_latitude">位置的纬度</string>
+    <string name="dialog_enter_location">为您的位置输入名称和 GPS 坐标：</string>
+    <string name="notice_location_permission_granted">授权进行位置更新</string>
+    <string name="notice_location_no_permission">位置更新关闭：拒绝访问</string>
+    <string name="notice_location_permission_required">允许访问本设备的位置，来允许位置更新</string>
 </resources>
