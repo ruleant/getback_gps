@@ -112,4 +112,6 @@
     <string name="distance_km">км</string>
     <string name="distance_m">м</string>
     <string name="notice_location_permission_required">Разрешите доступ к местоположению этого устройства, чтобы включить обновление местоположения</string>
+    <string name="notice_location_permission_granted">Разрешение на обновление местоположения получено</string>
+    <string name="notice_location_no_permission">Обновление местоположения отключено: разрешение отклонено</string>
 </resources>
