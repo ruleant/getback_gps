@@ -7,7 +7,7 @@ GetBack GPS for Android
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
 
-[![Translation status](https://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](https://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![Translation status](https://hosted.weblate.org/widgets/getback_gps/-/svg-badge.svg)](https://hosted.weblate.org/engage/getback_gps/)
 [![todofy badge](https://todofy.org/b/ruleant/getback_gps)](https://todofy.org/r/ruleant/getback_gps)
 [![Stack Share](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ruleant/getback-gps)
 
