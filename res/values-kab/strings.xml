@@ -1,2 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="license">Ahil-a d ilelli: tzemreḍ ad t-tezzuzreḍ neɣ ad t-tbeddleḍ ddaw n turagt GNU General Public License akken i d-yeffeɣ sɣur Free Software Foundation, ama d llqem wis 3 n Turagt, neɣ llqem amaynut.
+\n
+\n Ahila-a yettwazuzer d asirem akken ad yenfeɛ, maca ur yesɛi ara ṭṭmana; ula d ṭṭmana n UZENZI-is neɣ i YISWI-NNIḌEN. Wali TURAGT TAMATUT TAZAYAZT GNU ɣef wugar n yisallen.
+\n
+\n Ilaq ad tremseḍ anɣel n Turagt Tamatut Tazayazt GNU akked wahil-a. Neɣ ma ulac, wali <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="copyright">Copyright</string>
+    <string name="app_website">Ugar n telɣut, wali &lt;a href=%1$s&gt;asmel web&lt;/a&gt;.</string>
+    <string name="build_time">Llqem n %s.</string>
+    <string name="version">Llqem</string>
+    <string name="about">Ɣef</string>
+    <plurals name="time_minutes">
+        <item quantity="one">%d n tesdat</item>
+        <item quantity="other">%d n tisdatin</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d n tasint</item>
+        <item quantity="other">%d n tasinin</item>
+    </plurals>
+    <plurals name="distance_meter">
+        <item quantity="one">%d n umitr</item>
+        <item quantity="other">%d n yimitren</item>
+    </plurals>
+    <string name="disabled">Insa</string>
+    <string name="sensors_disabled">Insa: Aḥraz n uẓru</string>
+    <string name="sensors_enabled">Irmed: Ileqman ad ggten, tanila d tusdidt ugar</string>
+    <string name="pref_geo_orientation_sensor">Amaṭṭaf n uwelleh amezwer</string>
+    <string name="pref_enable_sensors">Seqdec imaṭṭafen yellan</string>
+    <string name="pref_loc_update_time">Smiren s useqdec n wakud</string>
+    <string name="pref_loc_update_dist">Smiren s useqdec n umeccaq</string>
+    <string name="pref_header_loc_update">Asmiren n wadig</string>
+    <string name="pref_header_general">Amatu</string>
+    <string name="settings">Iɣewwaṛen</string>
+    <string name="loc_updated_not_recent">Adig ur yettwaleqqem ara melmi kan.</string>
+    <string name="loc_updated_recent">Adig yettwaleqqem melmi kan.</string>
+    <string name="notset">Arbadu</string>
+    <string name="none">Ula yiwen</string>
+    <string name="raw">Ur yemsil ara</string>
+    <string name="direction_relative">Icudd ɣer tnila tamirant</string>
+    <string name="to_dest">Ɣer wawwaḍ</string>
+    <string name="destination">Awwaḍ</string>
+    <string name="timestamp">Azemzakud</string>
+    <string name="accuracy">Tiseddi</string>
+    <string name="travel_direction_backwards">Ɣer deffir</string>
+    <string name="travel_direction_forward">Ɣer zdat</string>
+    <string name="travel_direction">Tanila n tikli</string>
+    <string name="sensor_bearing_offset">Aseɣti n umaṭṭaf n yidis</string>
+    <string name="bearing">Idis</string>
+    <string name="speed">Arured</string>
+    <string name="altitude">Awrir</string>
+    <string name="longitude_west_unit">M</string>
+    <string name="longitude_east_unit">S</string>
+    <string name="longitude">Tazegrart</string>
+    <string name="latitude_south_unit">N</string>
+    <string name="latitude_north_unit">G</string>
+    <string name="latitude">Tarrut</string>
+    <string name="curr_location">Adig amiran (aneggaru yettwassnen)</string>
+    <string name="provider_no_support">Assaǧǧaw ur yettwasefrak ara.</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="loc_provider_network">Azeṭṭa (Isefka izirazen/WiFi)</string>
+    <string name="provider">Asaǧǧaw</string>
+    <string name="name">Isem</string>
+    <string name="location_provider">Asaǧǧaw n wadig</string>
+    <string name="activity_details">Talqayt</string>
+    <string name="menu_details">Talqayt ɣef wadig</string>
+    <string name="no_location_name">Isem n wadig ur d-ittunefk ara</string>
+    <string name="destination_renamed">Awwaḍ ibeddel isem</string>
+    <string name="location_name_stored">Adig \'%s\' yettwasekles</string>
+    <string name="location_stored">Adig yettwasekles</string>
+    <string name="rename_destination_disabled">Ur izmir ara ad ibeddel awwaḍ acku ulac adig deg ccfawat</string>
+    <string name="enter_location_invalid_longitude">Tazegrart teffeɣ i talalst tameɣtut [-90°,90°]</string>
+    <string name="enter_location_invalid_latitude">Tarrut teffeɣ i talalst tameɣtut [-90°,90°]</string>
+    <string name="store_location_disabled">Ur izmir ara ad isekles adig acku ulac adig usdid</string>
+    <string name="rename_destination">Beddel isem n wawwaḍ</string>
+    <string name="enter_location">Sekcem awwaḍ s ufus</string>
+    <string name="store_location">Sekles adig</string>
+    <string name="cancel">Sefsex</string>
+    <string name="location_longitude">Tazegrart n wadig</string>
+    <string name="location_latitude">Tarrut n wadig</string>
+    <string name="location_name">Isem n wadig</string>
+    <string name="dialog_rename_destination">Sekcem isem amaynut i wawwaḍ-ik:</string>
+    <string name="dialog_enter_location">Sekcem isem akked tesmidag GPS n wadig-ik:</string>
+    <string name="dialog_store_location_name">Sekcem isem i wadig-ik:</string>
+    <string name="refresh">Smiren</string>
+    <string name="unknown">Arussin</string>
+    <string name="no_destination">Ulac awwaḍ yettwafernen</string>
+    <string name="destination_reached">Deg wawwaḍ</string>
+    <string name="inaccurate">Arusdid</string>
+    <string name="location_updated">Adig yettwaleqqem</string>
+    <string name="northwest_unit">GM</string>
+    <string name="southwest_unit">NM</string>
+    <string name="southeast_unit">NS</string>
+    <string name="northeast_unit">GS</string>
+    <string name="direction">Tanila</string>
+    <string name="height_difference">Amgired deg uwrir</string>
+    <string name="distance_km">km</string>
+    <string name="distance_m">m</string>
+    <string name="distance">Ameccaq</string>
+    <string name="current_bearing">Idis amiran</string>
+    <string name="speed_kph">km/sr</string>
+    <string name="current_speed">Arured amiran</string>
+    <string name="notice_location_permission_granted">Tasiregt yettunefken akken ad yettwaleqqem wadig</string>
+    <string name="notice_location_no_permission">Ileqman n wadig nsan: Tasiregt tettwagdel</string>
+    <string name="notice_location_permission_required">Sireg anekcum ɣer GPS deg yibenk-ik akken ad tawiḍ adig-ik</string>
+    <string name="notice_destination_reached">Tewwḍeḍ ɣer wanida i tettedduḍ</string>
+    <string name="inaccurate_direction">Ddu akken ad tban tnila tusdidt arma d awwaḍ</string>
+    <string name="notice_no_dest">Sekles adig-ik am akken d awwaḍ</string>
+    <string name="inaccurate_location">Adig-ik akka tura ur iban ara</string>
+    <string name="app_desc">Uɣal ɣer umkan iɣer terziḍ yakan s useqdec n wadig GPS.</string>
+</resources>
