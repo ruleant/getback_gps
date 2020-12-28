@@ -76,10 +76,10 @@
     <string name="altitude">Wysokość</string>
     <string name="location_updated">Zaktualizowano lokalizację</string>
     <plurals name="distance_meter">
-        <item quantity="one">metr</item>
-        <item quantity="few">metrów</item>
-        <item quantity="many">metry</item>
-        <item quantity="other"/>
+        <item quantity="one">%d metr</item>
+        <item quantity="few">%d metrów</item>
+        <item quantity="many">%d metry</item>
+        <item quantity="other">%d metry</item>
     </plurals>
     <string name="bearing">Kierunek</string>
     <string name="sensor_bearing_offset">Czujnik przesunięcia kierunku</string>
