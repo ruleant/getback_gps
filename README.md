@@ -53,7 +53,7 @@ Translation
 
 You can help translating the app to your own language : <https://hosted.weblate.org/projects/getback_gps/strings>.
 
-[![Translation status](https://hosted.weblate.org/widgets/getback_gps-287x66-grey.png)](https://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![Translation status](https://hosted.weblate.org/widgets/getback_gps/-/multi-auto.svg)](https://hosted.weblate.org/engage/getback_gps/)
 
 Is your language not listed? Follow the instructions on the [New translation](https://hosted.weblate.org/projects/getback_gps/strings/#new-lang) tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
 
