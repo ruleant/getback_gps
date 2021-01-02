@@ -1,6 +1,5 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="app_desc">Najděte svoji cestu zpět k dříve navštíveným místům pomocí GPS souřadnic.</string>
     <string name="none">Žádný</string>
     <string name="unknown">Neznámý</string>
@@ -35,7 +34,7 @@
 Tento program je rozšiřován v naději, že bude užitečný, avšak BEZ JAKÉKOLIV ZÁRUKY. Neposkytují se ani odvozené záruky PRODEJNOSTI anebo VHODNOSTI PRO URČITÝ ÚČEL. Další podrobnosti hledejte v Obecné veřejné licenci GNU.\n
 \n
 Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem. Pokud se tak nestalo, najdete ji zde: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses/</a>.</string>
-    <string name="loc_provider_network">síť (mobilní/WiFi)</string>
+    <string name="loc_provider_network">Síť (mobilní/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="pref_header_general">Obecné</string>
     <string name="copyright">Copyright</string>
@@ -82,20 +81,20 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="travel_direction_forward">Dopředu</string>
     <string name="travel_direction_backwards">Zpět</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d metr</item>
-	<item quantity="few">%d metry</item>
-	<item quantity="other">%d metrů</item>
-</plurals>
+        <item quantity="one">%d metr</item>
+        <item quantity="few">%d metry</item>
+        <item quantity="other">%d metrů</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d sekunda</item>
-	<item quantity="few">%d sekundy</item>
-	<item quantity="other">%d sekund</item>
-</plurals>
+        <item quantity="one">%d sekunda</item>
+        <item quantity="few">%d sekundy</item>
+        <item quantity="other">%d sekund</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minuta</item>
-	<item quantity="few">%d minuty</item>
-	<item quantity="other">%d minut</item>
-</plurals>
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minuty</item>
+        <item quantity="other">%d minut</item>
+    </plurals>
     <string name="dialog_rename_destination">Zadejte nový název pro cíl:</string>
     <string name="rename_destination">Přejmenovat cíl</string>
     <string name="rename_destination_disabled">Nelze přejmenovat cíl, nejprve umístění uložte</string>
@@ -103,4 +102,4 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Výškový rozdíl</string>
-    </resources>
+</resources>
