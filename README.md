@@ -1,7 +1,7 @@
 GetBack GPS for Android
 =======================
 
-[![GetBack GPS](https://img.shields.io/badge/release-v0.6-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
+[![GetBack GPS](https://img.shields.io/badge/release-v0.7-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
 [![Codacy Badge](https://api.codacy.com/project/badge/0040e146618e41ac9c39d04c7b1a3fef)](https://www.codacy.com/app/ruleant/getback_gps)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
@@ -25,7 +25,8 @@ Features
     - use best/most accurate location provider
     - get location updates automatically (based on a time interval or change of location) or
     - get location on demand (by manually refreshing)
-- save a location and give it a name
+- save current location as destination
+- add a destination with manual coordinates
 - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
 - indicate current speed and current bearing
 - use built-in sensors to get more accurate and quicker updated bearing
