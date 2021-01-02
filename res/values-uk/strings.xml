@@ -31,7 +31,7 @@
     <string name="loc_provider_network">Мережа (Стільникова /Wi-Fi)</string>
     <string name="sensors_disabled">Вимкнено: Зберігає батарею</string>
     <string name="northeast_unit">ПнС</string>
-    <string name="build_time">Побудовано за %с.</string>
+    <string name="build_time">Побудовано за %s.</string>
     <string name="notice_no_dest">Збережіть Ваше розташування щоб встановити напрямок</string>
     <string name="unknown">Невідомий</string>
     <string name="direction_relative">відносно поточного курсу</string>
