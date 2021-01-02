@@ -23,6 +23,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola Moto X4', '--vendorid', '0x22b8', '--productid', '0x2e76']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola PCS', '--vendorid', '0x22b8', '--productid', '0x2e81']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola PCS', '--vendorid', '0x22b8', '--productid', '0x2e84']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Huawei Technologies Co., Ltd.', '--vendorid', '0x12d1', '--productid', '0x107e']
   end
 
   # Disable automatic box update checking. If you disable this, then
