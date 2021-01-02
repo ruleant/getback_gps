@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="enter_location_invalid_longitude">Pituuspiiri on sallittujen rajojen ulkopuolella [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">Leveyspiiri on sallittujen rajojen ulkopuolella [-90°,90°]</string>
+    <string name="store_location_disabled">Sijaintia ei voi tallentaa jos paikkatietoa ei ole saatavilla</string>
+    <string name="rename_destination">Uudelleennimeä kohde</string>
+    <string name="enter_location">Syötä kohde manuaalisesti</string>
+    <string name="store_location">Tallenna sijainti</string>
+    <string name="cancel">Peruuta</string>
+    <string name="location_longitude">Paikan pituuspiiri</string>
+    <string name="location_latitude">Paikan leveyspiiri</string>
+    <string name="location_name">Paikan nimi</string>
+    <string name="dialog_rename_destination">Syötä uusi nimi kohteellesi:</string>
+    <string name="dialog_enter_location">Syötä tämän hetkisen sijaintisi nimi ja GPS-koordinaatit:</string>
+    <string name="dialog_store_location_name">Syötä nykyisen sijaintisi nimi:</string>
+    <string name="refresh">Päivitä</string>
+    <string name="unknown">Tuntematon</string>
+    <string name="no_destination">Määränpäätä ei asetettu</string>
+    <string name="destination_reached">Perillä</string>
+    <string name="inaccurate">Epätarkka</string>
+    <string name="location_updated">Sijainti päivitetty</string>
+    <string name="northwest_unit">NW</string>
+    <string name="southwest_unit">SW</string>
+    <string name="southeast_unit">SE</string>
+    <string name="northeast_unit">NE</string>
+    <string name="direction">Suunta</string>
+    <string name="height_difference">Korkeusero</string>
+    <string name="distance_km">km</string>
+    <string name="distance_m">m</string>
+    <string name="distance">Etäisyys</string>
+    <string name="current_bearing">Hetkellinen suunta</string>
+    <string name="speed_kph">km/h</string>
+    <string name="current_speed">Hetkellinen nopeus</string>
+    <string name="notice_no_dest">Tallenna sijaintisi kohteeksi</string>
+    <string name="notice_destination_reached">Olet kohteessa</string>
+    <string name="inaccurate_direction">Liiku saadaksesi tarkan suunnan kohteeseesi</string>
+    <string name="inaccurate_location">Tämänhetkinen sijaintietosi on epätarkka</string>
+    <string name="app_desc">Löydä takaisin aiemmin vierailtuun paikkaan GPS-koordinaattien avulla.</string>
+</resources>

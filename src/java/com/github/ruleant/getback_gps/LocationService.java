@@ -1,7 +1,8 @@
 /**
  * Location Service
  *
- * Copyright (C) 2012-2019 Dieter Adriaenssens
+ * Copyright (C) 2012-2021 Dieter Adriaenssens
+ * Copyright (C) 2019 Timotheos Constambeys
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -422,10 +423,35 @@ public class LocationService extends Service
      */
     public final void storeCurrentLocation(final String locationName) {
         AriadneLocation currentLocation = getLocation();
+        storeLocation(locationName, currentLocation);
+    }
+
+    /**
+     * Store location.
+     *
+     * @param locationName Descriptive name of the location to store
+     * @param latitude GPS Location latitude
+     * @param longitude GPS Location longitude
+     */
+    public final void storeLocation(final String locationName, final double latitude, final double longitude) {
+        AriadneLocation currentLocation = new AriadneLocation("");
+        currentLocation.setLatitude(latitude);
+        currentLocation.setLongitude(longitude);
+        storeLocation(locationName, currentLocation);
+    }
+
+    /**
+     * Store location.
+     *
+     * @param locationName Descriptive name of the location to store
+     * @param location Location Details (AriadneLocation object)
+     */
+    public final void storeLocation(final String locationName, final AriadneLocation location) {
+
         String locationStoredMessage = "";
 
         // don't store current location if it is not set
-        if (currentLocation != null && mStoredDestination != null) {
+        if (location != null && mStoredDestination != null) {
             // check if a location name was entered
             if (locationName == null || locationName.trim().length() == 0) {
                 // display a message if location name is not entered
@@ -439,7 +465,7 @@ public class LocationService extends Service
                 locationStoredMessage
                         = getResources().getString(R.string.location_stored);
             } else {
-                currentLocation.setName(locationName);
+                location.setName(locationName);
 
                 // set message to show when location is stored
                 locationStoredMessage = String.format(
@@ -448,7 +474,7 @@ public class LocationService extends Service
                 );
             }
 
-            mStoredDestination.save(currentLocation);
+            mStoredDestination.save(location);
             setDestination(mStoredDestination.getLocation());
             Toast.makeText(
                     this,

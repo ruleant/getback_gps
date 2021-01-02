@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><string name="app_desc">Leia GPS koordinaatide abil tagasitee eelnevalt külatatud kohta.</string>
+<resources>
+    <string name="app_desc">Leia GPS koordinaatide abil tagasitee eelnevalt külatatud kohta.</string>
     <string name="inaccurate_location">Su praegune asukoht ei ole täpne</string>
     <string name="notice_no_dest">Sihtkoha määramiseks salvesta oma asukoht</string>
     <string name="inaccurate_direction">Hakka liikuma, et leida täpne suund sihtkohta</string>
@@ -77,17 +78,17 @@
     <string name="sensors_disabled">Keelatud: säästab energiat</string>
     <string name="disabled">Keelatud</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d meeter</item>
-	<item quantity="other">%d meetrit</item>
-</plurals>
+        <item quantity="one">%d meeter</item>
+        <item quantity="other">%d meetrit</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d sekund</item>
-	<item quantity="other">%d sekundit</item>
-</plurals>
+        <item quantity="one">%d sekund</item>
+        <item quantity="other">%d sekundit</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minut</item>
-	<item quantity="other">%d minutit</item>
-</plurals>
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minutit</item>
+    </plurals>
     <string name="about">Teave</string>
     <string name="version">Versioon</string>
     <string name="build_time">Ehitatud %s.</string>
@@ -101,4 +102,10 @@
     <string name="notice_location_permission_required">Luba kasutada seadme asukohta, et võimaldada asukoha värskendamist</string>
     <string name="notice_location_no_permission">Asukoha värskendamine on välja lülitatud: juurdepääs keelatud</string>
     <string name="notice_location_permission_granted">Asukoha värskendamiseks on juurdepääs lubatud</string>
+    <string name="enter_location_invalid_longitude">Pikkus ei ole lubatud vahemikus [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">Laius ei ole lubatud vahemikus [-90°,90°]</string>
+    <string name="enter_location">Sisesta sihtkoht käsitsi</string>
+    <string name="location_longitude">Asukoha pikkus</string>
+    <string name="location_latitude">Asukoha laius</string>
+    <string name="dialog_enter_location">Sisesta oma asukoha nimi ja GPS koordinaadid:</string>
 </resources>

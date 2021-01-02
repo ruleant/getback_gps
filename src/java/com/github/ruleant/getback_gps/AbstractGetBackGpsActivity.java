@@ -1,7 +1,8 @@
 /**
  * Main Activity
  *
- * Copyright (C) 2012-2019 Dieter Adriaenssens
+ * Copyright (C) 2012-2021 Dieter Adriaenssens
+ * Copyright (C) 2019 Timotheos Constambeys
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -33,7 +34,6 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -281,6 +281,92 @@ abstract class AbstractGetBackGpsActivity extends Activity
                                 // User cancelled the dialog
                             }
                         });
+        // Create the AlertDialog object and display it
+        builder.create().show();
+    }
+
+    /**
+     * Called when the user clicks the Enter Location menu item.
+     * It displays a dialog, where the user enters a gps location.
+     */
+    public final void enterLocation() {
+
+        // Use the Builder class for convenient dialog construction,
+        // based on the example on
+        // https://developer.android.com/guide/topics/ui/dialogs.html
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        // Get the layout inflater
+        LayoutInflater inflater = this.getLayoutInflater();
+
+        // Inflate the layout for the dialog
+        // Pass null as the parent view because its going in the dialog layout
+        final View dialogView
+                = inflater.inflate(R.layout.dialog_location_enter, null);
+        // Get the EditText object containing the location name
+        final EditText etLocationName
+                = (EditText) dialogView.findViewById(R.id.location_name);
+        // Get the EditText object containing the latitude
+        final EditText etLocationLatitude
+                = (EditText) dialogView.findViewById(R.id.location_latitude);
+        // Get the EditText object containing the longitude
+        final EditText etLocationLongitude
+                = (EditText) dialogView.findViewById(R.id.location_longtitude);
+        // Set the layout for the dialog
+        builder.setView(dialogView)
+                .setTitle(R.string.enter_location)
+                .setPositiveButton(R.string.store_location,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                try {
+                                    String locationName
+                                            = etLocationName.getText().toString();
+                                    double locationLatitude
+                                            = Double.parseDouble(etLocationLatitude.getText().toString());
+                                    double locationLongitude
+                                            = Double.parseDouble(etLocationLongitude.getText().toString());
+
+                                    if (locationLatitude < -90 || locationLatitude > 90) {
+                                        Toast.makeText(
+                                                AbstractGetBackGpsActivity.this,
+                                                R.string.enter_location_invalid_latitude,
+                                                Toast.LENGTH_LONG
+                                        ).show();
+                                        return;
+                                    }
+
+                                    if (locationLongitude < -180.0 || locationLongitude > 180.0) {
+                                        Toast.makeText(
+                                                AbstractGetBackGpsActivity.this,
+                                                R.string.enter_location_invalid_longitude,
+                                                Toast.LENGTH_LONG
+                                        ).show();
+                                        return;
+                                    }
+
+                                    // store current location
+                                    // and refresh display
+                                    if (mBound) {
+                                        mService.storeLocation(locationName, locationLatitude, locationLongitude);
+                                    }
+                                    refreshDisplay();
+
+                                } catch (Exception ex) {
+                                    Toast.makeText(
+                                            AbstractGetBackGpsActivity.this,
+                                            ex.getMessage(),
+                                            Toast.LENGTH_LONG
+                                    ).show();
+                                }
+                            }
+                        })
+                .setNegativeButton(R.string.cancel,
+                        new DialogInterface.OnClickListener() {
+                            public void onClick(final DialogInterface dialog,
+                                                final int id) {
+                                // User cancelled the dialog
+                            }
+                        });
 
         // Create the AlertDialog object and display it
         builder.create().show();
@@ -422,6 +508,9 @@ abstract class AbstractGetBackGpsActivity extends Activity
         } else if (itemId == R.id.menu_storelocation) {
             storeLocation();
             return true;
+        } else if (itemId == R.id.menu_enterlocation) {
+            enterLocation();
+            return true;
         } else if (itemId == R.id.menu_renamedestination) {
             renameDestination();
             return true;
@@ -436,10 +525,12 @@ abstract class AbstractGetBackGpsActivity extends Activity
     @Override
     public boolean onPrepareOptionsMenu(final Menu menu) {
         MenuItem miStoreLocation = menu.findItem(R.id.menu_storelocation);
+        MenuItem miEnterLocation = menu.findItem(R.id.menu_enterlocation);
         MenuItem miRenameDest = menu.findItem(R.id.menu_renamedestination);
         if (isBound()) {
             // enable store location button if a location is set
             miStoreLocation.setEnabled(mService.getLocation() != null);
+            miEnterLocation.setEnabled(true);
             // enable store location button if a location is set
             miRenameDest.setEnabled(mService.getDestination() != null);
         }

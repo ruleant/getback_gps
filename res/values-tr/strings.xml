@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">GPS koordinatlarını kullanarak daha önce ziyaret ettiğiniz bir yere geri dönüş yolunu bulun.</string>
+    <string name="inaccurate_location">Geçerli konumunuz yanlış</string>
+    <string name="notice_no_dest">Hedef belirlemek için konumunuzu depola</string>
+    <string name="inaccurate_direction">Hedefinize doğru bir yön bulmak için hareket etmeye başlayın</string>
+    <string name="notice_destination_reached">Gideceğiniz yerdesiniz</string>
+    <string name="notice_location_permission_required">Konum güncellemelerini etkinleştirmek için bu cihazın konumuna erişime izin ver</string>
+    <string name="notice_location_no_permission">Konum güncellemeleri kapatıldı: İzin reddedildi</string>
+    <string name="notice_location_permission_granted">Konum güncellemeleri için izin verildi</string>
+    <string name="current_speed">Geçerli hız</string>
+    <string name="speed_kph">km/sa</string>
+    <string name="current_bearing">Geçerli yön</string>
+    <string name="distance">Mesafe</string>
+    <string name="distance_m">m</string>
+    <string name="distance_km">km</string>
+    <string name="height_difference">Yükseklik farkı</string>
+    <string name="direction">Yön</string>
+    <string name="northeast_unit">KD</string>
+    <string name="southeast_unit">GD</string>
+    <string name="southwest_unit">GB</string>
+    <string name="northwest_unit">KB</string>
+    <string name="location_updated">Konum güncellendi</string>
+    <string name="inaccurate">Yanlış</string>
+    <string name="destination_reached">Hedefte</string>
+    <string name="no_destination">Hedef ayarlanmadı</string>
+    <string name="unknown">Bilinmeyen</string>
+    <string name="refresh">Yenile</string>
+    <string name="dialog_store_location_name">Geçerli konumunuz için bir ad girin:</string>
+    <string name="dialog_rename_destination">Hedefiniz için yeni bir ad girin:</string>
+    <string name="location_name">Konum adı</string>
+    <string name="cancel">İptal</string>
+    <string name="rename_destination">Hedefi yeniden adlandır</string>
+    <string name="store_location">Konumu Kaydet</string>
+    <string name="store_location_disabled">Geçerli konum yoksa konum kaydedilemiyor</string>
+    <string name="rename_destination_disabled">Hedef yeniden adlandırılamıyor, önce bir yer kaydet</string>
+    <string name="location_stored">Konum kaydedildi</string>
+    <string name="location_name_stored">Konum \'%s\' kaydedildi</string>
+    <string name="destination_renamed">Hedef yeniden adlandırıldı</string>
+    <string name="no_location_name">Konum adı belirtilmedi</string>
+    <string name="menu_details">Konum bilgileri</string>
+    <string name="activity_details">Ayrıntılar</string>
+    <string name="location_provider">Konum Sağlayıcı</string>
+    <string name="name">Adı</string>
+    <string name="provider">Sağlayıcı</string>
+    <string name="loc_provider_network">Ağ (Cep telefonu/Wi-Fi)</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="provider_no_support">Sağlayıcı desteklenmiyor.</string>
+    <string name="curr_location">Geçerli (son bilinen) konum</string>
+    <string name="latitude">Enlem</string>
+    <string name="latitude_north_unit">K</string>
+    <string name="latitude_south_unit">G</string>
+    <string name="longitude">Boylam</string>
+    <string name="longitude_east_unit">D</string>
+    <string name="longitude_west_unit">B</string>
+    <string name="altitude">Rakım</string>
+    <string name="speed">Hız</string>
+    <string name="bearing">Yön</string>
+    <string name="sensor_bearing_offset">Sensör bazlı yön ofseti</string>
+    <string name="travel_direction">Seyahat yönü</string>
+    <string name="travel_direction_forward">İleri</string>
+    <string name="travel_direction_backwards">Geriye</string>
+    <string name="accuracy">Doğruluk</string>
+    <string name="timestamp">Zaman damgası</string>
+    <string name="destination">Hedef</string>
+    <string name="to_dest">Hedefe</string>
+    <string name="direction_relative">mevcut başlığa göre</string>
+    <string name="raw">Biçimlendirilmemiş</string>
+    <string name="none">Yok</string>
+    <string name="notset">Ayarlı değil</string>
+    <string name="loc_updated_recent">Konum yakın zamanda güncellendi.</string>
+    <string name="loc_updated_not_recent">Konum yakın zamanda güncellenmedi.</string>
+    <string name="settings">Ayarlar</string>
+    <string name="pref_header_general">Genel</string>
+    <string name="pref_header_loc_update">Konum Güncellemeleri</string>
+    <string name="pref_loc_update_dist">Mesafe tabanlı güncellemeler</string>
+    <string name="pref_loc_update_time">Zaman bazlı güncellemeler</string>
+    <string name="pref_enable_sensors">Kullanılabilir sensörleri kullan</string>
+    <string name="pref_geo_orientation_sensor">Varsayılan yönlendirme sensörü</string>
+    <string name="sensors_enabled">Etkin: Daha hızlı güncellemeler ve daha doğru yön</string>
+    <string name="sensors_disabled">Devre dışı: Güç tasarrufu sağlar</string>
+    <string name="disabled">Devre dışı</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d metre</item>
+        <item quantity="other">%d metre</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">%d saniye</item>
+        <item quantity="other">%d saniye</item>
+    </plurals>
+    <plurals name="time_minutes">
+        <item quantity="one">%d dakika</item>
+        <item quantity="other">%d dakika</item>
+    </plurals>
+    <string name="about">Hakkında</string>
+    <string name="version">Sürüm</string>
+    <string name="build_time">%s üzerine yapılandırıldı.</string>
+    <string name="app_website">Daha fazla bilgi için &lt;a href=%1$s&gt;web sitesi&lt;/a&gt;ni ziyaret edin.</string>
+    <string name="copyright">Telif hakkı</string>
+    <string name="license">Bu program ücretsiz bir yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı koşulları altında, Lisansın 3. sürümü veya daha sonraki sürümlerinde yeniden dağıtabilir ve / veya değiştirebilirsiniz. 
+\n
+\n Bu program faydalı olacağı umuduyla dağıtılmıştır, ancak HİÇBİR GARANTİSİ YOKTUR; BELİRLİ BİR AMACA UYGUNLUK veya SATILABİLİRLİK zımni garantisi olmadan. Daha fazla bilgi için GNU Genel Kamu Lisansına bakınız. 
+\n
+\n Bu programla birlikte GNU Genel Kamu Lisansının bir kopyasını almış olmalısınız. Değilse, <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a> adresine bakınız.</string>
+    <string name="dialog_enter_location">Konumunuz için bir ad ve GPS koordinatı girin:</string>
+    <string name="location_latitude">Konum enlemi</string>
+    <string name="location_longitude">Konum boylamı</string>
+    <string name="enter_location">Hedefi manuel olarak girin</string>
+    <string name="enter_location_invalid_latitude">Enlem geçerli aralığın dışında [-90°,90°]</string>
+    <string name="enter_location_invalid_longitude">Boylam geçerli aralığın dışında [-180°,180°]</string>
+</resources>

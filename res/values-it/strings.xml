@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_desc">Ritorna a una posizione visitata precedentemente usando le coordinate GPS.</string>
+    <string name="app_desc">Ritorna a una posizione visitata precedentemente usando le coordinate GPS.</string>
     <string name="inaccurate_location">GPS non attivo o rilevamento posizione in corso</string>
     <string name="notice_no_dest">Memorizza la tua posizione per impostare una destinazione</string>
     <string name="notice_destination_reached">Sei a destinazione</string>
@@ -73,20 +73,20 @@
  Questo software è distribuito nella speranza che sia utile, ma SENZA ALCUNA GARANZIA; senza neppure la garanzia implicita di COMMERCIABILITÀ o IDONEITÀ PER UN PARTICOLARE SCOPO. Vedi la GNU General Public License per i dettagli.\n
  \n
  Se non avessi ricevuto una copia della GNU General Public License insieme a questo software la trovi all\'indirizzo <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="bearing">Rilevamento</string>
+    <string name="bearing">Rilevamento</string>
     <string name="name">Nome</string>
     <plurals name="time_minutes">
-	<item quantity="one">%d minuto</item>
-	<item quantity="other">%d minuti</item>
-</plurals>
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minuti</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d secondo</item>
-	<item quantity="other">%d secondi</item>
-</plurals>
+        <item quantity="one">%d secondo</item>
+        <item quantity="other">%d secondi</item>
+    </plurals>
     <plurals name="distance_meter">
-	<item quantity="one">%d metro</item>
-	<item quantity="other">%d metri</item>
-</plurals>
+        <item quantity="one">%d metro</item>
+        <item quantity="other">%d metri</item>
+    </plurals>
     <string name="cancel">Annulla</string>
     <string name="dialog_store_location_name">Inserire un nome per la posizione attuale:</string>
     <string name="location_name">Nome posizione</string>
@@ -99,4 +99,13 @@
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Dislivello</string>
-    </resources>
+    <string name="enter_location_invalid_longitude">La longitudine è al di fuori dell\'intervallo valido [-180°, 180°]</string>
+    <string name="enter_location_invalid_latitude">La latitudine è al di fuori dell\'intervallo valido [-90°, 90°]</string>
+    <string name="enter_location">Inserisci la destinazione manualmente</string>
+    <string name="location_longitude">Longitudine posizione</string>
+    <string name="location_latitude">Latitudine posizione</string>
+    <string name="dialog_enter_location">Inserisci un nome e le coordinate GPS per la tua posizione:</string>
+    <string name="notice_location_permission_granted">Autorizzazione concessa per gli aggiornamenti della posizione</string>
+    <string name="notice_location_no_permission">Gli aggiornamenti della posizione sono disattivati: permesso negato</string>
+    <string name="notice_location_permission_required">Consenti l\'accesso alla posizione di questo dispositivo per abilitare gli aggiornamenti della posizione</string>
+</resources>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="license">Este programa é um software livre: pode redistribuí-lo e/ou modificá-lo sob os termos da Licença Pública Geral da GNU por Free Software Foundation, seja pela versão 3 da licença, ou qualquer versão posterior.
+\n
+\n Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.
+\n 
+\n Deve ter recebido uma cópia da Lincença Pública Geral da GNU com este programa. Caso contrário, veja &lt;a href=\"http://www.gnu.org/licenses/\"&gt;www.gnu.org/licenses&lt;/a&gt;.<a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="direction_relative">Relativo ao trajeto atual</string>
+    <string name="provider_no_support">Provedor não suportado.</string>
+    <string name="notice_location_permission_required">Permitir o acesso à localização deste aparelho para ativar as atualizações de localização</string>
+    <string name="provider">Provedor</string>
+    <string name="northwest_unit">NW</string>
+    <string name="distance">Distância</string>
+    <string name="inaccurate_direction">Mova-se para obter uma orientação precisa para seu destino</string>
+    <string name="inaccurate_location">Sua localização atual é inexata</string>
+    <string name="notset">Não ajustado</string>
+    <string name="rename_destination_disabled">Incapaz de renomear, armazene um local primeiro</string>
+    <string name="longitude_west_unit">O</string>
+    <string name="raw">Sem formatação</string>
+    <string name="longitude">Longitide</string>
+    <string name="version">Versão</string>
+    <string name="location_name">Nome do local</string>
+    <string name="location_latitude">Latitude de localização</string>
+    <string name="about">Sobre</string>
+    <string name="height_difference">Diferença de altura</string>
+    <string name="latitude_south_unit">S</string>
+    <string name="pref_loc_update_time">Atualizações baseadas no tempo</string>
+    <string name="location_name_stored">Local \'%s\' armazenado</string>
+    <string name="location_provider">Provedor de local</string>
+    <string name="none">Nenhum</string>
+    <string name="location_longitude">Longitude de localização</string>
+    <string name="distance_m">m</string>
+    <string name="notice_destination_reached">Chegou ao seu destino</string>
+    <string name="pref_header_loc_update">Atualização de localização</string>
+    <string name="pref_header_general">Geral</string>
+    <string name="dialog_rename_destination">Insira um novo nome para o destino:</string>
+    <string name="loc_updated_not_recent">Localização NÃO atualizada recentemente.</string>
+    <string name="current_speed">Velocidade Atual</string>
+    <string name="loc_updated_recent">Localização atualizada recentemente.</string>
+    <string name="latitude">Latitide</string>
+    <string name="menu_details">Detalhes do local</string>
+    <string name="destination_reached">No destino</string>
+    <string name="loc_provider_network">Rede (celular/WiFi)</string>
+    <string name="accuracy">Precisão</string>
+    <string name="travel_direction_backwards">Para trás</string>
+    <plurals name="time_minutes">
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
+    <string name="current_bearing">Deslocamento atual</string>
+    <string name="destination">Destino</string>
+    <string name="copyright">Copyright</string>
+    <string name="latitude_north_unit">N</string>
+    <string name="travel_direction">Direção de viagem</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d metro</item>
+        <item quantity="other">%d metros</item>
+    </plurals>
+    <string name="location_stored">Localização salva</string>
+    <string name="sensors_enabled">Ativado : Atualização mais rápida e maior precisão de deslocamento</string>
+    <string name="speed">Velocidade</string>
+    <plurals name="time_seconds">
+        <item quantity="one">%d segundo</item>
+        <item quantity="other">%d segundos</item>
+    </plurals>
+    <string name="direction">Direção</string>
+    <string name="store_location_disabled">Impossível gravar localização se não houver localização atual</string>
+    <string name="southwest_unit">SW</string>
+    <string name="store_location">Gravar localização</string>
+    <string name="no_location_name">Nome do local não especificado</string>
+    <string name="enter_location">Insira o destino manualmente</string>
+    <string name="inaccurate">Impreciso</string>
+    <string name="notice_location_no_permission">As atualizações de localização estão desligadas: Permissão negada</string>
+    <string name="enter_location_invalid_latitude">A latitude está fora da faixa válida [-90°,90°]</string>
+    <string name="southeast_unit">SE</string>
+    <string name="sensors_disabled">Desativado : Economiza energia</string>
+    <string name="dialog_store_location_name">Escolha um nome para a localização:</string>
+    <string name="no_destination">Sem destino definido</string>
+    <string name="settings">Configurações</string>
+    <string name="bearing">Deslocamento</string>
+    <string name="app_website">Visite &lt;a href=%1$s&gt;website&lt;/a&gt; para mais informações.</string>
+    <string name="curr_location">Última localização</string>
+    <string name="to_dest">Para o destino</string>
+    <string name="activity_details">Detalhes</string>
+    <string name="timestamp">Marcador de tempo</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="location_updated">Localização atualizada</string>
+    <string name="cancel">Cancelar</string>
+    <string name="destination_renamed">Destino renomeado</string>
+    <string name="sensor_bearing_offset">Azimuth sensor baseado compensar</string>
+    <string name="app_desc">Encontre o caminho de volta para um local visitado anteriormente utilizando as coordenadas do GPS.</string>
+    <string name="name">Nome</string>
+    <string name="unknown">Desconhecido</string>
+    <string name="distance_km">km</string>
+    <string name="dialog_enter_location">Digite um nome e coordenadas GPS para a sua localização:</string>
+    <string name="speed_kph">km/h</string>
+    <string name="notice_no_dest">Grave sua localização para definir um destino</string>
+    <string name="altitude">Altitude</string>
+    <string name="travel_direction_forward">Siga em frente</string>
+    <string name="pref_geo_orientation_sensor">Sensor na orientação predefinido</string>
+    <string name="pref_loc_update_dist">Atualizações baseadas na distância</string>
+    <string name="northeast_unit">NE</string>
+    <string name="enter_location_invalid_longitude">A longitude está fora da faixa válida [-180°,180°]</string>
+    <string name="longitude_east_unit">L</string>
+    <string name="build_time">Desenvolvida em %s.</string>
+    <string name="disabled">Desativado</string>
+    <string name="notice_location_permission_granted">Foi concedida a permissão para as atualizações de localização</string>
+    <string name="refresh">Atualizar</string>
+    <string name="pref_enable_sensors">A utilização de sensores já existentes</string>
+    <string name="rename_destination">Renomear destino</string>
+</resources>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><string name="app_desc">Torra ad una positzione bisitada pretzedentemente impreande sas coordinatas GPS.</string>
+<resources>
+    <string name="app_desc">Torra ad una positzione bisitada pretzedentemente impreande sas coordinatas GPS.</string>
     <string name="inaccurate_location">Sa positzione relevada tua no est pretzisa</string>
     <string name="notice_no_dest">Sarva sa positzione tua pro impostare una destinatzione</string>
     <string name="inaccurate_direction">Moende·ti as a otènnere una diretzione prus pretzisa</string>
@@ -74,17 +75,17 @@
     <string name="sensors_disabled">Istudadu: Risparmiat energia</string>
     <string name="disabled">Disativadu</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d metru</item>
-	<item quantity="other">%d metros</item>
-</plurals>
+        <item quantity="one">%d metru</item>
+        <item quantity="other">%d metros</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d segundu</item>
-	<item quantity="other">%d segundos</item>
-</plurals>
+        <item quantity="one">%d segundu</item>
+        <item quantity="other">%d segundos</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minutu</item>
-	<item quantity="other">%d minutos</item>
-</plurals>
+        <item quantity="one">%d minutu</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
     <string name="about">Informatziones</string>
     <string name="version">Versione</string>
     <string name="build_time">Costruidu in %s.</string>
@@ -95,10 +96,16 @@
  Custu programma est distribuidu isperande chi siat ùtile, ma SENA GARANTZIA PERUNA; sena fintzas sa garantzia implìcita de CUMMERTZIALIDADE o IDONEIDADE PRO UN\'ISCOPU PARTICULARE. Abbàida sa GNU General Public License pro àteras informatziones.\n
  \n
  Si no as retzidu una copia de sa GNU General Public License paris cun custu programma, la podes agatare a custu inoghe: <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="distance_m">m</string>
+    <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Diferèntzia de artària</string>
     <string name="notice_location_permission_required">Permiti s\'atzessu a sa positzione de custu dispositivu pro abilitare sos agiornamentos de positzione</string>
     <string name="notice_location_no_permission">Sos agiornamentos de sa positzione sunt istudados: Permissu negadu</string>
     <string name="notice_location_permission_granted">Permissu frunidu pro sos agiornamentos de sa positzione</string>
+    <string name="dialog_enter_location">Inserta unu nùmene e sas coordinatas GPS de sa positzione tua:</string>
+    <string name="location_latitude">Latitùdine de sa positzione</string>
+    <string name="location_longitude">Longitùdine de sa positzione</string>
+    <string name="enter_location">Inserta sa destinatzione manualmente</string>
+    <string name="enter_location_invalid_latitude">Sa latitùdine est in foras de sos valores vàlidos [-90°,90°]</string>
+    <string name="enter_location_invalid_longitude">Sa longitùdine est in foras de sos valores vàlidos [-90°,90°]</string>
 </resources>

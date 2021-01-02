@@ -1,7 +1,7 @@
 /**
  * Unit tests for Tools class
  *
- * Copyright (C) 2014-2019 Dieter Adriaenssens
+ * Copyright (C) 2014-2021 Dieter Adriaenssens
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,6 +62,7 @@ public class ToolsTest {
      */
     @Before
     public final void setUp() {
+        // nothing to set up
     }
 
     /**

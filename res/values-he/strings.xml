@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="license">תכנית זו מוגשת במסגרת תכנה חופשית; ניתן להפיצה מחדש ו/או לשנות אותה על־פי תנאי הרישיון הציבורי הכללי של GNU כפי שפורסם על ידי המוסד לתכנה החופשית; בין אם גרסה 3 של הרישיון, ובין אם (לפי בחירתך) כל גרסה יותר עדכנית שלו.
+\n
+\nתכנית זו מופצת בתקווה שתהיה מועילה, אך ללא אחריות כלשהי; ואפילו ללא אחריות משתמעת בדבר מסחריותה או התאמתה למטרה מסוימת. לפרטים נוספים, ניתן לפנות אל הרישיון הציבורי הכללי של GNU.
+\n
+\nלתכנית זו אמור היה להיות מצורף עותק של הרישיון הציבורי הכללי של GNU; אם לא, כדאי לגשת אל <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="copyright">זכויות יוצרים</string>
+    <string name="app_website">ניתן לבקר ב&lt;a href=%1$s&gt;אתר&lt;/a&gt; למידע נוסף.</string>
+    <string name="build_time">נבנה על גבי %s.</string>
+    <string name="version">גרסה</string>
+    <string name="about">על אודות</string>
+    <plurals name="time_minutes">
+        <item quantity="one">דקה</item>
+        <item quantity="two">שתי דקות</item>
+        <item quantity="many">%d דקות</item>
+        <item quantity="other">%d דקות</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">שנייה</item>
+        <item quantity="two">שתי שניות</item>
+        <item quantity="many">%d שניות</item>
+        <item quantity="other">%d שניות</item>
+    </plurals>
+    <plurals name="distance_meter">
+        <item quantity="one">מטר</item>
+        <item quantity="two">שני מטרים</item>
+        <item quantity="many">%d מטרים</item>
+        <item quantity="other">%d מטרים</item>
+    </plurals>
+    <string name="disabled">מושבת</string>
+    <string name="sensors_disabled">מושבת: יותר זמן סוללה</string>
+    <string name="sensors_enabled">מופעל: עדכונים מהירים יותר ומפנה מדויק יותר</string>
+    <string name="pref_geo_orientation_sensor">חיישן הכיוון כבררת מחדל</string>
+    <string name="pref_enable_sensors">להשתמש בחיישנים זמינים</string>
+    <string name="pref_loc_update_time">עדכונים מבוססים זמן</string>
+    <string name="pref_loc_update_dist">עדכונים מבוססי מרחק</string>
+    <string name="pref_header_loc_update">עדכוני מיקום</string>
+    <string name="pref_header_general">כללי</string>
+    <string name="settings">הגדרות</string>
+    <string name="loc_updated_not_recent">המיקום לא עודכן לאחרונה.</string>
+    <string name="loc_updated_recent">המיקום עודכן לאחרונה.</string>
+    <string name="notset">לא הוגדר</string>
+    <string name="none">ללא</string>
+    <string name="raw">ללא עיצוב</string>
+    <string name="direction_relative">ביחס לכיוון הכללי הנוכחי</string>
+    <string name="to_dest">ליעד</string>
+    <string name="destination">יעד</string>
+    <string name="timestamp">חותמת זמן</string>
+    <string name="accuracy">דיוק</string>
+    <string name="travel_direction_backwards">אחורה</string>
+    <string name="travel_direction_forward">קדימה</string>
+    <string name="travel_direction">כיוון הטיול</string>
+    <string name="sensor_bearing_offset">היסט מפנה מבוסס חישה</string>
+    <string name="bearing">מפנה</string>
+    <string name="speed">מהירות</string>
+    <string name="altitude">גובה</string>
+    <string name="longitude_west_unit">מערב</string>
+    <string name="longitude_east_unit">מזרח</string>
+    <string name="longitude">קו אורך</string>
+    <string name="latitude_south_unit">דרום</string>
+    <string name="latitude_north_unit">צפון</string>
+    <string name="latitude">קו רוחב</string>
+    <string name="curr_location">מיקום נוכחי (האחרון הידוע)</string>
+    <string name="provider_no_support">הספק לא נתמך.</string>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="loc_provider_network">רשת (סלולרית/אלחוטית)</string>
+    <string name="provider">ספק</string>
+    <string name="name">שם</string>
+    <string name="location_provider">ספק מיקום</string>
+    <string name="activity_details">פרטים</string>
+    <string name="no_location_name">שם המיקום לא צוין</string>
+    <string name="menu_details">פרטי המיקום</string>
+    <string name="destination_renamed">שם היעד השתנה</string>
+    <string name="location_name_stored">המיקום ‚%s’ אוחסן</string>
+    <string name="location_stored">המיקום אוחסן</string>
+    <string name="rename_destination_disabled">לא ניתן לשנות את שם היעד, יש לאחסן את המיקום תחילה</string>
+    <string name="enter_location_invalid_longitude">קו האורך מחוץ לטווח התקף [‎-90°,90°]</string>
+    <string name="enter_location_invalid_latitude">קו הרוחב מחוץ לטווח התקף [‎-90°,90°]</string>
+    <string name="store_location_disabled">לא ניתן לאחסן את המיקום אם אין מיקום נוכחי</string>
+    <string name="rename_destination">שינוי שם היעד</string>
+    <string name="enter_location">נא למלא את היעד ידנית</string>
+    <string name="store_location">אחסון המיקום</string>
+    <string name="cancel">ביטול</string>
+    <string name="location_longitude">קו האורך של המיקום</string>
+    <string name="location_latitude">קו הרוחב של המיקום</string>
+    <string name="location_name">שם המיקום</string>
+    <string name="dialog_rename_destination">נא למלא שם חדש ליעד שלך:</string>
+    <string name="dialog_enter_location">נא למלא שם ונקודות ציון GPS של המיקום שלך:</string>
+    <string name="dialog_store_location_name">נא למלא את שם המיקום הנוכחי שלך:</string>
+    <string name="refresh">רענון</string>
+    <string name="unknown">לא ידוע</string>
+    <string name="no_destination">לא הוגדר יעד</string>
+    <string name="destination_reached">ביעד</string>
+    <string name="inaccurate">לא מדויק</string>
+    <string name="location_updated">המיקום עודכן</string>
+    <string name="northwest_unit">צפון-מערב</string>
+    <string name="southwest_unit">דרום-מערב</string>
+    <string name="southeast_unit">דרום-מזרח</string>
+    <string name="northeast_unit">צפון-מזרח</string>
+    <string name="direction">כיוון</string>
+    <string name="height_difference">הבדלי גובה</string>
+    <string name="distance_km">ק״מ</string>
+    <string name="distance_m">מ׳</string>
+    <string name="distance">מרחק</string>
+    <string name="current_bearing">מפנה נוכחי</string>
+    <string name="speed_kph">קמ״ש</string>
+    <string name="current_speed">מהירות נוכחית</string>
+    <string name="notice_location_permission_granted">הוענקה גישה לעדכוני מיקום</string>
+    <string name="notice_location_no_permission">עדכוני מיקום כבויים: ההרשאה נדחתה</string>
+    <string name="notice_location_permission_required">לאפשר גישה למיקום של המכשיר כדי להפעיל עדכוני מיקום</string>
+    <string name="notice_destination_reached">הגעת ליעד שלך</string>
+    <string name="inaccurate_direction">כדאי להתחיל לזוז כדי לקבל כיוון מדויק ליעד שלך</string>
+    <string name="notice_no_dest">יש לאחסן את המיקום שלך כדי להגדיר יעד</string>
+    <string name="inaccurate_location">המיקום הנוכחי שלך אינו מדויק</string>
+    <string name="app_desc">איתור דרכך חזרה למיקום שביקרת בו קודם באמצעות נקודות ציון ב־GPS.</string>
+</resources>

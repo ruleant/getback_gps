@@ -1,44 +1,42 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-
     <string name="unknown">Nepoznato</string>
-
-<string name="app_desc">Pronađite put natrag do prethodno posjećene lokacije pomoću GPS koordinata.</string>
-    <string name="inaccurate_location">Vaša trenutna lokacija je netočna</string>
-    <string name="notice_no_dest">Pohranite vašu lokaciju kako bi postavili odredište</string>
-    <string name="inaccurate_direction">Počnite se kretati da dobijete točan smjer do vašeg odredišta</string>
-    <string name="notice_destination_reached">Stigli ste na odredište</string>
-    <string name="current_speed">Trenutna brzina</string>
+    <string name="app_desc">Pronađi put na prethodno posjećene lokacije pomoću GPS koordinata.</string>
+    <string name="inaccurate_location">Tvoja je trenutačna lokacija netočna</string>
+    <string name="notice_no_dest">Spremi tvoju lokaciju za postavljanje odredišta</string>
+    <string name="inaccurate_direction">Počni se kretati, kako bi dobio(la) točan smjer prema tvom odredištu</string>
+    <string name="notice_destination_reached">Stigao(la) si na odredište</string>
+    <string name="current_speed">Trenutačna brzina</string>
     <string name="speed_kph">km/h</string>
-    <string name="current_bearing">Trenutni smjer - azimut</string>
+    <string name="current_bearing">Trenutačno odstupanje</string>
     <string name="distance">Udaljenost</string>
     <string name="direction">Smjer</string>
     <string name="northeast_unit">SI</string>
     <string name="southeast_unit">JI</string>
     <string name="southwest_unit">JZ</string>
     <string name="northwest_unit">SZ</string>
-    <string name="location_updated">Lokacija ažurirana</string>
+    <string name="location_updated">Lokacija aktualizirana</string>
     <string name="inaccurate">Netočno</string>
     <string name="destination_reached">Na odredištu</string>
     <string name="no_destination">Odredište nije zadano</string>
     <string name="refresh">Osvježi</string>
-    <string name="dialog_store_location_name">Unesite naziv za vašu trenutnu lokaciju:</string>
-    <string name="dialog_rename_destination">Unesite novo ime za vašu trenutnu lokaciju:</string>
-    <string name="location_name">Naziv lokacije</string>
-    <string name="store_location">Pohrani lokaciju</string>
+    <string name="dialog_store_location_name">Upiši ime za tvoju trenutačnu lokaciju:</string>
+    <string name="dialog_rename_destination">Upiši novo ime za tvoju trenutačnu lokaciju:</string>
+    <string name="location_name">Ime lokacije</string>
+    <string name="store_location">Spremi lokaciju</string>
     <string name="rename_destination">Preimenuj odredište</string>
-    <string name="store_location_disabled">Nije moguće pohraniti lokaciju ako nema trenutne lokacije</string>
-    <string name="rename_destination_disabled">Nije moguće preimenovati odredište, najprije pohranite lokaciju</string>
-    <string name="location_stored">Lokacija pohranjena</string>
-    <string name="location_name_stored">Lokacija \'%s\' pohranjena</string>
+    <string name="store_location_disabled">Nije moguće spremiti lokaciju, ako nema trenutačne lokacije</string>
+    <string name="rename_destination_disabled">Nije moguće preimenovati odredište, najprije spremi lokaciju</string>
+    <string name="location_stored">Lokacija spremljena</string>
+    <string name="location_name_stored">Lokacija „%s” spremljena</string>
     <string name="destination_renamed">Odredište preimenovano</string>
-    <string name="no_location_name">Naziv lokacije nije specificiran</string>
+    <string name="no_location_name">Ime lokacije nije određeno</string>
     <string name="menu_details">Detalji lokacije</string>
     <string name="activity_details">Detalji</string>
-    <string name="name">Naziv</string>
-    <string name="loc_provider_network">Mreža (mobitel / Wi-Fi)</string>
+    <string name="name">Ime</string>
+    <string name="loc_provider_network">Mreža (mobitel/Wi-Fi)</string>
     <string name="loc_provider_gps">GPS</string>
-    <string name="curr_location">Trenutna (zadnje poznata) lokacija</string>
+    <string name="curr_location">Trenutačna (zadnje poznata) lokacija</string>
     <string name="latitude">Geografska širina</string>
     <string name="latitude_north_unit">S</string>
     <string name="latitude_south_unit">J</string>
@@ -47,64 +45,71 @@
     <string name="longitude_west_unit">Z</string>
     <string name="altitude">Nadmorska visina</string>
     <string name="speed">Brzina</string>
-    <string name="bearing">Azimut</string>
-    <string name="sensor_bearing_offset">Otklon senzora azimuta</string>
+    <string name="bearing">Odstupanje</string>
+    <string name="sensor_bearing_offset">Senzorom utvrđeno odstupanje</string>
     <string name="travel_direction">Smjer kretanja</string>
     <string name="travel_direction_forward">Naprijed</string>
-    <string name="travel_direction_backwards">Nazad</string>
+    <string name="travel_direction_backwards">Natrag</string>
     <string name="accuracy">Točnost</string>
     <string name="timestamp">Vremenska oznaka</string>
     <string name="destination">Odredište</string>
     <string name="to_dest">Prema odredištu</string>
-    <string name="direction_relative">relativno trenutnom smjeru</string>
+    <string name="direction_relative">relativno u odnosu na trenutačni smjer</string>
     <string name="raw">Neformatirano</string>
     <string name="none">Nijedan</string>
     <string name="notset">Nije postavljeno</string>
-    <string name="loc_updated_recent">Lokacija nedavno ažurirana.</string>
-    <string name="loc_updated_not_recent">Lokacija NIJE nedavno ažurirana.</string>
+    <string name="loc_updated_recent">Lokacija nedavno aktualizirana.</string>
+    <string name="loc_updated_not_recent">Lokacija NIJE nedavno aktualizirana.</string>
     <string name="settings">Postavke</string>
     <string name="pref_header_general">Opće</string>
-    <string name="pref_header_loc_update">Ažuriranje lokacija</string>
-    <string name="pref_loc_update_dist">Ažuriranja temeljem udaljenosti</string>
-    <string name="pref_loc_update_time">Ažuriranje temeljem vremena</string>
+    <string name="pref_header_loc_update">Aktualiziranja lokacija</string>
+    <string name="pref_loc_update_dist">Daljinjsko aktualiziranje</string>
+    <string name="pref_loc_update_time">Vremensko aktualiziranje</string>
     <string name="pref_enable_sensors">Koristi dostupne senzore</string>
-    <string name="pref_geo_orientation_sensor">Zadani senzor orijentacije</string>
-    <string name="sensors_enabled">Uključeno: Brže ažuriranje i točniji azimut</string>
+    <string name="pref_geo_orientation_sensor">Standardni senzor za orijentaciju</string>
+    <string name="sensors_enabled">Uključeno: Brže aktualiziranje i točnije određivanje odstupanja</string>
     <string name="sensors_disabled">Isključeno: štedi energiju</string>
     <string name="disabled">Isključeno</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d metar</item>
-	<item quantity="few">%d metra</item>
-	<item quantity="many">%d metara</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d metar</item>
+        <item quantity="few">%d metra</item>
+        <item quantity="many">%d metara</item>
+        <item quantity="other"/>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d sekunda</item>
-	<item quantity="few">%d sekunde</item>
-	<item quantity="many"/>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d sekunda</item>
+        <item quantity="few">%d sekunde</item>
+        <item quantity="other">%d sekundi</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minuta</item>
-	<item quantity="few">%d minute</item>
-	<item quantity="many"/>
-	<item quantity="other"/>
-</plurals>
-    <string name="about">O</string>
+        <item quantity="one">%d minuta</item>
+        <item quantity="few">%d minute</item>
+        <item quantity="other">%d minuta</item>
+    </plurals>
+    <string name="about">Informacije</string>
     <string name="version">Verzija</string>
-    <string name="app_website">Posjetite &lt;a href=%1$s&gt;website&lt;/a&gt; za više informacija.</string>
+    <string name="app_website">Posjeti &lt;a href=%1$s&gt;website&lt;/a&gt; za daljnje informacije.</string>
     <string name="copyright">Autorska prava</string>
-    <string name="license">Ovaj program je slobodan; možete ga distribuirati i/ili mijenjati pod uvjetima GNU Opće javne licence kako ju je objavio Free Software Foundation; ili verzije 3 Licence, ili (po vašem izboru) bilo koje novije verzije.\n
-\n
-Ovaj program se distribuira u nadi da će biti koristan, ali BEZ IKAKVOG JAMSTVA; čak i bez podrazumijevanog jamstva TRGOVINSKE PRIKLADNOSTI ili ODGOVARANJA ODREĐENOJ SVRSI. Za detalje pročitajte GNU Opću javnu licencu.\n
-\n
-Trebali ste dobiti primjerak GNU Opće javne licence uz ovaj program; ako niste, posjetite <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="cancel">Odustani</string>
-    <string name="location_provider">Lokacijski davalac usluge</string>
-    <string name="provider">Davalac usluge</string>
-    <string name="provider_no_support">Davalac usluge nije podržan.</string>
-    <string name="build_time">Napravljeno na %s.</string>
+    <string name="license">Ovaj program je slobodan softver; možeš ga distribuirati i/ili mijenjati pod uvjetima GNU Opće javne licence, kako ju je objavila Free Software Foundation (Zaklada slobodnog softvera) u verziji 3 ili bilo koje novije verzije.
+\n 
+\nOvaj se program distribuira u nadi da će biti koristan, ali BEZ IKAKVOG JAMSTVA; čak i bez podrazumijevanog jamstva TRGOVINSKE PRIKLADNOSTI ili ODGOVARANJA ODREĐENOJ SVRSI. Za detalje pročitaj GNU Opću javnu licencu.
+\n 
+\nPrimjerak GNU Opće javne licence je priložen ovom program. Ako ne, posjeti <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="cancel">Odustani</string>
+    <string name="location_provider">Pružatelj usluge lociranja</string>
+    <string name="provider">Pružatelj usluge</string>
+    <string name="provider_no_support">Pružatelj usluge nije podržan.</string>
+    <string name="build_time">Izgrađeno na %s.</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Visinska razlika</string>
-    </resources>
+    <string name="notice_location_permission_required">Dopusti pristup lokaciji ovog uređaja, kako bi se omogućila aktualiziranja pozicije</string>
+    <string name="notice_location_no_permission">Aktualiziranja lokacije su isključena: dozvola odbijena</string>
+    <string name="notice_location_permission_granted">Dozvola odobrena za aktualiziranja lokacije</string>
+    <string name="dialog_enter_location">Upiši ime i GPS koordinate za tvoju lokaciju:</string>
+    <string name="location_latitude">Zemljopisna širina lokacije</string>
+    <string name="location_longitude">Zemljopisna dužina lokacije</string>
+    <string name="enter_location">Upiši odredište ručno</string>
+    <string name="enter_location_invalid_latitude">Zemljopisna širina je izvan valjanog raspona [−90 °, 90 °]</string>
+    <string name="enter_location_invalid_longitude">Zemljopisna dužina je izvan valjanog raspona [−180 °, 180 °]</string>
+</resources>

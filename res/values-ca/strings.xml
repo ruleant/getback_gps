@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
-<resources><string name="app_desc">Trobeu el camí de tornada a un lloc ja visitat utilitzant coordenades GPS.</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Trobeu el camí de tornada a un lloc ja visitat utilitzant coordenades GPS.</string>
     <string name="inaccurate_location">La vostra posició actual és aproximada</string>
     <string name="notice_no_dest">Deseu la vostra posició per fixar un destí</string>
     <string name="inaccurate_direction">Comenceu-vos a moure per obtenir la direcció ajustada del vostre destí</string>
@@ -27,7 +28,7 @@
     <string name="location_provider">Proveïdor de posició</string>
     <string name="name">Nom</string>
     <string name="provider">Proveïdor</string>
-    <string name="loc_provider_network">xarxa (telèfon mòbil/WiFi)</string>
+    <string name="loc_provider_network">Xarxa (telèfon mòbil/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Aquest proveïdor no té suport.</string>
     <string name="curr_location">Posició actual (darrera coneguda)</string>
@@ -61,8 +62,8 @@
     <string name="pref_loc_update_time">Actualitzacions segons el temps</string>
     <string name="pref_enable_sensors">Utilitza els sensor disponibles</string>
     <string name="pref_geo_orientation_sensor">Sensor d\'orientació predefinit</string>
-    <string name="sensors_enabled">Activat: orientació més precisa i refresc més ràpid</string>
-    <string name="sensors_disabled">Desactivat: estalvi d\'energia</string>
+    <string name="sensors_enabled">Activat: Orientació més precisa i refresc més ràpid</string>
+    <string name="sensors_disabled">Desactivat: Estalvi d\'energia</string>
     <string name="disabled">Desactivat</string>
     <string name="about">Pel que fa a</string>
     <string name="version">Versió</string>
@@ -74,18 +75,18 @@
 Aquest programari es distribueix amb la voluntat que sigui d\'utilitat, però SENSE CAP GARANTIA; fins i tot sense la garantia implícita MERCANTILISTA o DEFINIDA PER UN PROPÒSIT DETERMINAT. Veieu la llicència pública general GNU per més detalls.\n
 \n
 Haurieu de rebre una còpia de la llicència pública general GNU junt amb aquest programari. Si no és així, veieu <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<plurals name="distance_meter">
-	<item quantity="one">%d metre</item>
-	<item quantity="other">%d metres</item>
-</plurals>
+    <plurals name="distance_meter">
+        <item quantity="one">%d metre</item>
+        <item quantity="other">%d metres</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d segon</item>
-	<item quantity="other">%d segons</item>
-</plurals>
+        <item quantity="one">%d segon</item>
+        <item quantity="other">%d segons</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minut</item>
-	<item quantity="other">%d minuts</item>
-</plurals>
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minuts</item>
+    </plurals>
     <string name="dialog_store_location_name">Introduïu un nom per la posició actual:</string>
     <string name="location_name">Nom de la posició</string>
     <string name="cancel">Cancel·la</string>
@@ -95,4 +96,4 @@ Haurieu de rebre una còpia de la llicència pública general GNU junt amb aques
     <string name="rename_destination">Canvia el nom del destí</string>
     <string name="rename_destination_disabled">No es pot canviar el nom del destí, primer cal desar una posició</string>
     <string name="destination_renamed">Canviat el nom de la destinació</string>
-    </resources>
+</resources>

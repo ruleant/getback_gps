@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="distance">Jarak</string>
+    <string name="current_speed">Kecepatan sekarang</string>
+    <string name="inaccurate_location">Lokasi Anda sekarang kurang akurat.</string>
+</resources>

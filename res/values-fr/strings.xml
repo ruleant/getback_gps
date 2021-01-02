@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="license">Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation : soit la version 3 de cette licence, soit toute version ultérieure.\n
-\n
-Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.\n
-\n
-Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme; si ce n’est pas le cas, consultez : <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="app_desc">Retourner sur un lieu déjà visité en utilisant sa position GPS.</string>
+    <string name="license">Ce programme est un logiciel libre ; vous pouvez le redistribuer ou le modifier suivant les termes de la GNU General Public License telle que publiée par la Free Software Foundation : soit la version 3 de cette licence, soit toute version ultérieure.
+\n 
+\n Ce programme est distribué dans l’espoir qu’il vous sera utile, mais SANS AUCUNE GARANTIE : sans même la garantie implicite de COMMERCIALISABILITÉ ni d’ADÉQUATION À UN OBJECTIF PARTICULIER. Consultez la Licence Générale Publique GNU pour plus de détails.
+\n 
+\n Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce programme ; si ce n’est pas le cas, consultez : <a href="http ://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="app_desc">Retournez sur un lieu déjà visité grâce à sa position GPS.</string>
     <string name="inaccurate_location">Votre position actuelle est imprécise</string>
-    <string name="notice_no_dest">Enregistrez votre position pour définir une destination</string>
+    <string name="notice_no_dest">Enregistrez votre position comme destination</string>
     <string name="inaccurate_direction">Déplacez-vous pour afficher une direction plus précise jusqu\'à votre destination</string>
     <string name="notice_destination_reached">Vous êtes arrivés à destination</string>
     <string name="current_speed">Vitesse actuelle</string>
     <string name="speed_kph">km/h</string>
     <string name="distance">Distance</string>
-    <string name="direction">Direction</string>
+    <string name="direction">Cap</string>
     <string name="northeast_unit">NE</string>
     <string name="southeast_unit">SE</string>
     <string name="southwest_unit">SO</string>
     <string name="northwest_unit">NO</string>
-    <string name="inaccurate">Imprécis(e)</string>
+    <string name="inaccurate">Imprécise</string>
     <string name="destination_reached">Destination atteinte</string>
-    <string name="unknown">Inconnu(e)</string>
+    <string name="unknown">Inconnue</string>
     <string name="refresh">Actualiser</string>
     <string name="store_location">Enregistrer la position</string>
     <string name="store_location_disabled">Impossible d\'enregistrer la position car il n\'y a pas de localisation précise</string>
@@ -55,7 +55,7 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="pref_header_loc_update">Actualisation de la position</string>
     <string name="pref_loc_update_dist">Actualiser en fonction de la distance</string>
     <string name="pref_loc_update_time">Actualiser en fonction du temps</string>
-    <string name="pref_enable_sensors">Activer les capteurs</string>
+    <string name="pref_enable_sensors">Utiliser les capteurs disponibles</string>
     <string name="pref_geo_orientation_sensor">Capteur d\'orientation par défaut</string>
     <string name="sensors_disabled">Désactivé : Économise la batterie</string>
     <string name="disabled">Désactivé</string>
@@ -64,9 +64,9 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="build_time">Version du %s.</string>
     <string name="app_website">Pour plus d\'informations, visitez le &lt;a href=%1$s&gt;site web&lt;/a&gt;.</string>
     <string name="copyright">Copyright</string>
-    <string name="current_bearing">Relèvement actuel</string>
-    <string name="bearing">Relèvement</string>
-    <string name="sensors_enabled">Activé : Mises à jour plus fréquentes et relèvement plus précis</string>
+    <string name="current_bearing">Cap actuel</string>
+    <string name="bearing">Cap</string>
+    <string name="sensors_enabled">Activé : Mises à jour plus fréquentes et cap plus précis</string>
     <string name="no_destination">Aucune destination définie</string>
     <string name="travel_direction">Direction de marche</string>
     <string name="travel_direction_forward">En avant</string>
@@ -75,31 +75,37 @@ Vous devriez avoir reçu une copie de la Licence Générale Publique GNU avec ce
     <string name="notset">Non renseigné(e)</string>
     <string name="name">Nom</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d mètre</item>
-	<item quantity="other">%d mètres</item>
-</plurals>
+        <item quantity="one">%d mètre</item>
+        <item quantity="other">%d mètres</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d seconde</item>
-	<item quantity="other">%d secondes</item>
-</plurals>
+        <item quantity="one">%d seconde</item>
+        <item quantity="other">%d secondes</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minute</item>
-	<item quantity="other">%d minutes</item>
-</plurals>
-    <string name="sensor_bearing_offset">Correction du relèvement</string>
-    <string name="dialog_store_location_name">Entrez un nom pour votre position actuelle:</string>
+        <item quantity="one">%d minute</item>
+        <item quantity="other">%d minutes</item>
+    </plurals>
+    <string name="sensor_bearing_offset">Correction du capteur de cap</string>
+    <string name="dialog_store_location_name">Saisissez un nom pour votre position :</string>
     <string name="cancel">Annuler</string>
-    <string name="location_name_stored">Position \"%s\" enregistrée</string>
-    <string name="no_location_name">Nom de la position n\'a pas été précisé</string>
+    <string name="location_name_stored">Position « %s » enregistrée</string>
+    <string name="no_location_name">Le nom de la position n\'a pas été renseigné</string>
     <string name="location_name">Nom de la position</string>
-    <string name="dialog_rename_destination">Entrez un nouveau nom pour votre destination:</string>
+    <string name="dialog_rename_destination">Saisissez un nouveau nom pour votre destination :</string>
     <string name="rename_destination">Renommer la destination</string>
-    <string name="rename_destination_disabled">Impossible de renommer la destination, veuillez sauver la position</string>
+    <string name="rename_destination_disabled">Impossible de renommer la destination car aucune position n\'est mémorisée</string>
     <string name="destination_renamed">Destination renommée</string>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
-    <string name="height_difference">Écart d\'altitude</string>
-    <string name="notice_location_permission_required">Autoriser l\'accès à la position de l’appareil pour actualiser la position</string>
+    <string name="height_difference">Différence d\'altitude</string>
+    <string name="notice_location_permission_required">Autoriser l\'accès au GPS de l’appareil pour obtenir votre position</string>
     <string name="notice_location_no_permission">Les mises à jour de position sont désactivées : Autorisation refusée</string>
-    <string name="notice_location_permission_granted">Autorisation donnée pour mettre à jour la position</string>
+    <string name="notice_location_permission_granted">Autorisation donnée pour actualiser la position</string>
+    <string name="dialog_enter_location">Saisissez un nom et les coordonnées GPS de votre position :</string>
+    <string name="location_latitude">Latitude de la position</string>
+    <string name="location_longitude">Longitude de la position</string>
+    <string name="enter_location">Saisissez manuellement la destination</string>
+    <string name="enter_location_invalid_latitude">La latitude est hors des limites valides [-90°,90°]</string>
+    <string name="enter_location_invalid_longitude">La longitude est hors des limites valides [-90°,90°]</string>
 </resources>

@@ -1,3 +1,14 @@
+ v0.7 (released on 02Jan2021)
+ - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
+ - translated to Ukrainian, thanks to Oleksiy
+ - translated to Turkish, thanks to Mesut Akcan
+ - increase required translated strings for a language to 85%
+ - translated to Hungarian, thanks to Balázs Úr
+ - translated to Persian, thanks to AbbasBHF
+ - translated to Portuguese, thanks to Silvério Santos
+ - translated to Hebrew, thanks to Yaron Shahrabani
+ - translated to Kabyle, thanks to MozillaKab
+
  v0.6 (released on 03Mar2019)
  - build against Android SDK 8.0 (API 26)
  - improved German translation, thanks to Silvério Santos

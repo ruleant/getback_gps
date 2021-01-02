@@ -1,13 +1,13 @@
 GetBack GPS for Android
 =======================
 
-[![GetBack GPS](https://img.shields.io/badge/release-v0.6-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
+[![GetBack GPS](https://img.shields.io/badge/release-v0.7-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
 [![Codacy Badge](https://api.codacy.com/project/badge/0040e146618e41ac9c39d04c7b1a3fef)](https://www.codacy.com/app/ruleant/getback_gps)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
 [![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
 
-[![Translation status](https://hosted.weblate.org/widgets/getback_gps-shields-badge.png)](https://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![Translation status](https://hosted.weblate.org/widgets/getback_gps/-/svg-badge.svg)](https://hosted.weblate.org/engage/getback_gps/)
 [![todofy badge](https://todofy.org/b/ruleant/getback_gps)](https://todofy.org/r/ruleant/getback_gps)
 [![Stack Share](https://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/ruleant/getback-gps)
 
@@ -25,7 +25,8 @@ Features
     - use best/most accurate location provider
     - get location updates automatically (based on a time interval or change of location) or
     - get location on demand (by manually refreshing)
-- save a location and give it a name
+- save current location as destination
+- add a destination with manual coordinates
 - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
 - indicate current speed and current bearing
 - use built-in sensors to get more accurate and quicker updated bearing
@@ -97,7 +98,7 @@ Getback GPS for Android was made possible by many contributers and sponsors, see
 License
 -------
 
-Copyright (C) 2012-2019 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2012-2021 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

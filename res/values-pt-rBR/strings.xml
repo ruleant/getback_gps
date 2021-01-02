@@ -1,5 +1,6 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<resources><string name="app_desc">Encontre o caminho de volta para um local visitado anteriormente utilizando as coordenadas do GPS.</string>
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_desc">Encontre o caminho de volta para um local visitado anteriormente utilizando as coordenadas do GPS.</string>
     <string name="inaccurate_location">Sua localização atual é inexata</string>
     <string name="notice_no_dest">Salve sua localização para definir um destino</string>
     <string name="inaccurate_direction">Mova-se para obter uma orientação precisa para seu destino</string>
@@ -64,7 +65,7 @@
  Este programa é distribuído na esperança de ser útil, mas SEM NENHUMA GARANTIA; inclusive a garantia implícita de COMERCIALIZAÇÃO ou PARA USO PESSOAL. Veja a Licença Pública Geral da GNU para mais detalhes.\n
  \n
  Você deve ter recebido ma cópia da Lincença Pública Geral da GNU junto com este programa. Caso contrário, veja <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="name">Nome</string>
+    <string name="name">Nome</string>
     <string name="dialog_store_location_name">Escolha um nome para a localização:</string>
     <string name="dialog_rename_destination">Insira um novo nome para o destino:</string>
     <string name="location_name">Nome do local</string>
@@ -82,20 +83,29 @@
     <string name="pref_loc_update_dist">Atualizações baseadas na distância</string>
     <string name="pref_loc_update_time">Atualizações baseadas no tempo</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d metro</item>
-	<item quantity="other">%d metros</item>
-</plurals>
+        <item quantity="one">%d metro</item>
+        <item quantity="other">%d metros</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minuto</item>
-	<item quantity="other">%d minutos</item>
-</plurals>
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
     <string name="copyright">Copyright</string>
     <string name="sensor_bearing_offset">Azimuth sensor baseado compensar</string>
     <plurals name="time_seconds">
-	<item quantity="one">%d segundo</item>
-	<item quantity="other">%d segundos</item>
-</plurals>
+        <item quantity="one">%d segundo</item>
+        <item quantity="other">%d segundos</item>
+    </plurals>
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Diferença de altura</string>
-    </resources>
+    <string name="enter_location_invalid_longitude">A longitude está fora da faixa válida [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">A latitude está fora da faixa válida [-90°,90°]</string>
+    <string name="enter_location">Insira o destino manualmente</string>
+    <string name="location_longitude">Longitude de localização</string>
+    <string name="location_latitude">Latitude de localização</string>
+    <string name="dialog_enter_location">Digite um nome e coordenadas GPS para a sua localização:</string>
+    <string name="notice_location_permission_granted">Foi concedida a permissão para as atualizações de localização</string>
+    <string name="notice_location_no_permission">As atualizações de localização estão desligadas: Permissão negada</string>
+    <string name="notice_location_permission_required">Permitir o acesso à localização deste dispositivo para ativar as atualizações de localização</string>
+</resources>
