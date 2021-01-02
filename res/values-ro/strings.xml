@@ -1,6 +1,6 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="app_desc">Găsiți drumul către o locație vizitată anterior, folosind coordonatele GPS.</string>
+    <string name="app_desc">Găsiți drumul către o locație vizitată anterior, folosind coordonatele GPS.</string>
     <string name="inaccurate_location">Locația dumneavoastră curentă este inexactă</string>
     <string name="notice_no_dest">Salvați locația dumneavoastră pentru a seta o destinație</string>
     <string name="inaccurate_direction">Începeți să vă mișcați pentru a obține o direcție exactă către destinație</string>
@@ -27,7 +27,7 @@
     <string name="activity_details">Detalii</string>
     <string name="location_provider">Furnizor de Locație</string>
     <string name="provider">Furnizor</string>
-    <string name="loc_provider_network">rețea (telefonie mobilă/WiFi)</string>
+    <string name="loc_provider_network">Rețea (Telefonie mobilă/WiFi)</string>
     <string name="loc_provider_gps">GPS</string>
     <string name="provider_no_support">Furnizorul nu este compatibil.</string>
     <string name="curr_location">Locație curentă (ultima disponibilă)</string>
@@ -62,11 +62,11 @@
     <string name="app_website">Vizitați &lt;a href=%1$s&gt;website-ul&lt;/a&gt; pentru mai multe informații.</string>
     <string name="copyright">Copyright</string>
     <string name="license">Acest program este software liber: poate fi redistribuit și/sau modificat în conformitate cu GNU General Public License publicată de către Free Software Foundation, fie versiunea 3 a Licenței, fie oricare altă versiune ulterioare.
- 
- Acest program este distribuit în speranța că va fi util, dar FĂRĂ NICIO GARANȚIE; fără nici măcar garanția implicită de COMERCIALIZARE sau POTRIVIRE PENTRU UN ANUMIT SCOP. A se vedea GNU General Public License pentru mai multe detalii.
- 
- Ar trebui să fi primit o copie a GNU General Public License, împreună cu acest program. Dacă nu, vedeți <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="dialog_store_location_name">Adăugați un nume pentru locația curentă:</string>
+\n
+\nAcest program este distribuit în speranța că va fi util, dar FĂRĂ NICIO GARANȚIE; fără nici măcar garanția implicită de COMERCIALIZARE sau POTRIVIRE PENTRU UN ANUMIT SCOP. A se vedea GNU General Public License pentru mai multe detalii.
+\n
+\nAr trebui să fi primit o copie a GNU General Public License, împreună cu acest program. Dacă nu, vedeți <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
+    <string name="dialog_store_location_name">Adăugați un nume pentru locația curentă:</string>
     <string name="location_name">Numele locației</string>
     <string name="cancel">Anulare</string>
     <string name="location_name_stored">Locație \'%s\' salvată</string>
@@ -82,18 +82,18 @@
     <string name="travel_direction_backwards">Înapoi</string>
     <string name="pref_enable_sensors">Folosiţi senzorii disponibili</string>
     <string name="pref_geo_orientation_sensor">Senzor de orientare implicit</string>
-    <string name="sensors_enabled">Activat : orientare mai rapid actualizată si mai precisă</string>
-    <string name="sensors_disabled">Dezactivat : economisire consum</string>
+    <string name="sensors_enabled">Activat : Orientare mai rapid actualizată si mai precisă</string>
+    <string name="sensors_disabled">Dezactivat : Economisire consum</string>
     <plurals name="distance_meter">
-	<item quantity="one">%d metru</item>
-	<item quantity="other">%d metri</item>
-</plurals>
+        <item quantity="one">%d metru</item>
+        <item quantity="other">%d metri</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d secundă</item>
-	<item quantity="other">%d secunde</item>
-</plurals>
+        <item quantity="one">%d secundă</item>
+        <item quantity="other">%d secunde</item>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d minut</item>
-	<item quantity="other">%d minute</item>
-</plurals>
-    </resources>
+        <item quantity="one">%d minut</item>
+        <item quantity="other">%d minute</item>
+    </plurals>
+</resources>

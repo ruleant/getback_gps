@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources><string name="current_speed">Хуткасьць</string>
+<resources>
+    <string name="current_speed">Хуткасьць</string>
     <string name="speed_kph">км/г</string>
     <string name="current_bearing">Азімут</string>
     <string name="distance">Адлегласьць</string>
@@ -70,28 +71,28 @@
     <string name="name">Імя</string>
     <string name="direction_relative">адносна цяперашнага напрамку</string>
     <string name="license">Гэна — бяс­плат­ная пра­ґра­ма: яе льга раз­да­ваць ці зьмя­няць па­вод­ле <EM>Агуль­нае гра­мадз­кае лі­цэн­зыї «GNU»</EM>, якую апуб­лі­ка­ваў Фонд бяс­плат­на­га пра­ґрам­на­га за­бесь­пя­чэння <SMALL>(Free Soft­ware Foun­dation)</SMALL>. Паводле альбо трэ­цяе вэр­сыї <EM>гэ­тай лі­цэн­зыї</EM>, альбо лю­бой пазь­ней­шай.
-
-Пашыраючы гэную пра­ґра­му спа­дзя­ем­ся, што яна бу­дзе ка­рыс­наю, але <STRONG>ні­чо­га не га­ран­ту­ем</STRONG> — нават не ча­кай­це га­ран­тый <STRONG>іспраў­на­га ста­ну</STRONG> ці <STRONG>пры­год­нась­ці да пэў­най мэ­ты</STRONG>. Падрабязнасьці гля­дзе­це ў <EM>Агуль­най гра­мадз­кай лі­цэн­зыї «GNU»</EM>.
-
-Вы павінны былі атры­маць ко­пію <EM>гэ­тай лі­цэн­зыї</EM> ра­зам з гэ­наю пра­ґра­маю. Калі ж не, то гляньце <A href="http://www.GNU.org/licenses/">www.GNU.org/licenses</A>.</string>
-<plurals name="distance_meter">
-	<item quantity="one">%d метр</item>
-	<item quantity="few">%d метра</item>
-	<item quantity="many">%d метраў</item>
-	<item quantity="other"/>
-</plurals>
+\n
+\nПашыраючы гэную пра­ґра­му спа­дзя­ем­ся, што яна бу­дзе ка­рыс­наю, але <STRONG>ні­чо­га не га­ран­ту­ем</STRONG> — нават не ча­кай­це га­ран­тый <STRONG>іспраў­на­га ста­ну</STRONG> ці <STRONG>пры­год­нась­ці да пэў­най мэ­ты</STRONG>. Падрабязнасьці гля­дзе­це ў <EM>Агуль­най гра­мадз­кай лі­цэн­зыї «GNU»</EM>.
+\n
+\nВы павінны былі атры­маць ко­пію <EM>гэ­тай лі­цэн­зыї</EM> ра­зам з гэ­наю пра­ґра­маю. Калі ж не, то гляньце <A href="http://www.GNU.org/licenses/">www.GNU.org/licenses</A>.</string>
+    <plurals name="distance_meter">
+        <item quantity="one">%d метр</item>
+        <item quantity="few">%d метра</item>
+        <item quantity="many">%d метраў</item>
+        <item quantity="other"/>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d сякунда</item>
-	<item quantity="few">%d сякунды</item>
-	<item quantity="many">%d сякундаў</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d сякунда</item>
+        <item quantity="few">%d сякунды</item>
+        <item quantity="many">%d сякундаў</item>
+        <item quantity="other"/>
+    </plurals>
     <plurals name="time_minutes">
-	<item quantity="one">%d хвіліна</item>
-	<item quantity="few">%d хвіліны</item>
-	<item quantity="many">%d хвілін</item>
-	<item quantity="other"/>
-</plurals>
+        <item quantity="one">%d хвіліна</item>
+        <item quantity="few">%d хвіліны</item>
+        <item quantity="many">%d хвілін</item>
+        <item quantity="other"/>
+    </plurals>
     <string name="dialog_store_location_name">Калі ласка, увядзіце назву для вашага бягучага месцазнаходжання:</string>
     <string name="location_name">Назва месцазнаходжання</string>
     <string name="cancel">Скасаваць</string>
