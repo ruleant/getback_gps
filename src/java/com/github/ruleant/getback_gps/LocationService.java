@@ -1,7 +1,7 @@
 /**
  * Location Service
  *
- * Copyright (C) 2012-2019 Dieter Adriaenssens
+ * Copyright (C) 2012-2021 Dieter Adriaenssens
  * Copyright (C) 2019 Timotheos Constambeys
  *
  * This program is free software: you can redistribute it and/or modify

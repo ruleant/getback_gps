@@ -97,7 +97,7 @@ Getback GPS for Android was made possible by many contributers and sponsors, see
 License
 -------
 
-Copyright (C) 2012-2019 Dieter Adriaenssens <ruleant@users.sourceforge.net>
+Copyright (C) 2012-2021 Dieter Adriaenssens <ruleant@users.sourceforge.net>
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
