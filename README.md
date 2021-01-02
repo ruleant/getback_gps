@@ -51,11 +51,11 @@ Requests for translations to a new language can be made here as well.
 Translation
 -----------
 
-You can help translating the app to your own language : <https://hosted.weblate.org/projects/getback_gps/strings>.
+You can help translating the app to your own language : <https://hosted.weblate.org/engage/getback_gps/>.
 
 [![Translation status](https://hosted.weblate.org/widgets/getback_gps/-/multi-auto.svg)](https://hosted.weblate.org/engage/getback_gps/)
 
-Is your language not listed? Follow the instructions on the [New translation](https://hosted.weblate.org/projects/getback_gps/strings/#new-lang) tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
+Is your language not listed? Follow the instructions on the [New translation](https://hosted.weblate.org/new-lang/getback_gps/strings/) tab in Weblate.
 
 Code documentation
 ------------------
