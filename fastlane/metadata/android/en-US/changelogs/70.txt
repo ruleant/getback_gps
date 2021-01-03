@@ -1,0 +1,4 @@
+- add form to manually enter a location
+- added languages : Ukranian, Turkish, Hungarian, Persian, Portuguese, Hebrew, Kabyle
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

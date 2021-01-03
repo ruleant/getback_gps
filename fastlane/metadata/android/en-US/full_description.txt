@@ -1,0 +1,55 @@
+Features:
+
+<ul>
+  <li>determine location based on GPS signal, WiFi or cell phone network:
+    <ul>
+      <li>use best/most accurate location provider</li>
+      <li>get location updates automatically (based on a time interval or change of location) or</li>
+      <li>get location on demand (by manually refreshing)</li>
+    </ul>
+  </li>
+  <li>save current location as destination</li>
+  <li>add a destination with manual coordinates</li>
+  <li>'get back' mode: indicator pointing to a stored location (showing distance and direction)</li>
+  <li>indicate current speed and current bearing</li>
+  <li>use built-in sensors to get more accurate and quicker updated bearing</li>
+  <li>a compass rose that points to the North</li>
+  <li>detect travel direction and adjust relative direction to destination accordingly</li>
+</ul>
+
+Available languages:
+
+<ul>
+  <li>Belarusian</li>
+  <li>Catalan</li>
+  <li>Chinese (Traditional)</li>
+  <li>Chinese (Simplified)</li>
+  <li>Croatian</li>
+  <li>Czech</li>
+  <li>Danish</li>
+  <li>Dutch</li>
+  <li>English</li>
+  <li>Estonian</li>
+  <li>French</li>
+  <li>German</li>
+  <li>Hebrew</li>
+  <li>Hindi</li>
+  <li>Hungarian</li>
+  <li>Italian</li>
+  <li>Japanese</li>
+  <li>Kabyle</li>
+  <li>Korean</li>
+  <li>Norwegian Bokmål</li>
+  <li>Persian</li>
+  <li>Polish</li>
+  <li>Portuguese (Brazil)</li>
+  <li>Portuguese</li>
+  <li>Romanian</li>
+  <li>Russian</li>
+  <li>Sardinian</li>
+  <li>Spanish</li>
+  <li>Turkish</li>
+  <li>Ukrainian</li>
+</ul>
+
+Is your language missing? <a href="https://hosted.weblate.org/engage/getback_gps/">Help translating</a>.

@@ -1,0 +1,4 @@
+- altitude and height difference to destianation are displayed in interface
+- new languages : Croatian, Chinese (China), Estonian, Norwegian Bokmål, Polish
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

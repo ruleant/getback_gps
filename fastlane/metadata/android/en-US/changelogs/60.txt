@@ -1,0 +1,4 @@
+- add support for up to Android SDK 9.0, minimum required version is now Android SDK 4.0
+- improved languages : Belarusian, Chinese (Traditional), Danish, Dutch, Estonian, French, German, Norwegian Bokmål, Sardinian, Japanese
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

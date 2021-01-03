@@ -1,0 +1,6 @@
+- added a compass rose that points to the North
+- detect travel direction and adjust relative direction to destination accordingly
+- translated to Danish, Portuguese (Brazil), Traditional Chinese and French
+- several small improvements
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

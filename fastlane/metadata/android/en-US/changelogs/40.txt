@@ -1,0 +1,6 @@
+- add a name to a destination
+- compass rose is displayed when the orientation is accurate
+- new languages : Italian, Spanish, Korean, Belarusian, Catalan, Russian and Japanese
+- minor improvements and bug fixes
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog
