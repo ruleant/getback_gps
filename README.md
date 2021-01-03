@@ -30,7 +30,7 @@ Features
 - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
 - indicate current speed and current bearing
 - use built-in sensors to get more accurate and quicker updated bearing
-- compass rose indicating North
+- a compass rose that points to the North
 - detect travel direction and adjust relative direction to destination accordingly
 
 How to get it?
