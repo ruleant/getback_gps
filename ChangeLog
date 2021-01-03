@@ -1,5 +1,6 @@
  v0.8 (not released yet)
  - issue #183 : add fastlane metadata
+ - issue #185 : Fix Hebrew translation not being displayed
 
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
