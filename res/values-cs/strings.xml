@@ -38,7 +38,7 @@ Kopii Obecné veřejné licence GNU jste měli obdržet spolu s tímto programem
     <string name="loc_provider_gps">GPS</string>
     <string name="pref_header_general">Obecné</string>
     <string name="copyright">Copyright</string>
-    <string name="app_website">Pro více informací navštivte <a href="%1$s">webové stránky</a>.</string>
+    <string name="app_website">Pro více informací navštivte <a href="%s">webové stránky</a>.</string>
     <string name="loc_updated_recent">Pozice byla obnovena nedávno.</string>
     <string name="loc_updated_not_recent">Pozice NEBYLA déle obnovena.</string>
     <string name="inaccurate_direction">Začněte se pohybovat aby byl směr k cíli přesný</string>

@@ -92,7 +92,7 @@
     <string name="about">Névjegy</string>
     <string name="version">Verzió</string>
     <string name="build_time">Összeállítva ekkor: %s.</string>
-    <string name="app_website">További információkért látogassa meg a &lt;a href=%1$s&gt;webhelyet&lt;/a&gt;.</string>
+    <string name="app_website">További információkért látogassa meg a &lt;a href=%s&gt;webhelyet&lt;/a&gt;.</string>
     <string name="copyright">Szerzői jog</string>
     <string name="license">Ez a program szabad szoftver; terjeszthető illetve módosítható a Free Software Foundation által kiadott GNU General Public License dokumentumában leírtak; akár a licenc 3-as, akár (tetszőleges) későbbi változata szerint.
 \n

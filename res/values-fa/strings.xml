@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="copyright">کپی رایت</string>
-    <string name="app_website">برای اطلاعات بیشتر به &lt;a href=%1$s&gt;وبسایت&lt;/a&gt; مراجعه نمایید.</string>
+    <string name="app_website">برای اطلاعات بیشتر به &lt;a href=%s&gt;وبسایت&lt;/a&gt; مراجعه نمایید.</string>
     <string name="build_time">ساخته شده در %s.</string>
     <string name="version">نسخه</string>
     <string name="about">درباره</string>

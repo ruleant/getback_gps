@@ -86,7 +86,7 @@
     <string name="about">О программе</string>
     <string name="version">Версия</string>
     <string name="build_time">Скомпилировано %s</string>
-    <string name="app_website">Посетите &lt;a href=%1$s&gt;сайт&lt;/a&gt; для получения дополнительной информации.</string>
+    <string name="app_website">Посетите &lt;a href=%s&gt;сайт&lt;/a&gt; для получения дополнительной информации.</string>
     <string name="copyright">Авторское право</string>
     <string name="license">Эта программа является свободным программным обеспечением: вы можете распространять и/или изменять его в соответствии с условиями GNU General Public License, опубликованной Free Software Foundation, либо версии 3 лицензии, или любой более поздней версии.
 \n

@@ -84,7 +84,7 @@
     <string name="about">关于</string>
     <string name="version">版本</string>
     <string name="build_time">构建于 %s。</string>
-    <string name="app_website">访问&lt;a href=%1$s&gt;网站&lt;/a&gt;了解更多信息。</string>
+    <string name="app_website">访问&lt;a href=%s&gt;网站&lt;/a&gt;了解更多信息。</string>
     <string name="copyright">版权所有</string>
     <string name="travel_direction">移动方向</string>
     <string name="travel_direction_forward">前进</string>

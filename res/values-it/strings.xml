@@ -66,7 +66,7 @@
     <string name="about">Informazioni su</string>
     <string name="version">Versione</string>
     <string name="build_time">Build del %s.</string>
-    <string name="app_website">Visita il &lt;a href=%1$s&gt;sito web&lt;/a&gt; per maggiori informazioni.</string>
+    <string name="app_website">Visita il &lt;a href=%s&gt;sito web&lt;/a&gt; per maggiori informazioni.</string>
     <string name="copyright">Copyright</string>
     <string name="license">Questo è software libero: puoi ridistribuirlo e/o modificarlo secondo i termini della GNU General Public License pubblicata dalla Free Software Foundation, versione 3 o successiva.\n
  \n

@@ -6,7 +6,7 @@
 \n
 \nלתכנית זו אמור היה להיות מצורף עותק של הרישיון הציבורי הכללי של GNU; אם לא, כדאי לגשת אל <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
     <string name="copyright">זכויות יוצרים</string>
-    <string name="app_website">ניתן לבקר ב&lt;a href=%1$s&gt;אתר&lt;/a&gt; למידע נוסף.</string>
+    <string name="app_website">ניתן לבקר ב&lt;a href=%s&gt;אתר&lt;/a&gt; למידע נוסף.</string>
     <string name="build_time">נבנה על גבי %s.</string>
     <string name="version">גרסה</string>
     <string name="about">על אודות</string>

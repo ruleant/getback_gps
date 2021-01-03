@@ -88,7 +88,7 @@
     </plurals>
     <string name="about">Informacije</string>
     <string name="version">Verzija</string>
-    <string name="app_website">Posjeti &lt;a href=%1$s&gt;website&lt;/a&gt; za daljnje informacije.</string>
+    <string name="app_website">Posjeti &lt;a href=%s&gt;website&lt;/a&gt; za daljnje informacije.</string>
     <string name="copyright">Autorska prava</string>
     <string name="license">Ovaj program je slobodan softver; možeš ga distribuirati i/ili mijenjati pod uvjetima GNU Opće javne licence, kako ju je objavila Free Software Foundation (Zaklada slobodnog softvera) u verziji 3 ili bilo koje novije verzije.
 \n 

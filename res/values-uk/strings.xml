@@ -38,7 +38,7 @@
     <string name="store_location_disabled">Неможливо зберегти розташування якщо його координати невідомі</string>
     <string name="dialog_store_location_name">Назвіть ваше поточне розташування:</string>
     <string name="none">Нема</string>
-    <string name="app_website">Відвідайте &lt;a href=%1$s&gt;website&lt;/a&gt; щоб дізнатися більше.</string>
+    <string name="app_website">Відвідайте &lt;a href=%s&gt;website&lt;/a&gt; щоб дізнатися більше.</string>
     <string name="longitude">Довгота</string>
     <string name="distance_km">км</string>
     <string name="name">Назва</string>

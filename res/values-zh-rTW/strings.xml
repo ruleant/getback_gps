@@ -61,7 +61,7 @@
     <string name="about">關於</string>
     <string name="version">版本</string>
     <string name="build_time">在 %s 上建構。</string>
-    <string name="app_website">造訪 &lt;a href=%1$s&gt;網站&lt;/a&gt; 以獲取更多的資訊。</string>
+    <string name="app_website">造訪 &lt;a href=%s&gt;網站&lt;/a&gt; 以獲取更多的資訊。</string>
     <string name="copyright">版權所有</string>
     <string name="license">這個程式是自由軟體：在 GNU 通用公共授權條款的自由軟體基金會之法定發佈下，無論是第三版的使用授權，或之後的版本，您可以重新發佈和修改它。\n
  \n

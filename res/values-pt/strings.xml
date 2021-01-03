@@ -78,7 +78,7 @@
     <string name="no_destination">Sem destino definido</string>
     <string name="settings">Configurações</string>
     <string name="bearing">Deslocamento</string>
-    <string name="app_website">Visite &lt;a href=%1$s&gt;website&lt;/a&gt; para mais informações.</string>
+    <string name="app_website">Visite &lt;a href=%s&gt;website&lt;/a&gt; para mais informações.</string>
     <string name="curr_location">Última localização</string>
     <string name="to_dest">Para o destino</string>
     <string name="activity_details">Detalhes</string>

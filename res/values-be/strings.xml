@@ -59,7 +59,7 @@
     <string name="about">Аб праграме</string>
     <string name="version">Версiя</string>
     <string name="build_time">Скампілявана %s</string>
-    <string name="app_website">Наведайцесь на &lt;a href=%1$s&gt;вэбсайт&lt;/a&gt; па інфармацыю.</string>
+    <string name="app_website">Наведайцесь на &lt;a href=%s&gt;вэбсайт&lt;/a&gt; па інфармацыю.</string>
     <string name="app_desc">Знаходзьце па каардынатах шлях туды, дзе ўжо пабывалі.</string>
     <string name="inaccurate_location">Тваё месцазнаходжанне недакладнае</string>
     <string name="notice_no_dest">Зьберажы сваё месцазнаходжанне як цэль, да якой хочаш вярнуцца</string>

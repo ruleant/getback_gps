@@ -63,7 +63,7 @@
     <string name="sensors_disabled">Inaktiv: Sparer strøm</string>
     <string name="disabled">Inaktiv</string>
     <string name="build_time">Bygget på %s.</string>
-    <string name="app_website">Besøg &lt;a href=%1$s&gt;hjemmesiden&lt;/a&gt; for mere information.</string>
+    <string name="app_website">Besøg &lt;a href=%s&gt;hjemmesiden&lt;/a&gt; for mere information.</string>
     <string name="copyright">Copyright</string>
     <string name="license">Dette program er fri software: du kan redistribuere det og/eller modificere det under betingelserne i GNU General Public License som publiceret af Free Software Foundation, enten version 3 af licensen, eller enhver nyere version.
 \n 
