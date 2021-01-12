@@ -1,11 +1,11 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-<string name="license">Este programa es software libre: puede redistribuirlo y/o modificarlo bajo los términos de la Licencia General Pública de GNU publicada por la Free Software Foundation, ya sea la versión 3 de la Licencia, o cualquier versión posterior.\n
+    <string name="license">Este programa es software libre: puede redistribuirlo y/o modificarlo bajo los términos de la Licencia General Pública de GNU publicada por la Free Software Foundation, ya sea la versión 3 de la Licencia, o cualquier versión posterior.\n
 \n
 Este programa se distribuye con la esperanza de que sea útil pero SIN NINGUNA GARANTÍA; incluso sin la garantía implícita de MERCANTIBILIDAD o CALIFICADA PARA UN PROPÓSITO EN PARTICULAR. Vea la Licencia General Pública de GNU para más detalles.\n
 \n
 Usted ha debido de recibir una copia de la Licencia General Pública de GNU junto con este programa. Si no, vea <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
-<string name="app_desc">Encuentra el camino de vuelta utilizando coordenadas GPS.</string>
+    <string name="app_desc">Encuentra el camino de vuelta utilizando coordenadas GPS.</string>
     <string name="inaccurate_location">Tu ubicación actual es inexacta</string>
     <string name="notice_no_dest">Guarda tu ubicación para crear un destino</string>
     <string name="inaccurate_direction">Comienza a moverte para obtener una dirección precisa hacia tu destino</string>
@@ -79,17 +79,17 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="location_name_stored">Ubicación \'%s\' guardada</string>
     <string name="name">Nombre</string>
     <plurals name="time_minutes">
-	<item quantity="one">%d minuto</item>
-	<item quantity="other">%d minutos</item>
-</plurals>
+        <item quantity="one">%d minuto</item>
+        <item quantity="other">%d minutos</item>
+    </plurals>
     <plurals name="distance_meter">
-	<item quantity="one">%d metro</item>
-	<item quantity="other">%d metros</item>
-</plurals>
+        <item quantity="one">%d metro</item>
+        <item quantity="other">%d metros</item>
+    </plurals>
     <plurals name="time_seconds">
-	<item quantity="one">%d segundo</item>
-	<item quantity="other">%d segundos</item>
-</plurals>
+        <item quantity="one">%d segundo</item>
+        <item quantity="other">%d segundos</item>
+    </plurals>
     <string name="location_name">Nombre de la ubicación</string>
     <string name="dialog_rename_destination">Poner un nuevo nombre para su destino:</string>
     <string name="rename_destination">Renombrar destino</string>
@@ -99,4 +99,13 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="distance_m">m</string>
     <string name="distance_km">km</string>
     <string name="height_difference">Diferencia de altura</string>
-    </resources>
+    <string name="enter_location_invalid_longitude">La longitud está fuera del rango aceptable [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">La latitud está fuera del rango aceptable [-90°,90°]</string>
+    <string name="enter_location">Introduce el destino manualmente</string>
+    <string name="location_longitude">Longitud de tu localización</string>
+    <string name="location_latitude">Latitud de tu localización</string>
+    <string name="dialog_enter_location">Introduce un nombre y coordenadas GPS para tu localización:</string>
+    <string name="notice_location_permission_granted">Permiso concedido para actualizaciones de localización</string>
+    <string name="notice_location_no_permission">Actualizaciones de localización están desactivadas: Permiso denegado</string>
+    <string name="notice_location_permission_required">Permitir acceso a la localización de este dispositivo para activar las actualizaciones de localización</string>
+</resources>
