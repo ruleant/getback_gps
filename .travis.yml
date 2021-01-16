@@ -2,8 +2,8 @@
 language: android
 android:
   components:
-    - android-30
-    - build-tools-30.0.3
+    - android-29
+    - build-tools-29.0.3
 # enable building on container-based infrastructure
 sudo: false
 env:
