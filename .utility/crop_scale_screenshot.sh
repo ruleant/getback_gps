@@ -21,10 +21,25 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-imageFile=$1
+
+if [ $# -eq 0 ]
+  then
+    echo "No parameters supplied!"
+    echo "Usage $0 inputImage [outputImage]"
+    exit 0
+  else
+    if [ $# -eq 1 ]
+      then
+        inputImageFile=$1
+        outputImageFile=$1
+      else
+        inputImageFile=$1
+        outputImageFile=$2
+    fi
+fi
 
 # get image properties and save as array (identify returns spaces seperated result)
-imageProperties=(`identify $imageFile`)
+imageProperties=(`identify $inputImageFile`)
 
 # image size is 3rd element of the array
 imageSize=${imageProperties[2]}
@@ -56,6 +71,7 @@ esac
 echo "original size : $imageSize"
 echo "extraction parameters : $extract"
 echo "resize parameters : $resize"
+echo "output file: $outputImageFile"
 
 # remove bars and resize image
-convert -size $imageSize -extract $extract $imageFile -resize $resize $imageFile
+convert -size $imageSize -extract $extract $inputImageFile -resize $resize $outputImageFile
