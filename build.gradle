@@ -20,12 +20,12 @@ apply plugin: 'com.android.application'
 apply plugin: 'com.vanniktech.android.javadoc'
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion "28.0.3"
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 28
+        targetSdkVersion 30
     }
 
     sourceSets {
