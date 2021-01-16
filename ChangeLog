@@ -5,6 +5,7 @@
  - Fix Indonesian language code (symlink id -> in)
  - issue #184 : build against Android SDK 10.0 (API 29)
  - improved Spanish translation, thanks to badlop
+ - issue #186 : add screenshots to fastlane
 
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
