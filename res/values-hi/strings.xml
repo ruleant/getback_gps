@@ -24,8 +24,6 @@
     <string name="name">नाम</string>
     <string name="provider">प्रदाता</string>
     <string name="loc_provider_gps">जीपीएस</string>
-    <string name="location">स्थान</string>
-    <string name="stored_location">संग्रहित (स्टोर किया गया) स्थान</string>
     <string name="curr_location">वर्तमान (अंतिम ज्ञात) स्थान</string>
     <string name="latitude">अक्षांश (लेटीटुड)</string>
     <string name="latitude_north_unit">उत्तर</string>
