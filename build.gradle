@@ -9,15 +9,14 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:4.1.1'
-    }
-
-    dependencies {
         classpath 'com.vanniktech:gradle-android-javadoc-plugin:0.3.0'
+        classpath 'de.mannodermaus.gradle.plugins:android-junit5:1.7.0.0'
     }
 }
 
 apply plugin: 'com.android.application'
 apply plugin: 'com.vanniktech.android.javadoc'
+apply plugin: "de.mannodermaus.android-junit5"
 
 android {
     compileSdkVersion 29
@@ -72,26 +71,29 @@ dependencies {
 
 // Unit tests
 
-// temporarily disable unit tests issue #172
-// sourceSets {
-//    unitTest {
-//        java.srcDir file('src/test')
-//        resources.srcDir file('src/test/resources')
-//    }
-//}
-//
-//dependencies {
-//    unitTestCompile files("$project.buildDir/classes/debug")
-//    unitTestCompile 'org.robolectric:robolectric:2.2'
-//    unitTestCompile 'junit:junit:4.11', 'org.mockito:mockito-core:1.9.5'
-//    unitTestCompile 'com.google.android:android:4.1.1.4'
-//}
-//
-//configurations {
-//    unitTestCompile.extendsFrom runtime
-//    unitTestRuntime.extendsFrom unitTestCompile
-//}
-//
+sourceSets {
+    unitTest {
+        java.srcDir file('src/test')
+        resources.srcDir file('src/test/resources')
+    }
+}
+
+dependencies {
+    // (Required) Writing and executing Unit Tests on the JUnit Platform.
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.7.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.7.0")
+
+    // (Optional) If you need "Parameterized Tests".
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.7.0")
+
+    // (Optional) If you also have JUnit 4-based tests
+    testImplementation("junit:junit:4.13")
+    testRuntimeOnly("org.junit.vintage:junit-vintage-engine:5.7.0")
+
+    testCompile files("$project.buildDir/classes/debug")
+    testCompile 'org.mockito:mockito-core:3.7.7'
+}
+
 //task unitTest(type:Test, dependsOn: assemble) {
 //    description = "run unit tests"
 //    testClassesDir = project.sourceSets.unitTest.output.classesDir
