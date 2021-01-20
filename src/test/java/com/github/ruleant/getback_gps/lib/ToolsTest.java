@@ -21,31 +21,16 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for FormatUtils class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class ToolsTest {
-    /**
-     * Expected Exception.
-     */
-    @Rule
-    public final ExpectedException thrown = ExpectedException.none();
-
     /**
      * Test value 1.
      */
@@ -60,7 +45,7 @@ public class ToolsTest {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         // nothing to set up
     }
@@ -71,43 +56,43 @@ public class ToolsTest {
     @Test
     public final void testGetMax() {
         // equal values
-        assertEquals(0, Tools.getMax(0, 0));
-        assertEquals(1, Tools.getMax(1, 1));
-        assertEquals(-1, Tools.getMax(-1, -1));
+        Assertions.assertEquals(0, Tools.getMax(0, 0));
+        Assertions.assertEquals(1, Tools.getMax(1, 1));
+        Assertions.assertEquals(-1, Tools.getMax(-1, -1));
 
         // each parameter can be biggest
-        assertEquals(1, Tools.getMax(0, 1));
-        assertEquals(1, Tools.getMax(1, 0));
-        assertEquals(0, Tools.getMax(0, -1));
-        assertEquals(0, Tools.getMax(-1, 0));
+        Assertions.assertEquals(1, Tools.getMax(0, 1));
+        Assertions.assertEquals(1, Tools.getMax(1, 0));
+        Assertions.assertEquals(0, Tools.getMax(0, -1));
+        Assertions.assertEquals(0, Tools.getMax(-1, 0));
 
         // a positive value is bigger than negative
-        assertEquals(1, Tools.getMax(-1, 1));
-        assertEquals(1, Tools.getMax(1, -1));
+        Assertions.assertEquals(1, Tools.getMax(-1, 1));
+        Assertions.assertEquals(1, Tools.getMax(1, -1));
 
         // bigger numbers
-        assertEquals(SMALL_VALUE, Tools.getMax(0, SMALL_VALUE));
-        assertEquals(BIG_VALUE, Tools.getMax(0, BIG_VALUE));
-        assertEquals(Long.MAX_VALUE, Tools.getMax(0, Long.MAX_VALUE));
+        Assertions.assertEquals(SMALL_VALUE, Tools.getMax(0, SMALL_VALUE));
+        Assertions.assertEquals(BIG_VALUE, Tools.getMax(0, BIG_VALUE));
+        Assertions.assertEquals(Long.MAX_VALUE, Tools.getMax(0, Long.MAX_VALUE));
 
-        assertEquals(BIG_VALUE, Tools.getMax(BIG_VALUE, SMALL_VALUE));
-        assertEquals(BIG_VALUE, Tools.getMax(SMALL_VALUE, BIG_VALUE));
-        assertEquals(Long.MAX_VALUE,
+        Assertions.assertEquals(BIG_VALUE, Tools.getMax(BIG_VALUE, SMALL_VALUE));
+        Assertions.assertEquals(BIG_VALUE, Tools.getMax(SMALL_VALUE, BIG_VALUE));
+        Assertions.assertEquals(Long.MAX_VALUE,
                 Tools.getMax(SMALL_VALUE, Long.MAX_VALUE));
-        assertEquals(Long.MAX_VALUE, Tools.getMax(BIG_VALUE, Long.MAX_VALUE));
+        Assertions.assertEquals(Long.MAX_VALUE, Tools.getMax(BIG_VALUE, Long.MAX_VALUE));
 
         // smaller numbers
-        assertEquals(0, Tools.getMax(0, -1 * SMALL_VALUE));
-        assertEquals(0, Tools.getMax(0, -1 * BIG_VALUE));
-        assertEquals(0, Tools.getMax(0, Long.MIN_VALUE));
+        Assertions.assertEquals(0, Tools.getMax(0, -1 * SMALL_VALUE));
+        Assertions.assertEquals(0, Tools.getMax(0, -1 * BIG_VALUE));
+        Assertions.assertEquals(0, Tools.getMax(0, Long.MIN_VALUE));
 
-        assertEquals(-1 * SMALL_VALUE,
+        Assertions.assertEquals(-1 * SMALL_VALUE,
                 Tools.getMax(-1 * BIG_VALUE, -1 * SMALL_VALUE));
-        assertEquals(-1 * SMALL_VALUE,
+        Assertions.assertEquals(-1 * SMALL_VALUE,
                 Tools.getMax(-1 * SMALL_VALUE, -1 * BIG_VALUE));
-        assertEquals(-1 * SMALL_VALUE,
+        Assertions.assertEquals(-1 * SMALL_VALUE,
                 Tools.getMax(-1 * SMALL_VALUE, Long.MIN_VALUE));
-        assertEquals(-1 * BIG_VALUE,
+        Assertions.assertEquals(-1 * BIG_VALUE,
                 Tools.getMax(-1 * BIG_VALUE, Long.MIN_VALUE));
     }
 
@@ -116,11 +101,9 @@ public class ToolsTest {
      */
     @Test
     public final void testIsTimestampRecentRangeCurrent() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("currentTimestamp can't be a negative value");
-
-        Tools.isTimestampRecent(-1, 1, 1);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Tools.isTimestampRecent(-1, 1, 1);
+        });
     }
 
     /**
@@ -128,11 +111,9 @@ public class ToolsTest {
      */
     @Test
     public final void testIsTimestampRecentRangePrevious() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("previousTimestamp can't be a negative value");
-
-        Tools.isTimestampRecent(1, -1, 1);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Tools.isTimestampRecent(1, -1, 1);
+        });
     }
 
     /**
@@ -141,11 +122,9 @@ public class ToolsTest {
      */
     @Test
     public final void testIsTimestampRecentRangeValidityZero() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("validity should be a non-zero positive value");
-
-        Tools.isTimestampRecent(1, 1, 0);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Tools.isTimestampRecent(1, 1, 0);
+        });
     }
 
     /**
@@ -154,11 +133,9 @@ public class ToolsTest {
      */
     @Test
     public final void testIsTimestampRecentRangeValidityNegative() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("validity should be a non-zero positive value");
-
-        Tools.isTimestampRecent(1, 1, -1);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            Tools.isTimestampRecent(1, 1, -1);
+        });
     }
 
     /**
@@ -167,24 +144,24 @@ public class ToolsTest {
     @Test
     public final void testIsTimestampRecent() {
         // timestamps are equal and within range
-        assertTrue(Tools.isTimestampRecent(0, 0, 1));
+        Assertions.assertTrue(Tools.isTimestampRecent(0, 0, 1));
 
         // timestamp is more recent and within range
-        assertTrue(Tools.isTimestampRecent(1, 0, 1));
-        assertTrue(Tools.isTimestampRecent(2, 1, 1));
-        assertTrue(Tools.isTimestampRecent(2, 1, 2));
-        assertTrue(Tools.isTimestampRecent(2, 0, 2));
+        Assertions.assertTrue(Tools.isTimestampRecent(1, 0, 1));
+        Assertions.assertTrue(Tools.isTimestampRecent(2, 1, 1));
+        Assertions.assertTrue(Tools.isTimestampRecent(2, 1, 2));
+        Assertions.assertTrue(Tools.isTimestampRecent(2, 0, 2));
 
         // timestamp is more recent and not within range
-        assertFalse(Tools.isTimestampRecent(2, 0, 1));
+        Assertions.assertFalse(Tools.isTimestampRecent(2, 0, 1));
 
         // timestamp is not more recent and not within range
-        assertFalse(Tools.isTimestampRecent(0, 2, 1));
+        Assertions.assertFalse(Tools.isTimestampRecent(0, 2, 1));
 
         // timestamp is not more recent but within range
-        assertFalse(Tools.isTimestampRecent(0, 1, 1));
-        assertFalse(Tools.isTimestampRecent(1, 2, 1));
-        assertFalse(Tools.isTimestampRecent(1, 2, 2));
-        assertFalse(Tools.isTimestampRecent(0, 2, 2));
+        Assertions.assertFalse(Tools.isTimestampRecent(0, 1, 1));
+        Assertions.assertFalse(Tools.isTimestampRecent(1, 2, 1));
+        Assertions.assertFalse(Tools.isTimestampRecent(1, 2, 2));
+        Assertions.assertFalse(Tools.isTimestampRecent(0, 2, 2));
     }
 }

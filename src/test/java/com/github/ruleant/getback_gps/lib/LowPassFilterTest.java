@@ -21,27 +21,16 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 /**
  * Unit tests for FormatUtils class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class LowPassFilterTest {
-    /**
-     * Expected Exception.
-     */
-    @Rule public final ExpectedException thrown = ExpectedException.none();
-
     /**
      * Value for alpha parameter.
      */
@@ -69,13 +58,12 @@ public class LowPassFilterTest {
      */
     @Test
     public final void testNoValue() {
-        assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0), ACCURACY);
+        Assertions.assertEquals(
                 0.0f,
                 LowPassFilter.filterValueSet(new float[1], new float[1], 0)[0],
                 ACCURACY);
     }
-
 
     /**
      * Tests range of alpha parameter.
@@ -83,12 +71,12 @@ public class LowPassFilterTest {
     @Test
     public final void testAlphaParameterRange() {
         // valid range for parameter alpha
-        assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 0), ACCURACY);
+        Assertions.assertEquals(
                 0.0f,
                 LowPassFilter.filterValue(0, 0, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 1), ACCURACY);
+        Assertions.assertEquals(0.0f, LowPassFilter.filterValue(0, 0, 1), ACCURACY);
     }
 
     /**
@@ -96,12 +84,10 @@ public class LowPassFilterTest {
      */
     @Test
     public final void testOutOfRangeValueSmaller() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        // invalid range for parameter alpha
-        LowPassFilter.filterValue(0, 0, -1);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            // invalid range for parameter alpha
+            LowPassFilter.filterValue(0, 0, -1);
+        });
     }
 
     /**
@@ -109,12 +95,10 @@ public class LowPassFilterTest {
      */
     @Test
     public final void testOutOfRangeValueSmaller2() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        // invalid range for parameter alpha
-        LowPassFilter.filterValue(0, 0, -1 * 2);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            // invalid range for parameter alpha
+            LowPassFilter.filterValue(0, 0, -1 * 2);
+        });
     }
 
     /**
@@ -122,11 +106,9 @@ public class LowPassFilterTest {
       */
     @Test
     public final void testOutOfRangeValueBigger() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        LowPassFilter.filterValue(0, 0, 2);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            LowPassFilter.filterValue(0, 0, 2);
+        });
     }
 
     /**
@@ -135,50 +117,50 @@ public class LowPassFilterTest {
     @Test
     public final void testFilterValue() {
         // value changes from 0 to 1, with different alpha values
-        assertEquals(0.0f, LowPassFilter.filterValue(0, 1, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(0.0f, LowPassFilter.filterValue(0, 1, 0), ACCURACY);
+        Assertions.assertEquals(
                 ALPHA_VALUE,
                 LowPassFilter.filterValue(0, 1, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(1.0f, LowPassFilter.filterValue(0, 1, 1), ACCURACY);
+        Assertions.assertEquals(1.0f, LowPassFilter.filterValue(0, 1, 1), ACCURACY);
 
         // value changes from 1 to 0, with different alpha values
-        assertEquals(1.0f, LowPassFilter.filterValue(1, 0, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(1.0f, LowPassFilter.filterValue(1, 0, 0), ACCURACY);
+        Assertions.assertEquals(
                 1 - ALPHA_VALUE,
                 LowPassFilter.filterValue(1, 0, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(0.0f, LowPassFilter.filterValue(1, 0, 1), ACCURACY);
+        Assertions.assertEquals(0.0f, LowPassFilter.filterValue(1, 0, 1), ACCURACY);
 
         // value changes from 1 to 2, with different alpha values
-        assertEquals(1.0f, LowPassFilter.filterValue(1, 2, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(1.0f, LowPassFilter.filterValue(1, 2, 0), ACCURACY);
+        Assertions.assertEquals(
                 1 + ALPHA_VALUE,
                 LowPassFilter.filterValue(1, 2, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(2.0f, LowPassFilter.filterValue(1, 2, 1), ACCURACY);
+        Assertions.assertEquals(2.0f, LowPassFilter.filterValue(1, 2, 1), ACCURACY);
 
         // value stays the same, alpha value should have no effect
-        assertEquals(1.0f, LowPassFilter.filterValue(1, 1, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(1.0f, LowPassFilter.filterValue(1, 1, 0), ACCURACY);
+        Assertions.assertEquals(
                 1.0f,
                 LowPassFilter.filterValue(1, 1, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 1.0f,
                 LowPassFilter.filterValue(1, 1, 1),
                 ACCURACY);
 
         // value changes from 0 to -1, with different alpha values
-        assertEquals(
+        Assertions.assertEquals(
                 0.0f,
                 LowPassFilter.filterValue(0, -1, 0),
                 ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 -1 * ALPHA_VALUE,
                 LowPassFilter.filterValue(0, -1, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(-1.0f, LowPassFilter.filterValue(0, -1, 1), ACCURACY);
+        Assertions.assertEquals(-1.0f, LowPassFilter.filterValue(0, -1, 1), ACCURACY);
     }
 
     /**
@@ -186,12 +168,10 @@ public class LowPassFilterTest {
      */
     @Test
     public final void testFilterValueUnSetArrays() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_EMPTY_ARRAY);
-
-        // empty newArray
-        LowPassFilter.filterValueSet(null, null, 0f);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            // empty newArray
+            LowPassFilter.filterValueSet(null, null, 0f);
+        });
     }
 
     /**
@@ -199,14 +179,12 @@ public class LowPassFilterTest {
      */
     @Test
     public final void testFilterValueEmptyArrays() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_EMPTY_ARRAY);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            // zero length newArray
+            float[] newArray = new float[0];
 
-        // zero length newArray
-        float[] newArray = new float[0];
-
-        LowPassFilter.filterValueSet(null, newArray, 0f);
-        fail("Expected an IllegalArgumentException to be thrown");
+            LowPassFilter.filterValueSet(null, newArray, 0f);
+        });
     }
 
     /**
@@ -214,21 +192,17 @@ public class LowPassFilterTest {
      */
     @Test
     public final void testFilterValueUnequalArrays() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(
-                "parameter previousArray (length = 2) should have the "
-                + "same size as parameter newArray (length = 1)");
-
         // empty previousArray, result should be new array
         float[] newArray = {1};
         float[] testArray = LowPassFilter.filterValueSet(null, newArray, 0f);
-        assertEquals(1, testArray.length);
-        assertEquals(1, testArray[0], ACCURACY);
+        Assertions.assertEquals(1, testArray.length);
+        Assertions.assertEquals(1, testArray[0], ACCURACY);
 
-        // size of newArray and previousArray is not equal, throws exception
-        float[] previousArray = new float[2];
-
-        LowPassFilter.filterValueSet(previousArray, newArray, 0f);
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            // size of newArray and previousArray is not equal, throws exception
+            float[] previousArray = new float[2];
+            LowPassFilter.filterValueSet(previousArray, newArray, 0f);
+        });
     }
 
     /**
@@ -242,7 +216,7 @@ public class LowPassFilterTest {
         float[] filteredArray = LowPassFilter.filterValueSet(
                 previousArray, newArray, ALPHA_VALUE);
 
-        assertEquals(ALPHA_VALUE, filteredArray[0], ACCURACY);
-        assertEquals(1 - ALPHA_VALUE, filteredArray[1], ACCURACY);
+        Assertions.assertEquals(ALPHA_VALUE, filteredArray[0], ACCURACY);
+        Assertions.assertEquals(1 - ALPHA_VALUE, filteredArray[1], ACCURACY);
     }
 }
