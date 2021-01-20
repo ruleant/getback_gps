@@ -21,27 +21,19 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for CardinalDirection class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class CardinalDirectionTest {
     /**
      * Expected Exception.
      */
-    @Rule public final ExpectedException thrown = ExpectedException.none();
 
     /**
      * Instance of the CardinalDirection class.
@@ -73,7 +65,7 @@ public class CardinalDirectionTest {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         object = new CardinalDirection(0.0);
     }
@@ -83,7 +75,7 @@ public class CardinalDirectionTest {
      */
     @Test
     public final void testNoValue() {
-        assertEquals(0.0, object.getValue(), ACCURACY);
+        Assertions.assertEquals(0.0, object.getValue(), ACCURACY);
     }
 
     /**
@@ -92,10 +84,10 @@ public class CardinalDirectionTest {
     @Test
     public final void testValue() {
         object.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, object.getValue(), ACCURACY);
+        Assertions.assertEquals(VALID_COORDINATE, object.getValue(), ACCURACY);
 
         object.setValue(CardinalDirection.SEGMENT_NW_HIGH);
-        assertEquals(
+        Assertions.assertEquals(
                 CardinalDirection.SEGMENT_NW_HIGH, object.getValue(),
                 ACCURACY);
     }
@@ -105,11 +97,9 @@ public class CardinalDirectionTest {
      */
     @Test
     public final void testOutOfRangeValueBigger() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        object.setValue(OUT_OF_RANGE);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            object.setValue(OUT_OF_RANGE);
+        });
     }
 
     /**
@@ -117,11 +107,9 @@ public class CardinalDirectionTest {
      */
     @Test
     public final void testOutOfRangeValueSmaller() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        object.setValue(-1 * OUT_OF_RANGE);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            object.setValue(-1 * OUT_OF_RANGE);
+        });
     }
 
     /**
@@ -129,31 +117,31 @@ public class CardinalDirectionTest {
      */
     @Test
     public final void testGetSegment() {
-        assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
 
         object.setValue(VALID_COORDINATE);
-        assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
 
         object.setValue(CardinalDirection.SEGMENT_NE_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NORTHEAST, object.getSegment());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_SE_LOW);
-        assertEquals(CardinalDirection.SEGMENT_SOUTHEAST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_SOUTHEAST, object.getSegment());
 
         object.setValue(CardinalDirection.SEGMENT_SE_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_SOUTHEAST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_SOUTHEAST, object.getSegment());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_SW_LOW);
-        assertEquals(CardinalDirection.SEGMENT_SOUTHWEST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_SOUTHWEST, object.getSegment());
 
         object.setValue(CardinalDirection.SEGMENT_SW_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_SOUTHWEST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_SOUTHWEST, object.getSegment());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_NW_LOW);
-        assertEquals(CardinalDirection.SEGMENT_NORTHWEST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NORTHWEST, object.getSegment());
 
         object.setValue(CardinalDirection.SEGMENT_NW_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_NORTHWEST, object.getSegment());
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NORTHWEST, object.getSegment());
     }
 
     /**
@@ -161,23 +149,23 @@ public class CardinalDirectionTest {
      */
     @Test
     public final void testGetSegmentUnit() {
-        assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
                 object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE);
-        assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NE_UNIT,
                 object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_SE_LOW);
-        assertEquals(CardinalDirection.SEGMENT_SE_UNIT,
+        Assertions.assertEquals(CardinalDirection.SEGMENT_SE_UNIT,
                 object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_SW_LOW);
-        assertEquals(CardinalDirection.SEGMENT_SW_UNIT,
+        Assertions.assertEquals(CardinalDirection.SEGMENT_SW_UNIT,
                 object.getSegmentUnit());
 
         object.setValue(VALID_COORDINATE + CardinalDirection.SEGMENT_NW_LOW);
-        assertEquals(CardinalDirection.SEGMENT_NW_UNIT,
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NW_UNIT,
                 object.getSegmentUnit());
     }
 
@@ -186,13 +174,13 @@ public class CardinalDirectionTest {
      */
     @Test
     public final void testGetConvertedValue() {
-        assertEquals(0.0, object.getConvertedValue(), ACCURACY);
+        Assertions.assertEquals(0.0, object.getConvertedValue(), ACCURACY);
 
         object.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, object.getConvertedValue(), ACCURACY);
+        Assertions.assertEquals(VALID_COORDINATE, object.getConvertedValue(), ACCURACY);
 
         object.setValue(CardinalDirection.SEGMENT_NW_HIGH);
-        assertEquals(CardinalDirection.SEGMENT_NW_HIGH,
+        Assertions.assertEquals(CardinalDirection.SEGMENT_NW_HIGH,
                 object.getConvertedValue(),
                 ACCURACY);
     }

@@ -21,28 +21,16 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for Coordinate class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class CoordinateTest {
-    /**
-     * Expected Exception.
-     */
-    @Rule public final ExpectedException thrown = ExpectedException.none();
-
     /**
      * Instance of the coordinate class.
      */
@@ -117,7 +105,7 @@ public class CoordinateTest {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         coordinate = new Coordinate(0.0, 0.0);
     }
@@ -127,24 +115,24 @@ public class CoordinateTest {
      */
     @Test
     public final void testNoValue() {
-        assertEquals(0.0, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(0.0, coordinate.getPolarRadius(), POLAR_ACCURACY);
-        assertEquals(0, coordinate.getCartesianX());
-        assertEquals(0, coordinate.getCartesianY());
+        Assertions.assertEquals(0.0, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(0.0, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(0, coordinate.getCartesianX());
+        Assertions.assertEquals(0, coordinate.getCartesianY());
 
         double[] coordinatePolarArray = coordinate.getPolarCoordinate();
-        assertEquals(
+        Assertions.assertEquals(
                 0.0,
                 coordinatePolarArray[Coordinate.RADIUS],
                 POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 ANGLE_0,
                 coordinatePolarArray[Coordinate.ANGLE],
                 POLAR_ACCURACY);
 
         long[] coordinateCartesianArray = coordinate.getCartesianCoordinate();
-        assertEquals(0, coordinateCartesianArray[Coordinate.X]);
-        assertEquals(0, coordinateCartesianArray[Coordinate.Y]);
+        Assertions.assertEquals(0, coordinateCartesianArray[Coordinate.X]);
+        Assertions.assertEquals(0, coordinateCartesianArray[Coordinate.Y]);
     }
 
     /**
@@ -153,28 +141,28 @@ public class CoordinateTest {
     @Test
     public final void testSetPolarCoordinate() {
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_45);
-        assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         // test zero radius
         coordinate.setPolarCoordinate(0.0, ANGLE_45);
-        assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(0.0, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(0.0, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         // test negative radius
         coordinate.setPolarCoordinate(RADIUS_20 * -1, ANGLE_45);
-        assertEquals(ANGLE_225, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_225, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         // test 360° angle
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_360);
-        assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         // test 45° + 1 turn angle (=405°)
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_360 + ANGLE_45);
-        assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
     }
 
     /**
@@ -184,51 +172,51 @@ public class CoordinateTest {
     public final void testSetCartesianCoordinate() {
         // test zero radius
         coordinate.setCartesianCoordinate(0, 0);
-        assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(0.0, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(0.0, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(UNIT_20, 0);
-        assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_0, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(0, UNIT_20);
-        assertEquals(ANGLE_90, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_90, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(UNIT_20, UNIT_20);
-        assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(
                 RADIUS_20SQRT2,
                 coordinate.getPolarRadius(),
                 POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(UNIT_30, UNIT_40);
-        assertEquals(ANGLE_53P129, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_50, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_53P129, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_50, coordinate.getPolarRadius(), POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(-1 * UNIT_20, UNIT_20);
-        assertEquals(
+        Assertions.assertEquals(
                 ANGLE_90 + ANGLE_45,
                 coordinate.getPolarAngle(),
                 POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 RADIUS_20SQRT2,
                 coordinate.getPolarRadius(),
                 POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(-1 * UNIT_20, -1 * UNIT_20);
-        assertEquals(ANGLE_225, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(ANGLE_225, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(
                 RADIUS_20SQRT2,
                 coordinate.getPolarRadius(),
                 POLAR_ACCURACY);
 
         coordinate.setCartesianCoordinate(UNIT_20, -1 * UNIT_20);
-        assertEquals(
+        Assertions.assertEquals(
                 ANGLE_360 - ANGLE_45,
                 coordinate.getPolarAngle(),
                 POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 RADIUS_20SQRT2,
                 coordinate.getPolarRadius(),
                 POLAR_ACCURACY);
@@ -240,15 +228,15 @@ public class CoordinateTest {
     @Test
     public final void testSetCoordinate() {
         Coordinate newCoordinate = new Coordinate(RADIUS_20, ANGLE_45);
-        assertEquals(ANGLE_45, newCoordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(ANGLE_45, newCoordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(
                 RADIUS_20,
                 newCoordinate.getPolarRadius(),
                 POLAR_ACCURACY);
 
         coordinate.setCoordinate(newCoordinate);
-        assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
     }
 
     /**
@@ -256,11 +244,9 @@ public class CoordinateTest {
      */
     @Test
     public final void testSetCoordinateNull() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Parameter coordinate should not be null");
-
-        coordinate.setCoordinate(null);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            coordinate.setCoordinate(null);
+        });
     }
 
     /**
@@ -269,8 +255,8 @@ public class CoordinateTest {
     @Test
     public final void testPolarConstructor() {
         coordinate = new Coordinate(RADIUS_20, ANGLE_45);
-        assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
     }
 
     /**
@@ -279,8 +265,8 @@ public class CoordinateTest {
     @Test
     public final void testCartesianConstructor() {
         coordinate = new Coordinate(UNIT_30, UNIT_40);
-        assertEquals(ANGLE_53P129, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_50, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_53P129, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_50, coordinate.getPolarRadius(), POLAR_ACCURACY);
     }
 
     /**
@@ -289,8 +275,8 @@ public class CoordinateTest {
     @Test
     public final void testCoordinateConstructor() {
         coordinate = new Coordinate(new Coordinate(RADIUS_20, ANGLE_45));
-        assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
-        assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
+        Assertions.assertEquals(ANGLE_45, coordinate.getPolarAngle(), POLAR_ACCURACY);
+        Assertions.assertEquals(RADIUS_20, coordinate.getPolarRadius(), POLAR_ACCURACY);
     }
 
     /**
@@ -299,28 +285,28 @@ public class CoordinateTest {
     @Test
     public final void testGetCartesianCoordinate() {
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_0);
-        assertEquals(UNIT_20, coordinate.getCartesianX());
-        assertEquals(0, coordinate.getCartesianY());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianX());
+        Assertions.assertEquals(0, coordinate.getCartesianY());
 
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_90);
-        assertEquals(0, coordinate.getCartesianX());
-        assertEquals(UNIT_20, coordinate.getCartesianY());
+        Assertions.assertEquals(0, coordinate.getCartesianX());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianY());
 
         coordinate.setPolarCoordinate(RADIUS_50, ANGLE_53P129);
-        assertEquals(UNIT_30, coordinate.getCartesianX());
-        assertEquals(UNIT_40, coordinate.getCartesianY());
+        Assertions.assertEquals(UNIT_30, coordinate.getCartesianX());
+        Assertions.assertEquals(UNIT_40, coordinate.getCartesianY());
 
         coordinate.setPolarCoordinate(RADIUS_20SQRT2, ANGLE_90 + ANGLE_45);
-        assertEquals(-1 * UNIT_20, coordinate.getCartesianX());
-        assertEquals(UNIT_20, coordinate.getCartesianY());
+        Assertions.assertEquals(-1 * UNIT_20, coordinate.getCartesianX());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianY());
 
         coordinate.setPolarCoordinate(RADIUS_20SQRT2, ANGLE_225);
-        assertEquals(-1 * UNIT_20, coordinate.getCartesianX());
-        assertEquals(-1 * UNIT_20, coordinate.getCartesianY());
+        Assertions.assertEquals(-1 * UNIT_20, coordinate.getCartesianX());
+        Assertions.assertEquals(-1 * UNIT_20, coordinate.getCartesianY());
 
         coordinate.setPolarCoordinate(RADIUS_20SQRT2, ANGLE_360 - ANGLE_45);
-        assertEquals(UNIT_20, coordinate.getCartesianX());
-        assertEquals(-1 * UNIT_20, coordinate.getCartesianY());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianX());
+        Assertions.assertEquals(-1 * UNIT_20, coordinate.getCartesianY());
     }
 
     /**
@@ -329,36 +315,36 @@ public class CoordinateTest {
     @Test
     public final void testCartesianConversion() {
         coordinate.setCartesianCoordinate(UNIT_20, 0);
-        assertEquals(UNIT_20, coordinate.getCartesianX());
-        assertEquals(0, coordinate.getCartesianY());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianX());
+        Assertions.assertEquals(0, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(0, UNIT_20);
-        assertEquals(0, coordinate.getCartesianX());
-        assertEquals(UNIT_20, coordinate.getCartesianY());
+        Assertions.assertEquals(0, coordinate.getCartesianX());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(UNIT_40, UNIT_20);
-        assertEquals(UNIT_40, coordinate.getCartesianX());
-        assertEquals(UNIT_20, coordinate.getCartesianY());
+        Assertions.assertEquals(UNIT_40, coordinate.getCartesianX());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(UNIT_20, UNIT_40);
-        assertEquals(UNIT_20, coordinate.getCartesianX());
-        assertEquals(UNIT_40, coordinate.getCartesianY());
+        Assertions.assertEquals(UNIT_20, coordinate.getCartesianX());
+        Assertions.assertEquals(UNIT_40, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(1, 1);
-        assertEquals(1, coordinate.getCartesianX());
-        assertEquals(1, coordinate.getCartesianY());
+        Assertions.assertEquals(1, coordinate.getCartesianX());
+        Assertions.assertEquals(1, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(1, -1);
-        assertEquals(1, coordinate.getCartesianX());
-        assertEquals(-1, coordinate.getCartesianY());
+        Assertions.assertEquals(1, coordinate.getCartesianX());
+        Assertions.assertEquals(-1, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(-1, -1);
-        assertEquals(-1, coordinate.getCartesianX());
-        assertEquals(-1, coordinate.getCartesianY());
+        Assertions.assertEquals(-1, coordinate.getCartesianX());
+        Assertions.assertEquals(-1, coordinate.getCartesianY());
 
         coordinate.setCartesianCoordinate(-1, 1);
-        assertEquals(-1, coordinate.getCartesianX());
-        assertEquals(1, coordinate.getCartesianY());
+        Assertions.assertEquals(-1, coordinate.getCartesianX());
+        Assertions.assertEquals(1, coordinate.getCartesianY());
     }
 
     /**
@@ -370,18 +356,18 @@ public class CoordinateTest {
 
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_0);
         coordinateArray = coordinate.getCartesianCoordinate();
-        assertEquals(UNIT_20, coordinateArray[Coordinate.X]);
-        assertEquals(0, coordinateArray[Coordinate.Y]);
+        Assertions.assertEquals(UNIT_20, coordinateArray[Coordinate.X]);
+        Assertions.assertEquals(0, coordinateArray[Coordinate.Y]);
 
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_90);
         coordinateArray = coordinate.getCartesianCoordinate();
-        assertEquals(0, coordinateArray[Coordinate.X]);
-        assertEquals(UNIT_20, coordinateArray[Coordinate.Y]);
+        Assertions.assertEquals(0, coordinateArray[Coordinate.X]);
+        Assertions.assertEquals(UNIT_20, coordinateArray[Coordinate.Y]);
 
         coordinate.setPolarCoordinate(RADIUS_50, ANGLE_53P129);
         coordinateArray = coordinate.getCartesianCoordinate();
-        assertEquals(UNIT_30, coordinateArray[Coordinate.X]);
-        assertEquals(UNIT_40, coordinateArray[Coordinate.Y]);
+        Assertions.assertEquals(UNIT_30, coordinateArray[Coordinate.X]);
+        Assertions.assertEquals(UNIT_40, coordinateArray[Coordinate.Y]);
     }
 
     /**
@@ -393,33 +379,33 @@ public class CoordinateTest {
 
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_0);
         coordinateArray = coordinate.getPolarCoordinate();
-        assertEquals(
+        Assertions.assertEquals(
                 RADIUS_20,
                 coordinateArray[Coordinate.RADIUS],
                 POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 ANGLE_0,
                 coordinateArray[Coordinate.ANGLE],
                 POLAR_ACCURACY);
 
         coordinate.setPolarCoordinate(RADIUS_20, ANGLE_90);
         coordinateArray = coordinate.getPolarCoordinate();
-        assertEquals(
+        Assertions.assertEquals(
                 RADIUS_20,
                 coordinateArray[Coordinate.RADIUS],
                 POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 ANGLE_90,
                 coordinateArray[Coordinate.ANGLE],
                 POLAR_ACCURACY);
 
         coordinate.setPolarCoordinate(RADIUS_50, ANGLE_53P129);
         coordinateArray = coordinate.getPolarCoordinate();
-        assertEquals(
+        Assertions.assertEquals(
                 RADIUS_50,
                 coordinateArray[Coordinate.RADIUS],
                 POLAR_ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(
                 ANGLE_53P129,
                 coordinateArray[Coordinate.ANGLE],
                 POLAR_ACCURACY);

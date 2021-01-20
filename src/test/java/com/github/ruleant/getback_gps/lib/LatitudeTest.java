@@ -21,28 +21,16 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for Latitude class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class LatitudeTest {
-    /**
-     * Expected Exception.
-     */
-    @Rule public final ExpectedException thrown = ExpectedException.none();
-
     /**
      * Instance of the latitude class.
      */
@@ -73,7 +61,7 @@ public class LatitudeTest {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         latitude = new Latitude(0.0);
     }
@@ -83,7 +71,7 @@ public class LatitudeTest {
      */
     @Test
     public final void testNoValue() {
-        assertEquals(0.0, latitude.getValue(), ACCURACY);
+        Assertions.assertEquals(0.0, latitude.getValue(), ACCURACY);
     }
 
     /**
@@ -92,10 +80,10 @@ public class LatitudeTest {
     @Test
     public final void testValue() {
         latitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, latitude.getValue(), ACCURACY);
+        Assertions.assertEquals(VALID_COORDINATE, latitude.getValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(
+        Assertions.assertEquals(
                 Latitude.SEGMENT_NORTH_HIGH,
                 latitude.getValue(),
                 ACCURACY);
@@ -107,10 +95,10 @@ public class LatitudeTest {
     @Test
     public final void testNegValue() {
         latitude.setValue(-1.0 * VALID_COORDINATE);
-        assertEquals(-1.0 * VALID_COORDINATE, latitude.getValue(), ACCURACY);
+        Assertions.assertEquals(-1.0 * VALID_COORDINATE, latitude.getValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
-        assertEquals(
+        Assertions.assertEquals(
                 Latitude.SEGMENT_SOUTH_LOW,
                 latitude.getValue(),
                 ACCURACY);
@@ -121,11 +109,9 @@ public class LatitudeTest {
      */
     @Test
     public final void testOutOfRangeValueBigger() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        latitude.setValue(OUT_OF_RANGE);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            latitude.setValue(OUT_OF_RANGE);
+        });
     }
 
     /**
@@ -133,11 +119,9 @@ public class LatitudeTest {
      */
     @Test
     public final void testOutOfRangeValueSmaller() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        latitude.setValue(-1 * OUT_OF_RANGE);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            latitude.setValue(-1 * OUT_OF_RANGE);
+        });
     }
 
     /**
@@ -145,19 +129,19 @@ public class LatitudeTest {
      */
     @Test
     public final void testGetSegment() {
-        assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
+        Assertions.assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
         latitude.setValue(VALID_COORDINATE);
-        assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
+        Assertions.assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
+        Assertions.assertEquals(Latitude.SEGMENT_NORTH, latitude.getSegment());
 
         latitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
+        Assertions.assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
-        assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
+        Assertions.assertEquals(Latitude.SEGMENT_SOUTH, latitude.getSegment());
     }
 
     /**
@@ -165,19 +149,19 @@ public class LatitudeTest {
      */
     @Test
     public final void testGetSegmentUnit() {
-        assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
+        Assertions.assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
 
         latitude.setValue(VALID_COORDINATE);
-        assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
+        Assertions.assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
+        Assertions.assertEquals(Latitude.SEGMENT_NORTH_UNIT, latitude.getSegmentUnit());
 
         latitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
+        Assertions.assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
-        assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
+        Assertions.assertEquals(Latitude.SEGMENT_SOUTH_UNIT, latitude.getSegmentUnit());
     }
 
     /**
@@ -185,22 +169,22 @@ public class LatitudeTest {
      */
     @Test
     public final void testGetConvertedValue() {
-        assertEquals(0.0, latitude.getConvertedValue(), ACCURACY);
+        Assertions.assertEquals(0.0, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, latitude.getConvertedValue(), ACCURACY);
+        Assertions.assertEquals(VALID_COORDINATE, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_NORTH_HIGH);
-        assertEquals(
+        Assertions.assertEquals(
                 Latitude.SEGMENT_NORTH_HIGH,
                 latitude.getConvertedValue(),
                 ACCURACY);
 
         latitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, latitude.getConvertedValue(), ACCURACY);
+        Assertions.assertEquals(VALID_COORDINATE, latitude.getConvertedValue(), ACCURACY);
 
         latitude.setValue(Latitude.SEGMENT_SOUTH_LOW);
-        assertEquals(
+        Assertions.assertEquals(
                 Math.abs(Latitude.SEGMENT_SOUTH_LOW),
                 latitude.getConvertedValue(),
                 ACCURACY);
