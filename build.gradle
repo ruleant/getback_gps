@@ -16,6 +16,7 @@ buildscript {
 
 plugins {
     id 'jacoco'
+    id('com.github.nbaztec.coveralls-jacoco') version '1.2.7'
 }
 
 apply plugin: 'com.android.application'
@@ -105,3 +106,7 @@ dependencies {
 //}
 //
 //check.dependsOn unitTest
+
+coverallsJacoco {
+    reportPath = "build/reports/jacoco/jacocoTestReportRelease/jacocoTestReportRelease.xml"
+}
