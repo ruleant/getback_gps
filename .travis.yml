@@ -15,6 +15,9 @@ env:
 script:
   - ./gradlew clean check assemble
 after_success:
+  # Generate test coverage report with Jacoco and publish on Coveralls
+  - ./gradlew jacocoTestReport
+  - ./gradlew coverallsJacoco
   # update javadoc on Github Pages (gh-pages)
   - ./gradlew generateJavadoc
   - .utility/copy-javadoc-to-gh-pages.sh
