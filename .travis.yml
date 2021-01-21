@@ -1,11 +1,11 @@
 #based on https://raw.github.com/leviwilson/android-travis-ci-example/master/.travis.yml
 language: android
+os: linux
+dist: xenial
 android:
   components:
     - android-29
     - build-tools-29.0.3
-# enable building on container-based infrastructure
-sudo: false
 env:
   global:
     # github token
