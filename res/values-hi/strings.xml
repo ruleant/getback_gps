@@ -99,4 +99,10 @@
     <string name="distance_m">मीटर</string>
     <string name="distance_km">किलो मीटर</string>
     <string name="height_difference">ऊंचाई में अंतर</string>
+    <string name="enter_location">गंतव्य को स्वयं दर्ज़ करें</string>
+    <string name="location_longitude">लोकेशन देशांतर</string>
+    <string name="location_latitude">लोकेशन अक्षांश</string>
+    <string name="dialog_enter_location">अपने लोकेशन के लिए एक नाम और जीपीएस निर्देशांक दर्ज़ करें</string>
+    <string name="notice_location_permission_granted">लोकेशन अप्डेट के लिए अनुमति दे दी गई है</string>
+    <string name="notice_location_no_permission">लोकेशन अप्डेट बंद कर दिए गए हैं : अनुमति नहीं मिली</string>
 </resources>
