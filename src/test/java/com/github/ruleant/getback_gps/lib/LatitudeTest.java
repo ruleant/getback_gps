@@ -52,12 +52,6 @@ public class LatitudeTest {
     private static final double ACCURACY = 0.00001;
 
     /**
-     * Exception message when value is out of range.
-     */
-    private static final String MESSAGE_VALUE_RANGE
-            = "newValue is not in range -90.0 .. 90.0";
-
-    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */

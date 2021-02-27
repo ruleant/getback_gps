@@ -100,11 +100,6 @@ public class CircularAverageTest {
      * Value reached after 5 cycles with alpha = 0.5 : 96.875 %.
      */
     private static final float CYCLE5 = 0.96875f;
-    /**
-     * Exception message when value is out of range.
-     */
-    private static final String MESSAGE_VALUE_RANGE
-            = "parameter alpha is not in range 0.0 .. 1.0";
 
     /**
      * Tests empty value.

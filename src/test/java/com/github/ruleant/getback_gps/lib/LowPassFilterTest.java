@@ -42,18 +42,6 @@ public class LowPassFilterTest {
     private static final double ACCURACY = 0.0001;
 
     /**
-     * Exception message when value is out of range.
-     */
-    private static final String MESSAGE_VALUE_RANGE
-            = "parameter alpha is not in range 0.0 .. 1.0";
-
-    /**
-     * Exception message when array is empty.
-     */
-    private static final String MESSAGE_EMPTY_ARRAY
-            = "parameter newArray should not be an empty array";
-
-    /**
      * Tests empty value.
      */
     @Test
