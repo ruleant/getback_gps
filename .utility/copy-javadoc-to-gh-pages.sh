@@ -27,14 +27,14 @@
 
 # don't update JavaDoc when it is a pull request
 # only update Javadoc when master branch is built
-if [ "$TRAVIS_PULL_REQUEST" == "false" ] && [ "$TRAVIS_BRANCH" == "master" ]; then
+if [ "${TRAVIS_PULL_REQUEST}" == "false" ] && [ "${TRAVIS_BRANCH}" == "master" ]; then
 
 echo -e "Start to publish lastest Javadoc to gh-pages...\n"
 
-  cp -R build/docs/javadoc/release $HOME/javadoc-latest
+  cp -R build/docs/javadoc/release "${HOME}/javadoc-latest"
 
-  cd $HOME
-  git clone --quiet --branch=gh-pages https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG} gh-pages > /dev/null
+  cd "${HOME}"
+  git clone --quiet --branch=gh-pages "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}" gh-pages > /dev/null
   cd gh-pages
 
   # set git user in gh-pages repo
@@ -42,9 +42,9 @@ echo -e "Start to publish lastest Javadoc to gh-pages...\n"
   git config user.name "travis-ci"
 
   git rm -rf ./javadoc
-  cp -Rf $HOME/javadoc-latest ./javadoc
+  cp -Rf "${HOME}/javadoc-latest" ./javadoc
   git add -f .
-  git commit -m "Lastest javadoc on successful travis build $TRAVIS_BUILD_NUMBER auto-pushed to gh-pages"
+  git commit -m "Lastest javadoc on successful travis build ${TRAVIS_BUILD_NUMBER} auto-pushed to gh-pages"
   git push -fq origin gh-pages > /dev/null
 
   echo -e "Done magic with auto publishment to gh-pages.\n"

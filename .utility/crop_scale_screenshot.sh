@@ -39,7 +39,7 @@ if [ $# -eq 0 ]
 fi
 
 # get image properties and save as array (identify returns spaces seperated result)
-imageProperties=(`identify $inputImageFile`)
+imageProperties=($(identify "${inputImageFile}"))
 
 # image size is 3rd element of the array
 imageSize=${imageProperties[2]}
@@ -62,16 +62,16 @@ case "$imageSize" in
 		resize="800x442"
 		;;
 # default, unknown format : don't crop/resize image
-*)		echo $imageSize
+*)		echo "${imageSize}"
 		echo "Unknown format, image was not changed."
 		exit 0
 		;;
 esac
 
-echo "original size : $imageSize"
-echo "extraction parameters : $extract"
-echo "resize parameters : $resize"
-echo "output file: $outputImageFile"
+echo "original size : ${imageSize}"
+echo "extraction parameters : ${extract}"
+echo "resize parameters : ${resize}"
+echo "output file: ${outputImageFile}"
 
 # remove bars and resize image
-convert -size $imageSize -extract $extract $inputImageFile -resize $resize $outputImageFile
+convert -size "${imageSize}" -extract "${extract}" "${inputImageFile}" -resize "${resize}" "${outputImageFile}"

@@ -10,6 +10,7 @@
  - issue #126, #172: convert unittests to junit5 (Jupiter)
  - improved Hindi translation, thanks to Dormin
  - export coverity-scan certificate before Travis-ci build
+ - properly escape variables in bash utility scripts
 
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
