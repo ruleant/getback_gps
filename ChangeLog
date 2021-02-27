@@ -9,6 +9,7 @@
  - upgrade build toolchain to gradle 6.8, gradle for Android plugin 4.1.1
  - issue #126, #172: convert unittests to junit5 (Jupiter)
  - improved Hindi translation, thanks to Dormin
+ - export coverity-scan certificate before Travis-ci build
 
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys

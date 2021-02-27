@@ -12,6 +12,8 @@ env:
     - secure: "mMIHz+I2pZK7I9PvhkTIRDeXJJIZTwigAamHnaId1q9YO7LvBoCKsJCI7pepbK303lTZJqkTgyTti9xSsYjzMIIMT8G+YBfVqoiy6wWOZjwjjZxn5Mw7g3qxRRdpXCc7B7hBBTEiEzC0Bp3QwPQtwdFDlACwgHWsbDLiaweIglg="
     # coverity token
     - secure: "bbT3Swvy1P0vFgXE5E5Iv9+JU8GG4LZlbwLez2B7s0aOuxEFCnj19M+GAldVAeHCc/z/0Oz+N1p4eRU5OCJY71lZqv5F8ph8ahti7uUylbfoNHM7g1mcmVSNFZ5bgVhnz/RQjEK/o5msqv3UZPRPS023Q5vAbCrftuHOiOiBbCo="
+before_install:
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
 script:
   - ./gradlew clean check assemble
 after_success:
