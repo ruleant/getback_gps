@@ -1,6 +1,7 @@
 GetBack GPS for Android
 =======================
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4b5357e56e194b2fade4282f8dc7c182)](https://app.codacy.com/gh/ruleant/getback_gps?utm_source=github.com&utm_medium=referral&utm_content=ruleant/getback_gps&utm_campaign=Badge_Grade_Settings)
 [![GetBack GPS](https://img.shields.io/badge/release-v0.7-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
 [![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
 [![Codacy Badge](https://api.codacy.com/project/badge/0040e146618e41ac9c39d04c7b1a3fef)](https://www.codacy.com/app/ruleant/getback_gps)
