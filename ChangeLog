@@ -12,6 +12,7 @@
  - export coverity-scan certificate before Travis-ci build
  - properly escape variables in bash utility scripts
  - cleanup unused constants in tests
+ - remove shippable config
 
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
