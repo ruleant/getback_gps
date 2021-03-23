@@ -104,8 +104,8 @@ Usted ha debido de recibir una copia de la Licencia General Pública de GNU junt
     <string name="enter_location">Introduce el destino manualmente</string>
     <string name="location_longitude">Longitud de tu localización</string>
     <string name="location_latitude">Latitud de tu localización</string>
-    <string name="dialog_enter_location">Introduce un nombre y coordenadas GPS para tu localización:</string>
-    <string name="notice_location_permission_granted">Permiso concedido para actualizaciones de localización</string>
-    <string name="notice_location_no_permission">Actualizaciones de localización están desactivadas: Permiso denegado</string>
-    <string name="notice_location_permission_required">Permitir acceso a la localización de este dispositivo para activar las actualizaciones de localización</string>
+    <string name="dialog_enter_location">Introduce un nombre y coordenadas GPS para tu ubicación:</string>
+    <string name="notice_location_permission_granted">Permiso para actualizaciones de ubicación concecido</string>
+    <string name="notice_location_no_permission">Las actualizaciones de ubicación están desactivadas: Permiso denegado</string>
+    <string name="notice_location_permission_required">Permite acceso a la ubicación del dispositivo para activar actualizaciones de ubicación</string>
 </resources>
