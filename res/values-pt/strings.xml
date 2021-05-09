@@ -40,7 +40,7 @@
     <string name="latitude">Latitude</string>
     <string name="menu_details">Detalhes do local</string>
     <string name="destination_reached">No destino</string>
-    <string name="loc_provider_network">Rede (celular/Wi-Fi)</string>
+    <string name="loc_provider_network">Rede (telemóvel/Wi-Fi)</string>
     <string name="accuracy">Precisão</string>
     <string name="travel_direction_backwards">Para trás</string>
     <plurals name="time_minutes">
