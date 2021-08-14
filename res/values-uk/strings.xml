@@ -76,7 +76,7 @@
     <string name="store_location">Зберегти розташування</string>
     <string name="location_stored">Розташування збережене</string>
     <string name="pref_header_general">Загальні</string>
-    <string name="cancel">Відміна</string>
+    <string name="cancel">Скасувати</string>
     <string name="speed_kph">Км/год</string>
     <string name="loc_updated_recent">Розташування щойно оновлено.</string>
     <string name="refresh">Оновлення</string>
