@@ -99,4 +99,13 @@
     <string name="notice_no_dest">ذخیره مکان شما برای مسیریابی</string>
     <string name="inaccurate_location">مکان شما دقیق نیست</string>
     <string name="app_desc">با مختصات GPS راه برگشت به مکانی که قبلاً رفته بودید را پیدا کنید.</string>
+    <string name="license">این برنامه نرم افزاری رایگان است: می توانید آن را مجدداً توزیع کرده و/یا تحت شرایط مجوز عمومی عمومی GNU که توسط بنیاد نرم افزار آزاد منتشر شده است ، نسخه 3 مجوز یا هر نسخه بعدی ، آن را تغییر دهید.
+\n
+\n \u0020این برنامه به امید مفید بودن توزیع می شود ، اما بدون هیچ گونه گارانتی. حتی بدون ضمانت ضمنی مبادله یا تناسب برای یک هدف خاص. برای اطلاعات بیشتر به مجوز عمومی GNU مراجعه کنید.
+\n
+\n \u0020شما باید یک نسخه از مجوز عمومی GNU را به همراه این برنامه دریافت کرده باشید. اگر نه ، به <a href="http://www.gnu.org/licenses/"> www.gnu.org/licenses </a> مراجعه کنید.</string>
+    <string name="pref_geo_orientation_sensor">سنسور جهت پیش فرض</string>
+    <string name="pref_loc_update_time">به روز رسانی بر اساس زمان</string>
+    <string name="pref_loc_update_dist">به روز رسانی بر اساس فاصله</string>
+    <string name="sensor_bearing_offset">جابجایی بلبرینگ بر اساس سنسور</string>
 </resources>
