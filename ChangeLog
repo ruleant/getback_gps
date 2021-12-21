@@ -13,6 +13,15 @@
  - properly escape variables in bash utility scripts
  - cleanup unused constants in tests
  - remove shippable config
+ - PR #192 : Improve GRADLE build Performance
+ - translated to Indonesian, thanks to Reza Almanda
+ - improved Spanish translation, thanks to Hur Ezeiza Zaldua
+ - translated to Basque, thanks to Hur Ezeiza Zaldua
+ - improved Portuguese translation, thanks to Sérgio Morais, ssantos
+ - improved Portuguese (Brazil) translation, thanks to Sérgio Morais
+ - improved Russian translation, thanks to Чтабс
+ - improved Ukrainian translation, thanks to Tymofii Lytvynenko
+ - improved Persian translation, thanks to عبدالرئوف عابدی
 
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
