@@ -38,7 +38,7 @@ echo -e "Start to publish lastest Javadoc to gh-pages...\n"
   cd gh-pages
 
   # set git user in gh-pages repo
-  git config user.email "travis@travis-ci.org"
+  git config user.email "travis@travis-ci.com"
   git config user.name "travis-ci"
 
   git rm -rf ./javadoc
@@ -48,5 +48,5 @@ echo -e "Start to publish lastest Javadoc to gh-pages...\n"
   git push -fq origin gh-pages > /dev/null
 
   echo -e "Done magic with auto publishment to gh-pages.\n"
-  
+
 fi
