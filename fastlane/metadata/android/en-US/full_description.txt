@@ -20,6 +20,7 @@ Features:
 Available languages:
 
 <ul>
+  <li>Basque</li>
   <li>Belarusian</li>
   <li>Catalan</li>
   <li>Chinese (Traditional)</li>
@@ -36,6 +37,7 @@ Available languages:
   <li>Hindi</li>
   <li>Hungarian</li>
   <li>Italian</li>
+  <li>Indonesian</li>
   <li>Japanese</li>
   <li>Kabyle</li>
   <li>Korean</li>

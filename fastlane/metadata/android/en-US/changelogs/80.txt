@@ -1,0 +1,6 @@
+- build against Android SDK 10.0 (API 29)
+- Fix Hebrew translation not being displayed
+- added languages : Basque, Indonesian
+- improved languages : Hindi, Persian, Portuguese, Portuguese (Brazil), Russian, Spanish, Ukrainian
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

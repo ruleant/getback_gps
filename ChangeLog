@@ -1,4 +1,4 @@
- v0.8 (not released yet)
+ v0.8 (released on 03Jan2022)
  - issue #183 : add fastlane metadata
  - issue #185 : Fix Hebrew translation not being displayed
  - simplify string placeholder notation app_website string
