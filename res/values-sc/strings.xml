@@ -89,7 +89,7 @@
     <string name="about">Informatziones</string>
     <string name="version">Versione</string>
     <string name="build_time">Costruidu in %s.</string>
-    <string name="app_website">Bìsita su &lt;a href=%1$s&gt;giassu/situ web&lt;/a&gt; pro àteras informatziones.</string>
+    <string name="app_website">Bìsita su &lt;a href=%s&gt;giassu/situ web&lt;/a&gt; pro àteras informatziones.</string>
     <string name="copyright">Deretu de autore</string>
     <string name="license">Cust\'aplicu est unu programma lìberu: lu podes distribuire e/o modificare sighinde sos tèrmines de sa litzèntzia GNU General Public License comente est istada publicada dae sa Free Software Foundation, versione 3 o imbeniente.\n
  \n

@@ -21,33 +21,21 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Ignore;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import java.nio.charset.Charset;
 import java.util.Locale;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 /**
  * Unit tests for FormatUtils class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class FormatUtilsTest {
-    /**
-     * Expected Exception.
-     */
-    @Rule public final ExpectedException thrown = ExpectedException.none();
-
     /**
      * Original Locale before tests.
      */
@@ -282,7 +270,7 @@ public class FormatUtilsTest {
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         // Set English (US) locale
         originalLocale = Locale.getDefault();
@@ -293,7 +281,7 @@ public class FormatUtilsTest {
      * Tears down the test fixture.
      * (Called after every test case method.)
      */
-    @After
+    @AfterEach
     public final void tearDown() {
         // set default locale back to original
         Locale.setDefault(originalLocale);
@@ -305,7 +293,7 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testDefaultCharset() {
-        assertEquals("UTF-8", Charset.defaultCharset().name());
+        Assertions.assertEquals("UTF-8", Charset.defaultCharset().name());
     }
 
     /**
@@ -316,12 +304,12 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatDistMain() {
-        assertEquals("9m", FormatUtils.formatDist(M_9M));
-        assertEquals("10m", FormatUtils.formatDist(M_10M));
-        assertEquals("9.0km", FormatUtils.formatDist(M_9KM));
-        assertEquals("9.9km", FormatUtils.formatDist(M_9P9KM));
-        assertEquals("11km", FormatUtils.formatDist(M_11KM));
-        assertEquals("12,345km", FormatUtils.formatDist(M_12345KM));
+        Assertions.assertEquals("9m", FormatUtils.formatDist(M_9M));
+        Assertions.assertEquals("10m", FormatUtils.formatDist(M_10M));
+        Assertions.assertEquals("9.0km", FormatUtils.formatDist(M_9KM));
+        Assertions.assertEquals("9.9km", FormatUtils.formatDist(M_9P9KM));
+        Assertions.assertEquals("11km", FormatUtils.formatDist(M_11KM));
+        Assertions.assertEquals("12,345km", FormatUtils.formatDist(M_12345KM));
     }
 
     /**
@@ -333,9 +321,9 @@ public class FormatUtilsTest {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("9,0km", FormatUtils.formatDist(M_9KM));
-        assertEquals("9,9km", FormatUtils.formatDist(M_9P9KM));
-        assertEquals("12.345km", FormatUtils.formatDist(M_12345KM));
+        Assertions.assertEquals("9,0km", FormatUtils.formatDist(M_9KM));
+        Assertions.assertEquals("9,9km", FormatUtils.formatDist(M_9P9KM));
+        Assertions.assertEquals("12.345km", FormatUtils.formatDist(M_12345KM));
     }
 
     /**
@@ -343,15 +331,15 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatDistRoundUp() {
-        assertEquals("10m", FormatUtils.formatDist(M_9P9M));
-        assertEquals("999m", FormatUtils.formatDist(M_999P3M));
-        assertEquals("1.0km", FormatUtils.formatDist(M_999P9M));
-        assertEquals("1.3km", FormatUtils.formatDist(M_1P33KM));
-        assertEquals("1.4km", FormatUtils.formatDist(M_1P37KM));
-        assertEquals("9.9km", FormatUtils.formatDist(M_9P93KM));
-        assertEquals("10km", FormatUtils.formatDist(M_9P98KM));
-        assertEquals("11km", FormatUtils.formatDist(M_11P4KM));
-        assertEquals("12km", FormatUtils.formatDist(M_11P7KM));
+        Assertions.assertEquals("10m", FormatUtils.formatDist(M_9P9M));
+        Assertions.assertEquals("999m", FormatUtils.formatDist(M_999P3M));
+        Assertions.assertEquals("1.0km", FormatUtils.formatDist(M_999P9M));
+        Assertions.assertEquals("1.3km", FormatUtils.formatDist(M_1P33KM));
+        Assertions.assertEquals("1.4km", FormatUtils.formatDist(M_1P37KM));
+        Assertions.assertEquals("9.9km", FormatUtils.formatDist(M_9P93KM));
+        Assertions.assertEquals("10km", FormatUtils.formatDist(M_9P98KM));
+        Assertions.assertEquals("11km", FormatUtils.formatDist(M_11P4KM));
+        Assertions.assertEquals("12km", FormatUtils.formatDist(M_11P7KM));
     }
 
     /**
@@ -360,9 +348,9 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatDistNeg() {
-        assertEquals("1m", FormatUtils.formatDist(-1.0));
-        assertEquals("9.0km", FormatUtils.formatDist(-1.0 * M_9KM));
-        assertEquals("11km", FormatUtils.formatDist(-1.0 * M_11KM));
+        Assertions.assertEquals("1m", FormatUtils.formatDist(-1.0));
+        Assertions.assertEquals("9.0km", FormatUtils.formatDist(-1.0 * M_9KM));
+        Assertions.assertEquals("11km", FormatUtils.formatDist(-1.0 * M_11KM));
     }
 
     /**
@@ -372,12 +360,12 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatHeightMain() {
-        assertEquals("9m", FormatUtils.formatHeight(M_9M));
-        assertEquals("10m", FormatUtils.formatHeight(M_10M));
-        assertEquals("9,000m", FormatUtils.formatHeight(M_9KM));
-        assertEquals("9,900m", FormatUtils.formatHeight(M_9P9KM));
-        assertEquals("11,000m", FormatUtils.formatHeight(M_11KM));
-        assertEquals("12,345,000m", FormatUtils.formatHeight(M_12345KM));
+        Assertions.assertEquals("9m", FormatUtils.formatHeight(M_9M));
+        Assertions.assertEquals("10m", FormatUtils.formatHeight(M_10M));
+        Assertions.assertEquals("9,000m", FormatUtils.formatHeight(M_9KM));
+        Assertions.assertEquals("9,900m", FormatUtils.formatHeight(M_9P9KM));
+        Assertions.assertEquals("11,000m", FormatUtils.formatHeight(M_11KM));
+        Assertions.assertEquals("12,345,000m", FormatUtils.formatHeight(M_12345KM));
     }
 
     /**
@@ -389,9 +377,9 @@ public class FormatUtilsTest {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("9.000m", FormatUtils.formatHeight(M_9KM));
-        assertEquals("9.900m", FormatUtils.formatHeight(M_9P9KM));
-        assertEquals("12.345.000m", FormatUtils.formatHeight(M_12345KM));
+        Assertions.assertEquals("9.000m", FormatUtils.formatHeight(M_9KM));
+        Assertions.assertEquals("9.900m", FormatUtils.formatHeight(M_9P9KM));
+        Assertions.assertEquals("12.345.000m", FormatUtils.formatHeight(M_12345KM));
     }
 
     /**
@@ -399,15 +387,15 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatHeightRoundUp() {
-        assertEquals("10m", FormatUtils.formatHeight(M_9P9M));
-        assertEquals("999m", FormatUtils.formatHeight(M_999P3M));
-        assertEquals("1,000m", FormatUtils.formatHeight(M_999P9M));
-        assertEquals("1,330m", FormatUtils.formatHeight(M_1P33KM));
-        assertEquals("1,370m", FormatUtils.formatHeight(M_1P37KM));
-        assertEquals("9,930m", FormatUtils.formatHeight(M_9P93KM));
-        assertEquals("9,980m", FormatUtils.formatHeight(M_9P98KM));
-        assertEquals("11,400m", FormatUtils.formatHeight(M_11P4KM));
-        assertEquals("11,700m", FormatUtils.formatHeight(M_11P7KM));
+        Assertions.assertEquals("10m", FormatUtils.formatHeight(M_9P9M));
+        Assertions.assertEquals("999m", FormatUtils.formatHeight(M_999P3M));
+        Assertions.assertEquals("1,000m", FormatUtils.formatHeight(M_999P9M));
+        Assertions.assertEquals("1,330m", FormatUtils.formatHeight(M_1P33KM));
+        Assertions.assertEquals("1,370m", FormatUtils.formatHeight(M_1P37KM));
+        Assertions.assertEquals("9,930m", FormatUtils.formatHeight(M_9P93KM));
+        Assertions.assertEquals("9,980m", FormatUtils.formatHeight(M_9P98KM));
+        Assertions.assertEquals("11,400m", FormatUtils.formatHeight(M_11P4KM));
+        Assertions.assertEquals("11,700m", FormatUtils.formatHeight(M_11P7KM));
     }
 
     /**
@@ -416,9 +404,9 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatHeightNeg() {
-        assertEquals("-1m", FormatUtils.formatHeight(-1.0));
-        assertEquals("-9,000m", FormatUtils.formatHeight(-1.0 * M_9KM));
-        assertEquals("-11,000m", FormatUtils.formatHeight(-1.0 * M_11KM));
+        Assertions.assertEquals("-1m", FormatUtils.formatHeight(-1.0));
+        Assertions.assertEquals("-9,000m", FormatUtils.formatHeight(-1.0 * M_9KM));
+        Assertions.assertEquals("-11,000m", FormatUtils.formatHeight(-1.0 * M_11KM));
     }
 
     /**
@@ -430,22 +418,22 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatSpeedMain() {
-        assertEquals(
+        Assertions.assertEquals(
                 "3.6" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_3P6KPH));
-        assertEquals(
+        Assertions.assertEquals(
                 "7.2" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_7P2KPH));
-        assertEquals(
+        Assertions.assertEquals(
                 "9.9" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_9P9KPH));
-        assertEquals(
+        Assertions.assertEquals(
                 "10" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_10KPH));
-        assertEquals(
+        Assertions.assertEquals(
                 "14" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_14P4KPH));
-        assertEquals(
+        Assertions.assertEquals(
                 "1,234" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_1234KPH));
     }
@@ -454,15 +442,15 @@ public class FormatUtilsTest {
      * Tests the formatting when a European locale is used, in this case nl_BE.
      */
     // FIXME speed unit is not localized yet
-    @Ignore("speed unit is not localized yet")
+    @Disabled("speed unit is not localized yet")
     @Test
     public final void testFormatSpeedBelgianFormat() {
         // Set Dutch (Belgium) locale
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("9,9km/u", FormatUtils.formatSpeed(MPS_9P9KPH));
-        assertEquals("1.234km/u", FormatUtils.formatSpeed(MPS_1234KPH));
+        Assertions.assertEquals("9,9km/u", FormatUtils.formatSpeed(MPS_9P9KPH));
+        Assertions.assertEquals("1.234km/u", FormatUtils.formatSpeed(MPS_1234KPH));
     }
 
     /**
@@ -471,19 +459,19 @@ public class FormatUtilsTest {
     @Test
     public final void testFormatSpeedRound() {
         // 2.06389m/s = 7.43 km/h => 7.4 km/h
-        assertEquals(
+        Assertions.assertEquals(
                 "7.4" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_7P43KPH));
         // 2.0778m/s = 7.48 km/h => 7.5 km/h
-        assertEquals(
+        Assertions.assertEquals(
                 "7.5" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_7P48KPH));
         // 3.0m/s = 10.8 km/h => 11 km/h
-        assertEquals(
+        Assertions.assertEquals(
                 "11" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_10P8KPH));
         // 4.0m/s = 14.4 km/h => 14 km/h
-        assertEquals(
+        Assertions.assertEquals(
                 "14" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(MPS_14P4KPH));
     }
@@ -494,10 +482,10 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatSpeedNeg() {
-        assertEquals(
+        Assertions.assertEquals(
                 "3.6" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(-1.0 * MPS_3P6KPH));
-        assertEquals(
+        Assertions.assertEquals(
                 "14" + FormatUtils.SPEED_KPH,
                 FormatUtils.formatSpeed(-1.0 * MPS_14P4KPH));
     }
@@ -508,9 +496,9 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatAngle() {
-        assertEquals("45.00°", FormatUtils.formatAngle(A_45, 2));
-        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, 2));
-        assertEquals("45.68°", FormatUtils.formatAngle(A_45P678, 2));
+        Assertions.assertEquals("45.00°", FormatUtils.formatAngle(A_45, 2));
+        Assertions.assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, 2));
+        Assertions.assertEquals("45.68°", FormatUtils.formatAngle(A_45P678, 2));
     }
 
     /**
@@ -518,11 +506,10 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatAngleWrongPrecision() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage("Precision can't be a negative value");
 
-        FormatUtils.formatAngle(A_45, -1);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+                    FormatUtils.formatAngle(A_45, -1);
+                });
     }
 
     /**
@@ -530,18 +517,18 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatAnglePrecision() {
-        assertEquals("45°", FormatUtils.formatAngle(A_45, PRECISION_0));
-        assertEquals("46°", FormatUtils.formatAngle(A_45P674, PRECISION_0));
-        assertEquals("45.7°", FormatUtils.formatAngle(A_45P674, PRECISION_1));
-        assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, PRECISION_2));
-        assertEquals("45.674°",
+        Assertions.assertEquals("45°", FormatUtils.formatAngle(A_45, PRECISION_0));
+        Assertions.assertEquals("46°", FormatUtils.formatAngle(A_45P674, PRECISION_0));
+        Assertions.assertEquals("45.7°", FormatUtils.formatAngle(A_45P674, PRECISION_1));
+        Assertions.assertEquals("45.67°", FormatUtils.formatAngle(A_45P674, PRECISION_2));
+        Assertions.assertEquals("45.674°",
                 FormatUtils.formatAngle(A_45P674, PRECISION_3));
-        assertEquals("45.678°",
+        Assertions.assertEquals("45.678°",
                 FormatUtils.formatAngle(A_45P678, PRECISION_3));
 
-        assertEquals("3.14159°",
+        Assertions.assertEquals("3.14159°",
                 FormatUtils.formatAngle(Math.PI, PRECISION_5));
-        assertEquals("3.1415926536°",
+        Assertions.assertEquals("3.1415926536°",
                 FormatUtils.formatAngle(Math.PI, PRECISION_10));
     }
 
@@ -554,9 +541,9 @@ public class FormatUtilsTest {
         Locale localeDutchBelgian = new Locale("nl", "BE");
         Locale.setDefault(localeDutchBelgian);
 
-        assertEquals("45,00°", FormatUtils.formatAngle(A_45, PRECISION_2));
-        assertEquals("45,67°", FormatUtils.formatAngle(A_45P674, PRECISION_2));
-        assertEquals("45,68°", FormatUtils.formatAngle(A_45P678, PRECISION_2));
+        Assertions.assertEquals("45,00°", FormatUtils.formatAngle(A_45, PRECISION_2));
+        Assertions.assertEquals("45,67°", FormatUtils.formatAngle(A_45P674, PRECISION_2));
+        Assertions.assertEquals("45,68°", FormatUtils.formatAngle(A_45P678, PRECISION_2));
     }
 
     /**
@@ -565,11 +552,11 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testFormatAngleNeg() {
-        assertEquals("-45.00°",
+        Assertions.assertEquals("-45.00°",
                 FormatUtils.formatAngle(-1.0 * A_45, PRECISION_2));
-        assertEquals("-45.67°",
+        Assertions.assertEquals("-45.67°",
                 FormatUtils.formatAngle(-1.0 * A_45P674, PRECISION_2));
-        assertEquals("-45.68°",
+        Assertions.assertEquals("-45.68°",
                 FormatUtils.formatAngle(-1.0 * A_45P678, PRECISION_2));
     }
 
@@ -579,8 +566,8 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testNormalizeAngle() {
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_0), ANGLE_ACCURACY);
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_45), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_0, FormatUtils.normalizeAngle(A_0), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_45, FormatUtils.normalizeAngle(A_45), ANGLE_ACCURACY);
     }
 
     /**
@@ -589,10 +576,10 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testNormalizeAngleNeg() {
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_M360), ANGLE_ACCURACY);
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_M720), ANGLE_ACCURACY);
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_M315), ANGLE_ACCURACY);
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_M675), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_0, FormatUtils.normalizeAngle(A_M360), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_0, FormatUtils.normalizeAngle(A_M720), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_45, FormatUtils.normalizeAngle(A_M315), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_45, FormatUtils.normalizeAngle(A_M675), ANGLE_ACCURACY);
     }
 
     /**
@@ -601,10 +588,10 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testNormalizeAngleBig() {
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_360), ANGLE_ACCURACY);
-        assertEquals(A_0, FormatUtils.normalizeAngle(A_720), ANGLE_ACCURACY);
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_405), ANGLE_ACCURACY);
-        assertEquals(A_45, FormatUtils.normalizeAngle(A_765), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_0, FormatUtils.normalizeAngle(A_360), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_0, FormatUtils.normalizeAngle(A_720), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_45, FormatUtils.normalizeAngle(A_405), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_45, FormatUtils.normalizeAngle(A_765), ANGLE_ACCURACY);
     }
 
     /**
@@ -612,9 +599,9 @@ public class FormatUtilsTest {
      */
     @Test
     public final void testInverseAngle() {
-        assertEquals(A_180, FormatUtils.inverseAngle(A_0), ANGLE_ACCURACY);
-        assertEquals(A_0, FormatUtils.inverseAngle(A_180), ANGLE_ACCURACY);
-        assertEquals(A_225, FormatUtils.inverseAngle(A_45), ANGLE_ACCURACY);
-        assertEquals(A_45, FormatUtils.inverseAngle(A_225), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_180, FormatUtils.inverseAngle(A_0), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_0, FormatUtils.inverseAngle(A_180), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_225, FormatUtils.inverseAngle(A_45), ANGLE_ACCURACY);
+        Assertions.assertEquals(A_45, FormatUtils.inverseAngle(A_225), ANGLE_ACCURACY);
     }
 }

@@ -6,7 +6,7 @@
 \n
 \n Ilaq ad tremseḍ anɣel n Turagt Tamatut Tazayazt GNU akked wahil-a. Neɣ ma ulac, wali <a href="http://www.gnu.org/licenses/">www.gnu.org/licenses</a>.</string>
     <string name="copyright">Copyright</string>
-    <string name="app_website">Ugar n telɣut, wali &lt;a href=%1$s&gt;asmel web&lt;/a&gt;.</string>
+    <string name="app_website">Ugar n telɣut, wali &lt;a href=%s&gt;asmel web&lt;/a&gt;.</string>
     <string name="build_time">Llqem n %s.</string>
     <string name="version">Llqem</string>
     <string name="about">Ɣef</string>

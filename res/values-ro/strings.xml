@@ -59,7 +59,7 @@
     <string name="about">Despre</string>
     <string name="version">Versiune</string>
     <string name="build_time">Data compilării %s.</string>
-    <string name="app_website">Vizitați &lt;a href=%1$s&gt;website-ul&lt;/a&gt; pentru mai multe informații.</string>
+    <string name="app_website">Vizitați &lt;a href=%s&gt;website-ul&lt;/a&gt; pentru mai multe informații.</string>
     <string name="copyright">Copyright</string>
     <string name="license">Acest program este software liber: poate fi redistribuit și/sau modificat în conformitate cu GNU General Public License publicată de către Free Software Foundation, fie versiunea 3 a Licenței, fie oricare altă versiune ulterioare.
 \n

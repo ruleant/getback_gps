@@ -21,21 +21,15 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 /**
  * Unit tests for CircularAverage class.
  *
  * @author Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class CircularAverageTest {
     /**
      * Value for alpha parameter.
@@ -106,23 +100,13 @@ public class CircularAverageTest {
      * Value reached after 5 cycles with alpha = 0.5 : 96.875 %.
      */
     private static final float CYCLE5 = 0.96875f;
-    /**
-     * Exception message when value is out of range.
-     */
-    private static final String MESSAGE_VALUE_RANGE
-            = "parameter alpha is not in range 0.0 .. 1.0";
-    /**
-     * Expected Exception.
-     */
-    @Rule
-    public final ExpectedException thrown = ExpectedException.none();
 
     /**
      * Tests empty value.
      */
     @Test
     public final void testNoValue() {
-        assertEquals(0.0f, CircularAverage.getAverageValue(0, 0, 0), ACCURACY);
+        Assertions.assertEquals(0.0f, CircularAverage.getAverageValue(0, 0, 0), ACCURACY);
     }
 
     /**
@@ -131,12 +115,12 @@ public class CircularAverageTest {
     @Test
     public final void testAlphaParameterRange() {
         // valid range for parameter alpha
-        assertEquals(0.0f, CircularAverage.getAverageValue(0, 0, 0), ACCURACY);
-        assertEquals(
+        Assertions.assertEquals(0.0f, CircularAverage.getAverageValue(0, 0, 0), ACCURACY);
+        Assertions.assertEquals(
                 0.0f,
                 CircularAverage.getAverageValue(0, 0, ALPHA_VALUE),
                 ACCURACY);
-        assertEquals(0.0f, CircularAverage.getAverageValue(0, 0, 1), ACCURACY);
+        Assertions.assertEquals(0.0f, CircularAverage.getAverageValue(0, 0, 1), ACCURACY);
     }
 
     /**
@@ -144,12 +128,10 @@ public class CircularAverageTest {
      */
     @Test
     public final void testOutOfRangeValueSmaller() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        // invalid range for parameter alpha
-        CircularAverage.getAverageValue(0, 0, -1);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            // invalid range for parameter alpha
+            CircularAverage.getAverageValue(0, 0, -1);
+        });
     }
 
     /**
@@ -157,11 +139,9 @@ public class CircularAverageTest {
      */
     @Test
     public final void testOutOfRangeValueBigger() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        CircularAverage.getAverageValue(0, 0, 2);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            CircularAverage.getAverageValue(0, 0, 2);
+        });
     }
 
     /**
@@ -297,7 +277,7 @@ public class CircularAverageTest {
     private void testAverageValueAfterStep(final float initialValue,
                                                  final float stepValue) {
         // check initial state.
-        assertEquals(
+        Assertions.assertEquals(
                 FormatUtils.normalizeAngle(initialValue),
                 CircularAverage.getAverageValue(initialValue, initialValue,
                         ALPHA_VALUE),
@@ -311,7 +291,7 @@ public class CircularAverageTest {
         // cycle 1 : 50%
         float expectedCycle1 = (float) FormatUtils.normalizeAngle(
                 initialValue + CYCLE1 * stepValue);
-        assertEquals(
+        Assertions.assertEquals(
                 expectedCycle1,
                 CircularAverage.getAverageValue(initialValue,
                         setPoint, ALPHA_VALUE),
@@ -320,7 +300,7 @@ public class CircularAverageTest {
         // cycle 2 : 75%
         float expectedCycle2 = (float) FormatUtils.normalizeAngle(
                 initialValue + CYCLE2 * stepValue);
-        assertEquals(
+        Assertions.assertEquals(
                 expectedCycle2,
                 CircularAverage.getAverageValue(expectedCycle1,
                         setPoint, ALPHA_VALUE),
@@ -329,7 +309,7 @@ public class CircularAverageTest {
         // cycle 3 : 87.5%
         float expectedCycle3 = (float) FormatUtils.normalizeAngle(
                 initialValue + CYCLE3 * stepValue);
-        assertEquals(
+        Assertions.assertEquals(
                 expectedCycle3,
                 CircularAverage.getAverageValue(expectedCycle2,
                         setPoint, ALPHA_VALUE),
@@ -338,7 +318,7 @@ public class CircularAverageTest {
         // cycle 4 : 93.75%
         float expectedCycle4 = (float) FormatUtils.normalizeAngle(
                 initialValue + CYCLE4 * stepValue);
-        assertEquals(
+        Assertions.assertEquals(
                 expectedCycle4,
                 CircularAverage.getAverageValue(expectedCycle3,
                         setPoint, ALPHA_VALUE),
@@ -347,7 +327,7 @@ public class CircularAverageTest {
         // cycle 5 : 96.875%
         float expectedCycle5 = (float) FormatUtils.normalizeAngle(
                 initialValue + CYCLE5 * stepValue);
-        assertEquals(
+        Assertions.assertEquals(
                 expectedCycle5,
                 CircularAverage.getAverageValue(expectedCycle4,
                         setPoint, ALPHA_VALUE),

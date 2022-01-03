@@ -24,8 +24,6 @@
     <string name="name">नाम</string>
     <string name="provider">प्रदाता</string>
     <string name="loc_provider_gps">जीपीएस</string>
-    <string name="location">स्थान</string>
-    <string name="stored_location">संग्रहित (स्टोर किया गया) स्थान</string>
     <string name="curr_location">वर्तमान (अंतिम ज्ञात) स्थान</string>
     <string name="latitude">अक्षांश (लेटीटुड)</string>
     <string name="latitude_north_unit">उत्तर</string>
@@ -97,8 +95,14 @@
     <string name="about">बारे में</string>
     <string name="version">संस्करण (वर्शन)</string>
     <string name="build_time">%s पर बनाया गया।</string>
-    <string name="app_website">अधिक जानकारी के लिए &lt;a href=%1$s&gt;वेबसाइट&lt;/a&gt; पर जाएँ।</string>
+    <string name="app_website">अधिक जानकारी के लिए &lt;a href=%s&gt;वेबसाइट&lt;/a&gt; पर जाएँ।</string>
     <string name="distance_m">मीटर</string>
     <string name="distance_km">किलो मीटर</string>
     <string name="height_difference">ऊंचाई में अंतर</string>
+    <string name="enter_location">गंतव्य को स्वयं दर्ज़ करें</string>
+    <string name="location_longitude">लोकेशन देशांतर</string>
+    <string name="location_latitude">लोकेशन अक्षांश</string>
+    <string name="dialog_enter_location">अपने लोकेशन के लिए एक नाम और जीपीएस निर्देशांक दर्ज़ करें</string>
+    <string name="notice_location_permission_granted">लोकेशन अप्डेट के लिए अनुमति दे दी गई है</string>
+    <string name="notice_location_no_permission">लोकेशन अप्डेट बंद कर दिए गए हैं : अनुमति नहीं मिली</string>
 </resources>

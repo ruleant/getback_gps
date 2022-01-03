@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="loc_provider_gps">GPS</string>
+    <string name="distance_km">km</string>
+    <string name="speed_kph">km/h</string>
+    <string name="license">Programa hau software askea da: Free Software Foundation-ek argitaratutako GNU Lizentzia Publiko Orokorraren baldintzetan argitaratu eta / edo alda dezakezu Lizentziaren 3. bertsioan edo ondorengoetan.
+\n
+\nPrograma hau erabilgarria izango den itxaropenarekin banatzen da, baina INOLAKO BERMERIK GABE; MERKATARITZA edo HELBURU BEREZI BATERAKO EGOKITASUNEKO bermerik gabe. Ikusi GNU Lizentzia Publiko Orokorra xehetasun gehiagorako.
+\n
+\nPrograma honekin batera GNU Lizentzia Publiko Orokorraren kopia bat jaso beharko zenuke. Hala ez bada, ikusi <a href="http://www.gnu.org/licenses/"> www.gnu.org/licenses </a>.</string>
+    <string name="copyright">Copyright-a</string>
+    <string name="app_website">Informazio gehiagorako &lt;a href=%s&gt;webgunea&lt;/a&gt; bisitatu.</string>
+    <string name="build_time">%s-an konpilatua.</string>
+    <string name="version">Bertsioa</string>
+    <string name="about">Honi buruz</string>
+    <plurals name="time_minutes">
+        <item quantity="one">minuto %d</item>
+        <item quantity="other">%d minuto</item>
+    </plurals>
+    <plurals name="time_seconds">
+        <item quantity="one">segundo %d</item>
+        <item quantity="other">%d segundo</item>
+    </plurals>
+    <plurals name="distance_meter">
+        <item quantity="one">metro %d</item>
+        <item quantity="other">%d metro</item>
+    </plurals>
+    <string name="disabled">Desgaituta</string>
+    <string name="sensors_disabled">Desgaituta: Energia aurrezten du</string>
+    <string name="sensors_enabled">Gaituta: eguneratze azkarragoak eta biratze zehatzagoak</string>
+    <string name="pref_geo_orientation_sensor">Orientazio sentsore lehenetsia</string>
+    <string name="pref_enable_sensors">Erabili eskuragarri dauden sentsoreak</string>
+    <string name="pref_loc_update_time">Denboran oinarritutako eguneratzeak</string>
+    <string name="pref_loc_update_dist">Distantzian oinarritutako eguneratzeak</string>
+    <string name="pref_header_loc_update">Kokapenaren eguneratzeak</string>
+    <string name="pref_header_general">Orokorra</string>
+    <string name="settings">Ezarpenak</string>
+    <string name="loc_updated_not_recent">Kokapena EZ da berriki eguneratu.</string>
+    <string name="loc_updated_recent">Berriki eguneratutako kokapena.</string>
+    <string name="notset">Konfiguratu gabe</string>
+    <string name="none">Bat ere ez</string>
+    <string name="raw">Formatu gabea</string>
+    <string name="direction_relative">egungo norabideari buruzkoa</string>
+    <string name="to_dest">Helmugaruntz</string>
+    <string name="destination">Helmuga</string>
+    <string name="timestamp">Denbora marka</string>
+    <string name="accuracy">Zehastasuna</string>
+    <string name="travel_direction_backwards">Atzerantz</string>
+    <string name="travel_direction_forward">Aurrera</string>
+    <string name="travel_direction">Ibilbidearen norabidea</string>
+    <string name="sensor_bearing_offset">Sentsorean oinarritutako biraketa-desplazamendua</string>
+    <string name="bearing">Biratzea</string>
+    <string name="speed">Abiadura</string>
+    <string name="altitude">Altitudea</string>
+    <string name="longitude_west_unit">M</string>
+    <string name="longitude_east_unit">E</string>
+    <string name="longitude">Longitudea</string>
+    <string name="latitude_south_unit">H</string>
+    <string name="latitude_north_unit">I</string>
+    <string name="latitude">Latitudea</string>
+    <string name="curr_location">Egungo kokapena (ezagutzen den azkena)</string>
+    <string name="provider_no_support">Hornitzailea ez da onartzen.</string>
+    <string name="loc_provider_network">Sarea (telefono mugikorra / Wi-Fi)</string>
+    <string name="provider">Hornitzailea</string>
+    <string name="name">Izena</string>
+    <string name="location_provider">Kokapen hornitzailea</string>
+    <string name="activity_details">Xehetasunak</string>
+    <string name="menu_details">Kokapenaren xehetasunak</string>
+    <string name="no_location_name">Kokapenaren izena ez da zehaztu</string>
+    <string name="destination_renamed">Helmuga berrizendatu da</string>
+    <string name="location_name_stored">\'%s\' kokalekua gordeta</string>
+    <string name="location_stored">Kokapena gordea</string>
+    <string name="rename_destination_disabled">Ezin da helmuga berrizendatu, gorde lehenbizi kokapen bat</string>
+    <string name="enter_location_invalid_longitude">Longitudea tarte onargarritik kanpo dago [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">Latitudea tarte onargarritik kanpo dago [-90°,90°]</string>
+    <string name="store_location_disabled">Ezin da kokapena gorde uneko kokapenik ez badago</string>
+    <string name="rename_destination">Helmuga berrizendatu</string>
+    <string name="enter_location">Sartu helmuga eskuz</string>
+    <string name="store_location">Kokapena gorde</string>
+    <string name="cancel">Ezeztatu</string>
+    <string name="location_longitude">Kokapenaren longitudea</string>
+    <string name="location_latitude">Kokapenaren latitudea</string>
+    <string name="location_name">Kokapenaren izena</string>
+    <string name="dialog_rename_destination">Jarri izen berri bat zure helmugarako:</string>
+    <string name="dialog_enter_location">Jarri izen bat eta GPS koordenatuak egungo kokapenerako:</string>
+    <string name="dialog_store_location_name">Jarri izen bat egungo kokapenari:</string>
+    <string name="refresh">Eguneratu</string>
+    <string name="unknown">Ezezaguna</string>
+    <string name="no_destination">Ez da zehaztu helmuga</string>
+    <string name="destination_reached">Helmugan</string>
+    <string name="inaccurate">Zehaztugabea</string>
+    <string name="location_updated">Kokapena eguneratua</string>
+    <string name="northwest_unit">HM</string>
+    <string name="southwest_unit">HM</string>
+    <string name="southeast_unit">HE</string>
+    <string name="northeast_unit">IE</string>
+    <string name="direction">Norabidea</string>
+    <string name="height_difference">Altuera-aldea</string>
+    <string name="distance_m">m</string>
+    <string name="distance">Distantzia</string>
+    <string name="current_bearing">Uneko biratzea</string>
+    <string name="current_speed">Uneko abiadura</string>
+    <string name="notice_location_permission_granted">Kokapenaren eguneratzeetarako baimena lortu da</string>
+    <string name="notice_location_no_permission">Kokapenaren eguneratzeak desaktibatuta daude: baimena ukatu da</string>
+    <string name="notice_location_permission_required">Gailua lokalizaziorako sarbidea baimentzea, kokapenaren eguneratzeak aktibatzeko</string>
+    <string name="notice_destination_reached">Helmugara iritsi zara</string>
+    <string name="inaccurate_direction">Hasi mugitzen zure helmugarako norabide zehatza lortzeko</string>
+    <string name="notice_no_dest">Gorde zure kokapena helmuga bat sortzeko</string>
+    <string name="inaccurate_location">Zure uneko kokapena ez da zuzena</string>
+    <string name="app_desc">Aurkitu itzulerako bidea GPS koordenatuak erabiliz.</string>
+</resources>

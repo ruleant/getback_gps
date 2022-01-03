@@ -92,7 +92,7 @@
     <string name="about">Teave</string>
     <string name="version">Versioon</string>
     <string name="build_time">Ehitatud %s.</string>
-    <string name="app_website">Lisainfot leiad &lt;a href=%1$s&gt;veebilehelt&lt;/a&gt;.</string>
+    <string name="app_website">Lisainfot leiad &lt;a href=%s&gt;veebilehelt&lt;/a&gt;.</string>
     <string name="copyright">Autoriõigus</string>
     <string name="license">See programm on tasuta tarkvara: saate seda levitada ja / või seda muuta vastavalt GNU Üldise Avaliku Litsentsi tingimustele, mille on avaldanud Free Software Foundation, kas Litsentsi 3. versioon või mõni hilisem versioon.
 \n

@@ -1,0 +1,4 @@
+- adds features and license description of third party material to README file
+- updates ic_action_refresh.png icon.
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

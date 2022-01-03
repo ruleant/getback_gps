@@ -1,0 +1,7 @@
+- use built-in sensors to get a quicker updated bearing
+- combine sensor and location based bearing to get quicker and more accurate updates
+- improved arrow pointing to destination
+- translated to German and Romanian
+- remove Android permission INTERNET, it is not needed to get WiFi/cell phone based location updates
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

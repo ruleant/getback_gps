@@ -24,6 +24,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola PCS', '--vendorid', '0x22b8', '--productid', '0x2e81']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Motorola PCS', '--vendorid', '0x22b8', '--productid', '0x2e84']
     v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Huawei Technologies Co., Ltd.', '--vendorid', '0x12d1', '--productid', '0x107e']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'Samsung Galaxy A51', '--vendorid', '0x04e8', '--productid', '0x6860']
   end
 
   # Disable automatic box update checking. If you disable this, then
@@ -64,6 +65,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     ansible.become = true
     ansible.playbook = "provisioning/playbook.yml"
     ansible.extra_vars = { ansible_python_interpreter:"/usr/bin/python2.7" }
-    ansible.compatibility_mode = "1.8"
   end
 end

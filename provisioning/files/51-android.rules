@@ -5,3 +5,4 @@ SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="2e76", GROUP="plugdev", ENV{adb_
 SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="2e81", GROUP="plugdev", ENV{adb_adbfast}="yes"
 SUBSYSTEM=="usb", ATTR{idVendor}=="22b8", MODE="2e84", GROUP="plugdev", ENV{adb_adbfast}="yes"
 SUBSYSTEM=="usb", ATTR{idVendor}=="12d1", MODE="107e", GROUP="plugdev", ENV{adb_adbfast}="yes"
+SUBSYSTEM=="usb", ATTR{idVendor}=="04e8", MODE="6860", GROUP="plugdev", ENV{adb_adbfast}="yes"

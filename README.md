@@ -1,11 +1,11 @@
 GetBack GPS for Android
 =======================
 
-[![GetBack GPS](https://img.shields.io/badge/release-v0.7-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
-[![Build Status](https://travis-ci.org/ruleant/getback_gps.svg?branch=master)](https://travis-ci.org/ruleant/getback_gps)
-[![Codacy Badge](https://api.codacy.com/project/badge/0040e146618e41ac9c39d04c7b1a3fef)](https://www.codacy.com/app/ruleant/getback_gps)
+[![GetBack GPS](https://img.shields.io/badge/release-v0.8-blue.svg)](https://f-droid.org/repository/browse/?fdid=com.github.ruleant.getback_gps)
+[![Build Status](https://app.travis-ci.com/ruleant/getback_gps.svg?branch=master)](https://app.travis-ci.com/ruleant/getback_gps)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/4b5357e56e194b2fade4282f8dc7c182)](https://app.codacy.com/gh/ruleant/getback_gps)
 [![Coverity Scan Build Status](https://scan.coverity.com/projects/2277/badge.svg)](https://scan.coverity.com/projects/2277)
-[![Coverage Status](https://coveralls.io/repos/ruleant/getback_gps/badge.png?branch=master)](https://coveralls.io/r/ruleant/getback_gps?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/ruleant/getback_gps/badge.svg?branch=master)](https://coveralls.io/github/ruleant/getback_gps?branch=master)
 
 [![Translation status](https://hosted.weblate.org/widgets/getback_gps/-/svg-badge.svg)](https://hosted.weblate.org/engage/getback_gps/)
 [![todofy badge](https://todofy.org/b/ruleant/getback_gps)](https://todofy.org/r/ruleant/getback_gps)
@@ -30,7 +30,7 @@ Features
 - ‘get back’ mode : indicator pointing to a stored location (showing distance and direction)
 - indicate current speed and current bearing
 - use built-in sensors to get more accurate and quicker updated bearing
-- compass rose indicating North
+- a compass rose that points to the North
 - detect travel direction and adjust relative direction to destination accordingly
 
 How to get it?
@@ -51,11 +51,11 @@ Requests for translations to a new language can be made here as well.
 Translation
 -----------
 
-You can help translating the app to your own language : <https://hosted.weblate.org/projects/getback_gps/strings>.
+You can help translating the app to your own language : <https://hosted.weblate.org/engage/getback_gps/>.
 
-[![Translation status](https://hosted.weblate.org/widgets/getback_gps-287x66-grey.png)](https://hosted.weblate.org/engage/getback_gps/?utm_source=widget)
+[![Translation status](https://hosted.weblate.org/widgets/getback_gps/-/multi-auto.svg)](https://hosted.weblate.org/engage/getback_gps/)
 
-Is your language not listed? Follow the instructions on the [New translation](https://hosted.weblate.org/projects/getback_gps/strings/#new-lang) tab in Weblate or open an issue in the Github [issue tracker](https://github.com/ruleant/getback_gps/issues).
+Is your language not listed? Follow the instructions on the [New translation](https://hosted.weblate.org/new-lang/getback_gps/strings/) tab in Weblate.
 
 Code documentation
 ------------------

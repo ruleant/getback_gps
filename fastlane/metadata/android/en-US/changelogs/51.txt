@@ -1,0 +1,3 @@
+- improved translation : Polish
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

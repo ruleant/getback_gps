@@ -68,7 +68,7 @@
     <string name="about">Pel que fa a</string>
     <string name="version">Versió</string>
     <string name="build_time">Compilat en %s.</string>
-    <string name="app_website">Visiteu la &lt;a href=%1$s&gt;website&lt;/a&gt; per més informació.</string>
+    <string name="app_website">Visiteu la &lt;a href=%s&gt;website&lt;/a&gt; per més informació.</string>
     <string name="copyright">Drets d\'autor</string>
     <string name="license">Aquest programari es de domini públic: el podeu redistribuir i/o modificar sota els termes de la GNU (General Public License) tal com es publica per la FSF (Free Software Foundation), sigui segons la  versió 3 d\'aquesta llicència, com de qualsevol versió posterior.\n
 \n

@@ -38,7 +38,7 @@
     <string name="store_location_disabled">Неможливо зберегти розташування якщо його координати невідомі</string>
     <string name="dialog_store_location_name">Назвіть ваше поточне розташування:</string>
     <string name="none">Нема</string>
-    <string name="app_website">Відвідайте &lt;a href=%1$s&gt;website&lt;/a&gt; щоб дізнатися більше.</string>
+    <string name="app_website">Відвідайте &lt;a href=%s&gt;website&lt;/a&gt; щоб дізнатися більше.</string>
     <string name="longitude">Довгота</string>
     <string name="distance_km">км</string>
     <string name="name">Назва</string>
@@ -76,7 +76,7 @@
     <string name="store_location">Зберегти розташування</string>
     <string name="location_stored">Розташування збережене</string>
     <string name="pref_header_general">Загальні</string>
-    <string name="cancel">Відміна</string>
+    <string name="cancel">Скасувати</string>
     <string name="speed_kph">Км/год</string>
     <string name="loc_updated_recent">Розташування щойно оновлено.</string>
     <string name="refresh">Оновлення</string>
@@ -108,4 +108,7 @@
     <string name="location_latitude">Широта</string>
     <string name="enter_location">Введіть пунк призначення вручну</string>
     <string name="location_longitude">Довгота</string>
+    <string name="enter_location_invalid_longitude">Довгота знаходиться за межами допустимого проміжку [-180°,180°]</string>
+    <string name="enter_location_invalid_latitude">Широта знаходиться за межами допустимого проміжку [-90°,90°]</string>
+    <string name="dialog_enter_location">Уведіть назву та GPS координати вашого місцеперебування:</string>
 </resources>

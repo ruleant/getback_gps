@@ -62,7 +62,7 @@
     <string name="about">À propos</string>
     <string name="version">Version</string>
     <string name="build_time">Version du %s.</string>
-    <string name="app_website">Pour plus d\'informations, visitez le &lt;a href=%1$s&gt;site web&lt;/a&gt;.</string>
+    <string name="app_website">Pour plus d\'informations, visitez le &lt;a href=%s&gt;site web&lt;/a&gt;.</string>
     <string name="copyright">Copyright</string>
     <string name="current_bearing">Cap actuel</string>
     <string name="bearing">Cap</string>

@@ -64,7 +64,7 @@ Sie sollten ein Exemplar der GNU General Public License zusammen mit diesem Prog
     <string name="pref_loc_update_dist">Entfernungsbasierte Aktualisierung</string>
     <string name="pref_loc_update_time">Zeitbasierte Aktualisierung</string>
     <string name="build_time">Erstellt am %s.</string>
-    <string name="app_website">Besuche die &lt;a href=%1$s&gt;Internetseite&lt;/a&gt; für mehr Informationen.</string>
+    <string name="app_website">Besuche die &lt;a href=%s&gt;Internetseite&lt;/a&gt; für mehr Informationen.</string>
     <string name="copyright">Urheberrecht</string>
     <string name="pref_enable_sensors">Benutze verfügbare Sensoren</string>
     <string name="sensors_disabled">Inaktiv : Stromsparend</string>

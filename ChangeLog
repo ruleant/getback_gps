@@ -1,3 +1,28 @@
+ v0.8 (released on 03Jan2022)
+ - issue #183 : add fastlane metadata
+ - issue #185 : Fix Hebrew translation not being displayed
+ - simplify string placeholder notation app_website string
+ - Fix Indonesian language code (symlink id -> in)
+ - issue #184 : build against Android SDK 10.0 (API 29)
+ - improved Spanish translation, thanks to badlop
+ - issue #186 : add screenshots to fastlane
+ - upgrade build toolchain to gradle 6.8, gradle for Android plugin 4.1.1
+ - issue #126, #172: convert unittests to junit5 (Jupiter)
+ - improved Hindi translation, thanks to Dormin
+ - export coverity-scan certificate before Travis-ci build
+ - properly escape variables in bash utility scripts
+ - cleanup unused constants in tests
+ - remove shippable config
+ - PR #192 : Improve GRADLE build Performance
+ - translated to Indonesian, thanks to Reza Almanda
+ - improved Spanish translation, thanks to Hur Ezeiza Zaldua
+ - translated to Basque, thanks to Hur Ezeiza Zaldua
+ - improved Portuguese translation, thanks to Sérgio Morais, ssantos
+ - improved Portuguese (Brazil) translation, thanks to Sérgio Morais
+ - improved Russian translation, thanks to Чтабс
+ - improved Ukrainian translation, thanks to Tymofii Lytvynenko
+ - improved Persian translation, thanks to عبدالرئوف عابدی
+
  v0.7 (released on 02Jan2021)
  - issue #73 : add form to manually enter a location, thanks to Timotheos Constambeys
  - translated to Ukrainian, thanks to Oleksiy

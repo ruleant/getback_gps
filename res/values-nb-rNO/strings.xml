@@ -92,7 +92,7 @@
     <string name="about">Om</string>
     <string name="version">Versjon</string>
     <string name="build_time">Bygd på %s.</string>
-    <string name="app_website">Besøk &lt;a href=%1$s&gt;nettsiden&lt;/a&gt; for mer info.</string>
+    <string name="app_website">Besøk &lt;a href=%s&gt;nettsiden&lt;/a&gt; for mer info.</string>
     <string name="copyright">Kopirett</string>
     <string name="license">Dette program er fri programvare: Du kan redistribuere det og/eller modifisere det under betingelsene i GNU General Public Lisens, som utgitt av Free Software Foundation, enten versjon 3 av lisensen, eller enhver nyere versjon.
 \n 

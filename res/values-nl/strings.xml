@@ -41,7 +41,7 @@ Je zou een kopie van de GNU Algemene Publieke Licentie moeten hebben ontvangen s
     <string name="loc_updated_not_recent">Locatie werd NIET recent bijgewerkt.</string>
     <string name="copyright">Auteursrecht</string>
     <string name="inaccurate_direction">Start met bewegen voor een nauwkeurige aanwijzing naar uw bestemming</string>
-    <string name="app_website">Bezoek de &lt;a href=\"%1$s\"&gt;website&lt;/a&gt; voor meer info.</string>
+    <string name="app_website">Bezoek de &lt;a href=\"%s\"&gt;website&lt;/a&gt; voor meer info.</string>
     <string name="location_updated">De locatie is bijgewerkt</string>
     <string name="location_stored">Locatie bewaard</string>
     <string name="notice_no_dest">Bewaar uw locatie om een bestemming in te stellen</string>

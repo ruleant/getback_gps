@@ -1,0 +1,4 @@
+- new languages : Sardinian and Hindi
+- completed languages : German and Romanian
+
+Check Changelog for a detailed list of changes: https://github.com/ruleant/getback_gps/blob/master/ChangeLog

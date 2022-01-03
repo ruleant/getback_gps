@@ -95,7 +95,7 @@
     <string name="about">Hakkında</string>
     <string name="version">Sürüm</string>
     <string name="build_time">%s üzerine yapılandırıldı.</string>
-    <string name="app_website">Daha fazla bilgi için &lt;a href=%1$s&gt;web sitesi&lt;/a&gt;ni ziyaret edin.</string>
+    <string name="app_website">Daha fazla bilgi için &lt;a href=%s&gt;web sitesi&lt;/a&gt;ni ziyaret edin.</string>
     <string name="copyright">Telif hakkı</string>
     <string name="license">Bu program ücretsiz bir yazılımdır: Özgür Yazılım Vakfı tarafından yayımlanan GNU Genel Kamu Lisansı koşulları altında, Lisansın 3. sürümü veya daha sonraki sürümlerinde yeniden dağıtabilir ve / veya değiştirebilirsiniz. 
 \n

@@ -42,7 +42,7 @@
     <string name="notice_no_dest">Zapisz swoją pozycję, aby ustawić cel</string>
     <string name="store_location_disabled">Nie można zapisać lokalizacji, jeżeli nieznane jest obecne położenie</string>
     <string name="no_location_name">Nazwa lokalizacji nie została wybrana</string>
-    <string name="app_website">Aby uzyskać więcej informacji, odwiedź stronę &lt;a href=%1$s&gt;website&lt;/a&gt;.</string>
+    <string name="app_website">Aby uzyskać więcej informacji, odwiedź stronę &lt;a href=%s&gt;website&lt;/a&gt;.</string>
     <string name="pref_loc_update_time">Aktualizacje oparte na czasie</string>
     <string name="pref_loc_update_dist">Aktualizacje oparte na kierunku</string>
     <string name="inaccurate">Niedokładna</string>

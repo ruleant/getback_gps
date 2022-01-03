@@ -21,28 +21,16 @@
  */
 package com.github.ruleant.getback_gps.lib;
 
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
-import org.junit.runner.RunWith;
-import org.robolectric.RobolectricTestRunner;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 /**
  * Unit tests for Longitude class.
  *
  * @author  Dieter Adriaenssens <ruleant@users.sourceforge.net>
  */
-@RunWith(RobolectricTestRunner.class)
 public class LongitudeTest {
-    /**
-     * Expected Exception.
-     */
-    @Rule public final ExpectedException thrown = ExpectedException.none();
-
     /**
      * Instance of the longitude class.
      */
@@ -64,16 +52,10 @@ public class LongitudeTest {
     private static final double ACCURACY = 0.00001;
 
     /**
-     * Exception message when value is out of range.
-     */
-    private static final String MESSAGE_VALUE_RANGE
-            = "newValue is not in range -180.0 .. 180.0";
-
-    /**
      * Sets up the test fixture.
      * (Called before every test case method.)
      */
-    @Before
+    @BeforeEach
     public final void setUp() {
         longitude = new Longitude(0.0);
     }
@@ -83,7 +65,7 @@ public class LongitudeTest {
      */
     @Test
     public final void testNoValue() {
-        assertEquals(0.0, longitude.getValue(), ACCURACY);
+        Assertions.assertEquals(0.0, longitude.getValue(), ACCURACY);
     }
 
     /**
@@ -92,10 +74,10 @@ public class LongitudeTest {
     @Test
     public final void testValue() {
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(VALID_COORDINATE, longitude.getValue(), ACCURACY);
+        Assertions.assertEquals(VALID_COORDINATE, longitude.getValue(), ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(
+        Assertions.assertEquals(
                 Longitude.SEGMENT_EAST_HIGH,
                 longitude.getValue(),
                 ACCURACY);
@@ -107,10 +89,10 @@ public class LongitudeTest {
     @Test
     public final void testNegValue() {
         longitude.setValue(-1.0 * VALID_COORDINATE);
-        assertEquals(-1.0 * VALID_COORDINATE, longitude.getValue(), ACCURACY);
+        Assertions.assertEquals(-1.0 * VALID_COORDINATE, longitude.getValue(), ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
-        assertEquals(
+        Assertions.assertEquals(
                 Longitude.SEGMENT_WEST_LOW,
                 longitude.getValue(),
                 ACCURACY);
@@ -121,11 +103,9 @@ public class LongitudeTest {
      */
     @Test
     public final void testOutOfRangeValueBigger() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        longitude.setValue(OUT_OF_RANGE);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            longitude.setValue(OUT_OF_RANGE);
+        });
     }
 
     /**
@@ -133,11 +113,9 @@ public class LongitudeTest {
      */
     @Test
     public final void testOutOfRangeValueSmaller() {
-        thrown.expect(IllegalArgumentException.class);
-        thrown.expectMessage(MESSAGE_VALUE_RANGE);
-
-        longitude.setValue(-1 * OUT_OF_RANGE);
-        fail("Expected an IllegalArgumentException to be thrown");
+        Assertions.assertThrows(IllegalArgumentException.class, () -> {
+            longitude.setValue(-1 * OUT_OF_RANGE);
+        });
     }
 
     /**
@@ -145,19 +123,19 @@ public class LongitudeTest {
      */
     @Test
     public final void testGetSegment() {
-        assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
+        Assertions.assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
 
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
+        Assertions.assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
+        Assertions.assertEquals(Longitude.SEGMENT_EAST, longitude.getSegment());
 
         longitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(Longitude.SEGMENT_WEST, longitude.getSegment());
+        Assertions.assertEquals(Longitude.SEGMENT_WEST, longitude.getSegment());
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
-        assertEquals(Longitude.SEGMENT_WEST, longitude.getSegment());
+        Assertions.assertEquals(Longitude.SEGMENT_WEST, longitude.getSegment());
     }
 
     /**
@@ -165,19 +143,19 @@ public class LongitudeTest {
      */
     @Test
     public final void testGetSegmentUnit() {
-        assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
+        Assertions.assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
 
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
+        Assertions.assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
+        Assertions.assertEquals(Longitude.SEGMENT_EAST_UNIT, longitude.getSegmentUnit());
 
         longitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(Longitude.SEGMENT_WEST_UNIT, longitude.getSegmentUnit());
+        Assertions.assertEquals(Longitude.SEGMENT_WEST_UNIT, longitude.getSegmentUnit());
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
-        assertEquals(Longitude.SEGMENT_WEST_UNIT, longitude.getSegmentUnit());
+        Assertions.assertEquals(Longitude.SEGMENT_WEST_UNIT, longitude.getSegmentUnit());
     }
 
     /**
@@ -185,28 +163,28 @@ public class LongitudeTest {
      */
     @Test
     public final void testGetConvertedValue() {
-        assertEquals(0.0, longitude.getConvertedValue(), ACCURACY);
+        Assertions.assertEquals(0.0, longitude.getConvertedValue(), ACCURACY);
 
         longitude.setValue(VALID_COORDINATE);
-        assertEquals(
+        Assertions.assertEquals(
                 VALID_COORDINATE,
                 longitude.getConvertedValue(),
                 ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_EAST_HIGH);
-        assertEquals(
+        Assertions.assertEquals(
                 Longitude.SEGMENT_EAST_HIGH,
                 longitude.getConvertedValue(),
                 ACCURACY);
 
         longitude.setValue(-1 * VALID_COORDINATE);
-        assertEquals(
+        Assertions.assertEquals(
                 VALID_COORDINATE,
                 longitude.getConvertedValue(),
                 ACCURACY);
 
         longitude.setValue(Longitude.SEGMENT_WEST_LOW);
-        assertEquals(
+        Assertions.assertEquals(
                 Math.abs(Longitude.SEGMENT_WEST_LOW),
                 longitude.getConvertedValue(),
                 ACCURACY);
