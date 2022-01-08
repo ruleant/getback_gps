@@ -4,6 +4,7 @@
  - gradle : disable gradle caching
  - PR #197 : Fix data loss in dialogs of MainActivity on screen rotation, thanks to Jan Scheible
  - gradle : upgrade to gradle for Android plugin 4.1.3
+ - android : use buildtools 30.0.3
 
  v0.8 (released on 03Jan2022)
  - issue #183 : add fastlane metadata
