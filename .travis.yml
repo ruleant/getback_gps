@@ -5,7 +5,6 @@ dist: xenial
 android:
   components:
     - android-29
-    - build-tools-29.0.3
 env:
   global:
     # github token
@@ -14,6 +13,8 @@ env:
     - secure: "bbT3Swvy1P0vFgXE5E5Iv9+JU8GG4LZlbwLez2B7s0aOuxEFCnj19M+GAldVAeHCc/z/0Oz+N1p4eRU5OCJY71lZqv5F8ph8ahti7uUylbfoNHM7g1mcmVSNFZ5bgVhnz/RQjEK/o5msqv3UZPRPS023Q5vAbCrftuHOiOiBbCo="
 before_install:
   - echo -n | openssl s_client -connect scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+before_install:
+  - yes | sdkmanager "build-tools;30.0.3"
 script:
   - ./gradlew clean check assemble
 after_success:

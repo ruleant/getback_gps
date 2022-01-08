@@ -10,7 +10,7 @@
     android_packages:
       - "tools"
       - "platform-tools"
-      - "build-tools;29.0.3"
+      - "build-tools;30.0.3"
       - "platforms;android-29"
     android_sdk_download:
       url : "https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip"
