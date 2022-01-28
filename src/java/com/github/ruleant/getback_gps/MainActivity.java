@@ -31,6 +31,8 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
 import com.github.ruleant.getback_gps.lib.CardinalDirection;
 import com.github.ruleant.getback_gps.lib.DebugLevel;
@@ -69,6 +71,24 @@ public class MainActivity extends AbstractGetBackGpsActivity
         TextView tvDestinationName
                 = (TextView) findViewById(R.id.textView_toDestName);
         tvDestinationName.setOnClickListener(this);
+    }
+
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putString("locationNameUnderEditing", locationNameUnderEditing);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        locationNameUnderEditing = savedInstanceState.getString("locationNameUnderEditing");
+
+        // as soon as there is a (partial) location name available the location dialog was open
+        // and an editing process was ongoing
+        if(locationNameUnderEditing != null) {
+            storeLocation();
+        }
     }
 
     @Override
