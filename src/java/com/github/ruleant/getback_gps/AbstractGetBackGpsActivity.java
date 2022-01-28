@@ -262,19 +262,23 @@ abstract class AbstractGetBackGpsActivity extends Activity
                 = (EditText) dialogView.findViewById(R.id.location_name);
         if(locationNameUnderEditing != null) { // indicates an ongoing editing process
             etLocationName.setText(locationNameUnderEditing);
+        } else {
+            locationNameUnderEditing = "";
         }
         etLocationName.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // only the final text is stored
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                locationNameUnderEditing = etLocationName.getText().toString();
+                // only the final text is stored
             }
 
             @Override
             public void afterTextChanged(Editable s) {
+                locationNameUnderEditing = s.toString();
             }
         });
 
