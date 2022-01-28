@@ -46,6 +46,8 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  */
 public class MainActivity extends AbstractGetBackGpsActivity
         implements View.OnClickListener {
+    private static final String LOCATION_NAME_UNDER_EDITING_BUNDLE_KEY = "locationNameUnderEditing";
+
     /**
      * Maximum length when displaying destination name (Portrait orientation).
      */
@@ -76,13 +78,14 @@ public class MainActivity extends AbstractGetBackGpsActivity
     @Override
     protected void onSaveInstanceState(@NonNull Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("locationNameUnderEditing", locationNameUnderEditing);
+        outState.putString(LOCATION_NAME_UNDER_EDITING_BUNDLE_KEY, locationNameUnderEditing);
     }
 
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
-        locationNameUnderEditing = savedInstanceState.getString("locationNameUnderEditing");
+        locationNameUnderEditing = savedInstanceState
+                .getString(LOCATION_NAME_UNDER_EDITING_BUNDLE_KEY);
 
         // as soon as there is a (partial) location name available the location dialog was open
         // and an editing process was ongoing
