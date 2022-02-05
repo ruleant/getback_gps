@@ -31,8 +31,6 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-
 import com.github.ruleant.getback_gps.lib.AriadneLocation;
 import com.github.ruleant.getback_gps.lib.CardinalDirection;
 import com.github.ruleant.getback_gps.lib.DebugLevel;
@@ -46,8 +44,6 @@ import com.github.ruleant.getback_gps.lib.Navigator;
  */
 public class MainActivity extends AbstractGetBackGpsActivity
         implements View.OnClickListener {
-    private static final String LOCATION_NAME_UNDER_EDITING_BUNDLE_KEY = "locationNameUnderEditing";
-
     /**
      * Maximum length when displaying destination name (Portrait orientation).
      */
@@ -73,25 +69,6 @@ public class MainActivity extends AbstractGetBackGpsActivity
         TextView tvDestinationName
                 = (TextView) findViewById(R.id.textView_toDestName);
         tvDestinationName.setOnClickListener(this);
-    }
-
-    @Override
-    protected void onSaveInstanceState(@NonNull Bundle outState) {
-        super.onSaveInstanceState(outState);
-        outState.putString(LOCATION_NAME_UNDER_EDITING_BUNDLE_KEY, locationNameUnderEditing);
-    }
-
-    @Override
-    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        locationNameUnderEditing = savedInstanceState
-                .getString(LOCATION_NAME_UNDER_EDITING_BUNDLE_KEY);
-
-        // as soon as there is a (partial) location name available the location dialog was open
-        // and an editing process was ongoing
-        if(locationNameUnderEditing != null) {
-            storeLocation();
-        }
     }
 
     @Override

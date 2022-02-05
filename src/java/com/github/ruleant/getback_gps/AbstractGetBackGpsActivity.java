@@ -25,6 +25,8 @@ package com.github.ruleant.getback_gps;
 import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.Dialog;
+import android.app.DialogFragment;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -34,8 +36,6 @@ import android.content.res.Resources;
 import android.graphics.Point;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -155,10 +155,29 @@ abstract class AbstractGetBackGpsActivity extends Activity
     private Crouton crDestinationReached;
 
     /**
-     * Used to store the (partial) location name that is currently edited in the location dialog.
-     * In case of no location dialog open it is 'null'.
+     * State prefix of the store location dialog.
      */
-    protected String locationNameUnderEditing = null;
+    private static final String STORE_LOCATION_DIALOG_STATE_PREFIX = "store-location-dialog_";
+
+    /**
+     * State prefix of the enter location dialog.
+     */
+    private static final String ENTER_LOCATION_DIALOG_STATE_PREFIX = "enter-location-dialog_";
+
+    /**
+     * State prefix of the rename destination dialog.
+     */
+    private static final String RENAME_DESTINATION_DIALOG_STATE_PREFIX = "rename-destination-dialog_";
+
+    /**
+     * Used to store the (partial) state that is currently edited in a dialog.
+     */
+    private Bundle dialogState = new Bundle();
+
+    /**
+     * Tracks the latest opened dialog.
+     */
+    private Dialog latestDialog = null;
 
     @Override
     public boolean onCreateOptionsMenu(final Menu menu) {
@@ -222,11 +241,44 @@ abstract class AbstractGetBackGpsActivity extends Activity
     }
 
     @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        outState.putAll(dialogState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        Bundle storeLocationDialogState = StateBundleHelper.filterStringValuesForPrefix(
+                STORE_LOCATION_DIALOG_STATE_PREFIX, savedInstanceState);
+        Bundle enterLocationDialogState = StateBundleHelper.filterStringValuesForPrefix(
+                ENTER_LOCATION_DIALOG_STATE_PREFIX, savedInstanceState);
+        Bundle renameDestinationDialogState = StateBundleHelper.filterStringValuesForPrefix
+                (RENAME_DESTINATION_DIALOG_STATE_PREFIX, savedInstanceState);
+
+        if (!storeLocationDialogState.isEmpty()) {
+            dialogState.putAll(storeLocationDialogState);
+            storeLocation();
+        } else if (!enterLocationDialogState.isEmpty()) {
+            dialogState.putAll(enterLocationDialogState);
+            enterLocation();
+        } else if (!renameDestinationDialogState.isEmpty()) {
+            dialogState.putAll(renameDestinationDialogState);
+            renameDestination();
+        }
+    }
+
+    @Override
     protected final void onDestroy() {
         super.onDestroy();
 
         // Cancel active croutons
         Crouton.cancelAllCroutons();
+
+        if(latestDialog != null && latestDialog.isShowing()) {
+            // Dismisses the open dialog avoiding a "activity has leaked window" exception
+            latestDialog.dismiss();
+        }
     }
 
     /**
@@ -247,7 +299,8 @@ abstract class AbstractGetBackGpsActivity extends Activity
         // Use the Builder class for convenient dialog construction,
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        StateTrackingDialogBuilder builder = new StateTrackingDialogBuilder(this,
+                STORE_LOCATION_DIALOG_STATE_PREFIX, dialogState);
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
 
@@ -260,27 +313,6 @@ abstract class AbstractGetBackGpsActivity extends Activity
         // Get the EditText object containing the location name
         final EditText etLocationName
                 = (EditText) dialogView.findViewById(R.id.location_name);
-        if(locationNameUnderEditing != null) { // indicates an ongoing editing process
-            etLocationName.setText(locationNameUnderEditing);
-        } else {
-            locationNameUnderEditing = "";
-        }
-        etLocationName.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // only the final text is stored
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // only the final text is stored
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                locationNameUnderEditing = s.toString();
-            }
-        });
 
         // Set the layout for the dialog
         builder.setView(dialogView)
@@ -292,7 +324,6 @@ abstract class AbstractGetBackGpsActivity extends Activity
                                 if (etLocationName != null) {
                                     String locationName
                                         = etLocationName.getText().toString();
-                                    locationNameUnderEditing = null;
 
                                     // store current location
                                     // and refresh display
@@ -308,19 +339,11 @@ abstract class AbstractGetBackGpsActivity extends Activity
                         new DialogInterface.OnClickListener() {
                             public void onClick(final DialogInterface dialog,
                                                 final int id) {
-                                locationNameUnderEditing = null;
                                 // User cancelled the dialog
                             }
                         });
         // Create the AlertDialog object and display it
-        AlertDialog dialog = builder.create();
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-                locationNameUnderEditing = null;
-            }
-        });
-        dialog.show();
+        (latestDialog = builder.create()).show();
     }
 
     /**
@@ -332,7 +355,8 @@ abstract class AbstractGetBackGpsActivity extends Activity
         // Use the Builder class for convenient dialog construction,
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        StateTrackingDialogBuilder builder = new StateTrackingDialogBuilder(this,
+               ENTER_LOCATION_DIALOG_STATE_PREFIX, dialogState);
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
 
@@ -407,7 +431,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                         });
 
         // Create the AlertDialog object and display it
-        builder.create().show();
+        (latestDialog = builder.create()).show();
     }
 
     /**
@@ -428,7 +452,8 @@ abstract class AbstractGetBackGpsActivity extends Activity
         // Use the Builder class for convenient dialog construction,
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        StateTrackingDialogBuilder builder = new StateTrackingDialogBuilder(this,
+               RENAME_DESTINATION_DIALOG_STATE_PREFIX, dialogState);
         // Get the layout inflater
         LayoutInflater inflater = this.getLayoutInflater();
 
@@ -449,7 +474,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
         // Get the EditText object containing the location name
         final EditText etLocationName
                 = (EditText) dialogView.findViewById(R.id.location_name);
-        if (etLocationName != null) {
+        if (etLocationName != null && mService != null && mService.getDestination() != null) {
             // set current destination name as default
             etLocationName.setText(mService.getDestination().getName());
         }
@@ -484,7 +509,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                         });
 
         // Create the AlertDialog object and display it
-        builder.create().show();
+        (latestDialog = builder.create()).show();
     }
 
     /**
