@@ -2,8 +2,6 @@ package com.github.ruleant.getback_gps;
 
 import android.os.Bundle;
 
-import java.util.function.Supplier;
-
 class StateBundleHelper {
 
     /**
