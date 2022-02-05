@@ -62,10 +62,12 @@ class StateTrackingDialogBuilder {
         textView.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                // only the final text is stored
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                // only the final text is stored
             }
 
             @Override
