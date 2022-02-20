@@ -1,6 +1,7 @@
  v0.9 (not released yet)
  - gradle : replace deprecated testCompile with testImplementation
  - vagrant : switch to Ubuntu Focal 2020.04 LTS base box
+ - gradle : disable gradle caching
 
  v0.8 (released on 03Jan2022)
  - issue #183 : add fastlane metadata
