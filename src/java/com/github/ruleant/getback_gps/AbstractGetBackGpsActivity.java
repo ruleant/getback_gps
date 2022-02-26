@@ -251,8 +251,8 @@ abstract class AbstractGetBackGpsActivity extends Activity
                 STORE_LOCATION_DIALOG_STATE_PREFIX, savedInstanceState);
         Bundle enterLocationDialogState = StateBundleHelper.filterStringValuesForPrefix(
                 ENTER_LOCATION_DIALOG_STATE_PREFIX, savedInstanceState);
-        Bundle renameDestinationDialogState = StateBundleHelper.filterStringValuesForPrefix
-                (RENAME_DESTINATION_DIALOG_STATE_PREFIX, savedInstanceState);
+        Bundle renameDestinationDialogState = StateBundleHelper.filterStringValuesForPrefix(
+                RENAME_DESTINATION_DIALOG_STATE_PREFIX, savedInstanceState);
 
         if (!storeLocationDialogState.isEmpty()) {
             dialogState.putAll(storeLocationDialogState);
