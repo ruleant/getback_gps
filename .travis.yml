@@ -4,7 +4,7 @@ os: linux
 dist: xenial
 android:
   components:
-    - android-29
+    - android-30
 env:
   global:
     # github token

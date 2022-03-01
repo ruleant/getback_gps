@@ -24,7 +24,7 @@ apply plugin: 'com.vanniktech.android.javadoc'
 apply plugin: "de.mannodermaus.android-junit5"
 
 android {
-    compileSdkVersion 29
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
