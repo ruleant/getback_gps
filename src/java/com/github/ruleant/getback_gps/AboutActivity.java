@@ -102,7 +102,11 @@ public class AboutActivity extends Activity {
         tvCopyright.setMovementMethod(LinkMovementMethod.getInstance());
         // set text
         String copyrightText = res.getString(R.string.copyright)
-                + " " + res.getText(R.string.copyright_ruleant);
+                + " " + res.getText(R.string.copyright_ruleant)
+                + "<br />" + res.getString(R.string.copyright)
+                + " " + res.getText(R.string.copyright_constambeys)
+                + "<br />" + res.getString(R.string.copyright)
+                + " " + res.getText(R.string.copyright_janscheible);
         // Html.fromHtml will turn escaped HTML characters back
         // into regular characters.
         // The escaping is needed because Resource.getString()
