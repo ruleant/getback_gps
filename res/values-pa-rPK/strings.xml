@@ -1,2 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="distance_m">میٹر</string>
+    <string name="cancel">رد کرو</string>
+    <string name="name">ناں</string>
+    <string name="distance_km">کیلومیٹر</string>
+</resources>
