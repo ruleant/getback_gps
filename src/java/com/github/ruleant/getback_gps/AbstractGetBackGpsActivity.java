@@ -46,11 +46,17 @@ import android.widget.Toast;
 import com.github.ruleant.getback_gps.LocationService.LocationBinder;
 import com.github.ruleant.getback_gps.lib.CardinalDirection;
 import com.github.ruleant.getback_gps.lib.FormatUtils;
+import com.github.ruleant.getback_gps.lib.HuntDestination;
 import com.github.ruleant.getback_gps.lib.Navigator;
 import com.github.ruleant.getback_gps.lib.Tools;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
@@ -127,6 +133,23 @@ abstract class AbstractGetBackGpsActivity extends Activity
      * Crouton status 'Inaccurate direction'.
      */
     private static final short CROUTON_STATUS_DESTINATION_REACHED = 5;
+
+    /**
+     * Hardcoded treasure hunt route for now.
+     */
+    private static final List<HuntDestination> HUNT_DESTINATIONS = Arrays.asList(
+            new HuntDestination("Start", 48.39871654313094, 9.984295534933059),
+            new HuntDestination("Point 1", 48.398219371786716, 9.98727274186329),
+            new HuntDestination("Point 2", 48.39983665835421, 9.987227632667379),
+            new HuntDestination("Point 3", 48.39921969954438, 9.989753747638483),
+            new HuntDestination("Point 4", 48.39827328216732, 9.990249948793522),
+            new HuntDestination("Treasure", 48.39860872325201, 9.991341591334608));
+
+    /**
+     * The current ongoing treasure hunt (lower index destiantions first).
+     * List is empty if there is no treasure hunt going on at all.
+     */
+    private final List<HuntDestination> huntDestinations = new ArrayList<>();
 
     /**
      * Location permission required crouton.
@@ -324,6 +347,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                                     String locationName
                                         = etLocationName.getText().toString();
 
+                                    huntDestinations.clear();
                                     // store current location
                                     // and refresh display
                                     if (mBound) {
@@ -345,12 +369,22 @@ abstract class AbstractGetBackGpsActivity extends Activity
         (latestDialog = builder.create()).show();
     }
 
+    protected void nextHuntDestination() {
+        if(!huntDestinations.isEmpty()) {
+            HuntDestination next = huntDestinations.get(0);
+            huntDestinations.remove(0);
+
+            if (mBound) {
+                mService.storeLocation(next.getName(), next.getLatitude(), next.getLongitude());
+            }
+        }
+    }
+
     /**
      * Called when the user clicks the Enter Location menu item.
      * It displays a dialog, where the user enters a gps location.
      */
     public final void enterLocation() {
-
         // Use the Builder class for convenient dialog construction,
         // based on the example on
         // https://developer.android.com/guide/topics/ui/dialogs.html
@@ -405,6 +439,7 @@ abstract class AbstractGetBackGpsActivity extends Activity
                                         return;
                                     }
 
+                                    huntDestinations.clear();
                                     // store current location
                                     // and refresh display
                                     if (mBound) {
@@ -578,6 +613,13 @@ abstract class AbstractGetBackGpsActivity extends Activity
             return true;
         } else if (itemId == R.id.menu_refresh) {
             refresh(item);
+            return true;
+        } else if (itemId == R.id.menu_hunt) {
+            // start/restart the hunt with the hardcoded destinations
+            huntDestinations.clear();
+            huntDestinations.addAll(HUNT_DESTINATIONS);
+
+            nextHuntDestination();
             return true;
         } else {
             return super.onOptionsItemSelected(item);
