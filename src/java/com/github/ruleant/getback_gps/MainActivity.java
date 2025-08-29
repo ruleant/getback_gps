@@ -59,6 +59,15 @@ public class MainActivity extends AbstractGetBackGpsActivity
      */
     private static final String SHORTENER = "(...)";
 
+    /**
+     * As soon as the dwell time exceeds the threshold the next hunt destination is set.
+     */
+    private static final int HUNT_DESTINATION_DWELL_TIME_THRESHOLD = 5000;
+
+    /**
+     * Timestamp of reaching the destination.
+     */
+    private Long reachedDestinationTimestamp = null;
 
     @Override
     protected final void onCreate(final Bundle savedInstanceState) {
@@ -183,12 +192,23 @@ public class MainActivity extends AbstractGetBackGpsActivity
         Boolean displayToDest = false;
 
         if (destination == null) {
+            reachedDestinationTimestamp = null;
             toDestinationMessage
                     = res.getString(R.string.no_destination);
         } else if (navigator.isDestinationReached()) {
+            if(reachedDestinationTimestamp == null) {
+                reachedDestinationTimestamp = System.currentTimeMillis();
+            } else {
+                long destinationDwellTime = System.currentTimeMillis() - reachedDestinationTimestamp;
+
+                if(destinationDwellTime > HUNT_DESTINATION_DWELL_TIME_THRESHOLD) {
+                    nextHuntDestination();
+                }
+            }
             toDestinationMessage
                     = res.getString(R.string.destination_reached);
         } else {
+            reachedDestinationTimestamp = null;
             displayToDest = true;
 
             // Set destination name
